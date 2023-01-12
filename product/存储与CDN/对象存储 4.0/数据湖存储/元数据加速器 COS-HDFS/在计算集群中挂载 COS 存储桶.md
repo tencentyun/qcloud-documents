@@ -25,8 +25,14 @@
 >! EMR 环境下自带依赖 jar 包，无需安装，可直接通过 POSIX 语义访问元数据加速桶。如需使用 s3 协议访问，则更改 fs.cosn.posix_bucket.fs.impl 配置项，详情请参见下文。
 >
 5. 编辑 `core-site.xml`文件，新增以下基本配置：
+>!
+>- 建议用户使用子账号密钥 + 环境变量的方式调用 SDK，提高 SDK 使用的安全性。为子账号授权时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+>- 如果您一定要使用永久密钥，建议遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618) 对永久密钥的权限范围进行限制。
+
+
 ```
 <!--账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。-->
+<!--建议使用子账号密钥或者临时密钥的方式完成配置，提升配置安全性。为子账号授权时请遵循[最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)。-->
 <property>
 		 <name>fs.cosn.userinfo.secretId/secretKey</name>
 		 <value>AKIDxxxxxxxxxxxxxxxxxxxxx</value>
