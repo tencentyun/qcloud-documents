@@ -23,18 +23,9 @@ Nginx Controller 需要搜集以下日志并提供给用户：
 3. 在**日志监控**页面中，选择日志配置右侧的**重新设置**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/92023a883bca77ec9aa18a54d9484725.png)
 4. 在弹出的窗口中选择指定的日志集，如不制定将创建新的日志集。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/7ace10cf763af521473320d1cc4d50b0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d1f37ce4ea3f39995f2457810e901266.png)
 5. 单击**立即启用**即可完成日志采集配置。
 >! 日志服务具体计费规则和收费标准请参见 [CLS 计费概述 ](https://cloud.tencent.com/document/product/614/45802)。
-
-
-
-
-
-
-
-
-
 
 
 
