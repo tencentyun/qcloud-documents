@@ -24,7 +24,7 @@ Authorization: Auth String
 ```
 
 >? 
-> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参阅 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参见 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参见 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
 > - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > 
 
@@ -105,10 +105,10 @@ Authorization: Auth String
 
 #### 错误分析
 
-1. 如果对一个非 appendable 的文件进行 APPEND 操作，那么会返回409 Confilct，错误信息：
+- 如果对一个非 appendable 的文件进行 APPEND 操作，那么会返回409 Confilct，错误信息：
 The operation is not valid for the current state of the object。
-2. 如果请求中未携带 position 参数，会返回400 Bad Request，错误信息：InvalidArgument。
-3. 如果请求中缺失 Content-Length 头部，会返回 411 Length Required，错误信息：
+- 如果请求中未携带 position 参数，会返回400 Bad Request，错误信息：InvalidArgument。
+- 如果请求中缺失 Content-Length 头部，会返回 411 Length Required，错误信息：
 You must provide the Content-Length HTTP header。
 
 获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
