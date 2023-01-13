@@ -33,6 +33,6 @@ OpenCloudOS Kernel 为基于社区5.4 LTS 打造的稳定、高性能 kernel。�
 ## 服务与更新
 OpenCloudOS 社区将为每个 OpenCloudOS 大版本（例如 OpenCloudOS 8）提供有长达10年的维护和更新，包括最新的 kernel 特性、安全漏洞修复及 bug 修复等。存量服务器可以通过 yum 升级，及时完成漏洞修复。
 
-更多问题，欢迎扫描二维码添加OpenCloudOS社区运营，加入社区官方交流群。
+更多问题，欢迎扫描二维码添加 OpenCloudOS 社区运营，加入社区官方交流群。
 
 <img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/f81478298c57f413a263f678f492ba97.png" />
