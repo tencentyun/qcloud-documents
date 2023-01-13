@@ -11,8 +11,8 @@
 >- 建议用户使用子账号密钥，遵循 [最小权限原则说明](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
 >- 如果您一定要使用永久密钥，建议遵循 [最小权限原则说明](https://cloud.tencent.com/document/product/436/38618) 对永久密钥的权限范围进行限制。
 >
-```
--ak <ak>                                the cos secret id # 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考：https://cloud.tencent.com/document/product/598/37140
+```swift
+-ak <ak>                                the cos secret id //用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考：https://cloud.tencent.com/document/product/598/37140
 -appid,--appid <appid>                  the cos appid
 -bucket,--bucket <bucket_name>          the cos bucket name
 -cos_info_file,--cos_info_file <arg>    the cos user info config default is ./conf/cos_info.conf
@@ -21,10 +21,10 @@
 -hdfs_conf_file,--hdfs_conf_file <arg>  the hdfs info config default is ./conf/core-site.xml
 -hdfs_path,--hdfs_path <hdfs_path>      the hdfs path
 -region,--region <region>               the cos region. legal value cn-south, cn-east, cn-north, sg
--sk <sk>                                the cos secret key # 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考：https://cloud.tencent.com/document/product/598/37140
+-sk <sk>                                the cos secret key //用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考：https://cloud.tencent.com/document/product/598/37140
 -skip_if_len_match,--skip_if_len_match  skip upload if hadoop file length match cos
-
 ```
+
 4. 执行迁移 
 ```shell
 # 所有操作都要在工具目录下。如果同时设置了配置文件和命令行参数，以命令行参数为准
@@ -60,3 +60,4 @@
 - 权限问题，用当前账户使用 Hadoop 命令下载文件，看是否正常，再使用同步工具同步 Hadoop 上的数据。    
 - 对于 COS 上已存在的文件，默认进行重传覆盖，除非用户明确的指定 -skip_if_len_match，当文件长度一致时则跳过上传。    
 - cos path 都认为是目录，最终从 HDFS 上拷贝的文件都会存放在该目录下。
+
