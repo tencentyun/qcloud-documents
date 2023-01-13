@@ -1,4 +1,6 @@
 本文为您介绍如何创建 VPN 网关，您可通过如下视频了解 VPN 网关的基本操作。
+>?视频仅介绍 VPN 的基本功能，界面以实际控制台为准。
+>
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1786-20142?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 操作步骤
