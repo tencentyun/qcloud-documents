@@ -7,8 +7,8 @@
 2. 在左侧目录中单击 **VPN 连接** > **VPN 通道**，进入管理页。
 3. 选择对应的地域和私有网络，如示例中的**广州**和 `TomVPC`，单击**+新建**。
  ![](https://main.qcloudimg.com/raw/736f88fd2bbf5e75033d77fcf372586f.png)
-4. VPN通道基本参数配置。
-基本配置包括输入通道名称，选择网关所在地域、网络类型、VPN网关实例、对端网关实例、预共享密钥、协商类型和通信模式，具体参数含义请参见 [创建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。
+4. VPN 通道基本参数配置。
+基本配置包括输入通道名称，选择网关所在地域、网络类型、VPN 网关实例、对端网关实例、预共享密钥、协商类型和通信模式，具体参数含义请参见 [创建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。
 本实例中通信模式为 SPD 策略，本端网段即为子网 A 的网段`192.168.1.0/24`，对端网段为`10.0.1.0/24`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bc60c39446bf6d26eb62516992a5b5a1.png)
 5. 高级配置。
