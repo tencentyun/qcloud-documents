@@ -362,53 +362,55 @@ import "C"
 
 import (
     "fmt"
+    "os"
 //    "time"
 //    "encoding/hex"
 )
 
 func ECBEnAndDeWithSignTest(){
     masterKeys := make([]byte, 1024)
-	NewMasterKey(masterKeys,"ap-guangzhou","replace-with-realkeyid")
-	AddMasterKey(masterKeys,"ap-shanghai","replace-with-realkeyid")
-	
-	f := &C.struct_KeyManager{}
-	header_en := &C.struct_MsgHead{}
-	header_de := &C.struct_MsgHead{}
+    NewMasterKey(masterKeys,"ap-guangzhou","replace-with-realkeyid")
+    AddMasterKey(masterKeys,"ap-shanghai","replace-with-realkeyid")
 
-	error := InitKeyManager(f,string(masterKeys),0,0,0,"replace-with-real-secretId"," replace-with-real-secretKey ")
-	if ( nil != error ){
-		fmt.Println(error.Error())
-		return 
-	}
-	
-	source := []byte("hello world!")
-	encryptionContext := "{\"test\":\"nihao\"}"
-	
-	var algorithm C.enum_Algorithm = C.SM4_CBC_128_WITH_SIGNATURE
-	cipher,err_en := Encrypt(source,f,string(masterKeys),algorithm,encryptionContext,0,header_en)
-	if err_en != nil {
-		fmt.Println(err_en.Error())
-		return
-	}
-	plainTexttest,err_de := Decrypt(cipher,f,header_de)
-	if err_de != nil {
-		fmt.Println(err_de.Error())
-		return
-	}
-	fmt.Println(string(plainTexttest))
+    f := &C.struct_KeyManager{}
+    header_en := &C.struct_MsgHead{}
+    header_de := &C.struct_MsgHead{}
+
+    error := InitKeyManager(f,string(masterKeys),0,0,0,"replace-with-real-secretId"," replace-with-real-secretKey ")
+    if ( nil != error ){
+        fmt.Println(error.Error())
+        return 
+    }
+
+    source := []byte("hello world!")
+    encryptionContext := "{\"test\":\"nihao\"}"
+
+    var algorithm C.enum_Algorithm = C.SM4_CBC_128_WITH_SIGNATURE
+    cipher,err_en := Encrypt(source,f,string(masterKeys),algorithm,encryptionContext,0,header_en)
+    if err_en != nil {
+        fmt.Println(err_en.Error())
+        return
+    }
+    plainTexttest,err_de := Decrypt(cipher,f,header_de)
+    if err_de != nil {
+        fmt.Println(err_de.Error())
+        return
+    }
+    fmt.Println(string(plainTexttest))
 }
 
 func main() {
-    error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-secretKey ","kms.tencentcloudapi.com")
+    secretID := os.Getenv("secret_id")
+    secretKey := os.Getenv("secret_key")
+    error := InitSdk("ap-guangzhou", secretID, secretKey, "kms.tencentcloudapi.com")
     if(nil != error){
         fmt.Println(error.Eoor())
         return
     }
 
-	ECBEnAndDeWithSignTest()
+    ECBEnAndDeWithSignTest()
 
 }
-
 ```
 
 ## 原生加密方式的接口说明
@@ -907,37 +909,40 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"encoding/hex"
+    "fmt"
+    "os"
+    "encoding/hex"
 )
 
 func Sm4EcbTest(){
-	key := []byte("1234567890abcdef")
-	msg := []byte("hello world!")
-	
-	cipherText,enerr := Sm4EcbEncrypt(msg,key)
-	if enerr != nil {
-		fmt.Println(enerr.Error())
-	}else{
-		plainText,deerr := Sm4EcbDecrypt(cipherText,key)
-		if deerr != nil {
-		fmt.Println(deerr.Error())
-		}else{
-			fmt.Print("Sm4EcbDecrypt:")
-			fmt.Println(string(plainText))
-		}
-	}
+    key := []byte("1234567890abcdef")
+    msg := []byte("hello world!")
+
+    cipherText,enerr := Sm4EcbEncrypt(msg,key)
+    if enerr != nil {
+        fmt.Println(enerr.Error())
+    }else{
+        plainText,deerr := Sm4EcbDecrypt(cipherText,key)
+        if deerr != nil {
+        fmt.Println(deerr.Error())
+        }else{
+            fmt.Print("Sm4EcbDecrypt:")
+            fmt.Println(string(plainText))
+        }
+    }
 }
 
 func main(){
-	error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-secret","kms.tencentcloudapi.com")
-	if (nil != error){
-		fmt.Println("InitSdk err",error.Error())
-		return 
-	}
-	fmt.Println("InitSdk is ok")
-	
-	Sm4CbcTest()
-	
+    secretID := os.Getenv("secret_id")
+    secretKey := os.Getenv("secret_key")
+    error := InitSdk("ap-guangzhou", secretID, secretKey, "kms.tencentcloudapi.com")
+    if (nil != error){
+        fmt.Println("InitSdk err",error.Error())
+        return 
+    }
+    fmt.Println("InitSdk is ok")
+
+    Sm4CbcTest()
+
 }
 ```

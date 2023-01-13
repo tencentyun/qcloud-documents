@@ -37,10 +37,10 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ### IM Flutter TUIKit（含 UI） 1.3.0 @2023.1.11
 
-- 修复：转移群主的群Tips消息，无法展示新群主昵称。
+- 修复：转移群主的群 Tips 消息，无法展示新群主昵称。
 - 优化：移除点开文件前的二次确认框。
 
-### IM Flutter TUIKit（含 UI） 1.2.0 @2023.1.6
+### IM Flutter TUIKit（含 UI） 1.2.0 @2023.01.06
 
 - 修复：聊天组件，从录音状态，切换至输入状态时，输入框无法显示问题。
 - 修复：合并转发至多个接收者，只有第一个接收者收到消息的问题。

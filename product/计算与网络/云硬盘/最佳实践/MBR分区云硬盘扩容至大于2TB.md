@@ -88,3 +88,4 @@ xfs_growfs /dev/vdb1
 14. 参考 [设置开机自动挂载](https://cloud.tencent.com/document/product/362/6735#step16) 操作，设置分区自动挂载。
 
 至此，已完成 MBR 分区转 GPT 分区配置，您可执行 `df -h` 命令查看分区信息。
+

@@ -204,4 +204,3 @@
 如果您觉得预设策略不能满足您的要求，您可以通过创建自定义策略达到目的。
 具体操作步骤请参考 [策略](https://cloud.tencent.com/document/product/598/10601)。
 更多 CVM 相关的策略语法请参考 [授权策略语法](https://cloud.tencent.com/document/product/213/10313)。
-

@@ -17,7 +17,7 @@
 
 ### 在项目的 pubspec.yaml 中添加依赖
 
-支持基于LiteAVSDK Player 或 Professional 版本集成，你可以根据项目需要进行集成。
+支持基于LiteAVSDK Player 或 Professional 版本集成，您可以根据项目需要进行集成。
 
 1. 集成 LiteAVSDK_Player 版本最新版本，默认情况下也是集成此版本。在`pubspec.yaml`中增加配置：
 ```yaml
@@ -96,7 +96,7 @@ repositories {
     <true/>
 </dict>
 ```
-2. iOS 原生采用`pod`方式进行依赖，编辑`podfile`文件，指定你的播放器 SDK 版本，默认集成的是 Player 版 SDK。
+2. iOS 原生采用`pod`方式进行依赖，编辑`podfile`文件，指定您的播放器 SDK 版本，默认集成的是 Player 版 SDK。
 ```xml
 pod 'TXLiteAVSDK_Player'	        //Player版
 ```
@@ -176,16 +176,17 @@ pod update
 	is also present at [com.tencent.liteav:LiteAVSDK_Player:10.8.0.13065] AndroidManifest.xml:22:9-41 value=(@string/app_name).
 	Suggestion: add 'tools:replace="android:label"' to <application> element at AndroidManifest.xml:8:4-51:19 to override.
 ```
-**解决方法**：由于播放器安卓 SDK 的 AndroidManifest 已经定义过 label，而 flutter 新建项目之后，在安卓目录的 AndroidManifest 也会定义 label，此处建议根据错误提示，进入您的安卓项目目录，在 AndroidManifest 的根节点`manifest`节点下增加` xmlns:tools="http://schemas.android.com/tools" `，并在 application 节点下增加`'tools:replace="android:label"'`。
+**解决方法**：
+由于播放器 Android SDK 的 AndroidManifest 已经定义过 label，而 flutter 新建项目之后，在 Android 目录的 AndroidManifest 也会定义 label，此处建议根据错误提示，进入您的 Android 项目目录，在 AndroidManifest 的根节点`manifest`节点下增加` xmlns:tools="http://schemas.android.com/tools" `，并在 application 节点下增加`'tools:replace="android:label"'`。
 
 6. 集成 superPlayer 之后，出现如下版本错误：
 ```text
 uses-sdk:minSdkVersion 16 cannot be smaller than version 19 declared in library [:super_player]
 ```
 **解决方法**：
-目前播放器安卓 SDK 最小支持版本为 android 19，flutter 部分版本默认安卓最小支持版本为 android 16。建议您将最小支持版本提高到 android 19。具体修改方法为，进入您的安卓项目的主 module 下，一般为`app`目录，将该目录下的`build.gradle`中的`minSdkVersion`修改为19。
+目前播放器 Android SDK 最小支持版本为 android 19，flutter 部分版本默认 Android 最小支持版本为 android 16。建议您将最小支持版本提高到 android 19。具体修改方法为，进入您的 Android 项目的主 module 下，一般为`app`目录，将该目录下的`build.gradle`中的`minSdkVersion`修改为19。
 
 ## 更多功能
 
-你可以通过运行项目中的 example 体验完整功能，example 运行指引。
+您可以通过运行项目中的 example 体验完整功能，example 运行指引。
 播放器 SDK 官网提供了 iOS、Android 和 Web 端的 Demo 体验，[请点击这里](https://cloud.tencent.com/document/product/881/20204)。
