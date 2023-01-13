@@ -48,13 +48,33 @@ get A.txt /home/A.txt
 </dx-tabs>
 
 ### Mac OS 系统使用 FTP 服务
-1. 单击左下角的 <img src="https://main.qcloudimg.com/raw/992cc18057d7ab31bcc0c01cb571d395.png" style="margin:-5px 0px; width:4%">，在右上角菜单栏中选择**前往** > **连接服务器...**。
-2. 在“连接服务器”窗口中输入 `ftp://轻量应用服务器的 IP 地址`，并单击**连接**。如下图所示：
-![](https://main.qcloudimg.com/raw/0cb8e99214441e8ea93db3cf25867cd5.png)
-3. 在弹出的窗口中选择“注册用户”，输入 ftp 服务的用户名和密码后单击**连接**。
-进入如下界面，即表示连接成功。
-![](https://main.qcloudimg.com/raw/9551fbefacded0216cf55b6fe69e2762.png)
 
-#### 上传及下载文件
-您可直接将文件复制至 FTP 访达窗口，即可完成文件上传操作。
-如需将轻量应用服务器中的文件下载至本地计算机，也可以参照上传文件的操作，将所需文件从轻量应用服务器中复制到本地硬盘中，即可完成文件下载操作。
+#### MacOS 本地终端
+1. 打开 MacOS 终端。
+2. 执行以下命令，安装 FTP。
+```Plaintext
+brew install telnet 
+brew install inetutils 
+brew link --overwrite inetutils
+```
+<dx-alert infotype="explain" title="">
+若 MacOS 系统的本地机器已安装了 FTP，请跳过此步骤，执行下一步。
+</dx-alert>
+3. 执行以下命令，在本地机器上连接轻量应用服务器，并根据界面提示，输入 FTP 服务的用户名和密码：
+```Plaintext
+ 	FTP 轻量应用服务器公网 IP。
+```
+4. 进入如下界面，即表示连接成功。
+
+ <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3e011bb9c5f06656502739d8b62a1508.png" />
+
+### FileZilla
+1. 下载并安装 FileZilla。
+	- 关于 FileZilla 的下载与安装请查看官方文档。
+2. 创建一个新的连接，填写FTP服务器的 IP 地址、端口（不填默认为21）、FTP 用户名和密码。
+ <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/8df124b600e2c7ade5896ba19a25b8eb.png" />
+3. 登录成功，可以开始传输文件。
+
+ <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/47b2d11cae4e434eb6953cef53cf9b74.png" />
+ 
+

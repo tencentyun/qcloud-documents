@@ -1,8 +1,7 @@
 
 TUIKit 组件具备单人视频通话和语音通话功能，并且实现了小程序端和 Web 端、App 端全平台的互通。
 
-> ?
-> - **2022年8月以后，TUIKit 组件升级了音视频通话功能，采用了全新的 TUICallKit，新版本音视频通话功能需要加购专属的 IM 音视频通话能力包后解锁**，具体购买方法请参考 [**步骤1：开通音视频服务**](#step1)，如已开通，则可忽略该步骤。
+> ?**2022年8月以后，TUIKit 组件升级了音视频通话功能，采用了全新的 TUICallKit，新版本音视频通话功能需要加购专属的 IM 音视频通话能力包后解锁**，具体购买方法请参考 [**步骤1：开通音视频服务**](#step1)，如已开通，则可忽略该步骤。
 
 音视频通话界面如下图所示：
 
@@ -21,13 +20,11 @@ TUIKit 组件具备单人视频通话和语音通话功能，并且实现了小�
 ## 操作步骤
 ### 步骤1：开通音视频服务[](id:step1)
 进入 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
-在页面的右下角找到开通腾讯实时音视频服务功能区，单击免费体验即可开通 TUICallKit 的 7 天免费试用服务。
+在页面的右下角找到开通腾讯实时音视频服务功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
 
    <img src="https://qcloudimg.tencent-cloud.cn/raw/097117038028a96ee62818115ea85cdf.png" style="zoom:75%;" />
    
->= **友情提示**：单击免费体验以后，部分之前使用过 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 服务的用户会收到`[-100013]:TRTC service is  suspended. Please check if the package balance is 0 or the Tencent Cloud accountis in arrears`，
->
->因为新的 IM 音视频通话能力是整合了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，所以当 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 的免费额度（10000分钟）已经过期或者耗尽，就会导致开通此项服务失败，这里您可以单击[ TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，找到对应 SDKAppID 的应用管理页，示例如图，开通后付费功能后，再次**启用应用**即可正常体验音视频通话能力。
+>= **友情提示**：单击**免费体验**以后，部分之前使用过 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 服务的用户会收到`[-100013]:TRTC service is  suspended. Please check if the package balance is 0 or the Tencent Cloud accountis in arrears`，因为新的 IM 音视频通话能力是整合了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，所以当 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 的免费额度（10000分钟）已经过期或者耗尽，就会导致开通此项服务失败，这里您可以单击[ TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，找到对应 SDKAppID 的应用管理页，示例如图，开通后付费功能后，再次**启用应用**即可正常体验音视频通话能力。
 ><img style="zoom:75%;" src="https://qcloudimg.tencent-cloud.cn/raw/a568f2790baf160f4aff4f42f60e8c1c.png" />
 
 ### 步骤2：下载并集成 TUICallKit 组件
@@ -46,7 +43,7 @@ mkdir -p ./wxcomponents/TUICallKit && cp -r ./node_modules/@tencentcloud/call-ui
 npm i @tencentcloud/call-uikit-wechat
 ```
 ```shell
-xcopy .\node_modules\@tencentcloud\chat-uikit-uniapp .\wxcomponents\TUICallKit /i /e
+xcopy .\node_modules\@tencentcloud\call-uikit-wechat .\wxcomponents\TUICallKit /i /e
 ```
 成功后目录结构如图所示：  
 <img width="300" src="https://qcloudimg.tencent-cloud.cn/raw/a2f115d1b8cbd85bca9f6c6edd7e31f2.png"/>

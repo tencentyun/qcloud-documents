@@ -35,7 +35,6 @@ spec:
     metadata:
       annotations:
         tke.cloud.tencent.com/networks: "tke-route-eni"
-        tke.cloud.tencent.com/vpc-ip-claim-delete-policy: Never
         tke.cloud.tencent.com/eip-attributes: '{"Bandwidth":"100","ISP":"BGP"}'
         tke.cloud.tencent.com/eip-claim-delete-policy: "Never"
       creationTimestamp: null

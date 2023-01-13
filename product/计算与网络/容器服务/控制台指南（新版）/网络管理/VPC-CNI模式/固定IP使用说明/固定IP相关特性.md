@@ -33,6 +33,19 @@ kubectl delete vipc <podname> -n <namespace>
 目前的固定 IP 与 Pod 强绑定，而与具体的 Workload 无关（例如 deployment、statefulset 等）。Pod 销毁后，固定 IP 不确定何时回收。TKE 现已实现删除 Pod 所属的 Workload 后即刻删除固定 IP。
 
 以下步骤介绍如何开启级联回收：
+
+#### tke-eni-ipamd 组件版本 >= v3.5.0
+
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
+2. 在“集群管理”页面，选择需开启级联回收的集群 ID，进入集群详情页。
+3. 在集群详情页面，选择左侧**组件管理**。
+4. 在组件管理页面中，找到**eniipamd**组件，选择**更新配置**。
+![](https://qcloudimg.tencent-cloud.cn/raw/8ba9443b2e1da9800b429060adf89416.png)
+5. 在更新配置页面，勾选**级联回收**，并点击完成。
+![](https://qcloudimg.tencent-cloud.cn/raw/3c3d5b4a122eca09c20d776abd4c5038.png)
+
+#### tke-eni-ipamd 组件版本 < v3.5.0 或组件管理中无 eniipamd 组件
+
 1. 修改现存的 **tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`**。
 2. 执行以下命令，在 `spec.template.spec.containers[0].args` 中加入启动参数：
 ```yaml

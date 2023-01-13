@@ -8,7 +8,7 @@
 ; 接下来是参数说明
 字段 | 类型 | 描述
 ------- | ------- | -------
-MaterialBasicInfo | [MaterialBasicInfo](#MaterialBasicInfo) | 媒体基础信息。
+BasicInfo | [MaterialBasicInfo](#MaterialBasicInfo) | 媒体基础信息。
 MediaInfo | [MediaInfo](#MediaInfo) | 媒体信息。
 MaterialStatus | [MaterialStatus](#MaterialStatus) | 媒体状态信息。
 LinkMaterial | [LinkMaterial](#LinkMaterial) | 链接媒体信息。

@@ -9,9 +9,14 @@ LAMP 应用镜像底层基于 CentOS 7.6 64位操作系统。
 
 
 ## 操作步骤
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击新建。
+2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。如下图所示：
+ 其中，**镜像** 选择为应用模板 > Web 开发场景 > LAMP 应用模板，其他参数可参考 购买方式 进行选择。
+<dx-alert infotype="explain" title="">
+应用模板即应用镜像。
+查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+</dx-alert>
 
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
-![](https://qcloudimg.tencent-cloud.cn/raw/060c647b52ef5f8b9bd40f4f6da1c513.png)
  - **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **可用区**：默认勾选“随机分配”，也可自行选择可用区。
  - **镜像**：选择 “LAMP 7.4.16” 应用镜像。

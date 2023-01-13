@@ -32,7 +32,7 @@ coordinator.conf 常见配置项，不建议修改：
 
 | 参数 | 默认值 | 描述 |
 |---------|---------|---------|
-| rss.coordinator.app.expired	| 6000	| Application 过期时间（ms）| 
+| rss.coordinator.app.expired	| 60000	| Application 过期时间（ms）| 
 | rss.coordinator.dynamicClientConf.enabled	| false	| 是否开启动态客户端配置，由 spark 客户端获取| 
 | rss.coordinator.exclude.nodes.file.path	| file:///usr/local/service/rss/conf/exclude_nodes	| 排除节点的配置文件路径| 
 | rss.coordinator.server.heartbeat.timeout	| 30000| 	如果无法从 shuffle 服务器获取心跳，则超时| 
@@ -45,16 +45,16 @@ server.conf 常见配置项，不建议修改：
 
 | 参数 | 默认值 | 描述 |
 |---------|---------|---------|
-| rss.coordinator.quorum	| rss-coordinator-rss-<集群Id>-0:19999,rss-coordinator-rss-<集群Id>-1:19999	| Application 过期时间（ms）| 
+| rss.coordinator.quorum	| rss-coordinator-rss-<集群Id>-0:19999,rss-coordinator-rss-<集群Id>-1:19999	| Coordinator 地址信息| 
 | rss.jetty.http.port	| 19998	| Shuffle Server 的 HTTP 端口| 
 | rss.rpc.server.port| 	19999	| Shuffle Server 的 RPC 端口| 
-| rss.server.buffer.capacity	| 内存Limit值0.750.6	| Shuffle Server 缓冲区管理器的最大内存| 
+| rss.server.buffer.capacity	| 内存 Limit 值 * 0.75 * 0.6	| Shuffle Server 缓冲区管理器的最大内存| 
 | rss.server.disk.capacity	| 单个数据盘容量*0.9| 	Shuffle Server 可以使用的磁盘容量| 
 | rss.server.flush.thread.alive	| 数据盘数量| 	将数据刷新到文件的线程数| 
 | rss.server.flush.threadPool.size	| 数据盘数量*2	| 将数据刷新到文件的线程池大小| 
 | rss.server.heartbeat.interval	| 10000	| 到 Coordinator 的心跳间隔| 
 | rss.server.heartbeat.timeout	| 60000	| 心跳超时时间| 
-| rss.server.read.buffer.capacity	| 内存 Limit 值0.750.2	| 读取数据的最大缓冲区大小| 
+| rss.server.read.buffer.capacity	| 内存 Limit 值 * 0.75 * 0.2	| 读取数据的最大缓冲区大小| 
 | rss.storage.basePath	| /data1/rssdata,/data2/rssdata... 路径个数默认等于数据盘数量| 	Shuffle 数据写入数据盘的路径| 
 | rss.storage.type	| MEMORY_LOCALFILE	| RSS存储类型，需与 Coordinator 保持一致| 
 

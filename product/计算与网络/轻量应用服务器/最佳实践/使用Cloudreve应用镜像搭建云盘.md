@@ -11,9 +11,13 @@ Cloudreve 是一款开源的网盘软件，支持服务器本机及腾讯云对�
 ## 操作步骤
 
 ### 创建使用 Cloudreve 镜像的实例
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击**新建**。
-2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
-其中，“镜像”选择为**应用镜像** > **Cloudreve 3.3.1**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击 **新建**。
+2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。如下图所示：
+ 其中，“镜像”选择为应用模板 > 云盘场景 > Cloudreve 应用模板，其他参数可参考 购买方式 进行选择。
+<dx-alert infotype="explain" title="">
+应用模板即应用镜像。
+查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+</dx-alert>
 <dx-alert infotype="explain" title="">
 - 若实例所在地域为中国内地，则建议选择更适合搭建云盘的存储型套餐。详情请参见 [基础套餐](https://cloud.tencent.com/document/product/1207/44368#basis)。
 - 本文以使用应用镜像 Cloudreve 3.3.1 为例，镜像可能会进行版本升级与更新，请您以购买页实际版本为准。

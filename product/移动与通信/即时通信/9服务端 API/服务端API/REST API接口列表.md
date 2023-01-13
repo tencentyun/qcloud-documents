@@ -89,7 +89,7 @@
 | 获取用户所加入的群组   | [v4/group_open_http_svc/get_joined_group_list](https://cloud.tencent.com/document/product/269/1625) |
 | 查询用户在群组中的身份 | [v4/group_open_http_svc/get_role_in_group](https://cloud.tencent.com/document/product/269/1626) |
 | 批量禁言和取消禁言     | [v4/group_open_http_svc/forbid_send_msg](https://cloud.tencent.com/document/product/269/1627) |
-| 获取被禁言群成员列表 | [v4/group_open_http_svc/get_group_shutted_uin](https://cloud.tencent.com/document/product/269/2925) |
+| 获取被禁言群成员列表 | [v4/group_open_http_svc/get_group_muted_account](https://cloud.tencent.com/document/product/269/2925) |
 | 在群组中发送普通消息   | [v4/group_open_http_svc/send_group_msg](https://cloud.tencent.com/document/product/269/1629) |
 | 在群组中发送系统通知   | [v4/group_open_http_svc/send_group_system_notification](https://cloud.tencent.com/document/product/269/1630) |
 | 撤回群消息           | [v4/group_open_http_svc/group_msg_recall](https://cloud.tencent.com/document/product/269/12341) |

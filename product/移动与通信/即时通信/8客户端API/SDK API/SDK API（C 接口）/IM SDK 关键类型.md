@@ -859,7 +859,7 @@ free(pBuffer);
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgGetC2CRecvMsgOptResultIdentifier | string | 只写 | 用户ID |
-| kTIMMsgDeleteParamIsRamble | TIMReceiveMessageOpt | 只写 | 消息接收选项 |
+| kTIMMsgDeleteParamIsRamble | [TIMReceiveMessageOpt](#timreceivemessageopt) | 只写 | 消息接收选项 |
 
 
 ### TIMDownloadType
@@ -900,8 +900,8 @@ UUID 类型。
 
 | 名称 | 含义 |
 |-----|-----|
-| TIMKeywordListMatchType_Or |  |
-| TIMKeywordListMatchType_And |  |
+| TIMKeywordListMatchType_Or | 至少包含一个关键字 |
+| TIMKeywordListMatchType_And | 包含全部关键字 |
 
 ### MessageSearchParam
 
@@ -910,7 +910,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMMsgSearchParamKeywordArray | array string | 只写(必填) | 搜索关键字列表，最多支持5个。 |
-| kTIMMsgSearchParamMessageTypeArray | array [TIMElemType]() | 只读 | 指定搜索的消息类型集合，传入空数组，表示搜索支持的全部类型消息（FaceElem 和 GroupTipsElem 暂不支持）取值详见 TIMElemType。 |
+| kTIMMsgSearchParamMessageTypeArray | array [TIMElemType](#timelemtype) | 只读 | 指定搜索的消息类型集合，传入空数组，表示搜索支持的全部类型消息（FaceElem 和 GroupTipsElem 暂不支持）取值详见 [TIMElemType](#timelemtype)。 |
 | kTIMMsgSearchParamConvId | string | 只写(必填) | 会话 ID |
 | kTIMMsgSearchParamConvType | uint | 只写(必填) | 会话类型，如果设置 kTIMConv_Invalid，代表搜索全部会话。否则，代表搜索指定会话。 |
 | kTIMMsgSearchParamSearchTimePosition | uint | 只写(必填) | 搜索的起始时间点。默认为0即代表从现在开始搜索。UTC 时间戳，单位：秒 |
@@ -929,7 +929,7 @@ UUID 类型。
 | kTIMMsgSearchResultItemConvId | string | 只读 | 会话 ID |
 | kTIMMsgSearchResultItemConvType | uint | 只读 | 会话类型，如果设置 kTIMConv_Invalid，代表搜索全部会话。否则，代表搜索指定会话。 |
 | kTIMMsgSearchResultItemTotalMessageCount | uint | 只读 | 当前会话一共搜索到了多少条符合要求的消息。 |
-| kTIMMsgSearchResultItemMessageArray | array [Message]() | 只读 | 满足搜索条件的消息列表。 |
+| kTIMMsgSearchResultItemMessageArray | array [Message](#message) | 只读 | 满足搜索条件的消息列表。 |
 
 ### MessageSearchResult
 
@@ -939,7 +939,7 @@ UUID 类型。
 |-----|-----|-----|-----|
 | kTIMMsgSearchResultTotalCount | uint | 只读 | 如果您本次搜索【指定会话】，那么返回满足搜索条件的消息总数量；如果您本次搜索【全部会话】，那么返回满足搜索条件的消息所在的所有会话总数量。 |
 | kTIMMsgSearchResultItemConvType | uint | 只读 | 会话类型，如果设置 kTIMConv_Invalid，代表搜索全部会话。否则，代表搜索指定会话。 |
-| kTIMMsgSearchResultItemArray | array [TIMMessageSearchResultItem]() | 只读 | 如果您本次搜索【指定会话】，那么返回结果列表只包含该会话结果；如果您本次搜索【全部会话】，那么对满足搜索条件的消息根据会话 ID 分组，分页返回分组结果；。 |
+| kTIMMsgSearchResultItemArray | array [MessageSearchResultItem](#messagesearchresultitem) | 只读 | 如果您本次搜索【指定会话】，那么返回结果列表只包含该会话结果；如果您本次搜索【全部会话】，那么对满足搜索条件的消息根据会话 ID 分组，分页返回分组结果；。 |
 
 ## 会话关键类型
 
@@ -972,7 +972,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupAtInfoSeq | uint64 | 只读 | @ 消息序列号，即带有 “@我” 或者 “@所有人” 标记的消息的序列号 |
-| kTIMGroupAtInfoAtType | uint [TIMGroupAtType]() | 只读 | @ 提醒类型，分成 “@我” 、“@所有人” 以及 “@我并@所有人” 三类 |
+| kTIMGroupAtInfoAtType | uint [TIMGroupAtType](#timgroupattype) | 只读 | @ 提醒类型，分成 “@我” 、“@所有人” 以及 “@我并@所有人” 三类 |
 
 ### ConvInfo
 
@@ -989,8 +989,8 @@ UUID 类型。
 | kTIMConvLastMsg | object [Message](#message) | 只读 | 会话最后一条消息 |
 | kTIMConvIsHasDraft | bool | 只读 | 会话是否有草稿 |
 | kTIMConvDraft | object [Draft](#draft) | 只读（选填） | 会话草稿 |
-| kTIMConvRecvOpt | uint [TIMReceiveMessageOpt]() | 只读（选填） | 消息接收选项 |
-| kTIMConvGroupAtInfoArray | array [GroupAtInfo]() | 只读（选填） | 群会话 @ 信息列表，用于展示 “有人@我” 或 “@所有人” 这两种提醒状态 |
+| kTIMConvRecvOpt | uint [TIMReceiveMessageOpt](#timreceivemessageopt) | 只读（选填） | 消息接收选项 |
+| kTIMConvGroupAtInfoArray | array [GroupAtInfo](#groupatinfo) | 只读（选填） | 群会话 @ 信息列表，用于展示 “有人@我” 或 “@所有人” 这两种提醒状态 |
 | kTIMConvIsPinned | object [Draft](#draft) | 只读（选填） | 是否置顶 |
 | kTIMConvShowName | object [Draft](#draft) | 只读（选填） | 获取会话展示名称，其展示优先级如下：1、群组，群名称 C2C; 2、对方好友备注->对方昵称->对方的 userID |
 
@@ -1421,9 +1421,9 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| TIMGroupMemberSearchParamGroupidList | array string | 只写（选填） | 指定群 ID 列表，若为不填则搜索全部群中的群成员 |
-| TIMGroupMemberSearchParamKeywordList | array string | 只写（选填） | 搜索关键字列表，最多支持5个 |
-| TIMGroupMemberSearchParamFieldList | array [TIMGroupMemberSearchFieldKey] | 只写（选填） | 搜索域列表 |
+| TIMGroupSearchParamKeywordList | array string | 只写（选填） | 搜索关键字列表，最多支持5个 |
+| TIMGroupSearchParamFieldList | array [TIMGroupSearchFieldKey](#timgroupsearchfieldkey) | 只写（选填） | 搜索域列表 |
+
 
 ### GroupAttributes
 
@@ -1434,14 +1434,26 @@ UUID 类型。
 | TIMGroupAttributeKey | string | 只写（选填） | 群属性 map 的 key |
 | TIMGroupAttributeValue | array string | 只写（选填） | 群属性 map 的 value|
 
+### TIMGroupMemberSearchFieldKey
+
+群成员搜索 Field 的枚举。
+
+| 名称 | 含义 |
+|-----|-----|
+| kTIMGroupMemberSearchFieldKey_Identifier | 用户 ID |
+| kTIMGroupMemberSearchFieldKey_NikeName | 昵称 |
+| kTIMGroupMemberSearchFieldKey_Remark | 备注 |
+| kTIMGroupMemberSearchFieldKey_NameCard | 名片 |
+
 ### GroupMemberSearchParam
 
 群成员搜索参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| TIMGroupSearchParamKeywordList | array string | 只写（选填） | 搜索关键字列表，最多支持5个 |
-| TIMGroupSearchParamFieldList | array [TIMGroupSearchFieldKey] | 只写（选填） | 搜索域列表 |
+| TIMGroupMemberSearchParamGroupidList | array string | 只写（选填） | 指定群 ID 列表，若为不填则搜索全部群中的群成员 |
+| TIMGroupMemberSearchParamKeywordList | array string | 只写（选填） | 搜索关键字列表，最多支持5个 |
+| TIMGroupMemberSearchParamFieldList | array [TIMGroupMemberSearchFieldKey](#timgroupmembersearchfieldkey) | 只写（选填） | 搜索域列表 |
 
 ## 关系链和资料关键类型
 
@@ -1746,8 +1758,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFriendshipFriendInfoGetResultIdentifier | string | 只读 | 好友 user_id |
-| kTIMFriendshipFriendInfoGetResultRelationType | uint [TIMFriendshipRelationType] | 只读 | 好友关系 |
-
+| kTIMFriendshipFriendInfoGetResultRelationType | uint [TIMFriendshipRelationType](#timfriendshiprelationtype) | 只读 | 好友关系 |
 | kTIMFriendshipFriendInfoGetResultErrorCode | uint | 只读 | 错误码 |
 | kTIMFriendshipFriendInfoGetResultErrorMessage | string | 只读 | 错误描述 |
-| kTIMFriendshipFriendInfoGetResultFriendInfo | array [FriendProfile] | 只读 | 好友资料 |
+| kTIMFriendshipFriendInfoGetResultFriendInfo | array [FriendProfile](#friendprofile) | 只读 | 好友资料 |

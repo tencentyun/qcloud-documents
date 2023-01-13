@@ -5,20 +5,8 @@
 如果您的腾讯云账号还在使用 API 2.0相关接口，请尽快迁移至 API 3.0，以免对您的业务造成影响，并获得更好的服务和体验。
 
 ## 各产品迁移 API 3.0指引
-
-
-|产品名称|	迁移指引文档地址|
-|---------|---------|
-|云点播	|[云点播迁移 API 3.0指引](https://cloud.tencent.com/document/product/266/80469)|
-|云直播|[云直播迁移 API 3.0指引](https://cloud.tencent.com/document/product/267/82004#list)|
-|内容分发网络|[内容分发网络迁移 API 3.0指引](https://cloud.tencent.com/document/api/228/80982)|
-|私有网络|[私有网络迁移 API 3.0指引](https://cloud.tencent.com/document/product/215/81827)|
-|云监控	|[云监控迁移 API 3.0指引](https://cloud.tencent.com/document/product/248/81039)|
-|DNSPod	|[DNSPod 迁移 API 3.0指引](https://docs.dnspod.cn/notices/api-2-upgrade/)|
-|云数据库 Redis	|[云数据库 Redis 迁移 API 3.0指引](https://cloud.tencent.com/document/product/239/83200)|
-|云数据库 MySQL	|[云数据库 MySQL 迁移 API 3.0指引](https://cloud.tencent.com/document/product/236/82663)|
-|负载均衡	|[负载均衡迁移 API 3.0指引](https://cloud.tencent.com/document/product/214/82364)|
-
+更多信息，请参考 [API 2.0接口迁移指引汇总](https://cloud.tencent.com/document/product/1278/85298)。
+ 
 ## 热点问题
 #### 不迁移 API 3.0有什么影响？
 旧版本 API 2.0接口已逐步下线，预计2023年1月1日停止服务，不切换会影响您后续使用。请参考产品迁移指引，对还在使用 API 2.0的接口进行排查，尽快迁移至 API 3.0，以获得更好的服务和体验。

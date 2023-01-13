@@ -14,7 +14,7 @@
 ![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
 5. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-5px 0px;width:25px">，单击<img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -5px 0px;">，打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址。
 ```plaintext
-netsh interface ipv6 add route ::/0 "以太网"     #如果无法输入中文，建议修改网卡名称为英文
+netsh interface ipv6 add route ::/0 "以太网"     #如果无法输入中文，建议修改为 “Ethernet”
 ipconfig
 ```
  ![](https://main.qcloudimg.com/raw/ba325fb98c4efe86a1f3a4bcd55f77be.png)

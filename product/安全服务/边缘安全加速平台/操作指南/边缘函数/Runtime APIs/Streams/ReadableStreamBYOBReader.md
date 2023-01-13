@@ -1,6 +1,6 @@
  **ReadableStreamBYOBReader** 用于可读流操作，基于 Web APIs 标准 [ReadableStreamBYOBReader](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamBYOBReader) 进行设计。`BYOB`（bring your own buffer），表示允许从流读取数据到缓冲区，从而最大限度的减少副本。
 
- >! 不支持直接构造 `ReadableStreamBYOBReader` 对象，使用 [ReadableStream.getReader](https://cloud.tencent.com/document/product/1552/81914) 方法得到。
+ >! 不支持直接构造 `ReadableStreamBYOBReader` 对象，使用 [ReadableStream.getReader](https://cloud.tencent.com/document/product/1552/81914#getreader) 方法得到。
 
 ## 描述 
 ```typescript

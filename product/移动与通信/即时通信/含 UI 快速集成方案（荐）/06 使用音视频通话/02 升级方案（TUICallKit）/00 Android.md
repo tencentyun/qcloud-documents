@@ -14,7 +14,7 @@ TUICallKit 是腾讯云推出一款新的音视频通话 UI 组件，**是 TUICa
 
 <img width= 900px src="https://qcloudimg.tencent-cloud.cn/image/document/f98927f3fc851357ac5e491e6aed442b.png">
 
->!M 音视频通话能力针对不同的业务需求提供了差异化的付费版本供您选择，您可以在 [IM 购买页](https://buy.cloud.tencent.com/avc) 了解包含功能并选购您适合的版本。
+>!IM 音视频通话能力针对不同的业务需求提供了差异化的付费版本供您选择，您可以在 [IM 购买页](https://buy.cloud.tencent.com/avc) 了解包含功能并选购您适合的版本。
 
 
 ## 升级步骤

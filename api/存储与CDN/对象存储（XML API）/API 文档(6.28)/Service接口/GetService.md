@@ -42,7 +42,7 @@ Authorization: Auth String
 
 > ?
 > - Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
-> - Host: 查询全部存储桶列表指定为`service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为 cos.&lt;Region>.myqcloud.com，其中 &lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+> - Host: 查询全部存储桶列表指定为 `service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为 cos.&lt;Region>.myqcloud.com，其中 &lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
 
 #### 请求参数
 
@@ -52,12 +52,12 @@ GetService 支持通过请求参数根据存储桶标签、地域、创建时间
 | --- | --- | --- | --- |
 |tagkey | 支持根据存储桶标签过滤存储桶，仅支持传入一个存储桶标签，tagkey 用于传入标签键 | string | 否 |
 |tagvalue | 支持根据存储桶标签过滤存储桶，仅支持传入一个存储桶标签，tagvalue 用于传入标签值 | string | 否 |
-|region | 支持根据地域过滤存储桶，例如`region=ap-beijing`，COS 支持的地域可参考 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)| string | 否 |
+|region | 支持根据地域过滤存储桶，例如 `region=ap-beijing`，COS 支持的地域可参考 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)| string | 否 |
 |create-time | GMT 时间戳，和 range 参数一起使用，支持根据创建时间过滤存储桶，例如 `create-time=1642662645` |Timestamp | 否 |
 |range | 和 create-time 参数一起使用，支持根据创建时间过滤存储桶，支持枚举值 lt（创建时间早于 create-time）、gt（创建时间晚于 create-time）、lte（创建时间早于或等于 create-time）、gte（创建时间晚于或等于create-time） | string | 否 |
 
 
-当存储桶标签授权情况与 GetService 授权不同时，GetService 请求的鉴权和返回情况如下。
+当存储桶标签授权情况与 GetService 授权不同时，GetService 请求的鉴权和返回情况如下。关于标签鉴权的授权方法 ，可参见 [授权子账号按照存储桶标签拉取存储桶列表](https://cloud.tencent.com/document/product/436/34694)。
 
 <table>
     <tr>
@@ -332,7 +332,7 @@ x-cos-request-id: NWNlN2RjYjdfZjhjODBiMDlfOWNlNF9hYzc2****
 #### 案例四：根据指定标签过滤存储桶列表
 
 
-存储桶 examplebucket-1250000000 的标签为`<key1, value1>`，存储桶 examplebucket1-1250000000 的标签为`<key1, value1>`和`<key2, value2>`。
+存储桶 examplebucket-1250000000 的标签为 `<key1, value1>`，存储桶 examplebucket1-1250000000 的标签为 `<key1, value1>` 和 `<key2, value2>`。
 
 #### 请求
 

@@ -53,7 +53,7 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 - 后弹服务类型支持：集成流、第三方服务、数据库、Mock。集成流、第三方服务、Mock 的请求参数可自行添加，最多添加30条。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c77ed08f54ff871e2b1703b0176f4bdc.png)
 - 数据库类型支持新建或选择 MySQL 类型的数据源。
-![](https://qcloudimg.tencent-cloud.cn/raw/768eed501d5026a67abb529e8e449031.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/eceac720481e715399bd36a566372857.png)
 
 
 #### 步骤二：后端配置

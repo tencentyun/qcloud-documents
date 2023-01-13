@@ -46,7 +46,7 @@ iv_ota_exit          // 更新成功或出现异常，都需要停止OTA模块�
 ``` json
 {
     "file_size": 708482,
-    "md5sum": "36eb5951179db14a631463a37a9322a2",
+    "md5sum": "36eb59511****14a631463a37a9322a2",
     "type": "update_firmware",
     "url": "https://ota-1255858890.cos.ap-guangzhou.myqcloud.com",
     "version": "0.2"

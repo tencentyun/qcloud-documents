@@ -10,8 +10,8 @@
 
 ## 使用限制
 - **实例架构及规格限制**
- - 双机高可用或集群版仅购买90核720GB规格的实例，支持修改系统时区。
- - 基础版实例支持修改系统时区。
+ - 双节点（原高可用版/集群版）仅购买90核720GB规格的实例时，支持修改系统时区。
+ - 单节点（原基础版）实例支持修改系统时区。
 
 - **修改时区限制**
 仅支持在购买实例时修改系统时区，购买后不支持修改。
@@ -86,4 +86,3 @@
 | W. Australia Standard Time | (UTC+08:00) | Perth |
 | W. Central Africa Standard Time | (UTC+01:00) | West Central Africa |
 | W. Europe Standard Time | (UTC+01:00) | Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna |
-

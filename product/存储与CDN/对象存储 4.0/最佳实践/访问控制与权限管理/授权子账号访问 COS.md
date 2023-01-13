@@ -18,7 +18,7 @@
  - 子账号登录控制台时，会自动切换到默认主账号上，并拥有默认主账号所授予的访问权限。
  - 切换开发商之后，子账号会拥有切换到的主账号授权的访问权限，而切换前的主账号授予的访问权限会立即失效。
 - 用户组是多个相同职能的用户（子账号）的集合。您可以根据业务需求创建不同的用户组，为用户组关联适当的策略，以分配不同权限。
- 
+
 ## 操作步骤
 授权子账号访问 COS 分为三个步骤：创建子账号、对子账号授予权限、子账号访问 COS 资源。
 
@@ -65,23 +65,25 @@
 4. 单击 **API 密钥**页签，并单击**新建密钥**为该子账号创建 SecretId 和 SecretKey。
 
 至此您就可以通过子账号的 SecretId 和 SecretKey、主账号的 APPID，访问 COS 资源。 
-
->!
->子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
+>!子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
 
 
 #### 基于 XML 的 Java SDK 访问示例
 
 以基于 XML 的 Java SDK 命令行为例，需填入参数如下：
 ```
-// 1 初始化身份信息
+// 初始化身份信息
 COSCredentials cred = new BasicCOSCredentials("<主账号 APPID>", "<子账号 SecretId>", "<子账号 SecretKey>");
 ```
 
 实例如下：
 ```
-// 1 初始化身份信息
-COSCredentials cred = new BasicCOSCredentials("1250000000", "AKIDasdfmRxHPa9oLhJp****", "e8Sdeasdfas2238Vi****");
+String secretId = System.getenv("secretId");//子账号的 SecretId，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
+String secretKey = System.getenv("secretKey");//子账号的的 SecretKey，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
+COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
+
+// 初始化身份信息
+COSCredentials cred = new BasicCOSCredentials("<主账号 APPID>", secretId, secretKey);
 ```
 
 #### COSCMD 命令行工具访问示例
