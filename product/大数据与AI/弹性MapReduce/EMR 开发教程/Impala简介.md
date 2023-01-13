@@ -54,25 +54,23 @@ done
 ### 连接 Impala
 登录 EMR 集群的 Master 节点，切换到 Hadoop 用户并且进入 Impala 目录，并连接 Impala：
 ```swift
-[root@10 Impala]# cd /data/Impala/; bin/impala-shell.sh -i $core_ip:27001
+[root@10 Impala]# cd /data/Impala/shell;./impala-shell -i $core_ip:27001
 ```
 其中 core_ip 为 EMR 集群的 core 节点 IP，也可以用 task 节点的 IP，正常登录后显示如下：
 ```swift
 Connected to $core_ip:27001
-Server version: impalad version 2.10.0-SNAPSHOT (build Could not obtain git hash)
+Server version: impalad version 3.4.1-RELEASE RELEASE (build Could not obtain git hash)
 ***********************************************************************************
 Welcome to the Impala shell.
-(Impala Shell v2.10.0-SNAPSHOT (Could) built on Tue Nov 20 17:28:10 CST 2018)
+(Impala Shell 3.4.1-RELEASE (ebled66) built on Tue Nov 20 17:28:10 CST 2021)
 
-The '-B' command line flag turns off pretty-printing for query results. Use this
-flag to remove formatting from results you want to save for later, or to benchmark
-Impala.
+The SET command shows the current value of all shell and query options.
 ***********************************************************************************
 [$core_ip:27001] >
 ```
 也可以登录 core 节点或者 task 节点后，直接连接，执行语句如下：
 ```swift
-cd /data/Impala/; bin/impala-shell.sh -i localhost:27001
+cd /data/Impala/shell;./impala-shell -i localhost:27001
 ```
  
 ### 创建 Impala 库
