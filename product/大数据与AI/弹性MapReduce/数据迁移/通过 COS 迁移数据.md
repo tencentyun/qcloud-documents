@@ -42,7 +42,7 @@
 /home/hadoop/hadoop-2.8.1/etc/hadoop/core-site.xml
 ```
 5. 验证运行命令后，输出如下日志
-```
+```swift
 [Folder Operation Result : [ 53(sum)/ 53(ok) / 0(fail)]]
 [File Operation Result: [22(sum)/ 22(ok) / 0(fail) / 0(skip)]]
 [Used Time: 3 s]
@@ -60,4 +60,3 @@
 - 权限问题，用当前账户使用 Hadoop 命令下载文件，看是否正常，再使用同步工具同步 Hadoop 上的数据。    
 - 对于 COS 上已存在的文件，默认进行重传覆盖，除非用户明确的指定 -skip_if_len_match，当文件长度一致时则跳过上传。    
 - cos path 都认为是目录，最终从 HDFS 上拷贝的文件都会存放在该目录下。
-
