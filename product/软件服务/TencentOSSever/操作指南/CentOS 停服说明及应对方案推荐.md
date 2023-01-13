@@ -24,7 +24,7 @@ CentOS 官方计划停止维护 CentOS Linux 项目，CentOS 8及 CentOS 7维护
 </table>
 针对以上情况，若您需新购云服务器实例，建议选择使用免费的社区稳定版操作系统 OpenCloudOS，或由腾讯提供专业技术支持的 TencentOS Server 镜像。
 
-## OpenCloudOS 与 TencentOS 介绍
+## OpenCloudOS 与 TencentOS Server 介绍
 - **OpenCloudOS** 由腾讯与合作伙伴共同倡议发起，是完全中立、全面开放、安全稳定、高性能的操作系统及生态。
  - 更多 OpenCloudOS 的介绍请参见： [OpenCloudOS 简介](https://cloud.tencent.com/document/product/213/70717) 。
  
@@ -52,7 +52,7 @@ OpenCloudOS 来源于 TencentOS Server商业稳定版本的输出，在源代码
 OpenCloudOS 是社区化的操作系统，可供用户免费使用，由社区开发者维护。
 如果用户需要操作系统专业团队的服务及维护，可以选择购买 TencentOS Server 的订阅服务。
 ## CentOS迁移指引
-- 如果您有需求从 CentOS 8 迁移至OpenCloudOS，请参见
-- 如果您有需求从 CentOS 迁移至 TencentOS Server，请参见[ CentOS 迁移 TencentOS 指引](https://cloud.tencent.com/document/product/213/70900)。
+- 如果您有需求从 CentOS 8 迁移至 OpenCloudOS，请参见 [CentOS 迁移 OpenCloudOS 指引](https://cloud.tencent.com/document/product/213/85728)。
+- 如果您有需求从 CentOS 迁移至 TencentOS Server，请参见[ CentOS 迁移 TencentOS Server 指引](https://cloud.tencent.com/document/product/213/70900)。
 
 
