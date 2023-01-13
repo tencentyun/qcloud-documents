@@ -2,7 +2,7 @@
 
 **各个平台的下载链接：**
 
-- Windows 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Windows)。
+- Windows 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Windows/IMSDK)。
 - iOS 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK)。
 - Mac 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Mac/IMSDK)。
 - Android 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK)。
