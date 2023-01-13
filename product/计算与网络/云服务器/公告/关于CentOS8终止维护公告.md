@@ -6,7 +6,7 @@ CentOS 官方计划停止维护 CentOS Linux 项目，并于2022年01月01日停
 - [OpenCloudOS](https://cloud.tencent.com/document/product/213/70717)：推荐您选择 OpenCloudOS，其基础库和用户态组件完全与 CentOS 8兼容，并通过内核层面的优化和增强，经1000万+节点大规模验证，稳定性提升70%，特定场景性能提升50%，能够提供给用户相比于 CentOS 8更优的解决方案。
 - CentOS Stream 版本以及其他发行版，例如 Ubuntu。
 
-若您正在使用 CentOS，建议尽快迁移到 OpenCloudOS 或 TencentOS Server 对应版本，具体迁移操作请参见 [CentOS迁移OpenCloudOS指引](https://docs.opencloudos.org/guide/migrate/) 及 [CentOS 迁移 TencentOS 指引](https://cloud.tencent.com/document/product/213/70900) 。
+若您正在使用 CentOS，建议尽快迁移到 OpenCloudOS 或 TencentOS Server 对应版本，具体迁移操作请参见 [CentOS迁移OpenCloudOS指引](https://docs.opencloudos.org/guide/migrate/) 及 [CentOS 迁移 TencentOS Server 指引](https://cloud.tencent.com/document/product/213/70900) 。
 更多问题，欢迎扫描二维码添加 OpenCloudOS 社区运营或咨询 [腾讯云助手](https://cloud.tencent.com/product/tca)。加入社区官方交流群。
 
 <img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/729dcbb8c00d6021a0b6de1705a05992.png" />
