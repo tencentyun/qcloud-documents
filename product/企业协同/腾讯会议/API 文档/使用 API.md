@@ -1,7 +1,7 @@
 ## 认证方式
 ### 企业自建应用（jwt）
 腾讯会议面向企业 IT、ISV 系统集成商、SaaS 服务商提供开放接口，实现企业办公平台与腾讯会议的连接。
-购买腾讯会议商业版、教育版或企业版，将自动开通企业自建应用的接入能力，创建企业自建应用后可获取调用API的密钥对，具体操作指引请参见：[成为开发者](https://cloud.tencent.com/document/product/1095/83667)，密钥对示例如下：
+购买腾讯会议商业版、教育版或企业版，将自动开通企业自建应用的接入能力，创建企业自建应用后可获取调用API的密钥对，具体操作指引请参见：[企业自建应用接入指引](https://cloud.tencent.com/document/product/1095/83667)，密钥对示例如下：
 - SecretId：AKID****EXAMPLE
 - SecretKey： Gu5t****EXAMPLE
 
@@ -23,7 +23,3 @@
 4.  拉取用户信息（检验凭证是否有效）。
 
 具体的接口调用方式请参见：[第三方应用鉴权（OAuth2.0）](https://cloud.tencent.com/document/product/1095/51257)
-
-
- 
-
