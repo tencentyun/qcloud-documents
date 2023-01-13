@@ -1,225 +1,262 @@
-## 适用场景
-在实时湖仓的数据链路建设过程中，将传统关系型数据库（如 Mysql 等）中的**整库数据**低延迟、高吞吐的同步到下游的 OLAP 数据库（如 Doris, ClickHouse）或者归档到对应的文件系统中（如 HDFS、Hive 表），是一个非常普遍和强烈的需求。
+## 介绍
+ClickHouse Sink Connector 提供了对 ClickHouse 数据仓库的写入支持。ClickHouse Source Connector 提供了 ClickHouse 作为批数据源和维表的功能。
 
-Oceanus 提供了非常方便的 CDAS（CREATE DATABASE AS）SQL 语法，来支持将数据库中的整库数据全量导入、增量实时同步写入到用户指定的下游系统中。
+## 版本说明
 
-## 语法说明
+| Flink 版本 | 说明                |
+| :--------- | :------------------ |
+| 1.11       | 支持 Sink           |
+| 1.13       | 支持 Source 和 Sink |
+| 1.14       | 支持 Source 和 Sink |
+
+## 使用范围
+ClickHouse 不支持标准的 update 和 delete 操作。作为 Sink 时，若您的任务有 update 和 delete 操作，可以通过 [CollapsingMergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/collapsingmergetree/) 来实现。
+
+对于 JAR 作业，Java/Scala 编写的作业可以参考 [JDBC](https://cloud.tencent.com/document/product/849/48312) 方式写入 ClickHouse，这里不做阐述。
+
+## DDL 定义
+### 用作数据目的（不包含更新）（Sink with insert only）
 ```sql
-CREATE DATABASE IF NOT EXISTS <target_database>
-[COMMENT database_comment] 
-[WITH (key1=val1, key2=val2, ...)] -- 指明写入目标库的参数
-AS DATABASE <source_catalog>.<source_database> 	-- source_database 是被同步的源数据库
-INCLUDING { ALL TABLES | TABLE 'table_name' }
--- INCLUDING ALL TABLES 表示同步数据库中的所有表
--- INCLUDING TABLE 'table' 表示同步数据库中特定的表，支持正则表达式，如 'order_.*';
--- 同步多张表时，可以写成 INCLUDING TABLE 'tableA|tableB|tableC'的格式
-[EXCLUDING TABLE 'table_name']
--- EXCLUDING TABLE 'table' 表示不同步数据库中特定的表，支持正则表达式，如 'order_.*';
--- 排除多张表时，可以写成 EXCLUDING TABLE 'tableA|tableB|tableC'的格式
-[/*+ OPTIONS(key1=val1, key2=val2, ... ) */] 
--- （可选，指明读取source的参数，如指定source serverId的范围，解析debezium时间戳字段类型等）
+CREATE TABLE clickhouse_sink_table (
+   `id` INT,
+   `name` STRING
+) WITH (
+   -- 指定数据库连接参数
+   'connector' = 'clickhouse',                       -- 指定使用clickhouse连接器
+   'url' = 'clickhouse://172.28.28.160:8123',        -- 指定集群地址，可以通过ClickHouse集群界面查看
+   -- 如果ClickHouse集群未配置账号密码可以不指定
+   --'username' = 'root',                            -- ClickHouse集群用户名
+   --'password' = 'root',                            -- ClickHouse集群的密码
+   'database-name' = 'db',                           -- 数据写入目的数据库
+   'table-name' = 'table',                           -- 数据写入目的数据表
+   'sink.batch-size' = '1000'                        -- 触发批量写的条数
+);
 ```
 
-参数说明：
+### 包含 update 和 delete 操作的数据目的（Sink with upsert）
+```sql
+CREATE TABLE clickhouse_upsert_sink_table (
+   `id` INT,
+   `name` STRING,
+  PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
+) WITH (
+   -- 指定数据库连接参数
+   'connector' = 'clickhouse',                     -- 指定使用clickhouse连接器
+   'url' = 'clickhouse://172.28.28.160:8123',      -- 指定集群地址，可以通过ClickHouse集群界面查看
+   -- 如果ClickHouse集群未配置账号密码可以不指定
+   --'username' = 'root',                          -- ClickHouse集群用户名
+   --'password' = 'root',                          -- ClickHouse集群的密码
+   'database-name' = 'db',                         -- 数据写入目的数据库
+   'table-name' = 'table',                         -- 数据写入目的数据表
+   'table.collapsing.field' = 'Sign',              -- CollapsingMergeTree 类型列字段的名称
+   'sink.batch-size' = '1000'                      -- 触发批量写的条数
+);
+```
 
-| 参数                               | 解释                                                         |
-| ---------------------------------- | ------------------------------------------------------------ |
-| target_database                    | 待写入的目标数据库名                                         |
-| database_comment                   | 待写入的数据库注释                                           |
-| WITH参数                           | 指明写入目标库的参数，目前会被翻译成下游 sink 表的描述参数   |
-| `<source_catalog>.<source_database>` | 声明源 catalog 中需要同步的数据库                            |
-| INCLUDING  ALL TABLES              | 同步源库中的所有表                                           |
-| INCLUDING TABLE                    | 示同步数据库中特定的表，支持正则表达式，如 'order_.*' ； 同步多张表时，可以写成 INCLUDING TABLE 'tableA\|tableB'格式 |
-| EXCLUDING TABLE                    | 表示不同步数据库中特定的表，支持正则表达式，如 'order_.*'; 排除多张表时，可以写成 EXCLUDING TABLE 'tableA\|tableB'格式 |
-| OPTIONS                            | 可选，指明读取Source时覆盖的参数，如指定 source serverId 的范围等 |
+>! 一定要定义 pk 和申明 table.collapsing.field 字段，才会启动该功能。对应的 ClickHouse 建表语句，请参考 [常见问题](#ID)。
 
->! 第三行 [WITH (key1=val1, key2=val2, ...)] 指明写入目标库的参数中， value 值支持将 Source 表的表名进行变量替换，使用方法是使用占位符 $tableName。如下整库同步到 Doris 的示例中，写入每一个 sink 的表中 $tableName 会替换为相对应 Mysql 库中源表表名。
+### 作为批数据源
+```
+CREATE TABLE `clickhosue_batch_source` (
+    `when`     TIMESTAMP,
+    `userid`   BIGINT,
+    `bytes`    FLOAT
+) WITH (
+    'connector' = 'clickhouse',
+    'url' = 'clickhouse://172.28.1.21:8123',
+    'database-name' = 'dts',
+    'table-name' = 'download_dist'
+--    'scan.by-part.enabled' = 'false', -- 是否启用读 ClickHouse 表 part。若启用，必须先在所有节点上使用命令 'STOP MERGES' 和 'STOP TTL MERGES' 停止表的后台 merge 和基于 TTL 的数据删除操作，否则读取的数据会不正确。
+--    'scan.part.modification-time.lower-bound' = '2021-09-24 16:00:00', -- 用于根据 modification_time 过滤 ClickHouse 表 part 的最小时间（包含），格式 yyyy-MM-dd HH:mm:ss。
+--     'scan.part.modification-time.upper-bound' = '2021-09-17 19:16:26', -- 用于根据 modification_time 过滤 ClickHouse 表 part 的最大时间（不包含），格式 yyyy-MM-dd HH:mm:ss。
+--    'local.read-write' = 'false', -- 是否读本地表，默认 false 。
+--    'table.local-nodes' = '172.28.1.24:8123,172.28.1.226:8123,172.28.1.109:8123,172.28.1.36:8123' -- local node 列表，需要使用 http port。注意一个 shard 只能配置一个 replica 节点地址，否则会读取到重复数据。
+);
+```
+
+>! MergeTree 系列引擎才支持按 part 读取，且一定要停止待读取表所有节点的后台 merge 和基于 TTL 的数据删除操作，避免 part 变化导致数据读取不准确。本地读时一个 shard 只能配置一个 replica 地址，避免重复数据。
+
+### 作为维表
+```
+CREATE TABLE `clickhouse_dimension` (
+    `userid` BIGINT,
+    `comment` STRING
+) WITH (
+    'connector' = 'clickhouse',
+    'url' = 'clickhouse://172.28.1.21:8123',
+    'database-name' = 'dimension',
+    'table-name' = 'download_dist',
+    'lookup.cache.max-rows' = '500', -- 查询缓存（Lookup Cache）中最多缓存的数据条数。
+    'lookup.cache.ttl' = '10min', -- 查询缓存中每条记录最长的缓存时间。
+    'lookup.max-retries' = '10' -- 数据库查询失败时，最多重试的次数。
+);
+```
+
+##  WITH 参数
+
+| 参数值                                  | 必填 | 默认值           | 描述                                                         |
+| :-------------------------------------- | :--- | :--------------- | :----------------------------------------------------------- |
+| connector                               | 是   | -                | 当要使用 ClickHouse 作为数据目的（Sink）需要填写，取值 `clickhouse` 。 |
+| url                                     | 是   | -                | ClickHouse 集群连接 url，可以通过集群界面查看，举例 'clickhouse://127.1.1.1:8123'。 |
+| username                                | 否   | -                | ClickHouse 集群用户名。                                      |
+| password                                | 否   | -                | ClickHouse 集群密码。                                        |
+| database-name                           | 是   | -                | ClickHouse 集群数据库。                                      |
+| table-name                              | 是   | -                | ClickHouse 集群数据表。                                      |
+| sink.batch-size                         | 否   | 1000             | Connector batch 写入的条数。                                 |
+| sink.flush-interval                     | 否   | 1000 （单位 ms） | Connector 异步线程刷新写入 ClickHouse 间隔。                 |
+| table.collapsing.field                  | 否   | -                | CollapsingMergeTree 类型列字段的名称。                       |
+| sink.max-retries                        | 否   | 3                | 写入失败时的重试次数。                                       |
+| local.read-write                        | 否   | false            | 是否启用直写本地表功能。默认不开启。<br>注意：该功能仅供高级用户使用，需配合下面几个参数使用。详见本文后续的 ”写入本地表“ 章节。 |
+| table.local-nodes                       | 否   | -                | 启用写本地表（`local.read-write` 为 `true`）时，local node 列表，举例 '127.1.1.10:8123,127.1.2.13:8123'（**需要使用 http port**）。 |
+| sink.partition-strategy                 | 否   | balanced         | 启用写本地表（`local.read-write` 为 `true`）时，需要设置数据分发策略，支持 balanced/shuffle/hash。如果希望实现数据的动态更新，且表引擎使用 CollapsingMergeTree，则取值必须为 `hash`，且需要配合 `sink.partition-key` 一同使用。<br>取值说明：`balanced ` 轮询模式写入，`shuffle ` 随机挑选节点写入， `hash ` 根据 `sink.partition-key` 的 hash 值，选择节点写入。 |
+| sink.partition-key                      | 否   | -                | 启用写本地表（`local.read-write` 为 `true`），且 `sink.partition-strategy` 为  `hash ` 时需要设置，值为所定义表中的主键。如果主键包含多个字段，则需要指定为第一个字段。 |
+| sink.ignore-delete                      | 否   | false            | 启用该参数后，会过滤所有向 ClickHouse 写入的 DELETE（删除）消息。该选项适用于使用 ReplacingMergeTree 表引擎，并期望实现数据的动态更新的场景。 |
+| sink.backpressure-aware                 | 否   | false            | 当 Flink 日志频繁出现 "Too many parts" 报错，且作业因此崩溃时，启用该参数可以大幅减轻服务端负载，提升整体的吞吐量和稳定性。 |
+| sink.max-partitions-per-insert          | 否   | 20               | 当clickhouse是分区表，且分区函数CK内置为intHash32、toYYYYMM 或toYYYYMMDD 之一时，Flink写入Clickhouse会通过预先在sink端按分区攒数据buffer，当攒的分区数目到达设定值时会触发往下游clickhouse写入（如果`sink.flush-interval` 和`sink.batch-size`  先到的话也会先触发写入），极大的提高写入clickhouse的吞吐效率。设置为-1时会关闭分区聚合写入功能。 |
+| scan.fetch-size                         | 否   | 100              | 每次从数据库读取时，批量获取的行数。                         |
+| scan.by-part.enabled                    | 否   | false            | 是否启用读 ClickHouse 表 part。若启用，必须先在所有节点上使用命令'STOP MERGES'和'STOP TTL MERGES'停止表的后台 merge 和基于 TTL 的数据删除操作，否则读取的数据会不正确。 |
+| scan.part.modification-time.lower-bound | 否   | -                | 用于根据 modification_time 过滤 ClickHouse 表  part 的最小时间（包含），格式 yyyy-MM-dd HH:mm:ss。 |
+| scan.part.modification-time.upper-bound | 否   | -                | 用于根据 modification_time 过滤 ClickHouse 表  part 的最大时间（不包含），格式 yyyy-MM-dd HH:mm:ss。 |
+| lookup.cache.max-rows                   | 否   | 无               | 查询缓存（Lookup Cache）中最多缓存的数据条数。               |
+| lookup.cache.ttl                        | 否   | 无               | 查询缓存中每条记录最长的缓存时间。                           |
+| lookup.max-retries                      | 否   | 3                | 数据库查询失败时，最多重试的次数。                           |
+
+
+>!定义 WITH 参数时，通常只需要填写必填参数即可。当您启用非必须参数时，请您一定要明确参数含义以及可能对数据写入产生的影响。
+
+## 类型映射
+
+关于 ClickHouse 支持的数据类型定义及其使用，可参考 [ClickHouse data-types](https://clickhouse.tech/docs/en/sql-reference/data-types/)，这里列举了常用的数据类型，及其与 Flink 类型的对应关系。
+
+| Flink 数据类型                 | ClickHouse 对应数据类型                                      |
+| :----------------------------- | :----------------------------------------------------------- |
+| VARCHAR                        | String/FixedString(N)                                        |
+| STRING                         | String/FixedString(N)                                        |
+| BOOLEAN                        | 没有单独类型存储，可以使用 UInt8 来存储布尔类型，将取值限制为0或1；或者使用字符串存储 true/false 来表示 |
+| DECIMAL                        | Decimal32(S)/Decimal64(S)/Decimal128(S)                      |
+| TINYINT                        | Int8                                                         |
+| SMALLINT                       | Int16                                                        |
+| INTEGER                        | Int32                                                        |
+| BIGINT                         | Int64                                                        |
+| FLOAT                          | Float32                                                      |
+| DOUBLE                         | Float64                                                      |
+| DATE                           | Date                                                         |
+| TIMESTAMP                      | DateTime                                                     |
+| TIMESTAMP WITH LOCAL TIME ZONE | DateTime，示例 DateTime64(3, 'Asia/Shanghai')                |
+| Array                          | Array                                                        |
+| Map                            | Map                                                          |
+| Row                            | Tuple                                                        |
+
+## 代码示例
+
+```sql
+CREATE TABLE datagen_source_table ( 
+	id INT, 
+	name STRING 
+) WITH ( 
+   'connector' = 'datagen',
+   'rows-per-second'='1'  -- 每秒产生的数据条数
+);
+CREATE TABLE clickhouse_sink_table (
+   `id` INT,
+   `name` STRING
+) WITH (
+   -- 指定数据库连接参数
+   'connector' = 'clickhouse',                       -- 指定使用clickhouse连接器
+   'url' = 'clickhouse://172.28.28.160:8123',        -- 指定集群地址，可以通过ClickHouse集群界面查看
+   -- 如果ClickHouse集群未配置账号密码可以不指定
+   --'username' = 'root',                            -- ClickHouse集群用户名
+   --'password' = 'root',                            -- ClickHouse集群的密码
+   'database-name' = 'db',                           -- 数据写入目的数据库
+   'table-name' = 'table',                           -- 数据写入目的数据表
+   'sink.batch-size' = '1000'                        -- 触发批量写的条数
+);
+insert into clickhouse_sink_table select * from datagen_source_table;
+```
+
+## 常见问题
+### 关于数据更新（Upsert）和删除（Delete）语义
+对于需要动态更新和删除数据的场景，由于 ClickHouse 并不完全支持 Upsert 语义，我们通常使用 ReplacingMergeTree 或 CollapsingMergeTree 来模拟更新或删除操作，他们有各自的适用场景。
+
+#### ReplacingMergeTree 表引擎
+
+如果 ClickHouse 底层表引擎使用 ReplacingMergeTree，则可以设置 `sink.ignore-delete  ` 参数为 `true`。此后 Flink 会自动过滤所有的删除（DELETE）消息，并将插入（INSERT）和更新（UPDATE_AFTER）消息则统一转为插入（INSERT）消息。随后，ClickHouse 底层会自动使用最新写入的记录来覆盖之前同主键的旧记录，从而实现数据的更新。
+
+需要注意的是，此模式只支持插入、更新，而**不支持删除**数据。因此如果对于 CDC 等需要精确同步的简单 ETL 场景，则使用下面介绍的 CollapsingMergeTree 表引擎会有更好的效果。
+
+#### CollapsingMergeTree 表引擎
+
+如果 ClickHouse 底层表引擎使用 CollapsingMergeTree，则可以通过 `table.collapsing.field` 参数来指定 Sign 字段。它的原理是通过发送内容相同，但符号（Sign）相反的消息，来实现旧数据的删除（抵消），以及新数据的插入。
+
+此外，在生产环境中，一般会使用 ReplicatedCollapsingMergeTree，而 `ReplicatedMergeTree` 的自动去重可能会使得短期内多次写入到 ClickHouse 的数据被判断为重复数据，导致数据丢失。此时，可在建表（或者修改表）时，指定 `replicated_deduplication_window=0`，以关闭自动去重功能。
+
+例如：
+
+```sql
+CREATE TABLE testdb.testtable on cluster default_cluster (`id` Int32,`name` Nullable(String),`age` Nullable(Int32),`weight` Nullable(Float64),`Sign` Int8) ENGINE = ReplicatedCollapsingMergeTree('/clickhouse/tables/{layer}-{shard}/testdb/testtable', '{replica}', Sign) ORDER BY id SETTINGS  replicated_deduplication_window = 0;
+```
+
+自动去重更多详情可参见 [Data Replication](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/)。
+
+#### ClickHouse 分布式表的 sharding_key
+
+创建分布式表时，语句中的 `ENGINE = Distributed(cluster_name, database_name, table_name[, sharding_key]);` 中 sharding_key 需为 Flink SQL 的 sink 表中的主键（Primary Key），**以保证同一个 Primary Key 的记录写入到同一个节点中**。
+
+**各个参数的含义分别如下：**
+
+- cluster_name：集群名称，与集群配置中的自定义名称相对应。
+- database_name：数据库名称。
+- table_name：表名称。
+- sharding_key：选填，用于分片的 key 值，在数据写入的过程中，分布式表会依据分片 key 的规则，将数据分布到各个节点的本地表。
+
+### 写入本地表（高级内容）
+
+如果将 `local.read-write ` 参数设置为 `true`，则 Flink 可以直接写入本地表。
+
+> !
 >
+> 启用写本地表功能后，吞吐量可能会大幅提升。但是如果后续 ClickHouse 集群发生扩容、缩容、节点替换时，可能造成数据分布不均匀甚至写入失败、数据无法更新。因此仅供高级用户使用。
+
+如果表含有主键，且使用了 UPDATE 和 DELETE 语义，建议建表时使用 CollapsingMergeTree 表引擎。我们可以通过 `table.collapsing.field` 参数来指定 Sign 字段，并设置 `sink.partition-strategy` 为 `hash` 以令相同主键的数据落在同一个 shard 上，并将 `sink.partition-key  ` 参数设置为主键字段（对于多字段的混合主键，则设置为第一个字段）。
+
+### 关于 null 数据
+
+若数据的某些字段可能为空，则需要在 ClickHouse 的建表语句（DDL）中，把字段声明改为 Nullable，否则会导致数据写入异常。
+
 ```sql
-create catalog my_mysql with(...);
-create database if not exists sink_db
-with (
-  'connector' = 'doris',
-  'table.identifier' = 'db1.$tableName_doris'
-  ...
-) 
-including all tables
-/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai') */; -- 声明解析timestamp字段的时区类型
+CREATE TABLE testdb.testtable on cluster default_cluster (`id` Int32,`name` Nullable(String),`age` Nullable(Int32),`weight` Nullable(Float64),`Sign` Int8) ENGINE = ReplicatedCollapsingMergeTree('/clickhouse/tables/{layer}-{shard}/testdb/testtable', '{replica}', Sign) ORDER BY id ;
 ```
 
+### 分区表写入优化
 
-### MySQL-CDC 元数据字段读取
+Oceanus 在写入到 Clickhouse 分区表时，如果 clickhouse 的分区定义中使用的函数在 Oceanus 的支持范围内（intHash32、toYYYYMM、toYYYYMMDD），写入时默认会开启按分区预先攒 buffer 数据再写入的功能。启用后，Oceanus 单批次写入数据会包含尽量少的分区数量（业务分区数据吞吐足够大时，每个批次仅包含一个分区），从而提高 ClickHouse 的 merge 性能。如果单个分区数据不够批大小时，多个分区数据合并成一个批次写入 ClickHouse。详细的配置项可以参见上文中`sink.max-partitions-per-insert` 参数。
 
-* MySQL CDC connector除支持提取物理表的字段外，还支持了[元数据字段列表](https://cloud.tencent.com/document/product/849/52698#.E5.8F.AF.E7.94.A8.E5.85.83.E6.95.B0.E6.8D.AE.EF.BC.88flink1.13-.E5.8F.8A.E4.BB.A5.E4.B8.8A.E7.89.88.E6.9C.AC.E5.8F.AF.E4.BD.BF.E7.94.A8.EF.BC.89)可以提取。整库同步功能中也提供了一个 options 配置参数，可以用来控制同步所需的元数据字段。
 
-| 参数                                   | 解释                                                         |
-| -------------------------------------- | ------------------------------------------------------------ |
-| oceanus.source.include-metadata.fields | 需要同步的 source 表的元字段，格式为 'table_name:table_name;meta.batch_id:batch_id', 元数据字段定义通过分号;分隔，每个元数据字段格式为 metadataColumn:alias， 第一部分为实际对应的元数据 column，第二部分为重命名后的值。 |
 
-* 注意: 元数据字段会按照声明的顺序，追加到源表之后
+### 示例：ClickHouse 建表语句
 
-使用实例:
+#### 支持 UPDATE、DELETE 的 CollapsingMergeTree 建表语句
+
 ```sql
-SET table.optimizer.mysql-cdc-source.merge.enabled=true;
+-- 创建数据库
+CREATE DATABASE test ON cluster default_cluster;
 
-create catalog my_mysql with (
-    'type' = 'jdbc',
-    'default-database' = 'test',
-    'username' = 'xx',
-    'password' = 'xxx',
-    'base-url' = 'xxx'
-);
+-- 创建本地表
+CREATE TABLE test.datagen ON cluster default_cluster (`id` Int32,`name` Nullable(String),`age` Nullable(Int32),`weight` Nullable(Float64),`Sign` Int8) ENGINE = ReplicatedCollapsingMergeTree('/clickhouse/tables/{layer}-{shard}/test/datagen', '{replica}', Sign) ORDER BY id SETTINGS replicated_deduplication_window = 0;
 
-create database if not exists print_sink_db
-comment 'test_sink'
-with (
-'connector' = 'print',
-'print-identifier' = '$tableName')
-as database `my_mysql`.`test`
-including all tables
-/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai',
-    'oceanus.source.include-metadata.fields'='table_name:table_name;database_name:database_name;op_ts:op_ts;meta.table_name:meta_table_name;meta.database_name:meta_database_name;meta.op_ts:meta_op_ts;meta.op_type:meta_op_type;meta.batch_id:meta_batch_id;meta.is_ddl:meta_id_ddl;meta.mysql_type:meta_mysql_type;meta.update_before:meta_update_before;meta.pk_names:meta_pk_names;meta.sql:meta_sql;meta.sql_type:meta_sql_type;meta.ts:meta_ts')
-    */;
+-- 基于本地表，创建分布式表
+CREATE TABLE test.datagen_all ON CLUSTER default_cluster AS test.datagen ENGINE = Distributed(default_cluster, test, datagen, id);
 ```
 
-
-
-
-## 使用方法
-1. 首先注册 MySQL 的 Catalog，作为待同步的数据源表，示例如下：
-```sql
-create catalog my_mysql with (
-    'type' = 'jdbc',
-    'default-database' = 'test',
-    'username' = 'XXX',
-    'password' = 'XXX',
-    'base-url' = 'jdbc:mysql://ip:port'
-);
-```
-2. 对于不支持的自动建表的下游系统，需要事先保证在下游系统中建立和上游 Mysql 表中一一对应的源表。
-3. 使用整库同步语法指定需要同步的同步表，其中写入目标库的参数现在只支持填入下游 connector 的必要参数。
-
-### 同步到 Hudi 示例
-```sql
-SET table.optimizer.mysql-cdc-source.merge.enabled=true;
-
-create catalog my_mysql with (
-    'type' = 'jdbc',
-    'default-database' = 'test',
-    'username' = 'root',
-    'password' = 'XXX',
-    'base-url' = 'jdbc:mysql://ip:port'
-);
-
-create database if not exists sink_db
-comment 'test_sink'
-with (
-'connector' = 'hudi',
-'path' = 'hdfs://namenode:8020/user/hive/warehouse/$tableName_mor'
-) as database `my_mysql`.`trade_log`
-including all tables
-/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai') */; -- 声明解析timestamp字段的时区类型
-```
-
-### 同步到 Doris 示例
-```sql
-SET table.optimizer.mysql-cdc-source.merge.enabled=true;
-
-create catalog my_mysql with (
-    'type' = 'jdbc',
-    'default-database' = 'test',
-    'username' = 'root',
-    'password' = 'XXX',
-    'base-url' = 'jdbc:mysql://ip:port'
-);
-
-
-
-create database if not exists sink_db
-comment 'test_sink'  with (
-'connector' = 'doris',
-'table.identifier' = 'trade_log.$tableName',
-'username' = 'admin',
-'password' = 'xxx',
-'sink.batch.size' = '500',
-'sink.batch.interval' = '1s',
-'fenodes' = 'ip:port'
-) as database `my_mysql`.`trade_log`
-including all tables
-/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai') */; -- 声明解析timestamp字段的时区类型
-```
-
-
-
-### 同步到 Hive 示例
-```sql
-SET table.optimizer.mysql-cdc-source.merge.enabled=true;
-
-create catalog my_mysql with (
-    'type' = 'jdbc',
-    'default-database' = 'test',
-    'username' = 'root',
-    'password' = 'XXX',
-    'base-url' = 'jdbc:mysql://ip:port'
-);
-
-create database if not exists sink_db
-comment 'test_sink'  with (
-'connector' = 'hive',
-'hive-version' = '2.3.6',
-'hive-database' = 'test_100',
-'hive-table' = '$tableName',
-'sink.partition-commit.policy.kind' = 'metastore'
-) as database `my_mysql`.`trade_log`
-including all tables
-/*+ `OPTIONS`('append-mode' = 'true', 'server-time-zone' = 'Asia/Shanghai') */;  
--- 因为hive sink不支持变更数据，此处的hint会把原始cdc的变更数据转成成append流下发
-```
-作业运行拓扑图展开后如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/bf442eaef6fb0702161fdcdafab8ed78.png)
-
-#### 同步到 Hive 自动建表示例:
-
-* 作业需要提前配置连接 Hive 服务的 jar 包，详细配置可以参考 [获取 Hive 连接配置 jar 包](https://cloud.tencent.com/document/product/849/55238#hive-.E9.85.8D.E7.BD.AE)
-* 因为 MySQL 中 timestamp 和 datetime 字段和 Hive 中相应类型精度不匹配，暂时不支持同步带有这两种字段的 Hive 表
+#### 仅包含 INSERT 的普通 MergeTree 建表语句
 
 ```sql
-SET table.optimizer.mysql-cdc-source.merge.enabled=true;
+-- 创建数据库
+CREATE DATABASE test ON cluster default_cluster;
 
-//注册mysql的catalog
-create catalog my_mysql with (
-    'type' = 'jdbc',
-    'default-database' = 'test',
-    'username' = 'root',
-    'password' = 'XXX',
-    'base-url' = 'jdbc:mysql://ip:port'
-);
+-- 创建本地表
+CREATE TABLE test.datagen ON cluster default_cluster (`id` Int32,`name` Nullable(String),`age` Nullable(Int32),`weight` Nullable(Float64) ) ENGINE = ReplicatedMergeTree('/clickhouse/tables/{layer}-{shard}/test/datagen', '{replica}') ORDER BY id SETTINGS replicated_deduplication_window = 0;
 
-//注册hive端catalog
-create catalog my_hive with (
-    'type' = 'hive',
-    'default-database' = 'default',
-    'hive-version' = '2.3.5'
-);
-
-create database if not exists `my_hive`.`trade_log`
-as database `my_mysql`.`trade_log`
-including all tables
-/*+ `OPTIONS`('append-mode' = 'true', 'server-time-zone' = 'Asia/Shanghai') */;  
--- 因为hive sink不支持变更数据，此处的hint会把原始cdc的变更数据转成成append流下发
-```
-
-
-
-
-
-## 使用提醒
-1. 目前只支持同步 MySQL 类型数据库作为整库同步的源表。
-2. 目前同步到目标端时，除 Hudi 和 Hive （需要提前注册 Hive Catalog）作为目标表外，其它的目标端还不支持自动建表，需要事先在目标端中建立和 Mysql 库中数据表对应的表结构。
-3. 推荐搭配 MySQL CDC Source 复用功能开启，一起使用，可以降低对数据库的压力。
-4. CDAS 语法没有限制下游输出的类型，理论上可以同步到**任意的**下游类型。
-5. 当同步的表的数量非常多的时候，flink 生成的单个 task 的 name 会非常长，导致 metric 系统占用大量的内存，影响作业稳定性，Oceanus 针对这种情况引入了 `pipeline.task-name-length` 参数来限制 taskName 的长度，能极大的提高作业稳定性和日志可读性。（适用 Flink-1.13 和 Flink-1.14 版本）。
-可以在作业的中配置生效：
-```sql
-set pipeline.task-name-length=80;
+-- 基于本地表，创建分布式表
+CREATE TABLE test.datagen_all ON CLUSTER default_cluster AS test.datagen ENGINE = Distributed(default_cluster, test, datagen, id);
 ```
