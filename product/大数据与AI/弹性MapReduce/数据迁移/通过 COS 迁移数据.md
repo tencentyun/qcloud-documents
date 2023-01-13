@@ -8,8 +8,8 @@
 配置文件统一放在工具目录里的 conf 目录，将需要同步的 HDFS 集群的 core-site.xml 拷贝到 conf 中，其中包含了 NameNode 的配置信息，编辑配置文件 cos_info.conf，包括 appid、bucket、region 以及密钥信息。
 3. 命令参数说明
 >! 
->- 建议用户使用子账号密钥，遵循 最小权限原则说明，防止泄漏目标存储桶或对象之外的资源。
->- 如果您一定要使用永久密钥，建议遵循 最小权限原则说明 对永久密钥的权限范围进行限制。
+>- 建议用户使用子账号密钥，遵循 [最小权限原则说明](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+>- 如果您一定要使用永久密钥，建议遵循 [最小权限原则说明](https://cloud.tencent.com/document/product/436/38618) 对永久密钥的权限范围进行限制。
 >
 ```
 -ak <ak>                                the cos secret id # 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考：https://cloud.tencent.com/document/product/598/37140
