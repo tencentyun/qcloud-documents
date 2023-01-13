@@ -24,7 +24,18 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ## 更新日志
 
-### IM Flutter TUIKit（含 UI） 1.3.0 @2023.01.11
+### IM Flutter TUIKit（含 UI） 1.4.0 @2023.1.13
+
+- 新增：文本消息及回复引用消息中的文字翻译功能。长按文本，选择翻译即可。可通过 `ToolTipsConfig` 的 `showTranslation` 参数控制开启。
+- 优化：长按消息弹窗的出现位置。
+- 优化：键盘弹起事件。
+
+### IM Flutter SDK（无 UI） 5.0.7 @2023.1.13
+
+- 新增：群组计数能力，普通群和直播群支持群计数器 meta counter，详情可查看groupCounter相关API
+- 新增：文本消息翻译能力，详情查看 [translateText](https://cloud.tencent.com/document/product/269/85380)。
+
+### IM Flutter TUIKit（含 UI） 1.3.0 @2023.1.11
 
 - 修复：转移群主的群 Tips 消息，无法展示新群主昵称。
 - 优化：移除点开文件前的二次确认框。
