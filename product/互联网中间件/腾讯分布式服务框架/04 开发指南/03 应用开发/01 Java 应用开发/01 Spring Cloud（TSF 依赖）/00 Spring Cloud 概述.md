@@ -4,7 +4,7 @@ TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Gre
 | Spring Cloud | Spring Boot |
 | ------------ | ----------- |
 | 2021       | 2.7.x       |
-| 2020       | 2.4.x       |
+| 2020       | 2.5.x      |
 | Hoxton     | 2.3.x       |
 | Greenwich     | 2.1.x       |
 | Finchley     | 2.0.x       |
