@@ -7,6 +7,21 @@ JVM 监控功能用于监控重要的 JVM 指标，包含已用堆内存（MB）
 > - JVM 监控能力依赖实例上安装的探针。如您发现 JVM 监控不可用（2020年9月2日前导入集群的节点默认没有携带可以支持 JVM 监控的探针），针对虚拟机部署的业务，可以通过重新导入集群或重新安装 Agent 来使用 JVM 监控能力。针对容器部署的业务，则需要在 Dockerfile 中增加 JVM 监控组件 `TencentCloudJvmMonitor-1.1.0`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.0-RELEASE.jar)）。容器部署详细操作请参见 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610)。
 > - 如果您在使用时遇到问题，请参见 [JVM 监控常见问题](https://cloud.tencent.com/document/product/649/42891)。
 
+## JVM 监控 jar 包版本信息
+JVM 监控 jar 包（即 TencentCloudJvmMonitor-x.x.x-RELEASE.jar，又称 JVM Monitor 或 JVM Agent 包），以下是 JVM 监控包的版本更新信息
+|JVM 监控版本|新增特性以及修复问题|
+|----|----|
+|[1.3.1](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.3.1-RELEASE.jar)|<li>修复方法执行分析功能模块执行异常的问题</li> |
+|[1.3.0](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.3.0-RELEASE.jar)|<li>整合 TSF 控制台新增方法执行分析功能</li><li>整合 TSF 控制台新增 GC 日志分析</li><li>修复 gcLog 文件不存在的异常提示</li><li>修复方法执行分析功能模块执行方法为空时超时的问题</li><li>修复线程方法总数计算不准确的问题</li>  |
+|[1.2.3](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.2.3-RELEASE.jar)|<li>修复安全漏洞：升级 jackson-databind 依赖版本到 2.13.2.2</li> |
+|[1.2.2](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.2.2-RELEASE.jar)|<li>修复 tsf 火焰图采集超时的 bug </li> |
+|[1.2.1](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.2.1-RELEASE.jar)|<li>添加一些 codecc 流水线配置</li> |
+|[1.2.0](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.2.0-RELEASE.jar)|<li>新增方法执行分析功能</li><li>支持 GC 日志分析</li> |
+|[1.1.3](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.3-RELEASE.jar)|<li>修复安全漏洞：升级 jackson-databind 依赖版本到 2.13.2.2</li> |
+|[1.1.2](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.2-RELEASE.jar)|<li>修复一些火焰图的 bug</li>|
+|[1.1.1](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.1-RELEASE.jar)|<li>修复一些采集的 so 依赖库</li>|
+|[1.1.0](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.1.0-RELEASE.jar)|<li>新增采集 JVM 内存、线程、火焰图等功能</li>|
+
 ## 查看 JVM 监控信息
 
 1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index)。
