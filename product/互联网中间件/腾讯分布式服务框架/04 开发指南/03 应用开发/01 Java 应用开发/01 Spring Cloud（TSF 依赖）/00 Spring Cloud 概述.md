@@ -1,14 +1,16 @@
 ## 版本配套关系说明
-TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Greenwich、Spring Cloud Hoxton 四个版本。Spring Cloud 、Spring Boot 及 TSF SDK 版本之间的关系如下表所示。
+TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Greenwich、Spring Cloud Hoxton、Spring Cloud 2020 以及 Spring Cloud 2021。Spring Cloud 、Spring Boot 及 TSF SDK 版本之间的关系如下表所示。
 
 | Spring Cloud | Spring Boot |
 | ------------ | ----------- |
+| 2021       | 2.7.x       |
+| 2020       | 2.4.x       |
 | Hoxton     | 2.3.x       |
 | Greenwich     | 2.1.x       |
 | Finchley     | 2.0.x       |
 | Edgware      | 1.5.x       |
 
->!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 版本的功能更新，Edgware 版本主要进行缺陷修复（[社区 Edgware 版本](https://spring.io/blog/2019/05/29/spring-cloud-edgware-sr6-released) 于2019年8月停止更新）。
+>!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 以及更新版本的功能迭代更新，Edgware 版本主要进行缺陷修复（[社区 Edgware 版本](https://spring.io/blog/2019/05/29/spring-cloud-edgware-sr6-released) 于2019年8月停止更新）。
 
 ### 长期维护 SDK 版本
 
@@ -34,11 +36,11 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK 的第三位版本号会�
 
 对于 TSF 私有云的用户，SDK 版本号需要和 TSF 平台版本**保持一致**，SDK 的缺陷会在第三位版本号上体现，例如用户使用 TSF 1.12.4 版本，推荐使用的 SDK 版本为 1.12.x。
 
-|TSF 私有化平台版本| Edgware|Finchley|Greenwich| Hoxton |
-|----|------|----|------|------|
-|1.40.x|-|1.40.0-Finchley-RELEASE|-|-|
-|1.29.x|-|1.29.17-Finchley-RELEASE|1.29.5-Greenwich-RELEASE|1.29.11-Hoxton-Higher-RELEASE|
-|1.23.x|-|1.23.14-Finchley-RELEASE|1.23.18-Greenwich-RELEASE|-|
-|1.21.x|-|1.21.12-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|-|
-|1.18.x|-|1.18.8-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|-|
-|1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|-|
+|TSF 私有化平台版本| Edgware|Finchley|Greenwich| Hoxton | 2020 | 2021 |
+|----|------|----|------|------|------|------|
+|1.40.x|-|1.40.0-Finchley-RELEASE|1.40.0-Greenwich-RELEASE|1.40.1-Hoxton-Higher-RELEASE|1.40.7-SpringCloud2020-RELEASE|1.40.0-SpringCloud2021-RELEASE|
+|1.29.x|-|1.29.17-Finchley-RELEASE|1.29.5-Greenwich-RELEASE|1.29.11-Hoxton-Higher-RELEASE|-|-|
+|1.23.x|-|1.23.14-Finchley-RELEASE|1.23.18-Greenwich-RELEASE|-|-|-|
+|1.21.x|-|1.21.12-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|-|-|-|
+|1.18.x|-|1.18.8-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|-|-|-|
+|1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|-|-|-|
