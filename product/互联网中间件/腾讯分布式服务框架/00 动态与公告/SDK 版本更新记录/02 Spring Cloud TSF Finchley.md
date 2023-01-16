@@ -1,5 +1,15 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+
+
+## 1.40.0-Finchley-RELEASE（2022-09-06）
+### 新特性
+- 支持微服务网关可扩展性。支持使用 TSF 网关 SDK 的同时，自定义网关路由策略、支持 websocket、支持跨域等原生网关能力。
+- Oauth 插件支持第三方鉴权地址为微服务 API 的能力。
+- 支持原生网关使用熔断治理的能力。
+- 支持服务监听触发回调。
+- 支持查看下发配置。
+
 ## 1.29.19-Finchley-RELEASE（2022-11-15）
 
 ### Bug 修复
@@ -10,16 +20,6 @@
 
 ### 新特性
 - 支持调用链中展示 oceanbase 监控。
-
-
-
-## 1.40.0-Finchley-RELEASE（2022-09-06）
-### 新特性
-- 支持微服务网关可扩展性。支持使用 TSF 网关 SDK 的同时，自定义网关路由策略、支持 websocket、支持跨域等原生网关能力。
-- Oauth 插件支持第三方鉴权地址为微服务 API 的能力。
-- 支持原生网关使用熔断治理的能力。
-- 支持服务监听触发回调。
-- 支持查看下发配置。
 
 ## 1.29.17-Finchley-RELEASE（2022-09-06）
 ### Bug 修复
@@ -42,7 +42,7 @@
 - 修复 invocation AggregatedStat 数据合并的问题。
 
 ### 版本建议
-部分场景可能因为 ShardingConnection 而启动失败，建议升级到 1.29.15-Finchley-RELEASE。
+部分场景可能因为 ShardingConnection 而启动失败，建议升级到 1.29.17-Finchley-RELEASE 或以上的版本
 
 ## 1.29.13-Finchley-RELEASE（2022-06-07）
 ### Bug 修复
