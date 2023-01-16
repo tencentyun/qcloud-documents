@@ -148,11 +148,11 @@ bash +x tencentcloud-cls-k8s-install.sh
   wget http://mirrors.tencent.com/install/cls/k8s/upgrade/upgrade.sh
   ```
 
-  ```
+    ```
   chmod +x upgrade.sh
-  ```
+    ```
 
-  ```
+    ```
   ./upgrade.sh
   ```
 
@@ -161,11 +161,11 @@ bash +x tencentcloud-cls-k8s-install.sh
   wget http://mirrors.tencent.com/install/cls/k8s/upgrade/upgrade-1.13.sh
   ```
 
-  ```
+    ```
   chmod +x upgrade-1.13.sh
   ```
 
-  ```
+    ```
   ./upgrade-1.13.sh
   ```
 
