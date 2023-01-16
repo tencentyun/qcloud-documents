@@ -3,7 +3,7 @@
 基于 Spring Cloud 2021 版本 SDK，支持 spring boot 2.7.5。
 
 <dx-alert infotype="notice" title="">
-Spring Cloud 2021 SDK 的调用链、监控功能需使用 OpenTelemetry Agent，具体使用方式参考  [Spring Cloud 2020/2021 SDK 使用说明](https://cloud.tencent.com/document/product/649/81429) 文档。
+Spring Cloud 2021 SDK 的调用链、监控功能需使用 OpenTelemetry Agent，具体使用方式参考  [Spring Cloud 2020 & 2021 SDK 使用说明](https://cloud.tencent.com/document/product/649/81429) 文档。
 </dx-alert>
 
 ## 1.40.0-SpringCloud2021-RELEASE（2023-01-06）
