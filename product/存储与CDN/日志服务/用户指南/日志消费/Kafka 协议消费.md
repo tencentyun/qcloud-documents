@@ -52,7 +52,9 @@ Kafka协议消费者的参数说明如下：
 </tr>
 <tr>
 <td>hosts</td>
-<td>内网消费:kafkaconsumer-${region}.cls.tencentyun.com:9095，外网消费:kafkaconsumer-${region}.cls.tencentcs.com:9096，详细参见 <a href="https://cloud.tencent.com/document/product/614/18940#Kafka_Consume">可用域名- Kafka 消费日志</a>。</td>
+<td>内网消费:kafkaconsumer-${region}.cls.tencentyun.com:9095；
+
+外网消费:kafkaconsumer-${region}.cls.tencentcs.com:9096，详细参见 <a href="https://cloud.tencent.com/document/product/614/18940#Kafka_Consume">可用域名- Kafka 消费日志</a>。</td>
 </tr>
 <tr>
 <td>topic</td>
