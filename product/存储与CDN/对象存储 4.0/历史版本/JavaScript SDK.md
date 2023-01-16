@@ -148,7 +148,7 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 
 ### 大文件分片上传
 
-接口说明：通常用于较大文件(一般大于20MB)的上传，可以通过此接口大的文件并获得文件的url。
+接口说明：通常用于较大文件(一般大于20MB)的上传，可以通过此接口上传较大的文件并获得文件的 url。
 
 #### 方法原型
 
