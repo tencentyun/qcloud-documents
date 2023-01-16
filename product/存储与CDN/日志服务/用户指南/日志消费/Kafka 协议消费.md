@@ -36,7 +36,7 @@
 3. 在日志主题管理页面中，单击 **Kafka 协议消费**页签。
 4. 单击右侧的**编辑**，将“当前状态”的开关按钮设置为打开状态后，单击**确定**。
 5. 控制台给出 Topic、host+port 的信息。用户可以复制信息，构造消费者 SDK。
-![](https://qcloudimg.tencent-cloud.cn/raw/5057398d87b6635b903e0cb7bd86bab8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/98304b48af00dc7a2200249ddfccd8ee.png)
 
 ## 消费者参数说明
 
@@ -118,7 +118,8 @@ CREATE TABLE `nginx_source`
   'topic' = '${APPID}-${日志主题ID}',  
   # 服务地址+端口，外网端口9096，内网端口9095,列子是内网消费，请根据您的实际情况填写
   'properties.bootstrap.servers' = 'kafkaconsumer-${region}.cls.tencentyun.com:9095',       
-  'properties.group.id' = 'YourConsumerGroup', 
+    # 请替换为您的消费组名称   
+  'properties.group.id' = '您的消费组名称',  
   'scan.startup.mode' = 'earliest-offset', 
   'format' = 'json',
   'json.fail-on-missing-field' = 'false', 
@@ -172,8 +173,9 @@ CREATE TABLE `nginx_source`
   #消费主题，用APPID-日志主题ID拼接，例如"123456-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX"
   'topic' = '${APPID}-${日志主题ID}',  
   # 服务地址+端口，外网端口9096，内网端口9095,列子是内网消费，请根据您的实际情况填写
-  'properties.bootstrap.servers' = 'kafkaconsumer-${region}.cls.tencentyun.com:9095',       
-  'properties.group.id' = 'YourConsumerGroup', 
+  'properties.bootstrap.servers' = 'kafkaconsumer-${region}.cls.tencentyun.com:9095', 
+   # 请替换为您的消费组名称   
+  'properties.group.id' = '您的消费组名称', 
   'scan.startup.mode' = 'earliest-offset', 
   'format' = 'json',
   'json.fail-on-missing-field' = 'false', 
@@ -216,7 +218,8 @@ a1.sources.source_kafka.batchDurationMillis = 200000
 a1.sources.source_kafka.kafka.bootstrap.servers = $kafkaconsumer-${region}.cls.tencentyun.com:9095
 #消费主题，用APPID-日志主题ID拼接，例如"123456-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX" 
 a1.sources.source_kafka.kafka.topics = ${APPID}-${日志主题ID}  
-a1.sources.source_kafka.kafka.consumer.group.id = YourConsumerGroup
+#请替换为您的消费组名称
+a1.sources.source_kafka.kafka.consumer.group.id = 您的消费组名称
 a1.sources.source_kafka.kafka.consumer.auto.offset.reset = earliest
 a1.sources.source_kafka.kafka.consumer.security.protocol = SASL_PLAINTEXT
 a1.sources.source_kafka.kafka.consumer.sasl.mechanism = PLAIN
