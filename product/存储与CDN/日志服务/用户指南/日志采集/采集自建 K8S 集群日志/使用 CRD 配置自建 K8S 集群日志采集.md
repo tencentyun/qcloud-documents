@@ -81,7 +81,7 @@ spec:
     maxSplitPartitions:	10		     	## Integer 类型，最大分裂数量。
     tags:                             		## 标签描述列表，通过指定该参数可以同时绑定标签到相应的日志主题。最大支持9个标签键值对，同一个资源只能绑定到同一个标签键下。
       - key: xxx						  	## 标签key
-       value: xxx                         	## 标签value
+        value: xxx                        	## 标签value
     # 定义采集规则
     logType: json_log  			   		## 日志解析格式，json_log代表 json 格式，delimiter_log代表分隔符格式，minimalist_log代表单行全文格式，multiline_log代表多行全文格式，fullregex_log代表单行完全正则格式，multiline_fullregex_log代表多行完全正则格式。默认为minimalist_log
     logFormat: xxx                        	## 日志格式化方式
@@ -91,8 +91,8 @@ spec:
     userDefineRule: xxxxxx             	   ## 用户自定义采集规则，Json格式序列化的字符串
     extractRule: {}                   		## 提取、过滤规则。 如果设置了ExtractRule，则必须设置LogType，详情参考extractRule对象说明
     AdvancedConfig:				   		## 高级采集配置
-    	MaxDepth: 1					   	## 最大目录深度
-    FileTimeout: 60				       	## 文件超时属性
+      MaxDepth: 1					     	## 最大目录深度
+      FileTimeout: 60				     	## 文件超时属性
     # 定义索引配置。定义后不可修改
     indexs: 							  	## 创建 topic 时可自定义索引方式和字段
       - indexName:   				 		## 需要配置键值或者元字段索引的字段，元字段Key无需额外添加__TAG__.前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加__TAG__.前缀
