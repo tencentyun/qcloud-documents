@@ -514,7 +514,7 @@ typedef void (*TIMConvTotalUnreadMessageCountChangedCallback)(int total_unread_c
 | user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
 
 
-## TIMConvTotalUnreadMessageCountChangedByFilterCallback
+### TIMConvTotalUnreadMessageCountChangedByFilterCallback
 
 会话未读消息总数变化。
 
