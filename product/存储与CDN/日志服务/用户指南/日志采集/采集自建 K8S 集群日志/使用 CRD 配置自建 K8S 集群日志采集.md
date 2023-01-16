@@ -50,13 +50,13 @@ LogConfig.yaml 声明文件主要分为如下两部分：
 
 ```yaml
 apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig                 ## 默认值
+kind: LogConfig                               ## 默认值
 metadata:
-  name: test										## CRD资源名，在集群内唯一
+  name: test						      	## CRD资源名，在集群内唯一
 spec:
-  clsDetail:										## 投递到CLS的配置
+  clsDetail:							  	## 投递到CLS的配置
     ...
-  inputDetail:                  ## 日志源配置
+  inputDetail:                                ## 日志源配置
     ...
 ```
 
@@ -67,39 +67,39 @@ spec:
   clsDetail:
     # 自动创建日志主题，需要同时指定日志集和主题的name。定义后不可修改
   	logsetName: test                    	## CLS日志集的name，若无该name的日志集，会自动创建，若有，会在该日志集下创建日志主题
-    topicName: test                     	## CLS日志主题的name，若无该name的日志主题，会自动创建
-		# 选择已有日志集日志主题， 如果指定了日志集未指定日志主题，则会自动创建一个日志主题。定义后不可修改
-    logsetId: xxxxxx-xx-xx-xx-xxxxxxxx  	## CLS日志集的ID，日志集需要在CLS中提前创建
-    topicId: xxxxxx-xx-xx-xx-xxxxxxxx   	## CLS日志主题的ID，日志主题需要在CLS中提前创建，且没有被其它采集配置占用
-    region: ap-xxx                     		## topic 所在地域，用于跨地域投递
+    topicName: test                     	  ## CLS日志主题的name，若无该name的日志主题，会自动创建
+	# 选择已有日志集日志主题， 如果指定了日志集未指定日志主题，则会自动创建一个日志主题。定义后不可修改
+    logsetId: xxxxxx-xx-xx-xx-xxxxxxxx  	  ## CLS日志集的ID，日志集需要在CLS中提前创建
+    topicId: xxxxxx-xx-xx-xx-xxxxxxxx   	  ## CLS日志主题的ID，日志主题需要在CLS中提前创建，且没有被其它采集配置占用
+    region: ap-xxx                        	## topic 所在地域，用于跨地域投递
     # 自动创建日志主题时， 定义日志主题配置。 定义后不可修改
-    period: 30					        					## 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存
+    period: 30					        	## 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存
     storageType: hot                  		## 日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。
-    HotPeriod: 7                          ## 沉降周期，单位天。可取值范围1~3600。仅在storageType:hot时生效
-    partitionCount:                     	## Integer 类型，日志主题分区个数。默认创建1个，最大支持创建10个分区。
-    autoSplit: true												## boolen 类型，是否开启自动分裂，默认值为true
-    maxSplitPartitions:	10								## Integer 类型，最大分裂数量。
+    HotPeriod: 7                              ## 沉降周期，单位天。可取值范围1~3600。仅在storageType:hot时生效
+    partitionCount:                       	## Integer 类型，日志主题分区个数。默认创建1个，最大支持创建10个分区。
+    autoSplit: true					   	## boolen 类型，是否开启自动分裂，默认值为true
+    maxSplitPartitions:	10		     	## Integer 类型，最大分裂数量。
     tags:                             		## 标签描述列表，通过指定该参数可以同时绑定标签到相应的日志主题。最大支持9个标签键值对，同一个资源只能绑定到同一个标签键下。
-     - key: xxx							  						## 标签key
-       value: xxx                      		## 标签value
+     - key: xxx						   	## 标签key
+       value: xxx                         	## 标签value
     # 定义采集规则
-    logType: json_log  										## 日志解析格式，json_log代表 json 格式，delimiter_log代表分隔符格式，minimalist_log代表单行全文格式，multiline_log代表多行全文格式，fullregex_log代表单行完全正则格式，multiline_fullregex_log代表多行完全正则格式。默认为minimalist_log
-    logFormat: xxx                      	## 日志格式化方式
-    excludePaths:                      		## 采集黑名单路径列表
-      - type: File						  					##  类型，选填File或Path 
-        value: /xx/xx/xx/xx.log         	## type 对应的值
-    userDefineRule: xxxxxx             		## 用户自定义采集规则，Json格式序列化的字符串
-    extractRule: {}                    		## 提取、过滤规则。 如果设置了ExtractRule，则必须设置LogType，详情参考extractRule对象说明
-    AdvancedConfig:												## 高级采集配置
-    	MaxDepth: 1													## 最大目录深度
-    	FileTimeout: 60											## 文件超时属性
+    logType: json_log  			   		## 日志解析格式，json_log代表 json 格式，delimiter_log代表分隔符格式，minimalist_log代表单行全文格式，multiline_log代表多行全文格式，fullregex_log代表单行完全正则格式，multiline_fullregex_log代表多行完全正则格式。默认为minimalist_log
+    logFormat: xxx                        	## 日志格式化方式
+    excludePaths:                     		## 采集黑名单路径列表
+      - type: File							##  类型，选填File或Path 
+        value: /xx/xx/xx/xx.log           	## type 对应的值
+    userDefineRule: xxxxxx             	   ## 用户自定义采集规则，Json格式序列化的字符串
+    extractRule: {}                   		## 提取、过滤规则。 如果设置了ExtractRule，则必须设置LogType，详情参考extractRule对象说明
+    AdvancedConfig:				   		## 高级采集配置
+    	MaxDepth: 1					   	## 最大目录深度
+    	FileTimeout: 60				   	## 文件超时属性
     # 定义索引配置。定义后不可修改
-    indexs: 							 								## 创建 topic 时可自定义索引方式和字段
-      - indexName:   											## 需要配置键值或者元字段索引的字段，元字段Key无需额外添加__TAG__.前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加__TAG__.前缀
-        indexType:  											## 字段类型，目前支持的类型有：long、text、double
-        tokenizer:  											## 字段的分词符，其中的每个字符代表一个分词符；仅支持英文符号及\n\t\r；long及double类型字段需为空；text类型字段推荐使用 @&?|#()='",;:<>[]{}/ \n\t\r\ 作为分词符；
-        sqlFlag:   												## boolen 字段是否开启分析功能
-        containZH: 												## boolen 是否包含中文
+    indexs: 							  	## 创建 topic 时可自定义索引方式和字段
+      - indexName:   				 		## 需要配置键值或者元字段索引的字段，元字段Key无需额外添加__TAG__.前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加__TAG__.前缀
+        indexType:  		      			## 字段类型，目前支持的类型有：long、text、double
+        tokenizer:  				  		## 字段的分词符，其中的每个字符代表一个分词符；仅支持英文符号及\n\t\r；long及double类型字段需为空；text类型字段推荐使用 @&?|#()='",;:<>[]{}/ \n\t\r\ 作为分词符；
+        sqlFlag:   				   		## boolen 字段是否开启分析功能
+        containZH: 	       				## boolen 是否包含中文
 ```
 
 **extractRule 对象说明**
@@ -341,59 +341,59 @@ time: [Tue Jan 22 14:49:45 CST 2019 +0800]
 
 ```yaml
   inputDetail:
-    type: container_stdout   						## 指定采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）、host_file（主机文件）
-    containerStdout:        						## 容器标准输出配置，仅在type:container_stdout时生效
-      namespace: default   			 				## 采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：default,namespace。 如果不指定，代表所有命名空间。注意：与 excludeNamespace 不能同时指定
-      excludeNamespace: nm1,nm2   			## 排除采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：nm1,nm2。 如果不指定，代表所有命名空间。 注意：与 namespace 不能同时指定
+    type: container_stdout   			    	## 指定采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）、host_file（主机文件）
+    containerStdout:        				 	## 容器标准输出配置，仅在type:container_stdout时生效
+      namespace: default   			 	 	## 采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：default,namespace。 如果不指定，代表所有命名空间。注意：与 excludeNamespace 不能同时指定
+      excludeNamespace: nm1,nm2   		   	## 排除采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：nm1,nm2。 如果不指定，代表所有命名空间。 注意：与 namespace 不能同时指定
 	  	nsLabelSelector: environment in (production),tier in (frontend) ## 根据命名空间label 筛选符合的 namespace
       allContainers: false      			 	## 是否采集指定命名空间中的所有容器的标准输出。注意:allContainers=true 时不能同时指定 workload，includeLabels 和 excludeLabels
-      containerOperator: in             ## container选择方式， 包含填in，排除填not in
+      containerOperator: in                      ## container选择方式， 包含填in，排除填not in
       container: xxx             				## 指定采集或不采集日志的容器名
-      includeLabels:  									## 采集包含指定label的Pod，与workload不能同时指定
-        key: value1   									## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被匹配，注意输入多个value值时请使用逗号隔开。 如果同时指定了 excludeLabels，则匹配与 excludeLabels 交集的pod
-      excludeLabels:  									## 采集不包含包含指定label的Pod，与workload，namespace 和 excludeNamespace 不能同时指定
-        key2: value2  									## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被排除，注意输入多个value值时请使用逗号隔开。如果同时指定了 includeLabels，则匹配与 includeLabels 交集的pod
+      includeLabels:  					   	## 采集包含指定label的Pod，与workload不能同时指定
+        key: value1   					   	## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被匹配，注意输入多个value值时请使用逗号隔开。 如果同时指定了 excludeLabels，则匹配与 excludeLabels 交集的pod
+      excludeLabels:  						   ## 采集不包含包含指定label的Pod，与workload，namespace 和 excludeNamespace 不能同时指定
+        key2: value2  					   	## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被排除，注意输入多个value值时请使用逗号隔开。如果同时指定了 includeLabels，则匹配与 includeLabels 交集的pod
       metadataLabels:            				## 指定具体哪些pod label被当做元数据采集，如果不指定，则采集所有pod label为元数据
       - label1
-      metadataContainer:								## 指定具体哪些容器环境相关元数据被采集，如果不指定，则采集所有容器环境相关元数据（namespace,pod_name,pod_ip,pod_uid,container_id,container_name,image_name）
+      metadataContainer:					 	## 指定具体哪些容器环境相关元数据被采集，如果不指定，则采集所有容器环境相关元数据（namespace,pod_name,pod_ip,pod_uid,container_id,container_name,image_name）
       - namespace
       customLabels:              				## 用户自定义metadata
         label: l1
-      workloads:												## 采集指定命名空间 -> 指定工作负载类型中 -> 指定工作负载 -> 指定容器中的日志
-      - container: xxx    							## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
-        containerOperator: in           ## container选择方式， 包含填in，排除填not in
-        kind: deployment  							## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-        name: sample-app  							## workload的名字
-        namespace: prod   							## workload的命名空间
+      workloads:						 		## 采集指定命名空间 -> 指定工作负载类型中 -> 指定工作负载 -> 指定容器中的日志
+      - container: xxx    			   		## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
+        containerOperator: in                    ## container选择方式， 包含填in，排除填not in
+        kind: deployment  			   		## workload类型，支持deployment、daemonset、statefulset、job、cronjob
+        name: sample-app  			   		## workload的名字
+        namespace: prod   			   		## workload的命名空间
 		
-    containerFile:  										## 容器内文件配置，仅在type:container_file时生效
-      namespace: default      					## 采集容器的kubernetes命名空间，必须指定一个命名空间	  
-      excludeNamespace: nm1,nm2   			## 排除采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：nm1,nm2。 如果不指定，代表所有命名空间。 注意：与 namespace 不能同时指定
+    containerFile:  				 			## 容器内文件配置，仅在type:container_file时生效
+      namespace: default      			   	## 采集容器的kubernetes命名空间，必须指定一个命名空间	  
+      excludeNamespace: nm1,nm2   	       	## 排除采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：nm1,nm2。 如果不指定，代表所有命名空间。 注意：与 namespace 不能同时指定
       nsLabelSelector: environment in (production),tier in (frontend) ## 根据命名空间label 筛选符合的 namespace
-      containerOperator: in             ## container选择方式， 包含填in，排除填not in
-      container: xxx          					## 采集日志的容器名，为 * 时，代表采集所有符合容器的日志名
-      logPath: /var/logs      					## 日志文件夹，不支持通配符
-      filePattern: app_*.log 					 	## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
-      includeLabels:  									## 采集包含指定label的Pod，与workload不能同时指定
-        key: value1   									## 收集规则收集的日志会带上metadata，并上报到消费端。支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被匹配，注意输入多个value值时请使用逗号隔开。 如果同时指定了 excludeLabels，则匹配与 excludeLabels 交集的pod
-      excludeLabels:  									## 采集不包含包含指定label的Pod，与workload不能同时指定
-        key2: value2 										## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被排除，注意输入多个value值时请使用逗号隔开。如果同时指定了 includeLabels，则匹配与 includeLabels 交集的pod
-      metadataLabels:        						## 指定具体哪些pod label被当做元数据采集，如果不指定，则采集所有pod label为元数据
+      containerOperator: in                      ## container选择方式， 包含填in，排除填not in
+      container: xxx          			   	## 采集日志的容器名，为 * 时，代表采集所有符合容器的日志名
+      logPath: /var/logs      			   	## 日志文件夹，不支持通配符
+      filePattern: app_*.log 					## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
+      includeLabels:  					   	## 采集包含指定label的Pod，与workload不能同时指定
+        key: value1   					   	## 收集规则收集的日志会带上metadata，并上报到消费端。支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被匹配，注意输入多个value值时请使用逗号隔开。 如果同时指定了 excludeLabels，则匹配与 excludeLabels 交集的pod
+      excludeLabels:  					   	## 采集不包含包含指定label的Pod，与workload不能同时指定
+        key2: value2 							## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被排除，注意输入多个value值时请使用逗号隔开。如果同时指定了 includeLabels，则匹配与 includeLabels 交集的pod
+      metadataLabels:        		        	## 指定具体哪些pod label被当做元数据采集，如果不指定，则采集所有pod label为元数据
       - namespace
-      metadataContainer:								## 指定具体哪些容器环境相关元数据被采集，如果不指定，则采集所有容器环境相关元数据（namespace,pod_name,pod_ip,pod_uid,container_id,container_name,image_name）
-      customLabels:   									## 用户自定义metadata
+      metadataContainer:				     	## 指定具体哪些容器环境相关元数据被采集，如果不指定，则采集所有容器环境相关元数据（namespace,pod_name,pod_ip,pod_uid,container_id,container_name,image_name）
+      customLabels:   					   	## 用户自定义metadata
         key: value
       workload:
-      	container: xxx    							## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
-        containerOperator: in           ## container选择方式， 包含填in，排除填not in
-        kind: deployment  							## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-        name: sample-app  							## workload的名字
-        namespace: prod									## workload的命名空间
+      	container: xxx    				 	## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
+        containerOperator: in                    ## container选择方式， 包含填in，排除填not in
+        kind: deployment  				   	## workload类型，支持deployment、daemonset、statefulset、job、cronjob
+        name: sample-app  					   ## workload的名字
+        namespace: prod					  	## workload的命名空间
 
-    hostFile:                						## 节点文件路径，仅在type:host_file时生效
-      filePattern: '*.log'   						## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
-      logPath: /tmp/logs     						## 日志文件夹，不支持通配符
-      customLabels:          						## 用户自定义metadata
+    hostFile:                					## 节点文件路径，仅在type:host_file时生效
+      filePattern: '*.log'   					## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
+      logPath: /tmp/logs     					## 日志文件夹，不支持通配符
+      customLabels:          					## 用户自定义metadata
         label1: v1
 ```
 
