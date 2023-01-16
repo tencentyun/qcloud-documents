@@ -14,7 +14,6 @@ TUIKit 从 v1.3.1 版本开始，已支持表情回应功能。
 </table>
 
 ## 开启表情回应
-TUIChat 提供会话列表功能。
 在 TUIChat 顶层提供了“表情回应”功能开关 **isNeedEmojiReact** , 其类型为 boolean，默认为 true 。
 <dx-codeblock>
  :::  html
