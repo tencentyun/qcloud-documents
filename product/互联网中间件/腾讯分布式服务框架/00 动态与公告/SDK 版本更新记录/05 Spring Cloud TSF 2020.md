@@ -3,7 +3,7 @@
 基于 Spring Cloud 2020 版本 SDK，支持 spring boot 2.5.14（TSF SDK 1.40.7-SpringCloud2020-RELEASE及其之后的版本）和 spring boot 2.4.3（TSF SDK 1.40.7-SpringCloud2020-RELEASE之前的版本），推荐使用 2.5.14 版本。
 
 <dx-alert infotype="notice" title="">
-从 Spring Cloud 2020 SDK 开始，调用链、监控功能需使用 OpenTelemetry Agent，具体使用方式参考  [Spring Cloud 2020/2021 SDK 使用说明](https://cloud.tencent.com/document/product/649/81429) 文档。
+Spring Cloud 2020 SDK 的调用链、监控功能需使用 OpenTelemetry Agent，具体使用方式参考  [Spring Cloud 2020/2021 SDK 使用说明](https://cloud.tencent.com/document/product/649/81429) 文档。
 </dx-alert>
 
 
