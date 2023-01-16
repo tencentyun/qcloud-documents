@@ -486,7 +486,7 @@ playerModel.multiVideoURLs = multiVideoURLs;
 ```
 
 
->! 视频文件下载无网络播放时，一定要通过获取下载列表并通过下载列表视频对象`TXxiodDownloadMediaInfo` 的 `PlayPath` 进行播放，切勿直接保存 PlayPath 对象。
+>! 视频文件下载无网络播放时，一定要通过获取下载列表并通过下载列表视频对象`TXVodDownloadMediaInfo` 的 `PlayPath` 进行播放，切勿直接保存 PlayPath 对象。
 
 ### 雪碧图和打点信息
 
