@@ -58,7 +58,7 @@ Kafka协议消费者的参数说明如下：
 </tr>
 <tr>
 <td>topic</td>
-<td>配置为${APPID}-${日志主题ID}。APPID在用户信息-基本信息中查询, 也可以kafka协议消费的控制台中复制</td>
+<td>配置为${APPID}-${日志主题ID}。APPID在用户信息-基本信息中查询, 也可以kafka协议消费的控制台中复制。</td>
 </tr>
 <tr>
 <td>username</td>
