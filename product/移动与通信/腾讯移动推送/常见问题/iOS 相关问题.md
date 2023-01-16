@@ -192,7 +192,12 @@ Xcode 调试提示“Error Domain=NSCocoaErrorDomain Code=1001 "APNS请求token�
 	3. 重新编译。如果有编译错误针对修改。
 
 
+###  为什么走 APNs 通道下发，提示：无消息抵达数据？
 
+
+**排查思路**：
+1. 请确认是否有 [配置抵达插件](https://cloud.tencent.com/document/product/548/36667)，否则抵达数据无法上报。
+2. 可能只是抵达事件没有采集到，实际已经下发到手机了（不会影响实际推送效果）。检查手机网络是否正常，或者存在APNs下发延迟。
 
 
 
