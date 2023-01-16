@@ -1,7 +1,8 @@
-﻿## 功能描述
+
+## 功能描述
 TUIKit 从 v1.3.1 版本开始，已支持表情回应功能。
 “表情回应”功能采用消息变更实现，在开启“表情回应”功能前，需要将您的 IMSDK 升级至 v2.20.0 及以上版本以支持消息变更操作。
-更多消息变更相关内容详见：[消息变更](https://cloud.tencent.com/document/product/269/75328)
+更多消息变更相关内容详见：[消息变更](https://cloud.tencent.com/document/product/269/75328)。
 <table style="text-align:center;vertical-align:middle;width:1000px;overflow-x:auto;">
   <tr>
     <th style="text-align:center;" width="500px">开启“表情回应”<br></th>
