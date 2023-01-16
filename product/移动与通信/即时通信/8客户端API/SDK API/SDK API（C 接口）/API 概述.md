@@ -1,3 +1,8 @@
+<style>
+table th:nth-of-type(1) { width: 50%; }
+table th:nth-of-type(2) { width: 50%; }
+</style>
+
 腾讯即时通信 IM 的跨平台 C 接口（API）。
 
 **各个平台的下载链接：**
