@@ -66,7 +66,7 @@ spec:
 ```yaml
   clsDetail:
     # 自动创建日志主题，需要同时指定日志集和主题的name。定义后不可修改
-  	logsetName: test                    	## CLS日志集的name，若无该name的日志集，会自动创建，若有，会在该日志集下创建日志主题
+    logsetName: test                      	## CLS日志集的name，若无该name的日志集，会自动创建，若有，会在该日志集下创建日志主题
     topicName: test                     	  ## CLS日志主题的name，若无该name的日志主题，会自动创建
 	# 选择已有日志集日志主题， 如果指定了日志集未指定日志主题，则会自动创建一个日志主题。定义后不可修改
     logsetId: xxxxxx-xx-xx-xx-xxxxxxxx  	  ## CLS日志集的ID，日志集需要在CLS中提前创建
@@ -80,7 +80,7 @@ spec:
     autoSplit: true					   	## boolen 类型，是否开启自动分裂，默认值为true
     maxSplitPartitions:	10		     	## Integer 类型，最大分裂数量。
     tags:                             		## 标签描述列表，通过指定该参数可以同时绑定标签到相应的日志主题。最大支持9个标签键值对，同一个资源只能绑定到同一个标签键下。
-     - key: xxx						   	## 标签key
+      - key: xxx						  	## 标签key
        value: xxx                         	## 标签value
     # 定义采集规则
     logType: json_log  			   		## 日志解析格式，json_log代表 json 格式，delimiter_log代表分隔符格式，minimalist_log代表单行全文格式，multiline_log代表多行全文格式，fullregex_log代表单行完全正则格式，multiline_fullregex_log代表多行完全正则格式。默认为minimalist_log
@@ -92,7 +92,7 @@ spec:
     extractRule: {}                   		## 提取、过滤规则。 如果设置了ExtractRule，则必须设置LogType，详情参考extractRule对象说明
     AdvancedConfig:				   		## 高级采集配置
     	MaxDepth: 1					   	## 最大目录深度
-    	FileTimeout: 60				   	## 文件超时属性
+    FileTimeout: 60				       	## 文件超时属性
     # 定义索引配置。定义后不可修改
     indexs: 							  	## 创建 topic 时可自定义索引方式和字段
       - indexName:   				 		## 需要配置键值或者元字段索引的字段，元字段Key无需额外添加__TAG__.前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加__TAG__.前缀
@@ -345,7 +345,7 @@ time: [Tue Jan 22 14:49:45 CST 2019 +0800]
     containerStdout:        				 	## 容器标准输出配置，仅在type:container_stdout时生效
       namespace: default   			 	 	## 采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：default,namespace。 如果不指定，代表所有命名空间。注意：与 excludeNamespace 不能同时指定
       excludeNamespace: nm1,nm2   		   	## 排除采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：nm1,nm2。 如果不指定，代表所有命名空间。 注意：与 namespace 不能同时指定
-	  	nsLabelSelector: environment in (production),tier in (frontend) ## 根据命名空间label 筛选符合的 namespace
+	  nsLabelSelector: environment in (production),tier in (frontend) ## 根据命名空间label 筛选符合的 namespace
       allContainers: false      			 	## 是否采集指定命名空间中的所有容器的标准输出。注意:allContainers=true 时不能同时指定 workload，includeLabels 和 excludeLabels
       containerOperator: in                      ## container选择方式， 包含填in，排除填not in
       container: xxx             				## 指定采集或不采集日志的容器名
@@ -384,7 +384,7 @@ time: [Tue Jan 22 14:49:45 CST 2019 +0800]
       customLabels:   					   	## 用户自定义metadata
         key: value
       workload:
-      	container: xxx    				 	## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
+    	container: xxx    	  			 	## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
         containerOperator: in                    ## container选择方式， 包含填in，排除填not in
         kind: deployment  				   	## workload类型，支持deployment、daemonset、statefulset、job、cronjob
         name: sample-app  					   ## workload的名字
