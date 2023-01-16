@@ -54,7 +54,6 @@
 
 
 
-
 ### 步骤2：使用子账号登录验证权限[](id:step2)
 1. 使用子用户登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1)，进入实例列表页面。此时 CVM 页面会提示缺少 VPC 产品 DescribeVpcEx 以及对应资源的权限。
 2. 根据页面提示内容，联系管理员账号在策略中添加对应授权。

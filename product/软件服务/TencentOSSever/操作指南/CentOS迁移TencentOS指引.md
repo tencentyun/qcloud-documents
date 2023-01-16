@@ -46,8 +46,8 @@ CentOS 7.2、CentOS 7.3公共镜像可能默认包含了32位的软件包，需�
  - 业务程序依赖于某个固定的内核版本，或者自行编译了内核模块。
 迁移后的目标版本是 tkernel4，基于5.4的内核。该版本较 CentOS 7及 CentOS 8的内核版本更新，一些较旧的特性在新版本可能会发生变化。建议强依赖于内核的用户了解所依赖的特性，或可咨询 [腾讯云助手](https://cloud.tencent.com/product/tca)。
  - 业务程序依赖某个固定的 gcc 版本。
-目前 TencentOS 2.4默认安装 gcc 4.8.5，TencentOS 3.1默认安装 gcc 8.5。
-- 迁移结束后，需重启才能进入TencentOS 内核。
+目前 TencentOS Server 2.4默认安装 gcc 4.8.5，TencentOS Server 3.1默认安装 gcc 8.5。
+- 迁移结束后，需重启才能进入TencentOS Server 内核。
 - 迁移不影响数据盘，仅 OS 层面的升级，不会对数据盘进行任何操作。
 
 ## 资源要求
@@ -62,7 +62,7 @@ CentOS 7.2、CentOS 7.3公共镜像可能默认包含了32位的软件包，需�
 
 ### 执行迁移
 <dx-tabs>
-::: CentOS 7系列迁移至 TencentOS 2.4（TK4）
+::: CentOS 7系列迁移至 TencentOS Server 2.4（TK4）
 1. 登录目标云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装 Python 3。
 ```shell

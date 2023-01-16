@@ -1,3 +1,22 @@
+
+### 2.26.0 @2023.1.13
+
+**新增**
+
+- [translateText](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#translateText) 接口，支持翻译文本。
+- [setGroupCounters](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupCounters) 接口，支持设置群计数器。接入侧可通过此接口实现一些常见的计数功能，如点赞计数、直播群礼物计数、观看人数计数等。
+- [increaseGroupCounter](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#increaseGroupCounter) 接口，递增群计数器。
+- [decreaseGroupCounter](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#decreaseGroupCounter) 接口，递减群计数器。
+- [getGroupCounters](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupCounters) 接口，获取群计数器。
+- 支持拉取群消息撤回信令，提升弱网下群消息被撤回状态的准确性。
+- [Message](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 新增字段 `revoker`，标识消息撤回者的 `userID`。
+
+**修复**
+
+- 跨站购买的号段未被识别为国际站。
+- 重复登录日志提示的 userID 错误。
+
+
 ### 2.25.0 @2022.12.8
 
 **新增**
