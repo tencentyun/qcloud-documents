@@ -38,9 +38,9 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK 的第三位版本号会�
 
 |TSF 私有化平台版本| Edgware|Finchley|Greenwich| Hoxton | 2020 | 2021 |
 |----|------|----|------|------|------|------|
-|1.40.x|-|1.40.0-Finchley-RELEASE|1.40.0-Greenwich-RELEASE|1.40.1-Hoxton-Higher-RELEASE|1.40.7-SpringCloud2020-RELEASE|1.40.0-SpringCloud2021-RELEASE|
-|1.29.x|-|1.29.17-Finchley-RELEASE|1.29.5-Greenwich-RELEASE|1.29.11-Hoxton-Higher-RELEASE|-|-|
-|1.23.x|-|1.23.14-Finchley-RELEASE|1.23.18-Greenwich-RELEASE|-|-|-|
-|1.21.x|-|1.21.12-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|-|-|-|
-|1.18.x|-|1.18.8-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|-|-|-|
-|1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|-|-|-|
+|1.40.x|-|1.40.x-Finchley-RELEASE|1.40.x-Greenwich-RELEASE|1.40.x-Hoxton-Higher-RELEASE|1.40.x-SpringCloud2020-RELEASE|1.40.x-SpringCloud2021-RELEASE|
+|1.29.x|-|1.29.x-Finchley-RELEASE|1.29.x-Greenwich-RELEASE|1.29.x-Hoxton-Higher-RELEASE|-|-|
+|1.23.x|-|1.23.x-Finchley-RELEASE|1.23.x-Greenwich-RELEASE|-|-|-|
+|1.21.x|-|1.21.x-Finchley-RELEASE|1.21.x-Greenwich-RELEASE|-|-|-|
+|1.18.x|-|1.18.x-Finchley-RELEASE|1.18.x-Greenwich-RELEASE|-|-|-|
+|1.12.x|1.12.x-Edgware-RELEASE|1.12.x-Finchley-RELEASE|-|-|-|-|
