@@ -243,3 +243,4 @@ a1.channels.channel1.transactionCapacity = 100
 a1.sources.source_kafka.channels = channel1
 a1.sinks.sink_local.channel = channel1
 ```
+ 
