@@ -31,8 +31,8 @@
         
 </dependencies>
 ```
-2. 参考如下 hadoop 的代码进行修改。其中的配置项可参考 [配置项说明](https://cloud.tencent.com/document/product/1105/36368) 文档进行修改。**以及重点关注其中数据持久化和可见性相关的说明。**
-   以下只列出了部分常见的文件系统的操作，其他的接口可参考 [Hadoop FileSystem 接口文档](https://hadoop.apache.org/docs/r2.8.2/api/org/apache/hadoop/fs/FileSystem.html)。
+2. 参考如下 hadoop 的代码进行修改。其中的配置项可参见 [配置项说明](https://cloud.tencent.com/document/product/1105/36368) 文档进行修改。**以及重点关注其中数据持久化和可见性相关的说明。**
+   以下只列出了部分常见的文件系统的操作，其他的接口可参见 [Hadoop FileSystem 接口文档](https://hadoop.apache.org/docs/r2.8.2/api/org/apache/hadoop/fs/FileSystem.html)。
 ```java
 package com.qcloud.cos.demo;
 
@@ -63,7 +63,7 @@ public class Demo {
                conf.set("fs.cosn.tmp.dir", "/data/chdfs_tmp_cache");
 
                // 配置项可参考 https://cloud.tencent.com/document/product/436/71550
-               // 通过POSIX 访问方式必填配置项(推荐方式)
+               // 通过 POSIX 访问方式必填配置项(推荐方式)
                conf.set("fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl", "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter");
                conf.set("fs.cosn.trsf.fs.ofs.impl", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
                conf.set("fs.cosn.trsf.fs.ofs.tmp.cache.dir", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
