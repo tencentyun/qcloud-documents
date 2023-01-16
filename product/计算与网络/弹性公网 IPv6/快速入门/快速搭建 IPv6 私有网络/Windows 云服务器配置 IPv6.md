@@ -11,21 +11,21 @@ IPv6 配置包括 IPv6 地址和 IPv6 默认路由两个部分，部分Windows�
 </tr>
 <tr>
 <td><ul><li>Windows Server 2022 数据中心版 64位 中文版</li><li>Windows Server 2019 数据中心版 64位 中文版</li><li>Windows Server 2016 数据中心版 64位 中文版</li></ul></td>
-<td>配置IPv6默认路由</td>
+<td>配置 IPv6 默认路由</td>
 </tr>
 <tr>
 <td><ul><li>Windows Server 2012 R2 数据中心版 64位 中文版</li><li>Windows Server 2016 数据中心版 64位 英文版</li><li>Windows Server 2019 数据中心版 64位 英文版</li><li>Windows Server 2022 数据中心版 64位 英文版</li></ul></td>
-<td>配置IPv6地址和IPv6默认路由</td>
+<td>配置 IPv6 地址和 IPv6 默认路由</td>
 </tr>
 </table>
 
 
 ### 配置 IPv6 默认路由
 如下操作以 Windows Server 2022 数据中心版 64位 中文版为例：
-登录云服务器实例， 在操作系统界面，选择左下角的<img src="https://qcloudimg.tencent-cloud.cn/raw/97cfbeedd88deb2c69aaf13d89401250.png" width="4%">，单击<img src="https://qcloudimg.tencent-cloud.cn/raw/f6d98951da20377edcfd0c0cc663d684.png" width="4%">打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址。
+登录云服务器实例，在操作系统界面，选择左下角的<img src="https://qcloudimg.tencent-cloud.cn/raw/97cfbeedd88deb2c69aaf13d89401250.png" width="4%">，单击<img src="https://qcloudimg.tencent-cloud.cn/raw/f6d98951da20377edcfd0c0cc663d684.png" width="3%">打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址。
 ```
- netsh interface ipv6 add route ::/0 "以太网"     #如果无法输入中文，建议修改为 “Ethernet”
- ipconfig
+netsh interface ipv6 add route ::/0 "以太网"     #如果无法输入中文，建议修改为 “Ethernet”
+ipconfig
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/99cd6ebd5077abbb87fcdfe7674f97f3.png)
 
