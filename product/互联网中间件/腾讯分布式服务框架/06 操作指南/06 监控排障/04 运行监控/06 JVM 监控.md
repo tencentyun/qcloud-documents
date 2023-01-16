@@ -8,7 +8,8 @@ JVM 监控功能用于监控重要的 JVM 指标，包含已用堆内存（MB）
 > - 如果您在使用时遇到问题，请参见 [JVM 监控常见问题](https://cloud.tencent.com/document/product/649/42891)。
 
 ## JVM 监控 jar 包版本信息
-JVM 监控 jar 包（即 TencentCloudJvmMonitor-x.x.x-RELEASE.jar，又称 JVM Monitor 或 JVM Agent 包），以下是 JVM 监控包的版本更新信息
+JVM 监控 jar 包（即 TencentCloudJvmMonitor-x.x.x-RELEASE.jar，又称 JVM Monitor 或 JVM Agent 包），以下是 JVM 监控包的版本更新信息：
+
 |JVM 监控版本|新增特性以及修复问题|
 |----|----|
 |[1.3.1](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.3.1-RELEASE.jar)|<li>修复方法执行分析功能模块执行异常的问题</li> |
