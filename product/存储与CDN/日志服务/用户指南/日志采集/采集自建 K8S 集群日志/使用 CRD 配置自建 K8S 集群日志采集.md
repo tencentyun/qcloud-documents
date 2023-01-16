@@ -17,13 +17,14 @@
 ## K8s 日志采集原理
 K8s 集群上部署日志采集主要涉及 Log-Provisioner，Log-Agent，LogListener 三个组件，以及一个 LogConfig 采集配置。
 - LogConfig：日志采集配置，定义了日志在哪里被采集， 采集后如何解析， 以及解析后投递至哪个 CLS 日志主题中。
-- Log-Provisioner： 将 LogConfig 中定义日志采集配置信息同步至 CLS。
 - Log-Agent：监听 LogConfig 和节点上容器的变化， 动态计算容器中的日志文件在节点宿主机上的实际位置。
+- Log-Provisioner： 将 LogConfig 中定义日志采集配置信息同步至 CLS。
 - LogListener：采集节点宿主机上的相应日志文件内容，解析并上传至 CLS。
 
 
 ## 操作流程
 <dx-steps>
+
 - <a href="#install_LogListener">自建 K8S 集群安装 LogListener</a>
 - <a href="#logconfig_def">定义 LogConfig 对象</a>
 - <a href="#logconfig_create">创建 LogConfig 对象</a>
@@ -38,20 +39,91 @@ K8s 集群上部署日志采集主要涉及 Log-Provisioner，Log-Agent，LogLis
 
 ### 步骤2：定义 LogConfig 对象[](id:logconfig_def)
 
-通过创建 LogConfig 对象定义日志采集配置。以 Master 节点路径/usr/local/为例，使用 wget 命令下载 LogConfig.yaml 声明文件。
+通过CRD定义 LogConfig 对象中的日志采集配置。以 Master 节点路径/usr/local/为例，使用 wget 命令下载 LogConfig.yaml CRD声明文件。
+
 ```shell
 wget https://mirrors.tencent.com/install/cls/k8s/LogConfig.yaml
 ```
 LogConfig.yaml 声明文件主要分为如下两部分：
-- clsDetail：定义日志解析格式，以及目标日志主题 ID（topicId）。
-- inputDetail：定义采集日志源，即日志从哪里被采集。
+- clsDetail：CLS投递配置。
+- inputDetail：日志源配置。
 
->! 配置时，请将 clsDetail 中的 topicId 项修改为您创建的日志主题 ID。
+```yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig                 ## 默认值
+metadata:
+  name: test										## CRD资源名，在集群内唯一
+spec:
+  clsDetail:										## 投递到CLS的配置
+    ...
+  inputDetail:                  ## 日志源配置
+    ...
+```
+
+#### clsDetail（CLS投递配置）字段说明
 
 
-#### 日志解析格式
+```yaml
+  clsDetail:
+    # 自动创建日志主题，需要同时指定日志集和主题的name。定义后不可修改
+  	logsetName: test                    	## CLS日志集的name，若无该name的日志集，会自动创建，若有，会在该日志集下创建日志主题
+    topicName: test                     	## CLS日志主题的name，若无该name的日志主题，会自动创建
+		# 选择已有日志集日志主题， 如果指定了日志集未指定日志主题，则会自动创建一个日志主题。定义后不可修改
+    logsetId: xxxxxx-xx-xx-xx-xxxxxxxx  	## CLS日志集的ID，日志集需要在CLS中提前创建
+    topicId: xxxxxx-xx-xx-xx-xxxxxxxx   	## CLS日志主题的ID，日志主题需要在CLS中提前创建，且没有被其它采集配置占用
+    region: ap-xxx                     		## topic 所在地域，用于跨地域投递
+    # 自动创建日志主题时， 定义日志主题配置。 定义后不可修改
+    period: 30					        					## 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存
+    storageType: hot                  		## 日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。
+    HotPeriod: 7                          ## 沉降周期，单位天。可取值范围1~3600。仅在storageType:hot时生效
+    partitionCount:                     	## Integer 类型，日志主题分区个数。默认创建1个，最大支持创建10个分区。
+    autoSplit: true												## boolen 类型，是否开启自动分裂，默认值为true
+    maxSplitPartitions:	10								## Integer 类型，最大分裂数量。
+    tags:                             		## 标签描述列表，通过指定该参数可以同时绑定标签到相应的日志主题。最大支持9个标签键值对，同一个资源只能绑定到同一个标签键下。
+     - key: xxx							  						## 标签key
+       value: xxx                      		## 标签value
+    # 定义采集规则
+    logType: json_log  										## 日志解析格式，json_log代表 json 格式，delimiter_log代表分隔符格式，minimalist_log代表单行全文格式，multiline_log代表多行全文格式，fullregex_log代表单行完全正则格式，multiline_fullregex_log代表多行完全正则格式。默认为minimalist_log
+    logFormat: xxx                      	## 日志格式化方式
+    excludePaths:                      		## 采集黑名单路径列表
+      - type: File						  					##  类型，选填File或Path 
+        value: /xx/xx/xx/xx.log         	## type 对应的值
+    userDefineRule: xxxxxx             		## 用户自定义采集规则，Json格式序列化的字符串
+    extractRule: {}                    		## 提取、过滤规则。 如果设置了ExtractRule，则必须设置LogType，详情参考extractRule对象说明
+    AdvancedConfig:												## 高级采集配置
+    	MaxDepth: 1													## 最大目录深度
+    	FileTimeout: 60											## 文件超时属性
+    # 定义索引配置。定义后不可修改
+    indexs: 							 								## 创建 topic 时可自定义索引方式和字段
+      - indexName:   											## 需要配置键值或者元字段索引的字段，元字段Key无需额外添加__TAG__.前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加__TAG__.前缀
+        indexType:  											## 字段类型，目前支持的类型有：long、text、double
+        tokenizer:  											## 字段的分词符，其中的每个字符代表一个分词符；仅支持英文符号及\n\t\r；long及double类型字段需为空；text类型字段推荐使用 @&?|#()='",;:<>[]{}/ \n\t\r\ 作为分词符；
+        sqlFlag:   												## boolen 字段是否开启分析功能
+        containZH: 												## boolen 是否包含中文
+```
 
-<dx-tabs>
+**extractRule 对象说明**
+
+| 名称           | 类型            | 必填项 | 描述                                                         |
+| -------------- | --------------- | ------ | ------------------------------------------------------------ |
+| timeKey        | String          | 否     | 日志时间戳使用日志中的指定字段。该配置为空则使用日志实际采集时间。time_key 和 time_format 必须成对出现。 |
+| timeFormat     | String          | 否     | 时间字段的格式，参考 C 语言的 strftime 函数对于时间的格式说明输出参数。 |
+| delimiter      | String          | 否     | 分隔符类型日志的分隔符，只有 log_type 为 delimiter_log 时有效。 |
+| logRegex       | String          | 否     | 整条日志匹配规则，只有 log_type 为 fullregex_log 时有效。    |
+| beginningRegex | String          | 否     | 行首匹配规则，只有 log_type 为 multiline_log 或 multiline_fullregex_log 时有效。 |
+| unMatchUpload  | String          | 否     | 解析失败日志是否上传，true 表示上传，false 表示不上传。      |
+| unMatchedKey   | String          | 否     | 解析失败日志的 key。                                         |
+| backtracking   | String          | 否     | 增量采集模式下的回溯数据量，默认-1（全量采集），0 表示增量。 |
+| keys           | Array of String | 否     | 取的每个字段的 key 名字，为空的 key 代表丢弃这个字段，只有 log_type 为 delimiter_log, fullregex_log，multiline_fullregex_log时有效，json_log 的日志使用 json 本身的 key。 |
+| filterKeys     | Array of String | 否     | 需要过滤日志的 key，与 FilterRegex 按下标进行对应。          |
+| filterRegex    | Array of String | 否     | 需要过滤日志的 key 对应的 regex，与 FilterKeys 按下标进行对应。 |
+| isGBK          | String          | 否     | 是否为 Gbk 编码。0: 否，1: 是。<br>注意：此字段可能返回 null，表示取不到有效值。 |
+
+
+
+#### 日志采集规则配置示例
+
+#### <dx-tabs>
 ::: 单行全文格式 [](id:single_line)
 单行全文日志是指一行日志内容为一条完整的日志。日志服务在采集的时候，将使用换行符 \n 来作为一条日志日志的结束符。为了统一结构化管理，每条日志都会存在一个默认的键值\_\_CONTENT\_\_，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。
 
@@ -265,13 +337,72 @@ time: [Tue Jan 22 14:49:45 CST 2019 +0800]
 </dx-tabs>
 
 
-#### 日志源
+#### inputDetail（日志源）字段说明
 
-CLS 支持以下几种集群日志源：
+```yaml
+  inputDetail:
+    type: container_stdout   						## 指定采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）、host_file（主机文件）
+    containerStdout:        						## 容器标准输出配置，仅在type:container_stdout时生效
+      namespace: default   			 				## 采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：default,namespace。 如果不指定，代表所有命名空间。注意：与 excludeNamespace 不能同时指定
+      excludeNamespace: nm1,nm2   			## 排除采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：nm1,nm2。 如果不指定，代表所有命名空间。 注意：与 namespace 不能同时指定
+	  	nsLabelSelector: environment in (production),tier in (frontend) ## 根据命名空间label 筛选符合的 namespace
+      allContainers: false      			 	## 是否采集指定命名空间中的所有容器的标准输出。注意:allContainers=true 时不能同时指定 workload，includeLabels 和 excludeLabels
+      containerOperator: in             ## container选择方式， 包含填in，排除填not in
+      container: xxx             				## 指定采集或不采集日志的容器名
+      includeLabels:  									## 采集包含指定label的Pod，与workload不能同时指定
+        key: value1   									## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被匹配，注意输入多个value值时请使用逗号隔开。 如果同时指定了 excludeLabels，则匹配与 excludeLabels 交集的pod
+      excludeLabels:  									## 采集不包含包含指定label的Pod，与workload，namespace 和 excludeNamespace 不能同时指定
+        key2: value2  									## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被排除，注意输入多个value值时请使用逗号隔开。如果同时指定了 includeLabels，则匹配与 includeLabels 交集的pod
+      metadataLabels:            				## 指定具体哪些pod label被当做元数据采集，如果不指定，则采集所有pod label为元数据
+      - label1
+      metadataContainer:								## 指定具体哪些容器环境相关元数据被采集，如果不指定，则采集所有容器环境相关元数据（namespace,pod_name,pod_ip,pod_uid,container_id,container_name,image_name）
+      - namespace
+      customLabels:              				## 用户自定义metadata
+        label: l1
+      workloads:												## 采集指定命名空间 -> 指定工作负载类型中 -> 指定工作负载 -> 指定容器中的日志
+      - container: xxx    							## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
+        containerOperator: in           ## container选择方式， 包含填in，排除填not in
+        kind: deployment  							## workload类型，支持deployment、daemonset、statefulset、job、cronjob
+        name: sample-app  							## workload的名字
+        namespace: prod   							## workload的命名空间
+		
+    containerFile:  										## 容器内文件配置，仅在type:container_file时生效
+      namespace: default      					## 采集容器的kubernetes命名空间，必须指定一个命名空间	  
+      excludeNamespace: nm1,nm2   			## 排除采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：nm1,nm2。 如果不指定，代表所有命名空间。 注意：与 namespace 不能同时指定
+      nsLabelSelector: environment in (production),tier in (frontend) ## 根据命名空间label 筛选符合的 namespace
+      containerOperator: in             ## container选择方式， 包含填in，排除填not in
+      container: xxx          					## 采集日志的容器名，为 * 时，代表采集所有符合容器的日志名
+      logPath: /var/logs      					## 日志文件夹，不支持通配符
+      filePattern: app_*.log 					 	## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
+      includeLabels:  									## 采集包含指定label的Pod，与workload不能同时指定
+        key: value1   									## 收集规则收集的日志会带上metadata，并上报到消费端。支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被匹配，注意输入多个value值时请使用逗号隔开。 如果同时指定了 excludeLabels，则匹配与 excludeLabels 交集的pod
+      excludeLabels:  									## 采集不包含包含指定label的Pod，与workload不能同时指定
+        key2: value2 										## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被排除，注意输入多个value值时请使用逗号隔开。如果同时指定了 includeLabels，则匹配与 includeLabels 交集的pod
+      metadataLabels:        						## 指定具体哪些pod label被当做元数据采集，如果不指定，则采集所有pod label为元数据
+      - namespace
+      metadataContainer:								## 指定具体哪些容器环境相关元数据被采集，如果不指定，则采集所有容器环境相关元数据（namespace,pod_name,pod_ip,pod_uid,container_id,container_name,image_name）
+      customLabels:   									## 用户自定义metadata
+        key: value
+      workload:
+      	container: xxx    							## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
+        containerOperator: in           ## container选择方式， 包含填in，排除填not in
+        kind: deployment  							## workload类型，支持deployment、daemonset、statefulset、job、cronjob
+        name: sample-app  							## workload的名字
+        namespace: prod									## workload的命名空间
+
+    hostFile:                						## 节点文件路径，仅在type:host_file时生效
+      filePattern: '*.log'   						## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
+      logPath: /tmp/logs     						## 日志文件夹，不支持通配符
+      customLabels:          						## 用户自定义metadata
+        label1: v1
+```
+
+### 日志源配置示例
 
 <dx-tabs>
 ::: 容器标准输出 [](id:pod_stdout)
 示例1：采集 default 命名空间中的所有容器的标准输出
+
 ```yaml
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig
@@ -370,11 +501,11 @@ spec:
 
 ### 步骤3：创建 LogConfig 对象 [](id:logconfig_create)
 
-由于 [步骤2：定义 LogConfig 对象](#logconfig_def) 定义了 LogConfig.yaml 声明文件，我们可以使用 kubectl 命令创建 LogConfig 对象。
+[步骤2：定义 LogConfig 对象](#logconfig_def) 定义了 LogConfig.yaml 声明文件，我们可以基于LogConfig.yaml 声明文件，使用 kubectl 命令创建 LogConfig 对象。
+
 ```shell
 kubectl create -f /usr/local/LogConfig.yaml
 ```
-
 ## 后续操作
 
 至此， 即完成了集群日志采集的所有部署。您可以前往 [CLS 控制台 > 检索分析](https://console.cloud.tencent.com/cls/search) 查看采集上来的日志。
