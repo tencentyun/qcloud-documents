@@ -19,10 +19,5 @@ VPN 网关创建后支持修改 VPN 网关名称、标签、带宽上限。
  - 按量计费
     - 方式一： 在 VPN 网关实例列表页找到待升级的实例，并在**带宽上限**列单击编辑图标，并选择新的规格值。
     - 方式二：进入实例详情页面，单击**带宽上限**旁的编辑图标，并选择新的规格值。
-		![](https://main.qcloudimg.com/raw/756bd0b2c81c4bc5b691b24b0224e7c8.png)
-		![](https://main.qcloudimg.com/raw/5f01d7c5d83c5f8c4834bab8cf42d602.png)
-		也可进入详情页的**升级**对带宽上限进行修改。
-	+ 对于按量计费的网关，可在网关列表中带宽旁单击编辑图标，或进入详情页直接进行修改。
-		![](https://main.qcloudimg.com/raw/d87627c979084679e5a8c6cf005e3bd3.png)
 5. 在“网关列表”界面，单击**编辑标签**或进入网关详情页通过编辑图标进行标签修改。
     ![](https://main.qcloudimg.com/raw/15f494aaec373ef2b1d74dd497dab639.png)
