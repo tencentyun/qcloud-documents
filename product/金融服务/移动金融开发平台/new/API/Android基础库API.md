@@ -93,7 +93,7 @@ public class TMFBase {
 ```
 
 ## 内置 Shark 实例配置调整
-基础库初始化时根据指定配置文件创建了内置shark实例，如果用户需要调整内置shark参数配置，可以参照如下方法进行：
+基础库初始化时根据指定配置文件创建了内置 shark 实例，如果用户需要调整内置 shark 参数配置，可以参照如下方法进行：
 ```java
 TMFBaseConfig config = new TMFBaseConfig.Builder()
                 .buildNo(BuildConfig.BUILD_NO) // 必须，网关, 热更等模块需要使用
@@ -114,7 +114,7 @@ TMFBase.init(this, config);
 SharkConfigInfo说明请参考[移动网关 > 接入Android > API](../../../05后台服务/移动网关/接入Android/API.md#sharkconfiginfo)
 
 ## SSLPinCfg
-Http通道服务端证书绑定校验相关设置，支持两种绑定校验：
+Http 通道服务端证书绑定校验相关设置，支持两种绑定校验：
 1. 指定信任的证书文件，对证书文件进行完整校验，服务端返回的证书链中有证书校验通过，则校验通过，否则不通过。
 2. 设置信任证书公钥，只校验证书文件的公钥信息，服务端返回的证书链中有证书公钥可信，则校验通过，否则不通过。
 ```java
