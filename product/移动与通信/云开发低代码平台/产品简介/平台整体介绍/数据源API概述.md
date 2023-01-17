@@ -9,8 +9,7 @@
 ## 接口使用
 
 ### 域名
-
-```
+```html
 https://<环境ID>.ap-shanghai.tcb-api.tencentcloudapi.com
 ```
 
@@ -243,6 +242,7 @@ public class OpenApiClient {
 
 ## 快速体验：使用 Postman 调用开放接口
 1. 打开 Postman 工具，添加一个 GET 请求。进入 **Authorization** 页面完成相应配置。
+>!Access Token URL参数设置，需要在域名后添加 `/auth/v1/token/clientCredential`。示例：`https://lowcode-8g171waac4be77f6.ap-shanghai.tcb-api.tencentcloudapi.com/auth/v1/token/clientCredential`  
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3d826dc2e851bbdb91bdc114ccc03b07.png" />
 2. 进入 **headers** 页面，设置相应参数即可。
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/4936c09f61d694d4ba18875705e9199d.png" />
