@@ -1,5 +1,3 @@
-# Spring Cloud TSF 2020
-
 基于 Spring Cloud 2020 版本 SDK，支持 spring boot 2.5.14（TSF SDK 1.40.7-SpringCloud2020-RELEASE 及其之后的版本）和 spring boot 2.4.3（TSF SDK 1.40.7-SpringCloud2020-RELEASE 之前的版本），推荐使用 2.5.14 版本。
 
 <dx-alert infotype="notice" title="">
