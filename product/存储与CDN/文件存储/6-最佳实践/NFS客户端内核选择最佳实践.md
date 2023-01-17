@@ -16,12 +16,17 @@ NFS 客户端是基于内核态的客户端，因部分内核版本的 BUG，会
   - Redhat 7、CentOS 7 3.10.0-693.el7之前的所有内核版本。
 当操作无响应时，请重启 ECS 实例。更多信息，请参见 [RHEL6/RHEL7:NFS4 client receiving NFS4ERR_BAD_SEQID drops nfs4 stateowner resulting in infinite loop of READ/WRITE+NFS4ERR_BAD_STATEID](https://access.redhat.com/solutions/3073231)。 
 - 当操作系统内核版本为 CentOS 和 RedHat 5.11.x 所有内核时，执行 ls 命令、包含通配符 * 或 ? 的命令以及其他需要对目录进行遍历的操作，均会由于内核缺陷导致卡顿或无响应。 请您升级内核版本，避免此问题。
+
+
 ### 不支持 chown 命令和系统调用（优先级：低）
 系统的内核版本为2.6.32时，不支持 NFS 客户端执行 chown 命令和系统调用。 
+
 ### ls 操作无法终止（优先级：低）
 •	当系统的内核版本为2.6.32-696.1.1.el6及之前版本时，在系统中执行 ls 操作的同时还在进行添加、删除文件、子目录操作，将导致 ls 操作永远无法终止。 
 请升级内核版本，避免此问题。
 •	当系统的内核版本为4.18.0-305.12.1时，目录遍历操作如ls等，可能无法终止，请升级内核至4.18.0-305.19.1修复此问题。更多信息，请参见 [kernel-4.18.0-305.19.1.el8_4.x86_64](https://rpmfind.net/linux/RPM/centos/8-stream/baseos/x86_64/Packages/kernel-4.18.0-305.19.1.el8_4.x86_64.html?spm=a2c4g.11186623.0.0.516020bc5dma7X)。 
+
+
 ## NFS文件系统推荐镜像
 ### Linux系统镜像 
 
