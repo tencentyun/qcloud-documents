@@ -7,7 +7,7 @@
 5. 防 CC 及 WAF 功能。能够有效杜绝慢连接、高频定点攻击、SQL 注入、网页挂马等应用层攻击。
 
 ## 2. HTTP、HTTPS 头部标识
-CLB 会对 HTTPS 进行代理，来自客户端的 HTTP 或者 HTTPS 请求，到达 CLB 转发给后端服务器时，CLB 与后端服务之间的协议支持选择 HTTP、HTTPS 或 gRPC。当 CLB 与后端服务之间的协议选择为 HTTP 时，开发者有可能无法分辨前端的请求是 HTTP 还是 HTTPS。
+CLB 会对 HTTPS 进行代理，来自客户端的 HTTP 或者 HTTPS 请求，到达 CLB 转发给后端服务器时，CLB 与后端服务之间的协议支持选择 HTTP、HTTPS 或 gRPC，详情请参见 [配置 HTTPS 监听器](https://cloud.tencent.com/document/product/214/36385)。当 CLB 与后端服务之间的协议选择为 HTTP 时，开发者有可能无法分辨前端的请求是 HTTP 还是 HTTPS。
 
 腾讯云 CLB 在将请求转发给后端 CVM 时，头部 header 会植入 X-Client-Proto：
 - X-Client-Proto: http（前端为 HTTP 请求）
