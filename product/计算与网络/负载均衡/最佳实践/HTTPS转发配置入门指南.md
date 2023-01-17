@@ -7,7 +7,7 @@
 5. 防 CC 及 WAF 功能。能够有效杜绝慢连接、高频定点攻击、SQL 注入、网页挂马等应用层攻击。
 
 ## 2. HTTP、HTTPS 头部标识
-CLB 对 HTTPS 进行代理，无论是 HTTP 还是 HTTPS 请求，到了 CLB 转发给后端 CVM 时，都是 HTTP 请求。这时开发者无法分辨前端的请求是 HTTP 还是 HTTPS。
+CLB 会对 HTTPS 进行代理，来自客户端的 HTTP 或者 HTTPS 请求，到达 CLB 转发给后端服务器时，CLB 与后端服务之间的协议支持选择 HTTP、HTTPS 或 gRPC。当 CLB 与后端服务之间的协议选择为 HTTP 时，开发者有可能无法分辨前端的请求是 HTTP 还是 HTTPS。
 
 腾讯云 CLB 在将请求转发给后端 CVM 时，头部 header 会植入 X-Client-Proto：
 - X-Client-Proto: http（前端为 HTTP 请求）
@@ -24,9 +24,9 @@ CLB 对 HTTPS 进行代理，无论是 HTTP 还是 HTTPS 请求，到了 CLB 转
 </dx-steps>
 
 用户输入的 `www.example.com` 请求转发流程如下：
-1. 该请求以 HTTP 协议传输，通过 VIP 访问负载均衡监听器的80端口，并被转发到后端云服务器的8080端口。
+1. 该请求以 HTTP 协议传输，通过 VIP 访问负载均衡监听器的80端口，并被转发到后端服务器的8080端口。
 2. 通过在腾讯云后端服务器的 Nginx 上配置 rewrite 操作，该请求经过8080端口，并被重写到 `https://example.com` 页面。
-3. 此时浏览器再次发送 `https://example.com` 请求到相应的 HTTPS 站点，该请求通过 VIP 访问负载均衡监听器的443端口，并被转发到后端云服务器的80端口。
+3. 此时浏览器再次发送 `https://example.com` 请求到相应的 HTTPS 站点，该请求通过 VIP 访问负载均衡监听器的443端口，并被转发到后端服务器的80端口。
 
 
 该操作在浏览器用户未感知的情况下，将用户的 HTTP 请求重写为更加安全的 HTTPS 请求。为实现以上请求转发操作，用户可以对后端服务器做如下配置：
