@@ -71,7 +71,7 @@ dubbo:
   application:
     name: provider-demo-dubbo
     logger: slf4j
-		register-mode: instance
+    register-mode: instance
 ```
 
 
