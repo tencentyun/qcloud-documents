@@ -3,7 +3,7 @@ NFS 客户端是基于内核态的客户端，因部分内核版本的 BUG，会
 ## 已知的客户端问题
 ### 内核网络栈缺陷导致文件系统无响应（优先级：高）
 当系统的内核版本为2.6.32-696~2.6.32-696.10.1（包括2.6.32-696，但不包括2.6.32-696.10.1）时，NFS 服务端繁忙，内核请求重传，有概率触发内核网络栈缺陷，造成操作无响应。
-当操作无响应时，请重启 ECS 实例。更多信息，请参见 [RHEL6.9:NFSv4 TCP transport stuck in FIN_WAIT_2 forever](https://access.redhat.com/solutions/3053801)。 
+当操作无响应时，请重启 CVM 实例。更多信息，请参见 [RHEL6.9:NFSv4 TCP transport stuck in FIN_WAIT_2 forever](https://access.redhat.com/solutions/3053801)。 
 ### 内核缺陷导致文件系统无响应（优先级：高）
 - 当系统的内核版本为以下几个版本时，NFS 服务端故障转移，可能造成 NFS 客户端的打开、读、写操作出现死锁情况，从而导致文件系统持续无响应。 
   
@@ -14,7 +14,7 @@ NFS 客户端是基于内核态的客户端，因部分内核版本的 BUG，会
 - 当系统的内核版本为以下几个版本时，网络发生分区或抖动，造成连接重连，NFS 客户端可能由于没有正确处理错误码而持续无响应。现象是文件系统无响应且系统 message 中反复打印 bad sequence-id error。 
   - Redhat 6、CentOS 6 2.6.32-696.16.1.el6之前的所有内核版本。
   - Redhat 7、CentOS 7 3.10.0-693.el7之前的所有内核版本。
-当操作无响应时，请重启 ECS 实例。更多信息，请参见 [RHEL6/RHEL7:NFS4 client receiving NFS4ERR_BAD_SEQID drops nfs4 stateowner resulting in infinite loop of READ/WRITE+NFS4ERR_BAD_STATEID](https://access.redhat.com/solutions/3073231)。 
+当操作无响应时，请重启 CVM 实例。更多信息，请参见 [RHEL6/RHEL7:NFS4 client receiving NFS4ERR_BAD_SEQID drops nfs4 stateowner resulting in infinite loop of READ/WRITE+NFS4ERR_BAD_STATEID](https://access.redhat.com/solutions/3073231)。 
 - 当操作系统内核版本为 CentOS 和 RedHat 5.11.x 所有内核时，执行 ls 命令、包含通配符 * 或 ? 的命令以及其他需要对目录进行遍历的操作，均会由于内核缺陷导致卡顿或无响应。 请您升级内核版本，避免此问题。
 
 
