@@ -276,7 +276,7 @@ https://qcloudimg.tencent-cloud.cn/image/document/18d0119029f9005d5d01c8aabb81f5
 - 当播放器组件设置为手动播放模式 `PLAY_ACTION_MANUAL_PLAY` 时，需用户单击**播放**后视频才开始播放。在单击**播放**前将展示封面；在单击**播放**后到视频首帧加载出来前也将展示封面。
 
 视频封面支持使用网络 URL 地址或本地 File 地址，使用方式可参见下述指引。若您通过 FileID 的方式播放视频，则可直接在云点播内配置视频封面。
-```objective-c
+```swift
 SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
 SuperPlayerVideoId *videoId = [SuperPlayerVideoId new];
 videoId.fileId = @"8602268011437356984"; 
