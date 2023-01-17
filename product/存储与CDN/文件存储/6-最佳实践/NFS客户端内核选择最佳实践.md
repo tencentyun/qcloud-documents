@@ -25,60 +25,125 @@ NFS 客户端是基于内核态的客户端，因部分内核版本的 BUG，会
 ## NFS文件系统推荐镜像
 ### Linux系统镜像 
 
-| 操作系统类型 | 操作系统版本 | 标题3 |
-|---------|---------|---------|
-| 文本1 | 文本2 | 文本3 |
+
+
+
+<table>
+<tr>
+<th>操作系统类型</th>
+<th>操作系统版本</th>
+<tr>
+<tr>
+<td>CentOS</td>
+<td>
+
+- CentOS 6.9 64位：2.6.32-696.16.1.el6.x86_64及以上
+-  CentOS 6.10 64位：2.6.32-754.17.1.el6.x86_64及以上
+- CentOS 7.2 64位：3.10.0-514.26.2.el7.x86_64及以上
+- 	CentOS 7.3 64位：3.10.0-514.26.2.el7.x86_64及以上
+- 	CentOS 7.4 64位：3.10.0-693.2.2.el7.x86_64及以上
+- CentOS 7.5 64位：3.10.0-862.14.4.el7.x86_64及以上
+- CentOS 7.6 64位：3.10.0-957.21.3.el7.x86_64及以上
+- CentOS 7.7 64位：3.10.0-1062.18.1.el7.x86_64及以上
+- CentOS 8.x 64位：4.18.0-147.5.1.el8_1.x86_64及以上
+</td>
+<tr>
+<tr>
+<td>Tencent OS Linux</td>
+<td>
+
+ - TencentOS Server 2.2(Tkernel 3)
+ - TencentOS Server 2.4 (Tkernel 4)
+ - TencentOS Server 2.6(Final)
+ -  TencentOS Server 3.1(Tkernel 4)
+</td>
+<tr>
+<tr>
+<td>Debian</td>
+<td>
+
+
+- Debian 9.6 64位：4.9.0-8-amd64及以上
+- Debian 9.8 64位：4.9.0-8-amd64及以上
+- Debian 9.10 64位：4.9.0-9-amd64及以上
+</td>
+<tr>
+<tr>
+<td>Ubuntu</td>
+<td>
+- Ubuntu 14.04 64位：4.4.0-93-generic及以上
+- Ubuntu 16.04 64位：4.4.0-151-generic及以上
+- Ubuntu 18.04 64位：4.15.0-52-generic及以上
+- Ubuntu 20.04 64位：5.4.0-31-generic及以上
+</td>
+<tr>
+<tr>
+<td>OpenSuse</td>
+<td>
+
+
+OpenSuse 42.3 64位：4.4.90-28-default及以上
+</td>
+<tr>
+<tr>
+<td>Suse</td>
+<td>
+
+
+- Enterprise Server 12 SP2 64位：4.4.74-92.35-default及以上
+- Enterprise Server 12 SP4 64位：4.12.14-95.16-default及以上
+
+</td>
+<tr>
+<tr>
+<td>CoreOS</td>
+<td>
+
+
+- CoreOS 1745.7.0 64位：4.19.56-coreos-r1及以上
+- CoreOS 2023.4.0 64位：4.19.56-coreos-r1及以上
+
+</td>
+<tr>
+</table>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-操作系统类型	操作系统版本
-CentOS	o	CentOS 6.9 64位：2.6.32-696.16.1.el6.x86_64及以上
-o	CentOS 6.10 64位：2.6.32-754.17.1.el6.x86_64及以上
-o	CentOS 7.2 64位：3.10.0-514.26.2.el7.x86_64及以上
-o	CentOS 7.3 64位：3.10.0-514.26.2.el7.x86_64及以上
-o	CentOS 7.4 64位：3.10.0-693.2.2.el7.x86_64及以上
-o	CentOS 7.5 64位：3.10.0-862.14.4.el7.x86_64及以上
-o	CentOS 7.6 64位：3.10.0-957.21.3.el7.x86_64及以上
-o	CentOS 7.7 64位：3.10.0-1062.18.1.el7.x86_64及以上
-o	CentOS 8.x 64位：4.18.0-147.5.1.el8_1.x86_64及以上
-Tencent OS Linux	o	TencentOS Server 2.2(Tkernel 3)
-o	TencentOS Server 2.4 (Tkernel 4)
-o	TencentOS Server 2.6(Final)
-o	TencentOS Server 3.1(Tkernel 4)
-Debian	o	Debian 9.6 64位：4.9.0-8-amd64及以上
-o	Debian 9.8 64位：4.9.0-8-amd64及以上
-o	Debian 9.10 64位：4.9.0-9-amd64及以上
-Ubuntu	o	Ubuntu 14.04 64位：4.4.0-93-generic及以上
-o	Ubuntu 16.04 64位：4.4.0-151-generic及以上
-o	Ubuntu 18.04 64位：4.15.0-52-generic及以上
-o	Ubuntu 20.04 64位：5.4.0-31-generic及以上
-OpenSuse	OpenSuse 42.3 64位：4.4.90-28-default及以上
-Suse	o	Enterprise Server 12 SP2 64位：4.4.74-92.35-default及以上
-o	Enterprise Server 12 SP4 64位：4.12.14-95.16-default及以上
-CoreOS	o	CoreOS 1745.7.0 64位：4.19.56-coreos-r1及以上
-o	CoreOS 2023.4.0 64位：4.19.56-coreos-r1及以上
 ### Windows系统镜像 
-操作系统类型	操作系统版本
-Windows Server 2012	o	Windows Server 2012 R2 数据中心版 64位中文版
-o	Windows Server 2012 R2 数据中心版 64位英文版
-Windows Server 2016	o	Windows Server 2016 数据中心版 64位中文版
-o	Windows Server 2016 数据中心版 64位英文版
-Windows Server 2019	o	Windows Server 2019 数据中心版 64位中文版
-o	Windows Server 2019 数据中心版 64位英文版
+<table>
+<tr>
+<th>操作系统类型</th>
+<th>操作系统版本</th>
+<tr>
+<tr>
+<td>Windows Server 2012</td>
+<td>
+
+- Windows Server 2012 R2 数据中心版 64位中文版
+- Windows Server 2012 R2 数据中心版 64位英文版
+
+</td>
+<tr>
+<tr>
+<td>Windows Server 2016</td>
+<td>
+
+- Windows Server 2016 数据中心版 64位中文版
+- Windows Server 2016 数据中心版 64位英文版
+
+</td>
+<tr>
+<tr>
+<td>Windows Server 2019</td>
+<td>
+
+
+- Windows Server 2019 数据中心版 64位中文版
+- Windows Server 2019 数据中心版 64位英文版
+
+</td>
+<tr>
+
+</table>
 
