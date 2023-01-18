@@ -3,14 +3,9 @@
 在第一次使用云 API 之前，用户首先需要在腾讯云 CVM 控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey， SecretId 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。已有安全凭证的用户请从生成签名串开始操作。
 
 ## 申请安全凭证
->!
->- 建议用户使用子账号密钥 + 环境变量的方式调用 SDK，提高 SDK 使用的安全性。为子账号授权时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
->- 如果您一定要使用永久密钥，建议遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618) 对永久密钥的权限范围进行限制。
->
-
 第一次使用云 API 的用户必须先申请安全凭证才可使用。
 1. 登录 [API 密钥管理](https://console.cloud.tencent.com/capi) 控制台。
-2. 单击【新建密钥】即可以创建一对 SecretId/SecretKey， 每个帐号最多可以创建两对 SecretId/SecretKey。
+2. 单击**新建密钥**即可以创建一对 SecretId/SecretKey， 每个帐号最多可以创建两对 SecretId/SecretKey。
 
 ## 生成签名串
 假设上一步申请的 SecretId 和 SecretKey 分别是：
