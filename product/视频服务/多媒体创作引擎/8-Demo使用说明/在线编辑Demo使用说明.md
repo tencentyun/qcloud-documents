@@ -132,7 +132,7 @@ npm -v
 :::
 </dx-tabs>
 1. **部署服务**
-	1. 官网 [下载 Demo](https://vs-cdn.tencent-cloud.com/resources/cme-node-demo-feature-iframe-2.0.zip)。
+	1. 官网 [下载 Demo](https://vs-cdn.tencent-cloud.com/resources/cme-node-demo/cme-node-demo-feature-iframe-3.0.zip)。
 	2. 运行命令 npm install 自动安装依赖包 。
 	3. 运行命令 npm start，启动服务。
 	4. 访问地址 `http://localhost:9090`，即可进入 Demo 的登录页面（如配置了其它服务地址及端口，替换即可），可看到如下登录界面：
