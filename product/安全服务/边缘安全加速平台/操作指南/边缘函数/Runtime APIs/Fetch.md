@@ -1,4 +1,4 @@
-基于 Web APIs 标准 [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 进行设计。边缘函数运行时可使用 `fetch` 发起异步请求，获取远程资源。
+基于 Web APIs 标准 [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 进行设计。边缘函数运行时可使用 `fetch` 发起异步请求，获取远程资源。
 
 ## 描述 
 ```typescript
@@ -29,10 +29,10 @@ function fetch(request: string | Request, init?: RequestInit): Promise<Response>
     </tr>
     <tr>
       <td>init</td>
-      <td><a href="https://cloud.tencent.com/document/product/1552/81902">RequestInit</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/1552/81902#RequestInit">RequestInit</a></td>
       <td>否</td>
       <td>
-        请求对象的初始化配置项。详情请参见 <a href="https://cloud.tencent.com/document/product/1552/81902">RequestInit</a>。
+        请求对象的初始化配置项。详情请参见 <a href="https://cloud.tencent.com/document/product/1552/81902#RequestInit">RequestInit</a>。
       </td>
     </tr>
   </tbody>
@@ -57,7 +57,7 @@ addEventListener('fetch', async (event) => {
 
 ## 重定向
 
-`fetch` 支持 `3xx` 重定向状态码。可使用第二个参数 `init.redirect` 属性进行设置，更多重定向配置，请查看 [RequestInit](https://cloud.tencent.com/document/product/1552/81902)。
+`fetch` 支持 `3xx` 重定向状态码。可使用第二个参数 `init.redirect` 属性进行设置，更多重定向配置，请查看 [RequestInit](https://cloud.tencent.com/document/product/1552/81902#RequestInit)。
 
 
 - 重定向规则遵从 Web APIs 标准 [fetch API](https://fetch.spec.whatwg.org/#http-redirect-fetch)，针对不同状态码有不同的跟随规则：
@@ -86,6 +86,7 @@ addEventListener('fetch', async (event) => {
 </table>
 
 >! 重定向的地址来源于响应头 `Location`，若无该响应头，则不会重定向。
+
 - 响应头 `Location` 值可以是绝对 URL 或者相对 URL，详情参见 [RFC-3986: URI Reference](https://www.rfc-editor.org/rfc/rfc3986#section-4.1)。
 
 ## 运行时限制

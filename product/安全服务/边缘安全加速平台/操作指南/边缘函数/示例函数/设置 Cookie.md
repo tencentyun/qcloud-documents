@@ -1,4 +1,4 @@
-在边缘函数中，使用 Cookies 做访问计数，当在浏览器访问边缘函数服务时，请求计数加 1。
+该示例使用 Cookies 做访问计数，当浏览器访问边缘函数服务时，请求计数加 1。
 
 ## 示例代码
 
@@ -27,7 +27,7 @@ addEventListener('fetch', (event) => {
 
 在浏览器地址栏中输入匹配到边缘函数触发规则的 URL，即可预览到示例效果。
 
-<img src="https://user-images.githubusercontent.com/117053395/207915886-87f33402-7ce9-4ce0-b6d0-19ae17b9b045.png" width=609px>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/74692d5f11272623ac12f77c38eb247f.png" width=609px>
 
 ## 相关参考
 - [Runtime APIs: Cookies](https://cloud.tencent.com/document/product/1552/83932)

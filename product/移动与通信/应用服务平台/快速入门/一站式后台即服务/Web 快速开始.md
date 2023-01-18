@@ -15,7 +15,7 @@ npm install -g @cloudbase/cli
  ```
 </dx-alert>
 
-
+ 
 ## 步骤1：创建初始项目
 <dx-tabs>
 ::: MacOS&nbsp;或&nbsp;Linux

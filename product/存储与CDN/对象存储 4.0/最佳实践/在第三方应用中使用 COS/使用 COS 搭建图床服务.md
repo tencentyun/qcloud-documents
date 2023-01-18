@@ -27,11 +27,11 @@ COS 用于图床场景的优势有：
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa84aa3d715bf44b050c8b51625bf02a.png)
   - COS 版本：选择 COS v5。
   - 设定 Secretld：开发者拥有的项目身份识别 ID，用于身份认证，可在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面中创建和获取。
-  - 设定 SecretKey：开发者拥有的项目身份密钥，可在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面获取。
-  - 设定 APPID：开发者访问 COS 服务时拥有的用户维度唯一资源标识，用以标识资源，可在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面获取。
-  - 设定存储空间名：存储桶，COS 中用于存储数据的容器。有关存储桶的进一步说明，请参见 [存储桶概述](https://cloud.tencent.com/document/product/436/13312) 文档。
-  - 确认存储区域：地域信息，枚举值可参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档，例如：ap-beijing、ap-hongkong、eu-frankfurt 等。
-  - 指定存储路径：图片存放到 COS 存储桶中的路径。
+  - 设定 SecretKey：开发者拥有的项目身份密钥，可在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面获取。  
+  - 设定 Bucket：存储桶，COS 中用于存储数据的容器。有关存储桶的进一步说明，请参见 [存储桶概述](https://cloud.tencent.com/document/product/436/13312) 文档。
+  - 设定 AppId：开发者访问 COS 服务时拥有的用户维度唯一资源标识，用以标识资源，可在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面获取。
+  - 设定存储区域：存储桶所属地域信息，枚举值可参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档，例如 ap-beijing、ap-hongkong、eu-frankfurt 等。
+  - 设定存储路径：图片存放到 COS 存储桶中的路径。
   - 设定自定义域名：可选，若您为上方的存储空间配置了自定义源站域名，则可填写。相关介绍可参见 [开启自定义源站域名](https://cloud.tencent.com/document/product/436/36638)。
   - 设定网址后缀：通过在网址后缀添加 COS 数据处理参数实现图片压缩、裁剪、格式转换等操作，相关介绍可参见 [图片处理](https://cloud.tencent.com/document/product/436/54049)。
 2. 设置 typora（可选）。

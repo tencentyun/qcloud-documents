@@ -72,6 +72,12 @@
 | -------- | ------------------------------------------------------------ |
 | 拉取会话列表 |[v4/recentcontact/get_list](https://cloud.tencent.com/document/product/269/62118)|
 | 删除单个会话 |[v4/recentcontact/delete](https://cloud.tencent.com/document/product/269/62119)|
+| 创建会话分组数据 |[v4/recentcontact/create_contact_group](https://cloud.tencent.com/document/product/269/85791)|
+| 删除会话分组数据 |[v4/recentcontact/del_contact_group](https://cloud.tencent.com/document/product/269/85795)|
+| 更新会话分组数据 |[v4/recentcontact/update_contact_group](https://cloud.tencent.com/document/product/269/85793)|
+| 搜索会话分组标记数据 |[v4/recentcontact/search_contact_group](https://cloud.tencent.com/document/product/269/85796)|
+| 创建或更新会话标记数据 |[v4/recentcontact/mark_contact](https://cloud.tencent.com/document/product/269/85792)|
+| 拉取会话分组标记数据 |[v4/recentcontact/get_contact_group](https://cloud.tencent.com/document/product/269/85794)|
 
 ## 群组管理
 

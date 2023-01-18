@@ -6,7 +6,7 @@
 function addEventListener(type: string, listener: (event: FetchEvent) => void): void;
 ```
 
-在一个边缘函数中，一种类型的事件，只允许注册一个事件监听器，重复注册，只有最后注册的事件监听器有效。
+在一个边缘函数中，一种类型的事件，只允许注册一个事件监听器，若重复注册，只有最后注册的事件监听器有效。
 
 ### 参数
 <table>
@@ -37,7 +37,7 @@ function addEventListener(type: string, listener: (event: FetchEvent) => void): 
       <td>是</td>
       <td>
         <p>事件监听器。用于处理事件回调。</p>
-        <li>注册 <code>fetch</code> 请求事件生成 <a href="https://cloud.tencent.com/document/product/1552/81899">FetchEvent</a> 类的事件监听器</li>
+        <li>注册 <code>fetch</code> 请求事件生成 <a href="https://cloud.tencent.com/document/product/1552/81899">FetchEvent</a> 类的事件监听器。</li>
       </td>
     </tr>
   </tbody>
@@ -47,6 +47,7 @@ function addEventListener(type: string, listener: (event: FetchEvent) => void): 
 ```js
 // 注册 fetch 请求事件监听器
 addEventListener('fetch', (event) => {
+  // 响应客户端
   event.respondWith(new Response('Hello World!'));
 });
 ```

@@ -16,14 +16,14 @@ const encoder = new TextEncoder();
 readonly encoding: string;
 ```
 
-编码器的编码类型，当前值仅为 `utf-8`。
+编码器的编码类型，当前值仅为 `UTF-8`。
 
 ### 方法
 #### encode 
 ```typescript
 encoder.encode(input?: string | undefined): Uint8Array
 ```
-接受码点流作为输入，并输出 `utf-8` 字节流。
+接受码点流作为输入，并输出 `UTF-8` 字节流。
 
 >! **input 最大长度为 300M**，超出长度会抛出异常。
 
@@ -97,7 +97,7 @@ encoder.encodeInto(input: string, destination: Uint8Array): EncodeIntoResult;
     <tr>
       <td>read</td>
       <td>number</td>
-      <td>已转换为 utf-8 的 utf-16 单元数。</td>
+      <td>已转换为 UTF-8 的 UTF-16 单元数。</td>
     </tr>
     <tr>
       <td>written</td>
@@ -118,7 +118,7 @@ const decoder = new TextDecoder(label?: string | undefined, options?: DecoderOpt
 
 ### 参数
 
->! 参数 label ，下述的值暂不支持：
+>! 参数 [label](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings) ，下述的值暂不支持：
 >- iso-8859-16。
 >- hz-gb-2312。
 >- csiso2022kr，iso-2022-kr。
@@ -135,15 +135,15 @@ const decoder = new TextDecoder(label?: string | undefined, options?: DecoderOpt
   <tbody>
     <tr>
       <td>label</td>
-      <td>string | undefined</td>
+      <td>string | <br/> undefined</td>
       <td>否</td>
       <td>
-        解码器类型，默认值为 <code>utf-8</code>。可选的 <code>label</code> 值参考 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings">MDN 官方文档</a>
+        解码器类型，默认值为 <code>UTF-8</code>。可选的 <code>label</code> 值参考 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings">MDN 官方文档</a>
       </td>
     </tr>
     <tr>
       <td>options</td>
-      <td><a href="#MatchOptions">DecoderOptions</a> | undefined</td>
+      <td><a href="#MatchOptions">DecoderOptions</a> | <br/> undefined</td>
       <td>否</td>
       <td>解码器配置项</td>
     </tr>
@@ -226,7 +226,7 @@ const result = decoder.decode(buffer?: ArrayBuffer | ArrayBufferView | undefined
       <td>否</td>
       <td>
         待解码的字节流。<br>
-        <li><strong><code>buffer</code> 最大长度为 100M<strong>，超出长度会抛出异。</li>
+        <li><code>buffer</code> 最大长度为 100M，超出长度会抛出异。</li>
       </td>
     </tr>
     <tr>

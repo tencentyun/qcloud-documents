@@ -33,9 +33,13 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
 ## 操作步骤
 
 ### 使用 SRS 应用镜像创建实例
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击**新建**。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击 **新建**。
 2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
-其中，“镜像”选择为**应用镜像** > **SRS音视频服务器 4.5**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+  - **镜像**：选择为应用模板 > 音视频场景 > SRS 音视频服务器应用模板，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+<dx-alert infotype="explain" title="">
+ - 应用模板即应用镜像。
+- 查看镜像说明详情请参见 [基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+</dx-alert>
 <dx-alert infotype="explain" title="">
 - 若您想使用已创建的实例搭建直播间，则可使用 SRS 应用镜像 [重装系统](https://cloud.tencent.com/document/product/1207/44576)。
 - 本文以使用应用镜像 SRS 音视频服务器 4.5 版本为例，镜像可能会进行版本升级与更新，请您以购买页实际版本为准。

@@ -80,3 +80,9 @@ apk名称：test.apk
 >? 如需 APK 动态打包月结计费，请 [联系我们](https://cloud.tencent.com/online-service?from=doc_228)。
 
 
+## 常见问题
+
+1. 上传母包后，通过 src 目录下载发现并未打包渠道信息?
+src 是上传目录，通过 scf 处理母包，最终将输出到 ext 目录，需要访问 ext 目录才能自动打包。
+2. walle 格式，comment=123456， walle-cli 查询报错，提示 json 格式不对？
+walle 的渠道信息格式要求为 json 格式并做 urlencode，后台会将 comment 信息通过 urldecode 后直接打在对应的 blockid-value 里，所以 comment 内容为 urlencode（json）。例如：渠道信息为123456， 则 walle value 为 `{"channel":"123456"}, comment=%7B%22channel%22%3A%22123456%22%7D`。

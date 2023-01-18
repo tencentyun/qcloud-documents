@@ -198,7 +198,7 @@
 <td>Fetch 请求次数</td>
 <td>OneMinuteRate</td>
 <td>count/s</td>
-<td>一分钟 Fetch 总请请求速率</td>
+<td>一分钟 Fetch 总请求速率</td>
 </tr>
 <tr>
 <td>Produce 请求次数</td>

@@ -164,3 +164,52 @@ ls -l /home/test
 # /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
 ``` 
 
+### Vsftpd 添加自签证书
+为 Vsftpd 添加 OpenSSL 自签证书，进一步提高文件数据传输的安全性。
+1. 执行以下命令，查看是否支持 SSL。
+```plaintext
+sudo ldd `which vsftpd`|grep ssl
+```
+2. 本文使用的 CentOS 7.6 默认安装了 OpenSSL。如实例操作系统未安装 OpenSSL ，则需要先执行以下命令安装 OpenSSL 后再进行以下步骤，如已安装，则跳过此步。
+#### CentOS
+```plaintext
+sudo yum install openssl
+```
+#### Ubuntu
+```plaintext
+sudo apt-get install openssl 
+sudo apt-get install libssl-dev
+```
+3. 执行以下命令，使用 OpenSSL 生成 SSL 密钥文件，并复制到指定目录下。
+```plaintext
+sudo openssl req -new -x509 -nodes -out vsftpd.pem -keyout vsftpd.pem
+```
+```plaintext
+sudo cp vsftpd.pem /etc/ssl/certs/vsftpd.pem
+```
+```plaintext
+sudo chmod 400 /etc/ssl/certs/vsftpd.pem
+```
+4. 执行以下命令，打开 vsftpd.conf 文件。
+```plaintext
+sudo vim /etc/vsftpd/vsftpd.conf
+```
+5. 按` i `切换至编辑模式，添加以下配置。
+```plaintext
+# SSL 配置
+ssl_enable=YES# 启用SSL
+allow_anon_ssl=NO# 匿名不支持SSL
+force_local_data_ssl=YES# 本地用户登录加密
+force_local_logins_ssl=YES# 本地用户数据传输加密
+rsa_cert_file=/etc/ssl/certs/vsftpd.pem
+ssl_tlsv1=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+```
+6. 按 Esc 后输入 `:wq` 保存后退出。
+7. 执行以下命令，重启 FTP 服务。
+8. 使用 FileZilla 进行连接测试。
+
+ <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d0ca85b60a79752057a448af35478164.png" />
+ <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/43486b6945e1489f4b4c524d1fac6de3.png" />
+

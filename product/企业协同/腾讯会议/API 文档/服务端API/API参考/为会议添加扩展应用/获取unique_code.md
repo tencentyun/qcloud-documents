@@ -5,7 +5,7 @@
 - **调用方法：**GET
 - **接口请求域名：**
 ```plaintext
-https://api.meeting.qq.com](../user_cancel)/v1/app/unique-code
+https://api.meeting.qq.com/v1/app/unique-code
 ```
 
 

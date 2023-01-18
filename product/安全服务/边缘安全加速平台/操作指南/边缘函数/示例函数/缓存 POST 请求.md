@@ -1,4 +1,4 @@
-在边缘函数中，使用 `Cache API` 缓存 POST 请求。
+该示例对 POST 请求 body 计算 SHA-256 签名，作为缓存 key 的一部分，并使用 [Cache API](https://cloud.tencent.com/document/product/1552/81893) 将响应内容进行缓存，若存在缓存，则使用缓存内容响应客户端，否则使用 [Fetch API](https://cloud.tencent.com/document/product/1552/81897) 发起子请求获取远程资源。实现了，使用边缘函数缓存 POST 请求。
 
 ## 示例代码
 
@@ -85,11 +85,11 @@ addEventListener('fetch', (event) => {
 
 - 未命中缓存。
 
-<img src="https://user-images.githubusercontent.com/117053395/208015805-6debfef0-1008-42e8-bff8-b81c334dee30.png" width=609px>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/3b92f8a797b82250b7f67d8bf3be360c.png" width=609px>
 
 - 命中缓存。
 
-<img src="https://user-images.githubusercontent.com/117053395/208015691-cb50b8d9-58f6-48f9-98f0-8e40bb6a303c.png" width=609px>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c315e95766e9ddf81a2b4a25b08ef707.png" width=609px>
 
 ## 相关参考
 - [Runtime APIs: Fetch](https://cloud.tencent.com/document/product/1552/81897)

@@ -23,7 +23,7 @@ HBuilder 不会默认创建 package.json 文件，因此您需要先创建 packa
 npm init -y
 ```
 
-### 步骤 2：下载并引入 TUIKit 
+### 步骤2：下载并引入 TUIKit 
 通过 [npm](https://www.npmjs.com/package/@tencentcloud/chat-uikit-uniapp) 方式下载 TUIKit 并集成组件。 [chat-uikit-uniapp github 源码集成](https://github.com/TencentCloud/chat-uikit-uniapp)
 > !uni-app 打包到小程序涉及到体积问题，因此我们提供了以下两种集成方案：
 > - 打包 APP 或者 H5 端推荐方案一，主包集成
@@ -421,14 +421,14 @@ export default {
 :::
 </dx-tabs>
 
-### 步骤4： 获取 SDKAppID 、密钥与 userID
+### 步骤3： 获取 SDKAppID 、密钥与 userID
 
 设置 App.vue 文件示例代码中的相关参数 SDKAppID、secretKey 以及 userID ，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。例如：
 ![image](https://user-images.githubusercontent.com/57951148/192587785-6577cc5e-acf9-423c-86d0-52c67234ab1f.png)
 userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 进行创建和获取，单击目标应用卡片，进入应用的账号管理页面，即可创建账号并获取 userID。例如：  
 ![create user](https://user-images.githubusercontent.com/57951148/192585588-c5300d12-6bb5-45a4-831b-f7d733573840.png)
 
-### 步骤5：运行效果
+### 步骤4：运行效果
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/06ccb31cb4dd0ae0d93a15794f63bb81.png)
 

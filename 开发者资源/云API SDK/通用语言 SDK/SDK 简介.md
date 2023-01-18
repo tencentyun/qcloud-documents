@@ -118,7 +118,6 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [定制建模](https://cloud.tencent.com/document/product/1029)         | Anti Fraud Customized | afc        |
 | [音频内容检测](https://cloud.tencent.com/document/product/1219)       | Audio Moderation System | ams        |
 | [汽车精准获客服务](https://cloud.tencent.com/document/product/1244)     | Automotive Precise Customer Acquisition Service | apcas      |
-| [正版图库直通车](https://cloud.tencent.com/document/product/1181)      | Authorized Picture Express | ape        |
 | [API 网关](https://cloud.tencent.com/document/product/628)         | API Gateway | apigateway |
 | [应用与服务编排工作流](https://cloud.tencent.com/document/product/1272)   | Application Services Workflow | asw        |
 | [网站备案](https://cloud.tencent.com/document/product/243)          | - | ba         |

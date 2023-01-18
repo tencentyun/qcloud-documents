@@ -24,17 +24,41 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ## 更新日志
 
-### IM Flutter TUIKit（含 UI） 1.1.0 @2022.12.22
+### IM Flutter TUIKit（含 UI） 1.4.0 @2023.01.13
 
-- 新增：支持日语和韩语两种新语言。
-- 新增：支持添加新语言，或修改翻译，参考[这篇文档](https://www.tencentcloud.com/document/product/1047/52154)。
-- 新增：TUIKit默认嵌入了表情插件。现在我们支持三种类型的表情：Unicode Emoji，小图片Emoji和大图片表情，使用已经进行了优化，参考[这篇文档](https://www.tencentcloud.com/document/product/1047/52227)。
+- 新增：文本消息及回复引用消息中的文字翻译功能。长按文本，选择翻译即可。可通过 `ToolTipsConfig` 的 `showTranslation` 参数控制开启。
+- 优化：长按消息弹窗的出现位置。
+- 优化：键盘弹起事件。
+
+### IM Flutter SDK（无 UI） 5.0.8 @2023.01.13
+
+- 新增：群组计数能力，普通群和直播群支持群计数器 meta counter，详情可查看groupCounter相关API
+- 新增：文本消息翻译能力，详情查看 [translateText](https://cloud.tencent.com/document/product/269/85380)。
+
+### IM Flutter TUIKit（含 UI） 1.3.0 @2023.01.11
+
+- 修复：转移群主的群 Tips 消息，无法展示新群主昵称。
+- 优化：移除点开文件前的二次确认框。
+
+### IM Flutter TUIKit（含 UI） 1.2.0 @2023.01.06
+
+- 修复：聊天组件，从录音状态，切换至输入状态时，输入框无法显示问题。
+- 修复：合并转发至多个接收者，只有第一个接收者收到消息的问题。
+- 优化：`MessageItemBuilder` 可用于合并消息页面展示。
+
+### IM Flutter TUIKit（含 UI） 1.1.0 @2022.12.27
+
+- 新增：支持日语和韩语两种新语言，参考[这篇文档](https://cloud.tencent.com/document/product/269/84481)。
+- 新增：支持添加新语言，或修改翻译，参考[这篇文档](https://cloud.tencent.com/document/product/269/84481)。
+- 新增：TUIKit默认嵌入了表情插件。现在我们支持三种类型的表情：Unicode Emoji，小图片Emoji和大图片表情，使用已经进行了优化，参考[这篇文档](https://cloud.tencent.com/document/product/269/80882)。
 - 优化：主题，更多定制化能力支持。
 - 优化：输入区域、键盘、贴纸面板和更多面板的动画。
 - 优化：表情符号，包括Unicode和小图像，可以插入到文本消息中的任何位置。
 - 优化：个人资料中的头像可以用大图预览。
 - 优化：个人资料文件中的用户ID可以复制。
 - 优化：多个UI细节，包括`TIMUIKitAddFriend`、`TIMUIKitAddGroup`、`TIMUIKitGroupProfile`和`TIMUIKitProfile`。
+- 优化：`TIMUIKitGroupProfile`和`TIMUIKitProfile`支持通过修改ID变更内容。
+- 优化：`TIMUIKitGroupChat` 在点击下载图片/视频按钮后，下载中，展示Loading动画。
 - 修复：一些错误。
 
 

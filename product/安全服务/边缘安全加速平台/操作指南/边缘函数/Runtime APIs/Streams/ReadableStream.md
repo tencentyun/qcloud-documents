@@ -157,7 +157,7 @@ readable.pipeThrough(transfromStream: TransfromStream, options?: PipeToOptions):
 		</tr>
     <tr>
 			<td>signal</td>
-			<td><a href="[AbortSignal].md">AbortSignal</a></td>
+			<td><a href="https://cloud.tencent.com/document/product/1552/84091#abortsignal">AbortSignal</a></td>
 			<td>否</td>
 			<td>当 `signal` 被 abort 时，将会中止正在进行的传输。</td>
 		</tr>

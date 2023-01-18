@@ -74,7 +74,7 @@ CDN下载地址：
 ```shell
 sudo rpm -ivh cosfs-1.0.20-centos7.0.x86_64.rpm
 ```
->? 如果安装时报错，提示`conflicts with file from package fuse-libs-*`，则加`--force`参数再次安装。
+>? 如果安装时报错，提示 `conflicts with file from package fuse-libs-*`，则加 `--force` 参数再次安装。
 >
 
 ### 方式二：通过编译源码方式安装
@@ -106,7 +106,7 @@ brew install cask osxfuse
 
 #### 2. 获取源码 
 
-您需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录`/usr/cosfs`为例（实际操作下，建议您根据具体操作环境选择目录）：
+您需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录 `/usr/cosfs` 为例（实际操作下，建议您根据具体操作环境选择目录）：
 ```shell
 sudo git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
@@ -177,7 +177,7 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 ## 使用方法
 
 ### 1. 配置密钥文件
-在文件`/etc/passwd-cosfs`中，写入您的存储桶名称（格式为 BucketName-APPID），以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。为了防止密钥泄露，COSFS 要求您将密钥文件的权限值设置为640，配置`/etc/passwd-cosfs`密钥文件的命令格式如下：
+在文件 `/etc/passwd-cosfs` 中，写入您的存储桶名称（格式为 BucketName-APPID），以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。为了防止密钥泄露，COSFS 要求您将密钥文件的权限值设置为640，配置 `/etc/passwd-cosfs` 密钥文件的命令格式如下：
 ```shell
 sudo su  # 切换到 root 身份，以修改 /etc/passwd-cosfs 文件；如果已经为 root 用户，无需执行该条命令。
 echo <BucketName-APPID>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
@@ -186,7 +186,7 @@ chmod 640 /etc/passwd-cosfs
 
 >? 您需要将 &lt;&gt; 的参数替换为您的信息。
 > - &lt;BucketName-APPID&gt;为存储桶名称格式，关于存储桶命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
-> - &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，您可前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中查看和创建。
+> - &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，建议使用子账号密钥，授权遵循 [最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险。子账号密钥获取可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
 > - 您也可以将密钥配置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，同时您需要将密钥文件的权限值设置为600。
 > 
 
@@ -221,7 +221,7 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 ```
 
 >!
->- COSFS 工具为提升性能，默认使用系统盘存放上传、下载的临时缓存，文件关闭后会释放空间。在并发打开的文件数较多或者读写大文件的时候，COSFS 工具会尽量多的使用硬盘来提高性能，默认只保留 100MB 硬盘可用空间给其他程序使用，可以通过选项 oensure_diskfree=[size] 设置 COSFS 工具保留可用硬盘空间的大小，单位为 MB。例如`-oensure_diskfree=1024`，COSFS 工具会保留1024MB剩余空间。
+>- COSFS 工具为提升性能，默认使用系统盘存放上传、下载的临时缓存，文件关闭后会释放空间。在并发打开的文件数较多或者读写大文件的时候，COSFS 工具会尽量多的使用硬盘来提高性能，默认只保留 100MB 硬盘可用空间给其他程序使用，可以通过选项 oensure_diskfree=[size] 设置 COSFS 工具保留可用硬盘空间的大小，单位为 MB。例如 `-oensure_diskfree=1024`，COSFS 工具会保留1024MB剩余空间。
 >- V1.0.5及较早版本的 COSFS，挂载命令为 cosfs &lt;APPID>:&lt;BucketName> &lt;MountPoint> -ourl=&lt;CosDomainName> -oallow_other。
 >
 
@@ -263,7 +263,7 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 
 #### -ouid=[uid]
 该选项允许用户 ID 为 [uid] 的用户不受挂载目录中文件权限位的限制，可以访问挂载目录中的所有文件。
-获取用户 uid 可以使用 ID 命令，格式` id -u username`。例如执行`id -u user_00`，可获取到用户 user_00 的 uid。
+获取用户 uid 可以使用 ID 命令，格式 ` id -u username`。例如执行 `id -u user_00`，可获取到用户 user_00 的 uid。
 
 #### -oensure_diskfree=[size]
 

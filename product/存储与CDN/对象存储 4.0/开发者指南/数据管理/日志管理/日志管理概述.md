@@ -18,7 +18,7 @@
 | 5        | eventSource     | 用户访问的域名 | examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com                        |
 | 6        | eventName       | 事件名称             | UploadPart                                                                    |
 | 7        | remoteIp        | 来源 IP                 | 192.168.0.1                                                                   |
-| 8        | userSecretKeyId | 用户访问 KeyId        | AKIDNYVCdoJQyGJ5brTf                                                          |
+| 8        | userSecretKeyId | 用户访问 KeyId        | AKIDNYVCdoJQyGJ5b1234                                                       |
 | 9        | reservedFiled | 保留字段   | 保留字段，显示为`-`。 |
 | 10       | reqBytesSent    | 请求字节数（Bytes） | 83886080                                                                      |
 | 11       | deltaDataSize   | 请求对存储量的改变（Bytes） | 808                                                                   |

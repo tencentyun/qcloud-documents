@@ -28,9 +28,20 @@ TKE 组件在每个节点维护一个可弹性伸缩的独占网卡/IP 池。已
 
 ### 支持快释放
 
-默认情况，非固定 IP 模式管理的网卡/IP 池采用慢释放策略，默认是2分钟只释放1个多余的网卡/IP，若用户需要更高效的利用 IP，则需要开启快释放，快释放模式下，每2分钟会检查一次网卡/IP 池，释放多余的网卡/IP，直到空闲网卡/IP 数等于最大预绑定值。
+默认情况，非固定 IP 模式管理的网卡/IP 池采用慢释放策略，默认是2分钟只释放1个多余的网卡/IP，若用户需要更高效的利用 IP，则需要开启快释放，快释放模式下，每2分钟会检查一次网卡/IP 池，释放多余的网卡/IP，直到空闲网卡/IP 数等于最大预绑定值。开启方式如下：
 
-#### 开启方法
+#### tke-eni-ipamd 组件版本 >= v3.5.0
+
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
+2. 在“集群管理”页面，选择需开启快释放的集群 ID，进入集群详情页。
+3. 在集群详情页面，选择左侧**组件管理**。
+4. 在组件管理页面中，找到**eniipamd**组件，选择**更新配置**。
+![](https://qcloudimg.tencent-cloud.cn/raw/8ba9443b2e1da9800b429060adf89416.png)
+5. 在更新配置页面，勾选**快释放**，并点击完成。
+![](https://qcloudimg.tencent-cloud.cn/raw/c9f9cb51f0e5af860c936c2760290106.png)
+
+#### tke-eni-ipamd 组件版本 < v3.5.0 或组件管理中无 eniipamd 组件
+
 - 修改现存的 tke-eni-agent daemonset：`kubectl edit ds tke-eni-agent -n kube-system`。
 - 在 `spec.template.spec.containers[0].args` 中加入以下启动参数开启快释放。修改后，agent 会滚动更新生效特性。
 ```
@@ -73,6 +84,19 @@ kubectl annotate nec <nodeName> "tke.cloud.tencent.com/direct-eni-max-attach"="5
 修改后即触发动态预绑定的检查，如果`已绑定数量 > 最大可绑定值`，则会解绑网卡/IP，使`已绑定数量 = 最大可绑定值`。
 
 ### 指定默认预绑定数量
+
+#### tke-eni-ipamd 组件版本 >= v3.5.0
+
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
+2. 在“集群管理”页面，选择需指定默认预绑定数量的集群 ID，进入集群详情页。
+3. 在集群详情页面，选择左侧**组件管理**。
+4. 在组件管理页面中，找到**eniipamd**组件，选择**更新配置**。
+![](https://qcloudimg.tencent-cloud.cn/raw/8ba9443b2e1da9800b429060adf89416.png)
+5. 在更新配置页面，填写欲设置的共享网卡/独占网卡模式预绑定默认值，并点击完成。
+![](https://qcloudimg.tencent-cloud.cn/raw/35f5df7b734c1c7b76123c9bb110f59b.png)
+
+#### tke-eni-ipamd 组件版本 < v3.5.0 或组件管理中无 eniipamd 组件
+
 - 修改现存的 tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`。
 - 在 `spec.template.spec.containers[0].args` 中加入以下启动参数修改默认预绑定值。修改后，ipamd 会自动重启并生效。默认值只影响新增的节点：
 ```

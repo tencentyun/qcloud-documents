@@ -11,6 +11,9 @@
 2. 在 API 密钥管理页面，如已创建密钥，在该页面查看即可；如未创建密钥，单击**新建密钥**，即可生成所需密钥。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c4ccd1b9a4450d1130d3898dc29aef65.png)
 
+>!建议使用子账号密钥，并遵循最小权限控制的原则（仅赋予子账号“QcloudCaptchaFullAccess”权限），降低使用风险。子账号密钥获取可参见 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
+
+
 ### 步骤3：调用 DescribeCaptchaResult 接口
 建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer?Product=captcha&Version=2019-07-22&Action=DescribeCaptchaResult&SignVersion=) ，在线生成代码。API 详情参见：[核查验证码票据结果（Web 及 APP）](https://cloud.tencent.com/document/product/1110/36926)。
 > !不同客户端需调用对应客户端的票据校验 API，不可混用，否则会导致接口报错。

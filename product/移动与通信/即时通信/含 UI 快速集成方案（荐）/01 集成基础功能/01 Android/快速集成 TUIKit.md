@@ -273,7 +273,83 @@ api project(':tuicallkit')
 	2. 集成 TUICallKit 组件。
 	3. 通过 TUICallKit 发起通话邀请的时候，默认会生成一条离线推送消息。
 
+5. **附加增值能力**
+集成 TUIChat 和 TUICallkit 的组件后，在聊天界面发送语音消息时，即可**录制带 AI 降噪和自动增益的语音消息**。该功能需要购买 [音视频通话能力](https://cloud.tencent.com/document/product/1640/79968) 进阶版及以上套餐，仅 IMSDK 7.0 及以上版本支持。当套餐过期后，录制语音消息会切换到系统 API 进行录音。
+下面是使用两台华为 P10 同时录制的语音消息对比：
+<table style="text-align:center;vertical-align:middle;width: 800px">
+  <tr>
+    <th style="text-align:center;" ><b>系统录制的语音消息<br></b></th>
+    <th style="text-align:center;" ><b>TUICallkit 录制的带 AI 降噪和自动增益的语音消息<br></b></th>
+  </tr>
+  <tr>
+    <td>
+      <audio id="audio" controls="" preload="none" >
+	<source id="m4a" src="https://im.sdk.cloudcachetci.com/tools/resource/rain_system_record.m4a">
+      </audio>
+    </td>
+		
+    <td>
+      <audio id="audio" controls="" preload="none">
+	<source id="m4a" src="https://im.sdk.cloudcachetci.com/tools/resource/rain_tuicallkit_record_with_agc_aidenoise.m4a">
+      </audio>
+    </td>
+  </tr>
+</table>
+	
+
 >? 更多实操教学视频请参见：[极速集成 TUIKit（Android）](https://cloud.tencent.com/edu/learning/course-3130-56399)。
+
+
+[](id:textTranslation)
+## 开启文本消息翻译功能
+文本消息翻译功能指的是，当您进入了聊天界面后，可以手动长按消息列表中的文本消息 item，在出现的菜单中，点击【翻译】按钮，翻译文本。
+为了避免对用户使用造成影响，翻译功能默认关闭，消息长按菜单中不会出现【翻译】按钮。
+
+如果您想使用翻译功能，需要操作以下两步：
+1. 联系腾讯云技术人员帮您开通翻译服务。**未开通服务的情况下，即使您在 UI 上显示了【翻译】按钮，也无法正常翻译**。
+2. 开通服务后，您可以在初始化聊天窗口前，设置显示【翻译】按钮，示例代码如下：
+```java
+// 显示翻译按钮
+TUIChatConfigs.getConfigs().getGeneralConfig().setEnableTextTranslation(true);
+```
+
+> ! 
+> 1. 文本消息翻译功能从 TUIChat 7.0 版本开始支持。
+> 2. 仅支持文本消息、文本类的引用或回复消息，图片、语音、视频、文件、表情、自定义消息等不支持翻译。
+> 3. 点击【翻译】后，会将文本翻译成当前 TUIChat 所使用的语言。例如当前 TUIChat 语言为英文，无论待翻译的文本是什么语言，都将被翻译为英文。
+
+开启翻译服务及显示开关前后效果图如下所示：
+<dx-tabs>
+::: 经典版
+<table style="text-align:center;vertical-align:middle;width: 900px">
+  <tr>
+    <th style="text-align:center;" width="300px">不显示翻译按钮</th>
+    <th style="text-align:center;" width="300px">显示翻译按钮</th>
+    <th style="text-align:center;" width="300px">文本消息翻译效果</th>
+  </tr>
+  <tr>
+    <td><img style="width:300px" src="https://qcloudimg.tencent-cloud.cn/raw/398a628b6a0a885c1f63c0f8d320c702.jpg"/></td>
+    <td><img style="width:300px" src="https://qcloudimg.tencent-cloud.cn/raw/ec5fa852d7ffa0ec8236418e09427bbc.jpg"/></td>
+    <td><img style="width:300px" src="https://qcloudimg.tencent-cloud.cn/raw/0e1b9927120ff048561270fcc7475595.jpg"/></td>
+	 </tr>
+</table>
+:::
+::: 简约版
+<table style="text-align:center;vertical-align:middle;width: 900px">
+  <tr>
+    <th style="text-align:center;" width="300px">不显示翻译按钮</th>
+    <th style="text-align:center;" width="300px">显示翻译按钮</th>
+    <th style="text-align:center;" width="300px">文本消息翻译效果</th>
+  </tr>
+  <tr>
+    <td><img style="width:300px" src="https://qcloudimg.tencent-cloud.cn/raw/b65557255c88aa0a1cc557c40515be80.jpg"/></td>
+    <td><img style="width:300px" src="https://qcloudimg.tencent-cloud.cn/raw/254884ffcd7cf16b3d4db58698e9314f.jpg"/></td>
+    <td><img style="width:300px" src="https://qcloudimg.tencent-cloud.cn/raw/4528dc6a31b06782d0279fc5cc81ab1a.jpg"/></td>
+	 </tr>
+</table>
+:::
+</dx-tabs>
+
 
 ## 常见问题
 #### 提示 "Manifest merger failed : Attribute application@allowBackup value=(true) from AndroidManifest.xml" 如何处理？

@@ -52,7 +52,7 @@ const cache = await caches.open(namespace);
 cache.match(request: string | Request, options?: MatchOptions): Promise<Response | undefined>
 ```
 
-获取 request 关联的缓存 Response。返回一个 Promise 对象。如果缓存存在，则包含 Response 对象，反之包含 undefined。
+获取 request 关联的缓存 [Response](https://cloud.tencent.com/document/product/1552/81917)。返回一个 Promise 对象。如果缓存存在，则包含 Response 对象，反之包含 undefined。
 
 >! **cache.match** 内部不会主动回源，缓存过期则会抛出 504 错误。
 
@@ -83,11 +83,11 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
         </li>
         <li>
           <font color="#9ba6b7">If-Modified-Since</font><br/>
-          <div style="padding-left: 20px;padding-bottom: 6px">request 包含 <code>If-Modified-Since</code> 头部时，如果缓存的 Response 存在 Last-Modified 头部，且 Last-Modified 与 If-Modified-Since 相等，返回 304 响应。</div>
+          <div style="padding-left: 20px;padding-bottom: 6px">request 包含 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since">If-Modified-Since</a> 头部时，如果缓存的 Response 存在 Last-Modified 头部，且 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified">Last-Modified</a> 与 If-Modified-Since 相等，返回 304 响应。</div>
         </li>
         <li>
           <font color="#9ba6b7">If-None-Match</font><br/>
-          <div style="padding-left: 20px;padding-bottom: 6px">request 包含 <code>If-None-Match</code> 头部时，如果缓存的 Response 存在 ETag 头部，且 ETag 与 If-None-Match 相等, 返回 304 响应。</div>
+          <div style="padding-left: 20px;padding-bottom: 6px">request 包含 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match">If-None-Match</a> 头部时，如果缓存的 Response 存在 ETag 头部，且 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">ETag</a> 与 If-None-Match 相等, 返回 304 响应。</div>
         </li>
       </td>
     </tr>
@@ -124,7 +124,7 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
 ```typescript
 cache.put(request: string | Request, response: Response): Promise<undefined>
 ```
-尝试使用给定的 request 作为缓存 key，将 response 添加到缓存。无论缓存是否成功，均返回 Promise<undefined> 对象。
+尝试使用给定的 request 作为缓存 key，将 response 添加到缓存。无论缓存是否成功，均返回 `Promise<undefined>` 对象。
 
 >! 当参数 **response** 对象的 Cache-Control 头部表示不缓存时，抛出 413 错误。 
 
@@ -174,24 +174,24 @@ cache.put(request: string | Request, response: Response): Promise<undefined>
         <li>
           <font color="#9ba6b7">Pragma</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            当 Cache-Control 未设置，并且 Pragma 为 no-cache。此时表示不缓存。
+            当 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control">Cache-Control</a> 未设置，并且 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Pragma">Pragma</a> 为 no-cache。此时表示不缓存。
           </li>
         <li>
           <font color="#9ba6b7">ETag</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            当 <strong>cache.match</strong> 参数 <code>request</code> 包含 If-None-Match 头部时，可关联 ETag 使用。
+            当 <code>cache.match</code> 参数 <code>request</code> 包含 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match">If-None-Match</a> 头部时，可关联 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">ETag</a> 使用。
           </div>
         </li>
         <li>
           <font color="#9ba6b7">Last-Modified</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            当 <strong>cache.match</strong> 参数 <code>request</code> 包含 If-Modified-Since 头部时，可关联 Last-Modified 使用。
+            当 <code>cache.match</code> 参数 <code>request</code> 包含 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since">If-Modified-Since</a> 头部时，可关联 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified">Last-Modified</a> 使用。
           </div>
         </li>	
         <li>
           <font color="#9ba6b7">416 Range Not Satisfiable</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            当参数 <code>response</code> 对象为 416 Range Not Satisfiable 时，暂不缓存。
+            当参数 <code>response</code> 对象为 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/416">416 Range Not Satisfiable</a> 时，暂不缓存。
           </div>
         </li>
 			</td>
@@ -203,7 +203,7 @@ cache.put(request: string | Request, response: Response): Promise<undefined>
 `cache.put` 使用以下的参数值，将抛出参数错误：
 - 参数 `request` 为 GET 方法之外的其他方法.
 - 参数 `response` 状态码为 [206 Partial Content](https://www.webfx.com/web-development/glossary/http-status-codes/what-is-a-206-status-code/)。 
-- 参数 `response` 包含 Vary: * 头部。 
+- 参数 `response` 包含 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary">Vary: *</a> 头部。 
 
 
 ### delete
@@ -239,7 +239,7 @@ cache.delete(request: string | Request, options?: DeleteOptions): Promise<boolea
         <li>
           <font color="#9ba6b7">string</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px"> 
-            当参数 <code>request</code> 类型为 string 时，将被作为 URL 构造 <a href="/document/product/1552/81902">Request</a> 对象。
+            当参数 <code>request</code> 类型为 string 时，将被作为 URL 构造 <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a> 对象。
           </div>
         </li>
       </td>
@@ -276,5 +276,5 @@ cache.delete(request: string | Request, options?: DeleteOptions): Promise<boolea
 
 ## 相关参考 
 - [MDN 官方文档：Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
-- [示例函数：缓存 POST 请求](https://cloud.tencent.com/document/product/1552/84079)
+- [示例函数：缓存 POST 请求](https://cloud.tencent.com/document/product/1552/84024)
 - [示例函数：Cache API 使用](https://cloud.tencent.com/document/product/1552/84023)

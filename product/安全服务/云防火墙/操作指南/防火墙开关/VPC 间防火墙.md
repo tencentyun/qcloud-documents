@@ -24,13 +24,14 @@
 1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/switch/vpc)，在左侧导航栏中，选择**防火墙开关** > **VPC 间开关**，进入 VPC 间开关页面。
 2. 在 VPC 间开关页面，单击**防火墙实例**，进入到防火墙实例页面，单击**创建实例**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b09fe889d423795938c8cc10e26b0d71.png)
-3. 在新建 VPC 间防火墙弹窗中，根据需求选择好对应的模式，并选择模式。
-![](https://qcloudimg.tencent-cloud.cn/raw/bc604a9f917427b4a4b41f572d8768ae.png)
-   **参数说明：**
+3. 在新建 VPC 间防火墙弹窗中，根据需求选择好对应的模式，并选择模式。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/e72dacf41e12fb986333d4f3343c8792.png" width=600px>
+**参数说明：**
    - 实例名称：创建防火墙实例时自定义的名称。
-   - 模式：分为私有网络模式和云联网模式。
+   - 模式：
      - 私有网络模式：选择私有网络 VPC 接入防火墙，通过修改相关私有网络的路由表，来实现路由牵引。
      - 云联网模式：选择云联网 CCN 接入防火墙（需要支持多路由表模式），通过修改云联网路由表，来实现路由牵引。
+     - SASE 模式：功能限时内测中，如需使用请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+     - 高级模式：高级模式采用云联网模式，需要云联网支持多路由表模式。该模式允许用户手动配置路由将流量牵引至防火墙，从而实现更灵活的配置。详情请参见 [VPC 间防火墙高级模式](https://cloud.tencent.com/document/product/1132/84623)。
  4. 根据模式的选择不同，所需填写的参数也不相同，具体操作如下所示：
       - **私有网络模式**，
         1. 单击**下一步**，该页面展示了所有的 VPC 网络，勾选建立了网络连接的 VPC，单击**下一步**。

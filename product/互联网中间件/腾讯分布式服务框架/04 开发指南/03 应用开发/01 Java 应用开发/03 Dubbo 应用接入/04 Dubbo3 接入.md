@@ -29,6 +29,8 @@
 
   
 
+
+
 ## 接入操作步骤
 
 ### 步骤1：安装 Maven 环境
@@ -42,7 +44,7 @@
 <dubbo:registry address="multicast://224.5.6.7:1234"/>
 ```
 
-- TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：[下载地址->>](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/dubbo/dubbo3%20%E6%8E%A5%E5%85%A5.md)
+- TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：[下载地址->>](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/dubbo/dubbo3-demo.zip)
 xml 格式：
 ```xml
 <dubbo:registry address="tsf://127.0.0.1:8500">
@@ -69,7 +71,7 @@ dubbo:
   application:
     name: provider-demo-dubbo
     logger: slf4j
-		register-mode: instance
+    register-mode: instance
 ```
 
 
@@ -83,7 +85,7 @@ dubbo:
        <groupId>com.tencent.tsf</groupId>
        <artifactId>femas-adaptor-tsf-apache-dubbo3</artifactId>
      	<!-- 调整为 tsf dubbo3 最新版本号，1.0.6-RELEASE 为支持 dubbo3 的第一版 -->
-       <version>1.0.6-RELEASE</version>
+       <version>1.0.7-RELEASE</version>
    </dependency>
    ```
 - Dubbo3 与 Spring Cloud 一起使用（Spring Cloud 只支持 2020 及以上版本）
@@ -93,7 +95,7 @@ dubbo:
         <groupId>com.tencent.tsf</groupId>
         <artifactId>spring-cloud-tsf-dependencies</artifactId>
       	<!-- 调整为 spring cloud 2020 tsf 最新版本号，1.40.6-SpringCloud2020-RELEASE 为支持 dubbo3 的第一版 -->
-        <version>1.40.6-SpringCloud2020-RELEASE</version>
+        <version>1.40.7-SpringCloud2020-RELEASE</version>
     </parent>
     ```
     如果必须要用业务的父依赖，则可以在子项目的 dependencyManagement 里添加。
@@ -104,7 +106,7 @@ dubbo:
           <groupId>com.tencent.tsf</groupId>
           <artifactId>spring-cloud-tsf-dependencies</artifactId>
           <!-- 调整为 spring cloud 2020 tsf 最新版本号，1.40.6-SpringCloud2020-RELEASE 为支持 dubbo3 的第一版 -->
-        	<version>1.40.6-SpringCloud2020-RELEASE</version>
+        	<version>1.40.7-SpringCloud2020-RELEASE</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>
