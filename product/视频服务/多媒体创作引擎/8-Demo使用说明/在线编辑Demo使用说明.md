@@ -70,12 +70,12 @@
 ### 步骤4：准备视频
 将上文提到的两个示例视频和一个示例图片下载到本地，上传到云点播。分以下几步操作：
 
-1. 先登录 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，在云点播控制台创建视频分类，选择 **上传存储设置**，再选择 **分类管理**，**添加分类**。输入分类名称，创建完成后，得到分类 ID。如图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4e5d7cf84d2791abf3c541d36210b6de.png" width="960">
+1. 先登录 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，在云点播控制台创建视频分类，选择**应用管理**，再点击应用列表中的某个应用名称，选择**上传存储设置**，选择**分类管理**后添加分类，得到分类 ID。如图所示：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7e8d630e4057e68a7c43bf805c7e3b81.png" width="960">
 2. 上传视频。将示例视频上传到云点播，如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/fc6656958d0342ff60564e044aaf3d00.png" width="960">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/cfd59a3f0792de7b97b336b90a32e8f2.png" width="960">
 3. 上传图片。将示例图片上传到云点播，如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/caf66537d817ce90e1e75bd1eed4b1d2.png" width="960">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/eda108030ffd6cf93ce9565c1ee39f89.png" width="960">
 
 >!
 >- 上传视频及图片时，请注意一定要上传到创建智能创作平台所使用的云点播子应用下。同时上传视频及图片时请选择**步骤1**创建的分类名称。
@@ -83,14 +83,14 @@
 
 
 ### 步骤5：部署 Demo 服务[](id:p4)
-1. 下载 [**项目源码**](https://vs-cdn.tencent-cloud.com/resources/cme-node-demo-feature-iframe-2.0.zip)。
+1. 下载 [**项目源码**](https://vs-cdn.tencent-cloud.com/resources/cme-node-demo/cme-node-demo-feature-iframe-3.0.zip)。
 
 >!
 >- 建议用户使用子账号密钥 + 环境变量的方式调用 SDK，提高 SDK 使用的安全性。为子账号授权时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
 >- 如果您一定要使用永久密钥，建议遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618) 对永久密钥的权限范围进行限制。
 
 2. **配置文件**
-配置文件在 config.js 上，按如下方式进行配置：
+在 demo 项目的最外层新建一个 myconfig.js，参考 config.js 填入内容,这里的配置文件仅用于 demo 展示，开发者可以根据自身业务需求调整和进行管理。
 ```javascript
 const config = {
     port: 9090,  // demo 端口号，开发者可以替换为自己的端口号
@@ -98,7 +98,7 @@ const config = {
     secretKey: "You SecretKey",  // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考https://cloud.tencent.com/document/product/598/37140
     vodSubAppId: 140****274 ,  // 配置创建智能创作平台时使用的云点播子应用 Id
     platform: "14****274 ",  // 配置准备工作中 步骤2 创建的平台 Id 
-    vodFileClassId: 8****1  // 云点播的媒资分类Id
+    vodFileClassId: 8****1  // 创建平台使用的点播子应用下的媒资分类 Id。查看地址https://console.cloud.tencent.com/vod/upload-storage 中的分类ID
 }
 ```
 >!这里的配置文件仅用于 Demo 展示，开发者可以根据自身业务需求调整和进行管理。
