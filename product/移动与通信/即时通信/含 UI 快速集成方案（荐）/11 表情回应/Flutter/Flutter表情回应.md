@@ -10,15 +10,9 @@ TUIKit 从 [v0.1.3](https://cloud.tencent.com/document/product/269/52049#im-flut
 
 开启表情回应能力后，长按消息菜单中，靠近消息本身的方向，会多一条表情选择区。该区域支持点击“加号”扩大，展示更多表情。
 
-<table style="text-align:center;vertical-align:middle;width:1000px;overflow-x:auto;">
-  <tr>
-    <th style="text-align:center;" width="250px">长按消息菜单<br></th>
-    <th style="text-align:center;" width="250px">更多表情<br></th>
-  </tr>
-  <tr>
-    <td><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/d9b075b14d89d5394d22c01e43cd7e05.jpg"  />    </td>
-    <td><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/b6019220ec7643a8dd11fcf19f7cba56.jpg" /> </td>
-</table>
+| 长按消息菜单 | 更多表情 |
+|---------|---------|
+| <img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/d9b075b14d89d5394d22c01e43cd7e05.jpg"  /> | <img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/b6019220ec7643a8dd11fcf19f7cba56.jpg" /> |
 
 ### 展示表情回应
 
@@ -30,15 +24,10 @@ TUIKit 从 [v0.1.3](https://cloud.tencent.com/document/product/269/52049#im-flut
 
 当发送同一个回应表情人数过多被省略时，点击最后的“...共xx人”，可查看完整的回应成员名单。
 
-<table style="text-align:center;vertical-align:middle;width:1000px;overflow-x:auto;">
-  <tr>
-    <th style="text-align:center;" width="250px">表情回应消息展示<br></th>
-    <th style="text-align:center;" width="250px">完整回应成员名单<br></th>
-  </tr>
-  <tr>
-    <td><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/8ce9ece5031655cd38f5a20e25b0ed8c.jpg"  />    </td>
-    <td><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/678ae70ae8f810b50b0e57946306a329.jpg" /> </td>
-</table>
+| 表情回应消息展示 | 完整回应成员名单 |
+|---------|---------|
+| <img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/8ce9ece5031655cd38f5a20e25b0ed8c.jpg"  /> | <img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/678ae70ae8f810b50b0e57946306a329.jpg" /> |
+
 
 ## 控制表情回应
 
