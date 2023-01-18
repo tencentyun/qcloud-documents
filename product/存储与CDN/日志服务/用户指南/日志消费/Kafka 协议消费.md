@@ -204,7 +204,7 @@ select count(*) , host from nginx_source group by host;
 
 ### 开启日志的 kafka 消费协议
 
-参考 [操作步骤](#steps) 开启日志的 kafka 消费协议，并获取消费的服务域名和 Topic。
+参考 [操作步骤](#steps) 开启日志的 kafka 消费协议，并获取消费的服务域名和 Topic。 
 
 ### Flume 配置
 
