@@ -37,6 +37,7 @@
 3. 在日志主题管理页面中，单击**Kafka 协议消费**页签。
 4. 单击右侧的**编辑**，将“当前状态”的开关按钮设置为打开状态后，单击**确定**。
 5. 控制台给出 Topic、host+port 的信息。用户可以复制信息，构造消费者 SDK。 
+![](https://qcloudimg.tencent-cloud.cn/raw/eccefedec25a68f6c3b1337fc24198a4.png)
 
 
 ## 消费者参数说明
