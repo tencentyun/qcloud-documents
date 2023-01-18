@@ -5,7 +5,7 @@
 <table>
 <thead>
 <tr>
-<th>账户类型</th>
+<th width="17">账户类型</th>
 <th align="center">计费模式</th>
 <th>计费说明</th>
 </tr>
@@ -18,14 +18,14 @@
 <tr>
 <td rowspan="4">标准账户类型</td>
 <td align="center">按流量</td>
-
 </tr>
  <tr>
 <td align="center">包月带宽</td>
-<td rowspan="2">EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
+<td>将 EIP 退还后，将按资源包使用比例退还您的费用，具体步骤请参见 退还包月带宽 EIP，退费原则请参见 <a href="https://cloud.tencent.com/document/product/1199/44366">常规 BGP IP 退费说明</a>、<a href="https://cloud.tencent.com/document/product/1199/79766">精品 BGP IP 退费说明</a>。</td>
 </tr> 
 <tr>
 <td align="center">按小时带宽</td>
+<td rowspan=>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
 </tr>
 </tbody></table>
 
