@@ -24,7 +24,7 @@
 </tr>
 <tr>
 <td align="center">包月带宽</a></td>
-<td>将 EIP 退还后，将按资源包使用比例退还您的费用，具体步骤请参见 退还包月带宽 EIP，退费原则请参见 <a href="https://cloud.tencent.com/document/product/1199/44366">常规 BGP IP 退费说明</a>、<a href="https://cloud.tencent.com/document/product/1199/79766">精品 BGP IP 退费说明</a>。</td>
+<td>将 EIP 退还后，将按资源包使用比例退还您的费用，具体步骤请参见 <a href="https://cloud.tencent.com/document/product/1199/43137#33">退还包月带宽 EIP</a>，退费原则请参见 <a href="https://cloud.tencent.com/document/product/1199/44366">常规 BGP IP 退费说明</a>、<a href="https://cloud.tencent.com/document/product/1199/79766">精品 BGP IP 退费说明</a>。</td>
 </tr>
 <tr>
 <td align="center">按小时带宽</a></td>
