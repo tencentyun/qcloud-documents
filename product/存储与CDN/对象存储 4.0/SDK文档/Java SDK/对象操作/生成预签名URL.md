@@ -16,18 +16,22 @@
 
 COSClient 实例是并发安全的，这里推荐一个进程只创建一个 COSClient 实例，当不会再通过这个实例发起请求的时候，再选择关闭这个实例。
 
-### 创建 COSClient
+### 使用临时密钥创建 COSClient（推荐）
 
-调用 COS 的接口之前，必须先创建一个 COSClient 的实例。
+如果要使用临时密钥请求 COS，则需要用临时密钥创建 COSClient。
+本 SDK 并不能生成临时密钥，而需要使用额外的操作来生成，详情请参见 [临时密钥生成](https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk)。
 
 ```java
+
 // 创建 COSClient 实例，这个实例用来后续调用请求
 COSClient createCOSClient() {
-    // 设置用户身份信息。
-    // SECRETID 和 SECRETKEY 请登录访问管理控制台 https://console.cloud.tencent.com/cam/capi 进行查看和管理
-    String secretId = System.getenv("secretId");//用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
-    String secretKey = System.getenv("secretKey");//用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
-    COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
+    // 这里需要已经获取到临时密钥的结果。
+    // 临时密钥的生成参见 https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk
+    String tmpSecretId = "TMPSECRETID";
+    String tmpSecretKey = "TMPSECRETKEY";
+    String sessionToken = "SESSIONTOKEN";
+
+    COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, sessionToken);
 
     // ClientConfig 中包含了后续请求 COS 的客户端设置：
     ClientConfig clientConfig = new ClientConfig();
@@ -57,28 +61,24 @@ COSClient createCOSClient() {
 }
 ```
 
-### 使用临时密钥创建 COSClient
+### 使用永久密钥创建 COSClient（不推荐）
 
-如果要使用临时密钥请求 COS，则需要用临时密钥创建 COSClient。
-本 SDK 并不能生成临时密钥，而需要使用额外的操作来生成，详情请参见 [临时密钥生成](https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk)。
+调用 COS 的接口之前，必须先创建一个 COSClient 的实例。
 
 ```java
-
 // 创建 COSClient 实例，这个实例用来后续调用请求
 COSClient createCOSClient() {
-    // 这里需要已经获取到临时密钥的结果。
-    // 临时密钥的生成参见 https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk
-    String tmpSecretId = "TMPSECRETID";
-    String tmpSecretKey = "TMPSECRETKEY";
-    String sessionToken = "SESSIONTOKEN";
-
-    COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, sessionToken);
+    // 设置用户身份信息。
+    // SECRETID 和 SECRETKEY 请登录访问管理控制台 https://console.cloud.tencent.com/cam/capi 进行查看和管理
+    String secretId = System.getenv("secretId");//用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+    String secretKey = System.getenv("secretKey");//用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+    COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 
     // ClientConfig 中包含了后续请求 COS 的客户端设置：
     ClientConfig clientConfig = new ClientConfig();
 
     // 设置 bucket 的地域
-    // COS_REGION 请参建 https://cloud.tencent.com/document/product/436/6224
+    // COS_REGION 请参见 https://cloud.tencent.com/document/product/436/6224
     clientConfig.setRegion(new Region("COS_REGION"));
 
     // 设置请求协议, http 或者 https
@@ -146,11 +146,11 @@ cosClient.shutdown();
 
 #### 参数说明
 
-| 参数名称 | 描述         | 类型                        |     是否必填 |        
+| 参数名称 | 描述         | 类型                        |     是否必填 |
 | -------- | ------------ | --------------------------- | --------- |
 | method          | HTTP 方法，可选：GET、POST、PUT、DELETE、HEAD                | HttpMethodName          | 是 |
 | bucketName      | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String | 是 |
-| key             | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE) | String                  |  是 |
+| key             | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE)（**注意：用户无需对key进行编码操作**） | String                  |  是 |
 | expiration      | 签名过期的时间，可以设置任意一个未来的时间，不设置则默认是1小时之后过期              | Date                    |  否 |
 | headers         | 签名头部   | Map&lt;String, String> | 否 |
 | params         | 签名参数   | Map&lt;String, String> | 否 |
@@ -229,7 +229,7 @@ Request 成员说明：
 | --------------- | ------------------- | ------------------------------------------------------------ | ----------------------- |
 | method          | 构造函数或 set 方法 | HTTP 方法，可选：GET、POST、PUT、DELETE、HEAD                | HttpMethodName          |
 | bucketName      | 构造函数或 set 方法 | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String |
-| key             | 构造函数或 set 方法 | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE) | String                  |
+| key             | 构造函数或 set 方法 | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE)（**注意：用户无需对key进行编码操作**） | String                  |
 | expiration      | set 方法            | 签名过期的时间，可以设置任意一个未来的时间，不设置则默认是1小时之后过期              | Date                    |
 | contentType     | set 方法            | 要签名的请求中的 Content-Type                                | String                  |
 | contentMd5      | set 方法            | 要签名的请求中的 Content-Md5                                 | String                  |
@@ -287,8 +287,8 @@ String sign = signer.buildAuthorizationStr(method, resource_path, headers, param
 ```java
 // 设置用户身份信息。
 // SECRETID 和 SECRETKEY 请登录访问管理控制台 https://console.cloud.tencent.com/cam/capi 进行查看和管理
-String secretId = "SECRETID";
-String secretKey = "SECRETKEY";
+String secretId = System.getenv("secretId");//用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+String secretKey = System.getenv("secretKey");//用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
@@ -330,14 +330,16 @@ String sign = signer.buildAuthorizationStr(method, resource_path, headers, param
 
 以生成限速的预签名下载 URL 为例：
 
-```
+```java
 public static void GenerateSimplePresignedDownloadUrl() {
         // 1 初始化用户身份信息(secretId, secretKey)
-        COSCredentials cred = new BasicCOSCredentials("secretId", "secretKey");
-        // 2 设置bucket的区域, COS地域的简称请参见 https://www.qcloud.com/document/product/436/6224
+    		// SECRETID 和 SECRETKEY 请登录访问管理控制台 https://console.cloud.tencent.com/cam/capi 进行查看和管理
+    		String secretId = System.getenv("secretId");//用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+    		String secretKey = System.getenv("secretKey");//用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+    		COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
+        // 2 设置bucket的区域
+  			// COS_REGION 参数：配置成存储桶 bucket 的实际地域，例如 ap-beijing，更多 COS 地域的简称请参见 https://cloud.tencent.com/document/product/436/6224
         ClientConfig clientConfig = new ClientConfig(new Region("COS_REGION"));
-        // 如果要获取 https 的 url 则在此设置，否则默认获取的是 http url
-        clientConfig.setHttpProtocol(HttpProtocol.https);
         // 3 生成cos客户端
         COSClient cosclient = new COSClient(cred, clientConfig);
         // bucket名需包含appid
