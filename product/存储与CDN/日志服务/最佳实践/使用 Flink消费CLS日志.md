@@ -133,5 +133,5 @@ GROUP BY TUMBLE(ts, INTERVAL '1' MINUTE);
 ```
 2. 在 Flink 的任务监控页，我们可以看到任务的监控数据：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9e59652be03ac35c9e4510c2b5cc7de3.png)
-3. 进入 MySql 数据库，即可看到计算 PV、UV 的结果数据实时写入。
+3. 进入 MySql 数据库，即可看到计算 PV、UV 的结果数据实时写入：
 ![](https://qcloudimg.tencent-cloud.cn/raw/51cbfe4115a1130f03b24a823427b634.png)
