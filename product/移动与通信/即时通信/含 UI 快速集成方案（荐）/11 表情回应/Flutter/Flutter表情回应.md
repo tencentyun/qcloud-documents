@@ -1,6 +1,6 @@
 
 ## 功能描述
-TUIKit 从 [v0.1.3](https://cloud.tencent.com/document/product/269/52049#im-flutter-tuikit.EF.BC.88.E5.90.AB-ui.EF.BC.89-0.1.3-.402022.08.03)版本开始 ，支持表情回应功能。
+TUIKit 从 [v0.1.3](https://cloud.tencent.com/document/product/269/52049#im-flutter-tuikit.EF.BC.88.E5.90.AB-ui.EF.BC.89-0.1.3-.402022.08.03) 版本开始 ，支持表情回应功能。
 
 “表情回应”功能采用消息编辑能力实现。
 
