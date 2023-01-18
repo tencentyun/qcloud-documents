@@ -31,16 +31,17 @@
 [](id:steps)
 ## 操作步骤
 
+
 1. 登录日志服务控制台，选择左侧导航栏中的 **[日志主题](https://console.cloud.tencent.com/cls/topic)**。
 2. 在“日志主题”页面，单击需要使用 Kafka 协议消费的日志主题 ID/名称，进入日志主题管理页面。
-3. 在日志主题管理页面中，单击 **Kafka 协议消费**页签。
+3. 在日志主题管理页面中，单击**Kafka 协议消费**页签。
 4. 单击右侧的**编辑**，将“当前状态”的开关按钮设置为打开状态后，单击**确定**。
 5. 控制台给出 Topic、host+port 的信息。用户可以复制信息，构造消费者 SDK。
-![](https://qcloudimg.tencent-cloud.cn/raw/98304b48af00dc7a2200249ddfccd8ee.png)
+
 
 ## 消费者参数说明
 
-Kafka协议消费者的参数说明如下：
+Kafka 协议消费者的参数说明如下：
 
 <table>
 <thead>
@@ -52,13 +53,11 @@ Kafka协议消费者的参数说明如下：
 </tr>
 <tr>
 <td>hosts</td>
-<td>内网消费:kafkaconsumer-${region}.cls.tencentyun.com:9095；
-
-外网消费:kafkaconsumer-${region}.cls.tencentcs.com:9096，详细参见 <a href="https://cloud.tencent.com/document/product/614/18940#Kafka_Consume">可用域名- Kafka 消费日志</a>。</td>
+<td>内网消费:kafkaconsumer-${region}.cls.tencentyun.com:9095，外网消费:kafkaconsumer-${region}.cls.tencentcs.com:9096，详细参见 <a href="https://cloud.tencent.com/document/product/614/18940#Kafka_Consume">可用域名- Kafka 消费日志</a>。</td>
 </tr>
 <tr>
 <td>topic</td>
-<td>配置为${APPID}-${日志主题ID}。APPID在用户信息-基本信息中查询, 也可以kafka协议消费的控制台中复制。</td>
+<td>CLS kafka 协议消费控制台给出的的主题名称,点击旁边按钮可以复制.例如XXXXXX-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX</td>
 </tr>
 <tr>
 <td>username</td>
@@ -66,7 +65,8 @@ Kafka协议消费者的参数说明如下：
 </tr>
 <tr>
 <td>password</td>
-<td>配置为<code>${SecretId}#${SecretKey}</code>。例如：XXXXXXXXXXXXXX#YYYYYYYY，请登录 <a href="https://console.cloud.tencent.com/cam">腾讯云访问管理</a> ，在左侧导航栏中单击<b>访问密钥</b>，API 密钥或者项目密钥均可使用，推荐使用后者。</td>
+<td>配置为<code>${SecretId}#${SecretKey}</code>。例如：XXXXXXXXXXXXXX#YYYYYYYY，请登录 <a href="https://console.cloud.tencent.com/cam">腾讯云访问管理</a> ，在左侧导航栏中单击<b>访问密钥</b>，API 密钥或者项目密钥均可使用，建议使用子账号密钥,为子账号授权时,遵循最小权限原则,即子账号的访问策略中的 action、resource 都配置为最小范围,可以满足操作即可。
+⚠️: 下面的例子中的代码, jaas.config的配置,${SecretId}#${SecretKey}后有(;分号),不要漏填, 否则会报错</td>
 </tr>
 </tbody></table>
 
@@ -76,8 +76,8 @@ Kafka协议消费者的参数说明如下：
 import uuid
 from kafka import KafkaConsumer,TopicPartition,OffsetAndMetadata
 consumer = KafkaConsumer(
-#消费主题，用APPID-日志主题ID拼接，例如"123456-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX" 
-'${APPID}-${日志主题ID}',  
+#cls kafka协议消费控制台给出的的主题名称，例如XXXXXX-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX,可在控制台复制
+'您的消费主题',  
 group_id = uuid.uuid4().hex,
 auto_offset_reset='earliest',
 #服务地址+端口，外网端口9096，内网端口9095,例子是内网消费，请根据您的实际情况填写
@@ -86,7 +86,7 @@ security_protocol = "SASL_PLAINTEXT",
 sasl_mechanism = 'PLAIN',   
 #用户名是日志集合ID，例如ca5cXXXXdd2e-4ac0af12-92d4b677d2c6  
 sasl_plain_username = "${logsetID}",
-#密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。
+#密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。建议使用子账号密钥,为子账号授权时,遵循最小权限原则,即子账号的访问策略中的action、resource都配置为最小范围,可以满足操作即可.
 sasl_plain_password = "${SecretId}#${SecretKey}",
 api_version = (1,1,1)
 )
@@ -97,7 +97,7 @@ for message in consumer:
     print('end')
 ```
 
-## 腾讯云Oceanus消费 CLS 日志
+## 腾讯云 Oceanus 消费 CLS 日志
 在 Oceanus 控制台新建作业。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5318b551bc537acb4bff0904361a2f6b.png)
 
@@ -116,8 +116,8 @@ CREATE TABLE `nginx_source`
     `ts` TIMESTAMP(3) METADATA FROM 'timestamp'                 
 )  WITH (
   'connector' = 'kafka',
-  #消费主题，用APPID-日志主题ID拼接，例如"123456-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX" 
-  'topic' = '${APPID}-${日志主题ID}',  
+  #cls kafka协议消费控制台给出的的主题名称，例如XXXXXX-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX,可在控制台复制
+  'topic' = '您的消费主题',  
   # 服务地址+端口，外网端口9096，内网端口9095,列子是内网消费，请根据您的实际情况填写
   'properties.bootstrap.servers' = 'kafkaconsumer-${region}.cls.tencentyun.com:9095',       
     # 请替换为您的消费组名称   
@@ -127,7 +127,7 @@ CREATE TABLE `nginx_source`
   'json.fail-on-missing-field' = 'false', 
   'json.ignore-parse-errors' = 'true' ,
   #用户名是日志集合ID，例如ca5cXXXXdd2e-4ac0af12-92d4b677d2c6
-  #密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。
+  #密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。建议使用子账号密钥,为子账号授权时,遵循最小权限原则,即子账号的访问策略中的action、resource都配置为最小范围,可以满足操作即可,注意jaas.config最后有;分号,不填写会报错.
   'properties.sasl.jaas.config' = 'org.apache.kafka.common.security.plain.PlainLoginModule required username="${logsetID}" password="${SecretId}#${SecretKey}";',
   'properties.security.protocol' = 'SASL_PLAINTEXT',
   'properties.sasl.mechanism' = 'PLAIN'
@@ -172,8 +172,8 @@ CREATE TABLE `nginx_source`
     `ts` TIMESTAMP(3) METADATA FROM 'timestamp'                 
 )  WITH (
   'connector' = 'kafka',
-  #消费主题，用APPID-日志主题ID拼接，例如"123456-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX"
-  'topic' = '${APPID}-${日志主题ID}',  
+  #cls kafka协议消费控制台给出的的主题名称，例如XXXXXX-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX,可在控制台复制
+  'topic' = '您的消费主题',  
   # 服务地址+端口，外网端口9096，内网端口9095,列子是内网消费，请根据您的实际情况填写
   'properties.bootstrap.servers' = 'kafkaconsumer-${region}.cls.tencentyun.com:9095', 
    # 请替换为您的消费组名称   
@@ -183,7 +183,7 @@ CREATE TABLE `nginx_source`
   'json.fail-on-missing-field' = 'false', 
   'json.ignore-parse-errors' = 'true' ,
   #用户名是日志集合ID，例如ca5cXXXXdd2e-4ac0af12-92d4b677d2c6
-  #密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。
+  #密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。建议使用子账号密钥,为子账号授权时,遵循最小权限原则,即子账号的访问策略中的action、resource都配置为最小范围,可以满足操作即可,注意jaas.config最后有;分号,不填写会报错.
   'properties.sasl.jaas.config' = 'org.apache.kafka.common.security.plain.PlainLoginModule required username="${logsetID}" password="${SecretId}#${SecretKey}";',
   'properties.security.protocol' = 'SASL_PLAINTEXT',
   'properties.sasl.mechanism' = 'PLAIN'
@@ -218,15 +218,15 @@ a1.sources.source_kafka.batchSize = 10
 a1.sources.source_kafka.batchDurationMillis = 200000
 #服务地址+端口，外网端口9096，内网端口9095,例子是内网消费，请根据您的实际情况填写
 a1.sources.source_kafka.kafka.bootstrap.servers = $kafkaconsumer-${region}.cls.tencentyun.com:9095
-#消费主题，用APPID-日志主题ID拼接，例如"123456-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX" 
-a1.sources.source_kafka.kafka.topics = ${APPID}-${日志主题ID}  
+#cls kafka协议消费控制台给出的的主题名称，例如XXXXXX-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX,可在控制台复制
+a1.sources.source_kafka.kafka.topics = 您的消费主题  
 #请替换为您的消费组名称
 a1.sources.source_kafka.kafka.consumer.group.id = 您的消费组名称
 a1.sources.source_kafka.kafka.consumer.auto.offset.reset = earliest
 a1.sources.source_kafka.kafka.consumer.security.protocol = SASL_PLAINTEXT
 a1.sources.source_kafka.kafka.consumer.sasl.mechanism = PLAIN
 #用户名是日志集合ID，例如ca5cXXXXdd2e-4ac0af12-92d4b677d2c6
-#密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。
+#密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。建议使用子账号密钥,为子账号授权时,遵循最小权限原则,即子账号的访问策略中的action、resource都配置为最小范围,可以满足操作即可,注意jaas.config最后有;分号,不填写会报错.
 a1.sources.source_kafka.kafka.consumer.sasl.jaas.config = org.apache.kafka.common.security.plain.PlainLoginModule required username="${logsetID}" 
 password="${SecretId}#${SecretKey}";
 
@@ -243,4 +243,3 @@ a1.channels.channel1.transactionCapacity = 100
 a1.sources.source_kafka.channels = channel1
 a1.sinks.sink_local.channel = channel1
 ```
- 
