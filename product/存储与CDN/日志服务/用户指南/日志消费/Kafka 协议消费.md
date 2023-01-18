@@ -67,7 +67,7 @@ Kafka 协议消费者的参数说明如下：
 <td>password</td>
 <td>配置为<code>${SecretId}#${SecretKey}</code>。例如：XXXXXXXXXXXXXX#YYYYYYYY，请登录 <a href="https://console.cloud.tencent.com/cam">腾讯云访问管理</a> ，在左侧导航栏中单击<b>访问密钥</b>，API 密钥或者项目密钥均可使用，建议使用子账号密钥，为子账号授权时，遵循最小权限原则，即子账号的访问策略中的 action、resource 都配置为最小范围，可以满足操作即可。
 
->!下面的例子中的代码，jaas.config 的配置,${SecretId}#${SecretKey}后有(;分号)，不要漏填, 否则会报错。</td>
+>!下面的例子中的代码，jaas.config 的配置,${SecretId}#${SecretKey}后有(;分号)，不要漏填，否则会报错。</td>
 </tr>
 </tbody></table>
 
