@@ -57,7 +57,7 @@ spec:
 cgroup v1 无法支持限速的主要原因在于异步刷脏页的时候，内核无法得知这个 IO 应该提交给哪个 blkio cgroup。示例如下：
 ![img](https://qcloudimg.tencent-cloud.cn/raw/e66eaa44fe26b9759bb1f6102b5dda50.png)        
 
-为了解决这个记账问题，TKE 将 page cache 所属的 cgroup 和对应的 blkio cgroup进 行绑定。之后异步刷盘时，内核线程便可以确定目标 blkio cgroup。
+为了解决这个记账问题，TKE 将 page cache 所属的 cgroup 和对应的 blkio cgroup 进行绑定。之后异步刷盘时，内核线程便可以确定目标 blkio cgroup。
 
 
 
