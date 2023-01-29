@@ -78,7 +78,7 @@ CREATE TABLE `redis_hset_sink_table` (
 
 ```
 
-HSET_WITH_KEY 命令（哈希键）
+### HSET_WITH_KEY 命令（哈希键）
 
 ```sql
 -- 第1列为 key, 第2列为 hash_key，第3列为 hash_value。Redis 命令为 hset key hash_key hash_value。
