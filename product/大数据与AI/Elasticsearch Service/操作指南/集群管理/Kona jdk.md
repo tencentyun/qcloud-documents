@@ -1236,8 +1236,8 @@ Tencent Kona JDK，是腾讯基于社区 Open JDK 定制开发的 JDK 版本，�
 <td >20.05368445</td>
 <td >20.05111381</td>
 <td >-0.00257</td>
-<td >pages/s</td>
 <td >-</td>
+<td >pages/s</td>
 <td >-</td>
 </tr><tr>
 <td >Median  Throughput</td>
@@ -1245,8 +1245,8 @@ Tencent Kona JDK，是腾讯基于社区 Open JDK 定制开发的 JDK 版本，�
 <td >20.05292541</td>
 <td >20.05042813</td>
 <td >-0.0025</td>
-<td >pages/s</td>
 <td >-</td>
+<td >pages/s</td>
 <td >-</td>
 </tr><tr>
 <td >Max  Throughput</td>
@@ -1254,8 +1254,8 @@ Tencent Kona JDK，是腾讯基于社区 Open JDK 定制开发的 JDK 版本，�
 <td >20.0660563</td>
 <td >20.06287951</td>
 <td >-0.00318</td>
-<td >pages/s</td>
 <td >-</td>
+<td >pages/s</td>
 <td >-</td>
 </tr><tr>
 <td >50th  percentile latency</td>
