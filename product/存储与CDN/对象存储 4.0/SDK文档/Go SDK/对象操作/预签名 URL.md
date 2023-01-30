@@ -120,7 +120,7 @@ import (
 
 func main() {
         // 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
-        // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+        // 替换为用户的 region，存储桶 region 可以在 COS 控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
         u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
         b := &cos.BaseURL{BucketURL: u}
         client := cos.NewClient(b, &http.Client{
@@ -144,12 +144,12 @@ func main() {
         }
         bs, _ := ioutil.ReadAll(resp.Body)
         resp.Body.Close()
-        // 获取预签名URL
+        // 获取预签名 URL
         presignedURL, err := client.Object.GetPresignedURL(ctx, http.MethodGet, name, ak, sk, time.Hour, nil)
         if err != nil {
                 panic(err)
         }
-        // 2. 通过预签名URL下载对象
+        // 2. 通过预签名 URL下载对象
         resp2, err := http.Get(presignedURL.String())
         if err != nil {
                 panic(err)
