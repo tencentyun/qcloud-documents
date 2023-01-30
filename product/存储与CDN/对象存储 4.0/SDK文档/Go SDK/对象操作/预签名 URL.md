@@ -9,7 +9,7 @@ Go SDK 提供获取请求预签名 URL 接口，详细操作请查看本文示�
 ## 获取请求预签名 URL 
 
 ```go
-func (s *ObjectService) GetPresignedURL(ctx context.Context, httpMethod, name, ak, sk string, expired time.Duration, opt interface{}, signHost ...bool) (*url.URL, error)
+func (s *ObjectService) GetPresignedURL(ctx context.Context, httpMethod, key, ak, sk string, expired time.Duration, opt interface{}, signHost ...bool) (*url.URL, error)
 ```
 
 #### 参数说明
@@ -24,7 +24,7 @@ type PresignedURLOptions struct {
 | 参数名称           | 类型                         | 描述                            |
 | ------------------ | ---------------------------- | ------------------------------- |
 | httpMethod            | string                   | HTTP 请求方法                        |
-| name | string           | HTTP 请求路径，即对象键                 |
+| key    | string       |  对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE)（**注意：用户无需对 key 进行编码操作**）|
 | ak             | string                       | SecretId                    |
 | sk               | string                       | SecretKey         |
 | expired            | time.Duration | 签名有效时长             |
@@ -414,5 +414,4 @@ func main() {
 	fmt.Printf("resp:%v\n", resp)
 }
 ```
-
 
