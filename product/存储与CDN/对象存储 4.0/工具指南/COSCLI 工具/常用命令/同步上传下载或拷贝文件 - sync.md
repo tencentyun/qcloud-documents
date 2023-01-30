@@ -6,10 +6,14 @@ sync 命令用于同步上传、下载或拷贝文件，与 cp 命令不同的�
 ./coscli sync <source_path> <destination_path> [flag]
 ```
 
->? 
-> - 有关 bucketAlias 的说明，请参见 [下载与安装配置](https://cloud.tencent.com/document/product/436/63144#alias)。
-> - 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
+>? 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 >
+
+cp 命令包含以下参数：
+| 参数格式  | 参数用途     | 示例                |
+| --------- | ------------- | ------------------------ |
+ source_path | 源文件路径。可以为本地路径或COS文件路径。COS路径可以使用桶别名进行访问，如使用桶全称则需要额外携带 `endpoint` flag。|本地路径：~/example.txt。COS文件路径：cos://BucketAlias/example.txt。|
+  destination_path | 目的文件路径。可以为本地路径或COS文件路径。COS路径可以使用桶别名进行访问，如使用桶全称则需要额外携带 `endpoint` flag。|本地路径：~/example.txt。COS文件路径：cos://BucketAlias/example.txt。|
 
 sync 命令包含以下可选 flag：
 
