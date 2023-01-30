@@ -30,15 +30,15 @@ import sys
 import logging
 import requests
 
-# 正常情况日志级别使用INFO，需要定位时可以修改为DEBUG，此时SDK会打印和服务端的通信信息
+# 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在CosConfig中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
+# 1. 设置用户属性, 包括 secret_id, secret_key, region 等。Appid 已在 CosConfig 中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
 secret_id = 'SecretId'     # 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 secret_key = 'SecretKey'   # 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
-                           # COS支持的所有region列表参见https://cloud.tencent.com/document/product/436/6224
-token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的 region 可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+                           # COS 支持的所有 region 列表参见https://cloud.tencent.com/document/product/436/6224
+token = None               # 如果使用永久密钥不需要填入 token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见 https://cloud.tencent.com/document/product/436/14048
 scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
 
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
@@ -60,33 +60,33 @@ url = client.get_presigned_url(
     Key='exampleobject',
     Headers={
         'x-cos-storage-class':'STANDARD_IA', 
-        'x-cos-traffic-limit':'819200' # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值
+        'x-cos-traffic-limit':'819200' # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用 URL 时就必须携带请求头部，并且请求头部的值必须是这里指定的值
     },
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
-# 生成上传URL，只能上传指定的文件内容
+# 生成上传 URL，只能上传指定的文件内容
 url = client.get_presigned_url(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'Content-MD5':'string'}, # 约定使用此URL上传对象的人必须携带MD5请求头部，并且请求头部的值必须是这里指定的值，这样就限定了文件的内容
+    Headers={'Content-MD5':'string'}, # 约定使用此 URL 上传对象的人必须携带 MD5请求头部，并且请求头部的值必须是这里指定的值，这样就限定了文件的内容
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
-# 生成上传URL，只能用于上传ACL
+# 生成上传 URL，只能用于上传 ACL
 url = client.get_presigned_url(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Params={'acl':''}, # 指定了请求参数，则URL中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值
+    Params={'acl':''}, # 指定了请求参数，则 URL 中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
-# 生成上传URL，请求域名不算入签名，签名后使用者需要修改请求域名时使用
+# 生成上传 URL，请求域名不算入签名，签名后使用者需要修改请求域名时使用
 url = client.get_presigned_url(
     Method='PUT',
     Bucket='examplebucket-1250000000',
@@ -96,7 +96,7 @@ url = client.get_presigned_url(
 )
 print(url)
 
-# 使用上传URL
+# 使用上传 URL
 response = requests.put(url=url, data=b'123')
 print(response)
 ```
@@ -111,21 +111,21 @@ import sys
 import logging
 import requests
 
-# 正常情况日志级别使用INFO，需要定位时可以修改为DEBUG，此时SDK会打印和服务端的通信信息
+# 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在CosConfig中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
+# 1. 设置用户属性, 包括 secret_id, secret_key, region 等。Appid 已在 CosConfig 中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
 secret_id = 'SecretId'     # 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 secret_key = 'SecretKey'   # 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
-                           # COS支持的所有region列表参见https://cloud.tencent.com/document/product/436/6224
-token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的 region 可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+                           # COS 支持的所有 region 列表参见 https://cloud.tencent.com/document/product/436/6224
+token = None               # 如果使用永久密钥不需要填入 token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见 https://cloud.tencent.com/document/product/436/14048
 scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
 
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 client = CosS3Client(config)
 
-# 生成下载URL，未限制请求头部和请求参数
+# 生成下载 URL，未限制请求头部和请求参数
 url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
@@ -134,41 +134,41 @@ url = client.get_presigned_url(
 )
 print(url)
 
-# 生成下载URL，同时指定响应的content-disposition头部，让文件在浏览器另存为，而不是显示
+# 生成下载 URL，同时指定响应的 content-disposition 头部，让文件在浏览器另存为，而不是显示
 url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
     Params={
         'response-content-disposition':'attachment; filename=example.xlsx' # 下载时保存为指定的文件
-        # 除了response-content-disposition，还支持response-cache-control、response-content-encoding、response-content-language、
-        # response-content-type、response-expires等请求参数，详见下载对象API，https://cloud.tencent.com/document/product/436/7753
+        # 除了 response-content-disposition，还支持 response-cache-control、response-content-encoding、response-content-language、
+        # response-content-type、response-expires 等请求参数，详见下载对象 API，https://cloud.tencent.com/document/product/436/7753
     }, 
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
-# 生成下载URL，同时限制下载速度
+# 生成下载 URL，同时限制下载速度
 url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'x-cos-traffic-limit':'819200'}, # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值
+    Headers={'x-cos-traffic-limit':'819200'}, # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用 URL 时就必须携带请求头部，并且请求头部的值必须是这里指定的值
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
-# 生成下载URL，只能用于下载ACL
+# 生成下载 URL，只能用于下载 ACL
 url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Params={'acl':''}, # 指定了请求参数，则URL中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值
+    Params={'acl':''}, # 指定了请求参数，则 URL 中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
-# 生成下载URL，请求域名不算入签名，签名后使用者需要修改请求域名时使用
+# 生成下载 URL，请求域名不算入签名，签名后使用者需要修改请求域名时使用
 url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
@@ -193,35 +193,35 @@ import sys
 import logging
 import requests
 
-# 正常情况日志级别使用INFO，需要定位时可以修改为DEBUG，此时SDK会打印和服务端的通信信息
+# 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在CosConfig中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
+# 1. 设置用户属性, 包括 secret_id, secret_key, region 等。Appid 已在 CosConfig 中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
 secret_id = 'SecretId'     # 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 secret_key = 'SecretKey'   # 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
-                           # COS支持的所有region列表参见https://cloud.tencent.com/document/product/436/6224
-token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的 region 可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+                           # COS 支持的所有 region 列表参见 https://cloud.tencent.com/document/product/436/6224
+token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见 https://cloud.tencent.com/document/product/436/14048
 scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
 
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 client = CosS3Client(config)
 
-# 生成下载URL
+# 生成下载 URL
 url = client.get_presigned_url(
     Method='GET',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'x-cos-traffic-limit':'819200'}, # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值
+    Headers={'x-cos-traffic-limit':'819200'}, # 预签名 URL 本身是不包含请求头部的，但请求头部会算入签名，那么使用 URL 时就必须携带请求头部，并且请求头部的值必须是这里指定的值
     Params={
-        'x-cos-security-token': 'string' # 使用临时密钥需要填入Token到请求参数
+        'x-cos-security-token': 'string' # 使用临时密钥需要填入 Token 到请求参数
     },
     Expired=120,  # 120秒后过期，过期时间请根据自身场景定义
     SignHost=False # 请求域名不算入签名，签名后使用者需要修改请求域名时使用，有一定安全风险
 )
 print(url)
 
-# 使用下载URL
+# 使用下载 URL
 response = requests.get(url)
 print(response)
 ```
@@ -254,9 +254,9 @@ response = client.get_presigned_url(
 | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg (**用户无需进行URL编码**) | String | 是 | 
 | Method  |对应操作的 Method, 可选值为 'PUT'，'POST'，'GET'，'DELETE'，'HEAD'|  String |  是 | 
 |Expired| 签名过期时间，单位为秒| Int| 否|
-|Params| 预签名URL中的请求参数。指定了请求参数，则URL中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值。可以携带的Params和具体的操作相关，例如下载对象可以携带和签入的Params参见 [GET Object 中的请求参数](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
-|Headers| 预签名URL中要签入的请求头部。预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值。可以签入的Headers和具体的操作相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
-|SignHost | 请求域名是否算入签名，默认值True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
+|Params| 预签名 URL 中的请求参数。指定了请求参数，则 URL 中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值。可以携带的 Params 和具体的操作相关，例如下载对象可以携带和签入的Params参见 [GET Object 中的请求参数](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
+|Headers| 预签名 URL 中要签入的请求头部。预签名 URL 本身是不包含请求头部的，但请求头部会算入签名，那么使用 URL 时就必须携带请求头部，并且请求头部的值必须是这里指定的值。可以签入的 Headers 和具体的操作相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
+|SignHost | 请求域名是否算入签名，默认值 True，签名后使用者需要修改请求域名时设置为 False| Bool| 否|
 
 #### 返回结果说明
 
@@ -283,21 +283,21 @@ import sys
 import logging
 import requests
 
-# 正常情况日志级别使用INFO，需要定位时可以修改为DEBUG，此时SDK会打印和服务端的通信信息
+# 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在CosConfig中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
+# 1. 设置用户属性, 包括 secret_id, secret_key, region 等。Appid 已在 CosConfig 中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
 secret_id = 'SecretId'     # 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 secret_key = 'SecretKey'   # 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
-                           # COS支持的所有region列表参见https://cloud.tencent.com/document/product/436/6224
-token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的 region 可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+                           # COS 支持的所有 region 列表参见 https://cloud.tencent.com/document/product/436/6224
+token = None               # 如果使用永久密钥不需要填入 token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见 https://cloud.tencent.com/document/product/436/14048
 scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
 
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 client = CosS3Client(config)
 
-# 生成下载URL，未限制请求头部和请求参数
+# 生成下载 URL，未限制请求头部和请求参数
 url = client.get_presigned_download_url(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
@@ -305,38 +305,38 @@ url = client.get_presigned_download_url(
 )
 print(url)
 
-# 生成下载URL，同时指定响应的content-disposition头部，让文件在浏览器另存为，而不是显示
+# 生成下载 URL，同时指定响应的 content-disposition 头部，让文件在浏览器另存为，而不是显示
 url = client.get_presigned_download_url(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
     Params={
         'response-content-disposition':'attachment; filename=example.xlsx' # 下载时保存为指定的文件
-        # 除了response-content-disposition，还支持response-cache-control、response-content-encoding、response-content-language、
-        # response-content-type、response-expires等请求参数，详见下载对象API，https://cloud.tencent.com/document/product/436/7753
+        # 除了 response-content-disposition，还支持 response-cache-control、response-content-encoding、response-content-language、
+        # response-content-type、response-expires 等请求参数，详见下载对象 API，https://cloud.tencent.com/document/product/436/7753
     }, 
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
-# 生成下载URL，同时限制下载速度
+# 生成下载 URL，同时限制下载速度
 url = client.get_presigned_download_url(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'x-cos-traffic-limit':'819200'}, # 预签名URL本身是不包含请求头部的，但请求头部会算入签名，那么使用URL时就必须携带请求头部，并且请求头部的值必须是这里指定的值
+    Headers={'x-cos-traffic-limit':'819200'}, # 预签名 URL 本身是不包含请求头部的，但请求头部会算入签名，那么使用 URL 时就必须携带请求头部，并且请求头部的值必须是这里指定的值
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
-# 生成下载URL，只能用于下载ACL
+# 生成下载 URL，只能用于下载 ACL
 url = client.get_presigned_download_url(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Params={'acl':''}, # 指定了请求参数，则URL中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值
+    Params={'acl':''}, # 指定了请求参数，则 URL 中会携带此请求参数，并且请求参数会算入签名，不允许使用者修改请求参数的值
     Expired=120  # 120秒后过期，过期时间请根据自身场景定义
 )
 print(url)
 
-# 生成下载URL，请求域名不算入签名，签名后使用者需要修改请求域名时使用
+# 生成下载 URL，请求域名不算入签名，签名后使用者需要修改请求域名时使用
 url = client.get_presigned_download_url(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
@@ -345,17 +345,17 @@ url = client.get_presigned_download_url(
 )
 print(url)
 
-# 生成下载URL，使用临时密钥签名
+# 生成下载 URL，使用临时密钥签名
 url = client.get_presigned_download_url(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
     Params={
-        'x-cos-security-token': 'string'  # 使用永久密钥不需要填入token，如果使用临时密钥需要填入
+        'x-cos-security-token': 'string'  # 使用永久密钥不需要填入 token，如果使用临时密钥需要填入
     }
 )
 print(url)
 
-# 使用下载URL
+# 使用下载 URL
 response = requests.get(url)
 print(response)
 ```
@@ -413,15 +413,15 @@ from qcloud_cos import CosS3Client
 import sys
 import logging
 
-# 正常情况日志级别使用INFO，需要定位时可以修改为DEBUG，此时SDK会打印和服务端的通信信息
+# 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在CosConfig中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
+# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在 CosConfig 中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
 secret_id = 'SecretId'     # 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 secret_key = 'SecretKey'   # 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
                            # COS支持的所有region列表参见https://cloud.tencent.com/document/product/436/6224
-token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见 https://cloud.tencent.com/document/product/436/14048
 scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
 
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
@@ -454,12 +454,12 @@ response = client.get_auth(
     Method='PUT',
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Headers={'Content-MD5':'string'}, # 约定使用此签名的人必须携带MD5请求头部，并且请求头部的值必须是这里指定的值，这样就限定了文件的内容
+    Headers={'Content-MD5':'string'}, # 约定使用此签名的人必须携带 MD5请求头部，并且请求头部的值必须是这里指定的值，这样就限定了文件的内容
     Expired=300  # 300秒后过期，过期时间请根据自身场景定义
 )
 print(response)
 
-# 生成上传签名，只能用于上传ACL
+# 生成上传签名，只能用于上传 ACL
 response = client.get_auth(
     Method='PUT',
     Bucket='examplebucket-1250000000',
@@ -489,15 +489,15 @@ from qcloud_cos import CosS3Client
 import sys
 import logging
 
-# 正常情况日志级别使用INFO，需要定位时可以修改为DEBUG，此时SDK会打印和服务端的通信信息
+# 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在CosConfig中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
+# 1. 设置用户属性, 包括 secret_id, secret_key, region 等。Appid 已在 CosConfig 中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
 secret_id = 'SecretId'     # 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 secret_key = 'SecretKey'   # 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
-                           # COS支持的所有region列表参见https://cloud.tencent.com/document/product/436/6224
-token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的 region 可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+                           # COS 支持的所有 region 列表参见 https://cloud.tencent.com/document/product/436/6224
+token = None               # 如果使用永久密钥不需要填入 token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见 https://cloud.tencent.com/document/product/436/14048
 scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
 
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
@@ -523,7 +523,7 @@ response = client.get_auth(
 )
 print(response)
 
-# 生成下载签名，只能用于下载ACL
+# 生成下载签名，只能用于下载 ACL
 response = client.get_auth(
     Method='GET',
     Bucket='examplebucket-1250000000',
@@ -548,7 +548,7 @@ response = client.get_auth(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
     Params={
-        'x-cos-security-token': 'string'  # 使用永久密钥不需要填入token，如果使用临时密钥需要填入
+        'x-cos-security-token': 'string'  # 使用永久密钥不需要填入 token，如果使用临时密钥需要填入
     }
 )
 print(response)
@@ -582,9 +582,9 @@ response = client.get_auth(
 | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
 | Key  | Bucket 操作填入根路径`/`，object 操作填入文件的路径 (**用户无需进行URL编码**) | String | 是| 
 |Expired| 签名过期时间，单位为秒| Int| 否|
-|Params| 签名中要签入的请求参数。使用此签名时必须携带这里指定的请求参数，并且参数的值必须是这里指定的值。可以签入的Params和具体的操作相关，例如下载对象可以携带和签入的Params参见 [GET Object 中的请求参数](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
-|Headers| 签名中要签入的请求头部。使用此签名时必须携带这里指定的请求头部，并且头部的值必须是这里指定的值。可以签入的Headers和具体的操作相关，例如上传对象可以签入的Headers参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
-|SignHost | 请求域名是否算入签名，默认值True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
+|Params| 签名中要签入的请求参数。使用此签名时必须携带这里指定的请求参数，并且参数的值必须是这里指定的值。可以签入的 Params 和具体的操作相关，例如下载对象可以携带和签入的 Params 参见 [GET Object 中的请求参数](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
+|Headers| 签名中要签入的请求头部。使用此签名时必须携带这里指定的请求头部，并且头部的值必须是这里指定的值。可以签入的 Headers 和具体的操作相关，例如上传对象可以签入的 Headers 参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
+|SignHost | 请求域名是否算入签名，默认值 True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
 
 #### 返回结果说明
 
