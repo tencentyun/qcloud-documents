@@ -67,19 +67,22 @@ class R {
 <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
 <application>
 		<service
-			android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
-			android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
-			<intent-filter>
-				<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
-			</intent-filter>
+		    android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
+		    android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE"
+		    android:exported="true">
+		    <intent-filter>
+			<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE" />
+		    </intent-filter>
 		</service>
+
 		<service
-			android:name="com.heytap.msp.push.service.DataMessageCallbackService"
-			android:permission="com.heytap.mcs.permission.SEND_PUSH_MESSAGE">
-			<intent-filter>
-				<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
-				<action android:name="com.heytap.msp.push.RECEIVE_MCS_MESSAGE"/>
-			</intent-filter>
+		    android:name="com.heytap.msp.push.service.DataMessageCallbackService"
+		    android:permission="com.heytap.mcs.permission.SEND_PUSH_MESSAGE"
+		    android:exported="true">
+		    <intent-filter>
+			<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE" />
+			<action android:name="com.heytap.msp.push.RECEIVE_MCS_MESSAGE" />
+		    </intent-filter>
 		</service>
 </application>
 ```
