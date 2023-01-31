@@ -6,14 +6,13 @@
 ## 操作原理
 Nacos 的核心功能为服务注册发现与配置管理，故 Nacos 多活容灾方案需要包括数据同步与服务注册发现同步：
 
-数据同步：Nacos 的配置数据、用户信息、命名空间数据、访问控制等信息在数据库中持久化存储，因此首先需要使用 TSE Nacos 的数据同步功能实现源数据库到 TSE Nacos 数据库的全量迁移与实时增量同步，以保证每个 Nacos 集群都会有全量配置数据。
-
-服务注册发现同步：采用 Java agent 的形式，在不改变业务代码的情况下，通过字节码增强的方式，实现服务的双注册和发现，以此提供服务同时在不同集群间路由的能力。
+- 数据同步：Nacos 的配置数据、用户信息、命名空间数据、访问控制等信息在数据库中持久化存储，因此首先需要使用 TSE Nacos 的数据同步功能实现源数据库到 TSE Nacos 数据库的全量迁移与实时增量同步，以保证每个 Nacos 集群都会有全量配置数据。
+- 服务注册发现同步：采用 Java agent 的形式，在不改变业务代码的情况下，通过字节码增强的方式，实现服务的双注册和发现，以此提供服务同时在不同集群间路由的能力。
 
 例如：当您在自建 IDC 机房和腾讯云分别部署了一整套应用和 Nacos 集群，可以通过本方案配置多活容灾与就近访问。即 IDC 机房内的 consumer 应用调用 provider 应用时，优先访问 IDC 内的 provider 应用，如果找不到该应用，则访问腾讯云中的 provider 应用。
 
 **Nacos 多活部署架构图**
-![Nacos 的多活部署和容灾](https://qcloudimg.tencent-cloud.cn/raw/8664ffc1a2bb01c813ceef59fd22f680.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7d3e66b5f196daf9b02550c8e0168112.png)
 
 
 ## 前提条件
@@ -81,7 +80,7 @@ polaris java agent 提供以下以下配置项，所有的配置项通过系统�
 <td align="center">null</td>
 </tr>
 </tbody></table>
-3. 部署成功后，在 TSE Nacos 原生控制台的服务管理页面可以看到注册的服务。Nacos 原生控制台的访问方式请参见 微服务引擎 TSE 访问控制-注册配置中心-文档中心-腾讯云。此时服务在自建 Nacos 集群和 TSE Nacos 集群中均进行了注册。
+3. 部署成功后，在 TSE Nacos 原生控制台的服务管理页面可以看到注册的服务。Nacos 原生控制台的访问方式请参见 [访问控制](https://cloud.tencent.com/document/product/1364/63998)。此时服务在自建 Nacos 集群和 TSE Nacos 集群中均进行了注册。
 4. 观察自建的 Nacos 集群和 TSE 的 Nacos 集群，依次验证下注册、发现、反注册，看是否均符合预期。待所有服务均重新部署完毕后，在自建 Nacos 集群和 TSE Nacos 集群的控制台均能看到所有服务以及其下的实例信息。
 
 ### 步骤3：配置 TSE Nacos 集群中的服务双注册发现
