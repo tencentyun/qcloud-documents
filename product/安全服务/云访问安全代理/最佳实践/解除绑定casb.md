@@ -14,7 +14,7 @@
   ![](https://qcloudimg.tencent-cloud.cn/raw/d9262f4ff91b6c47eacc60165af739b9.png)
 
 ## 步骤1：设置敏感字段加密策略的工作模式
-1. 参考 [策略管理](https://cloud.tencent.com/document/product/1303/64619)，将敏感字段的工作模式设置为**读解密写不加密**。
+1. 参考 [策略管理](https://cloud.tencent.com/document/product/1303/64619)，将敏感字段的工作模式设置为**读解密，写不加密**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/49829072789f160bd392dc31b4bb9065.png)
 2. 通过代理写入增量数据时，可以正常写入明文数据；通过代理读取时，可以正常解密和脱敏所有数据。
    ![](https://qcloudimg.tencent-cloud.cn/raw/b77ba39c04f9c202798a5b9f0fa38883.png)
@@ -43,5 +43,5 @@
 2. 在关系型元数据页面，找到需要操作的元数据，单击元数据右侧的**更多** > **删除**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3b52b725f5cb91c212ea6aee15ba2def.png)
 3. 在确认删除弹窗中，单击**确认**，即可删除元数据。
->!删除后，无法恢复。
+>!元数据删除后，无法恢复。
 >
