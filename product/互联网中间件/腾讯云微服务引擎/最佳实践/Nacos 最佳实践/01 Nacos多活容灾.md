@@ -81,7 +81,7 @@ polaris java agent 提供以下以下配置项，所有的配置项通过系统�
 <td align="center">null</td>
 </tr>
 </tbody></table>
-3. 部署成功后，在 TSE Nacos 原生控制台的服务管理页面可以看到注册的服务。Nacos 原生控制台的访问方式请参见 微服务引擎 TSE 访问控制-注册配置中心-文档中心-腾讯云。此时服务在自建 Nacos 集群和 TSE Nacos 集群中均进行了注册。
+3. 部署成功后，在 TSE Nacos 原生控制台的服务管理页面可以看到注册的服务。Nacos 原生控制台的访问方式请参见 [访问控制](https://cloud.tencent.com/document/product/1364/63998)。此时服务在自建 Nacos 集群和 TSE Nacos 集群中均进行了注册。
 4. 观察自建的 Nacos 集群和 TSE 的 Nacos 集群，依次验证下注册、发现、反注册，看是否均符合预期。待所有服务均重新部署完毕后，在自建 Nacos 集群和 TSE Nacos 集群的控制台均能看到所有服务以及其下的实例信息。
 
 ### 步骤3：配置 TSE Nacos 集群中的服务双注册发现
