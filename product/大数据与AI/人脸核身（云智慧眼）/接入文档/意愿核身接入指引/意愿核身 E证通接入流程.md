@@ -3,7 +3,7 @@
 2. [申请商户 ID](https://cloud.tencent.com/document/product/1007/56643#spang)
 3. [使用商户 ID 获取 E证通服务流程唯一标识 EidToken](https://cloud.tencent.com/document/product/1007/56643#eidtoken)
 4. [下载、安装小程序 SDK](https://cloud.tencent.com/document/product/1007/56643#anzhuangsdk)
-5. [获取 E证通核验结果信息](https://cloud.tencent.com/document/product/1007/56643#jieguo)
+5. [获取意愿核身（E证通）核验结果信息](https://cloud.tencent.com/document/product/1007/56643#jieguo)
 6. [查看错误码](https://cloud.tencent.com/document/product/1007/47912)
 
 详细接入操作如下：
@@ -90,8 +90,8 @@ startEid() 参数说明：
 - `options.data.token`：String required 接入方小程序从接入方服务端获取 EidToken。
 - `options.verifyDoneCallback`：Function(res) required 核身完成的回调。res 包含验证成功的 token，是否完成的布尔值标志 verifyDone。请根据 res 返回的结果进行业务处理判断。
 
-## 获取 E证通核验结果信息
-1. 用户完成人脸核身后，会以回调形式返回 EidToken 以及其他信息，接入方小程序将 EidToken 传给接入方的服务端，接入方服务端即可凭借 EidToken 参数调用获取小程序核身结果信息 GetEidResult接口去获取本次核身的详细信息，最后将核身结果返回给接入方小程序。
+## 获取意愿核身（E证通）核验结果信息
+1. 用户完成人脸核身后，会以回调形式返回 EidToken 以及其他信息，接入方小程序将 EidToken 传给接入方的服务端，接入方服务端即可凭借 EidToken 参数调用获取小程序核身结果信息 [GetEidResult](https://cloud.tencent.com/document/product/1007/54090) 接口去获取本次核身的详细信息，最后将核身结果返回给接入方小程序。
 >? EidToken 作为一次核身流程的标识，有效时间为600秒；完成核身后，可用该标识获取3天内验证结果信息。
 
 ## 调试 SDK

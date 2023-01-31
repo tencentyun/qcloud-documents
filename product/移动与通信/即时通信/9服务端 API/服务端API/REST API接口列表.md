@@ -116,6 +116,11 @@
 |重置群自定义属性|[v4/group_open_http_svc/set_group_attr](https://cloud.tencent.com/document/product/269/67011)|
 |修改群聊历史消息|[v4/openim/modify_group_msg](https://cloud.tencent.com/document/product/269/74741)|
 |直播群广播消息|[v4/group_open_http_svc/send_broadcast_msg](https://cloud.tencent.com/document/product/269/77402)|
+|获取群计数器|[v4/group_open_http_svc/get_group_counter](https://cloud.tencent.com/document/product/269/85953)|
+|更新群计数器|[v4/group_open_http_svc/update_group_counter](https://cloud.tencent.com/document/product/269/85952)|
+|删除群计数器|[v4/group_open_http_svc/delete_group_counter](https://cloud.tencent.com/document/product/269/85954)|
+
+
 
 ## 全局禁言管理
 | 功能说明 |接口 |
