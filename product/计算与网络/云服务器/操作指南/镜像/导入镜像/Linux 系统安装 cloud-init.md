@@ -234,7 +234,7 @@ python3 setup.py build
 python3 setup.py install --init-system systemd
 ``` <dx-alert infotype="notice" title="">
 - --init-system 的可选参数有：(systemd, sysvinit, sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart) [default: None]。请根据当前操作系统使用的自启动服务管理方式，进行选择。若选择错误，cloud-init 服务会无法开机自启动。
-- centos6及以下系统请选择sysvinit，centos7及以上系统请选择systemd。本文以 systemd 自启动服务管理为例。
+- centos6 及以下系统请选择 sysvinit，centos7 及以上系统请选择 systemd。本文以 systemd 自启动服务管理为例。
 </dx-alert>
 
 
