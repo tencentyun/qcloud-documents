@@ -85,7 +85,7 @@
                                 <p style="height: 107.53px;display: flex; justify-content: center;
                                 align-items: center;"><input type="button" value="基础聊天" style="height: 30px;width: 110px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;"  onclick="window.open('https://web.sdk.qcloud.com/component/experience-center/index.html#/login?scene=chatkit')" /></p>
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;"  onclick="window.open('https://rtcube.cloud.tencent.com/component/experience-center/index.html#/login?scene=chatkit')" /></p>
                  <a href="https://cloud.tencent.com/document/product/269/68433">快速入门</a>
                 </div>
             </div>
