@@ -16,7 +16,7 @@
 ## 步骤1：设置敏感字段加密策略的工作模式
 1. 参考 [策略管理](https://cloud.tencent.com/document/product/1303/64619)，将敏感字段的工作模式设置为**读解密写不加密**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/49829072789f160bd392dc31b4bb9065.png)
-2. 通过代理写入的增量数据时，可以正常写入并自动解密和脱敏。
+2. 通过代理写入增量数据时，可以正常写入明文数据；通过代理读取时，可以正常解密和脱敏所有数据。
    ![](https://qcloudimg.tencent-cloud.cn/raw/b77ba39c04f9c202798a5b9f0fa38883.png)
 3. 直连 DB 查询，代理写入的增量数据为明文存储。
    ![](https://qcloudimg.tencent-cloud.cn/raw/729aa29652ab838cb32555b37a9b684f.png)
