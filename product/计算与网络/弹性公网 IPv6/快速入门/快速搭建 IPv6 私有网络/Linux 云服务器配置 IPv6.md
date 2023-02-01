@@ -373,30 +373,36 @@ netmask <子网前缀长度>
 gateway <IPv6网关>
 ```
  2. 重启网络服务：运行`service network restart` 或 `systemctl restart networking`。
-6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18，请执行如下操作配置 IPv6。
- 1. 编辑网卡配置文件。
+6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18 和 Ubuntu 20，请执行如下操作配置 IPv6。
+ 1. 获取 IPv6 网关地址[](id:step001)。
+    1. 登录[ 云控制台]()，查看云服务器所在子网的 IPv6 CIDR 信息。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/21d54065f295b7f87b0374d5e2e7cdc0.png)
+    2. 根据 IPv6 CIDR 信息得到 IPv6 网地址：系统默认会采用子网 IPv6 CIDR的“.1”地址作为网关，如上图 IPv6 CIDR 为2402:4e00:1018:9a01::/64,则网关地址为2402:4e00:1018:9a01::1。
+ 2. 编辑网卡配置文件。
 ```plaintext
 vi /etc/netplan/50-cloud-init.yaml
 ```
- 2. 添加 IPv6 地址和网关配置。
-> !只添加 addresses 和 gateway6。
+ 3. 根据[ 步骤1 ](#step001)获得的 IPv6 网关地址，添加 IPv6 网关配置。
+>!只添加 gateway6。
 >
 ```plaintext
 network:
-version: 2
-ethernets:
-eth0:
-dhcp4: true                         //开启dhcp4
-match:
-macaddress: 52:54:00:75:ce:c2  //MAC地址
-set-name: eth0                      //网卡名
-addresses:
-		 - 2a00:7b80:454:2000::xxx/64    //设置IPv6地址和掩码
-gateway6: 2a00:7b80:454::1          //设置IPv6网关地址
+ version: 2
+ ethernets:
+   eth0:
+      dhcp4: true                         //开启dhcp
+      match:
+            macaddress: 52:54:00:c3:4a:0e  //MAC地址
+      set-name: eth0                      //网卡名
+      gateway6:2402:4e00:1018:9a01::1   //设置IPv6网关地址
 ```
- 3. 执行如下命令，使配置生效。
+ 4. 执行如下命令，使配置生效。
 ```plaintext
 netplan apply
+```
+ 5. 执行如下命令，检查 IPv6 网关配置是否生效。
+```plaintext
+ip -6 route show | grep default
 ```
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
