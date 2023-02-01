@@ -89,6 +89,7 @@
 | [setMessageExtensions](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a2e8b8f7ef94d02823cfab0cf5b1e1fea) | 设置消息扩展 |
 | [getMessageExtensions](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3ae68d2d8aeff6abd21981914836dc1a) | 获取消息扩展 |
 | [deleteMessageExtensions](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#af3fad5575625e7597a482375d7a65fa6) | 删除消息扩展 |
+| [translateText](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#aee0c1e26b0401576ee82967698da35f6) | 翻译文本消息 |
 
 ## 群组相关接口
 腾讯云 IM SDK 支持五种预设的群组类型，每种类型都有其适用场景：

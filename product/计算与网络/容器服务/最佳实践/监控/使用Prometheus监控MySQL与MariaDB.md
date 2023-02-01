@@ -10,7 +10,7 @@ MySQL 是常用的关系型数据库，MariaDB 作为 MySQL 的分支版本，�
 
 ## 操作步骤
 
-### 部署 mysqld-exporter[](id:mysqld-exporter">
+### 部署 mysqld-exporter
 
 >! 在部署 mysqld-exporter 之前需确保已在集群内、集群外或使用已有的云服务中部署 MySQL 或 MariaDB。  
 

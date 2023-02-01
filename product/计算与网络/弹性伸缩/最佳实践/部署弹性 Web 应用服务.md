@@ -88,4 +88,3 @@ AS 支持定时扩容及基于告警动态扩容、接收扩缩容通知、查�
 ![](https://main.qcloudimg.com/raw/9a2ad6bfd4acd218ffeb5f251df2fdd7.png)
 至此，网站的后台集群变为“1台固定应用服务器+1台高峰时定时创建的应用服务器”。
 
-

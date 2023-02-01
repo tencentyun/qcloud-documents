@@ -31,9 +31,11 @@
 您可以通过以下方式安装 SDK：
 
 #### script 引入
->? [单击此处](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/dist/cos-js-sdk-v5.min.js) 下载最新 cos-js-sdk-v5.min.js。
+>? 建议将sdk下载到本地后引入，选择 [地址一](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/dist/cos-js-sdk-v5.min.js)或 [地址二](https://cdn.jsdelivr.net/npm/cos-js-sdk-v5/dist/cos-js-sdk-v5.min.js) 下载最新 cos-js-sdk-v5.min.js。
+>
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cos-js-sdk-v5/dist/cos-js-sdk-v5.min.js"></script>
+<!--src为本地路径 根据自己项目目录结构来调整-->
+<script src="../dist/cos-js-sdk-v5.min.js"></script>
 ```
 
 在 script 标签引用 SDK 时，SDK 占用了全局变量名 COS，通过它的构造函数可以创建 SDK 实例。
@@ -44,6 +46,10 @@
 
 ```js
 var COS = require('cos-js-sdk-v5');
+
+// 或
+
+import COS from 'cos-js-sdk-v5';
 ```
 
 ## 开始使用

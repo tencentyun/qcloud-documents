@@ -23,18 +23,18 @@
 
 | API | 说明 |
 |---------|---------|
-| 构造函数（TimUiKitPushPlugin） | 实例化一个Push插件对象，并确定是否使用Google Service FCM |
+| 构造函数（TimUiKitPushPlugin） | 实例化一个 Push 插件对象，并确定是否使用 Google FCM |
 | init | 初始化插件，绑定点击通知回调事件及传入厂商渠道信息 |
-| uploadToken | 自动获取设备Token及证书ID，自动上传至腾讯云IM服务端 |
-| clearToken | 清除服务端上本设备的推送Token，达到屏蔽通知的效果 |
+| uploadToken | 自动获取设备 Token 及证书 ID，自动上传至腾讯云 IM 服务端 |
+| clearToken | 清除服务端上本设备的推送 Token，达到屏蔽通知的效果 |
 | requireNotificationPermission | 申请推送权限 |
-| setBadgeNum | 设置未读数角标 （iOS设备需要[先禁用IM SDK自带的设置角标功能](#iosbadge)） |
+| setBadgeNum | 设置未读数角标 （iOS 设备需要[先禁用 IM SDK 自带的设置角标功能](#iosbadge)） |
 | clearAllNotification | 清除通知栏内，当前应用，所有的通知 |
 | getDevicePushConfig | 获取当前厂商的推送相关信息，含机型/证书ID/Token |
-| getDevicePushToken | 获取当前厂商的推送Token |
+| getDevicePushToken | 获取当前厂商的推送 Token |
 | getOtherPushType | 获取厂商信息 |
-| getBuzId | 获取当前厂商对应的腾讯云控制台上注册的证书ID |
-| createNotificationChannel | 为Android机型创建通知Channel渠道，[详见Google官方文档](https://developer.android.com/training/notify-user/channels) |
+| getBuzId | 获取当前厂商对应的腾讯云控制台上注册的证书 ID |
+| createNotificationChannel | 为 Android 机型创建通知 Channel 渠道，[详见 Google 官方文档](https://developer.android.com/training/notify-user/channels) |
 | clearAllNotification | 清除通知栏内，当前应用，所有的通知 |
 | displayNotification | 在客户端本地，手动创建一条消息通知 |
 | displayDefaultNotificationForMessage | 在客户端本地，按照默认的规则，自动为一个 `V2TimMessage` 创建一个消息通知 |
@@ -55,6 +55,8 @@
 ### Android
 
 #### Google FCM
+
+>? 如果您的应用不面向境外客户，可不完成本 Google FCM 系列操作。
 
 1. 前往 [Google Firebase控制台](https://console.firebase.google.com/) 创建一个项目，无需启用 Google Analysis。
 ![](https://qcloudimg.tencent-cloud.cn/raw/80c3108f8685752170721ac51052aead.png)
@@ -220,9 +222,22 @@ apksigner sign --ks keystore.jks --ks-pass pass:您创建的keystore密码 --out
 
 ## 使用插件跑通离线推送（全览 + Android）
 
-在您的项目中安装 IM Flutter 离线推送插件：
+在您的项目中安装 IM Flutter 离线推送插件。
+
+请注意，我们提供两个版本的消息推送插件，中国大陆版和国际版。iOS都使用APNS通道，但 Android 通道有差异。
+
+| 版本类型 | 包名 | Google FCM 支持 | 国内厂商原生支持 | 描述 |
+|---------|---------|---------|---------|---------|
+| 中国大陆版 | [tencent_chat_push_for_china](https://pub.dev/packages/tencent_chat_push_for_china) | 否 | 是 | Android 离线推送仅走国内厂商原生通道 |
+| 国际版 | [tim_ui_kit_push_plugin](https://pub.dev/packages/tim_ui_kit_push_plugin) | 是 | 是 | 在配置 Google FCM 相关信息，且当前设备 Google FCM 可用的情况下，优先使用 Google FCM 通道，其次再尝试国内厂商通道 |
+
+请根据目标客户群里，选用合适的推送插件。
 
 ```shell
+// 国内版
+flutter pub add tencent_chat_push_for_china
+
+// 国际版
 flutter pub add tim_ui_kit_push_plugin
 ```
 
@@ -238,8 +253,6 @@ flutter pub add tim_ui_kit_push_plugin
 3. 该类支持配置所有您需要接入厂商推送机型的信息。无需完整填写构造函数字段。若需要使用某个厂商平台，请完整填写该平台相关字段。
 
  ```Dart
-import 'package:tim_ui_kit_push_plugin/model/appInfo.dart';
-
 static final PushAppInfo appInfo = PushAppInfo(
   hw_buz_id: , // 华为证书ID
   mi_app_id: , // 小米APPID
@@ -259,12 +272,13 @@ static final PushAppInfo appInfo = PushAppInfo(
 );
  ```
 
->?
-> 可参见我们DEMO [lib/utils/push/push_constant.dart文件](https://github.com/TencentCloud/chat-demo-flutter/blob/main/lib/utils/push/push_constant.dart) 中的做法。
+>?可参见我们 DEMO [lib/utils/push/push_constant.dart文件](https://github.com/TencentCloud/chat-demo-flutter/blob/main/lib/utils/push/push_constant.dart) 中的做法。
 
 ### 步骤2：代码中添加厂商工程配置[](id:step_2)
 
 #### Google FCM
+
+>? 如果您的应用不面向境外客户，可不完成本 Google FCM 系列操作。如需要，请保证使用的推送插件为国际版 [tim_ui_kit_push_plugin](https://pub.dev/packages/tim_ui_kit_push_plugin)。
 
 ##### 兼容 Android 模拟器调试
 
@@ -289,7 +303,7 @@ dependencies:
 ```
 2. 执行`flutter pub get`完成安装。
 3. 在控制台内，执行以下命令，结合操作提示，完成配置 Google Firebase Flutter 项目。
-详见[Google FlutterFire 官方文档](https://firebase.flutter.dev/docs/overview)。
+详见 [Google FlutterFire 官方文档](https://firebase.flutter.dev/docs/overview)。
 ```shell
 // 安装Firebase CLI
 npm install -g firebase-tools
@@ -311,11 +325,6 @@ await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
 ```
-
-##### 不选装 Google FCM 推送
-
-1. 由于国内大部分机型不支持 Google Service，开发者可无需执行此配置。
-2. 后续引入插件时，将`isUseGoogleFCM`字段设为 false 即可。
 
 #### 华为
 
@@ -499,20 +508,16 @@ defaultConfig {
 
 1. 调用插件`init`方法。该步骤会完成初始化各厂商通道，并申请厂商通知权限。
 2. 请确保 IM SDK 初始化成功后，才可初始化本插件。
->?由于国内大部分 Android 设备不支持 Google Service, 因此提供一个开关`isUseGoogleFCM`供开发者根据主要用户群体判断，是否启用 Google Firebase Cloud Messaging 推送服务。
->
 ```Dart
-import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
-
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-  isUseGoogleFCM: bool, // 是否启用Google Firebase Cloud Messaging，默认true启用
+  isUseGoogleFCM: bool, // 是否启用Google Firebase Cloud Messaging，默认true启用。中国大陆版无此参数。
 );
 await cPush.init(
     pushClickAction: pushClickAction, // 单击通知后的事件回调，会在STEP6讲解
     appInfo: PushConfig.appInfo, // 传入STEP1做的appInfo
 );
 ```
-3. 初始化结束后，需要为部分厂商创建消息通道，如OPPO和小米均需此配置。调用`createNotificationChannel`方法即可。
+3. 初始化结束后，需要为部分厂商创建消息通道，如 OPPO 和小米均需此配置。调用`createNotificationChannel`方法即可。
 >?如果向厂商申请的 channel ID 一致，同一个 channel ID 调用一次即可。
 >
 ```Dart
@@ -540,10 +545,8 @@ cPush.requireNotificationPermission();
 >- 建议初始化推送插件成功后，间隔5秒，再上报 Token，以防偶发网络波动导致厂商 SDK 生成 Token 延误。
 
 ``` Dart
-import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
-
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-    isUseGoogleFCM: false,
+    isUseGoogleFCM: true, // 中国大陆版无此参数
   );
 
 Future.delayed(const Duration(seconds: 5), () async {
@@ -656,7 +659,7 @@ TIMUIKitChat(
 ```Dart
 BuildContext? _cachedContext;
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-  isUseGoogleFCM: false,
+  isUseGoogleFCM: true, // 中国大陆版无此参数
 );
 
 @override
@@ -754,9 +757,9 @@ if #available(iOS 10.0, *) {
 调用插件`init`方法。该步骤会完成初始化各厂商通道，并申请厂商通知权限。该步骤建议在应用启动后就执行调用。
 
 ```Dart
-import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
-
-final TimUiKitPushPlugin cPush = TimUiKitPushPlugin();
+final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
+  isUseGoogleFCM: true, // 中国大陆版无此参数
+);
 cPush.init(
     pushClickAction: pushClickAction, // 单击通知后的事件回调，会在STEP6讲解
     appInfo: PushConfig.appInfo, // 传入STEP1做的appInfo
@@ -798,9 +801,9 @@ TIMUIKitChat(
 
 ### 步骤5：前后台切换监听
 
-本步骤整体方案与Android的步骤5一致，此处不再重复提及。
+本步骤整体方案与 Android 的步骤5一致，此处不再重复提及。
 
-对于iOS平台，仅需额外关注。iOS的IM SDK已自带设置应用icon角标能力。如果您需要设置自定义角标，除了调用 `setBadgeNum` 方法外，还需要禁用IM SDK的自动设置角标功能，避免冲突。代码如下：
+对于 iOS 平台，仅需额外关注。iOS 的 IM SDK 已自带设置应用 icon 角标能力。如果您需要设置自定义角标，除了调用 `setBadgeNum` 方法外，还需要禁用 IM SDK 的自动设置角标功能，避免冲突。代码如下：
 
 ```dart
 TencentImSDKPlugin.v2TIMManager.callExperimentalAPI(
@@ -820,7 +823,7 @@ TencentImSDKPlugin.v2TIMManager.callExperimentalAPI(
 ### 推送 API
 
 1. 全员推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/45933)，使用服务端请求腾讯云 IM 的 API，完成全员推送。此方案，还可自动按标签/属性等内容，精细化推送。
-2. **无需旗舰版**针对特定成员的推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/1612)，使用服务端，请求腾讯云IM的API，以批量发单聊消息的形式，给固定的用户 ID 列表，下发消息推送。该 API 上限500个用户，如果待发用户超过500人，可循环多次调用本 API。
+2. **无需旗舰版**针对特定成员的推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/1612)，使用服务端，请求腾讯云 IM 的 API，以批量发单聊消息的形式，给固定的用户 ID 列表，下发消息推送。该 API 上限500个用户，如果待发用户超过500人，可循环多次调用本 API。
 
 ### 推送方式
 
@@ -943,9 +946,9 @@ OPPO 手机收不到推送一般有以下几种情况：
 
 本文以上部分介绍了，如何使用本插件，结合腾讯云IM后端的推送服务，实现通过厂商通道的离线推送。
 
-但是，在某些情况下，厂商离线推送并不适用。如，您的目标客户端机型非我们兼容的厂商，使用华强北定制的Android设备等。
+但是，在某些情况下，厂商离线推送并不适用。例如您的目标客户端机型非我们兼容的厂商，使用华强北定制的 Android 设备等。
 
-此时，您只得通过在线监听收到新消息回调，在客户端上，手动触发创建通知。这仅适用于，应用未被kill掉，还处于前后台状态，能正常与IM服务端通信。
+此时，您只得通过在线监听收到新消息回调，在客户端上，手动触发创建通知。这仅适用于，应用未被 kill 掉，还处于前后台状态，能正常与IM服务端通信。
 
 为此种情况，本插件在0.3版本中，新增两个本地创建消息的方法，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，您可按需使用。
 
@@ -954,6 +957,10 @@ OPPO 手机收不到推送一般有以下几种情况：
 在您的项目中安装 IM Flutter 推送插件：
 
 ```shell
+// 国内版
+flutter pub add tencent_chat_push_for_china
+
+// 国际版
 flutter pub add tim_ui_kit_push_plugin
 ```
 
@@ -961,20 +968,16 @@ flutter pub add tim_ui_kit_push_plugin
 
 #### Android
 
-1. 确保 `@mipmap/ic_launcher` 存在且为您的应用 Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
+确保 `@mipmap/ic_launcher` 存在且为您的应用 Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3a5b95e6ffc519890122b7d474101a0.png)
+
 如果不存在，可手动将您的应用 Icon 复制进去，或通过 Android Studio 自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9641cb0de6a2172f57064d08f32a5a68.png)
-2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，在您应用的主 activity 中，添加如下代码。
-```xml
-<activity
-    android:showWhenLocked="true"
-    android:turnScreenOn="true">
-```
+
 
 #### iOS
 
-如果您已经配置iOS端离线推送，可忽略本部分。若无，请在 `ios/Runner/AppDelegate.swift` 或 `ios/Runner/AppDelegate.m`文件中， `didFinishLaunchingWithOptions` 函数内，添加如下代码。可参考我们的 [DEMO](https://github.com/TencentCloud/tc-chat-demo-flutter/blob/main/ios/Runner/AppDelegate.swift)。
+如果您已经配置 iOS 端离线推送，可忽略本部分。若无，请在 `ios/Runner/AppDelegate.swift` 或 `ios/Runner/AppDelegate.m`文件中， `didFinishLaunchingWithOptions` 函数内，添加如下代码。可参考我们的 [DEMO](https://github.com/TencentCloud/tc-chat-demo-flutter/blob/main/ios/Runner/AppDelegate.swift)。
 
 Objective-C:
 
@@ -997,7 +1000,9 @@ if #available(iOS 10.0, *) {
 请在 IM SDK 初始化完成后，初始化本 Push 插件。实例化一个 `cPush` 插件类，供后续调用。
 
 ```dart
-final TimUiKitPushPlugin cPush = TimUiKitPushPlugin();
+final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
+  isUseGoogleFCM: true, // 中国大陆版无此参数
+);
 
 cPush.init(
   // 此处绑定点击通知的跳转函数，下文会介绍
@@ -1085,8 +1090,8 @@ cPush.displayDefaultNotificationForMessage(
 ```Dart
 BuildContext? _cachedContext;
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-      isUseGoogleFCM: false,
-    );
+  isUseGoogleFCM: true, // 中国大陆版无此参数
+);
 
 @override
 void initState() {

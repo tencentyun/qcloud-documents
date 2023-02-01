@@ -63,7 +63,7 @@
 2. **修改默认远程桌面端口**，操作如下：
  1. 选择**开始** > **运行**，然后输入 `regedit`。
  2. 打开注册表，进入如下路径： HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp
- 3. KEY_LOCAL_MACHINE\SYSTEM\CurrentContro1Set\Control\Tenninal Server\WinStations\RDP-Tcp
+ 3. KEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Tenninal Server\WinStations\RDP-Tcp
  4. 修改下右侧的 PortNamber 值。
 3. 配置腾讯云安全组防火墙只允许 **指定 IP 才能访问远程桌面端口**。
 4. **定期备份**重要业务数据和文件。

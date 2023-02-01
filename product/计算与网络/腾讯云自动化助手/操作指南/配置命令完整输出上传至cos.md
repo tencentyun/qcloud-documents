@@ -28,3 +28,4 @@
 9. 执⾏命令后可在 COS ⽂件列表中查看命令的完整输出。⽂件路径按以下格式组织：` /{OutputCOSKeyPrefix}/{实例ID}/{InvocationTaskID}.log`
 例如： `/test/ins-s023oibx/invt-pvmkhci0.log`。
  <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0e60fdc2085564e18d48dbb07c403f36.png" />     
+

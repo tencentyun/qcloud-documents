@@ -5,7 +5,7 @@ SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为�
 2. 在左侧目录中单击 **VPN 连接** > **SSL 服务端**，进入管理页面。
 3. 在 SSL 服务端管理页面，单击**+新建**。
 4. 在弹出的**新建 SSL 服务端**对话框中，配置如下参数。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0810ba2d7d69957fd70c6fe60675136d.png" width="70%"> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/86217ecf4ec1852d324677893d8793b9.png" width="70%"> 
 <table>
 <tr>
 <th width="15%">参数名称</th>
@@ -50,6 +50,10 @@ SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为�
 <tr>
 <td>是否压缩</td>
 <td>否。</td>
+</tr>
+<tr>
+<td>认证方式</td>
+<td><b>证书认证</b>和<b>证书认证 + 身份认证</b>两种方式，本示例以证书认证为例。<ul><li>证书认证：该认证方式默认 SSL 服务端可被 SSL 客户端全量访问。</li><li>证书认证 + 身份认证：该认证方式仅允许在控制策略中的访问策略连接，您可选择为特定用户组或全部用户配置访问策略，勾选后需要选择对应的 EIAM 应用。</li></ul></td>
 </tr>
 </table>
 5. 完成网关参数设置后，单击**创建**。

@@ -267,6 +267,68 @@ void MsgRevokeCallback(const char* json_msg_locator_array, const void* user_data
 ```
 
 
+### TIMMsgExtensionsChangedCallback
+
+消息扩展信息更新回调。
+
+**原型**
+
+```c
+typedef void (*TIMMsgExtensionsChangedCallback)(const char* message_id, const char* json_message_extension_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| message_id | const char\* | 消息 ID |
+| json_message_extension_array | const char\* | 扩展信息列表 |
+| user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
+
+**示例: json_message_extension_array 示例**
+
+```c
+[
+   {
+       "message_extension_key":"extension_key_1",
+       "message_extension_value":"extension_value_1"
+   },
+   {
+       "message_extension_key":"extension_key_2",
+       "message_extension_value":"extension_value_2"
+   }
+]
+```
+
+
+### TIMMsgExtensionsDeletedCallback
+
+消息扩展信息删除回调
+
+**原型**
+
+```c
+typedef void (*TIMMsgExtensionsDeletedCallback)(const char* message_id, const char* json_message_extension_key_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| message_id | const char\* | 消息 ID |
+| json_message_extension_key_array | const char\* | 扩展信息的关键字列表 |
+| user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
+
+**示例: json_message_extension_key_array 示例**
+
+```c
+[
+   {
+       "message_extension_key":"extension_key_1",
+   }
+]
+```
+
 ### TIMMsgElemUploadProgressCallback
 
 消息内元素相关文件上传进度回调。
@@ -320,6 +382,56 @@ void MsgElemUploadProgressCallback(const char* json_msg, uint32_t index, uint32_
     }
 }
 ```
+
+
+### TIMGroupAttributeChangedCallback
+
+群属性变更回调。
+
+**原型**
+
+```c
+typedef void (*TIMGroupAttributeChangedCallback)(const char *group_id, const char* json_group_attribute_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| group_id | const char\* | 群 ID |
+| json_group_attribute_array | const char\* | 群提示列表 |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**示例: json_group_attribute_array 示例**
+
+```c
+[
+    {
+        "group_attribute_key":"attribute_key1",
+        "group_attribute_value":"attribute_value1"
+    }
+]
+```
+
+
+### TIMGroupCounterChangedCallback
+
+群计数器变更的回调。
+
+**原型**
+
+```c
+typedef void (*TIMGroupCounterChangedCallback)(const char *group_id, const char *group_counter_key, int64_t group_counter_new_value, const void *user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| group_id | const char\* | 群组 ID |
+| group_counter_key | const char\* | 变更的群计数器的 key |
+| group_counter_new_value | int64_t | 变更后的群计数器的 value |
+| user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
 
 ### TIMGroupTipsEventCallback
@@ -383,6 +495,42 @@ void ConvEventCallback(TIMConvEvent conv_event, const char* json_conv_array, con
 }
 ```
 
+
+### TIMConvTotalUnreadMessageCountChangedCallback
+
+会话未读消息总数变化。
+
+**原型**
+
+```c
+typedef void (*TIMConvTotalUnreadMessageCountChangedCallback)(int total_unread_count, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| total_unread_count | int | 未读的消息总数 |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+
+### TIMConvTotalUnreadMessageCountChangedByFilterCallback
+
+会话未读消息总数变化。
+
+**原型**
+
+```c
+typedef void (*TIMConvTotalUnreadMessageCountChangedByFilterCallback)(const char* filter, int total_unread_count, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| filter | int | 获取未读总数的 filter, 详情请参考 [TIMConversationListFilter](https://cloud.tencent.com/document/product/269/33553#timconversationlistfilter) |
+| total_unread_count | int | 未读的消息总数 |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
 
 ### TIMNetworkStatusListenerCallback
 
@@ -572,6 +720,120 @@ typedef void(*TIMFriendAddRequestCallback)(const char* json_friend_add_request_p
 ```
 
 
+### TIMFriendApplicationListDeletedCallback
+
+好友申请删除通知。
+
+**原型**
+
+```c
+typedef void(*TIMFriendApplicationListDeletedCallback)(const char* json_identifier_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_identifier_array | const char\* | 删除好友请求的 userid 列表 |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**示例: json_identifier_array 示例**
+```c
+[ "user15" ]
+```
+
+
+### TIMFriendApplicationListReadCallback
+
+好友申请已读通知，如果调用 setFriendApplicationRead 设置好友申请列表已读，会收到这个回调（主要用于多端同步）。
+
+**原型**
+
+```c
+typedef void(*TIMFriendApplicationListReadCallback)(const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+
+### TIMFriendBlackListAddedCallback
+
+黑名单新增通知。
+
+**原型**
+
+```c
+typedef void(*TIMFriendBlackListAddedCallback)(const char* json_friend_black_added_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_friend_black_added_array | const char\* | 新增黑名单列表 |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**示例: json_friend_black_added_array 示例**
+
+```c
+[{
+  "friend_profile_add_source": "",
+  "friend_profile_add_time": 0,
+  "friend_profile_add_wording": "",
+  "friend_profile_custom_string_array": [{
+      "friend_profile_custom_string_info_key": "Tag_Profile_Custom_Str",
+      "friend_profile_custom_string_info_value": "test3-lamar-value"
+  }],
+  "friend_profile_group_name_array": [],
+  "friend_profile_identifier": "98826",
+  "friend_profile_remark": "",
+  "friend_profile_user_profile": {
+      "user_profile_add_permission": 1,
+      "user_profile_birthday": 2000,
+      "user_profile_custom_string_array": [{
+          "user_profile_custom_string_info_key": "Tag_Profile_Custom_Str",
+          "user_profile_custom_string_info_value": "test3-lamar-value"
+      }],
+      "user_profile_face_url": "test1-www.google.com",
+      "user_profile_gender": 2,
+      "user_profile_identifier": "98826",
+      "user_profile_language": 1000,
+      "user_profile_level": 3000,
+      "user_profile_location": "shenzhen",
+      "user_profile_nick_name": "test change8888",
+      "user_profile_role": 4000,
+      "user_profile_self_signature": "1111111"
+  }
+}]
+```
+
+### TIMFriendBlackListDeletedCallback
+
+黑名单删除通知。
+
+**原型**
+
+```c
+typedef void(*TIMFriendBlackListDeletedCallback)(const char* json_identifier_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_identifier_array | const char\* | 黑名单列表 |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**示例: json_identifier_array 示例**
+```c
+[ "user15" ]
+```
+
+
 ### TIMLogCallback
 
 日志回调。
@@ -632,11 +894,9 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 | json_params | const char\* | JSON 字符串，不同的接口，JSON 字符串不一样 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
->?所有回调均需判断 code 是否等于 ERR_SUC，若不等于说明接口调用失败了，具体原因可以看 code 的值以及 desc 描述。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)。
 
 
->?
-以下接口的回调 TIMCommCallback 参数 json_params 均为空字符串""
+>?所有回调均需判断 code 是否等于 ERR_SUC，若不等于说明接口调用失败了，具体原因可以看 code 的值以及 desc 描述。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)。以下接口的回调 TIMCommCallback 参数 json_params 均为空字符串""
 - [TIMLogin](https://cloud.tencent.com/document/product/269/33547#timlogin)。
 - [TIMLogout](https://cloud.tencent.com/document/product/269/33547#timlogout)。
 - [TIMMsgSaveMsg](https://cloud.tencent.com/document/product/269/33549#timmsgsavemsg)。

@@ -125,7 +125,7 @@ except TencentCloudSDKException as err:
     print(err)
 ```
 
-### 指定模版发送语音通知[](id:SendTtsVoice)
+### 指定模板发送语音通知[](id:SendTtsVoice)
 
 ```
 # -*- coding: utf-8 -*-

@@ -26,8 +26,8 @@ INCLUDING { ALL TABLES | TABLE 'table_name' }
 | ---------------------------------- | ------------------------------------------------------------ |
 | target_database                    | 待写入的目标数据库名                                         |
 | database_comment                   | 待写入的数据库注释                                           |
-| WITH参数                           | 指明写入目标库的参数，目前会被翻译成下游 sink 表的描述参数     |
-| <source_catalog>.<source_database> | 声明源 catalog 中需要同步的数据库                              |
+| WITH参数                           | 指明写入目标库的参数，目前会被翻译成下游 sink 表的描述参数   |
+| `<source_catalog>.<source_database>` | 声明源 catalog 中需要同步的数据库                            |
 | INCLUDING  ALL TABLES              | 同步源库中的所有表                                           |
 | INCLUDING TABLE                    | 示同步数据库中特定的表，支持正则表达式，如 'order_.*' ； 同步多张表时，可以写成 INCLUDING TABLE 'tableA\|tableB'格式 |
 | EXCLUDING TABLE                    | 表示不同步数据库中特定的表，支持正则表达式，如 'order_.*'; 排除多张表时，可以写成 EXCLUDING TABLE 'tableA\|tableB'格式 |
@@ -48,8 +48,45 @@ including all tables
 ```
 
 
+### MySQL-CDC 元数据字段读取
+
+* MySQL CDC connector除支持提取物理表的字段外，还支持了[元数据字段列表](https://cloud.tencent.com/document/product/849/52698#.E5.8F.AF.E7.94.A8.E5.85.83.E6.95.B0.E6.8D.AE.EF.BC.88flink1.13-.E5.8F.8A.E4.BB.A5.E4.B8.8A.E7.89.88.E6.9C.AC.E5.8F.AF.E4.BD.BF.E7.94.A8.EF.BC.89)可以提取。整库同步功能中也提供了一个 options 配置参数，可以用来控制同步所需的元数据字段。
+
+| 参数                                   | 解释                                                         |
+| -------------------------------------- | ------------------------------------------------------------ |
+| oceanus.source.include-metadata.fields | 需要同步的 source 表的元字段，格式为 'table_name:table_name;meta.batch_id:batch_id', 元数据字段定义通过分号;分隔，每个元数据字段格式为 metadataColumn:alias， 第一部分为实际对应的元数据 column，第二部分为重命名后的值。 |
+
+* 注意: 元数据字段会按照声明的顺序，追加到源表之后
+
+使用实例:
+```sql
+SET table.optimizer.mysql-cdc-source.merge.enabled=true;
+
+create catalog my_mysql with (
+    'type' = 'jdbc',
+    'default-database' = 'test',
+    'username' = 'xx',
+    'password' = 'xxx',
+    'base-url' = 'xxx'
+);
+
+create database if not exists print_sink_db
+comment 'test_sink'
+with (
+'connector' = 'print',
+'print-identifier' = '$tableName')
+as database `my_mysql`.`test`
+including all tables
+/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai',
+    'oceanus.source.include-metadata.fields'='table_name:table_name;database_name:database_name;op_ts:op_ts;meta.table_name:meta_table_name;meta.database_name:meta_database_name;meta.op_ts:meta_op_ts;meta.op_type:meta_op_type;meta.batch_id:meta_batch_id;meta.is_ddl:meta_id_ddl;meta.mysql_type:meta_mysql_type;meta.update_before:meta_update_before;meta.pk_names:meta_pk_names;meta.sql:meta_sql;meta.sql_type:meta_sql_type;meta.ts:meta_ts')
+    */;
+```
+
+
+
+
 ## 使用方法
-1. 首先注册 Mysql 的 Catalog，作为待同步的数据源表，示例如下：
+1. 首先注册 MySQL 的 Catalog，作为待同步的数据源表，示例如下：
 ```sql
 create catalog my_mysql with (
     'type' = 'jdbc',
@@ -68,7 +105,7 @@ SET table.optimizer.mysql-cdc-source.merge.enabled=true;
 
 create catalog my_mysql with (
     'type' = 'jdbc',
-    'default-database' = 'trade_log',
+    'default-database' = 'test',
     'username' = 'root',
     'password' = 'XXX',
     'base-url' = 'jdbc:mysql://ip:port'
@@ -95,6 +132,8 @@ create catalog my_mysql with (
     'password' = 'XXX',
     'base-url' = 'jdbc:mysql://ip:port'
 );
+
+
 
 create database if not exists sink_db
 comment 'test_sink'  with (
@@ -139,15 +178,46 @@ including all tables
 作业运行拓扑图展开后如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf442eaef6fb0702161fdcdafab8ed78.png)
 
+#### 同步到 Hive 自动建表示例:
+
+* 作业需要提前配置连接 Hive 服务的 jar 包，详细配置可以参考 [获取 Hive 连接配置 jar 包](https://cloud.tencent.com/document/product/849/55238#hive-.E9.85.8D.E7.BD.AE)
+* 因为 MySQL 中 timestamp 和 datetime 字段和 Hive 中相应类型精度不匹配，暂时不支持同步带有这两种字段的 Hive 表
+
+```sql
+SET table.optimizer.mysql-cdc-source.merge.enabled=true;
+
+//注册mysql的catalog
+create catalog my_mysql with (
+    'type' = 'jdbc',
+    'default-database' = 'test',
+    'username' = 'root',
+    'password' = 'XXX',
+    'base-url' = 'jdbc:mysql://ip:port'
+);
+
+//注册hive端catalog
+create catalog my_hive with (
+    'type' = 'hive',
+    'default-database' = 'default',
+    'hive-version' = '2.3.5'
+);
+
+create database if not exists `my_hive`.`trade_log`
+as database `my_mysql`.`trade_log`
+including all tables
+/*+ `OPTIONS`('append-mode' = 'true', 'server-time-zone' = 'Asia/Shanghai') */;  
+-- 因为hive sink不支持变更数据，此处的hint会把原始cdc的变更数据转成成append流下发
+```
+
+
+
 ## 使用提醒
-1. 目前只支持同步 Mysql 类型数据库作为整库同步的源表。
-2. 目前同步到目标端时，除 Hudi 作为目标表为，其它的目标端还不支持自动建表，需要事先在目标端中建立和 Mysql 库中数据表对应的表结构。
-3. 推荐搭配 Mysql CDC Source 复用功能开启，一起使用，可以降低对 DB 的压力。
+1. 目前只支持同步 MySQL 类型数据库作为整库同步的源表。
+2. 目前同步到目标端时，除 Hudi 和 Hive （需要提前注册 Hive Catalog）作为目标表外，其它的目标端还不支持自动建表，需要事先在目标端中建立和 Mysql 库中数据表对应的表结构。
+3. 推荐搭配 MySQL CDC Source 复用功能开启，一起使用，可以降低对数据库的压力。
 4. CDAS 语法没有限制下游输出的类型，理论上可以同步到**任意的**下游类型。
-5. 当同步的表的数量非常多的时候，flink 生成的单个 task 的 name 会非常长，导致 metric 系统占用大量的内存，影响作业稳定性，Oceanus 针对这种情况引入了 `pipeline.task-name-length` 参数来限制 taskName 的长度，能极大的提高作业稳定性和日志可读性。（适用 Flink 1.13 和1.14版本）。
+5. 当同步的表的数量非常多的时候，flink 生成的单个 task 的 name 会非常长，导致 metric 系统占用大量的内存，影响作业稳定性，Oceanus 针对这种情况引入了 `pipeline.task-name-length` 参数来限制 taskName 的长度，能极大的提高作业稳定性和日志可读性。（适用 Flink-1.13 和 Flink-1.14 版本）。
 可以在作业的中配置生效：
 ```sql
 set pipeline.task-name-length=80;
 ```
-
-   

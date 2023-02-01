@@ -80,7 +80,7 @@ sudo apt install nmap openjdk-8-jdk
 <tbody>
 <tr>
 <td>accesskey、secretkey</td>
-<td>密钥信息，分别替换为用户的 SecretId  和 SecretKey</td>
+<td>密钥信息，建议使用子账号密钥，授权遵循 <a href="https://cloud.tencent.com/document/product/436/38618">最小权限指引</a>，降低使用风险。子账号密钥获取可参考 <a href="https://cloud.tencent.com/document/product/598/37140">子账号访问密钥管理</a></td>
 </tr>
 <tr>
 <td>cprefix</td>

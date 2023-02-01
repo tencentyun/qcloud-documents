@@ -26,4 +26,3 @@
  ![](https://main.qcloudimg.com/raw/8bc5c81c6e546ab6a87507f7d505387d.png)
  3. 在“关机提示”中，勾选“同意强制关机”并单击**开始调整**即可。
   实例转换完成后将自启动，状态为“运行中”。您可前往 [专用宿主机](https://console.cloud.tencent.com/cvm/cdh) 页面查看。
-

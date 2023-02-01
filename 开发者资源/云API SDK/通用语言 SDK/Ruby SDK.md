@@ -38,14 +38,17 @@ include TencentCloud::Common
 include TencentCloud::Cvm::V20170312
 
 begin
-   cre = Credential.new('SecretId', 'SecretKey')
-   req = DescribeInstancesRequest.new(nil, nil, 0, 1)
+  # 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中。
+  # 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+  # cred = Credential.new('SecretId', 'SecretKey')
+  cred = Credential.new(ENV["TENCENTCLOUD_SECRET_ID"], ENV["TENCENTCLOUD_SECRET_KEY"])
+  req = DescribeInstancesRequest.new(nil, nil, 0, 1)
   
-   cli = Client.new(cre, 'ap-guangzhou')
-   cli.DescribeInstances(req)
+  cli = Client.new(cred, 'ap-guangzhou')
+  cli.DescribeInstances(req)
 rescue TencentCloudSDKException => e
-   puts e.message  
-   puts e.backtrace.inspect  
+  puts e.message  
+  puts e.backtrace.inspect  
 end
 ```
 
@@ -56,54 +59,58 @@ require 'tencentcloud-sdk-common'
 require 'tencentcloud-sdk-cvm'
 
 begin
-   include TencentCloud::Common
-   # 导入对应产品模块的client module
-   include TencentCloud::Cvm::V20170312
+  include TencentCloud::Common
+  # 导入对应产品模块的client module
+  include TencentCloud::Cvm::V20170312
 
-  # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey,此处还需注意密钥对的保密
-   cred = Credential.new('SecretId', 'SecretKey')
-   # 实例化一个http选项
-   httpProfile = HttpProfile.new()
-   # 如果需要指定proxy访问接口，可以按照如下方式初始化hp
-   # httpProfile = HttpProfile.new(proxy='http://用户名:密码@代理IP:代理端口')
-   httpProfile.scheme = "https"  # 在外网互通的网络环境下支持http协议(默认是https协议),建议使用https协议
-   httpProfile.req_method = "GET"  # get请求(默认为post请求)
-   httpProfile.req_timeout = 30    # 请求超时时间，单位为秒(默认60秒)
-   httpProfile.endpoint = "cvm.tencentcloudapi.com"  # 指定接入地域域名(默认就近接入)
+  # 实例化一个认证对象，入参需要传入腾讯云账户 SecretId，SecretKey。
+  # 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中。
+  # 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+  # cred = Credential.new('SecretId', 'SecretKey')
+  cred = Credential.new(ENV["TENCENTCLOUD_SECRET_ID"], ENV["TENCENTCLOUD_SECRET_KEY"])
+
+  # 实例化一个http选项
+  httpProfile = HttpProfile.new()
+  # 如果需要指定proxy访问接口，可以按照如下方式初始化hp
+  # httpProfile = HttpProfile.new(proxy='http://用户名:密码@代理IP:代理端口')
+  httpProfile.scheme = "https"  # 在外网互通的网络环境下支持http协议(默认是https协议),建议使用https协议
+  httpProfile.req_method = "GET"  # get请求(默认为post请求)
+  httpProfile.req_timeout = 30    # 请求超时时间，单位为秒(默认60秒)
+  httpProfile.endpoint = "cvm.tencentcloudapi.com"  # 指定接入地域域名(默认就近接入)
 
   # 实例化一个client选项，可选的，没有特殊需求可以跳过。
-   clientProfile = ClientProfile.new()
-   clientProfile.sign_method = "TC3-HMAC-SHA256"  # 指定签名算法
-   clientProfile.language = "en-US"  # 指定展示英文（默认为中文）
-   clientProfile.http_profile = httpProfile
-   clientProfile.debug = true # 打印debug日志
+  clientProfile = ClientProfile.new()
+  clientProfile.sign_method = "TC3-HMAC-SHA256"  # 指定签名算法
+  clientProfile.language = "en-US"  # 指定展示英文（默认为中文）
+  clientProfile.http_profile = httpProfile
+  clientProfile.debug = true # 打印debug日志
 
   # 实例化要请求产品(以cvm为例)的client对象，clientProfile是可选的。
-   client = Client.new(cred, "ap-shanghai", clientProfile)
+  client = Client.new(cred, "ap-shanghai", clientProfile)
 
   # 实例化一个cvm实例信息查询请求对象,每个接口都会对应一个request对象。
-   req = DescribeInstancesRequest.new()
+  req = DescribeInstancesRequest.new()
 
   # 填充请求参数,这里request对象的成员变量即对应接口的入参。
-   # 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义。
-   respFilter = Filter.new()  # 创建Filter对象, 以zone的维度来查询cvm实例。
-   respFilter.Name = "zone"
-   respFilter.Values = ["ap-shanghai-1", "ap-shanghai-2"]
-   req.Filters = [respFilter]  # Filters 是成员为Filter对象的列表
+  # 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义。
+  respFilter = Filter.new()  # 创建Filter对象, 以zone的维度来查询cvm实例。
+  respFilter.Name = "zone"
+  respFilter.Values = ["ap-shanghai-1", "ap-shanghai-2"]
+  req.Filters = [respFilter]  # Filters 是成员为Filter对象的列表
 
   # 通过client对象调用DescribeInstances方法发起请求。注意请求方法名与请求对象是对应的。
-   # 返回的resp是一个DescribeInstancesResponse类的实例，与请求对象对应。
-   resp = client.DescribeInstances(req)
+  # 返回的resp是一个DescribeInstancesResponse类的实例，与请求对象对应。
+  resp = client.DescribeInstances(req)
 
   # 输出json格式的字符串回包
-   puts resp.serialize
+  puts resp.serialize
 
   # 也可以取出单个值。
-   # 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义。
-   puts resp.TotalCount
+  # 你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义。
+  puts resp.TotalCount
 rescue TencentCloudSDKException => e
-   puts e.message  
-   puts e.backtrace.inspect  
+  puts e.message  
+  puts e.backtrace.inspect  
 end
 ```
 
