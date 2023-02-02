@@ -153,10 +153,10 @@ API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8f0989e13ad33d5180ae002220ded34.png)
 - API 服务需要 Basic Auth 的情况：
   1. 复制 API 的调用地址（需先成功发布 API 服务）：
-![](https://qcloudimg.tencent-cloud.cn/raw/6e1a6aacbfc050aa5b07919ed749722f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9bb1700868352347cfbff6b88bc4a7bd.png)
   2. 进入 API 服务详情页面，新建或打开已有**调用凭证**，即可查看用于 Basic Auth 的AK/SK信息：
 <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c954c391d8cfa6a9574fd7d4ce3c6217.png" /><br>
-打开 postman，将上述获取的 API 调用地址和用于 Basic Auth 的 AK/SK 信息分别填入：
+  3. 打开 postman，将上述获取的 API 调用地址和用于 Basic Auth 的 AK/SK 信息分别填入：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e008d5181b9bf331a89cbf3a0a82d851.png)
 - API 服务需要 OAuth2.0 的情况：
   1. 复制 API 的调用地址（需先成功发布 API 服务），方法同上，不再附图。
