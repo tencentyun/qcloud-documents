@@ -12,8 +12,8 @@ CLS（Cloud Log Service）日志服务，可以作为 Oceanus 的数据源（Sou
 ## 使用范围
 CLS 支持用作数据源表（Source）。
 
-## 配置网络
-建立 CLS Source 表前，需要配置网络信息，具体步骤如下：
+## CLS日志主题
+建立 CLS Source 表前，需要创建CLS日志主题，具体步骤如下：
 1. 打开 [CLS 日志主题](https://console.cloud.tencent.com/cls/topic?region=ap-guangzhou) 页面中选择**日志主题 > 创建日志主题**，创建日志主题。
 ![](https://main.qcloudimg.com/raw/cfff31fc07d67bc51056788d90a6baf2.png)
 2. 日志主题创建成功后，在列表页单击新建日志主题的**日志主题名称/ID** 进入到详情页面。
@@ -22,26 +22,13 @@ CLS 支持用作数据源表（Source）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9af8eedc5ec40a774a5905258cd595fe.png)
 开启后的状态如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/7d83a3fe21b5d3ebc72d58470df12faa.png)
-详情请参考 [Kafka 协议消费](https://cloud.tencent.com/document/product/614/72651)
-4. 在 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus/cluster) 中，单击**集群名称/ID**，在集群详情页**集群信息**中，单击 **VPC** 网络。
->?由于 Oceanus VPC 的网络安全严格性，需要用户找到 CLS 团队拿到 Kafka VIP 的另外几个 IP 和端口一起配置到 VPC 下的 NAT 网关中。
->
-![](https://main.qcloudimg.com/raw/5b32339416ed805f85cefd8c31d2344f.png)
-在 VPC **网络资源**中，需自行配置 NAT 网关。
-![](https://main.qcloudimg.com/raw/9bf28a875a22449b061c1446c2547119.png)
-在 NAT 网关中新增路由策略。
-- 目的端：ping CLS 开放出的地址域名获取 IP 填写（IP 地址为上文提到的从 CLS 团队中提供的地址）。
-- 下一跳类型：选择 NAT 网关。
-![](https://main.qcloudimg.com/raw/7f78c8bd464fd33a1439b77a52240c87.png)
-5. NAT 网关配置完成后，即可使用 CLS 的Kafka 协议消费功能。与消费 Kafka 方式一样，若有参数不清楚的地方，可参考 [消息队列 Kafka](https://cloud.tencent.com/document/product/849/48310)。
+若有不清楚的地方，可以参考 [Kafka 协议消费](https://cloud.tencent.com/document/product/614/72651)。
 
 
-## 数据加工
-消费 CLS Kafka 数据之前可以对原始数据进行加工处理。
-1. 数据加工官网：[CLS 数据加工](https://cloud.tencent.com/document/product/614/63923)
-2. 数据加工示例：[加工示例](https://cloud.tencent.com/document/product/614/63924)
+## Oceanus消费CLS日志
+在Oceanus控制台新建作业。
+![](https://qcloudimg.tencent-cloud.cn/raw/ded733cb2aff5f4bde64d0e02a949fe4.png)
 
-## DDL 定义
 ```sql 
 -- 建表语句如下
 CREATE TABLE `nginx_source` (
