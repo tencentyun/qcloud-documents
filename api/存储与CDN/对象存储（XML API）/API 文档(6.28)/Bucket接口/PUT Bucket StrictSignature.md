@@ -69,9 +69,9 @@ Content-MD5: MD5
 | actionlist                   | StrictSignatureConfiguration.Rule            | action 列表，最多包括200个 action                            | Container | 否       |
 | action                       | StrictSignatureConfiguration.Rule.actionlist | 规则指定的 action，命名方式参考接入 CAM 的授权动作；支持通配符，例如 `Put*` | String    | 否       |
 | headerlist                   | StrictSignatureConfiguration.Rule            | 规则限定必须签入的 header 列表，列表内 header 的数量不得超过20个 | Container | 否       |
-| headerlist                   | StrictSignatureConfiguration.Rule.headerlist | 必须签入的请求头部，支持填入的具体请求头部可参见 [支持的请求头部](跳转到严格签名模式概述文档中“支持的请求头部”一节) | String    | 否       |
+| headerlist                   | StrictSignatureConfiguration.Rule.headerlist | 必须签入的请求头部，支持填入的具体请求头部可参见 [支持的请求头部](https://tcloud.woa.com/document/product/436/83234?!editLang=zh&!preview#:~:text=%E4%BC%9A%E6%8A%A5%E9%94%99%E3%80%82-,%E6%94%AF%E6%8C%81%E7%9A%84%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%83%A8,-%E4%B8%A5%E6%A0%BC%E7%AD%BE%E5%90%8D%E6%A8%A1%E5%BC%8F) | String    | 否       |
 | paramlist                    | StrictSignatureConfiguration.Rule            | 规则限定必须签入的请求参数列表，列表内 param 的数量不得超过20个 | Container | 否       |
-| param                        | StrictSignatureConfiguration.Rule.paramlist  | 必须签入的请求参数，支持填入的具体请求参数可参见 [支持的请求参数](跳转到严格签名模式概述文档中“支持的请求头部”一节节) | String    | 否       |
+| param                        | StrictSignatureConfiguration.Rule.paramlist  | 必须签入的请求参数，支持填入的具体请求参数可参见 [支持的请求参数](https://tcloud.woa.com/document/product/436/83234?!editLang=zh&!preview#:~:text=20%E4%B8%AA%20Header%E3%80%82-,%E6%94%AF%E6%8C%81%E7%9A%84%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0,-%E4%B8%A5%E6%A0%BC%E7%AD%BE%E5%90%8D%E6%A8%A1%E5%BC%8F) | String    | 否       |
 
 ## 响应
 
@@ -177,4 +177,3 @@ Date: Date
 Server: tencent-cos
 x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
 ```
-
