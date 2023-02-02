@@ -7,10 +7,11 @@ cp 命令用于上传、下载或拷贝文件。
 ./coscli cp <source_path> <destination_path> [flags]
 ```
 
->? 
->- 有关 bucketAlias 的说明，请参见 [下载与安装配置](https://cloud.tencent.com/document/product/436/63144#alias)。
->- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
->
+cp 命令包含以下参数：
+| 参数格式  | 参数用途     | 示例                |
+| --------- | ------------- | ------------------------ |
+ source_path | 源文件路径。可以为本地路径或COS文件路径。COS路径支持使用 [配置参数](https://cloud.tencent.com/document/product/436/63144#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 中的桶别名，或桶名称进行访问。如使用桶名称访问，需要额外携带 `endpoint` flag。|本地路径：~/example.txt<br>使用桶别名指定COS文件路径：cos://bucketalias/example.txt<br>使用桶名称指定COS文件路径：cos://examplebucket-1250000000/example.txt|
+  destination_path | 目的文件路径。可以为本地路径或COS文件路径。COS路径支持使用 [配置参数](https://cloud.tencent.com/document/product/436/63144#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 中的桶别名，或桶名称进行访问。如使用桶名称访问，需要额外携带 `endpoint` flag。|本地路径：~/example.txt<br>使用桶别名指定COS文件路径：cos://bucketalias/example.txt<br>使用桶名称指定COS文件路径：cos://examplebucket-1250000000/example.txt|
 
 cp 命令包含以下可选 flag：
 
@@ -33,9 +34,11 @@ cp 命令包含以下可选 flag：
 > - 当以分块形式上传/下载文件时，会默认开启断点续传。
 > - `--include` 和 `--exclude` 支持标准正则表达式的语法，您可以使用它来过滤出符合特定条件的文件。
 > - 使用 zsh 时，您可能需要在 pattern 串的两端加上双引号。
-```plaintext
-./coscli cp ~/test/ cos://bucket1/example/ -r --include ".*.txt" --meta=x-cos-meta-a:a#ContentType:text#Expires:2022-10-12T00:00:00.000Z
-```
+> ```plaintext
+> ./coscli cp ~/test/ cos://bucket1/example/ -r --include ".*.txt" --meta=x-cos-meta-a:a#ContentType:text#Expires:2022-10-12T00:00:00.000Z
+> ```
+> -  关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
+
 
 ## 操作示例
 
