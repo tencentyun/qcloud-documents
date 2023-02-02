@@ -24,6 +24,12 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ## 更新日志
 
+### IM Flutter TUIKit（含 UI） 1.5.0 @2023.02.02
+
+- 新增：全局`TIMUIKitConfig`上新配置`defaultAvatarAssetPath`，目的是定义默认头像。
+- 新增：支持Flutter 3.7.0。
+- 修复：`chatBgColor`配置。
+
 ### IM Flutter TUIKit（含 UI） 1.4.0 @2023.01.13
 
 - 新增：文本消息及回复引用消息中的文字翻译功能。长按文本，选择翻译即可。可通过 `ToolTipsConfig` 的 `showTranslation` 参数控制开启。
