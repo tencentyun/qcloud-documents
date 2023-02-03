@@ -24,7 +24,7 @@ cp 命令包含以下可选 flag：
 |   无       | --part-size     | 文件分块大小（默认32MB），单位MB     |
 |   无       | --thread-num    | 并发线程数（默认并发5）      |
 |   无       | --rate-limiting | 单链接速率限制（0.1~100MB/s），单位MB/s       |
-| 无 | --meta | 上传文件的元信息。包括部分 HTTP 标准属性（HTTP Header）以及以`x-cos-meta-`开头的用户自定义元数据（User Meta）。文件元信息格式为`header:value#header:value`，示例为`Expires:2022-10-12T00:00:00.000Z#Cache-Control:no-cache#Content-Encoding:gzip#x-cos-meta-x:x`。 |
+| 无 | --meta | 上传文件的元信息。包括部分 HTTP 标准属性（HTTP Header）以及以 `x-cos-meta-` 开头的用户自定义元数据（User Meta）。文件元信息格式为 `header:value#header:value`，示例为 `Expires:2022-10-12T00:00:00.000Z#Cache-Control:no-cache#Content-Encoding:gzip#x-cos-meta-x:x`。 |
 
 
 >?
