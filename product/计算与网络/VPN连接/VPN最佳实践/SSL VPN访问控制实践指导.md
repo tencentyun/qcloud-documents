@@ -44,13 +44,13 @@
 ### 创建 SSL VPN 网关
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧导航栏中选择 **VPN 连接** > **VPN 网关**，进入管理页。
 2. 在 VPN 网关管理页面，单击**+新建**，并在弹出的**新建 VPN 网关**页面依据界面参数配置 SSL VPN 网关。
-![](https://qcloudimg.tencent-cloud.cn/raw/5211203361a43461bd4efe31bcfc14e3.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c5f8e8878ff6f5a9893730b439dfa6ca.png" width="80%">
 3. SSL VPN 网关参数配置完成后单击**创建**。
 
 ### 创建 SSL 服务端
 1. 在左侧导航栏中选择 **VPN 连接** > **SSL 服务端**，进入管理页。
 2. 在 SSL 服务端管理页面，单击**+新建**，在弹出的新建 SSL 服务端对话框中依据界面参数配置 SSL 服务端。
-![](https://qcloudimg.tencent-cloud.cn/raw/331a84e3f5af2a4e9c36192712743697.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d36cb793aa7eaf7958838a63dbc92cf9.png" width="80%">
 <table>
 <tr>
 <th>参数名称</th>
@@ -69,7 +69,7 @@
 <td>选择创建好的 SSL VPN 网关。</td>
 </tr>
 <tr>
-<td>本端网段</td>
+<td>云端网段</td>
 <td>客户移动端访问的云上网段。</td>
 </tr>
 <tr>
