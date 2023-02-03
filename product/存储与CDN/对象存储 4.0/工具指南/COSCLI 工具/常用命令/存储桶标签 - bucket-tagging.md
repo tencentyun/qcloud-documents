@@ -68,9 +68,10 @@ bucket-tagging 命令包含以下可选 flag：
 ## 删除存储桶标签
 
 ### 命令格式
+
 ```plaintext
 ./coscli bucket-tagging --method delete cos://bucketAlias
-
+```
 
 ### 操作示例
 
