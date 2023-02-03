@@ -267,7 +267,6 @@ move .\TUIKit\debug .\debug
 在 App.vue 文件引用 TUIKit 组件
 ```javascript
 <script>
-<script>
 import { genTestUserSig, aegisID } from "./debug/index.js";
 import { TIM, TIMUploadPlugin, Aegis } from "./debug/tim.js";
 const aegis = new Aegis({
