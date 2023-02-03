@@ -30,7 +30,7 @@ rb 命令包含以下可选 flag：
 ./coscli rb cos://bucket3-1250000000 -e cos.ap-chengdu.myqcloud.com
 ```
 
-```
+```plaintext
 // 更新配置文件
 ./coscli config delete -a bucket3
 ```
