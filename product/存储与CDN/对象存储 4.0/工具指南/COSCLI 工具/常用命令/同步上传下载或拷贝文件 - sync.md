@@ -26,7 +26,7 @@ sync 命令包含以下可选 flag：
 |   无       | --thread-num    | 并发线程数（默认并发5）      |
 |   无       | --rate-limiting | 单链接速率限制（0.1 - 100MB/s）       |
 | 无 | --snapshot-path | 指定保存上传或者下载文件时的快照信息所在的目录。在下一次上传或者下载文件时，coscli 会读取指定目录下的快照信息进行增量上传或者下载。本选项用来加速目录文件同步。 |
-| 无 | --meta | 上传文件的元信息。包括部分 HTTP 标准属性（HTTP Header）以及以`x-cos-meta-`开头的用户自定义元数据（User Meta）。文件元信息格式为`header:value#header:value`，示例为`Expires:2022-10-12T00:00:00.000Z#Cache-Control:no-cache#Content-Encoding:gzip#x-cos-meta-x:x`。 |
+| 无 | --meta | 上传文件的元信息。包括部分 HTTP 标准属性（HTTP Header）以及以 `x-cos-meta-` 开头的用户自定义元数据（User Meta）。文件元信息格式为 `header:value#header:value`，示例为 `Expires:2022-10-12T00:00:00.000Z#Cache-Control:no-cache#Content-Encoding:gzip#x-cos-meta-x:x`。 |
 
 
 >?
