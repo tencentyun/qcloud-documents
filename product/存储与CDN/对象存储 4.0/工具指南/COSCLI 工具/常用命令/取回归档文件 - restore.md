@@ -49,6 +49,6 @@ restore 命令包含以下可选 flag：
 ./coscli restore cos://bucket1/pictrue/ -r --mode Expedited
 ```
 
->? 在执行此命令前，您需要保证文件夹下所有文件都是相同类型的（例如 ARCHIVE 类型）。如果存在不同类型的文件，请配合使用`--include`或`--exclude`将相同类型的文件过滤出来。
+>? 在执行此命令前，您需要保证文件夹下所有文件都是相同类型的（例如 ARCHIVE 类型）。如果存在不同类型的文件，请配合使用 `--include` 或 `--exclude` 将相同类型的文件过滤出来。
 >
 
