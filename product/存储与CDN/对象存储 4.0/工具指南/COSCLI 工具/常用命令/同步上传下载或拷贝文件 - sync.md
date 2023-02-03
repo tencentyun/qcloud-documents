@@ -11,8 +11,8 @@ cp 命令包含以下参数：
 
 | 参数格式  | 参数用途     | 示例                |
 | --------- | ------------- | ------------------------ |
- source_path | 源文件路径。可以为本地路径或COS文件路径。COS路径支持使用 [配置参数](https://cloud.tencent.com/document/product/436/63144#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 中的桶别名，或桶名称进行访问。如使用桶名称访问，需要额外携带 `endpoint` flag。|本地路径：~/example.txt<br>使用桶别名指定COS文件路径：cos://bucketalias/example.txt<br>使用桶名称指定COS文件路径：cos://examplebucket-1250000000/example.txt|
-  destination_path | 目的文件路径。可以为本地路径或COS文件路径。COS路径支持使用 [配置参数](https://cloud.tencent.com/document/product/436/63144#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 中的桶别名，或桶名称进行访问。如使用桶名称访问，需要额外携带 `endpoint` flag。|本地路径：~/example.txt<br>使用桶别名指定COS文件路径：cos://bucketalias/example.txt<br>使用桶名称指定COS文件路径：cos://examplebucket-1250000000/example.txt|
+|  source_path | 源文件路径。可以为本地路径或 COS 文件路径。COS 路径支持使用 [配置参数](https://cloud.tencent.com/document/product/436/63144#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 中的桶别名，或桶名称进行访问。如使用桶名称访问，需要额外携带 `endpoint` flag。|本地路径：~/example.txt<br>使用桶别名指定 COS 文件路径：cos://bucketalias/example.txt<br>使用桶名称指定 COS 文件路径：cos://examplebucket-1250000000/example.txt|
+|   destination_path | 目的文件路径。可以为本地路径或 COS 文件路径。COS 路径支持使用 [配置参数](https://cloud.tencent.com/document/product/436/63144#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 中的桶别名，或桶名称进行访问。如使用桶名称访问，需要额外携带 `endpoint` flag。|本地路径：~/example.txt<br>使用桶别名指定 COS 文件路径：cos://bucketalias/example.txt<br>使用桶名称指定 COS 文件路径：cos://examplebucket-1250000000/example.txt|
 
 sync 命令包含以下可选 flag：
 
@@ -21,7 +21,7 @@ sync 命令包含以下可选 flag：
 |    无       | --include     | 包含特定模式的文件             |
 |   无         | --exclude     | 排除特定模式的文件             |
 | -r        | --recursive   | 是否递归遍历文件夹下所有文件 |
-|   无       | --storage-class | 指定上传至文件的类型（默认 STANDARD） |
+|   无       | --storage-class | 指定上传文件的存储类型（默认 STANDARD），更多存储类型，请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417) |
 |   无       | --part-size     | 文件分块大小（默认32MB，最大支持5GB）     |
 |   无       | --thread-num    | 并发线程数（默认并发5）      |
 |   无       | --rate-limiting | 单链接速率限制（0.1 - 100MB/s）       |
@@ -37,9 +37,9 @@ sync 命令包含以下可选 flag：
 > - `--include` 和 `--exclude` 支持标准正则表达式的语法，您可以使用它来过滤出符合特定条件的文件。
 > - 使用 zsh 时，您可能需要在 pattern 串的两端加上双引号。
 > - snapshot-path 不要设置到为待迁移目录或其子目录。coscli 不会主动删除 snapshot-path 文件夹中的快照信息。为避免快照信息过多，请定期删除 snapshot-path 文件夹内无用的快照。
->```
->./coscli sync ~/test/ cos://bucket1/example/ -r --include ".*.txt" --snapshot-path=/path/snapshot-path  --meta=x-cos-meta-a:a#ContentType:text#Expires:2022-10-12T00:00:00.000Z
->```
+```
+./coscli sync ~/test/ cos://bucket1/example/ -r --include ".*.txt" --snapshot-path=/path/snapshot-path  --meta=x-cos-meta-a:a#ContentType:text#Expires:2022-10-12T00:00:00.000Z
+```
 > - 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 
 

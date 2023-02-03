@@ -29,9 +29,9 @@ restore 命令包含以下可选 flag：
 >?
 > - `--include` 和 `--exclude` 支持标准正则表达式的语法，您可以使用它来过滤出符合特定条件的文件。
 > - 使用 zsh 时，您可能需要在 pattern 串的两端加上双引号。
-> ```
-> ./coscli restore cos://bucket1/example/ -r --include ".*.mp4"
-> ```
+```
+./coscli restore cos://bucket1/example/ -r --include ".*.mp4"
+```
 >- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 
 
