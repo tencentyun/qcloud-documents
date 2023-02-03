@@ -456,8 +456,8 @@ userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tenc
 
 ### 音视频通话 TUICallKit 插件
 > ?**TUIKit 中默认没有集成 TUICallKit 音视频组件**。如果您需要集成通话功能，可参考以下文档实现。
-> - 打包到 APP 请参考官网文档： [音视频通话（uniapp-客户端）](https://cloud.tencent.com/document/product/269/83858)
-> - 打包到小程序请参考官网文档：[音视频通话（uniapp-小程序）](https://cloud.tencent.com/document/product/269/83857)
+> - 打包到 APP 请参考官网文档： [音视频通话（uniapp-客户端）](https://cloud.tencent.com/document/product/269/83857)
+> - 打包到小程序请参考官网文档：[音视频通话（uniapp-小程序）](https://cloud.tencent.com/document/product/269/83858)
 > - 打包到 H5，不支持音视频通话。
 
 TUICallKit 主要负责语音、视频通话。
