@@ -7,7 +7,7 @@ PostgreSQL 是一个开源对象关系型数据库管理系统，并侧重于可
 ## 示例软件版本
 本文搭建的 PostgreSQL 组成及版本使用说明如下：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
-- PostgreSQL：关系型数据库管理系统，本文以 PostgreSQL 9.6 为例。
+- PostgreSQL：关系型数据库管理系统，本文以 PostgreSQL 12 为例。
 
 
 ## 前提条件
@@ -26,7 +26,7 @@ PostgreSQL 是一个开源对象关系型数据库管理系统，并侧重于可
 yum update -y
 ```
 3. 依次执行以下命令，安装 PostgreSQL。
-本文以使用 PostgreSQL 9.6 版本为例，您可按需选择其他版本。
+本文以使用 PostgreSQL 12 版本为例，您可按需选择其他版本。
 ```
 wget --no-check-certificate https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 ```
@@ -34,18 +34,18 @@ wget --no-check-certificate https://download.postgresql.org/pub/repos/yum/reporp
 rpm -ivh pgdg-redhat-repo-latest.noarch.rpm
 ```
 ```
-yum install postgresql96-server postgresql96-contrib -y
+yum install postgresql12-server postgresql12-contrib -y
 ```
 ```
-/usr/pgsql-9.6/bin/postgresql96-setup initdb
+/usr/pgsql-12/bin/postgresql96-setup initdb
 ```
 4. 执行以下命令，启动服务。
 ```
-systemctl start postgresql-9.6.service
+systemctl start postgresql-12.service
 ```
 5. 执行以下命令，设置服务开机自启动。
 ```
-systemctl enable postgresql-9.6.service 
+systemctl enable postgresql-12.service 
 ```
 6. 执行以下命令，登录 postgres 用户。
 ```
@@ -96,7 +96,7 @@ replica
 13. 输入 **exit**，按 **Enter**，退出 PostgreSQL。
 14. 执行以下命令，打开 `pg_hba.conf` 配置文件，设置 `replica` 用户白名单。
 ```
-vim /var/lib/pgsql/9.6/data/pg_hba.conf
+vim /var/lib/pgsql/12/data/pg_hba.conf
 ```
 15. 按 **i** 切换至编辑模式，在 `IPv4 local connections` 段添加如下两行内容：
 ```
@@ -111,7 +111,7 @@ host    replication     replica         xx.xx.xx.xx/16         md5
 16. 按 **Esc**，输入 **:wq**，保存文件返回。
 17. 执行以下命令，打开 `postgresql.conf` 文件。
 ```
-vim /var/lib/pgsql/9.6/data/postgresql.conf
+vim /var/lib/pgsql/12/data/postgresql.conf
 ```
 18. 按 **i** 进入编辑模式，分别找到以下参数，并将参数修改为以下内容：
 ```
@@ -125,7 +125,7 @@ wal_sender_timeout = 60s #流复制主机发送数据的超时时间
 19. 按 **Esc**，输入 **:wq**，保存文件返回。
 20. 执行以下命令，重启服务。
 ```
-systemctl restart postgresql-9.6.service
+systemctl restart postgresql-12.service
 ```
 
 ### 配置从节点
@@ -147,7 +147,7 @@ yum install postgresql96-server postgresql96-contrib -y
 ```
 4. 执行以下命令，使用 pg_basebackup 基础备份工具制定备份目录。
 ```
-pg_basebackup -D /var/lib/pgsql/9.6/data -h <主节点公网 IP> -p 5432 -U replica -X stream -P
+pg_basebackup -D /var/lib/pgsql/12/data -h <主节点公网 IP> -p 5432 -U replica -X stream -P
 ```
 根据提示，输入数据库账号对应的密码，按 **Enter**。返回如下结果，表示备份成功。
 ```
@@ -156,11 +156,11 @@ Password:
 ```
 5. 执行以下命令，拷贝 master 配置相关文件。
 ```
-cp /usr/pgsql-9.6/share/recovery.conf.sample /var/lib/pgsql/9.6/data/recovery.conf
+cp /usr/pgsql-12/share/recovery.conf.sample /var/lib/pgsql/12/data/recovery.conf
 ```
 6. 执行以下命令，打开 `recovery.conf` 文件。
 ```
-vim /var/lib/pgsql/9.6/data/recovery.conf
+vim /var/lib/pgsql/12/data/recovery.conf
 ```
 7. 按 **i** 切换至编辑模式，分别找到如下参数，并修改为如下内容：
 ```
@@ -171,7 +171,7 @@ recovery_target_timeline = 'latest' #流复制同步到最新的数据
 8. 按 **Esc**，输入 **:wq**，保存文件返回。
 9. 执行以下命令，打开 `postgresql.conf` 文件。
 ```
-vim /var/lib/pgsql/9.6/data/postgresql.conf
+vim /var/lib/pgsql/12/data/postgresql.conf
 ```
 10. 按 **i** 切换至编辑模式，分别找到如下参数，并修改为如下内容：
 ```
@@ -184,15 +184,15 @@ hot_standby_feedback = on          # 如果有错误的数据复制向主进行�
 11. 按 **Esc**，输入 **:wq**，保存文件返回。
 12. 执行以下命令，修改数据目录的属组和属主。
 ```
-chown -R postgres.postgres /var/lib/pgsql/9.6/data
+chown -R postgres.postgres /var/lib/pgsql/12/data
 ```
 13. 执行以下命令，启动服务。
 ```
-systemctl start postgresql-9.6.service
+systemctl start postgresql-12.service
 ```
 14. 执行以下命令，设置服务开机自启动。
 ```
-systemctl enable postgresql-9.6.service
+systemctl enable postgresql-12.service
 ```
 
 ### 验证部署
