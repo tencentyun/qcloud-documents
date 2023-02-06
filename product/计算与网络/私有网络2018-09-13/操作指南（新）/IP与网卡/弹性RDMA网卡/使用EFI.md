@@ -104,3 +104,4 @@ sh install.sh
  - 当出现如下信息时，表示安装成功。                
   <img style="width:750px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/dfaf630688c7f409424b982d992fdbe0.png" />
  - 如果提示安装失败，您可以查看错误输出进行相关操作，尝试重新安装驱动。
+
