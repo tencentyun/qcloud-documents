@@ -37,7 +37,7 @@ rpm -ivh pgdg-redhat-repo-latest.noarch.rpm
 yum install postgresql12-server postgresql12-contrib -y
 ```
 ```
-/usr/pgsql-12/bin/postgresql96-setup initdb
+/usr/pgsql-12/bin/postgresql12-setup initdb
 ```
 4. 执行以下命令，启动服务。
 ```
@@ -143,7 +143,7 @@ wget --no-check-certificate https://download.postgresql.org/pub/repos/yum/reporp
 rpm -ivh pgdg-redhat-repo-latest.noarch.rpm
 ```
 ```
-yum install postgresql96-server postgresql96-contrib -y
+yum install postgresql12-server postgresql12-contrib -y
 ```
 4. 执行以下命令，使用 pg_basebackup 基础备份工具制定备份目录。
 ```
@@ -199,7 +199,7 @@ systemctl enable postgresql-12.service
 您可以通过如下操作验证是否部署成功：
 1. 执行以下命令，从节点备份目录。
 ```
-pg_basebackup -D /var/lib/pgsql/96/data -h <主节点公网 IP> -p 5432 -U replica -X stream -P
+pg_basebackup -D /var/lib/pgsql/12/data -h <主节点公网 IP> -p 5432 -U replica -X stream -P
 ```
 输入数据库密码并按 **Enter**，返回如下结果，则表示已备份成功。
 ```
