@@ -23,11 +23,11 @@ sudo -i
 ```
 3. 执行以下命令，更新和获取最新的软件及版本信息。
 ```
-sudo apt-get update
+apt-get update
 ```
 4. 执行以下命令，安装桌面环境所需软件包。包括系统面板、窗口管理器、文件浏览器、终端等桌面应用程序。
 ```bash
-sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop
+apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop
 ```
 
 
@@ -36,24 +36,29 @@ sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-termi
 <dx-tabs>
 ::: Ubuntu 18.04
 ```
-sudo apt-get install vnc4server
+apt-get install vnc4server
 ```
 :::
 ::: Ubuntu 20.04
 ```
-sudo apt-get install tightvncserver
+apt-get install tightvncserver
+```
+:::
+::: Ubuntu 22.04
+```
+apt-get install tightvncserver
 ```
 :::
 </dx-tabs>
 2. [](id:step02)执行以下命令，启动 VNC 服务，并设置 VNC 的密码。
 ```
-sudo vncserver
+vncserver
 ```
 返回类似如下结果，表示 VNC 启动成功。
 ![](https://main.qcloudimg.com/raw/adad6ffbb0b1b722d1e429133060134b.png)
 3. 执行以下命令，打开 VNC 配置文件。
 ```
-sudo vi ~/.vnc/xstartup
+vi ~/.vnc/xstartup
 ```
 4. 按 **i** 切换至编辑模式，并将配置文件修改为如下内容。
 ```
@@ -68,10 +73,10 @@ gnome-session --session=gnome-flashback-metacity --disable-acceleration-check &
 5. 按 **Esc**，输入 **:wq**，保存文件并返回。
 6. 执行以下命令，重启桌面进程。
 ```
-sudo vncserver -kill :1 #杀掉原桌面进程，输入命令（其中的:1是桌面号）
+vncserver -kill :1 #杀掉原桌面进程，输入命令（其中的:1是桌面号）
 ```
 ```
-sudo vncserver -geometry 1920x1080 :1 #生成新的会话
+vncserver -geometry 1920x1080 :1 #生成新的会话
 ```
 7. [点此](https://www.realvnc.com/en/connect/download/viewer/) 前往 VNC Viewer 官网，并根据本地计算机的操作系统类型，下载对应的版本及安装。
 8. 在 VNC Viewer 软件中，输入 `轻量应用服务器的 IP 地址:1`，按 **Enter**。
