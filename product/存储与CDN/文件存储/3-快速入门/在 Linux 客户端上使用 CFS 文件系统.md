@@ -33,8 +33,6 @@ NFS 3.0 | 111，892和2049 |  telnet 111,892和2049
 NFS 4.0 | 2049 |  telnet 2049
 CIFS/SMB | 445 |  telnet 445 
 
->?CFS 暂不支持 ping。
-
 
 ## 步骤3: 挂载文件系统
 
