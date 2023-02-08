@@ -19,7 +19,7 @@
 
 ## 步骤5：配置 JAR 作业
 在**开发调试**中，在**主程序包**的下拉框中选择刚才新建的程序包名称，在**主类**输入 `com.tencent.cloud.oceanus.wordcount.WordCount`。您可以在**作业参数**设置中调整作业的算子默认并行度、添加外部依赖。
-![](https://qcloudimg.tencent-cloud.cn/raw/d4ba9a55a4abd79f5904b9f6b8c19199.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c6e503129bd8339f4dc856e2ed71d65f.png)
 
 ## 步骤6：发布运行 JAR 作业
 单击**发布草稿**，将进行作业运行检查，检查通过后将进入发布确认。发布将生成新的作业版本，版本号由系统自动生成。

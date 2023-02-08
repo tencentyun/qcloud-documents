@@ -10,7 +10,7 @@
 开发 SQL 作业需在 SQL 编辑器中输入 SQL 分析语句。单击**插入模板**可以快速在编辑器中插入常用的 Ckafka 或 JDBC 等数据流的定义语句。单击**库表引用**可以便捷地引用表，以及查看、编辑 DDL 语句。SQL 语句编辑完成后，单击**作业参数**，在页面右侧弹出的参数界面中设置参数值，具体可参考 [作业参数](#jump)。然后单击**保存**，保存 SQL 语句和作业参数。
 
 SQL 语句的编写请参考 [SQL 开发指南](https://cloud.tencent.com/document/product/849/18030)。 
-![](https://main.qcloudimg.com/raw/c07817bfb1750ea1921f055cce4a9354.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/00aa94bfe8dacd544d71534e466023c5.png)
 
 [](id:jump)
 ## 作业参数

@@ -7,16 +7,12 @@
 ## 迁移原理
 Nacos 的核心功能为服务注册发现与配置管理，故一次完整的迁移任务涉及以下两方面：
 
-- 配置管理热迁移：Nacos 的配置数据、用户信息、命名空间数据、访问控制等信息在数据库中持久化存储，因此首先需要使用 TSE Nacos 的配置数据迁移功能实现源数据库到 TSE Nacos 数据库的全量迁移与实时增量同步。
+- 配置管理热迁移：Nacos 的配置数据、用户信息、命名空间数据、访问控制等信息在数据库中持久化存储，因此首先需要使用 TSE Nacos 的数据同步功能实现源数据库到 TSE Nacos 数据库的全量迁移与实时增量同步。
 - 服务注册发现热迁移：采用 Java agent 的形式，在不改变业务代码的情况下，通过字节码增强的方式，实现服务的双注册和发现，以此达到运行中的服务平滑迁移的目的。
 
 
 ## 架构图
 
-### 配置数据迁移
-![](https://qcloudimg.tencent-cloud.cn/raw/74cc4d6c55630a5b04c55bec3695f528.png)
-
-### 服务注册发现迁移
 ![](https://qcloudimg.tencent-cloud.cn/raw/714c1489be567240072ae1802c5f85e3.png)
 
 ## 前提条件
@@ -28,7 +24,7 @@ Nacos 的核心功能为服务注册发现与配置管理，故一次完整的�
 ## 操作步骤
 
 ### 步骤1：配置数据同步
-通过 TSE Nacos 的配置数据同步能力，将源 Nacos 数据库导入与同步至 TSE Nacos 集群。请参见 [Nacos 配置数据迁移](https://cloud.tencent.com/document/product/1364/84650)。
+通过 TSE Nacos 的数据同步功能，将源 Nacos 数据库导入与同步至 TSE Nacos 集群。请参见 [Nacos 数据同步](https://cloud.tencent.com/document/product/1364/84650)。
 
 ### 步骤2：服务注册发现迁移
 1. 将提前下载好的 polaris java agent zip 包上传到您的服务所部署的云服务器 CVM 或者容器中，并解压，确认该位置可以被正常访问。

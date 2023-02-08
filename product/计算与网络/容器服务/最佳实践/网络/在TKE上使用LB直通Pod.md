@@ -10,7 +10,7 @@ Kubernetes 官方提供了 NodePort 类型的 Service，即给所有节点开通
 ## 实现方式分析
 
 ### 传统 NodePort 方式问题分析
-通常会使用 CLB 直接绑定 NortPort 此方式来创建云上 Ingress 或 LB 类型的 Service，但此传统 NodePort 实现方式会存在以下问题：
+通常会使用 CLB 直接绑定 NodePort 此方式来创建云上 Ingress 或 LB 类型的 Service，但此传统 NodePort 实现方式会存在以下问题：
 - 流量从 CLB 转发到 NodePort 后还需进行 SNAT 再转发到 Pod，造成额外的性能损耗。  
 - 如果流量过于集中到某几个 NodePort 时（例如，使用 nodeSelector 部署网关到固定几台节点上），可能导致源端口耗尽或 conntrack 插入冲突。  
 - NodePort 本身也充当负载均衡器，CLB 绑定过多节点 NodePort 时可能导致负载均衡状态过于分散，导致全局负载不均。  
@@ -136,6 +136,6 @@ CLB 直接绑定 Pod 时检查 Pod 是否 Ready，需查看 Pod 是否 Running�
 
 ## 参考资料
 
-* [TKE 基于弹性网卡直连 Pod 的网络负载均衡](https://mp.weixin.qq.com/s/fJtlm5Qjm2BfzekC4RegCQ)
-* [集群开启 VPC-CNI 模式网络](https://cloud.tencent.com/document/product/457/34993)
-* [VPC-CNI 网络模式使用指引](https://cloud.tencent.com/document/product/457/48040)
+- [TKE 基于弹性网卡直连 Pod 的网络负载均衡](https://mp.weixin.qq.com/s/fJtlm5Qjm2BfzekC4RegCQ)
+- [集群开启 VPC-CNI 模式网络](https://cloud.tencent.com/document/product/457/34993)
+- [VPC-CNI 网络模式使用指引](https://cloud.tencent.com/document/product/457/48040)
