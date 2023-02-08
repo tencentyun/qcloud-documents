@@ -123,7 +123,7 @@ dubbo:
     ```
 
 ### 步骤4：配置日志格式
-Spring Cloud 2020（Spring Boot 2.4）开始，默认的日志格式有所变化，默认日志 pattern 有所变化。如果需要日志配置项中的 Spring Boot 格式采集日志，需要对 pattern 进行以下设置
+Spring Cloud 2020（Spring Boot 2.4）开始，默认的日志格式有所变化。如果需要日志配置项中的 Spring Boot 格式采集日志，需要对 pattern 进行以下设置
 
 ```yaml
 logging:
