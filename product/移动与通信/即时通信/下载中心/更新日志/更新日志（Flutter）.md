@@ -24,6 +24,11 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ## 更新日志
 
+### IM Flutter TUIKit（含 UI） 1.6.0 @2023.02.08
+
+- 新增：`TIMUIKitConversationController` 上的 `scrollToConversation`。现在可以实现滚动到对话列表中的特定对话，并可以实现当用户双击标签栏时滚动到下一个未读对话，[参考我们的Demo源码](https://github.com/TencentCloud/chat-demo-flutter/blob/main/lib/src/conversation.dart)。
+- 优化：历史消息列表长时间滚动时的性能。
+
 ### IM Flutter TUIKit（含 UI） 1.5.0 @2023.02.02
 
 - 新增：全局`TIMUIKitConfig`上新配置`defaultAvatarAssetPath`，目的是定义默认头像。
