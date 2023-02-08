@@ -122,15 +122,22 @@ dubbo:
     </dependency>
     ```
 
+### 步骤4：配置日志格式
+Spring Cloud 2020（Spring Boot 2.4）开始，默认的日志格式有所变化，默认日志 pattern 有所变化。如果需要日志配置项中的 Spring Boot 格式采集日志，需要对 pattern 进行以下设置
 
+```yaml
+logging:
+  pattern:
+    level: "%-5level [${spring.application.name},%mdc{trace_id},%mdc{span_id},]"
+```
 
-### 步骤4：打包 FatJar
+### 步骤5：打包 FatJar
 
 和 Spring Boot 或 Spring Cloud 结合的时候，您可以通过 **spring-boot-maven-plugin** 构建一个包含所有依赖的 jar 包（FatJar）， 在 pom.xml 所在目录下执行命令`mvn clean package`。
 
 >?如果是单纯的 Dubbo 应用，可以使用 Maven 的 FatJar 插件。
 
-### 步骤5：使用可观测 Agent
+### 步骤6：使用可观测 Agent
 
 可观测 Agent 在云上部署时才需要使用。本地使用也无法采集数据。
 
@@ -142,10 +149,10 @@ java ${JAVA_OPTS} -Xshare:off -javaagent:/opt/ot-agent-release/opentelemetry-jav
 
 
 
-如果使用的是 jdk17，还需要额外加以下参数 `--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.math=ALL-UNNAMED --add-opens java.base/sun.net.util=ALL-UNNAMED`
+如果使用的是 jdk17，还需要额外加以下参数 `--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.math=ALL-UNNAMED --add-opens java.base/sun.net.util=ALL-UNNAMED`
 
 ```shell
-java ${JAVA_OPTS} -Xshare:off -javaagent:/opt/ot-agent-release/opentelemetry-javaagent.jar -Dotel.traces.exporter=none -Dotel.javaagent.extensions=/opt/ot-agent-release/femas-trace-opentelemetry.jar --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.math=ALL-UNNAMED --add-opens java.base/sun.net.util=ALL-UNNAMED -jar provider-demo.jar
+java ${JAVA_OPTS} -Xshare:off -javaagent:/opt/ot-agent-release/opentelemetry-javaagent.jar -Dotel.traces.exporter=none -Dotel.javaagent.extensions=/opt/ot-agent-release/femas-trace-opentelemetry.jar --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.math=ALL-UNNAMED --add-opens java.base/sun.net.util=ALL-UNNAMED -jar provider-demo.jar
 ```
 
 
