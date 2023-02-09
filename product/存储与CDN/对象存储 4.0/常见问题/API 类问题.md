@@ -24,7 +24,7 @@ COS 提供了 AWS S3 兼容的 API，详情请参见 [使用 AWS S3 SDK 访问 C
 
 ### XML API 与 JSON API 之间的关系？
 
-JSON API 接口即从2016年9月起用户接入 COS 使用的 API，上传域名为`<Region>.file.myqcloud.com`。 JSON API 接口将保持维护状态，可以正常使用但是不发展新特性。其与标准 XML API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容，域名不一致。
+JSON API 接口即从2016年9月起用户接入 COS 使用的 API，上传域名为 `<Region>.file.myqcloud.com`。 JSON API 接口将保持维护状态，可以正常使用但是不发展新特性。其与标准 XML API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容，域名不一致。
 
 ### XML API 与 JSON API 的密钥是否通用？
 
