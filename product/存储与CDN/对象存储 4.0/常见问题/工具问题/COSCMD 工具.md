@@ -17,8 +17,8 @@ COSCMD 工具会将大写字符自动转换为小写字符，存储桶名称只�
 
 ### 使用 COSCMD 工具上传/下载根目录文件，是否支持排除某个目录？
 
-支持，需要使用`--ignore /folder/*`参数。
-例如下载时排除 folder 目录，可使用`coscmd download --ignore /folder/*`命令过滤。当忽略某一类后缀时，必须最后要输入`,` 或者加入`""`。
+支持，需要使用 `--ignore /folder/*` 参数。
+例如下载时排除 folder 目录，可使用 `coscmd download --ignore /folder/*` 命令过滤。当忽略某一类后缀时，必须最后要输入`,` 或者加入`""`。
 
 
 
@@ -45,8 +45,8 @@ SecretID 和 SecretKey 可以在 [访问管理控制台](https://console.cloud.t
 
 COSCMD 配置文件仅支持指定一个 bucket，如果您需要对不同的存储桶进行操作，可以在 COSCMD 命令指定存储桶名称和所属地域。 
 
-- 通过`-b <bucketname-appid>`参数指定存储桶名称，存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式。
-- 通过`-r <region>`指定 Region， 可以指定存储桶的所属地域。
+- 通过 `-b <bucketname-appid>` 参数指定存储桶名称，存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式。
+- 通过 `-r <region>` 指定 Region， 可以指定存储桶的所属地域。
 
 ### COSCMD 上传文件时支持校对重命名吗？
 
@@ -66,7 +66,7 @@ coscmd config -m 30
 
 ### COSCMD 上传文件时如何跳过已存在文件？
 
-COSCMD 上传时通过添加 -rs 参数跳过 md5 相同的文件。详情请参考 [COSCMD工具](https://cloud.tencent.com/document/product/436/10976) 文档中的 [上传文件夹](https://cloud.tencent.com/document/product/436/10976#.E4.B8.8A.E4.BC.A0.E6.96.87.E4.BB.B6.E5.A4.B9) 示例。
+COSCMD 上传时通过添加 -rs 参数跳过 md5 相同的文件。详情请参见 [COSCMD工具](https://cloud.tencent.com/document/product/436/10976) 文档中的 [上传文件夹](https://cloud.tencent.com/document/product/436/10976#.E4.B8.8A.E4.BC.A0.E6.96.87.E4.BB.B6.E5.A4.B9) 示例。
 
 ### 使用 COSCMD 工具下载如何跳过相同文件？
 
