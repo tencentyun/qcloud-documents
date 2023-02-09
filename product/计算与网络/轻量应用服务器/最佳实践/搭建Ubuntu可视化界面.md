@@ -41,7 +41,7 @@ Ubuntu 22.04 在安装时可能会弹出如下图所示的弹窗，此时点击 
 1. 按照实际情况选择执行以下命令，安装 VNC。
 <dx-tabs>
 ::: Ubuntu 18.04
-```plaintext
+```Swift
 apt install tightvncserver
 ```
 :::
