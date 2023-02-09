@@ -36,6 +36,7 @@ apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal g
 Ubuntu 22.04 在安装时可能会弹出如下图所示的弹窗，此时点击 Tab 键，定位到 OK 键之后按回车。如果断开连接，则重新连接即可。
 </dx-alert>
 <img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ca3aa99856e8d735ed0df8512dc8caa8.png" />
+
 ### 配置 VNC
 1. 按照实际情况选择执行以下命令，安装 VNC。
 <dx-tabs>
