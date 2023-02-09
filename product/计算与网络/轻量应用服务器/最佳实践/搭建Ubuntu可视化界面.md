@@ -23,14 +23,16 @@ sudo -i
 ```
 3. 执行以下命令，更新和获取最新的软件及版本信息。
 ```
-apt-get update
+apt update
 ```
 4. 依次执行以下命令，安装桌面环境所需软件包。包括系统面板、窗口管理器、文件浏览器、终端等桌面应用程序。
 ```bash
 apt install ubuntu-desktop
 apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal gnome-session-flashback
 ```
-
+<dx-alert infotype="notice" title="">
+Ubuntu 22.04 在安装时可能会弹出如下图所示的弹窗，此时点击 Tab 键，定位到 OK 键之后按回车。如果断开连接，则重新连接即可。
+</dx-alert>
 
 ### 配置 VNC
 1. 按照实际情况选择执行以下命令，安装 VNC。
