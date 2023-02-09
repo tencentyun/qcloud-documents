@@ -38,4 +38,4 @@
   2. 在**下载 SSL 客户端**区域找到适合您的 SSL 客户端软件，下载后请安装该客户端。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3ab6a81b13fd4fad19931cdbc832cfe3.png)
 3. SSL 客户端安装完成后，上传您下载好的 SSL 客户端配置文件，上传后自动与 SSL 服务端连接。
-4. <img src="https://qcloudimg.tencent-cloud.cn/raw/b51ffdfba9caa56ccb742d2e60403d9a.png" width="35%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b51ffdfba9caa56ccb742d2e60403d9a.png" width="35%"> 

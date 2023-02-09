@@ -39,7 +39,19 @@
    ```
 >!Spring Cloud Finchley/Greenwich/Hoxton 支持 @EnableTsfAuth 等注解的单独使用，仅开启部分功能，Spring Cloud 2020 不再支持，添加依赖后及支持全部 SDK 功能。
 >
-3. TSF Spring Cloud 2020 开始，调用链、监控功能通过 OpenTelemetry 的 java agent 支持。
+
+
+3. 配置日志 pattern
+Spring Cloud 2020（Spring Boot 2.4）开始，默认的日志格式有所变化。如果需要用日志配置项中的 Spring Boot 格式采集日志，需要对 pattern 进行以下设置
+
+```yaml
+logging:
+  pattern:
+    level: "%-5level [${spring.application.name},%mdc{trace_id},%mdc{span_id},]"
+```
+
+
+4. TSF Spring Cloud 2020 开始，调用链、监控功能通过 OpenTelemetry 的 java agent 支持。
    - 虚拟机：部署时展开高级选项，勾选“Agent 配置”中的“可观测 Agent”。
    - 容器（通过 TSF 控制台制作的镜像）部署时展开高级选项，勾选“Agent 配置”中的“可观测 Agent”。
      ![](https://qcloudimg.tencent-cloud.cn/raw/ea998d8b5e2233e33f87a2332bdc7354.png)

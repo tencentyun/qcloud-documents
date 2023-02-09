@@ -76,4 +76,7 @@ insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 # lsmod | grep toa
 toa 12886 0
 ```
-
+9. 加载成功，在启动脚本里面加载 toa.ko 文件（重启机器 ko 文件需要重新加载）。
+```plaintext
+echo "insmod   xxxxx /toa.ko" >> /etc/rc.local
+```
