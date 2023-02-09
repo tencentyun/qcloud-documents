@@ -25,9 +25,10 @@ sudo -i
 ```
 apt-get update
 ```
-4. 执行以下命令，安装桌面环境所需软件包。包括系统面板、窗口管理器、文件浏览器、终端等桌面应用程序。
+4. 依次执行以下命令，安装桌面环境所需软件包。包括系统面板、窗口管理器、文件浏览器、终端等桌面应用程序。
 ```bash
-apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop
+apt install ubuntu-desktop
+apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal gnome-session-flashback
 ```
 
 
@@ -36,17 +37,17 @@ apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal u
 <dx-tabs>
 ::: Ubuntu 18.04
 ```
-apt-get install vnc4server
+apt install tightvncserver
 ```
 :::
 ::: Ubuntu 20.04
 ```
-apt-get install tightvncserver
+apt install tightvncserver
 ```
 :::
 ::: Ubuntu 22.04
 ```
-apt-get install tightvncserver
+apt install tightvncserver
 ```
 :::
 </dx-tabs>
@@ -63,13 +64,17 @@ vi ~/.vnc/xstartup
 4. 按 **i** 切换至编辑模式，并将配置文件修改为如下内容。
 ```
 #!/bin/sh
-export XKL_XMODMAP_DISABLE=1
-export XDG_CURRENT_DESKTOP="GNOME-Flashback:GNOME"
-export XDG_MENU_PREFIX="gnome-flashback-"
-gnome-session --session=gnome-flashback-metacity --disable-acceleration-check &
+ autocutsel -fork
+ xrdb $HOME/.Xresources
+ xsetroot -solid grey
+ export XKL_XMODMAP_DISABLE=1
+ export XDG_CURRENT_DESKTOP="GNOME-Flashback:Unity"
+ export XDG_MENU_PREFIX="gnome-flashback-"
+ unset DBUS_SESSION_BUS_ADDRESS
+ gnome-session --session=gnome-flashback-metacity --disable-acceleration-check --debug &
 ```
 编辑完成后如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/4a4517779b930fca5a7c39c673f81a35.png)
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ebbd7e38e78b35f60138b5f7ad6bc2ee.png" />
 5. 按 **Esc**，输入 **:wq**，保存文件并返回。
 6. 执行以下命令，重启桌面进程。
 ```
