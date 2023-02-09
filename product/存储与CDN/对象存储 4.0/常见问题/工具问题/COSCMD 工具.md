@@ -21,12 +21,6 @@ COSCMD 工具会将大写字符自动转换为小写字符，存储桶名称只�
 例如下载时排除 folder 目录，可使用`coscmd download --ignore /folder/*`命令过滤。当忽略某一类后缀时，必须最后要输入`,` 或者加入`""`。
 
 
-### 当需要传输大量文件时，如何提高传输速度？
-
-可适当调整 MAX_THREAD 参数值，默认配置为5。线程数取决于机器性能，通常情况下设置为30，即可跑满带宽。例如将并发线程调整为30，执行命令行如下：
-```plaintext
-coscmd config -m 30
-```
 
 ### COSCMD 工具是否支持使用 \* 号指定特定前缀对象的下载?
 
@@ -42,7 +36,7 @@ coscmd download prefix/ localpath/ -r
 ### COSCMD 可以同时管理不同账号的存储桶吗？
 
 使用 cos.conf 配置文件只能配置一个账号下的存储桶，若您需要管理不同账号下的存储桶，可参考以下命令切换配置后，再进行管理操作。
-```
+```plaintext
 coscmd config -a SecretID -s SecretKey -b BucketName-APPID -r region
 ```
 SecretID 和 SecretKey 可以在 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取，BucketName-APPID 是存储桶名称，region 为存储桶所在地域。
@@ -58,11 +52,11 @@ COSCMD 配置文件仅支持指定一个 bucket，如果您需要对不同的存
 
 使用 COSCMD 上传同名文件，会覆盖较旧的同名文件，不支持校对是否存在同名文件的功能。
 
-### 使用 COSCMD 工具传输大量文件如何提高传输速度？
+### 使用 COSCMD 工具传输大量文件时，如何提高传输速度？
 
 可适当调整 MAX_THREAD 参数值，默认配置为5。线程数取决于机器性能，通常情况下设置为30，即可跑满带宽。例如将并发线程调整为30，执行命令行如下。
 
-```
+```plaintext
 coscmd config -m 30
 ```
 
