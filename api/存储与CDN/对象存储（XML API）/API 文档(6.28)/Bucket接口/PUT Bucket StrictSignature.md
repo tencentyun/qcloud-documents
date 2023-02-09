@@ -1,4 +1,3 @@
-
 ## 功能描述
 
 PUT Bucket StrictSignature 用于为存储桶设置严格签名模式，严格签名模式用于对特定请求限定必须签入的请求头部和请求参数。
@@ -24,7 +23,7 @@ Content-MD5: MD5
 
 >? 
 >
->- Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参阅 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+>- Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参见 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参见 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
 >- Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
@@ -68,11 +67,11 @@ Content-MD5: MD5
 | Rule                         | StrictSignatureConfiguration                 | 规则描述，最多支持10条规则                                   | Container | 是       |
 | ID                           | StrictSignatureConfiguration.Rule            | 用于唯一地标识规则，长度不能超过255个字符，合法字符：`a-z，A-Z，0-9，-，_，.` | String    | 是       |
 | actionlist                   | StrictSignatureConfiguration.Rule            | action 列表，最多包括200个 action                            | Container | 否       |
-| action                       | StrictSignatureConfiguration.Rule.actionlist | 规则指定的 action，命名方式参考接入 CAM 的授权动作；支持通配符，例如`Put*` | String    | 否       |
+| action                       | StrictSignatureConfiguration.Rule.actionlist | 规则指定的 action，命名方式参考接入 CAM 的授权动作；支持通配符，例如 `Put*` | String    | 否       |
 | headerlist                   | StrictSignatureConfiguration.Rule            | 规则限定必须签入的 header 列表，列表内 header 的数量不得超过20个 | Container | 否       |
-| headerlist                   | StrictSignatureConfiguration.Rule.headerlist | 必须签入的请求头部，支持填入的具体请求头部可参考 [支持的请求头部](跳转到严格签名模式概述文档中“支持的请求头部”一节) | String    | 否       |
+| headerlist                   | StrictSignatureConfiguration.Rule.headerlist | 必须签入的请求头部，支持填入的具体请求头部可参见 [支持的请求头部](https://cloud.tencent.com/document/product/436/83234#:~:text=%E4%BC%9A%E6%8A%A5%E9%94%99%E3%80%82-,%E6%94%AF%E6%8C%81%E7%9A%84%E8%AF%B7%E6%B1%82%E5%A4%B4%E9%83%A8,-%E4%B8%A5%E6%A0%BC%E7%AD%BE%E5%90%8D%E6%A8%A1%E5%BC%8F) | String    | 否       |
 | paramlist                    | StrictSignatureConfiguration.Rule            | 规则限定必须签入的请求参数列表，列表内 param 的数量不得超过20个 | Container | 否       |
-| param                        | StrictSignatureConfiguration.Rule.paramlist  | 必须签入的请求参数，支持填入的具体请求参数可参考 [支持的请求参数](跳转到严格签名模式概述文档中“支持的请求头部”一节节) | String    | 否       |
+| param                        | StrictSignatureConfiguration.Rule.paramlist  | 必须签入的请求参数，支持填入的具体请求参数可参见 [支持的请求参数](https://cloud.tencent.com/document/product/436/83234#:~:text=20%E4%B8%AA%20Header%E3%80%82-,%E6%94%AF%E6%8C%81%E7%9A%84%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0,-%E4%B8%A5%E6%A0%BC%E7%AD%BE%E5%90%8D%E6%A8%A1%E5%BC%8F) | String    | 否       |
 
 ## 响应
 
@@ -178,4 +177,3 @@ Date: Date
 Server: tencent-cos
 x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
 ```
-

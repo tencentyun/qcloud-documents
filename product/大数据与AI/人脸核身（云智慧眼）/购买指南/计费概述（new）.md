@@ -218,14 +218,12 @@ E证通服务与计费标签对应关系说明如下：
 <table>
 <tr>
 <th>接入渠道</th>
-<th>比对库源</th>
 <th>计费标签</th>
 <th>定价</th>
 </tr>
 <tr>
 <td>实证 NFC</a>
 </td>
-<td>跟权威库比对</td>
 <td>证件 NFC 识别</td>
 <td><a href="https://cloud.tencent.com/document/product/1007/84321#.E5.AE.9E.E8.AF.81-nfc-.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 </tr>

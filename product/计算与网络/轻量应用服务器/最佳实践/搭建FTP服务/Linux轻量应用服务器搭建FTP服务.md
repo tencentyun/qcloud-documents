@@ -98,6 +98,9 @@ sudo systemctl restart vsftpd
 搭建好 FTP 服务后，您需要根据实际使用的 FTP 模式给 Linux 轻量应用服务器放通对应端口，详情请参见 [添加防火墙规则](https://cloud.tencent.com/document/product/1207/44577#.E6.B7.BB.E5.8A.A0.E9.98.B2.E7.81.AB.E5.A2.99.E8.A7.84.E5.88.99)。
 大多数客户端机器在局域网中，IP 地址是经过转换的。如果您选择了 FTP 主动模式，请确保客户端机器已获取真实的 IP 地址，否则可能会导致客户端无法登录 FTP 服务器。
 - 主动模式：放通端口21。
+<dx-alert infotype="notice" title="">
+FTP 服务器将通过20端口主动连接客户端，轻量应用服务器防火墙出流量默认允许所有请求，无需在控制台另外放通。查看 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577)。
+</dx-alert>
 - 被动模式：放通端口21，及 [修改配置文件](#config) 中设置的 `pasv_min_port` 到 `pasv_max_port` 之间的所有端口，本文放通端口为40000 - 45000。
 
 ### 步骤5：验证 FTP 服务
