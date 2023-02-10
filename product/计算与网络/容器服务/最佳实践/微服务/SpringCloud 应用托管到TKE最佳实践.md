@@ -753,7 +753,7 @@ spec:
 
 #### 接入 TSW — 获取接入点信息
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏种的**服务观测** > **服务列表**。  
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**服务观测** > **服务列表**。  
 2. 单击**接入服务**，选择 Java 语言与 SkyWalking 的数据采集方式。接入方式下提供了如下接入信息：**接入点**和 **Token**。  
 ![](https://main.qcloudimg.com/raw/b6333d66cf38310a9fe2403bee7bbb4a.png)
 
