@@ -121,7 +121,7 @@ kubelet 在实现 exec probe 时使用了 CRI Runtime 的 ExecSync 接口，因�
 
 区别导致的影响主要出现在 pod lifecycle 的 postStartHook 和 preStopHook 中，如果在 hook 中使用 exec probe 并且出现残留子进程的情况，在 containerd 的节点上可能会遇到 Pod 长期卡在 containerCreating 状态。原因是 kubelet 在 syncPod 时会逐个容器拉起，并执行 probe，如果某个 probe 因上述原因阻塞住，会导致后续容器无法启动。
 
-在 ExecProbe 中拉起子进程并退出掉父进程属于 K8S 中未定义的行为，具体表现可能会和运行时版本、种类相关，因此建议尽量不要在 probe 执行过于复杂的操作。
+在 ExecProbe 中拉起子进程并退出父进程属于 K8S 中未定义的行为，具体表现可能会和运行时版本、种类相关，因此建议尽量不要在 probe 执行过于复杂的操作。
 
 ## 容器网络的区别
 
