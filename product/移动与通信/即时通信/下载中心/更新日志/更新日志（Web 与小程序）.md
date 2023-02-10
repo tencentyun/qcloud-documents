@@ -1,3 +1,11 @@
+### 2.26.1 @2023.2.10
+
+**修复**
+
+- 群历史消息最近一条是群提示消息的场景下，群会话的 lastMessage.lastTime 不准确。
+- 调用 [markConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markConversation) 接口设置了会话标记，重新登录后标记内容缺失。
+- 调用 [createGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createGroup) 接口创建群组偶现查群资料失败。
+- 调用 [getMessageList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageList) 接口拉群历史消息，部分场景下历史消息缺失。
 
 ### 2.26.0 @2023.1.13
 
