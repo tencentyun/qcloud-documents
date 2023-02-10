@@ -50,8 +50,11 @@
 </tr>
 <tr>
 <td>服务器证书</td>
-<td>可以选择 <a href="https://console.cloud.tencent.com/ssl">SSL 证书平台</a> 中已有的证书，或新建上传证书。服务器证书支持配置双证书即两个证书，且为两种不同类型的加密算法的证书。
-说明：配置双证书，仅负载均衡支持，传统型负载均衡不支持，并且配置双证后，不支持开启 QUIC 功能。</td>
+<td>可以选择 <a href="https://console.cloud.tencent.com/ssl">SSL 证书平台</a> 中已有的证书，或新建上传证书。服务器证书支持配置双证书，即两种不同类型的加密算法的证书。
+<dx-alert infotype="explain" title="">
+配置双证书，仅负载均衡支持，传统型负载均衡不支持，并且配置双证后，不支持开启 QUIC 功能。
+</dx-alert>
+</td>
 <td><span>选择已有</span></td>
 </tr>
 <td>CA 证书</td>
