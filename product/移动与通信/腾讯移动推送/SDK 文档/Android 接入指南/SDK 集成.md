@@ -385,29 +385,6 @@ new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
 
 ## 高级配置（可选）
 
-### 音视频富媒体使用方法
-
-1. 在 App 的 layout 目录下，新建一个 xml 文件，命名为 xg_notification。
-2. 复制以下代码到文件中：
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
--<RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/xg_root_view" xmlns:android="http://schemas.android.com/apk/res/android">
-<!--通知的背景，id名字不能改变，其他可变-->
-<ImageView android:layout_height="match_parent" android:layout_width="match_parent" android:id="@+id/xg_notification_bg" android:scaleType="centerCrop"/>
-<!--通知的大图标，id名字不能改变，其他可变.必须-->
-<ImageView android:layout_height="48dp" android:layout_width="48dp" android:id="@+id/xg_notification_icon" android:scaleType="centerInside" android:layout_marginLeft="5dp" android:layout_centerVertical="true" android:layout_alignParentLeft="true"/>
-<!--通知的时间，id名字不能改变，其他可变.若不显示时间可以去掉此布局-->
-<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/xg_notification_date" android:textSize="12dp" android:layout_marginRight="5dp" android:layout_marginTop="5dp" android:layout_alignParentRight="true" android:layout_alignParentTop="true"/>
-<!--通知的标题，id名字不能改变，其他可变。必须-->
-<TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/xg_notification_style_title" android:layout_marginLeft="10dp" android:layout_marginTop="20dp" android:singleLine="true" android:layout_toRightOf="@id/xg_notification_icon" android:layout_toLeftOf="@id/xg_notification_date"/>
-<!--通知的内容，id名字不能改变，其他可变。必须-->
-<TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/xg_notification_style_content" android:layout_marginTop="1dp" android:singleLine="true" android:layout_toLeftOf="@id/xg_notification_date" android:layout_alignLeft="@+id/xg_notification_style_title" android:layout_below="@+id/xg_notification_style_title"/>
-<!--带音频的富媒体通知的音频播放按钮，id名字不能改变，其他可变。若没用到音频富媒体可以去掉此布局-->
-<ImageView android:layout_height="25dp" android:layout_width="25dp" android:id="@+id/xg_notification_audio_play" android:layout_alignLeft="@+id/xg_notification_style_title" android:visibility="gone" android:background="@android:drawable/ic_media_play" android:layout_alignParentBottom="true"/>
-<!--带音频的富媒体通知的音频停止播放按钮，id名字不能改变，其他可变.若没用到音频富媒体可以去掉此布局-->
-<ImageView android:layout_height="25dp" android:layout_width="25dp" android:id="@+id/xg_notification_audio_stop" android:layout_marginLeft="30dp" android:layout_toRightOf="@+id/xg_notification_audio_play" android:visibility="gone" android:background="@android:drawable/ic_media_pause" android:layout_alignParentBottom="true"/></RelativeLayout>
-```
 
 ### 关闭联合保活
 

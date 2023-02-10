@@ -1,21 +1,27 @@
 ## 简介
-元数据加速器是由腾讯云对象存储（Cloud Object Storage，COS）服务提供的高性能文件系统功能。元数据加速器底层采用了云 HDFS 卓越的元数据管理功能，支持用户通过文件系统语义访问对象存储服务，系统设计指标可以达到2.4Gb/s带宽、10万级 QPS 以及 ms 级延迟。存储桶在开启元数据加速器后，可以广泛应用于大数据、高性能计算、机器学习、AI 等场景。有关元数据加速器的详细介绍，请参见 [元数据加速器](https://cloud.tencent.com/document/product/436/56971)。
+元数据加速器是由腾讯云对象存储（Cloud Object Storage，COS）服务提供的高性能文件系统功能。元数据加速器底层采用了云 HDFS 卓越的元数据管理功能，支持用户通过文件系统语义访问对象存储服务，系统设计指标可以达到百 GB 级别带宽、10万级 QPS 以及 ms 级延迟。存储桶在开启元数据加速器后，可以广泛应用于大数据、高性能计算、机器学习、AI 等场景。有关元数据加速器的详细介绍，请参见 [元数据加速器](https://cloud.tencent.com/document/product/436/56971)。
 
-通过元数据加速服务，COS 提供了 Hadoop 文件系统的语义，因此利用 [Hadoop Distcp 工具](https://cloud.tencent.com/document/product/436/50272) 可以方便地在对象存储 COS 与其他 Hadoop 文件系统之间进行双向的数据迁移，本文重点介绍如何通过 Hadoop Distcp 工具将本地 HDFS 中的文件搬迁到 COS 元数据加速存储桶中。 
+通过元数据加速服务，COS 提供了 Hadoop 文件系统的语义，因此利用 [Hadoop Distcp 工具](https://cloud.tencent.com/document/product/436/50272) 可以方便地在对象存储 COS 与其他 Hadoop 文件系统之间进行双向的数据迁移，本文重点介绍如何通过 Hadoop Distcp 工具将本地 HDFS 中的文件搬迁到 COS 元数据加速存储桶中。
 
 ## 迁移环境准备
 
 ### 迁移工具准备
 
+
 1. 下载下表中的 jar 包工具，并且放置到迁移集群提交机的本地目录下，例如 /data01/jars。
+
+<b>腾讯云 EMR 环境</b>
+ 
+**安装说明**
+
 <table>
 <thead>
 <tr><th>jar 包文件名</th><th>说明</th><th>下载地址</th></tr>
 </thead>
 <tbody>
 <tr>
-<td>cos-distcp-1.10-3.1.0.jar</td>
-<td>COSDistCp 相关包，拷贝数据到 OFS</td>
+<td>cos-distcp-1.12-3.1.0.jar</td>
+<td>COSDistCp 相关包，拷贝数据到 COSN</td>
 <td>可参见 <a href="https://cloud.tencent.com/document/product/436/50272">COSDistCp 工具</a></td>
 </tr>
 <tr>
@@ -25,6 +31,49 @@
 </tr>
 </tbody>
 </table>
+
+<b>自建 Hadoop/CDH 等环境</b>
+
+**软件依赖**
+
+Hadoop-2.6.0及以上版本、Hadoop-COS 插件8.1.5及以上版本，同时 cos_api-bundle 插件版本与 Hadoop-COS 版本对应，详情请参见 <a href="https://github.com/tencentyun/hadoop-cos/releases">COSN github releases</a> 确认。
+
+**安装说明**
+
+在 Hadoop 环境下，安装以下插件：
+
+<table>
+<thead>
+<tr><th>jar 包文件名</th><th>说明</th><th>下载地址</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>cos-distcp-1.12-3.1.0.jar</td>
+<td>COSDistCp 相关包，拷贝数据到 COSN</td>
+<td>可参见 <a href="https://cloud.tencent.com/document/product/436/50272">COSDistCp 工具</a></td>
+</tr>
+<tr>
+<td>chdfs_hadoop_plugin_network-2.8.jar</td>
+<td>OFS 插件</td>
+<td><a href="https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar">点击下载</a></td>
+</tr>
+<tr>
+<td>Hadoop-COS</td>
+<td>Version >= 8.1.5</td>
+<td>可参见 <a href="https://cloud.tencent.com/document/product/436/6884#.E4.B8.8B.E8.BD.BD.E4.B8.8E.E5.AE.89.E8.A3.85">Hadoop-COS 工具</a></td>
+</tr>
+<tr>
+<td>cos_api-bundle</td>
+<td>版本需与 Hadoop-COS 对应</td>
+<td><a href="https://github.com/tencentyun/hadoop-cos/releases">点击下载</a></td>
+</tr>
+</tbody>
+</table>
+
+>!
+>- Hadoop-cos 自8.1.5版本开始支持 `cosn://bucketname-appid/` 方式访问元数据加速桶；
+>- 元数据加速功能只能在创建存储桶时开启，开启后不支持关闭，请结合您的业务情况慎重考虑是否开启，同时注意旧版本的 Hadoop-cos 包不能正常访问已开启元数据加速功能的存储桶。
+
 2. 创建元数据加速存储桶，并配置元数据加速桶 HDFS 协议。详细步骤可参见 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 中的“创建存储桶并配置 HDFS 协议”章节。
 3. 修改迁移集群`core-site.xml` ，修改完成后下发配置到所有的节点上。如果只是迁移数据，则不用重启大数据组件。
 <table>
@@ -33,37 +82,37 @@
 </thead>
 <tbody>
 <tr>
-<td>fs.AbstractFileSystem.ofs.impl</td>
-<td>com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter</td>
-<td>core-site.xml</td>
-<td>OFS 实现类，必填</td>
-</tr>
-<tr>
-<td>fs.ofs.impl</td>
+<td>fs.cosn.trsf.fs.ofs.impl</td>
 <td>com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter</td>
 <td>core-site.xml</td>
-<td>OFS 实现类，必填</td>
+<td>COSN 实现类，必填</td>
 </tr>
 <tr>
-<td>fs.ofs.tmp.cache.dir</td>
-<td>/data/chdfs_tmp_cache</td>
+<td>fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl</td>
+<td>com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter</td>
+<td>core-site.xml</td>
+<td>COSN 实现类，必填</td>
+</tr>
+<tr>
+<td>fs.cosn.trsf.fs.ofs.tmp.cache.dir</td>
+<td>格式形如 /data/emr/hdfs/tmp/</td>
 <td>core-site.xml</td>
 <td>临时目录，必填。MRS 各节点均会创建，需保证有足够的空间和权限</td>
 </tr>
 <tr>
-<td>fs.ofs.user.appid</td>
+<td>fs.cosn.trsf.fs.ofs.user.appid</td>
 <td>客户 COS bucket 对应得 appid</td>
 <td>core-site.xml</td>
 <td>必填</td>
 </tr>
 <tr>
-<td>fs.ofs.ranger.enable.flag</td>
+<td>fs.cosn.trsf.fs.ofs.ranger.enable.flag</td>
 <td>false</td>
 <td>core-site.xml</td>
 <td>必填，确认是否为 false</td>
 </tr>
 <tr>
-<td>fs.ofs.bucket.region</td>
+<td>fs.cosn.trsf.fs.ofs.bucket.region</td>
 <td>bucket 对应 region</td>
 <td>core-site.xml</td>
 <td>必填，可选值：eu-frankfurt（法兰克福）、ap-chengdu（成都）、ap-singapore（新加坡）</td>
@@ -80,7 +129,7 @@
 
 一般情况下，迁移数据会先从 HDFS 存储数据开始迁移，会选定源 HDFS 集群待迁移的目录，目标段保持和源路径相同，如下所示：
 
-假设需要将 HDFS 路径`hdfs:///data/user/target`迁移到`ofs://{bucketname-appid}/data/user/target`。
+假设需要将 HDFS 路径 `hdfs:///data/user/target` 迁移到 `cosn://{bucketname-appid}/data/user/target`。
 
 为了保证迁移过程中，源端目录的文件不发生改变，会采用 HDFS 的快照功能，先给待迁移的目录打上快照，以当前日期作为快照文件名。
 
@@ -108,13 +157,13 @@ COSDistCp 为 MapReduce 任务，MapReduce 任务打印日志中会提示 MR 任
 #### （1）创建临时目录
 
 ```shell
-hadoop fs -libjars  /data01/jars/chdfs_hadoop_plugin_network-2.8.jar -mkdir ofs://bucket-appid/distcp-tmp
+hadoop fs -libjars /data01/jars/chdfs_hadoop_plugin_network-2.8.jar -mkdir cosn://bucket-appid/distcp-tmp
 ```
 
 #### （2）运行 COSDistCp 任务
 
 ```shell
-nohup hadoop jar /data01/jars/cos-distcp-1.10-2.8.5.jar -libjars  /data01/jars/chdfs_hadoop_plugin_network-2.8.jar --src=hdfs:///data/user/target/.snapshot/{当前日期}  --dest=ofs://{bucket-appid}/data/user/target   --temp=ofs://bucket-appid/distcp-tmp/ --preserveStatus=ugpt  --skipMode=length-checksum --checkMode=length-checksum --cosChecksumType=CRC32C --taskNumber 6 --workerNumber 32 --bandWidth 200 >> ./distcp.log &
+nohup hadoop jar /data01/jars/cos-distcp-1.10-2.8.5.jar -libjars  /data01/jars/chdfs_hadoop_plugin_network-2.8.jar --src=hdfs:///data/user/target/.snapshot/{当前日期}  --dest=cosn://{bucket-appid}/data/user/target   --temp=cosn://bucket-appid/distcp-tmp/ --preserveStatus=ugpt  --skipMode=length-checksum --checkMode=length-checksum --cosChecksumType=CRC32C --taskNumber 6 --workerNumber 32 --bandWidth 200 >> ./distcp.log &
 ```
 
 参数说明如下，您可根据实际情况进行调整：
@@ -154,13 +203,16 @@ CosDistCp Counters
 
 #### （3）失败文件重迁移
 
-COSDistCp 工具可以解决大部分文件的迁移效率问题，但是 COSDistCp 暂时不支持 HDFS 和 COS 数据的完全一致，因此失败文件重迁可以采用 Hadoop DistCp 工具的丰富功能，示例命令如下：
+COSDistCp 工具不但可以解决大部分文件的迁移效率问题，同时也可以采用 `--delete` 参数支持 HDFS 和 COS 数据的完全一致。
+
+使用 `--delete` 参数时，需要携带 `--deleteOutput=/xxx(自定义)` 参数，但不可以携带 `--diffMode`参数。
 
 ```shell
-nohup hadoop distcp -Ddfs.checksum.combine.mode=COMPOSITE_CRC -direct -m 100 -bandwidth 200 -update  -delete -pugpt hdfs:///data/user/target/.snapshot/{当前日期}  ofs://{bucket-appid}/data/user/target  >>./copy-update-distcp.log 2>&1 &
+nohup hadoop jar /data01/jars/cos-distcp-1.10-2.8.5.jar -libjars /data01/jars/chdfs_hadoop_plugin_network-2.8.jar --src=--src=hdfs:///data/user/target/.snapshot/{当前日期} --dest=cosn://{bucket-appid}/data/user/target --temp=cosn://bucket-appid/distcp-tmp/ --preserveStatus=ugpt --skipMode=length-checksum --checkMode=length-checksum --cosChecksumType=CRC32C --taskNumber 6 --workerNumber 32 --bandWidth 200 --delete --deleteOutput=/dele-xx >> ./distcp.log &
 ```
 
-主要用到了-upadte -delete 特性，可以保证 HDFS 和 COS 上数据完全一致。
+运行完成后，会将HDFS和COS的差异数据移动到 `trash` 目录下，并且在 `/xxx/failed` 目录下生成移动文件清单。删除 `trash` 目录下的数据可以采用 `hadoop fs -rm URL` 或者`hadoop fs -rmr URL`。
+
 
 ## 增量迁移
 

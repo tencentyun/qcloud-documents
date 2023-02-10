@@ -63,24 +63,4 @@ CDN 产品开启 HTTPS 服务的用户会产生 HTTPS 请求数费用，包括�
 所有用户都可以在控制台的服务概览「CDN 总请求数」查询时间范围产生的总 HTTPS 请求数（包括免费和付费的请求数）。
 
 ## FAQ
-### 什么情况会产生 HTTPS 计费？
-
-当您完成域名的证书配置，即开启了 HTTPS 服务能力。若 HTTPS 请求数每月超出免费额度，超出的部分会产生 HTTPS 费用，下图为已开启 HTTPS 服务的配置。
-![](https://qcloudimg.tencent-cloud.cn/raw/b0f1cb2c9e74d57d35808f2827d30a88.png)
-
-### 如何查询 HTTPS 请求数量？
-CDN 控制台可提供 HTTPS 请求数量，具体操作步骤如下：
-1. 登录控制台 ，单击服务概览的 **CDN 总请求数**进入查询。
-![](https://qcloudimg.tencent-cloud.cn/raw/b3f6442ff6edf4c63846d55170776c39.png)
-2. 在访问监控详情页面选择您要查询的时间段，「HTTP 协议」下拉框选择为“HTTPS”、单击**查询**按钮，可查询时间段的 HTTPS 总请求数，如图：
-![](https://qcloudimg.tencent-cloud.cn/raw/d64d75e860ccfd59dd977e0c3207ad28.png)
-
-
-### 如何关闭 HTTPS 计费？
-
-关闭域名的证书配置，则不会产生 HTTPS 请求数费用。但关闭域名的证书配置，就无法提供 HTTPS 服务，可能影响终端用户的 HTTPS 请求。
-关闭操作如下：
-1. 登录 CDN 控制台，选择菜单**域名管理**，选择要关闭的域名，单击**管理**操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/433d61bdbb26d47dd4081d3c2c202afa.png)
-选择 **HTTPS 配置**页面，操作**删除**，等待配置部署完成。
-![](https://qcloudimg.tencent-cloud.cn/raw/cb75f104c0624efb25f0a447e9d2b6da.png)
+更多有关 HTTPS 计费的常见问题，请参见 [HTTPS 计费常见问题](https://cloud.tencent.com/document/product/228/43799#m8)。

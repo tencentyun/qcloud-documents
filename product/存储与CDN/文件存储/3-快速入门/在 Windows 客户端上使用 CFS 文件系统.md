@@ -49,7 +49,7 @@ net use X: \\10.10.11.12\fjie120
 2. 在**这台电脑**单击右键，选择**映射网络驱动器**。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4c83cd3c42e4baef67471acac5663872.png)
 3. 在弹出的窗口中，设置"驱动器"盘符名称及文件夹（即在 CIFS/SMB 文件系统中看到的挂载目录），单击**完成**。
-![](https://qcloudimg.tencent-cloud.cn/raw/d3367db4c535db5533f8b1a137a7ccfc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2bf2a57f718356feb592d98905560ed7.png)
 4. 进入已经挂载的文件系统中，右键新建一个文件验证读写的正确性。
 <img src="https://main.qcloudimg.com/raw/208537681d0ab96cd801e22332a419a9.jpeg" width="80%">
 
@@ -110,11 +110,11 @@ net start nfsclnt
 
 在 CMD 命令行工具中，输入如下命令，挂载文件系统。其中，系统缺省子目录为 FSID。
 ```bash
-mount  <挂载点IP>:/<FSID> <共享目录名称>:
+mount -o nolock mtype=hard  <挂载点IP>:/<FSID> <共享目录名称>:
 ```
 示例：
 ```bash
-mount 10.10.0.12:/z3r6k95r X:
+mount -o nolock mtype=hard 10.10.0.12:/z3r6k95r X:
 ```
 >! FSID 挂载命令可以到**文件存储控制台 > 文件系统详情 > 挂载点信息**中获取。
 >
@@ -126,7 +126,7 @@ mount 10.10.0.12:/z3r6k95r X:
 2. 在**这台电脑**单击右键，选择**映射网络驱动器**。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4c83cd3c42e4baef67471acac5663872.png)
 3. 在弹出的窗口中，设置"驱动器"盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录），单击**完成**。
-![](https://qcloudimg.tencent-cloud.cn/raw/d3367db4c535db5533f8b1a137a7ccfc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0412a53bbc4b0d10cf12ee64ee59dccd.png)
 4. 打开 CMD 命令行工具，输入`mount`命令，检查上述文件系统是否使用了 root 权限进行挂载。
 ![](https://qcloudimg.tencent-cloud.cn/raw/99f9f7193c869d5f5dc3a61c2f4cf83e.png)
 UID 与 GID 分别为0，即表示文件系统使用了 root 权限挂载，此时可以开始正常使用文件系统了。若 UID 与GID 分别为 -2 等其他值，则可能导致无法正常写入数据等，请重复前面的步骤、保证文件系统是以 root 权限挂载。

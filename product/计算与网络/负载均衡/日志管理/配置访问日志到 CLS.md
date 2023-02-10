@@ -117,6 +117,7 @@
 <tr><td>http_host</td><td> 请求域名，即 HTTP 头部中的 Host。</td><td>text</td></tr>
 <tr><td>http_user_agent</td><td> HTTP 协议头的 user_agent 字段。</td><td>text</td></tr>
 <tr><td>http_referer</td><td> HTTP 请求来源。 </td><td>text</td></tr>
+<tr><td>http_x_forward_for</td><td> HTTP 请求中 x-forward-for header 的内容。 </td><td>text</td></tr>
 <tr><td>request_time</td><td> 请求处理时间：从收到客户端的第一个字节开始，直到给客户端发送的最后一个字节为止，包括客户端请求到 CLB、CLB 转发请求到 RS、RS 响应数据到 CLB、CLB 转发数据到客户端的总时间。</td><td>double</td></tr>
 <tr><td>upstream_response_time</td><td> 整个后端请求所花费时间：从开始 CONNECT RS 到从 RS 接收完应答的时间。</td><td>double</td></tr>
 <tr><td>upstream_connect_time</td><td> 和 RS 建立 TCP 连接所花费时间：从开始 CONNECT RS 到开始发送 HTTP 请求的时间。</td><td>double</td></tr>
@@ -124,7 +125,7 @@
 <tr><td>tcpinfo_rtt</td><td> TCP 连接的 RTT。 </td><td>long</td></tr>
 <tr><td>connection</td><td> 连接 ID。 </td><td>long</td></tr>
 <tr><td>connection_requests</td><td> 连接上的请求个数。 </td><td>long</td></tr>
-<tr><td>ssl_handshake_time</td><td>记录 SSL 握手各阶段耗时，格式：x:x:x:x:x:x:x。其中
+<tr><td>ssl_handshake_time</td><td>记录 SSL 握手各阶段耗时，格式：x:x:x:x:x:x:x。其中，冒号分隔的字符串，单位是ms，每个阶段耗时若小于1ms则显示为0。
 <ul><li>第1个字段表示是否 SSL 会话复用。</li>
 <li>第2个字段表示完整的握手时间。</li>
 <li>3~7表示 SSL 各阶段耗时。</li>
@@ -135,7 +136,7 @@
 <li>第7个字段表示 CLB 从收到 client key exchange 到发送 server finished 的时间。</li></ul></td><td>text</td></tr>
 <tr><td>ssl_cipher</td><td> SSL 加密套件。</td><td>text</td></tr>
 <tr><td>ssl_protocol</td><td> SSL 协议版本。</td><td>text</td></tr>
-<tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID，公网 CLB 的 vip_vpcid 为-1。</td><td>long</td></tr>
+<tr><td>vip_vpcid</td><td>负载均衡实例所属的私有网络 ID，公网 CLB 的取值为-1。</td><td>long</td></tr>
 <tr><td>request_method</td><td> 请求方式，支持 POST 和 GET 请求。</td><td>text</td></tr>
 <tr><td>uri</td><td> 资源标识符。</td><td>text</td></tr>
 <tr><td>server_protocol</td><td>CLB 的协议。</td><td>text</td></tr>

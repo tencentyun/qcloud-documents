@@ -41,7 +41,7 @@ slmgr /ato
 ```
 (Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\ProductOptions\).ProductPolicy.count
 ```
- - 若返回结果为例如56184等万级别数值，则无需再次激活系统。
+ - 若返回结果为例如“56184”等万级别数值，则无需再次激活系统。
  - 若返回结果为 “未激活值：1960”，则请参考以下方法进行解决。
 <dx-tabs>
 ::: 方法1
@@ -66,7 +66,7 @@ slmgr.vbs /ato
 slmgr.vbs /rilc 
 ```
 2. 命令执行完毕后，可重复执行 `(Get-ItemProperty...` 命令进行验证，返回值仍为1960。
-3. 执行以下命令，激活系统。
+3. 执行以下命令，激活系统，重启云服务器。
 ```
 slmgr.vbs /ato
 ```
@@ -75,7 +75,7 @@ slmgr.vbs /ato
 ::: 方法3
 1. 卸载任意 msi 程序。
 2. 重复执行 `(Get-ItemProperty...` 命令进行验证，返回值可能产生变化。但重启系统后，内存限制仍为2GB。
-2. 执行以下命令，激活系统。
+2. 执行以下命令，激活系统，重启云服务器。
 ```
 slmgr.vbs /ato
 ``` 

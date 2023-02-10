@@ -6,4 +6,4 @@
 3. 在弹出的 **Windows 安全**窗口中，输入实例的管理员帐号和密码，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7044d23363ad36cf5a345632bd04221.png)
 4. 用户名密码校验正确后，即可通过远程连接进入实例桌面，实例已经安装预选软件。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/43f98fc42dfad9effc4ff2980a72c52b.png" width="70%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/43f98fc42dfad9effc4ff2980a72c52b.png" width="70%"> 

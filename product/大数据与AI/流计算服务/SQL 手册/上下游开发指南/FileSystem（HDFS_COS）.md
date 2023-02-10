@@ -3,11 +3,11 @@ FileSystem connector 提供了对 `HDFS` 和 [COS](https://cloud.tencent.com/doc
 
 ## 版本说明
 
-| Flink 版本 | 说明 |
-| :-------- | :--- |
-| 1.11      | 支持 |
-| 1.13      | 支持 |
-| 1.14      | 支持写入到 HDFS，不支持写入到 COS |
+| Flink 版本 | 说明                                                         |
+| :--------- | :----------------------------------------------------------- |
+| 1.11       | 支持                                                         |
+| 1.13       | 支持，支持常见的lzo、snappy压缩算法                          |
+| 1.14       | 支持写入到 HDFS，不支持 lzo、snappy 压缩算法 |
 
 ## 使用范围
 FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不支持 Upsert 数据流的目的表。FileSystem 目前支持以下格式的数据写入：
@@ -29,7 +29,7 @@ CREATE TABLE `hdfs_sink_table` (
     `part2` INT
 ) PARTITIONED BY (part1, part2) WITH (
     'connector' = 'filesystem',
-    'path' = 'hdfs://HDFS10000/data/',
+    'path' = 'hdfs://HDFS10000/data/', -- cosn://${buketName}/path/to/store/data
     'format' = 'json',
     'sink.rolling-policy.file-size' = '1M',
     'sink.rolling-policy.rollover-interval' = '10 min',
@@ -76,8 +76,8 @@ fs.hdfs.dfs.client.failover.proxy.provider.HDFS12345: org.apache.hadoop.hdfs.ser
 
 >? Flink 作业默认以 flink 用户操作 HDFS，若没有 HDFS 路径的写入权限，可通过作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 设置为有权限的用户，或者设置为超级用户 hadoop。
 >```
-containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
-containerized.master.env.HADOOP_USER_NAME: hadoop
+>containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
+>containerized.master.env.HADOOP_USER_NAME: hadoop
 ```
 
 ## COS 配置
@@ -96,6 +96,24 @@ fs.cosn.userinfo.appid: COS 所属用户的 appid
 ![](https://main.qcloudimg.com/raw/56b95e89a8bddfec4a3d17ea5ee85bbd.png)
 
 [](id:jump)
+
+## COS 元数据加速桶配置
+1. 提供"Oceanus 集群 ID"和"COS 元数据加速桶名"，通过 [在线客服](https://cloud.tencent.com/online-service?from=doc_849) 联系我们开通 Oceanus 集群访问元数据加速桶的权限。
+2. 在作业参数 [高级参数](https://cloud.tencent.com/document/product/849/53391) 中添加如下参数。
+
+```
+fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl: com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter
+fs.cosn.trsf.fs.ofs.impl: com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter
+fs.cosn.trsf.fs.ofs.tmp.cache.dir: /tmp/chdfs/
+fs.cosn.trsf.fs.ofs.user.appid: COS 所属用户的 appid
+fs.cosn.trsf.fs.ofs.bucket.region: COS 所在的地域
+fs.cosn.trsf.fs.ofs.upload.flush.flag: true
+containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
+containerized.master.env.HADOOP_USER_NAME: hadoop
+```
+
+>? 如果您的作业中同时访问了普通 COS 桶和启用元数据加速能力的 COS 桶，那么高级参数中还需要增加 COS 配置的参数。
+
 ## 手动上传对应 Jar 包
 1. 先下载对应 Jar 包到本地。
 不同 Flink 版本下载地址：[Flink 1.11](https://nightlies.apache.org/flink/flink-docs-release-1.11/dev/table/connectors/formats/) ，[Flink 1.13](https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/connectors/table/formats/overview/)，[Flink 1.14](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/formats/overview/)  。 
@@ -200,4 +218,42 @@ INSERT INTO `hdfs_sink_table`
 SELECT id, name, part1, part2
 FROM datagen_source_table;
 ```
+
+## compressible-fs connector使用说明
+* 只支持在 flink 1.13版本使用。
+* 支持对于 csv 和 json 两种 format 的写入，其它诸如 avro、parquet、orc 文件格式已经自带压缩功能。
+* 支持 LzopCodec、SnappyCodec 两种压缩算法。
+* 支持写入 hdfs 和 cos 文件，使用方法和 filesystem 一致。
+
+
+#### 用作数据目的
+```sql
+CREATE TABLE `hdfs_sink_table` (
+    `id` INT,
+    `name` STRING,
+    `part1` INT,
+    `part2` INT
+) PARTITIONED BY (part1, part2) WITH (
+    'connector' = 'compressible-fs',
+    'hadoop.compression.codec' = 'LzopCodec',
+    'path' = 'hdfs://HDFS10000/data/',
+    'format' = 'json',
+    'sink.rolling-policy.file-size' = '1M',
+    'sink.rolling-policy.rollover-interval' = '10 min',
+    'sink.partition-commit.delay' = '1 s',
+    'sink.partition-commit.policy.kind' = 'success-file'
+);
+```
+
+## WITH 参数
+
+* 除上文中 filesystem connector 支持的参数外，compressible-fs 额外特有的参数有以下三个：
+
+
+| 参数值                         | 必填 | 默认值 | 描述                                                         |
+| ------------------------------ | ---- | ------ | ------------------------------------------------------------ |
+| hadoop.compression.codec       | 否   | 无     | 使用的压缩算法，可选值为 LzopCodec 和 SnappyCodec，不指定时，按照默认的文件格式写入。 |
+| filename.suffix                | 否   | 无     | 最终写入文件名，如果没有声明，则会按照支持的压缩算法生成特定的后缀名，如果采用了非 lzop 和 snappy 压缩算法且未声明该值，则文件后缀为空 |
+| filepath.contain.partition-key | 否   | false  | 写入分区文件时，最终的写入路径是否包括分区字段，默认不包括。例如，假设写入一个按天分区dt=12和按小时分区ht=24的分区路径，默认的分区路径为12/24 而非 dt=12/ht=24 |
+
 

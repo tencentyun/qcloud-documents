@@ -192,12 +192,12 @@ import com.tencentcloudapi.common.profile.HttpProfile;
 import com.tencentcloudapi.sms.v20210111.SmsClient;
 
 // 导入要请求接口对应的request response类
-import com.tencentcloudapi.sms.v20210111.models.PullSmsReplyStatusRequest;
-import com.tencentcloudapi.sms.v20210111.models.PullSmsReplyStatusResponse;
+import com.tencentcloudapi.sms.v20210111.models.PullSmsSendStatusRequest;
+import com.tencentcloudapi.sms.v20210111.models.PullSmsSendStatusResponse;
 
 /**
  * Tencent Cloud Sms PullSmsSendStatus
- *
+ * 注：此接口需要联系 [腾讯云短信小助手](https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81) 开通
  */
 public class PullSmsSendStatus {
     public static void main(String[] args) {

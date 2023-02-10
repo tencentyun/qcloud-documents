@@ -1,5 +1,6 @@
 [](id:1)
-## 创建 POSIX 客户端
+## 自动创建 POSIX 客户端
+
 
 GooseFSx POSIX 客户端指已部署 GooseFSx POSIX 客户端软件，并将 GooseFSx 挂载成本地目录的主机。 POSIX 客户端访问挂载目录，像访问本地文件系统一样访问 GooseFSx。
 
@@ -15,6 +16,7 @@ GooseFSx POSIX 客户端指已部署 GooseFSx POSIX 客户端软件，并将 Goo
 - 已创建 GooseFSx 实例。创建指引请参见 [GooseFSx 实例](https://cloud.tencent.com/document/product/1424/77955)。
 - 已创建 POSIX 客户端管理节点。在创建 GooseFSx 实例时，会同步创建 POSIX 客户端管理节点。
 - 已为主机添加安全组规则，详见 [POSIX 客户端安全组规则](#rule)。若您同时为 POSIX 客户端设置拒绝策略的安全组，请确保未拒绝 POSIX 客户端安全组规则。
+- 已创建 Linux 主机。主机操作系统若是 Windows，请采用 [手动创建 POSIX 客户端](#windows)。
 
 #### 操作步骤
 
@@ -29,6 +31,108 @@ GooseFSx POSIX 客户端指已部署 GooseFSx POSIX 客户端软件，并将 Goo
  - 输入 root 帐号密码。
 6. 单击**确认**。
 创建过程预计需要几分钟，在 POSIX 客户端列表查看结果。
+
+
+
+
+
+## 手动创建 POSIX 客户端（Linux）
+
+#### 前提条件
+
+- 已创建 GooseFSx 实例。创建指引请参见 [GooseFSx 实例](https://cloud.tencent.com/document/product/1424/77955)。
+- 已创建 POSIX 客户端管理节点。在创建 GooseFSx 实例时，会同步创建 POSIX 客户端管理节点。
+- 已为主机添加安全组规则，详见 [POSIX 客户端安全组规则](https://cloud.tencent.com/document/product/1424/77956#rule)。若您同时为 POSIX 客户端设置拒绝策略的安全组，请确保未拒绝 POSIX 客户端安全组规则。
+
+
+
+#### 操作步骤
+
+1. 登录您需要添加 POSIX 客户端的主机，根据主机所在地域、选择对应命令下载部署脚本。
+ - 北京地域的主机执行如下命令，从北京 COS 桶下载：
+```
+wget https://goosefs-cfg-bj-1308338417.cos.ap-beijing.myqcloud.com/client_env_package/agent/install-goosefsx-client.sh
+```
+ - 上海地域的主机执行如下命令，从上海 COS 桶下载：
+```
+wget https://goosefs-cfg-bj-1308338417.cos.ap-beijing.myqcloud.com/client_env_package/agent/install-goosefsx-client.sh
+```
+ - 广州地域的主机执行如下命令，从广州 COS 桶下载：
+```
+wget https://goosefs-cfg-bj-1308338417.cos.ap-beijing.myqcloud.com/client_env_package/agent/install-goosefsx-client.sh
+```
+ - 南京地域的主机执行如下命令，从南京 COS 桶下载：
+```
+wget https://goosefs-cfg-bj-1308338417.cos.ap-beijing.myqcloud.com/client_env_package/agent/install-goosefsx-client.sh
+```
+>?从任何地域的对象存储 COS 桶下载的部署脚本是一样的。
+
+2. 修改部署脚本的权限，执行命令：
+```
+chmod 777 install-goosefsx-client.sh
+```
+3. 需要准备2个入参，分别为地域和 POSIX 客户端管理节点 IP地址的字符串（比如主机是北京地域，登录 [GooseFSx 控制台](https://console.cloud.tencent.com/goosefs/goosefsx) 可查看 POSIX 客户端管理节点 IP 地址，详情可参加 [查询 POSIX 客户端](https://cloud.tencent.com/document/product/1424/77956#.E6.9F.A5.E8.AF.A2-posix-.E5.AE.A2.E6.88.B7.E7.AB.AF)），然后执行命令：
+```
+./install-goosefsx-client.sh ap-bejing 10.0.0.138:55533,10.0.0.103:55533,10.0.0.183:55533
+```
+4. 登录 [GooseFSx 控制台](https://console.cloud.tencent.com/goosefs/goosefsx) 查看添加的客户端，创建过程预计需要几分钟，可在 POSIX 客户端列表查看结果。
+
+
+
+
+
+## TAT 自动化助手创建 POSIX 客户端（Linux）
+
+#### 前提条件
+
+-  已创建 GooseFSx 实例。创建指引请参见 [GooseFSx 实例](https://cloud.tencent.com/document/product/1424/77955)。
+-  已创建 POSIX 客户端管理节点。在创建 GooseFSx 实例时，会同步创建 POSIX 客户端管理节点。
+-  已为主机添加安全组规则，详见 [POSIX 客户端安全组规则](https://cloud.tencent.com/document/product/1424/77956#rule)。若您同时为 POSIX 客户端设置拒绝策略的安全组，请确保未拒绝 POSIX 客户端安全组规则。
+
+
+
+#### 操作步骤
+
+1. 登录自动化助手：登录 [CVM 控制台](https://console.cloud.tencent.com/cvm)，在左侧导航栏选择**自动化助手 > 我的命令**，地域选择 GooseFSx 所在地域。
+2. 单击**创建命令**，自定义名称，例如 crtGooseFSx，其他保持默认值，在“命令内容”粘贴如下内容：
+```
+wget https://goosefs-cfg-sh-1308338417.cos.ap-shanghai.myqcloud.com/client_env_package/agent/install-goosefsx-client.sh
+
+chmod 777 install-goosefsx-client.sh
+
+./install-goosefsx-client.sh ap-shanghai 10.0.0.138:55533,10.0.0.103:55533,10.0.0.183:55533
+```
+3. 在命令列表选择，刚才创建的命令，例如 crtGooseFSx，单击“执行”操作，进入“执行命令”页，选择执行实例，单击“执行命令”。
+4. 在“执行命令”页的“执行详情”，查看命令执行状态，等待命令执行。
+5. 登录 [GooseFSx 控制台](https://console.cloud.tencent.com/goosefs/goosefsx) 查看到添加的客户端，创建过程预计需要几分钟，可在 POSIX 客户端列表查看结果。
+
+
+[](id:windows)
+## 手动创建 POSIX 客户端（Windows）
+
+使用打包 GooseFSx 部署脚本的 Windows 镜像创建 POSIX 客户端。
+
+
+#### 前提条件
+
+-  已创建 GooseFSx 实例。创建指引请参见 [GooseFSx 实例](https://cloud.tencent.com/document/product/1424/77955)。
+-  已创建 POSIX 客户端管理节点。在创建 GooseFSx 实例时，会同步创建 POSIX 客户端管理节点。
+-  已为主机添加安全组规则，详见 [POSIX 客户端安全组规则](https://cloud.tencent.com/document/product/1424/77956#rule)。若您同时为 POSIX 客户端设置拒绝策略的安全组，请确保未拒绝 POSIX 客户端安全组规则。
+
+
+
+#### 操作步骤
+
+1. 登录 [CVM 控制台](https://console.cloud.tencent.com/cvm)，创建 CVM 主机，选择打包 GooseFSx 部署脚本的 Windows 镜像，可从镜像市场或共享镜像里选择。
+2. 进入 win 主机的 C 盘，编辑脚本 start_agent.bat，将 IP 地址依次修改为 GooseFSx 实例的 POSIX 客户端管理节点的 IP：
+```
+goosefsx_cluster_member_windows_client.exe -server_addr 10.0.0.47:55533,10.0.0.213:55533,10.0.0.211:55533  -agent_method add -os_version windows                             
+```
+3. 重启该 Windows 主机。
+4. 登录 [GooseFSx 控制台](https://console.cloud.tencent.com/goosefs/goosefsx) 查看到添加的客户端，创建过程预计需要几分钟，可在 POSIX 客户端列表查看结果。
+
+
+
 
 
 ## 批量创建 POSIX 客户端

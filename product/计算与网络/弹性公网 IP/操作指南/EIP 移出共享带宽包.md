@@ -1,7 +1,7 @@
 支持将 EIP 从 [IP 带宽包](https://cloud.tencent.com/document/product/684/15245) 内移除，移除后，计费模式将统一变更为按流量计费。
 
 ## 前提条件
-- 目前共享带宽包处于内测阶段，使用前，请确保您的 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 已通过 。
+- 预付费共享带宽包可以在 [共享带宽包控制台](https://console.cloud.tencent.com/vpc/package) 直接购买；后付费共享带宽包处于内测阶段，如需使用请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
 - 请确保您的账户类型为：标准账户类型，若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
 
 ## 限制说明

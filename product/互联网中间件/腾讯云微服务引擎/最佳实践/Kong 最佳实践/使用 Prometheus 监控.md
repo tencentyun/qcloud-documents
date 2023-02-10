@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文介绍如何使用 Prometheus 获取云原生网关 Kong 的监控数据。
+本文介绍如何使用 Prometheus 获取云原生 API 网关 Kong 的监控数据。
 
 ## 前置条件
 - 已购买 Kong 网关实例，详情请参见 [操作文档](https://cloud.tencent.com/document/product/1364/72495)。
@@ -8,7 +8,7 @@
 
 ## 操作步骤
 ### 步骤1：开启 Prometheus 插件
-使用 Prometheus 监控，需要在 Kong 云原生网关开启普罗米修斯（Prometheus）插件，您可以根据需要选择以下两种特性场景：
+使用 Prometheus 监控，需要在 Kong 云原生 API 网关开启普罗米修斯（Prometheus）插件，您可以根据需要选择以下两种特性场景：
 - [针对指定 API 开启 Prometheus 插件](#model1)
 - [开启全局 Prometheus 插件](#model2)
 
@@ -27,7 +27,7 @@
 2. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse/kong)，进入需要配置限流插件的 Kong 网关实例详情页，在**配置管理**页查看管理控制台登录方式。
 
 ### 步骤2：配置数据拉取地址
-1. 准备好**腾讯云**或**自建**的 Prometheus 实例。该步骤的 Prometheus 实例用于拉取云原生网关 kong 的监控数据。
+1. 准备好**腾讯云**或**自建**的 Prometheus 实例。该步骤的 Prometheus 实例用于拉取云原生 API 网关 kong 的监控数据。
   > ?关于如何购买腾讯云 Prometheus 实例，以及开通配套的 Grafana 实例，可以参见 [Prometheus 监控服务](https://cloud.tencent.com/document/product/1416/55778) 相关文档。
 2. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse/kong)，进入需要的 Kong 网关实例详情页，在**访问控制**页查看 Kong 实例的内网节点地址。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/1a6e0f62f25d1e5db96c3dc6960ca474.jpg"> 
@@ -53,7 +53,7 @@ relabel_configs:
 </dx-codeblock>
 >!请配置 relabel_configs 信息，以保证指标上报准确。
 >
-4. 若您使用自定义程序的拉取方式，可以通过云原生网关 DescribeCloudNativeAPINodes 接口自动获取节点 IP 列表。
+4. 若您使用自定义程序的拉取方式，可以通过云原生 API 网关 DescribeCloudNativeAPINodes 接口自动获取节点 IP 列表。
 
 ### 步骤3：在 Grafana 配置 Kong 模板的 Dashboard（可选）
 该步骤指导您在 Grafana 实例展示 Prometheus 采集到的 Kong 监控数据。

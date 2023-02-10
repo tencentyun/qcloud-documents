@@ -75,6 +75,7 @@ package main
 
 import (
 	"fmt"
+    "os"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
@@ -83,7 +84,13 @@ import (
 )
 
 func main() {
-	credential := common.NewCredential("secretId", "secretKey")
+    // 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+    // 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+    // credential := common.NewCredential("SecretId", "SecretKey")
+    credential := common.NewCredential(
+        os.Getenv("TENCENTCLOUD_SECRET_ID"),
+        os.Getenv("TENCENTCLOUD_SECRET_KEY"),
+    )
 	client, _ := cvm.NewClient(credential, regions.Guangzhou, profile.NewClientProfile())
 
 	request := cvm.NewDescribeInstancesRequest()
@@ -106,6 +113,7 @@ package main
 
 import (
 	"fmt"
+    "os"
 
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
@@ -116,10 +124,14 @@ import (
 
 func main() {
         // 必要步骤：
-        // 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
-        // 您也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-        // 以免泄露密钥对危及您的财产安全。
-        credential := common.NewCredential("secretId", "secretKey")
+        // 实例化一个认证对象，入参需要传入腾讯云账户密钥对 SecretId，SecretKey。
+        // 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+        // 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+        // credential := common.NewCredential("SecretId", "SecretKey")
+        credential := common.NewCredential(
+            os.Getenv("TENCENTCLOUD_SECRET_ID"),
+            os.Getenv("TENCENTCLOUD_SECRET_KEY"),
+        )
 
         // 非必要步骤
         // 实例化一个客户端配置对象，可以指定超时时间等配置
@@ -191,11 +203,11 @@ func main() {
 :::
 </dx-tabs>
 
->?
->- 出于演示的目的，有一些非必要的代码，例如对默认配置的修改，以尽量展示 SDK 的功能。在实际编写代码使用 SDK 的时候，建议尽量使用默认配置，酌情修改。
+>? 出于演示的目的，有一些非必要的代码，例如对默认配置的修改，以尽量展示 SDK 的功能。在实际编写代码使用 SDK 的时候，建议尽量使用默认配置，酌情修改。
+>
 
 ## 更多示例
-更多示例参见 [examples](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples) 目录。对于复杂接口的 Request 初始化例子，可以参考 [例一](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/cvm/v20170312/run_instances.go) 。对于使用json字符串初始化 Request 的例子，可以参考 [例二](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/cvm/v20170312/describe_instances.go) 。
+更多示例参见 [examples](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples) 目录。对于复杂接口的 Request 初始化例子，可以参考 [例一](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/cvm/v20170312/run_instances.go) 。对于使用 json 字符串初始化 Request 的例子，可以参考 [例二](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/cvm/v20170312/describe_instances.go) 。
 
 ## 相关配置
 
@@ -220,7 +232,7 @@ cpf.HttpProfile.ReqMethod = "POST"
 
 ### 超时时间
 
-SDK有默认的超时时间，如非必要请不要修改默认设置。如有需要请在代码中查阅以获取最新的默认值。  
+SDK 有默认的超时时间，如非必要请不要修改默认设置。如有需要请在代码中查阅以获取最新的默认值。  
 单位：秒
 ```go
 cpf.HttpProfile.ReqTimeout = 30
@@ -332,7 +344,7 @@ import "crypto/tls"
 
 ```go
 provider := common.DefaultEnvProvider()
-credential, err := p.GetCredential()
+credential, err := provider.GetCredential()
 ```
 
 ### 配置文件
@@ -353,7 +365,7 @@ secret_key = xxxxx
 相关代码如下：
 ```go
 provider := common.DefaultProfileProvider()
-credentail, err := provider.GetCredential()
+credential, err := provider.GetCredential()
 ```
 
 ### 角色扮演
@@ -365,7 +377,7 @@ credentail, err := provider.GetCredential()
 在您拥有角色后，可以通过如下方式获取凭证：
 ```go
 provider := common.DefaultRoleArnProvider(secretId, secretKey, roleArn)
-credentail, err := provider.GetCredential()
+credential, err := provider.GetCredential()
 ```
 
 ### 实例角色
@@ -376,7 +388,7 @@ credentail, err := provider.GetCredential()
 
 ```go
 provider := common.DefaultCvmRoleProvider()
-credentail, err := provider.GetCredential()
+credential, err := provider.GetCredential()
 ```
 
 ### 凭证提供链
@@ -385,7 +397,7 @@ credentail, err := provider.GetCredential()
 
 ```go
 provider := common.DefaultProviderChain()
-credentail, err := provider.GetCredential()
+credential, err := provider.GetCredential()
 ```
 
 您也可以自定义自己的凭证提供链，从而改变其调用顺序：
@@ -395,7 +407,7 @@ provider1 := common.DefaultCvmRoleProvider()
 provider2 := common.DefaultEnvProvider()
 customProviderChain := []common.Provider{provider1, provider2}
 provider := common.NewProviderChain(customProviderChain)
-credentail, err := provider.GetCredential()
+credential, err := provider.GetCredential()
 ```
 
 更详细的使用方式请参考示例：[使用ProviderChain](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/testing/integration/provider_chain_test.go)
@@ -552,7 +564,8 @@ import (
 )
 
 func main() {
-	credential := common.NewCredential("secretId", "secretKey")
+    // ...
+
 	prof := profile.NewClientProfile()
 	prof.RateLimitExceededMaxRetries = 3                               // 定义最大重试次数
 	prof.RateLimitExceededRetryDuration = profile.ExponentialBackoff   // 定义重试间隔时间

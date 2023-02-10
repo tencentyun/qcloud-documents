@@ -73,6 +73,9 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [revokeMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#revokeMessage) | 撤回消息。 |
 | [resendMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#resendMessage) | 重发消息。 |
 | [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) | 删除消息。 |
+| [setMessageExtensions](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageExtensions) | 设置消息扩展。 |
+| [getMessageExtensions](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageExtensions) | 获取消息扩展。 |
+| [deleteMessageExtensions](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessageExtensions) | 删除消息扩展。 |
 
 ### 会话
 | API | 描述 |
@@ -88,6 +91,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [getConversationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationList) | 获取会话列表。 |
 | [getConversationProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationProfile) | 获取会话资料。 |
 | [deleteConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversation) | 删除会话。 |
+| [clearHistoryMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#clearHistoryMessage) | 清空单聊或群聊本地及云端的消息（不删除会话）。 |
 | [pinConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#pinConversation) | 置顶或取消置顶会话。 |
 | [setAllMessageRead](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setAllMessageRead) | 将所有会话的未读消息设置为已读。 |
 | [setMessageRemindType](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageRemindType) | 设置会话消息提醒类型，您可以使用此接口实现“消息免打扰”，“拒收消息”的功能。 |

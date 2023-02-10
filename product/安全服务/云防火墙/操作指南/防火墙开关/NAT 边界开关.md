@@ -36,7 +36,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 
 ### 防火墙开关
 在 [防火墙开关页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=switch)，支持开启或关闭 NAT 边界防护。云防火墙会定时自动同步云资产，因此不用担心资产变更后的防火墙配置（例如，变更了某个子网，防火墙会在短时间内自动同步）。
-- **开启防护**：
+- **开启防护**
  - 在实例列表上方，单击**全部开启**，所有未开启的 NAT 边界防火墙开关将被打开，所有路由表将会自动添加下一跳类型为 NAT 边界防火墙的路由策略，所有子网的互联网流量将会经过 NAT 边界防火墙。
 >?
 >- 开启开关后，请勿在 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 中手动变更开关对应的路由，否则将导致防火墙丢失路由而引发网络中断。
@@ -65,13 +65,13 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 - **端口转发**
 在右侧边栏中可以查看用户基于 NAT 边界防火墙实例所添加的 DNAT 端口转发规则，以及与实例关联的弹性 IP。
 >?
->- 接入模式中，NAT 边界防火墙会自动同步现有NAT网关的端口转发规则，从而保证流量通行，后续对于该规则的操作，请在 [云防火墙控制台](https://console.cloud.tencent.com/cfw/ac/nat) 中进行。
+>- 接入模式中，首次开启开关后，NAT 边界防火墙会自动同步现有NAT网关的端口转发规则，从而保证流量通行，后续对于该规则的操作，请在 [云防火墙控制台](https://console.cloud.tencent.com/cfw/ac/nat) 中进行。
 >- 开启防火墙开关的子网 SNAT、DNAT 流量都会经过防火墙，关闭开关的子网 SNAT、DNAT 流量都走原先路径。
 >- 请勿前往私有网络控制台操作端口转发规则，否则可能造成网络中断。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/e17ae0b17ce490ad4467c52ecc79ef9e.png)
 	1. 在实例配置页面的端口转发页签下，单击**新建规则**。
-![](https://qcloudimg.tencent-cloud.cn/raw/473a3162aeb929077c12a2359a1cac92.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e521d7de33c522f6b7e85183f8046917.png)
 	2. 在“新建端口转发规则”弹框中，用户可为当前 NAT 边界防火墙实例添加一条外部 IP 为用户所绑定的弹性 IP 的 DNAT 规则。
 >?
 >- 在外部 IP 端口下拉框内，提供的选项为当前 NAT 边界防火墙实例所绑定的弹性 IP。
@@ -83,7 +83,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 >!接入模式暂不支持出口绑定。
 >
 	1. 在实例配置页面的出口绑定页签下，单击**新建规则**。
-![](https://main.qcloudimg.com/raw/b5a17b6832d01348bd50fc4a4f93a743.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/93371c28a105f9f4a38610ac74c555a0.png)
 	2. 在“新建出口绑定规则”弹框中，提供防火墙实例 ID 信息，用户可为当前 NAT 边界防火墙添加 SNAT 规则。
 >?协议可选子网和私有网络，VPC 或子网的选项选择接入 NAT 边界防火墙，且当前没有绑定出口 NAT 规则的 VPC 或子网。
 >
@@ -97,7 +97,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
  单击**重新选择 VPC** > **确定**，即可重新选择 VPC。
 >?必须关闭当前防火墙实例下的所有子网开关和 DNS 流量开关。
 >
- ![](https://main.qcloudimg.com/raw/817ad9156d4f6a21069650947ff09470.png) 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/4626d8fb79700110b1f0e13eec1c743f.png" width=700px>
 -  接入 DNS 流量
  - 单击![](https://main.qcloudimg.com/raw/4810bf867dec5152045bc24a9ca018c5.png)开启对应 VPC 右侧的DNS流量开关，开启开关后，系统会修改所接入 VPC 的 DNS 解析地址，将 DNS 流量牵引至 NAT 边界防火墙，从而获取全流量域名。
 >?接入 VPC 中若存在未开启防火墙开关的子网，可能导致该子网 DNS 解析产生明显延迟，建议开启全部防火墙开关后再启用此开关。
@@ -118,7 +118,20 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 >- 解除绑定某个弹性 IP 时，页面上与其相应的 DNAT 规则也会消失。
 >
 ![](https://main.qcloudimg.com/raw/48461beaa0162204aa2db464d949458a.png)
-
+- **带宽限速**
+在实例配置页面的带宽限速页签下，可以对当前防火墙实例下的IP/CIDR地址进行带宽限速。
+ - 新增限速
+   1. 单击**新增规则**，弹出添加限速规则弹窗。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/becd78c3315812d78dff66c2e2c1394a.png)
+   2. 输入需要限速的 IP/CIDR 地址，以及限制的带宽速率，入向速率与出向速率中至少填入一个限制速率，不填写的默认无限制。单击**确定**，完成带宽限速设置。
+![](https://qcloudimg.tencent-cloud.cn/raw/4df6a3f6d3e9b3ebeafb3a241007ad63.png)
+ - 编辑限速
+   1. 在已设置成功的限速规则中，单击操作栏中的**编辑**，进行规则编辑操作。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/588a71d609910b70df5f132356720caa.png)
+   2. 重新输入需要限速的 IP/CIDR 地址，以及限制的带宽速率，入向速率与出向速率中至少填入一个限制速率，不填写的默认无限制。单击**确定**，完成带宽限速设置。
+ - 删除限速
+   在已设置成功的限速规则中，单击操作栏中的**删除**，即可删除带宽限速规则限制。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/131fefd0f8e5a628b1a45abaf79ed8df.png)
 
 ### 升级扩容
 1. 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击**升级扩容**，跳转到配置变更页面，在此页面可以升级带宽、版本、日志存储量等参数。
@@ -143,7 +156,12 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 1. 在状态监控面板右上角，单击统计按钮，进入防火墙状态监控页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0b9928e4e91b60219766aeb0ba7869f.png)
 2. 在防火墙状态监控页面，可实时查看并监控基于 NAT 边界的带宽情况，可避免因 NAT 边界防火墙带宽超出规格而带来网络丢包和波动，从而及时作出扩容或关闭部分开关等调整。
-![](https://qcloudimg.tencent-cloud.cn/raw/048ef1f165c1aa1dd3cf161ae017627e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ac04a154b1c458d8e2bb987fd83aa627.png)
+3. 在防火墙状态监控页面，支持以 IP 视角与子网视角查看带宽状态监控。
+ - IP 视角：IP 地址的资产信息、所属 VPC、入向/出向带宽的峰值与均值情况、限速状态、限制速率操作。
+ - 子网视角：子网名称、IPv4 CIDR 地址、入向/出向峰值带宽、开关状态、查看开关操作。
+![](https://qcloudimg.tencent-cloud.cn/raw/9138c8bc1acc0ab6b761b213fc430839.png)
+
 ### 同步资产
 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击**同步资产**，可以主动调用后台接口重新读取并同步用户子网的资产信息，可避免发生因用户资产规模在后台轮询间隔内发生变化，但尚未被同步的情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/291374cd2e00814e7a2414c9c328e29e.png)

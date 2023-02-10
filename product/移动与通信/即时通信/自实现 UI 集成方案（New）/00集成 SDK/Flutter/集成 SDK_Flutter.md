@@ -147,6 +147,6 @@ flutter pub add tencent_im_sdk_plugin_desktop
 
 ## 联系我们
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：788910197 咨询。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e830ae8c7b8d9253eb71e7c3d9f7b2be.png)

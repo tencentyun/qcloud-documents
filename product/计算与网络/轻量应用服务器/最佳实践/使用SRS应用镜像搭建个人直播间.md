@@ -33,9 +33,13 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
 ## 操作步骤
 
 ### 使用 SRS 应用镜像创建实例
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击**新建**。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击 **新建**。
 2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
-其中，“镜像”选择为**应用镜像** > **SRS音视频服务器 4.5**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+  - **镜像**：选择为应用模板 > 音视频场景 > SRS 音视频服务器应用模板，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+<dx-alert infotype="explain" title="">
+ - 应用模板即应用镜像。
+- 查看镜像说明详情请参见 [基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+</dx-alert>
 <dx-alert infotype="explain" title="">
 - 若您想使用已创建的实例搭建直播间，则可使用 SRS 应用镜像 [重装系统](https://cloud.tencent.com/document/product/1207/44576)。
 - 本文以使用应用镜像 SRS 音视频服务器 4.5 版本为例，镜像可能会进行版本升级与更新，请您以购买页实际版本为准。
@@ -51,12 +55,10 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
 5. [](id:Step5)设置完成后，登录 SRS 后台管理页面，记录 OBS 推流地址及密钥。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ee31200bd5cef609aedc66d17adbb2d9.png)
 
-
-
 ### 安装及配置 OBS 推流软件
 1. 本文以选择 OBS 推流方式为例，请前往 [OBS 官网](https://obsproject.com/) 下载软件安装包，并完成安装。
 2. 运行 OBS 推流软件，界面基本介绍如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/4b712444756153f7fee95bc832dc1104.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a38727518482862002976269e59dea7d.png)
   1. 直播画面。
   2. 场景分类。
   3. 媒体源设置。
@@ -64,22 +66,19 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
   5. 直播设置。
   如需了解 OBS 推流软件更多信息，可前往 [OBS 官网](https://obsproject.com/)。
 3. 选择界面左上角的**文件** > **设置**。
-4. 在“设置”页面中，选择左侧菜单中的**推流**，并进行以下设置。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/3e29c5b1e1ecc8cc95f62d0aeff8dab8.png)
+4. 在“设置”页面中，选择左侧菜单中的**直播**，并进行以下设置。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/6859dca114483ac366b5c84f55d597e1.png)
  - **服务**：选择下拉列表中的“自定义”。
  - **服务器**：输入 [步骤5](#Step5) 中已获取的 OBS 推流地址。
- - **串流密钥**：输入 [步骤5](#Step5) 中已获取的串流密钥。
+ - **推流码**：输入 [步骤5](#Step5) 中已获取的串流密钥。
 5. 单击**确定**。
 6.  在主界面的“媒体源设置”中，选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/590204a737fb7b1c194c6b44771de307.png" style="margin:-3px 0px"/>，在弹出菜单中，根据直播的内容选择源（本文直播内容以本地视频为例，则选择**媒体源**）。
-7.  单击“直播设置”中的**开始推流**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/415a1ca1d1e18fb1987c913d8cfe17fb.png)
 7. 在弹出的“创建或选择源”窗口中，按需创建或选择已有源，单击**确定**。
-8. 在弹出“属性 '媒体源'”窗口中，选择要推流（直播）的内容。本文以选择本地的视频资源为例，如下图所示：
+8. 在弹出“属性 '媒体源'”窗口中，选择要推流（直播）的内容，单击**确定**。本文以选择本地的视频资源为例，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1d8051c9e6382f850fd5eb52067e8c26.png)
-9. 单击**确定**上传并开始推流，画面效果如下图所示。您可在 OBS 中右键单击画面，实时调整直播画面（例如大小、方向等）。
-![](https://qcloudimg.tencent-cloud.cn/raw/30e383f95dbfb24db9308ff26ca32c50.png)
+9. 单击“直播设置”中的**开始直播**(点击后会变成**停止直播**)，画面效果如下图所示。您可在 OBS 中右键单击画面，实时调整直播画面（例如大小、方向等）。
+![](https://qcloudimg.tencent-cloud.cn/raw/0ddd02cf2cef6709a3065072c0b19013.png)
 此时，您已可 [观看直播](#watchLive)，若您有使用多平台转播、云录制、云点播、本地录制等需求，请参考下文继续配置。
-
 
 
 ## 相关操作

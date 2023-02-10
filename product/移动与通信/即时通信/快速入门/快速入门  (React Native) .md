@@ -240,4 +240,7 @@ const addAdvancedMsgListener = () => {
 
 ## 联系我们
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：437955475 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：437955475 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/095e39d0943d3670585659251c5a3b6d.png)
+

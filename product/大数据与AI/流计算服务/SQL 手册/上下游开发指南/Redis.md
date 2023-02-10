@@ -6,8 +6,8 @@ Redis Connector 提供了对 Redis 写入和维表的支持。
 | Flink 版本 | 说明               |
 | :--------- | :----------------- |
 | 1.11       | 支持（写入，维表） |
-| 1.13       | 支持（写入）       |
-| 1.14       | 不支持      |
+| 1.13       | 支持（写入，维表） |
+| 1.14       | 不支持             |
 
 ## 使用范围
 - 可以作为维表的使用。
@@ -78,6 +78,24 @@ CREATE TABLE `redis_hset_sink_table` (
 
 ```
 
+### HSET_WITH_KEY 命令（哈希键）
+
+```sql
+-- 第1列为 key, 第2列为 hash_key，第3列为 hash_value。Redis 命令为 hset key hash_key hash_value。
+CREATE TABLE `redis_hset_sink_table` (  
+`key`        STRING,
+`hash_key`   STRING,
+`hash_value` STRING
+) WITH (
+'connector' = 'redis',     -- 输出到 Redis
+'command' = 'hset',        -- hset 命令
+'nodes' = '<host>:<port>', -- redis 连接地址
+'password' = '<password>', 
+'database' = '<database>'
+);
+
+```
+
 ### hmset 命令
 ```sql
 -- 第1列为key，第2列为hash_key，第3列为hash_key对应的hash_value。Redis插入数据的命令为hmset key hash_key hash_value
@@ -110,6 +128,23 @@ CREATE TABLE `redis_zadd_sink_table` (
 
 ```
 
+### ZADD_WITH_KEY 命令（有序集合键）
+
+  ```sql
+    -- 第1列为 key, 第2列为 value，第3列为 score。zadd key score value。
+  CREATE TABLE `redis_zadd_sink_table` (  
+  `key` STRING,
+  `value` STRING,
+  `score` DOUBLE
+  ) WITH (
+  'connector' = 'redis',     -- 输出到 Redis
+  'command' = 'zadd',        -- zadd 命令
+  'nodes' = '<host>:<port>', -- redis 连接地址
+  'password' = '<password>', 
+  'database' = '<database>', 
+  );
+  ```
+
 ### get 命令（维表）
 ```sql
 CREATE TABLE `redis_dimension_table` (  
@@ -133,7 +168,7 @@ CREATE TABLE `redis_dimension_table` (
 | 参数值                | 必填 |   默认值   | 描述                                                         |
 | :-------------------- | :--: | :--------: | :----------------------------------------------------------- |
 | connector             |  是  |     -      | 固定值为 redis                                               |
-| command               |  是  |     -      | 操作命令。取值与对应的键类型如下：<li>set：字符串键</li><li>lpush：类别键<li>sadd：集合键</li><li>hset：哈希键 </li><li>zadd：有序集合键</li> |
+| command               |  是  |     -      | 操作命令。取值与对应的键类型如下：<li>set：字符串键</li><li>lpush：类别键</li><li>sadd：集合键</li><li>hset：哈希键 </li><li>hset_with_key：哈希键 </li><li>zadd：有序集合键</li><li>zadd_with_key：有序集合键</li> |
 | nodes                 |  是  |     -      | redis server 连接地址，示例：127.0.0.1:6379。集群架构下多个节点使用','分隔 |
 | password              |  否  |     空     | redis 密码，默认值为空，不进行权限验证                       |
 | database              |  否  |     0      | 要操作的数据库的 DB number，默认值0                          |

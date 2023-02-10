@@ -13,8 +13,8 @@
 
 
 ## 相关文档
-- [IM SDK（小程序）TUIKit 运行](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram/TUIKit)
-- [IM SDK（Web） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo)
+- [IM SDK（小程序）TUIKit 运行](https://cloud.tencent.com/document/product/269/68376)
+- [IM SDK（Web）TUIKit 运行](https://cloud.tencent.com/document/product/269/68433)
 - [集成 SDK 上传插件（Web & 小程序）](https://cloud.tencent.com/document/product/269/52962)
 
 ## 集成 SDK
@@ -139,7 +139,6 @@ tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
 - [SDK 接口文档](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [常见问题](https://cloud.tencent.com/document/product/269/68275)
-- [IM Web Demo](https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo)
 - [腾讯云即时通信 IM 上传插件下载地址](https://www.npmjs.com/package/tim-upload-plugin)
 
 

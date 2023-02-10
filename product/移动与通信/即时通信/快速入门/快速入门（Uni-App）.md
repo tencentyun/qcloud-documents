@@ -1,7 +1,3 @@
-## 关于腾讯云即时通信 IM
-
-腾讯云即时通信（Instant Messaging，IM）基于 QQ 底层 IM 能力开发，仅需植入 SDK 即可轻松集成聊天、会话、群组、资料管理能力，帮助您实现文字、图片、短语音、短视频等富媒体消息收发，全面满足通信需要。
-
 ## 关于 chat-uikit-uniapp
 
 chat-uikit-uniapp 是基于腾讯云 IM SDK 的一款 uniapp UI 组件库，它提供了一些通用的 UI 组件，包含会话、聊天、群组等功能。基于 UI 组件您可以像搭积木一样快速搭建起自己的业务逻辑。
@@ -16,9 +12,9 @@ chat-uikit-uniapp 界面效果如下图所示：
 - 微信小程序
 - H5
 
-## 发送您的第一条消息
 
-### 开发环境要求
+
+## 开发环境要求
 
 - HBuilderX
 - Vue 3
@@ -27,9 +23,12 @@ chat-uikit-uniapp 界面效果如下图所示：
 - node（12.13.0 ≤ node 版本 ≤ 17.0.0, 推荐使用 Node.js 官方 LTS 版本 16.17.0）
 - npm（版本请与 node 版本匹配）
 
-### TUIKit 源码集成
+> ! 如果您需要集成 vue2 TUIKit，请参见 [vue2 TUIKit 源码集成](https://github.com/TencentCloud/TIMSDK/tree/master/uni-app/TUIKit-vue2-js)。
 
-#### 步骤 1：创建项目 （已有项目可忽略）
+## TUIKit 源码集成
+通过以下步骤发送您的第一条消息。
+
+### 步骤1：创建项目 （已有项目可忽略）
 
 <img width="600" src="https://qcloudimg.tencent-cloud.cn/raw/73a1edc1682ebd276215f64351917a07.png"/>
 
@@ -41,15 +40,15 @@ HBuilder 不会默认创建 package.json 文件，因此您需要先创建 packa
 npm init -y
 ```
 
-#### 步骤 2：下载并引入 TUIKit 
-通过 [npm](https://www.npmjs.com/package/@tencentcloud/chat-uikit-uniapp) 方式下载 TUIKit 并集成组件。
+### 步骤2：下载并引入 TUIKit 
+通过 [npm](https://www.npmjs.com/package/@tencentcloud/chat-uikit-uniapp) 方式下载 TUIKit 并集成组件。 [chat-uikit-uniapp github 源码集成](https://github.com/TencentCloud/chat-uikit-uniapp)
 > !uni-app 打包到小程序涉及到体积问题，因此我们提供了以下两种集成方案：
 > - 打包 APP 或者 H5 端推荐方案一，主包集成
 > - TUIKit 如果作为 tabbar 页面，推荐方案一，主包集成（主包体积 1M）
 > - 客户线上环境，如果不需要本地换算 userSig ，可删除 debug 文件（节省 150kb)
 > - 打包小程序端，**有体积限制需求**，**推荐方案二，分包集成**（分包可节约 170kb）
 
-#### 方案一： 主包集成
+#### 方案一：主包集成
 
 在 App.vue 页面引用 TUIKit 组件，为此您需要修改  App.vue 和 pages.json 文件。
 <dx-tabs>
@@ -91,8 +90,10 @@ const config = {
   SDKAppID: 0, // Your SDKAppID
   secretKey: "", // Your secretKey
 };
-uni.$chat_SDKAppID = config.SDKAppID;
 const userSig = genTestUserSig(config).userSig;
+uni.$chat_SDKAppID = config.SDKAppID;
+uni.$chat_userID = config.userID;
+uni.$chat_userSig = userSig;
 // 创建 sdk 实例
 uni.$TUIKit = TIM.create({
   SDKAppID: uni.$chat_SDKAppID,
@@ -131,7 +132,7 @@ export default {
     },
     // sdk ready 以后可调用 API
     handleSDKReady(event) {
-      uni.setStorageSync('$chat_SDKReady', true);
+      uni.$chat_isSDKReady = true;
       uni.hideLoading();
     },
     handleSDKNotReady(event) {
@@ -143,7 +144,7 @@ export default {
     handleKickedOut(event) {
       uni.clearStorageSync();
       uni.showToast({
-        title: `${this.kickedOutReason(event.data.type)}被踢出，请重新登录。`,
+        title: `${this.kickedOutReason(event.data.type)}被踢出。`,
         icon: "none",
       });
     },
@@ -151,13 +152,13 @@ export default {
     kickedOutReason(type) {
       switch (type) {
         case uni.$TIM.TYPES.KICKED_OUT_MULT_ACCOUNT:
-          return "由于多实例登录";
+          return "多实例登录";
         case uni.$TIM.TYPES.KICKED_OUT_MULT_DEVICE:
-          return "由于多设备登录";
+          return "多设备登录";
         case uni.$TIM.TYPES.KICKED_OUT_USERSIG_EXPIRED:
-          return "由于 userSig 过期";
+          return "userSig 过期";
         case uni.$TIM.TYPES.KICKED_OUT_REST_API:
-          return "由于 REST API kick 接口踢出";
+          return "REST API kick 接口踢出";
         default:
           return "";
       }
@@ -234,7 +235,7 @@ export default {
 :::
 </dx-tabs>
 
-#### 方案二： 分包集成 
+#### 方案二：分包集成 
 
 在 App.vue 页面引用 TUIKit 组件，为此您需要修改  App.vue 和 pages.json文件。
 <dx-tabs>
@@ -266,7 +267,6 @@ move .\TUIKit\debug .\debug
 在 App.vue 文件引用 TUIKit 组件
 ```javascript
 <script>
-<script>
 import { genTestUserSig, aegisID } from "./debug/index.js";
 import { TIM, TIMUploadPlugin, Aegis } from "./debug/tim.js";
 const aegis = new Aegis({
@@ -280,8 +280,10 @@ const config = {
   SDKAppID: 0, // Your SDKAppID
   secretKey: "", // Your secretKey
 };
-uni.$chat_SDKAppID = config.SDKAppID;
 const userSig = genTestUserSig(config).userSig;
+uni.$chat_SDKAppID = config.SDKAppID;
+uni.$chat_userID = config.userID;
+uni.$chat_userSig = userSig;
 // 创建 sdk 实例
 uni.$TUIKit = TIM.create({
   SDKAppID: uni.$chat_SDKAppID,
@@ -320,8 +322,8 @@ export default {
     },
     // sdk ready 以后可调用 API
     handleSDKReady(event) {
-      uni.setStorageSync("$chat_SDKReady", true);
-			uni.hideLoading();
+      uni.$chat_isSDKReady = true;
+      uni.hideLoading();
       uni.navigateTo({
         url: "/TUIKit/TUIPages/TUIConversation/index",
       });
@@ -335,7 +337,7 @@ export default {
     handleKickedOut(event) {
       uni.clearStorageSync();
       uni.showToast({
-        title: `${this.kickedOutReason(event.data.type)}被踢出，请重新登录。`,
+        title: `${this.kickedOutReason(event.data.type)}被踢出。`,
         icon: "none",
       });
     },
@@ -343,13 +345,13 @@ export default {
     kickedOutReason(type) {
       switch (type) {
         case uni.$TIM.TYPES.KICKED_OUT_MULT_ACCOUNT:
-          return "由于多实例登录";
+          return "多实例登录";
         case uni.$TIM.TYPES.KICKED_OUT_MULT_DEVICE:
-          return "由于多设备登录";
+          return "多设备登录";
         case uni.$TIM.TYPES.KICKED_OUT_USERSIG_EXPIRED:
-          return "由于 userSig 过期";
+          return "userSig 过期";
         case uni.$TIM.TIM.TYPES.KICKED_OUT_REST_API:
-          return "由于 REST API kick 接口踢出";
+          return "REST API kick 接口踢出";
         default:
           return "";
       }
@@ -435,53 +437,45 @@ export default {
 :::
 </dx-tabs>
 
-#### 步骤 4： 获取 SDKAppID 、密钥与 userID
+### 步骤4：获取 SDKAppID 、密钥与 userID
 
 设置 App.vue 文件示例代码中的相关参数 SDKAppID、secretKey 以及 userID ，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。例如：
 ![image](https://user-images.githubusercontent.com/57951148/192587785-6577cc5e-acf9-423c-86d0-52c67234ab1f.png)
 userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 进行创建和获取，单击目标应用卡片，进入应用的账号管理页面，即可创建账号并获取 userID。例如：  
 ![create user](https://user-images.githubusercontent.com/57951148/192585588-c5300d12-6bb5-45a4-831b-f7d733573840.png)
 
-#### 步骤 5：运行效果
+### 步骤5：运行效果
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/06ccb31cb4dd0ae0d93a15794f63bb81.png)
+
+
+> ! 如果您需要 github 下载集成，请参见 [chat-uikit-uniapp github 源码](https://github.com/TencentCloud/chat-uikit-uniapp)。
+
 
 ## 更多高级特性
 
 ### 音视频通话 TUICallKit 插件
+> ?**TUIKit 中默认没有集成 TUICallKit 音视频组件**。如果您需要集成通话功能，可参考以下文档实现。
+> - 打包到 APP 请参考官网文档： [音视频通话（uniapp-客户端）](https://cloud.tencent.com/document/product/269/83857)
+> - 打包到小程序请参考官网文档：[音视频通话（uniapp-小程序）](https://cloud.tencent.com/document/product/269/83858)
+> - 打包到 H5，不支持音视频通话。
+
 TUICallKit 主要负责语音、视频通话。
-单聊通话示意图：
-<table style="text-align:center;vertical-align:middle;width:1000px">
-  <tr>
-    <th style="text-align:center;" width="500px">视频通话<br></th>
-    <th style="text-align:center;" width="500px">语音通话<br></th>
-  </tr>
-  <tr>
-    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/b412c178178c0052254f4f800559d7d4.png"  />    </td>
-    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/6b2b6878e714e77e578e3c962659e36b.jpg" />     </td>
-	 </tr>
-</table>
+#### 客户端通话示意图：
+<img width="1015" src="https://user-images.githubusercontent.com/37072197/207490936-0a98bc14-88e1-4650-a3db-01c6a6783b79.png"/>
 
-群聊通话示意图：
-<table style="text-align:center;vertical-align:middle;width:1000px">
-  <tr>
-    <th style="text-align:center;" width="500px">视频通话<br></th>
-    <th style="text-align:center;" width="500px">语音通话<br></th>
-  </tr>
-  <tr>
-    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/5ca955c288c0c45b74e4fcfcb0ec6ebb.png"  />    </td>
-    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/068a66d2a99a910d516e645ffb06a23a.png" />     </td>
-	 </tr>
-</table>
+#### 小程序通话示意图
+<img width="1015" src="https://user-images.githubusercontent.com/37072197/207491199-2e5be240-44d4-49cd-9d30-f006478e6762.png"/>
 
-- 打包到 APP 请参考官网文档 [TUICallKit 集成方案](https://cloud.tencent.com/document/product/647/78732)
-- 打包到小程序请参考官网文档 [TUICallKit 集成方案](https://cloud.tencent.com/document/product/647/78912)
+
 
 ### TUIOfflinePush 离线推送插件
+> ?**TUIKit 中默认没有集成 TUIOfflinePush 离线推送插件**。如果您需要在 APP 中集成离线推送能力，请参考官网文档 [uni-app 离线推送](https://cloud.tencent.com/document/product/269/79124) 实现。
+
 TUIOfflinePush 是腾讯云即时通信 IM Push 插件。目前离线推送支持 Android 和 iOS 平台，设备有：华为、小米、OPPO、vivo、魅族 和 苹果手机。
 效果如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/02e095b0f832c73caf5382495d7fc8d9.png" style="zoom:50%;"/>
-在 APP 中集成离线推送能力，请参考官网文档 [uni-app 离线推送](https://cloud.tencent.com/document/product/269/79124)
+
 
 
 ## 常见问题
@@ -494,9 +488,7 @@ UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信
 
 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向项目的接口，在需要 UserSig 时由您的项目向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
-> !
->
-> 本文示例代码采用的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通功能调试**。 正确的 UserSig 签发方式请参见上文。
+> !本文示例代码采用的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通功能调试**。 正确的 UserSig 签发方式请参见上文。
 
 #### 3. 运行在小程序端：选择运行时压缩代码
 
@@ -546,7 +538,14 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 
 - [快速入门（Web & H5)](https://cloud.tencent.com/document/product/269/68433)
 - [快速入门（小程序)](https://cloud.tencent.com/document/product/269/68376)
+- [chat-uikit-uniapp github 源码](https://github.com/TencentCloud/chat-uikit-uniapp)
+- [chat-uikit-uniapp 日志](https://github.com/TencentCloud/chat-uikit-uniapp/blob/main/CHANGELOG.md)
+- [vue2 TUIKit github 源码](https://github.com/TencentCloud/TIMSDK/tree/master/uni-app/TUIKit-vue2-js)
+
 
 ## 技术咨询
 
 了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
+
+<img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-qq.png" width = "300"/>
+ 

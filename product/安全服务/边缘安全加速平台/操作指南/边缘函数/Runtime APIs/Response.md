@@ -1,165 +1,248 @@
-代表 HTTP 响应对象。
-- 可以通过 Response 构造函数来创建一个 Response 对象，用于后续 FetchEvent.respondWith 方法对请求的回复。
-- 也可以通过 fetch 操作，得到子请求的响应对象 Response。
+**Response** 代表 HTTP 响应，基于 Web APIs 标准 [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) 进行设计。
 
-## 语法
+>? 边缘函数中，可通过两种方式获得 `Response` 对象：
+- 使用 `Response` 构造函数创建一个 Response 对象，用于 [event.respondWith](https://cloud.tencent.com/document/product/1552/81899#respondwith) 响应。
+- 使用 <a href="https://cloud.tencent.com/document/product/1552/81897">fetch</a> 获取请求响应 Response 对象。
+
+## 构造函数
 ```typescript
-class Response {
-  readonly body: ReadableStream;
-  readonly bodyUsed: boolean;
-  readonly headers: Headers;
-  readonly ok: boolean;
-  readonly status: number;
-  readonly statusText: string;
-  readonly url: string;
-  readonly redirected: boolean;
-  readonly redirectUrls: Array<String>
-
-  constructor(body?: null | undefined | string | ArrayBuffer | Blob | ReadableStream, options?: ResponseInit);
-  arrayBuffer(): Promise<ArrayBuffer>;
-  blob(): Promise<Blob>;
-  clone(copyHeaders?: boolean): Response;
-  json(): Promise<object>;
-  text(): Promise<string>;
-  getCookies(): Cookies
-  setCookies(cookies: Cookies): boolean
-}
-
-class ResponseInit {
-  status?: number;
-  statusText?: string;
-  headers?: object | Array<[string, string]> | Headers;
-}
+const response = new Response(body?: string | ArrayBuffer | Blob | ReadableStream | null | undefined, init?: ResponseInit);
 ```
 
-### 构造方法
-- body  可选<br>可选参数，用于定义 Response 对象的 body 成员。
-- options  可选<br>可选参数，包含希望被设置到返回的 Response 对象中的属性选项。可用的选项如下：
-  - status：响应的状态码。
-  - statusText：响应的状态码相关联的状态信息，**必须是字符串类型，支持的最大长度为 4095，超出长度会被截断**。
-  - headers：响应的头部信息，参考 [Headers](https://cloud.tencent.com/document/product/1552/81903)。
+### 参数
 
-### 属性
-- body:  [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)<br>响应体。
-- bodyUsed:  `boolean`<br>标识响应体是否已读取。
-- headers:  [Headers](https://cloud.tencent.com/document/product/1552/81903)<br>响应头部。
-- ok:  `boolean`<br>标识响应是否成功(状态码在200-299范围内)。
-- status:  `number`<br>响应的状态代码。
-- statusText:  `string`<br>响应的状态消息。
-- url:  `string`<br>响应的 url。
-- redirected:  `boolean`<br>标识该响应是否是重定向的结果。
-- redirectUrls:  `Array<string>`<br>重定向过程中使用的所有 URL。
+<table>
+  <thead>
+    <tr>
+      <th width="10%">参数名称</th>
+      <th width="20%">类型</th>
+      <th width="10%">必填</th>
+      <th width="60%">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>body</td>
+      <td>
+        string | <br/>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">ArrayBuffer</a> | <br/>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a> | <br/>
+        <a href="https://cloud.tencent.com/document/product/1552/81914">ReadableStream</a> | <br/>
+        null | <br/>
+        undefined
+      </td>
+      <td>是</td>
+      <td><code>Response</code> 对象的 body 内容。</td>
+    </tr>
+    <tr>
+      <td>init</td>
+      <td><a href="#ResponseInit">ResponseInit</a></td>
+      <td>否</td>
+      <td><code>Response</code> 对象的初始化配置项。</td>
+    </tr>
+  </tbody>
+</table>
 
-### 方法
-- arrayBuffer():  Promise&lt;ArrayBuffer&gt;<br>读取整个响应体，Returns a promise that resolves with an ArrayBuffer。
-- blob():  Promise&lt;Blob&gt;<br>读取整个响应体，Returns a promise that resolves with an Blob。
-- clone(copyHeaders?: boolean):  Request
-  - 创建当前响应对象的副本，若未设置 copyHeaders 或者 copyHeaders为false，返回的副本 Response 对象将会引用 headers 成员。
-  - <b>标准未提供 copyHeaders 参数，添加此参数主要是出于性能的考虑，避免无意义的拷贝。</b><br>
-- json():  Promise&lt;object&gt;<br>读取整个响应体，Returns a promise that resolves with a JSON representation of the response body。
-- text():  Promise&lt;string&gt;<br>读取整个响应体，Returns a promise that resolves with a string (text) representation of the response body。
-- getCookies():  [Cookies](./NonStandard/Cookies.md)<br>获取 Cookies 对象. 会自动解析 Set-Cookie 头部，绑定 Cookies 对象到 Response。
-- setCookies([Cookies](./NonStandard/Cookies.md)):  boolean<br>设置 Cookies 对象. 会忽略已有 Set-Cookie 头部，以新设置的 Cookies 对象生成新的 Set-Cookie 头部。
+#### ResponseInit[](id:ResponseInit)
 
-## 示例
+<table>
+  <thead>
+    <tr>
+      <th width="10%">参数名称</th>
+      <th width="20%">类型</th>
+      <th width="10%">必填</th>
+      <th width="60%">说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left">status</td>
+      <td align="left">number</td>
+      <td align="left">否</td>
+      <td align="left">响应的状态码。</td>
+    </tr>
+    <tr>
+      <td align="left">statusText</td>
+      <td align="left">string</td>
+      <td align="left">否</td>
+      <td align="left">响应的状态消息，最大长度为 4095，超出长度会被截断。</td>
+    </tr>
+    <tr>
+      <td align="left">headers</td>
+      <td align="left"><a href="https://cloud.tencent.com/document/product/1552/81903">Headers</a></td>
+      <td align="left">否</td>
+      <td align="left">响应的头部信息。</td>
+    </tr>
+  </tbody>
+</table>
 
-### 创建 Response 对象
-- 创建默认的 Response 对象
-```js
+## 属性
+### body[](id:body)
+```typescript
+// response.body
+readonly body: ReadableStream;
+```
+响应体，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
+
+### bodyUsed
+```typescript
+// response.bodyUsed
+readonly bodyUsed: boolean;
+```
+
+标识响应体是否已读取。
+
+### headers
+```typescript
+// response.headers
+readonly headers: Headers;
+```
+
+响应头部，详情参见 [Headers](https://cloud.tencent.com/document/product/1552/81903)。
+
+### ok
+```typescript
+// response.ok
+readonly ok: boolean;
+```
+
+标识响应是否成功（状态码在 200-299 范围内）。
+
+### status
+```typescript
+// resposne.status
+readonly status: number;
+```
+响应状态代码。
+
+### statusText
+```typescript
+// resposne.statusText
+readonly statusText: string;
+```
+
+响应的状态消息。
+
+### url
+```typescript
+// response.url
+readonly url: string;
+```
+响应的 url。
+
+### redirected
+```typescript
+// response.redirected
+readonly redirected: boolean;
+```
+
+标识响应是否为重定向的结果。
+
+### redirectUrls
+```typescript
+// response.redirectUrls
+readonly redirectUrls: Array<String>
+```
+
+所有重定向 URL。
+
+## 方法
+
+>! 获取响应体方法，接收 `HTTP body` 最大字节数为 1M，超出大小会抛出 OverSize 异常。超出大小时推荐使用 [response.body](#body) 流式读取，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
+
+
+### arrayBuffer
+```typescript
+request.arrayBuffer(): Promise<ArrayBuffer>;
+```
+获取响应体，解析结果为 [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) 。
+
+### blob
+```typescript
+request.blob(): Promise<Blob>;
+```
+获取响应体，解析结果为 [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)。
+
+### clone
+```typescript
+request.clone(copyHeaders?: boolean): Request;
+```
+
+创建响应对象的副本。
+
+#### 参数
+
+<table>
+	<thead>
+		<tr>
+			<th width="10%">属性名</th>
+			<th width="15%">类型</th>
+			<th width="10%">必填</th>
+			<th width="65%">说明</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>copyHeaders</td>
+			<td>boolean</td>
+			<td>否</td>
+			<td>
+        开启复制响应头，默认值为 <code>false</code>，取值说明如下。<br/>
+        <li>
+          <font color="#9ba6b7">true</font><br/>
+          <div style="padding-left: 20px;padding-bottom: 6px">
+            复制原对象的响应头。
+          </div>
+        </li>
+        <li>
+          <font color="#9ba6b7">false</font><br/>
+          <div style="padding-left: 20px;padding-bottom: 6px">
+            引用原对象的响应头。
+          </div>
+        </li>
+      </td>
+		</tr>
+	</tbody>
+</table>
+
+### json
+```typescript
+request.json(): Promise<object>;
+```
+
+获取响应体，解析结果为 `json`。
+
+### text
+```typescript
+request.text(): Promise<string>;
+```
+
+获取响应体，解析结果为文本字符串。
+
+### getCookies
+```typescript
+request.getCookies(): Cookies;
+```
+
+获取 `response` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/83932) 对象。
+
+### setCookies
+```typescript
+request.setCookies(cookies: Cookies): boolean;
+```
+
+设置 `response` 头部 cookie 值。 
+
+## 示例代码
+```typescript
 addEventListener('fetch', (event) => {
-  let rsp = new Response();
-  event.respondWith(rsp);
-});
-```
-- 创建带有 body 数据的 Response 对象
-```js
-addEventListener('fetch', (event) => {
-  let rsp = new Response("hello world!");
-  event.respondWith(rsp);
-});
-```
-- 通过 options 对象来设置新创建的 Response 对象
-```js
-addEventListener('fetch', (event) => {
-  let rsp = new Response("<h1>hello world!</h1>", {
-    headers: {
-      "Content-Type": "text/html; charset=utf-8",
-    },
-  });
-  event.respondWith(rsp);
+  const response =  new Response('hello world');
+  event.respondWith(response);
 });
 ```
 
-### 读取响应体
-- 以文本形式读取
-```js
-fetch('http://www.example.com/').then((rsp) => {
-  rsp.text().then((data) => {
-    log(data);
-  });
-});
-```
-- 按 json 解析响应体
-```js
-async function handleEvent(event) {
-  let req = new Request('http://jsonplaceholder.typicode.com/posts/2', {
-    headers: {
-      "User-Agent": "curl/7.71.1",
-      "Accept": "*/*",
-    },
-  });
-
-  let resp = await fetch(req);
-  let post = await resp.json();
-  log("post.userId:", post.userId);
-  log("post.id:", post.id);
-  log("post.title:", post.title);
-  log("post.body:'" + post.body + "'");
-
-  event.respondWith(Response(post.body + "\n", {
-    headers: {
-      id: post.id,
-      userId: post.userId,
-      title: "'" + post.title + "'",
-    },
-  }));
-}
-
-addEventListener('fetch', (event) => {
-  handleEvent(event);
-});
-```
-
-### Cookies 对象操作
-- 获取 Cookies 对象
-```js
-let rsp = new Response("hello world!", {
-  status: 200,
-  headers: {
-    "Set-Cookie": "k1=v1; Domain=qq.com; Path=/; HttpOnly",
-  },
-});
-let h = rsp.headers.get("Set-Cookie");
-log.info("setcookie header:", h);  // k1=v1; Domain=qq.com; Path=/; HttpOnly
-
-let cookies = rsp.getCookies();
-let ck = cookies.get();
-log.info("val:", ck.value, "domain:", ck.domain, "path:", ck.path, "httponly:", ck.httponly);  // val: v1 domain: qq.com path: / httponly: true
-
-h = rsp.headers.get("Set-Cookie");
-log.info("setcookie header:", h);  // k1=v1; Domain=qq.com; Path=/; HttpOnly
-```
-- 设置 Cookies 对象
-```js
-let rsp = new Response();
-let cookies = new Cookies();
-cookies.set("k1", "v1");
-rsp.setCookies(cookies);
-
-cookies = rsp.getCookies();
-let ck = cookies.get();
-log.info("val:", ck.value);  // v1
-```
-
-## 参考
-- [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)
+## 相关参考 
+- [MDN 官方文档：Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)
+- [示例函数：返回 HTML 页面](https://cloud.tencent.com/document/product/1552/81941)
+- [示例函数：修改响应头](https://cloud.tencent.com/document/product/1552/81937)
+- [示例函数：AB测试](https://cloud.tencent.com/document/product/1552/81934)

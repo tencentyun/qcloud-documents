@@ -6,7 +6,9 @@
 已申请使用后端服务功能。
 1. 进入 [负载均衡跨地域绑定2.0申请页](https://cloud.tencent.com/apply/p/y72ehzwbwzk)。
 2. 根据填好资料，填写完后提交申请。
-3. 提交完内测申请后，[提单至 CLB](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=14&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&level3_id=1068&radio_title=%E9%85%8D%E9%A2%9D/%E7%99%BD%E5%90%8D%E5%8D%95&queue=96&scene_code=41669&step=2)，给账号添加 CLB VPCGW 类型。
+3. 提交完内测申请后，[提单至 CLB](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=14&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&level3_id=1068&radio_title=%E9%85%8D%E9%A2%9D/%E7%99%BD%E5%90%8D%E5%8D%95&queue=96&scene_code=41669&step=2)，给账号添加相应开白类型。
+ - 负载均衡实例与 MySQL 实例同 VPC：添加 CLB_IP_VPCGW 以及 CLB_IP_LB 类型。
+ - 负载均衡实例与 MySQL 实例跨 VPC：添加 CLB_IP_User 类型。
 
 ## 步骤1：新购负载均衡
 >?如果在云数据库 MySQL 同地域已经有负载均衡实例，就可以不用购买。

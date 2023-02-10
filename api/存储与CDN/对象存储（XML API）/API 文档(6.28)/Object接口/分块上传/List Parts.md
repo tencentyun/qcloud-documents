@@ -36,7 +36,7 @@ Authorization: Auth String
 ```
 
 >? 
-> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参阅 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参见 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参见 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
 > - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > 
 
@@ -50,7 +50,7 @@ Authorization: Auth String
 | ------------------ | ------------------------------------------------------------ | ------ | -------- |
 | UploadId           | 标识本次分块上传的 ID，使用 Initiate Multipart Upload 接口初始化分块上传时得到的 UploadId | string | 是       |
 | encoding-type      | 规定返回值的编码方式                                         | string | 否       |
-| max-parts          | 单次返回最大的条目数量，最大值为1000，默认值为1000                             | string | 否       |
+| max-parts          | 单次返回最大的条目数量，最大值为1000，默认值为1000                             | int  | 否       |
 | part-number-marker | 默认以  UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 | string | 否       |
 
 #### 请求体
@@ -115,7 +115,7 @@ Container 节点 ListPartsResult 的内容：
 | StorageClass         | ListPartsResult | 用来表示这些分块的存储类型，枚举值：STANDARD，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE 等，更多存储类型请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417) | string    |
 | PartNumberMarker     | ListPartsResult | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始  | string    |
 | NextPartNumberMarker | ListPartsResult | 假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点   | string    |
-| MaxParts             | ListPartsResult | 单次返回最大的条目数量                                       | string    |
+| MaxParts             | ListPartsResult | 单次返回最大的条目数量                                       | int   |
 | IsTruncated          | ListPartsResult | 响应请求条目是否被截断，布尔值：true，false                  | boolean   |
 | Part                 | ListPartsResult | 元数据信息                                                   | Container |
 
@@ -209,3 +209,4 @@ x-cos-request-id: NWU3YjJkNWRfMjNhZjJhMDlfNWY5Ml8zMmUy****
 			<IsTruncated>false</IsTruncated>
 </ListPartsResult>
 ```
+

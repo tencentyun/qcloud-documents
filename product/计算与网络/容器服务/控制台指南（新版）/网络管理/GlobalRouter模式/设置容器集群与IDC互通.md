@@ -3,7 +3,7 @@
 目前容器集群与用户 IDC 互通主要通过两种方式：**专线**和 **IPsec VPN**。
 >! 
 > - 本文档以已创建集群并已添加节点为例。关于如何创建集群，您可以参考 [创建集群](https://cloud.tencent.com/document/product/457/11741) 进行创建。
-> - 请先确保容器服务所在的 VPC 和您 IDC 机房已通过专线或 VPN 成功连接。若通道未连接，您可以参考 [VPN 通道未连通如何处理？](https://cloud.tencent.com/document/product/554/18904)。
+> - 请先确保容器服务所在的 VPC 和您 IDC 机房已通过专线或 VPN 成功连接。若通道未连接，您可以参考 [VPN 通道未连通如何处理](https://cloud.tencent.com/document/product/554/18904)。
 
 ## 操作步骤
 
@@ -27,12 +27,11 @@
 
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc)。
 2. 在左侧导航栏中，单击**VPN链接** > **[VPN通道](https://console.cloud.tencent.com/vpc/vpnConn)**，进入VPN 通道管理页面。
-3. [](id:step3)单击需要配置 SPD 策略的本端 VPN 通道的 ID/名称。如下图所示：
-![](https://main.qcloudimg.com/raw/515b950b0ec3a540ee4668a36de3575c.png)
-4. 在 VPN 通道的详情页面，单击 “SPD策略” 栏下的**编辑**，添加容器网段。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/9f814ca3ff417c2f6536b0687c87843a.png)
+3. 在 VPN 通道的详情页面，单击 “SPD策略” 栏下的**编辑**，添加容器网段。如下图所示：
 ![配置SPD策略](https://main.qcloudimg.com/raw/69255905b783ea74a3c2f984be7aa247.png)
-5. [](id:step5)单击**保存**。
-6. 重复执行 [步骤3](#step3) - [步骤5](#step5)，配置对端 VPN 通道的 SPD 策略。
+4. [](id:step5)单击**保存**。
+5. 重复执行 [步骤3](#step3) - [步骤5](#step5)，配置对端 VPN 通道的 SPD 策略。
 
 #### 添加容器网段
 

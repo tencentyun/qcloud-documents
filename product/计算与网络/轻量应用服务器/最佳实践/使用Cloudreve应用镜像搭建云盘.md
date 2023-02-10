@@ -1,28 +1,25 @@
 ## 操作场景
 Cloudreve 是一款开源的网盘软件，支持服务器本机及腾讯云对象存储 COS 等多种存储方式，提供离线下载、拖拽上传、在线预览等功能，能够帮助您快速搭建个人使用或多人共享的云盘系统。该镜像基于 CentOS 8.2 64位操作系统，已集成宝塔 Linux 面板，并已预置 Nginx、Aria2、MariaDB 软件。
-
 本文介绍如何使用 Cloudreve 应用镜像搭建 Cloudreve 云盘，实现文件上传、分享及离线下载功能。同时，还介绍了如何通过镜像中已集成的宝塔 Linux 面板，轻松管理您的轻量云服务器。
-
 ## 说明事项
 - CentOS 系统在安装了宝塔面板后，会默认开启操作系统防火墙（可通过命令行 `systemctl status firewalld.service` 查看）。若您需访问指定端口（例如8080端口），则需通过配置轻量应用服务器网络防火墙及操作系统防火墙放通指定端口。具体操作请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577) 及 [配置操作系统防火墙](#updatePort)。
 - 为提高宝塔面板安全性，建议将面板默认的8888端口修改为其他端口，您可以登录面板后进行修改。修改后需在轻量应用服务器网络防火墙中放通对应端口，详情请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577) 。
 
-
 ## 操作步骤
-
 ### 创建使用 Cloudreve 镜像的实例
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击**新建**。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击 **新建**。
 2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
-其中，“镜像”选择为**应用镜像** > **Cloudreve 3.3.1**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+ - **镜像**：选择为应用模板 > 云盘场景 > Cloudreve 应用模板，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+<dx-alert infotype="explain" title="">
+- 应用模板即应用镜像。
+- 查看镜像说明详情请参见 [基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+</dx-alert>
 <dx-alert infotype="explain" title="">
 - 若实例所在地域为中国内地，则建议选择更适合搭建云盘的存储型套餐。详情请参见 [基础套餐](https://cloud.tencent.com/document/product/1207/44368#basis)。
 - 本文以使用应用镜像 Cloudreve 3.3.1 为例，镜像可能会进行版本升级与更新，请您以购买页实际版本为准。
 </dx-alert>
 
-
-
 ### 使用 Cloudreve
-
 #### 登录 Cloudreve 页面
 1. 在实例详情页中，选择**应用管理**页签，进入应用管理详情页。您可以在此页面查看 Cloudreve 应用的各项配置信息。
 2. [](id:Step2)在“应用内软件信息”栏中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin:-3px 0px">，复制获取 Cloudreve 管理员密码的命令。如下图所示：

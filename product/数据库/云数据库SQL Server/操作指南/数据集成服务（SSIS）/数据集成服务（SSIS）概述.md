@@ -49,7 +49,7 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 ## 使用限制
 - 目前商业智能服务器处于公测阶段，公测期免费使用，期间每个地域限购1台，每个主账号最多限购3台，仅支持2核4GB规格。公测期结束后将启动计费，计费方式为按量计费。
 - 商业智能服务器目前仅支持 SQL Server Integration Services（SSIS）引擎，支持三个版本，分别为 SQL Server 2016 Integration Services 、SQL Server 2017 Integration Services、SQL Server 2019 Integration Services。
-- 云数据库 SQL Server 的基础版、双机高可用版、集群版实例均可以通过商业智能服务器使用 SSIS 能力，只读实例不支持 SSIS 能力。
+- 云数据库 SQL Server 的单节点（原基础版）、双节点（原高可用版/集群版）均可以通过商业智能服务器使用 SSIS 能力，只读实例不支持 SSIS 能力。
 - 商业智能服务器目前仅支持广州、上海、北京、香港这四个地域。
 
 ## 注意事项
@@ -117,4 +117,3 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 <td rowspan="1">互通组管理</td>
 <td>互通源、目标实例及商业智能服务器</td><td>开启商业智能服务互通 IP 、添加互通实例，请参见 <a href="https://cloud.tencent.com/document/product/238/75227" target="_blank">互通源目标实例及商业智能服务器</a>。</td></tr>
 </tbody></table>
-

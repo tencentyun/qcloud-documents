@@ -6,6 +6,14 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.11.170</td>	
+<td>
+1. Rooms 支持勿扰模式。<br>
+2. Rooms 支持三屏模式。
+</td>
+<td><center>2022-12-07</td>	
+	</tr>
+<tr>
 <td><center>V3.10.160</td>	
 <td>
 1. Rooms 支持显示实时字幕。<br>
@@ -110,6 +118,11 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.11.170</td>	
+<td>Rooms 支持勿扰模式。</td>
+<td><center>2022-12-07</td>	
+	</tr>
+<tr>
 <td><center>V3.10.160</td>	
 <td>
 1. Rooms 支持显示实时字幕。<br>
@@ -211,6 +224,11 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.11.170</td>	
+<td>Rooms 支持勿扰模式。</td>
+<td><center>2022-12-07</td>		
+	</tr>
+<tr>
 <td><center>V3.10.160</td>	
 <td>
 1. Rooms 支持显示实时字幕。<br>

@@ -41,7 +41,7 @@
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，单击左侧导航栏的**函数服务**。
 2. 在“函数服务”上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
 3. 在“新建函数”页面根据以下信息选择函数模板，并单击**下一步**。如下图所示： 
-![](https://main.qcloudimg.com/raw/bc7d09293dc0df7403b008c4ba20a854.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0b5cd8d09bacc4cf84274f8ab08bc0c2.png)
   - **创建方式**：选择**模板创建**。
   - **模糊搜索**：输入“Ckafka 消息转储至 ES”，并进行搜索。本文以运行环境 Python3.6 为例。   
   单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
@@ -75,7 +75,7 @@
  - **运行角色**：勾选“启用”，选择“配置并使用SCF模板运行角色”，将会自动创建并选择关联了 ES、Ckafka 全读写权限的 SCF 模板运行角色，或选择“使用已有角色”，在下拉列表中选择包含上述权限的已有角色。本文以“配置并使用SCF模板运行角色”为例。
   - **私有网络**：勾选“启用”，并选择与 ES 相同的 VPC。
 5. 在**触发器配置**中，选择“自定义创建”，根据页面的参数信息进行填写。如下图所示： 
-![](https://main.qcloudimg.com/raw/61f0a269e38779a8ecc4a14521d728cf.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/22dfb567348977f1591442fc2137f89d.png)
  主要参数信息如下，其余参数请保持默认配置：
  - **触发方式**：选择 “Ckafka触发”。
  - **Ckafka实例及 Topic**：按需选择对应的 Topic。

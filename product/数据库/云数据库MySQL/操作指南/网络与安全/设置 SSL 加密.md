@@ -62,3 +62,146 @@ SSL 协议要求建立在可靠的传输层协议（TCP）之上，其优势在�
 ```
 mysql -P <端口号> -h <IP 地址>  -u <用户名> -p<密码> --ssl-ca<ca证书>
 ```
+
+## 常用程序连接开启 SSL 的实例的代码示例
+- PHP
+```
+$conn = mysqli_init();
+mysqli_ssl_set($conn,NULL,NULL, "<下载的证书路径>", NULL, NULL);
+mysqli_real_connect($conn, '<数据库访问地址>', '<数据库访问用户名>', '<数据库访问密码>', '<指定访问数据库>', <访问端口>, MYSQLI_CLIENT_SSL);
+if (mysqli_connect_errno($conn)) {
+die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+```
+- PHP (Using PDO)
+```
+$options = array(
+    PDO::MYSQL_ATTR_SSL_CA => '<下载的证书路径>'
+);
+$db = new PDO('mysql:host=<数据库访问地址>;port=<访问端口>;dbname=<指定访问数据库>', '<数据库访问用户名>', '<数据库访问密码>', $options);
+```
+- Java (MySQL Connector for Java)
+```
+# generate truststore and keystore in code
+
+String importCert = " -import "+
+    " -alias mysqlServerCACert "+
+    " -file " + ssl_ca +
+    " -keystore truststore "+
+    " -trustcacerts " +
+    " -storepass password -noprompt ";
+String genKey = " -genkey -keyalg rsa " +
+    " -alias mysqlClientCertificate -keystore keystore " +
+    " -storepass password123 -keypass password " +
+    " -dname CN=MS ";
+sun.security.tools.keytool.Main.main(importCert.trim().split("\\s+"));
+sun.security.tools.keytool.Main.main(genKey.trim().split("\\s+"));
+
+# use the generated keystore and truststore
+
+System.setProperty("javax.net.ssl.keyStore","<下载的证书路径>");
+System.setProperty("javax.net.ssl.keyStorePassword","tencentdb");
+System.setProperty("javax.net.ssl.trustStore","<下载的证书路径>");
+System.setProperty("javax.net.ssl.trustStorePassword","tencentdb");
+
+url = String.format("jdbc:mysql://%s/%s?serverTimezone=UTC&useSSL=true", '<数据库访问地址>', '<指定访问数据库>');
+properties.setProperty("user", '<数据库访问用户名>');
+properties.setProperty("password", '<数据库访问密码>');
+conn = DriverManager.getConnection(url, properties);
+```
+- .NET (MySqlConnector)
+```
+var builder = new MySqlConnectionStringBuilder
+{
+    Server = "<数据库访问地址>",
+    UserID = "<数据库访问用户名>",
+    Password = "<数据库访问密码>",
+    Database = "<指定访问数据库>",
+    SslMode = MySqlSslMode.VerifyCA,
+    SslCa = "<下载的证书>",
+};
+using (var connection = new MySqlConnection(builder.ConnectionString))
+{
+    connection.Open();
+}
+```
+- Python (MySQLConnector Python)
+```
+try:
+    conn = mysql.connector.connect(user='<数据库访问用户名>',
+                                   password='<数据库访问密码>',
+                                   database='<指定访问数据库>',
+                                   host='<数据库访问地址>',
+                                   ssl_ca='<下载的证书路径>')
+except mysql.connector.Error as err:
+    print(err)
+```
+
+- Python (PyMySQL)
+```
+conn = pymysql.connect(user='<数据库访问用户名>',
+                       password='<数据库访问密码>',
+                       database='<指定访问数据库>',
+                       host='<数据库访问地址>',
+                       ssl={'ca': '<下载的证书路径>'})
+```
+
+- Django (PyMySQL)
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '<指定访问数据库>',
+        'USER': '<数据库访问用户名>',
+        'PASSWORD': '<数据库访问密码>',
+        'HOST': '<数据库访问地址>',
+        'PORT': '<访问端口>',
+        'OPTIONS': {
+            'ssl': {'ca': '<下载的证书路径>'}
+        }
+    }
+}
+```
+- Node.js
+```
+var fs = require('fs');
+var mysql = require('mysql');
+const serverCa = [fs.readFileSync("<下载的证书路径>", "utf8")];
+var conn=mysql.createConnection({
+    host:"<数据库访问地址>",
+    user:"<数据库访问用户名>",
+    password:"<数据库访问密码>",
+    database:"<指定访问数据库>",
+    port:<访问端口>,
+    ssl: {
+        rejectUnauthorized: true,
+        ca: serverCa
+    }
+});
+conn.connect(function(err) {
+  if (err) throw err;
+});
+```
+- Golang
+```
+rootCertPool := x509.NewCertPool()
+pem, _ := ioutil.ReadFile("<下载的证书路径>")
+if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
+    log.Fatal("Failed to append PEM.")
+}
+mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool})
+var connectionString string
+connectionString = fmt.Sprintf("%s:%s@tcp(%s:<访问端口>)/%s?allowNativePasswords=true&tls=custom","<数据库访问用户名>" , "<数据库访问密码>", "<数据库访问地址>", '<指定访问数据库>')
+db, _ := sql.Open("mysql", connectionString)
+```
+- Ruby
+```
+client = Mysql2::Client.new(
+        :host     => '<数据库访问地址>',
+        :username => '<数据库访问用户名>',
+        :password => '<数据库访问密码>',
+        :database => '<指定访问数据库>',
+        :sslca => '<下载的证书路径>'
+    )
+```
+

@@ -47,4 +47,4 @@ curl -H "Content-Type:application/json" -XPUT http://localhost:9210/_cluster/set
 | Diff         | 优74.9%              | 优4.37%         | -       | 优2.00%       | 劣0.38%       |
 
 ## 支持版本
-6.8.2、7.5.1、7.10.1
+6.8.2、7.5.1、7.10.1、7.14.2

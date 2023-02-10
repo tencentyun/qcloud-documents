@@ -1,6 +1,6 @@
 
 ## 操作场景
-本文介绍如何在 Kong 云原生网关上通过 Kong Bot Detection 插件屏蔽爬虫访问。
+本文介绍如何在 Kong 云原生 API 网关上通过 Kong Bot Detection 插件屏蔽爬虫访问。
 Bot Detection插件通过检查HTTP请求中User Agent字段，识别发起请求的用户代理软件信息，拒绝爬虫请求。该插件内置了一些基础的校验规则用于校验请求，您可以参见 [爬虫示例](https://github.com/Kong/kong/blob/master/kong/plugins/bot-detection/rules.lua#L5) 定义爬虫请求。
 
 ## 前置条件

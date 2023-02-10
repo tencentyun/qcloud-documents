@@ -51,7 +51,7 @@ CREATE USER 'user'@'localhost' IDENTIFIED BY '123456';
 ```
 4. 执行以下命令，赋予用户对 “wordpress” 数据库的全部权限。
 ```shellsession
-GRANT ALL PRIVILEGES ON wordpress.* TO 'user'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'user'@'localhost';
 ```
 5. 执行以下命令，设置 root 帐户密码。
 <dx-alert infotype="explain" title="">

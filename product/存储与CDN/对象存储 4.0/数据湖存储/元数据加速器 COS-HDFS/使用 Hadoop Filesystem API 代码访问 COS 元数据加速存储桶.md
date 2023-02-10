@@ -1,6 +1,6 @@
 ## 操作场景
 
-如果对象存储（Cloud Object Storage，COS）存储桶开启了元数据加速，除了可以使用 Hadoop 命令行、大数据组件等方式操作外，还可以通过 Hadoop Filesystem API，使用 Java 代码来访问 元数据加速桶。本文指导您如何通过 Java 代码访问 元数据加速桶。
+如果对象存储（Cloud Object Storage，COS）存储桶开启了元数据加速，除了可以使用 Hadoop 命令行、大数据组件等方式操作外，还可以通过 Hadoop Filesystem API，使用 Java 代码来访问元数据加速桶。本文指导您如何通过 Java 代码访问元数据加速桶。
 
 ## 前提条件
 
@@ -9,7 +9,7 @@
 
 ## 操作步骤
 
-1. 新建 maven 工程，并在 maven 的 pom.xml 中添加以下依赖项（请根据自己实际 Hadoop 版本及环境设置 hadoop-common 包的版本）。
+1. 新建 maven 工程，并在 maven 的 pom.xml 中添加以下依赖项（请根据自己实际 Hadoop 版本及环境设置 hadoop-common 包、hadoop-cos 包和 cos_api-bundle 包的版本）。
 ```plaintext
 <dependencies>
         <dependency>
@@ -18,10 +18,21 @@
             <version>2.8.5</version>
             <scope>provided</scope>
         </dependency>
+         <dependency>
+            <groupId>com.qcloud.cos</groupId>
+            <artifactId>hadoop-cos</artifactId>
+            <version>xxx</version>
+        </dependency>
+        <dependency>
+            <groupId>com.qcloud</groupId>
+            <artifactId>cos_api-bundle</artifactId>
+            <version>xxx</version>
+        </dependency>
+        
 </dependencies>
 ```
-2. 参考如下 hadoop 的代码进行修改。其中的配置项可参考 [配置项说明](https://cloud.tencent.com/document/product/1105/36368) 文档进行修改。**以及重点关注其中数据持久化和可见性相关的说明。**
-以下只列出了部分常见的文件系统的操作，其他的接口可参考 [Hadoop FileSystem 接口文档](https://hadoop.apache.org/docs/r2.8.2/api/org/apache/hadoop/fs/FileSystem.html)。
+2. 参考如下 hadoop 的代码进行修改。其中的配置项可参见 [配置项说明](https://cloud.tencent.com/document/product/1105/36368) 文档进行修改。**以及重点关注其中数据持久化和可见性相关的说明。**
+   以下只列出了部分常见的文件系统的操作，其他的接口可参见 [Hadoop FileSystem 接口文档](https://hadoop.apache.org/docs/r2.8.2/api/org/apache/hadoop/fs/FileSystem.html)。
 ```java
 package com.qcloud.cos.demo;
 
@@ -41,20 +52,33 @@ import java.nio.ByteBuffer;
 public class Demo {
 			private static FileSystem initFS() throws IOException {
 				Configuration conf = new Configuration();
-				// 配置项可参见 https://cloud.tencent.com/document/product/1105/36368
-				// 以下配置是必填项
+               // 配置项可参见 https://cloud.tencent.com/document/product/436/6884#.E4.B8.8B.E8.BD.BD.E4.B8.8E.E5.AE.89.E8.A3.85
+               // 以下配置是必填项
 
-			conf.set("fs.ofs.impl", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
-				conf.set("fs.AbstractFileSystem.ofs.impl", "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter");
-				conf.set("fs.ofs.tmp.cache.dir", "/data/chdfs_tmp_cache");
-				// appid根据实际appid进行替换
-				conf.set("fs.ofs.user.appid", "1250000000");
-				// region根据实际地域进行替换
-				conf.set("fs.ofs.bucket.region", "ap-beijing")
-				// 其他可选配置项请参见 https://cloud.tencent.com/document/product/1105/36368 
+               conf.set("fs.cosn.impl", "org.apache.hadoop.fs.CosFileSystem");
+               conf.set("fs.AbstractFileSystem.cosn.impl", "org.apache.hadoop.fs.CosN");
+               conf.set("fs.cosn.userinfo.secretId", "xxxxxx");
+               conf.set("fs.cosn.userinfo.secretKey", "xxxxxx");
+               conf.set("fs.cosn.bucket.region", "xxxxxx");
+               conf.set("fs.cosn.tmp.dir", "/data/chdfs_tmp_cache");
 
-			String chdfsUrl = "ofs://examplebucket-12500000000/";
-				return FileSystem.get(URI.create(chdfsUrl), conf);
+               // 配置项可参考 https://cloud.tencent.com/document/product/436/71550
+               // 通过 POSIX 访问方式必填配置项(推荐方式)
+               conf.set("fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl", "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter");
+               conf.set("fs.cosn.trsf.fs.ofs.impl", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
+               conf.set("fs.cosn.trsf.fs.ofs.tmp.cache.dir", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
+               conf.set("fs.cosn.trsf.fs.ofs.impl", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
+               conf.set("fs.cosn.trsf.fs.ofs.tmp.cache.dir", "/data/chdfs_tmp_cache");
+               
+               // appid 根据实际 appid 进行替换
+               conf.set("fs.cosn.trsf.fs.ofs.user.appid", "1250000000");
+               // region 根据实际地域进行替换
+               conf.set("fs.cosn.trsf.fs.ofs.bucket.region", "ap-beijing");
+               // 其他可选配置参考官网文档 https://cloud.tencent.com/document/product/436/6884#.E4.B8.8B.E8.BD.BD.E4.B8.8E.E5.AE.89.E8.A3.85
+               // 是否开启 CRC64 校验，默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC64 校验值
+               conf.set("fs.cosn.crc64.checksum.enabled", "true");
+               String cosHadoopFSUrl = "cosn://examplebucket-12500000000/";
+               return FileSystem.get(URI.create(cosHadoopFSUrl), conf);
 			}
 
 		private static void mkdir(FileSystem fs, Path filePath) throws IOException {
@@ -176,12 +200,12 @@ public class Demo {
 
 
 				// 从本地复制文件
-				Path localFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+				Path localFilePath = new Path("file:///home/hadoop/cosn_demo/data/exampleobject.txt");
 				copyFileFromLocal(fs, chdfsFilePath, localFilePath);
 
 
 				// 获取文件到本地
-				Path localDownFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+				Path localDownFilePath = new Path("file:///home/hadoop/cosn_demo/data/exampleobject.txt");
 				copyFileToLocal(fs, chdfsFilePath, localDownFilePath);
 
 
@@ -218,8 +242,7 @@ public class Demo {
 }
 ```
 3. 编译和运行。
->? 
-> - 运行前，请确保已正确设置 classpath。classpath 需包含 Hadoop common 包以及 元数据加速桶依赖的 Jar 包的路径。
-> - 对于 EMR 环境，如果您按照 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 逐步操作，那么 Hadoop common 包通常在 `/usr/local/service/hadoop/share/hadoop/common/` 目录下，元数据加速桶依赖的 Jar 包通常在`/usr/local/service/hadoop/share/hadoop/common/lib/` 目录下。
+>?
+> - 运行前，请确保已正确设置 classpath。classpath 需包含 Hadoop common 包以及元数据加速桶依赖的 Jar 包的路径。
+> - 对于 EMR 环境，如果您按照 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 逐步操作，那么 Hadoop common 包通常在 `/usr/local/service/hadoop/share/hadoop/common/` 目录下，元数据加速桶依赖的 Jar 包通常在 `/usr/local/service/hadoop/share/hadoop/common/lib/` 目录下。
 > 
-

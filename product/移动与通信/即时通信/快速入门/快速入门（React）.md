@@ -13,7 +13,7 @@ Web 端界面效果如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/631e3dbdef2579c48d87e722a3a2e9ee.png)
 
 ## 开发环境要求
-- React^18.0
+- React ≥ v18.0
 - TypeScript
 - node（12.13.0 ≤ node 版本 ≤ 17.0.0, 推荐使用 Node.js 官方 LTS 版本 16.17.0）
 - npm（版本请与 node 版本匹配）
@@ -26,9 +26,12 @@ Web 端界面效果如下图所示：
 $ git clone https://github.com/TencentCloud/chat-uikit-react
 # Go to the project  
 $ cd chat-uikit-react
-# Install dependencies of the demo
-$ npm install && cd examples/sample-chat && npm install
+# Install dependencies of the demo and build chat-uikit-react
+$ npm install && npm run build
+$ cd examples/sample-chat && npm install
 ```
+
+>! 项目 `examples/sample-chat` 下依赖的 `@tencentcloud/chat-uikit-react` 为本地包，因此需要在 `chat-uikit-react` 根目录下执行 `npm run build` 或者 `npm run start`，后者会启动 `npm run rollup -c -w` ， `examples/sample-chat` 项目会实时加载修改后的组件库，建议在需要自己开发修改组件库时使用。
 
 
 ### 步骤2：配置 demo
@@ -39,7 +42,7 @@ $ npm install && cd examples/sample-chat && npm install
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试。**
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。
-[](id:2-4)
+   [](id:2-4)
 4. 进入应用的账号管理页面，创建账号并获取 userID，用于当作后续发送消息的测试用户。
    <img style="width:870px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c6e76f750f11023d13b01ba8c2279a0e.png"/>
 
@@ -56,7 +59,7 @@ $ npm run start
 3. 点击用户头像发起会话。
 4. 在输入框输入消息，按下"enter"键发送。
    ![](https://web.sdk.qcloud.com/im/demo/TUIkit/react-static/images/chat-English.gif)
-	 
+
 ## 常见问题
 
 #### 什么是 UserSig？
@@ -68,7 +71,7 @@ UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信
 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向项目的接口，在需要 UserSig 时由您的项目向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 > !本文示例代码采用的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通功能调试**。 正确的 UserSig 签发方式请参见上文。
-	 
+
 ## 相关文档
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)

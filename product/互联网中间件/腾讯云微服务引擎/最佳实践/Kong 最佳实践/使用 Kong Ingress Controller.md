@@ -4,7 +4,7 @@
 Kong 通过 Ingress Controller 实现为 Kubernetes Service 配置插件、健康检查、负载均衡等功能。通过整合 Kong Ingress Controller，Kong 可直接关联到 Kubernetes 整个生命周期，Ingress Controller 将监听容器集群变化，并更新 Kong 的配置，以便能正确代理所有的流量，免去人工管理的困扰。
 
 ## 前提条件
-- [已创建云原生网关实例](https://cloud.tencent.com/document/product/1364/72495)。
+- [已创建云原生 API 网关实例](https://cloud.tencent.com/document/product/1364/72495)。
 - 已购买腾讯云容器服务，包括 [TKE 标准集群](https://cloud.tencent.com/document/product/457/31697) 或 [TKE Serverless 集群](https://cloud.tencent.com/document/product/457/39809)。
 
 ## 操作步骤

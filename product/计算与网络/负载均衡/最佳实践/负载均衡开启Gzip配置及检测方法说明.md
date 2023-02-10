@@ -60,10 +60,11 @@ text/html text/plain text/css application/x-javascript text/javascript applicati
 ```
 ./nginx -s reload
 ```
-4. 使用 curl 命令测试 Gzip 是否成功开启：
+4. 执行以下 curl 命令测试 Gzip 是否成功开启：
 ```
 curl -I -H "Accept-Encoding: gzip, deflate" "http://cloud.tencent.com/example/"
 ```
-
+ - 若命令执行后有返回结果，则表示开启成功。
+ - 若命令执行后无返回结果，则表示开启失败。
 
 

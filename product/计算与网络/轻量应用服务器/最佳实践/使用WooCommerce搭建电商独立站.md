@@ -10,14 +10,17 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 ## 操作步骤
 
 ### 使用 WooCommerce 应用镜像创建实例
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击新建。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击 **新建**。
 2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
-其中，“镜像”选择为**应用镜像** > **WooCommerce 6.8.2**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+ - **镜像**：选择为应用模板 > 电商场景 > WooCommerce 应用模板，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+<dx-alert infotype="explain" title="">
+- 应用模板即应用镜像。
+- 查看镜像说明详情请参见 [基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+</dx-alert>
 <dx-alert infotype="explain" title="">
 - 若您想使用已创建的实例搭建直播间，则可使用 WooCommerce 应用镜像 [重装系统](https://cloud.tencent.com/document/product/1207/44576)。
 - 本文以使用应用镜像 WooCommerce 6.8.2 版本为例，镜像可能会进行版本升级与更新，请您以购买页实际版本为准。
 </dx-alert>
-
 
 ### 登录网站后台管理页面[](id:login)
 1. 在实例详情页面，选择**应用管理**页签，进入应用管理详情页。
@@ -31,7 +34,7 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 6. 在“应用内软件信息”中，单击“管理员登录地址”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/8df37cd14409531f4678f597e2223b09.png)
 7. 在新打开的浏览器窗口中，输入 [步骤4](#Step4) 记录的账号和密码，单击**登录**。
-8. 选择左侧导航中的 **WooCommerce** > **Home**，进入如下图所示页面，您即可开始配置自己的独立电商站。
+8. 选择左侧导航中的 **WooCommerce** > **Home**，进入如下图所示页面，您即可开始配置自己的电商独立站。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3f958d021128402006e770d6c646252.png)
 您可参考 [WooCommerce](https://woocommerce.com/documentation/plugins/woocommerce/getting-started/) 文档，了解更多关于  WooCommerce 的入门信息。
 
@@ -236,7 +239,7 @@ WooCommerce 应用镜像考虑到安全性问题，默认未开启 postfix 服�
  - **SMTP 用户名**：填写您的邮箱地址。
  - **SMTP 密码**：填写授权码，不是 QQ 邮箱的密码。
  - **发件人名称**：可填写您的店铺名称。
- - **发件人**：可填写管理员的邮件地址。需为为有效的邮件地址，否则会报错。
+ - **发件人**：可填写管理员的邮件地址。需为有效的邮件地址，否则会报错。
 8. 在 “Which email features do you want to enable?” 步骤中，保持默认配置，单击 **Save and Continue**。
 9. 在 “Help Improve WP Mail SMTP + Smart Recommendations” 步骤中，单击 **Skip this Step**。
 10. 在 “Enter your WP Mail SMTP License Key” 步骤中，单击 **Skip this Step**。

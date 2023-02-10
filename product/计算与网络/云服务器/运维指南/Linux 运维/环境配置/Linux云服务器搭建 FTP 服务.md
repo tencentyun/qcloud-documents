@@ -71,15 +71,16 @@ chroot_list_enable=YES
 chroot_list_file=/etc/vsftpd/chroot_list
 listen=YES
 ```
+
 ii. 在行首添加 `#`，注释 `listen_ipv6=YES` 配置参数，关闭监听 IPv6 sockets。
 ```
 #listen_ipv6=YES
 ```
 iii.  添加以下配置参数，开启被动模式，设置本地用户登录后所在目录，以及云服务器建立数据传输可使用的端口范围值。
-```
+``` plaintext
 local_root=/var/ftp/test
 allow_writeable_chroot=YES
-pasv_enable=YES
+pasv_enable=YES  #pasv_enable=YES 被动模式，pasv_enable=NO 主动模式
 pasv_address=xxx.xx.xxx.xx #请修改为您的 Linux 云服务器公网 IP
 pasv_min_port=40000
 pasv_max_port=45000
@@ -168,3 +169,59 @@ ls -l /home/test
 # /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
 ``` 
 
+### FTP  登录成功但无法正常执行命令常见修复方法
+#### 问题描述
+客户端系统上登录 ftp 时，报错如下：
+```plaintext
+331 Please specify the password.
+Password: 
+230 Login successful.
+ftp> ls
+500 Illegal PORT command. 
+500 Unknown command.
+425 Use PORT or PASV first.
+```
+
+#### 解决方法
+方式一：
+退出当前 ftp，采用被动模式登录，命令如下：
+```plaintext
+ “ftp -p ftpuser@ip”  #平台设置为被动模式时，可以用该命令登录。
+```
+方式二：
+登录成功后，在 ftp 模式下执行 passive 设置被动模式，再次执行 passive，被动模式会关闭变为主动模式，命令如下：
+```plaintext
+bash>ftp  ftpuser@ip
+Connected to ip.
+220 (vsFTPd 3.0.2)
+331 Please specify the password.
+Password: 
+230 Login successful.
+ftp> passive
+Passive mode on.  
+```
+
+#### 问题描述
+ftp 登录成功后，执行命令如下报错。
+```plaintext
+ftp> ls
+550 Permission denied.
+500 Unknown command.
+Passive mode refused.
+```
+
+#### 解决方法
+1. 该问题是 ftp server 端没有正确配置访问模式导致的权限拒绝，需要登录 ftp server 端，执行以下命令，打开 vsftpd.conf 文件。
+```plaintext
+vim /etc/vsftpd/vsftpd.conf
+```
+2. 找到下面的配置，打开被动模式，如果没有该配置，需要在文件最后添加配置。
+```plaintext
+pasv_enable=YES
+```
+3. 按 Esc 后输入 `:wq` 保存后退出。
+4. 执行以下命令，重启 ftp 服务。
+```plaintext
+systemctl restart vsftpd
+```
+5. 重试 `ftp user@ip` 登录，并执行需要操作的 ftp 命令。

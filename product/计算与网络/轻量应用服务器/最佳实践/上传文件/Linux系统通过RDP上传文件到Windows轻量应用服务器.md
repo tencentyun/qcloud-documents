@@ -23,9 +23,13 @@ tar xvzf rdesktop-1.8.3.tar.gz
 ```shellsession
 cd rdesktop-1.8.3
 ```
-3. 依次执行以下命令，编译安装 rdesktop。
+3. 安装  libX11-devel。
 ```shellsession
-./configure 
+yum install libX11-devel 
+```
+4. 依次执行以下命令，编译安装 rdesktop。
+```shellsession
+./configure --disable-credssp --disable-smartcard
 ```
 ```shellsession
 make

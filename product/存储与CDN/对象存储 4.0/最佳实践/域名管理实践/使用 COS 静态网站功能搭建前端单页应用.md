@@ -23,7 +23,7 @@
 ```
 npm install -g @vue/cli
 ```
-2. 执行如下命令，使用 vue-cli 快速生成一个 vue 项目，可参考 [官方文档](https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create)。
+2. 执行如下命令，使用 vue-cli 快速生成一个 vue 项目，可参见 [官方文档](https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create)。
 ```
 vue create vue-spa
 ```
@@ -42,7 +42,7 @@ App.vue 主要修改组件的 template，如下图：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/5be1dfb77701e071ef7829237396d481.png" style="width: 70%" /></br>
 >? 由于篇幅有限，这里仅节选部分关键代码，完整代码可 [单击此处](https://cos-code-demo-1253960454.cos.ap-shanghai.myqcloud.com/vue-spa.zip) 下载。
 >
-5. 修改好代码后，执行如下命令，进行本地预览。
+5. 修改代码后，执行如下命令，进行本地预览。
 ```
 npm run serve
 ```
@@ -68,7 +68,7 @@ npm install react-router-dom -S
 <img src="https://qcloudimg.tencent-cloud.cn/raw/c35e3011b1c4f083782bcc11834673f4.png" style="width: 70%" /></br>
 >? 由于篇幅有限，这里仅节选部分关键代码，完整代码可 [单击此处](https://cos-code-demo-1253960454.cos.ap-shanghai.myqcloud.com/react-spa.zip) 下载。
 >
-5. 修改好代码后，执行如下命令，进行本地预览。
+5. 修改代码后，执行如下命令，进行本地预览。
 ```
 npm run start
 ```
@@ -82,7 +82,7 @@ npm run build
 <span id="configuration"></span>
 ## 开启存储桶静态网站配置
 
-1. 进入创建好的存储桶详情页面，并在左侧导航栏中，单击**基础配置** > **静态网站**。
+1. 进入已创建存储桶的详情页面，并在左侧导航栏中，单击**基础配置** > **静态网站**。
 2. 在静态网站管理页面，参考下图，进行配置。操作详情请参见 [设置静态网站](https://cloud.tencent.com/document/product/436/14984)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1643fe5b1aa0e9b4dec08579ff38a160.png)
 
@@ -102,16 +102,16 @@ npm run build
 
 ### 我不想使用静态网站的默认域名怎么办？可以使用我自己的域名吗？
 
-除了上面使用的默认静态网站域名，COS 还提供了默认 CDN 加速域名、自定义 CDN 加速域名、自定义源站域名等其他选择。
+除了上面使用的默认静态网站域名，COS 还支持设置自定义 CDN 加速域名、自定义源站域名。具体可参考 [域名管理概述](https://cloud.tencent.com/document/product/436/18424#.E7.9B.B8.E5.85.B3.E6.93.8D.E4.BD.9C) 文档进行配置，配置成功后即可使用自己想要的域名来访问应用。
 
-具体可参考 [域名管理概述](https://cloud.tencent.com/document/product/436/18424#.E7.9B.B8.E5.85.B3.E6.93.8D.E4.BD.9C) 文档进行配置，配置成功后即可使用自己想要的域名来访问应用。
+请注意，如果您选择配置 CDN 加速域名，请关注 [CDN 节点缓存过期配置](https://cloud.tencent.com/document/product/228/47672)，以便获取更新后的数据。
 
 
 ### 部署好应用之后，切换路由能成功渲染，但页面一刷新就出现404报错，是什么原因？
 
 原因可能是配置静态网站的时候，缺失配置或错误配置了**错误文档**导致，请再次回顾本文开头提供的标准配置截图，可以看到错误文档和索引文档均配置为 `index.html` 。
 
-由于单页应用的特性，我们需要保证在任何情况下都要成功访问到应用入口（一般为`index.html`），这样才能触发后续路由的一系列内部逻辑。
+由于单页应用的特性，我们需要保证在任何情况下都要成功访问到应用入口（一般为 `index.html`），这样才能触发后续路由的一系列内部逻辑。
 
 
 ### 切换路由之后，页面能正常显示，但 HTTP 状态码依然为404，怎样才能正常返回200？

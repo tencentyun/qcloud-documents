@@ -16,7 +16,6 @@ Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。Nginx-ingress 
 ## 前提条件
 - Kubernetes 版本建议在1.16版本及以上。
 - 建议您使用 TKE [节点池功能](https://cloud.tencent.com/document/product/457/43719)。
-- 建议您使用 TKE 云原生监控功能。
 - 建议您使用 [腾讯云日志服务 CLS](https://cloud.tencent.com/document/product/614)。
 
 
@@ -27,5 +26,4 @@ Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。Nginx-ingress 
 - [Nginx-ingress 概述 ](https://cloud.tencent.com/document/product/457/50502)
 - [Nginx-ingress 安装](https://cloud.tencent.com/document/product/457/50503)
 - [使用 Nginx-ingress 对象接入集群外部流量 ](https://cloud.tencent.com/document/product/457/50504)
-- [Nginx-ingress 监控配置](https://cloud.tencent.com/document/product/457/50506)
 - [Nginx-ingress 日志配置](https://cloud.tencent.com/document/product/457/50505)

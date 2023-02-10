@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文介绍如何在 Kong 云原生网关上通过 Kong IP Restriction 插件实现 IP 访问控制，包括以下两种场景：
+本文介绍如何在 Kong 云原生 API 网关上通过 Kong IP Restriction 插件实现 IP 访问控制，包括以下两种场景：
 - 配置 IP 黑/白名单列表进行访问控制
 - 配置 IP 黑/白名单 CIDR 段进行访问控制
 

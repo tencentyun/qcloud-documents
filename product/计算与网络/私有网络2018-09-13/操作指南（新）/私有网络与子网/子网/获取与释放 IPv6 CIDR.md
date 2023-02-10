@@ -24,4 +24,3 @@
 ![](https://main.qcloudimg.com/raw/b1bcc6be3cda4c578053fd31cbc6d74a.png)
 4. 在弹出的确认框中，单击**确定**，系统将回收该子网的 IPv6 CIDR。
 ![](https://main.qcloudimg.com/raw/99dd050f1e03d4a2bad75a9d14980aab.png)
-

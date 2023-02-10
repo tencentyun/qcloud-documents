@@ -3,7 +3,8 @@
 ## 新建库表
 1. 登录数据库管理控制台。
  - 直接登录 [DMC 控制台](https://dms.cloud.tencent.com/#/login)。
- - 或在 [TDSQL-C MySQL 版](https://console.cloud.tencent.com/cynosdb/mysql#/) 集群列表单击**操作**列的**登录**。
+ - 或在 [TDSQL-C MySQL 版](https://console.cloud.tencent.com/cynosdb/mysql#/) 集群列表单击**操作**列的**登录**（列表视图）。
+ - 或在 [TDSQL-C MySQL 版](https://console.cloud.tencent.com/cynosdb/mysql#/) 集群列表下单击目标集群，进入集群管理页，在集群管理页右上方单击**登录**（页签视图）。
 2. 在导航栏选择**新建** > **新建库** > **新建数据库**，或者**新建** > **新建表**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/634c1ad8a604b370b4e4dc0909896097.png)
 3. 在弹出的对话框，对新建的库或表进行相关配置。

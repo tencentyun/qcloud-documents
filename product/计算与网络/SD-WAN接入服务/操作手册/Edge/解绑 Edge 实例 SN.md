@@ -14,3 +14,5 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/3ca972c3434026528c9aa39e67a1a8cc.png)
 5. 在弹出的**解绑 SN 号** 页面单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/69d09e66eb029bd76720bb26039d4f40.png)
+
+

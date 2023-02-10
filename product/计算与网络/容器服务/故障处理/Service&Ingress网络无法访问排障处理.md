@@ -42,8 +42,10 @@ CLB 回环问题可能导致存在以下现象：
 
 1. 检查 kube-proxy 的版本是否是最新版本，如果不是请参照如下步骤升级：
    1. 解决该问题需要 kube-proxy 支持把 LB 地址绑定到 IPVS 网卡，可以在 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315) 里找到支持该能力的版本号，例如：v1.20.6-tke.12、v1.18.4-tke.20、v1.16.3-tke.25、v1.14.3-tke.24、v1.12.4-tke.30。后续更大的版本号也支持该能力：![](https://qcloudimg.tencent-cloud.cn/raw/aba40d48b7fccf1c95a881cb974eb47a.png)
-   2. 确定集群的版本：您可以在集群里面的**基本信息**页查看到当前集群的版本号，如下图所示的集群是1.18.4的版本：![](https://qcloudimg.tencent-cloud.cn/raw/6d3c6043338281346fae36d8dac3a851.png)
-   3. 找到 kube-system 命名空间下面名为 kube-proxy 的 DaemonSet，更新其镜像的版本号，选择支持该能力的版本号，或者大于该版本号的版本。例如，1.18 版本的集群要选择的镜像版本号要大于 v1.18.4-tke.20。如下图所示：![](https://qcloudimg.tencent-cloud.cn/raw/92869bbbb1dae714164390b7928a335f.png)
+   2. 确定集群的版本：您可以登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，在集群的**基本信息**页查看到当前集群的版本号，如下图所示的集群是1.22.5的版本：
+![](https://qcloudimg.tencent-cloud.cn/raw/e98b7e60dd4e8d6d4daac103c9ef1e94.png)
+   3. 找到 kube-system 命名空间下面名为 kube-proxy 的 DaemonSet，更新其镜像的版本号，选择支持该能力的版本号，或者大于该版本号的版本。例如，1.18 版本的集群要选择的镜像版本号要大于 v1.18.4-tke.20。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/473066a1dccd95a56c2667b969c2aabb.png)
 
 2. 为所有的 Service 添加注解：
    `service.cloud.tencent.com/prevent-loopback: "true"`
@@ -164,5 +166,5 @@ data:
 
 如果多个 Service 共用一个域名，可以自行部署 Ingress Controller (例如 nginx-ingress)：
 1. 用上述 rewrite 的方法将域名指向自建的 Ingress Controller。
-2. 将自建的 Ingress 根据请求 location (域名+路径) 匹配 Service，再转发给后端 Pod。整段链路不经过 CLB，同意能规避回环问题。
+2. 将自建的 Ingress 根据请求 location (域名+路径) 匹配 Service，再转发给后端 Pod。整段链路不经过 CLB，同样能规避回环问题。
  

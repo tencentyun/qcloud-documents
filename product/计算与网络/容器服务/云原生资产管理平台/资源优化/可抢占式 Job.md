@@ -52,7 +52,7 @@
 3. 选择左侧菜单栏中的**工作负载**，单击 Job/CronJob。
 4. 在 Job/CronJob 资源列表页面，单击**新建**。
 5. 在“新建组件”页面中开启**可抢占**功能。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/0ae7f646d278cdfc24404dae1bf0ff1d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4f215680cdea0e6527424aba0dec02c3.png)
  开启可抢占的能力之后，Job/CronJob 的资源输入方式发生了变化，无需输入 Request/Limit 变为了 Extended CPU 和 Extended 内存：
    - **Extended CPU**：申请原生节点中的空闲 CPU 资源。Extended CPU 限制只能是整数。
    - **Extended 内存**：申请原生节点中的空闲内存资源。Extended 内存限制只能是整数。如下图所示：
@@ -61,4 +61,4 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/a487a0d33b2fbbcb5ef93131def3309b.png)
 >! 若您没有原生节点，或原生节点没有足够多的闲置资源，则可能有如下报错："Insufficient gocran.io/memory"，表示没有足够的闲置内存资源；如果是"Insufficient gocran.io/cpu"，表示没有足够的闲置 CPU 资源。此时需要增加 [原生节点](https://cloud.tencent.com/document/product/457/78197) 数量。
 报错信息如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/26066dbd441f55c09ac1b67d219ccf80.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d4ebd169fb320ce102495cdac73835ea.png)

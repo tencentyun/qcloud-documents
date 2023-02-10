@@ -18,7 +18,7 @@ Pulsar 跨可用区容灾是通过机架感知原理实现，即将不同组件�
 
 #### NetworkTopology
 
-网络拓扑用一个树状的分层结构来表示一个集群中的 Bookie 节点信息。一个 Bookie 集群可以由很多的 date center（region）组成。在一个 data center 内部包含了分布在不同 rack 上的机器，在树状结构中，叶子节点表示 bookie 信息。
+网络拓扑用一个树状的分层结构来表示一个集群中的 Bookie 节点信息。一个 Bookie 集群可以由很多的 data center（region）组成。在一个 data center 内部包含了分布在不同 rack 上的机器，在树状结构中，叶子节点表示 bookie 信息。
 
 - **示例1：**Region A 有三个 bookie， bk1 , bk2 and bk3 , 它们的网络位置是， /region-a/rack-1/bk1 , /region-a/rack-1/bk2 , /region-a/rack-2/bk3 , 网络拓扑结构就是如下所示：
 ```

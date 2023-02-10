@@ -2,6 +2,8 @@
 
 Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远程桌面连接登录 Windows 云服务器时，出现如下报错：
 您的凭据无法工作，之前用于连接到 `XXX.XXX.XXX.XXX` 的凭据无法工作。请输入新凭据。
+>?如果输入新凭据，仍提示凭据不工作，请同时检查您的用户名是否拼写正确（Windows系统默认用户名为Administrator）。
+
 ![](https://main.qcloudimg.com/raw/74c6302cc36d82e5add5d9ea872d4572.png)
 
 ## 处理步骤

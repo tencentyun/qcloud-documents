@@ -35,9 +35,10 @@ getSignature: function(callback) {
 >?
 >- `url` 是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
 >- `signature` 计算规则可参考 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
+- 子应用、视频文件分类、任务流等信息都包含在上传签名中，更多相关信息请参见 [签名参数说明](https://cloud.tencent.com/document/product/266/9221#.3Ca-id.3D.22p2.22.3E.3C.2Fa.3E.E7.AD.BE.E5.90.8D.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)。
 
 **3. 上传视频**
-上传视频是通过调用`VodUploader.start`来实现的，选择视频则通过微信小程序 API 中的`wx.chooseVideo`方法实现。示例如下：
+上传视频是通过调用 `VodUploader.start` 来实现的，选择视频则通过微信小程序 API 中的 `wx.chooseVideo` 方法实现。示例如下：
 
 ```js
  const uploader = VodUploader.start({
@@ -125,7 +126,8 @@ getSignature: function(callback) {
 
 ## 其他说明
 
-1. 由于小程序没有获取真实文件名的 API，所以需要在上传视频时指定视频名称。如不传入`mediaName`，SDK 会设置视频名称为“来自小程序”。
+1. 由于小程序没有获取真实文件名的 API，所以需要在上传视频时指定视频名称。如不传入 `mediaName`，SDK 会设置视频名称为“来自小程序”。
 2. 默认支持断点续传和分片上传。
-3. 小程序域名信息中，`request`和`uploadFile`为合法域名，只需加上`vod2.qcloud.com`即可。
+3. 小程序域名信息中，`request` 和 `uploadFile` 为合法域名，只需加上 `vod2.qcloud.com` 即可。
 4.  小程序端默认判断当前页面的域名是 http: 时，使用 http: 域名上传。若判断域名非 http: 时，则使用 https: 域名上传。 
+5.  uni-app 集成小程序上传 SDK，因平台限制，仅在微信和 QQ 等部分小程序平台支持分片上传，Android 和 iOS 平台 App 建议集成原生上传 SDK，否则可能影响大文件的上传质量。

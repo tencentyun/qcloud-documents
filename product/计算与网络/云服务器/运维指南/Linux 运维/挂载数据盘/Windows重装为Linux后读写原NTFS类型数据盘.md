@@ -9,7 +9,7 @@ Windows 的文件系统通常使用 NTFS 或者 FAT32 格式，Linux 的文件�
 1. 登录重装系统后的 Linux 云服务器。
 2. 执行以下命令，安装 ntfsprogs 软件，使得 Linux 云服务器支持访问 NTFS 文件系统。
 <dx-alert infotype="explain" title="">
-本文以 CentOS 系统为例。不同类型的 Linux 系统安装命令有一定区别，请使用对应的安装命令进行安装。
+本文以 Centos7 系统为例。不同类型的 Linux 系统安装命令有一定区别，请使用对应的安装命令进行安装。
 </dx-alert>
 ```shellsession
 yum install  -y ntfsprogs
@@ -55,7 +55,3 @@ mount -t ntfs-3g 数据盘路径 挂载点
 mount -t ntfs-3g /dev/vdb2 /mnt
 ```
 由于此时的文件系统可识别，挂载的数据盘可直接被 Linux 系统读写。
-
-
-
-

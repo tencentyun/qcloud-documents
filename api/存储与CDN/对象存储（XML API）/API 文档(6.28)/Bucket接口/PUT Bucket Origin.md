@@ -172,15 +172,15 @@ Container 节点 NewHttpHeaders、FollowHttpHeaders、ForbidFollowHeaders 的内
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Header         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader | 回源到源站时添加或者指定传递的自定义头部，默认为空。                        | Container | 否  |
+| Header         | OriginConfiguration.OriginRule.OriginParameter.<br/>HttpHeader.NewHttpHeader | 回源到源站时添加或者指定传递的自定义头部，默认为空。                        | Container | 否  |
 
 Container 节点 Header 的内容：
 
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Key         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如 `x-A-B`，A 支持填入 `cos` 或 `oss` 或 `amz`，B 支持填入 `ContentType` 或 `CacheControl` 或 `ContentDisposition` 或 `ContentEncoding` 或 `HttpExpiresDate` 或 `UserMetaData`                        | String | 否  |
-| Value         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部值，默认为空。                        | String | 否  |
+| Key         | OriginConfiguration.OriginRule.OriginParameter.<br/>HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如 `x-A-B`，A 支持填入 `cos` 或 `oss` 或 `amz`，B 支持填入 `ContentType` 或 `CacheControl` 或 `ContentDisposition` 或 `ContentEncoding` 或 `HttpExpiresDate` 或 `UserMetaData`                        | String | 否  |
+| Value         | OriginConfiguration.OriginRule.OriginParameter.<br/>HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部值，默认为空。                        | String | 否  |
 
 Container 节点 OriginInfo 的内容：
 
@@ -194,8 +194,8 @@ Container 节点 HostInfo 的内容：
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
 | HostName         | OriginConfiguration.OriginRule.<br/>OriginInfo.HostInfo | 源站域名或者源站 IP。                        | String | 是   |
-|Weight         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 源站权重，Mirror 模式下配置了多个源站时，会根据权重按比例回源。                       |Integer | 否   |
-| StandbyHostName_N         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 备份回源地址，最多支持填入10条备份回源地址，节点命名依次按照1-10编号，例如 `StandbyHostName_1`、`StandbyHostName_2`......`StandbyHostName_10`                        | String | 是   |
+|Weight         | OriginConfiguration.OriginRule.<br/>OriginInfo.HostInfo | 源站权重，Mirror 模式下配置了多个源站时，会根据权重按比例回源。                       |Integer | 否   |
+| StandbyHostName_N         | OriginConfiguration.<br/>OriginRule.OriginInfo.HostInfo | 备份回源地址，最多支持填入10条备份回源地址，节点命名依次按照1-10编号，例如 `StandbyHostName_1`、`StandbyHostName_2`......`StandbyHostName_10`                        | String | 是   |
 
 Container 节点 FileInfo 的内容：
 
@@ -210,20 +210,20 @@ Container 节点 FixedFileConfiguration 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| FixedFilePath         | OriginConfiguration.OriginRule.OriginInfo.FileInfo.FixedFileConfiguration | 回源的固定文件路径。                        |  String | 否  |
+| FixedFilePath         | OriginConfiguration.OriginRule.OriginInfo.<br/>FileInfo.FixedFileConfiguration | 回源的固定文件路径。                        |  String | 否  |
 
 
 Container 节点 PrefixConfiguration 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Prefix       | OriginConfiguration.OriginRule.OriginInfo.FileInfo. PrefixConfiguration | 回源文件的新增文件前缀，默认为空。                        |  String | 否  |
+| Prefix       | OriginConfiguration.OriginRule.OriginInfo.<br/>FileInfo. PrefixConfiguration | 回源文件的新增文件前缀，默认为空。                        |  String | 否  |
 
 Container 节点 SuffixConfiguration 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Suffix         | OriginConfiguration.OriginRule.OriginInfo.FileInfo. SuffixConfiguration | 回源文件的新增文件后缀，默认为空。                        |  String | 否  |
+| Suffix         | OriginConfiguration.OriginRule.OriginInfo.<br/>FileInfo. SuffixConfiguration | 回源文件的新增文件后缀，默认为空。                        |  String | 否  |
 
 ## 响应
 
@@ -241,10 +241,9 @@ Container 节点 SuffixConfiguration 的内容：
 
 
 ## 实际案例
-
-#### 案例一：普通 Mirror 模式
-
-
+<dx-tabs>
+::: 案例1
+**普通 Mirror 模式**
 #### 请求
 
 ```plaintext
@@ -302,10 +301,9 @@ Date: Sun, 28 Apr 2019 12:02:45 GMT
 Server: tencent-cos
 x-cos-request-id: NWNjNTk2NTFfMmM4OGY3MGFfNadfadsfY2****
 ```
-
-
-#### 案例二：带权重的 Mirror 模式
-
+:::
+::: 案例2
+**带权重的 Mirror 模式**
 在如下示例中，回源会透传除 x-cos-example-header 之外原始请求的所有头部；规则指定了两个回源源站，源站1 `bucketname1-appid.cos.region.myqcloud.com` 和源站2 `bucketname2-appid.cos.region.myqcloud.com`，权重分别为8和2，80%的回源请求会访问源站1，20%的回源请求会访问源站2。
 
 
@@ -363,10 +361,9 @@ Date: Sun, 28 Apr 2019 12:02:25 GMT
 Server: tencent-cos
 x-cos-request-id: NWNjNTk2NTFfMmM4OGY3MGFfNTI1****
 ```
-
-#### 案例三：Proxy 模式
-
-
+:::
+::: 案例3
+**Proxy 模式**
 #### 请求
 
 ```plaintext
@@ -425,11 +422,9 @@ Date: Sun, 28 Apr 2019 12:02:45 GMT
 Server: tencent-cos
 x-cos-request-id: NWNjNTk2NTFfMmM4OGY3MGFfNadfadsfY****
 ```
-
-
-#### 案例四：Redirect 模式
-
-
+:::
+::: 案例4
+**Redirect 模式**
 #### 请求
 
 ```plaintext
@@ -472,5 +467,5 @@ Date: Sun, 28 Apr 2019 12:02:25 GMT
 Server: tencent-cos
 x-cos-request-id: NWNjNTk2NTFfMmM4OGY3MGFfNTI1****
 ```
-
-
+:::
+</dx-tabs>

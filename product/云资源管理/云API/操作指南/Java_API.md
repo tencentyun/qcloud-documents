@@ -1,10 +1,6 @@
 腾讯云 API 全新升级3.0，该版本进行了性能优化且全地域部署、支持就近和按地域接入、访问时延下降显著，接口描述更加详细、错误码描述更加全面、SDK 增加接口级注释，让您更加方便快捷的使用腾讯云产品。这里针对 Java API 调用方式进行简单说明。
 现已支持云服务器（CVM）、云硬盘（CBS）、私有网络（VPC）、云数据库（TencentDB）等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他的云产品接入，敬请期待。 
 
-
-
-
-
 ## 了解请求结构
 
 #### 1. 服务地址（endpoint）
@@ -289,8 +285,10 @@ import javax.xml.bind.DatatypeConverter;
 
 public class TencentCloudAPITC3Demo {
     private final static Charset UTF8 = StandardCharsets.UTF_8;
-    private final static String SECRET_ID = "AKIDz8krbsJ5**********mLPx3EXAMPL";
-    private final static String SECRET_KEY = "Gu5t9xGAR***********EXAMPLE";
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5**********mLPx3EXAMPL
+    private final static String SECRET_ID = System.getenv("TENCENTCLOUD_SECRET_ID");
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGAR***********EXAMPLE
+    private final static String SECRET_KEY = System.getenv("TENCENTCLOUD_SECRET_KEY");
     private final static String CT_JSON = "application/json; charset=utf-8";
 
     public static byte[] hmac256(byte[] key, String msg) throws Exception {
@@ -589,14 +587,16 @@ public class TencentCloudAPIDemo {
         params.put("Nonce", 11886); // 公共参数
         // 实际调用时应当使用系统当前时间，例如：   params.put("Timestamp", System.currentTimeMillis() / 1000);
         params.put("Timestamp", 1465185768); // 公共参数
-        params.put("SecretId", "AKIDz8krbsJ5**********mLPx3EXAMPL"); // 公共参数
+        // 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5**********mLPx3EXAMPL
+        params.put("SecretId", System.getenv("TENCENTCLOUD_SECRET_ID")); // 公共参数
         params.put("Action", "DescribeInstances"); // 公共参数
         params.put("Version", "2017-03-12"); // 公共参数
         params.put("Region", "ap-guangzhou"); // 公共参数
         params.put("Limit", 20); // 业务参数
         params.put("Offset", 0); // 业务参数
         params.put("InstanceIds.0", "ins-09dx96dg"); // 业务参数
-        params.put("Signature", sign(getStringToSign(params), "Gu5t9xGAR***********EXAMPLE", "HmacSHA1")); // 公共参数
+        // 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGAR***********EXAMPLE
+        params.put("Signature", sign(getStringToSign(params), System.getenv("TENCENTCLOUD_SECRET_KEY"), "HmacSHA1")); // 公共参数
         System.out.println(getUrl(params));
     }
 }

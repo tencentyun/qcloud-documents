@@ -14,7 +14,7 @@ Ingress 是从 Kubernetes 集群外部访问集群内部服务的入口，您可
 
 ### 控制台操作指引
 
-1. 登录 [微服务引擎控制台](https://console.cloud.tencent.com/tse)，在左侧导航栏单击**云原生网关** > Nginx Ingress，单击目标 Nginx Ingress 网关实例，进入实例详情页。
+1. 登录 [微服务引擎控制台](https://console.cloud.tencent.com/tse)，在左侧导航栏单击**云原生 API 网关** > Nginx Ingress，单击目标 Nginx Ingress 网关实例，进入实例详情页。
 2. 在顶部菜单栏选择 **Ingress 管理**，单击**新建**。
 3. 在新建页面配置以下参数：
 ![](https://qcloudimg.tencent-cloud.cn/raw/19bf7c0bcc200583183155a9707e3ce6.png)
