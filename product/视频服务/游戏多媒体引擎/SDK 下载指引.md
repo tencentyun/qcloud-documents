@@ -37,6 +37,12 @@ v2.9.6 正式版本更新如下：
 <td>2023-01-12</td> 
 <td><a href="https://cloud.tencent.com/document/product/607/85613">集成 SDK</a></td>
 </tr>
+<tr>
+<td>发布 Flutter SDK v2.9.6 正式版本</td>
+<td >增加对 Flutter 框架的适配优化</td>
+<td>2023-02-08</td> 
+<td>-</a></td>
+</tr>
 </tbody></table>
 
 <dx-alert infotype="notice" title="更新注意">
@@ -58,6 +64,7 @@ v2.9.6 正式版本更新如下：
 | Android    | v2.9.6        | 2023-01-06 | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Android/GME_android_audio_sdk_2.9.6.58d0bafb.zip) | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Android/GME_android_audio_example_2.9.6.58d0bafb.zip) | [快速入门](https://cloud.tencent.com/document/product/607/56374) |
 | macOS     | v2.9.6          | 2023-01-06 | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Mac/GME_mac_audio_sdk_2.9.6.58d0bafb.zip) | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Mac/GME_mac_audio_demo_2.9.6.58d0bafb.zip) | [快速入门](https://cloud.tencent.com/document/product/607/56374) |
 |Electron|v2.0.2|2023-01-12|[下载](https://www.npmjs.com/package/gme-electron-sdk)|[下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Other/GME_Electron_Audio_Demo_2.0.2.9fbe5db7.zip)|[接口文档](https://cloud.tencent.com/document/product/607/85614)|
+|Flutter|v2.9.6|2023-02-08|[下载](https://www.npmjs.com/package/gme-electron-sdk)|[下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Other/GME_Electron_Audio_Demo_2.0.2.9fbe5db7.zip)|[接口文档](https://cloud.tencent.com/document/product/607/85614)|
 | Web      | -          | 2021-06-11 | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.1/H5/GME_Web_SDK_2.8.1.47.zip) | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.1/H5/GME_Web_Demo_2.8.1.47.zip) | [接口文档](https://cloud.tencent.com/document/product/607/32157) |
 
 
@@ -72,7 +79,7 @@ v2.9.6 正式版本更新如下：
 
 ### Sample Project 使用
 
-下载 SDK 及 Sample Project 后，如果使用上有问题，您可参见 [Sample Project使用问题](https://cloud.tencent.com/document/product/607/51456)，或进行 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 联系腾讯云工作人员。
+下载 SDK 及 Sample Project 后，如果使用上有问题，您可参见 [Sample Project 使用问题](https://cloud.tencent.com/document/product/607/51456)，或进行 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 联系腾讯云工作人员。
 
 > ?下载的 Sample Project 代码中，需要替换为您申请的 SDKAppid 和 Key 才可编译执行，例如 Unity Demo 需要修改 **UserConfig.cs** 代码文件。申请服务详情请参见 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)。
 
