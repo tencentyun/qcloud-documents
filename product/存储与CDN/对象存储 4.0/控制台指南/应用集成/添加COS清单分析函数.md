@@ -5,7 +5,7 @@ COS 清单分析为您提供了多种场景的清单分析服务，协助您更�
 ## 注意事项
 
 - 若您此前在对象存储控制台上为存储桶添加了 COS 清单分析规则，可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上看到您所创建的 COS 清单分析函数，请**不要**删除该 COS 清单分析函数，否则可能导致您的规则不生效。
-- 已上线云函数的地域均已支持 COS 清单分析，包括有广州、上海、北京、成都、香港、新加坡、孟买、多伦多、硅谷等，更多支持地域可参见 [云函数产品文档](https://cloud.tencent.com/document/product/583)。
+- 已上线云函数的地域均已支持 COS 清单分析，包括有广州、上海、北京、成都、中国香港、新加坡、孟买、多伦多、硅谷等，更多支持地域可参见 [云函数产品文档](https://cloud.tencent.com/document/product/583)。
 - COS 清单分析功能依赖于云函数服务，云函数服务为用户提供了 [免费额度](https://cloud.tencent.com/document/product/583/12282)，超出免费额度的部分需要按照 [云函数产品定价](https://cloud.tencent.com/document/product/583/12281) 收费。
 
 ## 操作步骤
