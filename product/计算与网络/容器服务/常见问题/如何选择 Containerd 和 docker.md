@@ -19,7 +19,8 @@ TKE 支持用户选择 Containerd 和 Docker 作为运行时组件：
 2. 在“集群管理”列表页面，选择目标集群 ID，进入该集群基本信息页面。
 3. 在“集群基本信息”中修改运行时组件。如下图所示：
 >? 修改运行时组件及版本，只对集群内无节点池归属的增量节点生效，不会影响存量节点。
->![](https://qcloudimg.tencent-cloud.cn/raw/bafb92c1dff0c5a51555745f85b9e13f.png)
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/bafb92c1dff0c5a51555745f85b9e13f.png)
 
 
 ### Containerd 和 Docker 组件常用命令是什么？
