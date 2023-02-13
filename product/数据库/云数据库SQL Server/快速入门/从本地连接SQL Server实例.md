@@ -106,7 +106,7 @@ select @@VERSION
 >- 考虑到数据安全性，云数据库 SQL Server 尚未开放实例外网 IP，如有需求可以利用 SSH2 的端口映射在外网连接实例，并对其进行配置和管理。
 
 1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在实例详情页查看实例内网 IP 及端口号。该内网 IP 及端口号会在配置端口映射时使用。
-![](https://main.qcloudimg.com/raw/5482cc658c605ea56a5502097b862e92.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/312bfd162a46e436f10106e978532f9e.png)
 2. 准备一台具有外网 IP的 Linux 云服务器，请参见 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 3. 在本地使用 SSH 工具（如 SecureCRT 等，本文以 SecureCRT 为例）登录 Linux 云服务器，请参见 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 4. 在 SecureCRT 菜单栏选择 **Options** > **Session Options**，进入会话属性设置。
