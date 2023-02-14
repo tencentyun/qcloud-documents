@@ -31,7 +31,7 @@ sudo netstat -antup | grep ftp
 ```
 显示结果如下，则说明 FTP 服务已成功启动。
 ![](https://main.qcloudimg.com/raw/86f1992cc036513bc475c859cca90663.png)
-此时，vsftpd 已默认开启匿名访问模式，无需通过用户名和密码即可登录 FTP 服务器。使用此方式登录 FTP 服务器的用户没有权修改或上传文件的权限。
+此时，vsftpd 已默认开启匿名访问模式，无需通过用户名和密码即可登录 FTP 服务器。使用此方式登录 FTP 服务器的用户没有权限修改或上传文件的权限。
 
 
 ### 步骤3：配置 vsftpd[](id:user)
