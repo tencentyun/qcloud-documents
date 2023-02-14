@@ -1,8 +1,9 @@
+## 服务端验证结果
 **此方式用于：**
 合作伙伴服务端生成签名，并调用银行卡识别服务端查询结果，鉴权完成后返回结果（服务端上传 order_no 和 wbappid 查询）。
 
-## 合作方后台生成签名
-### 准备步骤
+### 合作方后台生成签名
+#### 准备步骤
 - **前置条件：**请合作方确保 SIGN ticket 已经正常获取，获取方式请参见 [SIGN ticket 获取](https://cloud.tencent.com/document/product/1007/37305) 。
 - 合作方为银行卡 OCR 识别服务生成签名，需要具有以下参数：
 
@@ -14,7 +15,7 @@
 | ticket | 合作伙伴服务端缓存的 tikcet，注意是 SIGN 类型 | 获取方式请参见 [SIGN ticket 获取](https://cloud.tencent.com/document/product/1007/37305) |
 | nonceStr   | 32位随机字符串，字母和数字              | 合作方自行生成，不要带有特殊字符                                  |
 
-### 基本步骤
+#### 基本步骤
 1. 生成一个32位的随机字符串 nonceStr（其为字母和数字，登录时也要用到）。
 2. 将 wbappid、order_no、version、ticket、nonceStr 共5个参数的值进行字典序排序。
 3. 将排序后的所有参数字符串拼接成一个字符串。
@@ -22,8 +23,8 @@
 
 >!签名算法请参见 [签名算法说明](https://cloud.tencent.com/document/product/1007/37307) 。
 
-## 银行卡 OCR 识别结果查询接口
-### 请求
+### 银行卡 OCR 识别结果查询接口
+#### 请求
 - **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/server/getBankCardOcrResult`
 - **请求方法：**GET
 - **请求参数：**
@@ -43,7 +44,7 @@
 https://miniprogram-kyc.tencentcloudapi.com/api/server/getBankCardOcrResult?app_id=xxx&nonce=xxx&order_no=xxx&version=1.0.0&sign=xxx&get_file=xxxx
 ```
 
-### 响应
+#### 响应
 **响应参数：**
 
 |参数|  类型  |说明|
