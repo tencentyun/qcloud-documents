@@ -32,7 +32,7 @@
 
 ### 使用内网互联
 1. 轻量应用服务器实例关联云联网
-参考 [申请云联网关联](https://cloud.tencent.com/document/product/1207/56847#association)，将轻量应用服务实例关联云联网。
+参考 [申请云联网关联](https://cloud.tencent.com/document/product/1207/56847#association)，将轻量应用服务器实例关联云联网。
 2. 文件系统 VPC 实例关联云联网
 参考 [关联网络实例](https://cloud.tencent.com/document/product/877/18747)，将文件系统的 VPC 实例关联至云联网。
 
