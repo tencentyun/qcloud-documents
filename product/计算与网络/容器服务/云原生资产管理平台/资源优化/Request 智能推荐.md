@@ -41,7 +41,7 @@ Kubernetes 集群的资源利用率不高的主要原因是根据 Kubernetes 的
 
 ## Request 推荐原理
 
-- 组件在 crane-system 命名空间下创建 Analytics CR 对象，覆盖所有集群中的所有 Kubernetes 原生工作负载（Deployment、DaemonSet、StatefulSet），会分析工作负载最长 14 天的监控数据数据，10 分钟更新一次推荐值。
+- 组件在 crane-system 命名空间下创建 Analytics CR 对象，覆盖所有集群中的所有 Kubernetes 原生工作负载（Deployment、DaemonSet、StatefulSet），会分析工作负载最长 14 天的监控数据数据，12 小时更新一次推荐值。
 - 然后根据 Analytics 生成集群内每个工作负载的 Recommendation CR 对象，用于存储推荐的数据。
 - Recommendation CR 如果产生了推荐数据，就会把推荐数据写入到对应工作负载的 Annotation 里。
 
