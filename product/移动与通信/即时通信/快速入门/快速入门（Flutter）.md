@@ -106,7 +106,7 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 flutter pub get
 ```
 3. 配置环境变量。
-在右上角运行按钮旁，鼠标hover `main.dart`，配置 `Edit Configurations`。
+在右上角运行按钮旁，鼠标单击 `main.dart`，配置 `Edit Configurations`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2db56849e86dab8f6f0ccb4d3374fce.png)
 在弹出窗口中，配置 `Additional run args`，输入环境变量（SDKAPPID等信息）。如：
 ```shell
