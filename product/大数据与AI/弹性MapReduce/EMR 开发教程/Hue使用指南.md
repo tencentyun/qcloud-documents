@@ -13,7 +13,7 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 1. 添加用户。
 	1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，使用 [用户管理](https://cloud.tencent.com/document/product/589/62751) 功能添加新用户。
 	2. 如果您的集群部署了 Ranger，添加新用户后，需要手动触发 ranger-ugsync-site.xml 的配置下发，重启 EnableUnixAuth 服务进行用户同步，具体操作步骤可参考 [用户管理](https://cloud.tencent.com/document/product/589/62751)。然后进入 Ranger WebUI 设置新用户访问权限。
-	3. 在列表页找到 Hue 组件，单击 WebUI 访问地址进入 Hue 页面，完成新用户登陆及使用。
+	3. 在列表页找到 Hue 组件，单击 WebUI 访问地址进入 Hue 页面，完成新用户登录及使用。
 2. 权限控制。
 hue 通过将不同的权限添加到组，用户通过加入不同的组获得对应权限。
 	1. 单击用户管理页面上方的 **Groups**，然后单击右侧的 **Add group**。
