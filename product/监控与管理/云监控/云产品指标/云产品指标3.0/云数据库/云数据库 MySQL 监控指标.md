@@ -157,23 +157,6 @@ Namespace=QCE/CDB
 | ProxyMemoryUse          | 内存占用   | MB   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 
 
-ProxyCpuUseRate    CPU利用率
-ProxyCurrentConnections 当前连接数
-ProxyMemoryUseRate  内存利用率
-ProxyQueries	请求数
-ProxyRouteMaster 写请求数
-ProxyRouteSlave 读请求数
-ProxyMemoryUse 内存占用
-
-入参维度：InstanceType、InstanceId
-
-
-### 
-
-| 指标英文名          | 指标中文名       | 指标说明               | 单位 | 维度                             | 统计粒度                     |
-| ------------------- | ---------------- | ---------------------- | ---- | -------------------------------- | ---------------------------- |
-
-
 ### 部署监控（备机）
 
 | 指标英文名              | 指标中文名   | 指标说明         | 单位                                | 维度                             | 统计粒度                     |
