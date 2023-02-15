@@ -37,7 +37,7 @@
 2. 创建 ApiCloud 应用，请参见 [ApiCloud 新手开发指南](https://docs.apicloud.com/APICloud/junior-develop-guide)。
    
 [](id:step3)
-### 步骤3: 在应用中添加腾讯云IM模块
+### 步骤3：在应用中添加腾讯云IM模块
 
 **腾讯云官方IM模块名为 `tencentCloudChatSDK`。**
 
