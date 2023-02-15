@@ -1,13 +1,9 @@
-# 接入iOS应用
+## 集成 SDK
 
-## 1 集成 SDK
-
-### 1.1 前置条件
-
+### 前置条件
 - **环境要求**
   - `iOS` >= 7.0
   - `Xcode` >= 10.0
-
 - **组件依赖**
   - `openssl`
   - `Tars`
@@ -18,20 +14,15 @@
   - `TMFInstruction`
   - `SSZipArchive`
 
-### 1.2 集成方式
-
+### 集成方式
 TMFWebOffline 的集成方式有以下 2 种，可选择其一进行集成：
-
 - CocoaPods 集成 SDK（离线 Pod）
 - 手动集成 SDK
 
-#### 1.2.1 CocoaPods 集成 SDK（离线 Pod）
-
+#### CocoaPods 集成 SDK（离线 Pod）
 - 在您项目中的 `Podfile` 文件里添加如下内容：
-
   ```objective-c
   target 'YourTarget' do
-    
     # 依赖组件
     pod 'openssl',          :path => './Frameworks/openssl'
     pod 'MQQTcc',           :path => './Frameworks/MQQTcc'
@@ -41,67 +32,49 @@ TMFWebOffline 的集成方式有以下 2 种，可选择其一进行集成：
     pod 'TMFShark',         :path => './Frameworks/TMFShark'
     pod 'TMFInstruction',   :path => './Frameworks/TMFInstruction'
     pod 'SSZipArchive',     :path => './Frameworks/SSZipArchive'
-    
     pod 'TMFQWebView',      :path => './Frameworks/TMFQWebView'
-    
     # TMFWebOffline
     pod 'TMFWebOffline',    :path => './Frameworks/TMFWebOffline'
-      
-  end
-  ```
-
-  其中：
-
+    end
+```
+其中：
   - `YourTarget` 为您的项目需要引入 `TMFWebOffline` 的 target 的名字。
   - `:path =>` 指向的路径，为当前组件的 `.podspec` 文件所在目录与 `Podfile` 文件的**相对路径**。 例如，上面示例中的 `'./Frameworks/TMFWebOffline'` 为 `TMFWebOffline.podspec` 文件所在目录的相对路径。
-
 - Terminal `cd` 到 Podfile 文件所在目录，并执行 `pod install` 进行组件安装。
-
-  ```shell
+```shell
   $ pod install
-  ```
+```
 
-#### 1.2.2 手动集成 SDK
-
+#### 手动集成 SDK
 - **添加SDK**
-
   将`TMFWebOffline` 组件的目录添加到您项目的 Xcode Project 中的合适位置，并选择合适的 target。
-
   您可以把组件的目录从 Finder 直接拖动到 Xcode Project 中，以进行快捷添加。
-
-
-
 - **添加依赖的 SDK**
   把 `TMFWebOffline` 依赖的所有组件添加到项目中，依赖的组件列表，请参见前置条件中的 [组件依赖](# 1.1 前置条件)。
-
 - **添加依赖的系统库**
   把  `TMFWebOffline` 依赖的系统库添加到项目中，在 Xcode 中打开 project 设置页，选中相关的 target，单击【General】，在“Linked Frameworks and Libraries”中进行添加。
 	**系统库依赖**
-	
 	- `Foundation.framework`
 	- `UIKit.framework`
 	- `CoreGraphics.framework`
 	- `Security.framework`
 	- `libbz2.1.0.tdb`
-  - `libz.tdb`
-  
-  **Project 设置**
+	- `libz.tdb`
+
+- **Project 设置**
   添加 `TMFWebOffline` 后，需要进行相关的 Project 设置。
   在 Xcode 中打开 Project 设置页，选中相关的 target，进行以下设置：
-  
-  - 选择【Build Settings】>【Linking】>【Other Linker Flags】，增加：`-ObjC`。
+选择 **Build Settings** > **Linking** > **Other Linker Flags**，增加：`-ObjC`。
 
 
 
-## 2 使用 SDK
+## 使用 SDK
 
-### 2.1 调试
+### 调试
 
-#### 2.1.1 配置说明
-
+#### 配置说明
 - 在 `AppDelegate` 的 `-application:didFinishLaunchingWithOptions:` 中注册离线包调试日志输出回调，可以在终端控制台中查看到离线包的调试日志，方便定位问题。
-
-  ```objective-c
+```objective-c
   // 日志输出回调定义：
   void loggerWebOffline(TMFWebOfflineLoggerLevel level, const char* log) {
   #ifdef DEBUG
@@ -125,14 +98,10 @@ TMFWebOffline 的集成方式有以下 2 种，可选择其一进行集成：
   #endif
     return YES;
   }
-  ```
-
-  > ![](./images/注意.png)注意：日志打印建议仅在 DEBUG 环境中进行，发布版本不要输出离线包的相关日志。
-
+```
+>!日志打印建议仅在 DEBUG 环境中进行，发布版本不要输出离线包的相关日志。
 - Xcode控制台中添加 Filter：TMFWebOffline
-
   ![image-20190911144940551](images/image-20190911144940551.png)
-
 - App中调用离线包的相关接口，在控制台中观察的相关日志输出。
 
 #### 2.1.2 日志级别说明
