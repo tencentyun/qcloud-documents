@@ -1,19 +1,13 @@
-# 接入Android应用
-
 ## 集成
-
-1. 参考[Android应用接入-IDE方式](../../快速接入/Android应用接入-IDE方式.md)或者 [Android应用接入-Gradle方式](../../快速接入/Android应用接入-Gradle方式.md) ，完成框架接入。
-2. 在module级别build.gradle中，配置依赖。
-
-   ```groovy
-   implementation 'com.tencent.tmf.android:webview:+'
-   implementation 'com.tencent.tmf.android:weboffline:+'
-   implementation 'com.tencent.tmf.android:hybrid:+'
-   ```
-
-3. 在app module build.gradle中增加配置
-
-   ```
+1. 参考 [Android 应用接入-IDE 方式 ](https://cloud.tencent.com/document/product/1034/85243)或者 [Android 应用接入-Gradle 方式](https://cloud.tencent.com/document/product/1034/85242) ，完成框架接入。
+2. 在 module 级别 build.gradle 中，配置依赖。
+```groovy
+implementation 'com.tencent.tmf.android:webview:+'
+implementation 'com.tencent.tmf.android:weboffline:+'
+implementation 'com.tencent.tmf.android:hybrid:+'
+```
+3. 在 app module build.gradle 中增加配置。
+```
    android{
        packagingOptions {
    //不允许AS打包时优化so库，因为X5内核的so库做了MD5的校验，否则会出现加载成功X5内核后，会被删掉
@@ -21,14 +15,12 @@
            doNotStrip "**/*.so"
        }
    }
-   ```
+```
 
 ## 初始化
 
 ### 协议版本
-
 早期版本离线包任务推拉是依赖数据同步组件来完成的，从3.0.2.0版本起，离线包支持直接使用移动网关来实现任务推拉，可以解除任务推拉对数据同步组件的依赖。不过本次协议调整对新版服务有依赖，考虑到私有化客户不同的服务版本，SDK侧做了兼容，同时保留了两套协议实现，客户在初始化时根据自身服务情况指定协议版本即可。
-
 ```java
 public class ProtocolType {
     /**
@@ -41,14 +33,11 @@ public class ProtocolType {
     public static final int PROTOCOL_TYPE_SHARK = 1;
 }
 ```
-
-> ![](../../img/caution.png)注意：
->
-> - 如果您对接的是公有云版本服务，协议版本需选择PROTOCOL_TYPE_SHARK。
-> - 如果您对接的是私有化版本服务，默认协议版本是PROTOCOL_TYPE_CONCH，如果需要选择PROTOCOL_TYPE_SHARK，请联系管理员确认服务版本是否支持新协议。
+>!
+> - 如果您对接的是公有云版本服务，协议版本需选择 PROTOCOL_TYPE_SHARK。
+> - 如果您对接的是私有化版本服务，默认协议版本是 PROTOCOL_TYPE_CONCH，如果需要选择 PROTOCOL_TYPE_SHARK，请联系管理员确认服务版本是否支持新协议。
 
 ### 初始化
-
 ```java
 //离线包初始化
 OfflineManager.init(context, protocolType);//根据对接服务版本，选择protocoType
@@ -57,10 +46,8 @@ OfflineManager.init(context, protocolType);//根据对接服务版本，选择pr
 TMFHybridManager.getInstance().init(context);
 ```
 
-## 使用默认UI打开一个离线包
-
+## 使用默认 UI 打开一个离线包
 完成初始化操作后，可以使用如下方式打开一个离线包。
-
 ```java
 //方法一，指定BID打开离线包
 TMFHybridManager.getInstance().startAppById(bid);
@@ -69,22 +56,16 @@ String url="https://www.qq.com/h5/index.html?_bid=yourBid";
 TMFHybridManager.getInstance().startAppByUrl(url);
 ```
 
-## 使用默认UI打开一个URL
-
-HCotainer支持指定URL打开一个包含Webview的页面
-
+## 使用默认 UI 打开一个 URL
+HCotainer 支持指定 URL 打开一个包含 Webview 的页面
 ```java
 String url="https://www.qq.com";
 TMFHybridManager.getInstance().startAppByUrl(url);
 ```
 
-## 使用自定义的UISetting打开页面
-
-SDK提供默认的UI布局用于打开离线包，UI布局元素配置如下：
-
+## 使用自定义的 UISetting 打开页面
+SDK 提供默认的 UI 布局用于打开离线包，UI布局元素配置如下：
 ```java
-   
-
 //打开一个BID
 TMFHybridManager.getInstance().startAppById(bid, getCustomUiSettings());
 //打开一个URL
@@ -113,9 +94,7 @@ private UISettings getCustomUiSettings() {
 ```
 
 ## 使用完全自定义的H5页面
-
 如果上诉的自定义UI不能满足H5页面的展示需求，可以按照如下方法实现对页面的完全自定义。值得一提的是，完全自定义的H5页面是全局生效。
-
 ```java
 //设置完全自定义的H5展示页面 
 TMFHybridManager.getInstance().setCustomView(new TestCustomViewProvider());
@@ -138,27 +117,21 @@ public class TestCustomViewProvider implements CustomViewProvider {
 ```
 
 ## 添加全局公共资源包
-
 当制定打开的离线包对公共资源包有依赖时，可以通过下面方法增加对公共资源包的引用；确保通过BID打开离线包时可以正确找到对应的公共资源。
-
 ```java
 //添加全局公共资源包，bid对应公共资源包bid
 TMFHybridManager.getInstance().addCommonResource(bid);
 ```
 
 ## 配置虚拟地址
-
 通过BID打开离线包时，默认会使用 http://www.default.com 作为离线包的虚拟地址，可以调用如下的接口设置虚拟地址：
-
 ```java
 //设置虚拟地址
 TMFHybridManager.getInstance().setVirtualAddress("https://www.qq.com");
 ```
 
 ## 附带参数打开离线包
-
 当离线包有附加参数添加到Url，可以使用如下的方式进行参数传递：
-
 ```java
 Bundle bundle = new Bundle();
 bundle.putString(OfflineAppBundleKey.KEY_ENTRANCE_PATH, entryPath);//入口文件路径,默认为index.html
@@ -170,9 +143,7 @@ TMFHybridManager.getInstance().startAppById(id, bundle, UISettings.getDefault())
 ```
 
 ## 使用集成视图展示离线包或者URL
-
 SDK中提供了EmbedView用于快速集成打开离线包或者URL。
-
 ```java
 public class EmbedViewTestActivity extends TopBarActivity {
 
@@ -225,9 +196,7 @@ public class EmbedViewTestActivity extends TopBarActivity {
 ```
 
 ## 设置在线资源域名
-
 可以通过下面的方法设置离线包对应的在线资源地址。
-
 ```java
 //设置在线资源域名
 TMFHybridManager.getInstance().setHostForOnlineApp("http://www.qq.com");
@@ -235,7 +204,6 @@ TMFHybridManager.getInstance().setHostForOnlineApp("http://www.qq.com");
 
 
 ## 手动检查离线包更新
-
 ```java
 OfflineManager mOfflineManager = new OfflineManager(context);
 
@@ -270,7 +238,6 @@ mOfflineManager.checkLatestUpdate(list, mUpdateSetting, new IOfflineUpdateCallba
 ```
 
 ## 获取本地离线包版本
-
 ```java
 /**
  * 获取本地离线包的版本
@@ -285,7 +252,6 @@ String version = mOfflineManager.getBizVersion(context, "testBid");//testBid为�
 ```
 
 ## 删除本地离线包
-
 ```java
 /**
  * 清理指定离线包(同步接口)
@@ -307,9 +273,7 @@ mOfflineManager.deleteBiz(context, bids);
 ```
 
 ## 全量检查更新
-
 全量检查是指检查所有离线包是否有新版。
-
 ```java
 /**
  * 检查所有最新离线包的更新
@@ -357,7 +321,6 @@ mOfflineManager.checkAllUpdate(updateSetting, new IOfflineUpdateCallback() {
 ## API
 
 ## UpdateSetting
-
 ```java
 // 是否下载，默认为true
 public boolean isDownload = true;
@@ -374,7 +337,6 @@ public boolean deleteOldBizBeforeDownload = false；
 ```
 
 ## UpdateEntity
-
 ```java
 //全量更新
 public static final int E_UPDATE_TYPE_NORMAL = 1;
@@ -395,7 +357,6 @@ public int pkgType = 0;
 ```
 
 ## ProgressEntity
-
 ```java
 //离线包Id
 public String bid;
@@ -406,7 +367,6 @@ public long totalBytes;
 ```
 
 ## DownloadInfo
-
 ```java
 //参考{@link com.tencent.tmf.weboffline.api.OfflineManager}
 public int code;
@@ -417,7 +377,6 @@ private String message;
 ```
 
 ## OfflinePkg
-
 ```java
 //离线包id
 private String bid;
@@ -426,7 +385,6 @@ private int targetVersion;
 ```
 
 ## TMFWebResourceResponse
-
 ```java
 //返回WebResourceResponse
 private WebResourceResponse resourceResponse;
@@ -435,7 +393,6 @@ private String path;
 ```
 
 ## OfflineConfig
-
 ```java
 /**
 * 是否检查到有新包就把旧包删掉，而不是下载到新包之后才替换(可选)
@@ -485,7 +442,6 @@ private int protocalType;
 ```
 
 ## DefaultUpdateInfoListener
-
 ```java
 /**
 * 接收到离线包推送时忽略
@@ -508,7 +464,6 @@ public DefaultUpdateInfoListener(Context context, int downloadMode)
 ```
 
 ## IOfflineUpdateCallback
-
 ```java
 /**
  * 检查更新回调
@@ -532,7 +487,6 @@ void downloadFinish(DownloadInfo downloadInfo);
 ```
 
 ## AbsLoadUrlCallback
-
 ```java
 /**
  * 返回离线包加载url
@@ -541,7 +495,6 @@ public abstract void onFinish(String url);
 ```
 
 ## OfflineManager
-
 ```Java
 // 定义更新回调错误码:0成功，1参数出错，2下载更新包出错，3没有sd卡，4其他错误
 // 短时间内更新过
