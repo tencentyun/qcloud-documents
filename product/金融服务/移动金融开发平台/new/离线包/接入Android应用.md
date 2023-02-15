@@ -20,7 +20,7 @@ implementation 'com.tencent.tmf.android:hybrid:+'
 ## 初始化
 
 ### 协议版本
-早期版本离线包任务推拉是依赖数据同步组件来完成的，从3.0.2.0版本起，离线包支持直接使用移动网关来实现任务推拉，可以解除任务推拉对数据同步组件的依赖。不过本次协议调整对新版服务有依赖，考虑到私有化客户不同的服务版本，SDK侧做了兼容，同时保留了两套协议实现，客户在初始化时根据自身服务情况指定协议版本即可。
+早期版本离线包任务推拉是依赖数据同步组件来完成的，从3.0.2.0版本起，离线包支持直接使用移动网关来实现任务推拉，可以解除任务推拉对数据同步组件的依赖。不过本次协议调整对新版服务有依赖，考虑到私有化客户不同的服务版本，SDK 侧做了兼容，同时保留了两套协议实现，客户在初始化时根据自身服务情况指定协议版本即可。
 ```java
 public class ProtocolType {
     /**
@@ -107,7 +107,6 @@ public class TestCustomViewProvider implements CustomViewProvider {
     public IH5TitleViewProvider createTitleView(Context context) {
         return new TestCustomTitleView(context);
     }
-
 
     @Override
     public IH5ContentViewProvider createH5ContentView(Context context) {
