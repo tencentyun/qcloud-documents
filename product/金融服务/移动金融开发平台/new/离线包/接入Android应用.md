@@ -94,7 +94,7 @@ private UISettings getCustomUiSettings() {
 ```
 
 ## 使用完全自定义的H5页面
-如果上诉的自定义UI不能满足H5页面的展示需求，可以按照如下方法实现对页面的完全自定义。值得一提的是，完全自定义的H5页面是全局生效。
+如果上述的自定义 UI 不能满足 H5 页面的展示需求，可以按照如下方法实现对页面的完全自定义。值得一提的是，完全自定义的 H5 页面是全局生效。
 ```java
 //设置完全自定义的H5展示页面 
 TMFHybridManager.getInstance().setCustomView(new TestCustomViewProvider());
@@ -117,21 +117,21 @@ public class TestCustomViewProvider implements CustomViewProvider {
 ```
 
 ## 添加全局公共资源包
-当制定打开的离线包对公共资源包有依赖时，可以通过下面方法增加对公共资源包的引用；确保通过BID打开离线包时可以正确找到对应的公共资源。
+当制定打开的离线包对公共资源包有依赖时，可以通过下面方法增加对公共资源包的引用；确保通过 BID 打开离线包时可以正确找到对应的公共资源。
 ```java
 //添加全局公共资源包，bid对应公共资源包bid
 TMFHybridManager.getInstance().addCommonResource(bid);
 ```
 
 ## 配置虚拟地址
-通过BID打开离线包时，默认会使用 http://www.default.com 作为离线包的虚拟地址，可以调用如下的接口设置虚拟地址：
+通过 BID 打开离线包时，默认会使用 `http://www.default.com` 作为离线包的虚拟地址，可以调用如下的接口设置虚拟地址：
 ```java
 //设置虚拟地址
 TMFHybridManager.getInstance().setVirtualAddress("https://www.qq.com");
 ```
 
 ## 附带参数打开离线包
-当离线包有附加参数添加到Url，可以使用如下的方式进行参数传递：
+当离线包有附加参数添加到 Url，可以使用如下的方式进行参数传递：
 ```java
 Bundle bundle = new Bundle();
 bundle.putString(OfflineAppBundleKey.KEY_ENTRANCE_PATH, entryPath);//入口文件路径,默认为index.html
@@ -143,7 +143,7 @@ TMFHybridManager.getInstance().startAppById(id, bundle, UISettings.getDefault())
 ```
 
 ## 使用集成视图展示离线包或者URL
-SDK中提供了EmbedView用于快速集成打开离线包或者URL。
+SDK 中提供了 EmbedView 用于快速集成打开离线包或者 URL。
 ```java
 public class EmbedViewTestActivity extends TopBarActivity {
 
@@ -283,13 +283,9 @@ mOfflineManager.deleteBiz(context, bids);
  */
 public void checkAllUpdate(UpdateSetting updateSetting, final IOfflineUpdateCallback callback)
 ```
-
-使用场景：
-
+**使用场景**：
 首次启动之后，想确保所有离线包更新到最新版。不过需要注意的是，全量检查更新时应将自动下载安装功能关闭，否则可能会导致后台下载大量离线包新版，影响用户体验。
-
-使用示例：
-
+**使用示例**：
 ```java
 UpdateSetting updateSetting = new UpdateSetting();
 updateSetting.isDownload = false; //关闭自动下载功能，仅做版本检查
