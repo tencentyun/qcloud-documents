@@ -150,7 +150,7 @@ Namespace=QCE/CDB
 | ----------------------- | ---------- | ---- | -------------------------------- | ---------------------------- |
 | ProxyCpuUseRate         | CPU 利用率 | %    | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | ProxyCurrentConnections | 当前连接数 | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
-| ProxyMemoryUseRate      | 内存利用率 | %    | InstanceId、InstanceType（选填   | 5s、60s、300s、3600s、86400s |
+| ProxyMemoryUseRate      | 内存利用率 | %    | InstanceId、InstanceType（选填）   | 5s、60s、300s、3600s、86400s |
 | ProxyQueries            | 请求数     | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | ProxyRouteMaster        | 写请求数   | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | ProxyRouteSlave         | 读请求数   | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
