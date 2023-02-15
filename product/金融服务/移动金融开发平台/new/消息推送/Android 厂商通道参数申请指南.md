@@ -1,4 +1,4 @@
-## 小米参数获取
+## 小米参数获取[](id:xiaomi)
 
 ### 注册小米企业开发者账号
 小米企业开发者账号的注册方式参考<a href="https://dev.mi.com/console/doc/detail?pId=848">《企业开发者账号注册操作指南》</a>。
@@ -32,7 +32,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/c25a78d20008ea831c4dce74802f005f.png)
 3. 您需要将相关信息配置在 TMF 控制台以及您的 Android 应用中，以便正常使用推送功能。
 
-## 华为参数获取
+## 华为参数获取[](id:huawei)
 
 ### 注册华为开发者账号
 华为开发者账号的注册方法参考<a href="https://developer.huawei.com/consumer/cn/doc/start/registration-and-verification-0000001053628148">《注册账号》</a>。华为个人开发账号、企业开发账号完成实名认证后均可使用推送服务。个人开发者账号认证参考<a href="https://developer.huawei.com/consumer/cn/doc/start/ht-idrna-0000001200848143">《个人开发者如何实名认证》</a>；如果需要申请企业开发者认证请参考<a href="https://developer.huawei.com/consumer/cn/doc/start/ht-edrna-0000001154848578">《企业开发者如何实名认证》</a>。
@@ -73,7 +73,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/ac01d3ce8b63a750dc6f6283def0a559.png)
 2. 您需要将相关信息配置在 TMF 控制台以及您的 Android 应用中，以便正常使用推送功能。
 
-## 荣耀参数获取
+## 荣耀参数获取[](id:honor)
 
 ### 注册荣耀开发者账号
 荣耀开发者账号的注册方法参考<a href="https://developer.hihonor.com/cn/doc/guides/100272">《帐号注册》</a>。荣耀暂不支持注册个人开发者账号，使用推送服务需要进行企业账号实名认证。实名认证方法参考<a href="https://developer.hihonor.com/cn/doc/guides/100273">《实名认证》</a>。
@@ -121,13 +121,12 @@ keytool -list -printcert -jarfile <apk-file>
 ![](https://qcloudimg.tencent-cloud.cn/raw/bd261d434de9624874ab25e1cc35ca28.png)
 3. 您需要将相关信息配置在 TMF 控制台以及您的 Android 应用中，以便正常使用推送功能。
 
-## OPPO 参数获取
+## OPPO 参数获取[](id:OPPO)
 
 ### 注册OPPO开发者账号
 OPPO 开发者账号的注册方法参考<a href="https://open.oppomobile.com/new/developmentDoc/info?id=11476">《开发者帐号注册流程》</a>。您需要注册 OPPO 企业开发者账号才能使用 OPPO 推送服务。
 
 ### 新建应用
-
 1. 登录[ OPPO 开放平台](https://open.oppomobile.com/)，进入**管理中心**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eae4ee831382a1e14cde09245415bbc6.png)
 2. 打开**应用服务平台**。
@@ -176,14 +175,13 @@ OPPO 开发者账号的注册方法参考<a href="https://open.oppomobile.com/ne
 ![](https://qcloudimg.tencent-cloud.cn/raw/75d1543a69e0cfcc9a7b05f8a1f9b0a2.png)
 3. 您需要将相关信息配置在 TMF 控制台以及您的 Android 应用中，以便正常使用推送功能。
 
-## vivo 参数获取
+## vivo 参数获取[](id:vivo)
 
 ### 注册 vivo 开发者账号
 
 vivo开发者账号的注册方式参考<a href="https://dev.vivo.com.cn/documentCenter/doc/2">《企业开发者注册》</a>。vivo目前仅支持企业开发者注册。
 
 ### 新建应用
-
 1. 进入 [vivo 开放平台](https://dev.vivo.com.cn/documentCenter/doc/2)，登录账号，进入**管理中心**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd178c55cf1b7d732d14ddd0fe04fb99.png)
 2. 单击**应用与游戏**。
@@ -209,7 +207,7 @@ vivo开发者账号的注册方式参考<a href="https://dev.vivo.com.cn/documen
 ![](https://qcloudimg.tencent-cloud.cn/raw/c16e9a0ac0bd97f0a942df91b7bcb566.png)
 3. 您需要将相关信息配置在 TMF 控制台以及您的 Android 应用中，以便正常使用推送功能。
 
-## Firebase Cloud Messaging 参数获取
+## Firebase Cloud Messaging 参数获取[](id:Firebase)
 
 ### 创建 Google 账号
 Google账号的注册方式参考<a href="https://support.google.com/accounts/answer/27441?hl=zh-Hans">《创建 Google 帐号》</a>。
