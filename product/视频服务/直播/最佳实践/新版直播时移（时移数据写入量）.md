@@ -31,7 +31,7 @@
 <td>tsEnd</td>
 <td>时移结束时间</td>
 <td>是</td>
-<td>td>tsEnd=20121010010102</td>
+<td>tsEnd=20121010010102</td>
 </tr><tr>
 <td>tsFormat</td>
 <td><ul style="margin:0">
