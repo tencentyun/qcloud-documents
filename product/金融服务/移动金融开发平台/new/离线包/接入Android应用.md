@@ -141,7 +141,7 @@ bundle.putString(OfflineAppBundleKey.KEY_URL_PARAMS, stringOfUrlParams);//Url参
 TMFHybridManager.getInstance().startAppById(id, bundle, UISettings.getDefault());
 ```
 
-## 使用集成视图展示离线包或者URL
+## 使用集成视图展示离线包或者 URL
 SDK 中提供了 EmbedView 用于快速集成打开离线包或者 URL。
 ```java
 public class EmbedViewTestActivity extends TopBarActivity {
