@@ -67,7 +67,6 @@ TMFWebOffline 的集成方式有以下 2 种，可选择其一进行集成：
 选择 **Build Settings** > **Linking** > **Other Linker Flags**，增加：`-ObjC`。
 
 
-
 ## 使用 SDK
 
 ### 调试
@@ -101,13 +100,12 @@ TMFWebOffline 的集成方式有以下 2 种，可选择其一进行集成：
 ```
 >!日志打印建议仅在 DEBUG 环境中进行，发布版本不要输出离线包的相关日志。
 - Xcode控制台中添加 Filter：TMFWebOffline
-  ![image-20190911144940551](images/image-20190911144940551.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6c7f97be4eed3f09d2e30a6fe37343af.png)
 - App中调用离线包的相关接口，在控制台中观察的相关日志输出。
 
-#### 2.1.2 日志级别说明
+#### 日志级别说明
 
-##### 2.1.2.1 日志分为 `Debug`、`Info`、`Warn`、`Error` 四个级别
-
+##### 日志分为 `Debug`、`Info`、`Warn`、`Error` 四个级别
 ```objective-c
 /**
  @brief 日志级别
@@ -119,9 +117,7 @@ typedef NS_ENUM(NSInteger, TMFWebOfflineLoggerLevel) {
     TMFWebOfflineLoggerLevelError = 3,         ///< 严重错误导致系统退出日志
 };
 ```
-
 可根据日志级别在 loggerWebOffline 中灵活控制日志输出。比如，想输出 `Debug` 和 `Info` 的日志，可参考下面的设置：
-
 ```objective-c
 #ifdef DEBUG
     if (level <= TMFWebOfflineLoggerLevelInfo) {
@@ -130,26 +126,18 @@ typedef NS_ENUM(NSInteger, TMFWebOfflineLoggerLevel) {
 #endif
 ```
 
-##### 2.1.2.2 日志标签/关键字说明 
-
+##### 日志标签/关键字说明 
 - 离线包预加载到生效的整体过程日志：（关键字：TMFWebOffline、TMFWebOfflineApp、download）
-
-  ![image-20190911145751600](images/image-20190911145751600.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/f9bc73dfcaeab800129324fa0e971c95.png)
 - webView 加载离线包过程日志：（关键字：TMFWebOffline、WebOfflineHandler、apply）
-
-  ![image-20190911150647786](images/image-20190911150647786.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/efde9795b60a6be4e4004a3a8682160c.png)
 - 终端预置离线包加载日志：（关键字：TMFWebOffline、preset、activate）
+![](https://qcloudimg.tencent-cloud.cn/raw/d632dcb47ac3c0614250a697c3136c98.png)
+>!终端预置离线包文件夹必须命名为 webappCachein，压缩包名字为 webappCachein.zip，详情请参见 [预置离线包说明](#yzlxb)
 
-  ![image-20190911151020881](images/image-20190911151020881.png)
 
-  > ![image](./images/注意.png)注意：终端预置离线包文件夹必须命名为 webappCachein，压缩包名字为 webappCachein.zip，详情请参见 [2.3 预置离线包说明](# 2.3 预置离线包说明)
-
-### 2.2 运营统计
-
+### 运营统计
 在 `AppDelegate` 的 `-application:didFinishLaunchingWithOptions:` 中注册离线包运营统计输出回调，业务可以根据实际选择运营统计平台进行上报，比如 `TMFAnalytics` 或者小马分析 SDK（`MTA`）。
-
 ```objective-c
 // 离线包运营统计上报事件定义:
 void reporterWebOffline(NSString *event, NSDictionary *kvs) { 
@@ -166,10 +154,10 @@ void reporterWebOffline(NSString *event, NSDictionary *kvs) {
 }
 ```
 
-### 2.3 预置离线包说明
+[](id:yzlxb)
+### 预置离线包说明
 
-#### 2.3.1 目录结构
-
+#### 目录结构
 ```makefile
 webappCachein
   |-- BID
@@ -184,75 +172,58 @@ webappCachein
 | 三级目录 | config.json   | 从管理平台下载的 zip 包解压后，拷贝到三级目录的位置     |
 |          | BID.zip       | 从管理平台下载的 zip 包，拷贝到三级目录的位置           |
 
-![image-20200519201428573](images/image-20200519201428573.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/eb63d06b7640cc3725207d4d080fd055.png)
 
-#### 2.3.2 管理平台下载离线包并制作预置离线包
-
-1. 从 移动金融开发平台 > 离线包 > 离线包管理中，选择需要预置的离线包以及版本，在右侧操作栏，单击【详情】，在单击基础包链接，下载需要预置的离线包。
-
-![](images/image-20200520152046441.png)
-
-3. 并从压缩包中解压中 config.json 文件存放到离线包目录结构中的三级目录下。
-
-   ```shell
-   $ cd Downloads/								# 进入下载目录，假设基础包文件为bsdiff_180.zip bid是bid1
-   $ mkdir bid1									# 创建BID目录
-   $ mv bsdiff_181.zip bid1/			# 将离线包文件移动到BID目录下
-   $ cd bid1/										# 进入BID目录下
-   $ mkdir tmp_bid							  # 创建临时解压目录
-   $ unzip bsdiff_181.zip -d tmp_bid/	# 将离线包zip文件解压值临时目录
-   $ mv tmp_bid/config.json ./					# 提取config.json至BID目录下
-   $ mv bsdiff_181.zip bid1.zip				# bid1.zip重命名为
-   $ rm -r tmp_bid/										# 移除临时解压目录tmp_bid
-   $ ls																# 当前目录包含两个文件[config.json, bid1.zip]
-   ```
-   
+#### 管理平台下载离线包并制作预置离线包
+1. 登录**移动金融开发平台** > **离线包** > **离线包管理中**，选择需要预置的离线包以及版本，在右侧操作栏，单击**详情**，单击**基础包链接**，下载需要预置的离线包。
+![](https://qcloudimg.tencent-cloud.cn/raw/020053b445f8e31661730c696431fc7b.png)
+2. 并从压缩包中解压中 config.json 文件存放到离线包目录结构中的三级目录下。
+```shell
+ $ cd Downloads/								# 进入下载目录，假设基础包文件为bsdiff_180.zip bid是bid1
+ $ mkdir bid1									# 创建BID目录
+ $ mv bsdiff_181.zip bid1/			# 将离线包文件移动到BID目录下
+ $ cd bid1/										# 进入BID目录下
+ $ mkdir tmp_bid							  # 创建临时解压目录
+ $ unzip bsdiff_181.zip -d tmp_bid/	# 将离线包zip文件解压值临时目录
+ $ mv tmp_bid/config.json ./					# 提取config.json至BID目录下
+ $ mv bsdiff_181.zip bid1.zip				# bid1.zip重命名为
+ $ rm -r tmp_bid/										# 移除临时解压目录tmp_bid
+ $ ls																# 当前目录包含两个文件[config.json, bid1.zip]
+```
 3. 创建 webappCachein.zip 文件，可预知多个 BID。
+>!
+> - 前提我们已经在 Download 中按照步骤2创建了两个 BID 文件夹 [bid1, bid2]。
+> - 压缩包名字不能改变，必须是**`webappCachein`。
+> 
+```shell
+$ mkdir webappCachein					# 创建webappCachein目录
+$ mv bid1 webappCachein/				
+$ mv bid2 webappCachein/			# 将bid1, bid2移动到webappCachein目录
+$ zip -r webappCachein.zip webappCachein/	# 压缩webappCachein.zip
+```
 
-   > ![](./images/注意.png)注意：
-   >
-   > - 前提我们已经在 Download 中按照步骤2创建了两个 BID 文件夹 [bid1, bid2]。
-   > - 压缩包名字不能改变，必须是**`webappCachein`。
-
-   ```shell
-   $ mkdir webappCachein					# 创建webappCachein目录
-   $ mv bid1 webappCachein/				
-   $ mv bid2 webappCachein/			# 将bid1, bid2移动到webappCachein目录
-   $ zip -r webappCachein.zip webappCachein/	# 压缩webappCachein.zip
-   ```
-
-
-
-#### 2.3.3 预置离线包
-
+#### 预置离线包
 将压缩后的 `webappCachein.zip` 添加到Xcode工程的 Copy Bundle Resources 中。
 
-### 2.4 激活离线包服务
-
+### 激活离线包服务
 激活离线包服务。
-
 **接口定义**
-
 ```objective-c
 + (void)activate;
 ```
 
 **调用说明**
-
 - 在 `-application:didFinishLaunchingWithOptions:` App 函数中调用
 - 强烈建议放置到前面初始化，在网关配置之后，其他代码初始化之前调用
 
 **调用示例**
-
 ```objective-c
 [TMFWebOfflineService activate];
 ```
 
-### 2.5 自定义离线包更新配置
-
+### 自定义离线包更新配置
 生成离线包更新配置实例。
 早期版本离线包任务推拉是依赖数据同步组件来完成的，从公有云版本起，离线包支持直接使用移动网关来实现任务推拉，可以解除任务推拉对数据同步组件的依赖。不过本次协议调整对新版服务有依赖，考虑到私有化客户不同的服务版本，SDK侧做了兼容，同时保留了两套协议实现，客户在初始化时根据自身服务情况指定协议版本即可。其中使用公有云的初始化协议参数说明如下：
-
 ```objective-c
 /**
  @brief 离线包推送协议
@@ -261,11 +232,9 @@ typedef NS_ENUM(NSInteger, TMFWebOfflinePushPassagePolicy) {
     TMFWebOfflinePushPassagePolicyInstruction   = 0,    // default
     TMFWebOfflinePushPassagePolicyPushGo        = 1,
 };
-
 ```
 
 **接口定义**
-
 ```objective-c
 /**
  @brief 离线包更新可选设置项
@@ -316,7 +285,6 @@ typedef NS_ENUM(NSInteger, TMFWebOfflinePushPassagePolicy) {
 | ignoresDelay     | BOOL                                   | 是否忽略调用延迟，默认 YES | N    |
 
 其中，TMFWebOfflineServiceOptionsSource 的定义如下：
-
 ```objective-c
 /**
  @brief 离线包更新来源
@@ -328,9 +296,7 @@ typedef NS_ENUM(NSInteger, TMFWebOfflineServiceOptionsSource) {
     TMFWebOfflineServiceOptionsSourcePush = 1,      ///< 通过push进行更新
 };
 ```
-
 TMFWebOfflineServiceOptionsCachePolicy 的定义如下:
-
 ```objective-c
 /**
  @brief 检查到离线包更新时本地缓存的更新策略
@@ -348,20 +314,17 @@ typedef NS_ENUM(NSInteger, TMFWebOfflineServiceOptionsCachePolicy) {
 | TMFWebOfflineServiceOptions | 离线包更新可选设置项实例 |
 
 **调用示例**
-
 ```objective-c
 TMFWebOfflineServiceOptions *options = [TMFWebOfflineServiceOptions options];
 options.ignoresFrequency = YES; 
 ```
 
-### 2.6 单业务ID检查更新并预加载离线包
+### 单业务ID检查更新并预加载离线包
 
-#### 2.6.1 默认配置预加载
-
+#### 默认配置预加载
 根据单个离线包业务ID以及默认更新配置，检查更新并预加载离线包，回调更新结果。
 
 **接口定义**
-
 ```objective-c
 + (void)checkAndUpdateWithBID:(NSString *)BID completionHandler:(void(^)(BOOL isUpdated, NSError * _Nullable error))completionHandler;
 ```
@@ -387,12 +350,11 @@ options.ignoresFrequency = YES;
 }];
 ```
 
-#### 2.6.2 自定义配置预加载
+#### 自定义配置预加载
 
 根据单个离线包业务 ID 以及自定义更新配置，检查更新并预加载离线包，回调更新结果。
 
 **接口定义**
-
 ```
 + (void)checkAndUpdateWithBID:(NSString *)BID options:(TMFWebOfflineServiceOptions *)options completionHandler:(void(^)(BOOL isUpdated, NSError * _Nullable error))completionHandler;
 ```
@@ -414,7 +376,6 @@ options.ignoresFrequency = YES;
 | error     | NSError | 更新失败时的错误信息        | N    |
 
 **调用示例**
-
 ```objective-c
 TMFWebOfflineServiceOptions *options = [TMFWebOfflineServiceOptions options];
 options.ignoresFrequency = YES; 
@@ -423,10 +384,8 @@ options.ignoresFrequency = YES;
 }];
 ```
 
-#### 2.6.3 通过TMFHybrid创建加载本地 H5 资源的通用 WebView 容器
-
+#### 通过TMFHybrid创建加载本地 H5 资源的通用 WebView 容器
 **接口定义**
-
 ```objective-c
 - (TMFWebViewController *)createWebViewControllerWithFile:(NSString *)filePath;
 ```
@@ -438,15 +397,13 @@ options.ignoresFrequency = YES;
 | filePath | NSString | 本地 H5 资源的路径 | Y    | /      |
 
 **调用示例**
+```objective-c
+NSString *filePath = [[NSBundle mainBundle] pathForResource:@"trans" ofType:@"html"];
+UIViewController *webViewController = [[TMFHybridManager shareManager] createWebViewControllerWithFile:filePath];
+[self.navigationController pushViewController:webViewController animated:YES];
+```
 
-  ```objective-c
-  NSString *filePath = [[NSBundle mainBundle] pathForResource:@"trans" ofType:@"html"];
-  UIViewController *webViewController = [[TMFHybridManager shareManager] createWebViewControllerWithFile:filePath];
-  [self.navigationController pushViewController:webViewController animated:YES];
-  ```
-
-#### 2.6.4 创建加载在线 H5 资源的通用 WebView 容器
-
+#### 创建加载在线 H5 资源的通用 WebView 容器
 **接口定义**
 ```objective-c
 - (TMFWebViewController *)createWebViewControllerWithURL:(NSURL *)url;
@@ -459,19 +416,18 @@ options.ignoresFrequency = YES;
 | url  | NSURL | 在线 H5 资源的地址 | Y    | /      |
 
 **调用示例**
+```objective-c
+NSURL *url = [NSURL URLWithString:@"tmf.qq.com"];
+UIViewController *webViewController = [[TMFHybridManager shareManager] createWebViewControllerWithURL:url];
+[self.navigationController pushViewController:webViewController animated:YES];
+```
 
-  ```objective-c
-  NSURL *url = [NSURL URLWithString:@"tmf.qq.com"];
-  UIViewController *webViewController = [[TMFHybridManager shareManager] createWebViewControllerWithURL:url];
-  [self.navigationController pushViewController:webViewController animated:YES];
-  ```
-
-#### 2.6.5 创建可以使用离线包的 WebView 容器-URL
-
+#### 创建可以使用离线包的 WebView 容器-URL
 **接口定义**
 ```
 - (TMFWebViewController *)createOfflineWebViewControllerWithURL:(NSURL *)url;
 ```
+
 **参数说明**
 
 | 入参 | 类型  | 描述               | 必须 | 默认值 |
@@ -479,15 +435,13 @@ options.ignoresFrequency = YES;
 | url  | NSURL | 在线 H5 资源的地址 | Y    | /      |
 
 **调用示例**
+```objective-c
+NSURL *url = [NSURL URLWithString:@"http://3gimg.qq.com/webapp_scan/TMF/TMF_intro/index.html?_bids=home"]
+TMFWebViewController *webViewController = [[TMFHybridManager shareManager] createOfflineWebViewControllerWithURL:urlComp.URL];
+[self.navigationController pushViewController:webViewController animated:YES];
+```
 
-  ```objective-c
-  NSURL *url = [NSURL URLWithString:@"http://3gimg.qq.com/webapp_scan/TMF/TMF_intro/index.html?_bids=home"]
-  TMFWebViewController *webViewController = [[TMFHybridManager shareManager] createOfflineWebViewControllerWithURL:urlComp.URL];
-  [self.navigationController pushViewController:webViewController animated:YES];
-  ```
-
-#### 2.6.6 创建可以使用离线包的 WebView 容器-BID
-
+#### 创建可以使用离线包的 WebView 容器-BID
 **接口定义**
 ```
 - (TMFWebViewController *)createOfflineWebViewControllerWithMainBID:(NSString *)bid;
@@ -500,13 +454,12 @@ options.ignoresFrequency = YES;
 | bid  | NSString | 离线包BID | Y    | /      |
 
 **调用示例**
+```objective-c
+UIViewController *webViewController = [[TMFHybridManager shareManager] createOfflineWebViewControllerWithMainBID:@"home"];
+[self.navigationController pushViewController:webViewController animated:YES];
+```
 
-  ```objective-c
-  UIViewController *webViewController = [[TMFHybridManager shareManager] createOfflineWebViewControllerWithMainBID:@"home"];
-  [self.navigationController pushViewController:webViewController animated:YES];
-  ```
-
-#### 2.6.7 创建可以使用离线包的 WebView 容器-多参数
+#### 创建可以使用离线包的 WebView 容器-多参数
 **接口定义**
 ```objective-c
 - (TMFWebViewController *)createOfflineWebViewControllerWithMainBID:(NSString *)mainBid commonBIDs:(NSArray <NSString *> * __nullable)commonBids indexPath:(NSString * __nullable)indexPath param:(NSDictionary<NSString *, NSString *> * __nullable)param fragment:(NSString * __nullable)fragment;
@@ -523,21 +476,17 @@ options.ignoresFrequency = YES;
 | fragment   | NSString     | url 需要携带的 fragment 信息 | N    | /      |
 
 **调用示例**
+```objective-c
+UIViewController *vc2 = [[TMFHybridManager shareManager] createOfflineWebViewControllerWithMainBID:@"home" commonBIDs:@[@"static"] indexPath:@"testAk/index.html" param:nil fragment:nil];
+[self.navigationController pushViewController:vc2 animated:YES];
+```
 
-  ```objective-c
-  UIViewController *vc2 = [[TMFHybridManager shareManager] createOfflineWebViewControllerWithMainBID:@"home" commonBIDs:@[@"static"] indexPath:@"testAk/index.html" param:nil fragment:nil];
-  [self.navigationController pushViewController:vc2 animated:YES];
-  ```
 
+### 多业务 ID 检查更新并预加载离线包
 
-### 2.7 多业务 ID 检查更新并预加载离线包
-
-#### 2.7.1 默认配置预加载
-
+#### 默认配置预加载
 根据一组离线包业务 ID 以及默认更新配置，检查更新并预加载离线包，回调更新结果。
-
 **接口定义**
-
 ```objective-c
 + (void)checkAndUpdateWithBIDs:(NSArray<NSString *> *)BIDs completionHandler:(void(^)(NSArray<NSString *> *updatedBIDs))completionHandler;
 ```
@@ -555,19 +504,16 @@ options.ignoresFrequency = YES;
 | updatedBIDs | NSArray<NSString *>  | 可更新的离线包业务 ID 列表 | Y    |
 
 **调用示例**
-
 ```objective-c
 [TMFWebOfflineService checkAndUpdateWithBIDs:@[@"BID1",@"BID2"] completionHandler:^(NSArray<NSString *> * _Nonnull updatedBIDs) {
   // callback
 }];
 ```
 
-#### 2.7.2 自定义配置预加载
-
+#### 自定义配置预加载
 根据一组离线包业务 ID 以及自定义更新配置，检查更新并预加载离线包，回调更新结果。
 
 **接口定义**
-
 ```objective-c
 + (void)checkAndUpdateWithBIDs:(NSArray<NSString *> *)BIDs options:(TMFWebOfflineServiceOptions *)options completionHandler:(void(^)(NSArray<NSString *> *updatedBIDs))completionHandler;
 ```
@@ -597,14 +543,12 @@ options.ignoresFrequency = YES;
 }];
 ```
 
-### 2.8 全量更新并预加载离线包
+### 全量更新并预加载离线包
 
-#### 2.8.1 默认配置预加载
-
+#### 默认配置预加载
 使用默认配置检查全量可更新的离线包并预加载离线包，回调可更新的业务 ID 列表。
 
 **接口定义**
-
 ```objective-c
 + (void)checkAndUpdateAllAvailablePackagesWithCompletionHandler:(void(^)(NSArray<NSString *> *updatedBIDs))completionHandler;
 ```
@@ -623,12 +567,9 @@ options.ignoresFrequency = YES;
 }];
 ```
 
-#### 2.8.2 自定义配置预加载
-
+#### 自定义配置预加载
 使用自定义配置检查全量可更新的离线包并预加载离线包，回调可更新的业务 ID 列表。
-
 **接口定义**
-
 ```objective-c
 + (void)checkAndUpdateAllAvailablePackagesWithOptions:(TMFWebOfflineServiceOptions *)options completionHandler:(void(^)(NSArray<NSString *> *updatedBIDs))completionHandler;
 ```
@@ -648,7 +589,6 @@ options.ignoresFrequency = YES;
 | updatedBIDs | NSArray<NSString *>  | 可更新的离线包业务 ID 列表 | Y    |
 
 **调用示例**
-
 ```objective-c
 TMFWebOfflineServiceOptions *options = [TMFWebOfflineServiceOptions options];
 options.ignoresFrequency = YES; 
@@ -657,28 +597,22 @@ options.ignoresFrequency = YES;
 }];
 ```
 
-### 2.9 生效离线包
-
+### 生效离线包
 生效已经下载更新的离线包。
 
 **接口定义**
-
 ```objective-c
 + (void)uncompressPackagesIfNeeded;
 ```
 
 **调用示例**
-
 ```objective-c
 [TMFWebOfflineService uncompressPackagesIfNeeded];
 ```
 
-### 2.10 获取本地离线包的版本号
-
+### 获取本地离线包的版本号
 根据离线包业务ID获取本地离线包的版本号，未安装的话版本号为0。
-
 **接口定义**
-
 ```objective-c
 + (int)localVersionForBID:(NSString *)BID;
 ```
@@ -696,19 +630,16 @@ options.ignoresFrequency = YES;
 | int  | 本地离线包的版本号 |
 
 **调用示例**
-
 ```objective-c
 [TMFWebOfflineService localVersionForBID:@"BID"];
 ```
 
-### 2.11 移除本地离线包
+### 移除本地离线包
 
-#### 2.11.1 单业务ID移除本地离线包
+#### 单业务ID移除本地离线包
 
 根据离线包业务 ID 移除本地离线包。
-
 **接口定义**
-
 ```objective-c
 + (void)removeLocalPackageWithBID:(NSString *)BID;
 ```
@@ -720,17 +651,13 @@ options.ignoresFrequency = YES;
 | BID  | NSString | 离线包业务 ID | Y    |
 
 **调用示例**
-
 ```objective-c
 [TMFWebOfflineService removeLocalPackageWithBID:@"BID"];
 ```
 
-#### 2.11.2 多业务ID移除本地离线包
-
+#### 多业务ID移除本地离线包
 根据一组离线包业务 ID 移除本地离线包。
-
 **接口定义**
-
 ```objective-c
 + (void)removeLocalPackageWithBIDs:(NSArray<NSString *> *)BIDs;
 ```
@@ -742,33 +669,25 @@ options.ignoresFrequency = YES;
 | BIDs  | NSArray<NSString *> | 离线包业务 ID 列表 | Y    |
 
 **调用示例**
-
 ```objective-c
 [TMFWebOfflineService removeLocalPackageWithBIDs:@[@"BID1",@"BID2"]];
 ```
 
-#### 2.11.3 移除全部本地离线包
-
+#### 移除全部本地离线包
 移除全部本地离线包。
-
 **接口定义**
-
 ```objective-c
 + (void)removeAllLocalPackage;
 ```
 
 **调用示例**
-
 ```objective-c
 [TMFWebOfflineService removeAllLocalPackage];
 ```
 
-### 2.12 注册调试日志输出回调
-
+### 注册调试日志输出回调
 注册调试日志输出回调。 
-
 **接口定义**
-
 ```objective-c
 + (void)registerLogger:(TMFWebOffline_Logger)logger;
 ```
@@ -779,8 +698,7 @@ options.ignoresFrequency = YES;
 | ---- | -------- | ------------ | ---- |
 | logger  | TMFWebOffline_Logger | 离线包日志输出器 | Y    |
 
-其中，TMFWebOffline_Logger的定义如下：
-
+其中，TMFWebOffline_Logger 的定义如下：
 ```objective-c
 /**
  @brief 用于输出SDK调试log的回调
@@ -789,19 +707,14 @@ typedef void(*TMFWebOffline_Logger)(TMFWebOfflineLoggerLevel level, const char* 
 ```
 
 关于日志等级以及详细的调试配置，请参见 [2.1 调试](#2.1 调试)。
-
 **调用示例**
-
 ```objective-c
 [TMFWebOfflineService registerLogger:loggerWebOffline];
 ```
 
-### 2.13 注册运营统计回调
-
+### 注册运营统计回调
 注册运营统计事件的回调。
-
 **接口定义**
-
 ```objective-c
 + (void)registerReporter:(TMFWebOffline_Reporter)reporter;
 ```
@@ -812,8 +725,7 @@ typedef void(*TMFWebOffline_Logger)(TMFWebOfflineLoggerLevel level, const char* 
 | ---- | -------- | ------------ | ---- |
 | reporter  | TMFWebOffline_Reporter | 离线包运营统计上报回调 | Y    |
 
-其中，TMFWebOffline_Reporter的定义如下：
-
+其中，TMFWebOffline_Reporter 的定义如下：
 ```objective-c
 /**
  @brief 用于输出SDK统计事件的回调
@@ -822,21 +734,16 @@ typedef void(*TMFWebOffline_Reporter)(NSString *event, NSDictionary *kvs);
 ```
 
 关于日志等级以及详细的调试配置，请参见 [2.2 运营统计](#2.2 运营统计)。
-
 **调用示例**
-
 ```objective-c
 [TMFWebOfflineService registerReporter:reporterWebOffline];
 ```
 
-### 2.14 配置 WebView 容器的离线包处理
+### 配置 WebView 容器的离线包处理
 
-#### 2.14.1 创建离线包网络请求处理实例
-
+#### 创建离线包网络请求处理实例
 根据 WebView 容器创建离线包网络请求处理实例。
-
 **接口定义**
-
 ```objective-c
 - (instancetype)initWithWebViewController:(UIViewController<TMFWebOfflineWebViewControllerProtocol> *)webViewController;
 ```
@@ -848,7 +755,6 @@ typedef void(*TMFWebOffline_Reporter)(NSString *event, NSDictionary *kvs);
 | webViewController  | UIViewController<TMFWebOfflineWebViewControllerProtocol> | WebView 容器实例 | Y    |
 
 **调用示例**
-
 ```objective-c
 // webView容器，实现TMFWebOfflineWebViewControllerProtocol协议
 @interface TMFWebOfflineUIWebViewController () <UIWebViewDelegate, TMFWebOfflineWebViewControllerProtocol>
@@ -877,12 +783,9 @@ typedef void(*TMFWebOffline_Reporter)(NSString *event, NSDictionary *kvs);
 @end
 ```
 
-#### 2.14.2 处理 WebView 的网络请求
-
+#### 处理 WebView 的网络请求
 在 WebView 的网络请求的回调中转发离线包的网络处理请求。
-
 **接口定义**
-
 ```objective-c
 - (void)handleRequest:(NSURLRequest *)request;
 ```
@@ -894,7 +797,6 @@ typedef void(*TMFWebOffline_Reporter)(NSString *event, NSDictionary *kvs);
 | request  | NSURLRequest | WebView 的网络请求 | Y    |
 
 **调用示例**
-
 ```objective-c
 #pragma mark - UIWebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -906,12 +808,9 @@ typedef void(*TMFWebOffline_Reporter)(NSString *event, NSDictionary *kvs);
 }
 ```
 
-#### 2.14.3 离线包减持 WebView 容器
-
+#### 离线包减持 WebView 容器
 移除离线包对 WebView 容器的请求持有。
-
 **接口定义**
-
 ```objective-c
 - (void)clearWebViewController;
 ```
@@ -924,20 +823,16 @@ typedef void(*TMFWebOffline_Reporter)(NSString *event, NSDictionary *kvs);
 }
 ```
 
-### 2.15 使用离线包
-
+### 使用离线包
 ```objective-c
 /// WEB_OFFLINE_TEST_URL_FORMAT => http://pimweb.cs0309.3g.qq.com/testAk/index.html?_bids=%@
 NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:WEB_OFFLINE_TEST_URL_FORMAT, @"bid1+bid2"]];	
 /// URL => http://pimweb.cs0309.3g.qq.com/testAk/index.html?_bids=bid1+bid2
 TMFWebOfflineUIWebViewController *viewController = [[TMFWebOfflineWKWebViewController alloc] initWithURL:URL];
 ```
-
 加载的本地 HTML 地址为:`Library/TMF/TMFWebOffline/webappCache2/bid1/pimweb.cs0309.3g.qq.com/testAk/index.html `。
-
-> ![](./images/注意.png)注意：`bid1` 和`bid2`中只能有一个主包。
-
-### 2.16 WkWebView的使用注意事项
-
+>?`bid1` 和`bid2`中只能有一个主包。
+>
+### WkWebView 的使用注意事项
 使用 TMFWkWebView 代替系统 WkWebview 解决页面 post 不正常的问题。
 
