@@ -67,7 +67,7 @@ export default app; //抛出app实例
 ```js
 <template>
   // webAppId 为从云呼叫中心座席工作台中获取的webAppId
-  <TCCCWebChat webAppId="8d11d9c3d8d7687a072e1e1578bfd0bf"></TCCCWebChat>
+  <TCCCWebChat webAppId="webAppId"></TCCCWebChat>
 </template>
 
 <script lang="ts">
@@ -158,7 +158,7 @@ UIKit提供的参数名称与参数类型的对应关系如下表所示：
 
 代码示例如下：
 ```html
-<TCCCWebChat webAppId="8d11d9c3d8d7687a072e1e1578bfd0bf"></TCCCWebChat>
+<TCCCWebChat webAppId="webAppId"></TCCCWebChat>
 ```
 
 ### clientData与userSig
