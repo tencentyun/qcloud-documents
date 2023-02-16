@@ -5,7 +5,6 @@
   * [手动集成 SDK](#sdjc-sdk)
 
 ### 前置条件[](id:qztj)
-
 - **环境要求**
   - `iOS` >= 8.0
   - `Xcode` >= 10.0
@@ -54,17 +53,16 @@ $ pod install
 ```
 
 ### 手动集成 SDK[](id:sdjc-sdk)
-- 把 `TMFDistribution` 组件的目录添加到您项目的 Xcode Project 中的合适位置，并选择合适的 target。
+1. 把 `TMFDistribution` 组件的目录添加到您项目的 Xcode Project 中的合适位置，并选择合适的 target。
   您可以把组件的目录从 Finder 直接拖动到 Xcode Project 中，以进行快捷添加。
 >?手动集成 SDK 不要引入 `LICENSE` 与 `podspec` 等无关文件到项目中。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/1bb1d31989203e10087b19046f8eceea.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/5c6ec14e41ba269a67bb12f84e5e3a48.png)
-- 把 `TMFDistribution` 依赖的所有组件添加到项目中，依赖的组件列表，请参见前置条件中的 [组件依赖](#前置条件)。
-- 添加 `TMFDistribution` 依赖的系统库。
+2. 把 `TMFDistribution` 依赖的所有组件添加到项目中，依赖的组件列表，请参见前置条件中的 [组件依赖](#qztj)。
+3. 添加 `TMFDistribution` 依赖的系统库。
   在 Xcode 中打开 project 设置页，选中相关的 target，单击 **General**，在“Linked Frameworks and Libraries”中进行添加。
   **系统库依赖**
-
   - `Foundation.framework`
   - `UIKit.framework`
   - `Security.framework`
@@ -76,8 +74,7 @@ $ pod install
   - `libc.tbd`
   - `libz.1.2.5.tbd`
 ![](https://qcloudimg.tencent-cloud.cn/raw/d00f839fd033cc8c2ce0c25d33a67b2b.png)
-
-- **Project 设置**
+4. **Project 设置**
   添加 `TMFDistribution` 之后，需要进行相关的 Project 设置。
   在 Xcode 中打开 Project 设置页，选中相关的 target，进行以下设置：
   - 选择 **Build Settings** > **Linking** > **Other Linker Flags**，增加：
@@ -92,7 +89,7 @@ $ pod install
 
 
 ## SDK使用
-### 初始化
+### 初始化[](id:csh)
 使用组件前，需要完成的基本初始化操作。
 
 #### 前置条件
@@ -110,7 +107,6 @@ $ pod install
 + (instancetype)sharedManager;
 - (void)initialize;
 ```
-
 ```objective-c
 /**
  @brief 应用发布推送协议
@@ -148,7 +144,7 @@ typedef NS_ENUM(NSInteger, TMFDistributionPushPassagePolicy) {
 - 手动检查更新：该方式不会检查弹窗评率限制，检查更新结果会通过独立设置的TMFDistributionSharkCallBack回调给开发者。使用场景是应用内的**检查更新**菜单，由用户触发。
 
 #### 前置条件
-若要执行发布监听，必须先完成组件初始化，详情请参见 [初始化](#初始化)。
+若要执行发布监听，必须先完成组件初始化，详情请参见 [初始化](#csh)。
 
 #### 监听设置
 通过实现监听接口，通过接口回调，监听应用发布更新。
@@ -183,7 +179,7 @@ typedef void (^TMFDistributionCompletionBlock)(
 <td>handler</td>
 <td>`TMFDistributionHandler`(block)</td>
 <td>监听回调，详见 <a href="#handler">handler 回调</a></td>
-<td>Y</td>
+<td>YES</td>
 </tr>
 <table>
 - handler 回调[](id:handler)
@@ -198,13 +194,13 @@ typedef void (^TMFDistributionCompletionBlock)(
 <td>info</td>
 <td>`TMFDistributionInfo *`</td>
 <td>更新数据对象，用于储存当次更新的数据信息，详见  <a href="#sjdx">数据对象</a>。</td>
-<td>N</td>
+<td>NO</td>
 </tr>
 <tr>
 <td>completionHandler</td>
 <td>`TMFDistributionCompletionBlock`(block) </td>
 <td>业务操作回调，通知组件是否同意发起更新，详见  <a href="#completionHandler">completionHandler 回调</a>。</td>
-<td>Y</td>
+<td>YES</td>
 </tr>
 <table>
 - completionHandler 回调[](id:completionHandler)
@@ -219,7 +215,7 @@ typedef void (^TMFDistributionCompletionBlock)(
 <td>updated</td>
 <td>`BOOL`</td>
 <td>自定义 Handler 的完成回调，在自定义 Handler 中调用，通知组件是否同意发起更新</td>
-<td>Y</td>
+<td>YES</td>
 </tr>
 <table>
 
@@ -357,9 +353,11 @@ typedef void (^TMFDistributionCompletionBlock)(
 ![](https://qcloudimg.tencent-cloud.cn/raw/a6cbd4cee916d60530d2fc1dd61b0104.png)
 
 ### 数据查询
-组件提供数据查询属性，可供业务查询最近一次更新信息
+组件提供数据查询属性，可供业务查询最近一次更新信息。
+
 #### 前提条件
-若要查询更新数据，必须先完成组件初始化，详情请参见 [初始化](#初始化)。
+若要查询更新数据，必须先完成组件初始化，详情请参见 [初始化](#csh)。
+
 #### 相关接口
 ```objective-c
 @property (nonatomic, readonly, nullable) TMFDistributionInfo *distributionInfo;
@@ -390,7 +388,7 @@ UIAlertController *alertController = [UIAlertController alertControllerWithTitle
 组件提供日志接口，可供业务黑盒调试。
 
 #### 前提条件
-若要配置日志，必须先完成组件初始化，详情请参见 [初始化](#初始化)。
+若要配置日志，必须先完成组件初始化，详情请参见 [初始化](#csh)。
 
 #### 相关接口
 ```objective-c
