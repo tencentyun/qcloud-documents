@@ -1,4 +1,4 @@
-## SDK集成
+## SDK集成[](id:sdkjc)
 * [前置条件](#qztj)
 * [集成方式](#jcfs)
   * [CocoaPods 集成 SDK](#cocoapods-sdk)
@@ -93,7 +93,7 @@ $ pod install
 使用组件前，需要完成的基本初始化操作。
 
 #### 前置条件
-- 若要通过组件初始化，必须先完成 SDK 集成，详情请参见 集成 SDK。
+- 若要通过组件初始化，必须先完成 SDK 集成，详情请参见 [集成 SDK](#sdkjc)。
 - 请确保启动后在云指令组件 `TMFInstruction` 初始化之前初始化本组件。
 
 #### 引入头文件
