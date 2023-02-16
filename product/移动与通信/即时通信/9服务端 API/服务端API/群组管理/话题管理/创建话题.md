@@ -146,7 +146,7 @@ https://xxxxxx/v4/million_group_open_http_svc/create_topic?sdkappid=88888888&ide
 
 ## 接口调试工具
 
-通过 [REST API 在线调试工具](https://tcc.tencentcs.com/im-api-tool/index.html#/v4/group_open_http_svc/create_group) 调试本接口。
+通过 [REST API 在线调试工具](https://tcc.tencentcs.com/im-api-tool/index.html#/v4/million_group_open_http_svc/create_topic) 调试本接口。
 
 ## 可能触发的回调
 
