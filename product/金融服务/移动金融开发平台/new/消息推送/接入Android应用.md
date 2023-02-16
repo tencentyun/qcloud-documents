@@ -225,7 +225,7 @@ public class OpenUrlForPushImpl extends TMFPushIntentCreator {
 如果打开 URi 时并获取一些参数，可以在管理后台按照如下设置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/55aac1c422f9d05054e3e48abe3b8c26.png)
 
-## 实现自定义通知栏
+## 实现自定义通知栏[](id:sxzdytzl)
 对于通知栏消息的展示，push 组件提供通知栏默认样式，即展示默认 app icon，标题，内容。默认通知栏的展示图标可通过在 mipmap 文件夹下，放置资源图片进行修改。通知栏小图标命名为 ic_notification_small，大图标命名为 ic_notification_large，当 mipmap 文件夹中，放置了对应命名的资源文件时，组件内部将获取资源用于默认通知栏样式展示。（请在对应文件夹下放置对应分辨率的图片）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4be90499a60733fc482ae75416274c23.png)
 组件提供自定义通知栏样式接口。当需要自定义通知栏样式时，则需实现 ICustomNotificationForPush 接口并将其实现类传入 push 组件。同时，由于通知栏事件由外部处理，组件无法处理事件上报，故提供通知栏事件上报接口，由外部调用上报。
@@ -327,7 +327,7 @@ ProfileManager.setUserId("");
 
 ## API[](id:API)
 **TMFPushMessage-通知栏消息数据结构**
-接 [实现自定义通知栏](#实现自定义通知栏)，自定义通知栏样式时，通知栏展示相关的数据将通过 TMFPushMessage 数据体传给调用方。数据体结构如下：
+接 [实现自定义通知栏](#sxzdytzl)，自定义通知栏样式时，通知栏展示相关的数据将通过 TMFPushMessage 数据体传给调用方。数据体结构如下：
 ```java
 public class TMFPushMessage implements Serializable {
 
