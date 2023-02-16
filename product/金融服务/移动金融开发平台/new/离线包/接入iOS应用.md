@@ -105,7 +105,7 @@ TMFWebOffline 的集成方式有以下 2 种，可选择其一进行集成：
 
 #### 日志级别说明
 
-##### 日志分为 `Debug`、`Info`、`Warn`、`Error` 四个级别
+**日志分为 `Debug`、`Info`、`Warn`、`Error` 四个级别**
 ```objective-c
 /**
  @brief 日志级别
@@ -117,7 +117,7 @@ typedef NS_ENUM(NSInteger, TMFWebOfflineLoggerLevel) {
     TMFWebOfflineLoggerLevelError = 3,         ///< 严重错误导致系统退出日志
 };
 ```
-可根据日志级别在 loggerWebOffline 中灵活控制日志输出。比如，想输出 `Debug` 和 `Info` 的日志，可参考下面的设置：
+可根据日志级别在 loggerWebOffline 中灵活控制日志输出。例如，想输出 `Debug` 和 `Info` 的日志，可参考下面的设置：
 ```objective-c
 #ifdef DEBUG
     if (level <= TMFWebOfflineLoggerLevelInfo) {
@@ -126,18 +126,18 @@ typedef NS_ENUM(NSInteger, TMFWebOfflineLoggerLevel) {
 #endif
 ```
 
-##### 日志标签/关键字说明 
+**日志标签/关键字说明**
 - 离线包预加载到生效的整体过程日志：（关键字：TMFWebOffline、TMFWebOfflineApp、download）
 ![](https://qcloudimg.tencent-cloud.cn/raw/f9bc73dfcaeab800129324fa0e971c95.png)
 - webView 加载离线包过程日志：（关键字：TMFWebOffline、WebOfflineHandler、apply）
 ![](https://qcloudimg.tencent-cloud.cn/raw/efde9795b60a6be4e4004a3a8682160c.png)
 - 终端预置离线包加载日志：（关键字：TMFWebOffline、preset、activate）
 ![](https://qcloudimg.tencent-cloud.cn/raw/d632dcb47ac3c0614250a697c3136c98.png)
->?终端预置离线包文件夹必须命名为 webappCachein，压缩包名字为 webappCachein.zip，详情请参见 [预置离线包说明](#yzlxb)
+>?终端预置离线包文件夹必须命名为 webappCachein，压缩包名字为 webappCachein.zip，详情请参见 [预置离线包说明](#yzlxb)。
 
 
 ### 运营统计[](id:yytj)
-在 `AppDelegate` 的 `-application:didFinishLaunchingWithOptions:` 中注册离线包运营统计输出回调，业务可以根据实际选择运营统计平台进行上报，比如 `TMFAnalytics` 或者小马分析 SDK（`MTA`）。
+在 `AppDelegate` 的 `-application:didFinishLaunchingWithOptions:` 中注册离线包运营统计输出回调，业务可以根据实际选择运营统计平台进行上报，例如 `TMFAnalytics` 或者小马分析 SDK（`MTA`）。
 ```objective-c
 // 离线包运营统计上报事件定义:
 void reporterWebOffline(NSString *event, NSDictionary *kvs) { 
@@ -184,7 +184,7 @@ webappCachein
  $ mv bsdiff_181.zip bid1/			# 将离线包文件移动到BID目录下
  $ cd bid1/										# 进入BID目录下
  $ mkdir tmp_bid							  # 创建临时解压目录
- $ unzip bsdiff_181.zip -d tmp_bid/	# 将离线包zip文件解压值临时目录
+ $ unzip bsdiff_181.zip -d tmp_bid/	# 将离线包zip文件解压至临时目录
  $ mv tmp_bid/config.json ./					# 提取config.json至BID目录下
  $ mv bsdiff_181.zip bid1.zip				# bid1.zip重命名为
  $ rm -r tmp_bid/										# 移除临时解压目录tmp_bid
@@ -193,7 +193,7 @@ webappCachein
 3. 创建 `webappCachein.zip` 文件，可预知多个 BID。
 >?
 > - 前提我们已经在 Download 中按照 [步骤2](#step2) 创建了两个 BID 文件夹 [bid1, bid2]。
-> - 压缩包名字不能改变，必须是**`webappCachein`。
+> - 压缩包名字不能改变，必须是`webappCachein`。
 > 
 ```shell
 $ mkdir webappCachein					# 创建webappCachein目录
@@ -213,8 +213,8 @@ $ zip -r webappCachein.zip webappCachein/	# 压缩webappCachein.zip
 ```
 
 **调用说明**
-- 在 `-application:didFinishLaunchingWithOptions:` App 函数中调用
-- 强烈建议放置到前面初始化，在网关配置之后，其他代码初始化之前调用
+- 在 `-application:didFinishLaunchingWithOptions:` App 函数中调用。
+- 建议放置到前面初始化，在网关配置之后，其他代码初始化之前调用。
 
 **调用示例**
 ```objective-c
@@ -296,7 +296,7 @@ typedef NS_ENUM(NSInteger, TMFWebOfflineServiceOptionsSource) {
     TMFWebOfflineServiceOptionsSourcePush = 1,      ///< 通过push进行更新
 };
 ```
-TMFWebOfflineServiceOptionsCachePolicy 的定义如下:
+TMFWebOfflineServiceOptionsCachePolicy 的定义如下：
 ```objective-c
 /**
  @brief 检查到离线包更新时本地缓存的更新策略
@@ -322,7 +322,7 @@ options.ignoresFrequency = YES;
 ### 单业务 ID 检查更新并预加载离线包
 
 #### 默认配置预加载
-根据单个离线包业务ID以及默认更新配置，检查更新并预加载离线包，回调更新结果。
+根据单个离线包业务 ID 以及默认更新配置，检查更新并预加载离线包，回调更新结果。
 
 **接口定义**
 ```objective-c
@@ -363,7 +363,7 @@ options.ignoresFrequency = YES;
 | BID  | NSString | 离线包业务 ID | YES    |
 | options  | TMFWebOfflineServiceOptions | 可选配置 | YES    |
 
-其中，TMFWebOfflineServiceOptions 的定义和实例化，请参见 [2.5 自定义离线包更新配置](#2.5 自定义离线包更新配置)。
+其中，TMFWebOfflineServiceOptions 的定义和实例化，请参见 [自定义离线包更新配置](#zdylxb)。
 
 **completionHandler 回调**
 
@@ -381,7 +381,7 @@ options.ignoresFrequency = YES;
 }];
 ```
 
-#### 通过TMFHybrid创建加载本地 H5 资源的通用 WebView 容器
+#### 通过 TMFHybrid 创建加载本地 H5 资源的通用 WebView 容器
 **接口定义**
 ```objective-c
 - (TMFWebViewController *)createWebViewControllerWithFile:(NSString *)filePath;
@@ -573,7 +573,7 @@ options.ignoresFrequency = YES;
 | ---- | -------- | ------------ | ---- |
 | options  | TMFWebOfflineServiceOptions | 可选配置 | YES    |
 
-其中，TMFWebOfflineServiceOptions 的定义和实例化，请参见 [2.5 自定义离线包更新配置](#2.5 自定义离线包更新配置)。
+其中，TMFWebOfflineServiceOptions 的定义和实例化，请参见 [自定义离线包更新配置](#zdylxb)。
 
 **completionHandler 回调**
 
@@ -602,7 +602,7 @@ options.ignoresFrequency = YES;
 ```
 
 ### 获取本地离线包的版本号
-根据离线包业务ID获取本地离线包的版本号，未安装的话版本号为0。
+根据离线包业务 ID 获取本地离线包的版本号，未安装的话版本号为0。
 **接口定义**
 ```objective-c
 + (int)localVersionForBID:(NSString *)BID;
@@ -626,7 +626,7 @@ options.ignoresFrequency = YES;
 
 ### 移除本地离线包
 
-#### 单业务ID移除本地离线包
+#### 单业务 ID 移除本地离线包
 
 根据离线包业务 ID 移除本地离线包。
 **接口定义**
