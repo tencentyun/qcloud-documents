@@ -13,7 +13,7 @@ App 每发布一个版本时（包括正式版/灰度版），buildNo 需唯一�
 >?由于灰度时未正式发布新版，新包版本号仍为旧版本号，此时使用 build 号仍然可以比较版本大小，定向对灰度用户进行升级。
 >
 
-### 协议版本
+### 协议版本[](id:xybb)
 早期版本应用发布任务推拉是依赖数据同步组件来完成的，从3.0.2.0版本起，应用发布支持直接使用移动网关来实现任务推拉，可以解除任务推拉对数据同步组件的依赖。不过本次协议调整对新版服务有依赖，考虑到私有化客户不同的服务版本，SDK 侧做了兼容，同时保留了两套协议实现，客户在初始化时根据自身服务情况指定协议版本即可。
 ```java
 public class ProtocolType {
@@ -57,19 +57,19 @@ public static void init(Context context, IAutoCheckCallback callback, int protoc
 <tr>
 <td>context</td>
 <td>Context</td>
-<td>上下文一般使用 Activity 等系统组件即可</td>
+<td>上下文一般使用 Activity 等系统组件即可。</td>
 <td>Y</td>
 </tr>
 <tr>
 <td>callback</td>
 <td>IAutoCheckCallback</td>
-<td>推送及autoUpgradeCheck方法触发的更新单，都通过该回调通知</td>
+<td>推送及autoUpgradeCheck方法触发的更新单，都通过该回调通知。</td>
 <td>Y</td>
 </tr>
 <tr>
 <td>protocolType</td>
 <td>int</td>
-<td>协议版本，具体定义请参见[协议类型](#协议版本)</td>
+<td>协议版本，具体定义请参见 <a href="#xybb">协议类型</a>。</td>
 <td>Y</td>
 </tr>
 <table>
