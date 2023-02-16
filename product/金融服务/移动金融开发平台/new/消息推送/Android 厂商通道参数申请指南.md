@@ -8,7 +8,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/ff53fd99144553d20002eebf4c65d86a.png)
 2. 在控制台中选择**消息推送**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d711129526a76e6ed286faa8d3ccbbe4.png)
-3. 单击**创建应用** > **创建手机/平板应用**
+3. 单击**创建应用** > **创建手机/平板应用**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/41bdfbd263c33caf0fe6577dc61ebfd8.png)
 4. 在新页面按照指引创建您的应用，输入应用名以及包名，然后单击**创建**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b19c5cdaddf18f9dd1e77b23563cbc40.png)
@@ -20,7 +20,7 @@
 1. 您将在应用列表中看到一个新的应用，单击**启用推送**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ccdaf7d20ef63989f1b01f7097e82f95.png)
 2. 在新页面选择接受协议并启用。
->!使用小米推送服务之前请仔细阅读<a href="https://dev.mi.com/console/doc/detail?pId=860">《小米推送技术服务协议》</a>，确保您的应用符合小米服务协议要求。若您的应用未在小米应用商店发布，则可能无法使用小米推送服务。
+>?使用小米推送服务之前请仔细阅读<a href="https://dev.mi.com/console/doc/detail?pId=860">《小米推送技术服务协议》</a>，确保您的应用符合小米服务协议要求。若您的应用未在小米应用商店发布，则可能无法使用小米推送服务。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/16ce68ff6c4619d0a0cf53e15562bdad.png)
 
@@ -157,7 +157,6 @@ OPPO 开发者账号的注册方法参考<a href="https://open.oppomobile.com/ne
 关于公信信道以及私信信道的区别，以及私信信道的申请方式，参考 OPPO 文档<a href="https://open.oppomobile.com/new/developmentDoc/info?id=11227">《推送私信通道申请》</a>。
 
 #### 新建信道
-
 1. 在管理中心选择 **OPPO PUSH**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3c68e4b9c64ffb67e50909ab30b0ab81.png)
 2. 在界面上方选择您的应用，然后单击左侧菜单**配置管理** > **新建通道**。
@@ -178,7 +177,6 @@ OPPO 开发者账号的注册方法参考<a href="https://open.oppomobile.com/ne
 ## vivo 参数获取[](id:vivo)
 
 ### 注册 vivo 开发者账号
-
 vivo开发者账号的注册方式参考<a href="https://dev.vivo.com.cn/documentCenter/doc/2">《企业开发者注册》</a>。vivo目前仅支持企业开发者注册。
 
 ### 新建应用
