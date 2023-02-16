@@ -1,6 +1,6 @@
 ## SDK集成
 1. 参考[Android应用接入-IDE方式](https://cloud.tencent.com/document/product/1034/85243)或者 [Android应用接入-Gradle方式](https://cloud.tencent.com/document/product/1034/85242) ，完成框架接入。
-2. 在module级别build.gradle中，添加应用发布依赖。
+2. 在 module 级别 build.gradle 中，添加应用发布依赖。
 ```groovy
 implementation 'com.tencent.tmf.android:upgrade:+'
 ```
@@ -9,7 +9,7 @@ implementation 'com.tencent.tmf.android:upgrade:+'
 
 ### buildNo
 buildNo 为应用发布版本大小比较时使用的唯一参数，格式一般为6-7位数字，buildNo 需符合以下设计规则：
-App 每发布一个版本时（包括正式版/灰度版），buildNo需唯一且递增，同时，buildNo与版本号需成正相关关系，即 buildNo大的 App 版本号必须大于等于 buildNo小的 App 版本号。一个版本号可对应多个buildNo，用于灰度升级场景做版本比较。
+App 每发布一个版本时（包括正式版/灰度版），buildNo 需唯一且递增，同时，buildNo 与版本号需成正相关关系，即 buildNo 大的 App 版本号必须大于等于 buildNo小的 App 版本号。一个版本号可对应多个 buildNo，用于灰度升级场景做版本比较。
 >?由于灰度时未正式发布新版，新包版本号仍为旧版本号，此时使用 build 号仍然可以比较版本大小，定向对灰度用户进行升级。
 >
 
@@ -27,7 +27,6 @@ public class ProtocolType {
     public static final int PROTOCOL_TYPE_SHARK = 1;
 }
 ```
-
 >?
 > - 如果您对接的是公有云版本服务，协议版本需选择 PROTOCOL_TYPE_SHARK。
 > - 如果您对接的是私有化版本服务，默认协议版本是 PROTOCOL_TYPE_CONCH，如果需要选择 PROTOCOL_TYPE_SHARK，请联系管理员确认服务版本是否支持新协议。
@@ -103,19 +102,18 @@ UpgradeService.init(this, new IAutoCheckCallback() {
 ### 检查更新
 应用发布组件更新任务下发支持推送、拉取两种方式，推拉结合。初始化完成之后，会自动注册推送监听，但没有触发主动拉取更新单，开发者需根据使用场景自行触发主动拉取任务。
 主动拉取支持两种方式：
-- 自动检查更新：该方式会检查弹窗频率限制，更新结果通过初始化传入的IAutoCheckCallback回调给开发者。
-- 手动检查更新：该方式不会检查弹窗评率限制，检查更新结果会通过独立设置的UpgradeCheckCallback回调给开发者。使用场景是应用内的**检查更新**菜单，由用户触发。
+- 自动检查更新：该方式会检查弹窗频率限制，更新结果通过初始化传入的 IAutoCheckCallback 回调给开发者。
+- 手动检查更新：该方式不会检查弹窗评率限制，检查更新结果会通过独立设置的 UpgradeCheckCallback 回调给开发者。使用场景是应用内的**检查更新**菜单，由用户触发。
 
 ### 自动检查更新
-自动检查更新是对初始化推送场景的补充，增加更新单检查频率，在弹窗频率允许范围内更及时地处理更新单。一般建议应用发布组件初始化完成之后即可以触发一次自动检查更新。
+自动检查更新是对初始化推送场景的补充，增加更新单检查频率，在弹窗频率允许范围内更及时地处理更新单。建议应用发布组件初始化完成之后即可以触发一次自动检查更新。
 接口定义如下：
 ```java
 /**
- * 自动检查更新，更新单通过初始化时设置的全局IAutoCheckCallback回调返回
+ * 自动检查更新，更新单通过初始化时设置的全局 IAutoCheckCallback 回调返回
  */
 public static void autoUpgradeCheck()
 ```
-
 使用示例：
 ```java
 UpgradeService.autoUpgradeCheck();
@@ -183,7 +181,6 @@ public class UpgradeInfo {
 
 ### 手动检查
 手动检查是不对弹窗频率限制做检查，每次调用都会返回检查结果。使用场景是应用内的**检查更新**菜单，由用户触发。
-
 接口定义如下：
 ```java
 /**
@@ -215,7 +212,6 @@ public static final int NO_NEW_VERSION = 0x02;
 /** 网络错误 **/
 public static final int NETWORK_ERROR = 0x03;
 ```
-
 使用示例：
 ```java
 UpgradeService.manualCheckUpgrade(new IUpgradeChecker.UpgradeCheckCallback() {
@@ -232,12 +228,11 @@ UpgradeService.manualCheckUpgrade(new IUpgradeChecker.UpgradeCheckCallback() {
     }
 });
 ```
-
 >?更新单回调不保证是在 UI 线程，因此处理弹窗、提示时需要注意不要直接在回调中操作 UI。
 >
 
 ### 阶段上报
-应用发布管理后台有完整的应用发布报表，包括下发、下载、安装等阶段。由于应用发布SDK只负责更新单推拉，更新单弹窗提示、下载、安装等后续处理流程由APP开发者来完成，所以关键阶段数据上报需APP开发者回调给SDK。阶段上报接口定义如下：
+应用发布管理后台有完整的应用发布报表，包括下发、下载、安装等阶段。由于应用发布 SDK 只负责更新单推拉，更新单弹窗提示、下载、安装等后续处理流程由 App 开发者来完成，所以关键阶段数据上报需 App 开发者回调给 SDK。阶段上报接口定义如下：
 ```java
 /**
  * 版本升级各阶段状态监听回调
