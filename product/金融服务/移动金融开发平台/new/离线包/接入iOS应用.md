@@ -128,7 +128,7 @@ typedef NS_ENUM(NSInteger, TMFWebOfflineLoggerLevel) {
 
 **日志标签/关键字说明**
 - 离线包预加载到生效的整体过程日志：（关键字：TMFWebOffline、TMFWebOfflineApp、download）
-![](https://qcloudimg.tencent-cloud.cn/raw/f9bc73dfcaeab800129324fa0e971c95.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8a09e0ff6a56a6ed587943ee4bcc9e80.png)
 - webView 加载离线包过程日志：（关键字：TMFWebOffline、WebOfflineHandler、apply）
 ![](https://qcloudimg.tencent-cloud.cn/raw/efde9795b60a6be4e4004a3a8682160c.png)
 - 终端预置离线包加载日志：（关键字：TMFWebOffline、preset、activate）
@@ -164,31 +164,50 @@ webappCachein
     |-- config.json
     |-- BID.zip
 ```
-
-| 目录     | 名称          | 描述                                                    |
-| -------- | ------------- | ------------------------------------------------------- |
-| 根目录   | webappCachein | 预置离线包根目录，用于存放本地离线包资源，名字不能修改  |
-| 二级目录 | BID           | 以离线包 BID 命名，跟管理平台上配置的离线包业务 ID 一致 |
-| 三级目录 | config.json   | 从管理平台下载的 zip 包解压后，拷贝到三级目录的位置     |
-|          | BID.zip       | 从管理平台下载的 zip 包，拷贝到三级目录的位置           |
+<table>
+<tr>
+<th>目录</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>根目录</td>
+<td>webappCachein</td>
+<td>预置离线包根目录，用于存放本地离线包资源，名字不能修改</td>
+</tr>
+<tr>
+<td>二级目录</td>
+<td>BID </td>
+<td>以离线包 BID 命名，跟管理平台上配置的离线包业务 ID 一致</td>
+</tr>
+<tr>
+<td rowspan="2">三级目录</td>
+<td>config.json</td>
+<td>从管理平台下载的 zip 包解压后，拷贝到三级目录的位置</td>
+</tr>
+<tr>
+<td>BID.zip</td>
+<td>从管理平台下载的 zip 包，拷贝到三级目录的位置</td>
+</tr>
+</table>
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb63d06b7640cc3725207d4d080fd055.png)
 
 #### 管理平台下载离线包并制作预置离线包
-1. 登录**移动金融开发平台** > **离线包** > **离线包管理中**，选择需要预置的离线包以及版本，在右侧操作栏，单击**详情**，单击**基础包链接**，下载需要预置的离线包。
+1. 登录**[移动金融开发平台](https://console.cloud.tencent.com/tmf)** > **离线包** > **离线包管理中**，选择需要预置的离线包以及版本，在右侧操作栏，单击**详情**，单击**基础包链接**，下载需要预置的离线包。
 ![](https://qcloudimg.tencent-cloud.cn/raw/020053b445f8e31661730c696431fc7b.png)
 2. [](id:step2)并从压缩包中解压中 `config.json` 文件存放到离线包目录结构中的三级目录下。
 ```shell
- $ cd Downloads/								# 进入下载目录，假设基础包文件为bsdiff_180.zip bid是bid1
- $ mkdir bid1									# 创建BID目录
- $ mv bsdiff_181.zip bid1/			# 将离线包文件移动到BID目录下
- $ cd bid1/										# 进入BID目录下
- $ mkdir tmp_bid							  # 创建临时解压目录
- $ unzip bsdiff_181.zip -d tmp_bid/	# 将离线包zip文件解压至临时目录
- $ mv tmp_bid/config.json ./					# 提取config.json至BID目录下
- $ mv bsdiff_181.zip bid1.zip				# bid1.zip重命名为
- $ rm -r tmp_bid/										# 移除临时解压目录tmp_bid
- $ ls																# 当前目录包含两个文件[config.json, bid1.zip]
+   $ cd Downloads/                       # 进入下载目录，假设基础包文件为bsdiff_180.zip bid是bid1
+   $ mkdir bid1                            # 创建BID目录
+   $ mv bsdiff_181.zip bid1/                # 将离线包文件移动到BID目录下
+   $ cd bid1/                                                                                # 进入BID目录下
+   $ mkdir tmp_bid                            # 创建临时解压目录
+   $ unzip bsdiff_181.zip -d tmp_bid/        # 将离线包zip文件解压至临时目录
+   $ mv tmp_bid/config.json ./                # 提取config.json至BID目录下
+   $ mv bsdiff_181.zip bid1.zip               # bid1.zip重命名为bsdiff_181.zip
+   $ rm -r tmp_bid/                          # 移除临时解压目录tmp_bid
+   $ ls                                # 当前目录包含两个文件[config.json, bid1.zip]
 ```
 3. 创建 `webappCachein.zip` 文件，可预知多个 BID。
 >?
