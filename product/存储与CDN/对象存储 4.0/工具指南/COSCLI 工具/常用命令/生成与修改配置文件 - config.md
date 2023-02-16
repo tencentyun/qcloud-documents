@@ -10,7 +10,7 @@
 >? 
 >- 正确填写各配置项后，您可以使用`./coscli config show`来查看配置信息。
 >- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
->
+>- 生成的配置文件，默认网络传输协议为 https。如需更改为 http，可直接进入配置文件进行修改即可。
 
 <span id="config"></span>
 
