@@ -194,7 +194,7 @@ webappCachein
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb63d06b7640cc3725207d4d080fd055.png)
 
 #### 管理平台下载离线包并制作预置离线包
-1. 登录**[ 移动金融开发平台](https://console.cloud.tencent.com/tmf)** > **离线包** > **离线包管理中**，选择需要预置的离线包以及版本，在右侧操作栏，单击**详情**，单击**基础包链接**，下载需要预置的离线包。
+1. 登录 **[移动金融开发平台](https://console.cloud.tencent.com/tmf)** > **离线包** > **离线包管理中**，选择需要预置的离线包以及版本，在右侧操作栏，单击**详情**，单击**基础包链接**，下载需要预置的离线包。
 ![](https://qcloudimg.tencent-cloud.cn/raw/020053b445f8e31661730c696431fc7b.png)
 2. [](id:step2)并从压缩包中解压中 `config.json` 文件存放到离线包目录结构中的三级目录下。
 ```shell
