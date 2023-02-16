@@ -28,7 +28,7 @@ public class ProtocolType {
      */
     public static final int PROTOCOL_TYPE_CONCH = 0;
     /**
-     * 新协议：与数据同步组件解耦，
+     * 新协议：与数据同步组件解耦
      */
     public static final int PROTOCOL_TYPE_SHARK = 1;
 }
@@ -323,7 +323,7 @@ public boolean ignoreFreqLimit = false;
 public boolean downloadOnlyInWiFi = false;
 // 是否来推送触发的检查更新，开发者无需关心，默认fasle即可
 public boolean fromPush = false;
-// 是否忽略延迟检查更新，默认为true。自动检查离线包更新时为false，延迟5秒触发检查更新，避免下载流程影响正常加载体验。
+// 是否忽略延迟检查更新，默认为true。自动检查离线包更新时为false，延迟5秒触发检查更新，避免下载流程影响正常加载体验
 public boolean ignoreDelay = true;
 // 检查到更新先删除本地缓存，然后再下载最新离线包。默认为false
 public boolean deleteOldBizBeforeDownload = false；
@@ -389,7 +389,7 @@ private String path;
 ```java
 /**
 * 是否检查到有新包就把旧包删掉，而不是下载到新包之后才替换(可选)
-* 默认为true，行方担心下载时间比较长，要求一检查到有新包就把旧包删掉
+* 默认为true，客户担心下载时间比较长，要求一检查到有新包就把旧包删掉
 */
 public boolean deleteOldBizBeforeDownload;
 
