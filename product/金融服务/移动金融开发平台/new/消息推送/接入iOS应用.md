@@ -56,7 +56,7 @@ TMFPush 的集成方式有以下 2 种，可选择其一进行集成：
   依赖的组件列表见 [前置条件 - 组件依赖](#qztj)。
 3. **添加依赖的系统库**
   把 `TMFPush` 依赖的系统库添加到您的项目中。
-  在 Xcode 中打开您的 project 设置页，选中相关的 target，单击**General**，在”Linked Frameworks and Libraries“中进行添加。
+  在 Xcode 中打开您的 project 设置页，选中相关的 target，单击**General**，在“Linked Frameworks and Libraries”中进行添加。
 4. **系统库依赖**
   - `Foundation.framework`
   - `UIKit.framework`
@@ -68,7 +68,7 @@ TMFPush 的集成方式有以下 2 种，可选择其一进行集成：
   添加 `TMFPush` 之后，需要进行相关的 Project 设置。
   在 Xcode 中打开您的 Project 设置页，选中相关的 target，进行以下设置：
   - 选择 **Build Settings** > **Linking** > **Other Linker Flags**，增加：`-ObjC`
-  - 单击 **Capabilities**，打开”Push Notifications“和”Background Modes“配置推送。
+  - 单击 **Capabilities**，打开“Push Notifications“和”Background Modes”配置推送。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dba1c1bf2422ae3c457a568fee438464.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/cc4aeab0414cf00fc0bb4acc54f3a06f.png)
 
@@ -536,8 +536,8 @@ openssl pkcs12 -in 证书.p12 -out 证书.pem -clcerts -nodes
 ![](https://qcloudimg.tencent-cloud.cn/raw/d02ff61513f285f39b760e61eb214398.png)
 2. 把 `TMFDataPush` 依赖的所有组件添加到您的项目中。
   依赖的组件列表见 [前置条件 - 组件依赖](#qztj)。
-3. 添加  `TMFDataPush` 依赖的系统库。
-  在 Xcode 中打开您的 project 设置页，选中相关的 target，单击【General】，在“Linked Frameworks and Libraries”中进行添加。
+3. 添加 `TMFDataPush` 依赖的系统库。
+  在 Xcode 中打开您的 project 设置页，选中相关的 target，单击**General**，在“Linked Frameworks and Libraries”中进行添加。
   **系统库依赖**
   - `Foundation.framework`
   - `UIKit.framework`
@@ -554,12 +554,12 @@ openssl pkcs12 -in 证书.p12 -out 证书.pem -clcerts -nodes
 4. **Project 设置**
 添加 `TMFDataPush` 之后，需要进行相关的 Project 设置。
 在 Xcode 中打开您的 Project 设置页，选中相关的 target，进行以下设置：
-  - 选择【Build Settings】>【Linking】>【Other Linker Flags】，增加：
+  - 选择 **Build Settings** > **Linking** > **Other Linker Flags**，增加：
     - `-ObjC`
-  - 选择【Build Settings】>【Apple Clang - Custom Compiler Flags】>【Other C Flags】，增加：
+  - 选择 **Build Settings** > **Apple Clang** - **Custom Compiler Flags** > **Other C Flags** ，增加：
     - `-fshort-wchar`
     - `-D__FIXWCHART__`
-  - 选择【Build Settings】>【Apple Clang - Custom Compiler Flags】>【Other C++ Flags】，增加：
+  - 选择 **Build Settings** > **Apple Clang - Custom Compiler Flags** > **Other C++ Flags**，增加：
     - `-fshort-wchar`
     - `-D__FIXWCHART__`
 
