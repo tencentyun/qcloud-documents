@@ -116,7 +116,7 @@ manifestPlaceholders = [
         OPPO_APPSECRET      : rootProject.ext.TMFDemo_push.oppoPushAppSecret
 ]
 ```
->?OPPO 推送注册失败回调码查询 [查看第五点：错误码定义说明](https://open.oppomobile.com/wiki/doc#id=10196)。
+>?OPPO 推送注册失败回调码查询 [错误代码定义](https://open.oppomobile.com/new/developmentDoc/info?id=11224)。
 >
 
 
