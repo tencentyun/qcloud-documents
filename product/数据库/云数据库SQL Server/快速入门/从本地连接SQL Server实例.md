@@ -34,7 +34,7 @@
  - **Server type**：选择 Database Engine。
  - **Server name**：实例的外网 IP 地址和端口号，需用英文逗号隔开。
  -  **Authentication**：选择 SQL Server Authentication。
- -  **Login 和 Password**：在实例**帐号管理**页创建帐号时，填写的帐号名和密码。
+ -  **Login 和 Password**：在实例**账号管理**页创建账号时，填写的账号名和密码。
 ![](https://main.qcloudimg.com/raw/14d90aa2eda6c841680f0fdc74db8219.png)
 3. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](https://main.qcloudimg.com/raw/c65c02197b506bd5b326128f1a3983a0.png)
@@ -88,7 +88,7 @@ c. 在弹出的对话框，逐步完成设置，然后单击**提交**即可完�
  - **Server type**：选择 Database Engine。
  - **Server name**：CLB 的 IP 地址和端口号，需用英文逗号隔开，例如 `10.0.0.1,4000`。
  -  **Authentication**：选择 SQL Server Authentication。
- -  **Login 和 Password**：在实例**帐号管理**页创建帐号时，填写的帐号名和密码。
+ -  **Login 和 Password**：在实例**账号管理**页创建账号时，填写的账号名和密码。
 ![](https://main.qcloudimg.com/raw/14d90aa2eda6c841680f0fdc74db8219.png)
 3. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](https://main.qcloudimg.com/raw/c65c02197b506bd5b326128f1a3983a0.png)
@@ -120,7 +120,7 @@ select @@VERSION
  - **Server type**：选择 Database Engine。
  - **Server name**：本机 IP 地址和端口号，需用英文逗号隔开，例如`10.0.0.1,4000`。端口号需与第6步中配置的端口保持一致。
  -  **Authentication**：选择 SQL Server Authentication。
- -  **Login 和 Password**：在实例**帐号管理**页创建帐号时，填写的帐号名和密码。
+ -  **Login 和 Password**：在实例**账号管理**页创建账号时，填写的账号名和密码。
 ![](https://main.qcloudimg.com/raw/14d90aa2eda6c841680f0fdc74db8219.png)
 9.  连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](https://main.qcloudimg.com/raw/c65c02197b506bd5b326128f1a3983a0.png)
@@ -130,5 +130,4 @@ select @@VERSION
 ```
 运行查询，SQL Server Management Studio 会返回 SQL Server 版的腾讯云云数据库实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/620a6143d5687581e9f2892e3fb76130.png)
-
 
