@@ -205,27 +205,6 @@ vivo开发者账号的注册方式参考<a href="https://dev.vivo.com.cn/documen
 ![](https://qcloudimg.tencent-cloud.cn/raw/c16e9a0ac0bd97f0a942df91b7bcb566.png)
 3. 您需要将相关信息配置在 TMF 控制台以及您的 Android 应用中，以便正常使用推送功能。
 
-## Firebase Cloud Messaging 参数获取[](id:Firebase)
-
-### 创建 Google 账号
-Google账号的注册方式参考<a href="https://support.google.com/accounts/answer/27441?hl=zh-Hans">《创建 Google 帐号》</a>。
-
-### 新建应用
-1. 登录 [Firebase 官网](https://firebase.google.com/?hl=zh-cn)，单击**转到控制台**。
-![](https://qcloudimg.tencent-cloud.cn/raw/e734206617ce1dc2163d27eac6c35e0d.png)
-2. 单击**创建项目**新建一个项目。
-![](https://qcloudimg.tencent-cloud.cn/raw/0e2e8c74569815586012fdd1dadfecbe.png)
-3. 按照指引输入项目名称，创建项目。
-![](https://qcloudimg.tencent-cloud.cn/raw/12c114cb1d6957cc43a528603db25697.png)
-4. 回到控制台，单击您的项目。
-![](https://qcloudimg.tencent-cloud.cn/raw/e6fa22231457c55c28b42cd4fc18ff97.png)
-5. 单击 Android 的机器人图标添加一个 Android 应用。
-![](https://qcloudimg.tencent-cloud.cn/raw/f6813de8a8b1ca4f146991b6c39d7dad.png)
-6. 按照指引输入您的应用信息，注册应用。
-![](https://qcloudimg.tencent-cloud.cn/raw/a1e2023636ef57f7b7884adbca947fde.png)
-7. 下载 `google-services.json` 文件，添加到您的 Android 项目中。
-![](https://qcloudimg.tencent-cloud.cn/raw/0a954fd8eb802500d661583f0841bf3f.png)
-
 
 ### 下载密钥配置文件
 1. 回到项目控制台，单击您刚才创建的应用旁边的**设置**。
