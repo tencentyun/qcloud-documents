@@ -111,7 +111,7 @@ TMFBaseConfig config = new TMFBaseConfig.Builder()
 TMFBase.init(this, config);
 ```
 
-SharkConfigInfo说明请参考[移动网关 > 接入Android > API](../../../05后台服务/移动网关/接入Android/API.md#sharkconfiginfo)
+SharkConfigInfo说明请参考[ 移动网关 > 接入Android > API](../../../05后台服务/移动网关/接入Android/API.md#sharkconfiginfo)
 
 ## SSLPinCfg
 Http 通道服务端证书绑定校验相关设置，支持两种绑定校验：
