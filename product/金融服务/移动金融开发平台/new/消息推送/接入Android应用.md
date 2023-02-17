@@ -145,36 +145,6 @@ implementation 'com.tencent.tmf.android:vivo-push:+'
 implementation 'com.tencent.tmf.android:push-support-vivo:+'
 ```
 
-### Firebase Cloud Messagin (FCM) 推送服务接入
-
-#### 配置FCM推送参数
-注册 FCM 推送服务步骤，请参见 [Android 厂商通道参数申请指南 > Firebase Cloud Messaging 参数获取](https://cloud.tencent.com/document/product/1034/86570#Firebase)，请根据页面说明完成开通推送服务。
-
-#### 配置FCM推送 SDK
-1. 下载 google-services.json
-FCM 提供了 `google-services.json` 作为配置文件，需要在官方管理后台下载，参考前述参数获取文档：
-![](https://qcloudimg.tencent-cloud.cn/raw/c6c5307cb5a15a7e60d87ab15eef87b1.png)
- 请将文件置于您的应用模块根目录中。
-2. 添加 FCM push sdk。
-```groovy
-implementation 'com.google.firebase:firebase-messaging:23.1.1'
-implementation 'com.tencent.tmf.android:push-support-fcm:+'
-```
-至此厂商推送通道已接入成功，可通过 TMFPushRcvService 接口获取注册结果。
->?组件内部处理了部分厂商通道注册的步骤，使用了以下通配符获取必要配置数据，调用方必须按照命名及规定传输数据。
-
-| 组件内部使用的通配符        | 通配符描述描述                                  | 必选   |
-| ----------------- | ---------------------------------------- | ---- |
-| ${HW_APPID}       | 华为推送服务 AppID，manifestPlaceholders 要配置相应键值 | YES    |
-| ${HONOR_APPID}    | 荣耀推送服务 AppID，manifestPlaceholders 要配置相应键值 | YES    |
-| ${XM_APPID}       | 小米推送服务 AppID，manifestPlaceholders 要配置相应键值 | YES   |
-| ${XM_APPKEY}      | 小米推送服务 AppKEY，manifestPlaceholders 要配置相应键值 | YES    |
-| ${OPPO_APPKEY}    | OPPO推送服务 AppKEY，manifestPlaceholders 要配置相应键值 | YES    |
-| ${OPPO_APPSECRET} | OPPO推送服务 AppSECRET，manifestPlaceholders 要配置相应键值 | YES    |
-| ${VIVO_APPID}     | vivo推送服务 AppID，manifestPlaceholders 要配置相应键值 | YES    |
-| ${VIVO_APPKEY}    | vivo推送服务 AppKEY，manifestPlaceholders 要配置相应键值 | YESY    |
-| ${applicationId}  | 注册厂商推送时使用的包名，请确保应用的 applicationId 与注册时使用的包名相同。（具体查询 build.gradle 的配置） | YES    |
-
 ## 打开 URI 并传参
 使用消息推送功能通过通知栏打开页面 URI 或是网页 URI 时，组件内部将按照系统默认的方式展示 URI 内容。当需要使用其它方式打开 URI 时（如：自定义webview），实现该接口，并传入接口实现类，则可实现自定义 URI 打开方式。
 **接口定义**
