@@ -478,7 +478,8 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 #### 4. 如何实现非媒体文件消息上传？
 - uni-app [官方文档](https://uniapp.dcloud.net.cn/api/media/file.html) 提示 `chooseFile` 不支持 APP 选择非媒体文件。故客户根据自己的需求在 [插件市场](https://ext.dcloud.net.cn/search?q=%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9) 选择可用插件。
 - 可参考插件库可用插件：[iOS 上传文件插件](https://ext.dcloud.net.cn/plugin?id=1311) 、 [安卓上传文件插件](https://ext.dcloud.net.cn/plugin?id=5263) （非官方）完成文件选择 ,并格式化数据符合文件消息数据格式要求。
-- 可通过文件消息 [createFileMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFileMessage) API 实现文件上传功能。file 参数如下表所示：
+- 可通过文件消息 [createFileMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFileMessage) API 实现文件上传功能。
+- file 参数如下表所示：
  
 | 参数      | 类型     | 含义               | 
 | ---------| -------  | ------------------ |
