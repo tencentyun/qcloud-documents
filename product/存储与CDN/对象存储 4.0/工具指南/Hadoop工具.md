@@ -33,7 +33,7 @@ Hadoop-2.6.0及以上版本。
 
 1. 将 `hadoop-cos-{hadoop.version}-{version}.jar` 和 `cos_api-bundle-{version}.jar` 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 >? 根据 Hadoop 的具体版本选择对应的 jar 包，若 release 中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。
-> 
+>
 2. 修改 hadoop-env.sh 文件。进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop-env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
 ```shell
 for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
@@ -49,31 +49,34 @@ done
 
 ### 配置项说明
 
-|                  属性键                  | 说明                                                         |                            默认值                            | 必填项 |
-| :--------------------------------------: | :----------------------------------------------------------- | :----------------------------------------------------------: | :----: |
-|   fs.cosn.userinfo.<br>secretId/secretKey    | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |                              无                              |   是   |
-|       fs.cosn.<br>credentials.provider       | 配置 SecretId 和 SecretKey 的获取方式。当前支持如下获取方式：<ol  style="margin: 0;"><li>org.apache.hadoop.fs.auth.SessionCredentialProvider：从请求 URI 中获取 secret id 和 secret key。其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`。</li><li>org.apache.hadoop.fs.auth.SimpleCredentialProvider：从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey。</li><li>org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取。</li><li>org.apache.hadoop.fs.auth.SessionTokenCredentialProvider：使用 [临时密钥形式](https://cloud.tencent.com/document/product/436/14048) 访问。</li><li>org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider：利用腾讯云云服务器（CVM）绑定的角色，获取访问 COS 的临时密钥。</li><li>org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider：利用腾讯云黑石物理机（CPM）绑定的角色，获取访问 COS 的临时密钥。</li><li>org.apache.hadoop.fs.auth.EMRInstanceCredentialsProvider：利用腾讯云 EMR 实例绑定的角色，获取访问 COS 的临时密钥。</li><li>org.apache.hadoop.fs.auth.RangerCredentialsProvider 使用 ranger 进行获取密钥。</li></ol>| 如果不指定该配置项，默认会按照<br>以下顺序读取：<ol  style="margin: 0;"><li>org.apache.hadoop.fs.auth.SessionCredentialProvider</li><li>org.apache.hadoop.fs.auth.SimpleCredentialProvider</li><li>org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider</li><li>org.apache.hadoop.fs.auth.SessionTokenCredentialProvider</li><li>org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider</li><li>org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider</li><li>org.apache.hadoop.fs.auth.EMRInstanceCredentialsProvider</li></ol> |   否   |
-| fs.cosn.useHttps | 配置是否使用 HTTPS 作为与 COS 后端的传输协议。 | true | 否 |
-|               fs.cosn.impl               | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem。 |                              无                              |   是   |
-|     fs.AbstractFileSystem.<br>cosn.impl      | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN。 |                              无                              |   是   |
-|          fs.cosn.bucket.region           | 请填写待访问存储桶的地域信息，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，<br>例如：ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。 |                              无                              |   是   |
-|      fs.cosn.bucket.<br>endpoint_suffix      | 指定要连接的 COS endpoint，该项为非必填项目。对于公有云 COS 用户而言，<br>只需要正确填写上述的 region 配置即可。兼容原有配置：fs.cosn.userinfo.endpoint_suffix。配置该项时请删除 fs.cosn.bucket.region 配置项 endpoint 才能生效。 | 无 | 否 |
-|             fs.cosn.tmp.dir              | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。 | /tmp/hadoop_cos | 否 |
-|          fs.cosn.upload.<br>part.size           | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。<br>例如，part size 为8MB时，最大能够支持78GB的单文件上传。 part size 最大可以支持到2GB，即单文件最大可支持19TB。 | 8388608（8MB） |   否   |
-| fs.cosn.<br>upload.buffer | CosN 文件系统上传时依赖的缓冲区类型。当前支持三种类型的缓冲区：非直接内存缓冲区（non_direct_memory），<br>直接内存缓冲区（direct_memory），磁盘映射缓冲区（mapped_disk）。非直接内存缓冲<br>区使用的是 JVM 堆内存，直接内存缓冲区使用的是堆外内存，而磁盘映射缓冲区则是基于内存文件映射得到的缓冲区。| mapped_disk | 否 |
-| fs.cosn.<br>upload.buffer.size | CosN 文件系统上传时依赖的缓冲区大小，如果指定为-1，则表示不限制缓冲区。若不<br>限制缓冲区大小，则缓冲区的类型必须为 mapped_disk。如果指定大小大于0，则要求该值至少大于等于一个 block 的大小。兼容原有配置 fs.cosn.buffer.size。 | -1 | 否 |
-|  fs.cosn.block.size | CosN 文件系统 block size。 | 134217728（128MB）| 否 | 
-|        fs.cosn.<br>upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目。                  |                        10                        |   否   |
-|         fs.cosn.<br>copy_thread_pool         | 目录拷贝操作时，可用于并发拷贝和删除文件的线程数目。               |                   3                       |   否   |
-|      fs.cosn.<br>read.ahead.block.size       | 预读块的大小。                                               |                        1048576（1MB）                        |   否   |
-|      fs.cosn.<br>read.ahead.queue.size       | 预读队列的长度。                                             |                              8                               |   否   |
-|            fs.cosn.maxRetries            | 访问 COS 出现错误时，最多重试的次数。                        |                             200                              |   否   |
-|      fs.cosn.retry.<br>interval.seconds      | 每次重试的时间间隔。                                         |                              3                               |   否   |
-| fs.cosn.<br>server-side-encryption.algorithm | 配置 COS 服务端加密算法，支持 SSE-C 和 SSE-COS，默认为空，不加密。 |                              无                              |   否   |
-|    fs.cosn.<br>server-side-encryption.key    | 当开启 COS 的 SSE-C 服务端加密算法时，必须配置 SSE-C 的密钥，<br>密钥格式为 base64 编码的 AES-256 密钥，默认为空，不加密。 |                              无                              |   否   |
-| fs.cosn.<br>crc64.checksum.enabled | 是否开启 CRC64 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC64 校验值。 | false | 否 |
-|fs.cosn.<br>crc32c.checksum.enabled    | 是否开启 CRC32C 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC32C 校验值，只能开启一种校验方式：crc32c 或 crc64。| false | 否 |
-| fs.cosn.traffic.limit | 上传带宽的控制选项，819200 - 838860800 bits/s，默认值为-1，默认表示不限制。 | 无 | 否 | 
+|                     属性键                      | 说明                                                         |                            默认值                            | 必填项 |
+| :---------------------------------------------: | :----------------------------------------------------------- | :----------------------------------------------------------: | :----: |
+|     fs.cosn.userinfo.<br>secretId/secretKey     | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |                              无                              |   是   |
+|        fs.cosn.<br>credentials.provider         | 配置 SecretId 和 SecretKey 的获取方式。当前支持如下获取方式：<ol  style="margin: 0;"><li>org.apache.hadoop.fs.auth.SessionCredentialProvider：从请求 URI 中获取 secret id 和 secret key。其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`。</li><li>org.apache.hadoop.fs.auth.SimpleCredentialProvider：从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey。</li><li>org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取。</li><li>org.apache.hadoop.fs.auth.SessionTokenCredentialProvider：使用 [临时密钥形式](https://cloud.tencent.com/document/product/436/14048) 访问。</li><li>org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider：利用腾讯云云服务器（CVM）绑定的角色，获取访问 COS 的临时密钥。</li><li>org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider：利用腾讯云黑石物理机（CPM）绑定的角色，获取访问 COS 的临时密钥。</li><li>org.apache.hadoop.fs.auth.EMRInstanceCredentialsProvider：利用腾讯云 EMR 实例绑定的角色，获取访问 COS 的临时密钥。</li><li>org.apache.hadoop.fs.auth.RangerCredentialsProvider 使用 ranger 进行获取密钥。</li></ol> | 如果不指定该配置项，默认会按照<br>以下顺序读取：<ol  style="margin: 0;"><li>org.apache.hadoop.fs.auth.SessionCredentialProvider</li><li>org.apache.hadoop.fs.auth.SimpleCredentialProvider</li><li>org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider</li><li>org.apache.hadoop.fs.auth.SessionTokenCredentialProvider</li><li>org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider</li><li>org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider</li><li>org.apache.hadoop.fs.auth.EMRInstanceCredentialsProvider</li></ol> |   否   |
+|                fs.cosn.useHttps                 | 配置是否使用 HTTPS 作为与 COS 后端的传输协议。               |                             true                             |   否   |
+|                  fs.cosn.impl                   | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem。 |                              无                              |   是   |
+|       fs.AbstractFileSystem.<br>cosn.impl       | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN。 |                              无                              |   是   |
+|              fs.cosn.bucket.region              | 请填写待访问存储桶的地域信息，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，<br>例如：ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。 |                              无                              |   是   |
+|       fs.cosn.bucket.<br>endpoint_suffix        | 指定要连接的 COS endpoint，该项为非必填项目。对于公有云 COS 用户而言，<br>只需要正确填写上述的 region 配置即可。兼容原有配置：fs.cosn.userinfo.endpoint_suffix。配置该项时请删除 fs.cosn.bucket.region 配置项 endpoint 才能生效。 |                              无                              |   否   |
+|                 fs.cosn.tmp.dir                 | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。 |                       /tmp/hadoop_cos                        |   否   |
+|          fs.cosn.upload.<br>part.size           | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。<br>例如，part size 为8MB时，最大能够支持78GB的单文件上传。 part size 最大可以支持到2GB，即单文件最大可支持19TB。 |                        8388608（8MB）                        |   否   |
+|            fs.cosn.<br>upload.buffer            | CosN 文件系统上传时依赖的缓冲区类型。当前支持三种类型的缓冲区：非直接内存缓冲区（non_direct_memory），<br>直接内存缓冲区（direct_memory），磁盘映射缓冲区（mapped_disk）。非直接内存缓冲<br>区使用的是 JVM 堆内存，直接内存缓冲区使用的是堆外内存，而磁盘映射缓冲区则是基于内存文件映射得到的缓冲区。 |                         mapped_disk                          |   否   |
+|         fs.cosn.<br>upload.buffer.size          | CosN 文件系统上传时依赖的缓冲区大小，如果指定为-1，则表示不限制缓冲区。若不<br>限制缓冲区大小，则缓冲区的类型必须为 mapped_disk。如果指定大小大于0，则要求该值至少大于等于一个 block 的大小。兼容原有配置 fs.cosn.buffer.size。 |                              -1                              |   否   |
+|               fs.cosn.block.size                | CosN 文件系统 block size。                                   |                      134217728（128MB）                      |   否   |
+|         fs.cosn.<br>upload_thread_pool          | 文件流式上传到 COS 时，并发上传的线程数目。                  |                              10                              |   否   |
+|          fs.cosn.<br>copy_thread_pool           | 目录拷贝操作时，可用于并发拷贝和删除文件的线程数目。         |                              3                               |   否   |
+|        fs.cosn.<br>read.ahead.block.size        | 预读块的大小。                                               |                        1048576（1MB）                        |   否   |
+|        fs.cosn.<br>read.ahead.queue.size        | 预读队列的长度。                                             |                              8                               |   否   |
+|               fs.cosn.maxRetries                | 访问 COS 出现错误时，最多重试的次数。                        |                             200                              |   否   |
+|       fs.cosn.retry.<br>interval.seconds        | 每次重试的时间间隔。                                         |                              3                               |   否   |
+|  fs.cosn.<br>server-side-encryption.algorithm   | 配置 COS 服务端加密算法，支持 SSE-C 和 SSE-COS，默认为空，不加密。 |                              无                              |   否   |
+|     fs.cosn.<br>server-side-encryption.key      | 当开启 COS 的 SSE-C 服务端加密算法时，必须配置 SSE-C 的密钥，<br>密钥格式为 base64 编码的 AES-256 密钥，默认为空，不加密。 |                              无                              |   否   |
+|     fs.cosn.client-side-encryption.enabled      | 是否开启客户端加密，默认不开启。开启后必须配置客户端加密的公钥和私钥。此时无法使用 append、truncate 接口。 |                            false                             |   否   |
+| fs.cosn.client-side-encryption.public.key.path  | 客户端加密公钥文件的绝对路径                                 |                              无                              |   否   |
+| fs.cosn.client-side-encryption.private.key.path | 客户端加密私钥文件的绝对路径                                 |                              无                              |   否   |
+|       fs.cosn.<br>crc64.checksum.enabled        | 是否开启 CRC64 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC64 校验值。 |                            false                             |   否   |
+|       fs.cosn.<br>crc32c.checksum.enabled       | 是否开启 CRC32C 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC32C 校验值，只能开启一种校验方式：crc32c 或 crc64。 |                            false                             |   否   |
+|              fs.cosn.traffic.limit              | 上传带宽的控制选项，819200 - 838860800 bits/s，默认值为-1，默认表示不限制。 |                              无                              |   否   |
 
 
 ### Hadoop 配置
@@ -199,6 +202,24 @@ done
         <value></value>
         <description>The SSE-C server side encryption key.</description>
     </property> 
+  
+    <property>
+        <name>fs.cosn.client-side-encryption.enabled</name>
+        <value></value>
+        <description>Enable or disable the client encryption function</description>
+    </property>
+  
+    <property>
+        <name>fs.cosn.client-side-encryption.public.key.path</name>
+        <value>/xxx/xxx.key</value>
+        <description>The direct path to the public key</description>
+    </property>
+  
+     <property>
+        <name>fs.cosn.client-side-encryption.private.key.path</name>
+        <value>/xxx/xxx.key</value>
+        <description>The direct path to the private key</description>
+    </property>
       
 </configuration>
 ```
@@ -249,9 +270,86 @@ SSE-C 加密即用户自定义密钥的服务端加密。加密密钥由用户�
 ```
 
 >!
-> - Hadoop-COS 的 SSE-C 服务端加密依赖于 COS 的 SSE-C 服务端加密。因此，Hadoop-COS 不存储用户提供的加密密钥。同时需要值得注意的是，COS 的 SSE-C 服务端加密方式不存储用户提供的加密密钥，而是存储加密密钥添加了随机数据的 HMAC 值，该值用于验证用户访问对象的请求。COS 无法使用随机数据的 HMAC 值来推导出加密密钥的值或解密加密对象的内容。因此，如果用户丢失了加密密钥，则无法再次获取到该对象。
-> - Hadoop-COS 配置了 SSE-C 服务端加密算法时，必须在 fs.cosn.server-side-encryption.key 配置项中配置 SSE-C 的密钥，密钥格式为 base64 编码的 AES-256 密钥。
-> 
+>- Hadoop-COS 的 SSE-C 服务端加密依赖于 COS 的 SSE-C 服务端加密。因此，Hadoop-COS 不存储用户提供的加密密钥。同时需要值得注意的是，COS 的 SSE-C 服务端加密方式不存储用户提供的加密密钥，而是存储加密密钥添加了随机数据的 HMAC 值，该值用于验证用户访问对象的请求。COS 无法使用随机数据的 HMAC 值来推导出加密密钥的值或解密加密对象的内容。因此，如果用户丢失了加密密钥，则无法再次获取到该对象。
+>- Hadoop-COS 配置了 SSE-C 服务端加密算法时，必须在 fs.cosn.server-side-encryption.key 配置项中配置 SSE-C 的密钥，密钥格式为 base64 编码的 AES-256 密钥。
+>
+
+### 客户端加密
+
+COSN 客户端加密采用 RSA 加密方式，密钥分为公钥和私钥，其中公钥用于文件加密过程，私钥用于文件解密过程。在上传文件时，COSN 会生成一个随机密钥，并用该密钥对文件进行对称加密。公钥会对该密钥进行加密，并将加密后的信息保存在文件元数据中。在下载文件时，COSN 会使用私钥从文件元数据中得到加密随机密钥进行解密，再使用解密后的随机密钥对文件进行对此解密。公钥和私钥只参与客户端本地计算，不会在网络上进行传输或保存在服务端，以保证主密钥的数据安全。
+
+- 使用客户端加密功能时，您需要对主密钥的完整性和正确性负责。在对加密数据进行复制或者迁移时，您需要对加密元信息的完整性和正确性负责。因您维护不当导致主密钥用错或丢失，加密元信息出错或丢失，从而导致加密数据无法解密所引起的一切损失和后果均由您自行承担。
+- 开启客户端加密后，不再支持 append、truncate 接口。
+- 使用关闭了客户端加密功能的客户端对加密文件进行 `hadoop fs -cp` 命令，会丢失加密信息。
+- 开启客户端加密后，默认关闭 CRC 文件校验，默认关闭异步文件分块上传。
+
+当使用 Hadoop-COS 时，用户可以在`$HADOOP_HOME/etc/hadoop/core-site.xml`文件中，增加以下配置来进行实现 SSE-COS 加密。
+
+```shell
+ <property>
+        <name>fs.cosn.client-side-encryption.enabled</name>
+        <value>true</value>
+        <description>Enable or disable the client encryption function</description>
+    </property>
+  
+    <property>
+        <name>fs.cosn.client-side-encryption.public.key.path</name>
+        <value>/xxx/xxx.key</value>
+        <description>The direct path to the public key</description>
+    </property>
+  
+     <property>
+        <name>fs.cosn.client-side-encryption.private.key.path</name>
+        <value>/xxx/xxx.key</value>
+        <description>The direct path to the private key</description>
+    </property>
+```
+
+可使用以下代码生成密钥：
+
+```java
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
+
+// 使用非对称秘钥RSA加密每次生成的随机对称秘钥
+public class BuildKey {
+    private static final SecureRandom srand = new SecureRandom();
+    private static void buildAndSaveAsymKeyPair(String pubKeyPath, String priKeyPath) throws IOException, NoSuchAlgorithmException {
+        KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+        keyGenerator.initialize(1024, srand);
+        KeyPair keyPair = keyGenerator.generateKeyPair();
+        PrivateKey privateKey = keyPair.getPrivate();
+        PublicKey publicKey = keyPair.getPublic();
+
+        X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(publicKey.getEncoded());
+        FileOutputStream fos = new FileOutputStream(pubKeyPath);
+        fos.write(x509EncodedKeySpec.getEncoded());
+        fos.close();
+
+        PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(privateKey.getEncoded());
+        fos = new FileOutputStream(priKeyPath);
+        fos.write(pkcs8EncodedKeySpec.getEncoded());
+        fos.close();
+    }
+
+
+    public static void main(String[] args) throws Exception {
+
+        String pubKeyPath = "pub.key";
+        String priKeyPath = "pri.key";
+        buildAndSaveAsymKeyPair(pubKeyPath, priKeyPath);
+    }
+}
+
+```
 
 ## 使用方法
 
