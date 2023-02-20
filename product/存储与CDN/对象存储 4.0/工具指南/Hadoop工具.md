@@ -16,10 +16,9 @@ Hadoop-COS 使用 cosn 作为 URI 的 scheme，因此也称为 Hadoop-COS 为 Co
 Hadoop-2.6.0及以上版本。
 
 >?
->1. 目前 Hadoop-COS 已经正式被 Apache Hadoop-3.3.0 [官方集成](https://hadoop.apache.org/docs/r3.3.0/hadoop-cos/cloud-storage/index.html)。
->2. 在 Apache Hadoop-3.3.0 之前版本或 CDH 集成 Hadoop-cos jar 包后，需要重启 NodeManager 才能加载到 jar 包。
->3. 需要编译具体 Hadoop 版本的 jar 包时，可更改 pom 文件中 hadoop.version 进行编译。
->
+- 目前 Hadoop-COS 已经正式被 Apache Hadoop-3.3.0 [官方集成](https://hadoop.apache.org/docs/r3.3.0/hadoop-cos/cloud-storage/index.html)。
+- 在 Apache Hadoop-3.3.0 之前版本或 CDH 集成 Hadoop-cos jar 包后，需要重启 NodeManager 才能加载到 jar 包。
+-  需要编译具体 Hadoop 版本的 jar 包时，可更改 pom 文件中 hadoop.version 进行编译。
 
 
 
@@ -34,7 +33,7 @@ Hadoop-2.6.0及以上版本。
 1. 将 `hadoop-cos-{hadoop.version}-{version}.jar` 和 `cos_api-bundle-{version}.jar` 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 >? 根据 Hadoop 的具体版本选择对应的 jar 包，若 release 中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。
 >
-2. 修改 hadoop-env.sh 文件。进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop-env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
+2. 修改 hadoop-env.sh 文件。进入 `$HADOOP_HOME/etc/hadoop` 目录，编辑 hadoop-env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
 ```shell
 for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
   if [ "$HADOOP_CLASSPATH" ]; then
@@ -81,7 +80,7 @@ done
 
 ### Hadoop 配置
 
-修改`$HADOOP_HOME/etc/hadoop/core-site.xml`，增加 COS 相关用户和实现类信息，例如：
+修改 `$HADOOP_HOME/etc/hadoop/core-site.xml`，增加 COS 相关用户和实现类信息，例如：
 
 ```xml
 <configuration>
@@ -242,7 +241,7 @@ Hadoop-COS 支持服务端加密，目前提供两种加密方式：COS 托管�
 
 #### SSE-COS 加密
 
-SSE-COS 加密即 COS 托管密钥的服务端加密，由腾讯云 COS 托管主密钥和管理数据。当使用 Hadoop-COS 时，用户可以在`$HADOOP_HOME/etc/hadoop/core-site.xml`文件中，增加以下配置来进行实现 SSE-COS 加密。
+SSE-COS 加密即 COS 托管密钥的服务端加密，由腾讯云 COS 托管主密钥和管理数据。当使用 Hadoop-COS 时，用户可以在 `$HADOOP_HOME/etc/hadoop/core-site.xml` 文件中，增加以下配置来进行实现 SSE-COS 加密。
 
 ```shell
 <property>
@@ -319,7 +318,7 @@ import java.security.SecureRandom;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
-// 使用非对称秘钥RSA加密每次生成的随机对称秘钥
+// 使用非对称秘钥 RSA 加密每次生成的随机对称秘钥
 public class BuildKey {
     private static final SecureRandom srand = new SecureRandom();
     private static void buildAndSaveAsymKeyPair(String pubKeyPath, String priKeyPath) throws IOException, NoSuchAlgorithmException {
@@ -356,7 +355,7 @@ public class BuildKey {
 
 ### 使用示例
 
-命令格式为`hadoop fs -ls -R cosn://<BucketName-APPID>/<路径>`，或`hadoop fs -ls -R /<路径>`（需要配置`fs.defaultFS`选项为`cosn://BucketName-APPID`），下例中以名称为 examplebucket-1250000000 的 bucket 为例，可在其后面加上具体路径。
+命令格式为 `hadoop fs -ls -R cosn://<BucketName-APPID>/<路径>`，或 `hadoop fs -ls -R /<路径>`（需要配置 `fs.defaultFS` 选项为 `cosn://BucketName-APPID`），下例中以名称为 examplebucket-1250000000 的 bucket 为例，可在其后面加上具体路径。
 
 ```shell
 hadoop fs -ls -R cosn://examplebucket-1250000000/
@@ -459,7 +458,7 @@ public class Demo {
         conf.set("fs.cosn.userinfo.secretId", "AKXXXXXXXXXXXXXXXXX");
         conf.set("fs.cosn.userinfo.secretKey", "XXXXXXXXXXXXXXXXXX");
         conf.set("fs.ofs.user.appid", "XXXXXXXXXXX");
-        // 其他配置参考官网文档https://cloud.tencent.com/document/product/436/6884#hadoop-.E9.85.8D.E7.BD.AE
+        // 其他配置参考官网文档 https://cloud.tencent.com/document/product/436/6884#hadoop-.E9.85.8D.E7.BD.AE
         // 是否开启 CRC64 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC64 校验值
         conf.set("fs.cosn.crc64.checksum.enabled", "true");
         String cosnUrl = "cosn://f4mxxxxxxxx-125xxxxxxx";
