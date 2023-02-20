@@ -272,8 +272,7 @@ class LiveRoom extends StatelessWidget {
 					),
 					data: TencentCloudAvChatRoomData(
 						isSubscribe: false,
-						notification:
-							"欢迎来到直播间！严禁未成年人直播、打赏或向末成年人销售酒类商品。若主播销售酒类商品，请未成年人在监护人陪同下观看。直播间内严禁出现违法违规、低俗色情、吸烟酗酒、人身伤害等内容。如主播在直播中以不当方式诱导打赏私下交易请谨慎判断以防人身财产损失购买商品请点击下方购物车按钮，请勿私下交易，请大家注意财产安全，谨防网络诈骗。",
+						notification: "直播间公告",
 						anchorInfo: AnchorInfo(
 							subscribeNum: 200,
 							fansNum: 5768,
@@ -452,25 +451,25 @@ final customInfoRocket = {
 	"businessID": "flutter_live_kit", // 业务标识字段
 	"data": {
 		"cmd":
-			"send_gift_message", // send_gift_message: 发送礼物消息, update_online_member: 更新在线人数
-		"cmdInfo": {
-		"type": 3, // 礼物特效
-		"giftUrl": "1e8913f8c6d804972887fc179fa1fbd7.png",
-		"giftCount": 1,
-		"giftSEUrl": "assets/live/rocket.json",
-		"giftName": "超级火箭",
+			"send_gift_message", // 指令
+		"cmdInfo": { // 指令携带的信息
+		"type": 3, // 礼物类型
+		"giftUrl": "1e8913f8c6d804972887fc179fa1fbd7.png", // 礼物图片地址
+		"giftCount": 1, // 礼物数量
+		"giftSEUrl": "assets/live/rocket.json", // 礼物特效地址
+		"giftName": "超级火箭", // 礼物名称
 		},
 	}
 };
 
 final customInfoPlane = {
-    "version": 1.0, // 协议版本号
-    "businessID": "flutter_live_kit", // 业务标识字段
+    "version": 1.0, 
+    "businessID": "flutter_live_kit", 
     "data": {
       "cmd":
-          "send_gift_message", // send_gift_message: 发送礼物消息, update_online_member: 更新在线人数
+          "send_gift_message",
       "cmdInfo": {
-        "type": 2, // 礼物不带特效
+        "type": 2, 
         "giftUrl": "5e175b792cd652016aa87327b278402b.png",
         "giftCount": 1,
         "giftName": "飞机",
@@ -479,13 +478,13 @@ final customInfoPlane = {
 };
 
 final customInfoFlower = {
-    "version": 1.0, // 协议版本号
-    "businessID": "flutter_live_kit", // 业务标识字段
+    "version": 1.0, 
+    "businessID": "flutter_live_kit", 
     "data": {
       "cmd":
-          "send_gift_message", // send_gift_message: 发送礼物消息, update_online_member: 更新在线人数
+          "send_gift_message", 
       "cmdInfo": {
-        "type": 1, //普通礼物
+        "type": 1, 
         "giftUrl": "8f25a2cdeae92538b1e0e8a04f86841a.png",
         "giftCount": 1,
         "giftName": "花",
