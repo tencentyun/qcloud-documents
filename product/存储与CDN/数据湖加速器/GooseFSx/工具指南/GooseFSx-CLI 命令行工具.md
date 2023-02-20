@@ -60,16 +60,14 @@ data_flow 用于数据流动任务。
 
 ### 前提条件
 
-在使用数据流动任务命令之前，请先创建数据流动任务，详情请参见 [创建数据流动任务](https://cloud.tencent.com/document/product/1424/77959)。
-
- 
+在使用数据流动任务命令之前，请先创建数据流动/关联存储桶，详情请参见 [管理 GooseFSx 数据流动和关联存储桶](https://cloud.tencent.com/document/product/1424/77959)。
 
 
 ### 创建数据流动任务并异步返回结果
 
 创建数据流动任务，立即返回下发任务是否成功；随着数据量不同，数据流动任务执行时间也不同，可通过以下查询命令来查询数据流动任务执行结果。
 
- 
+
 
 #### 命令格式
 
@@ -85,7 +83,7 @@ create 命令包含以下 flag：
 | --bucket        | 无        | COS 存储桶名                                                 |
 | --region        | 无        | 存储桶所属地域                                               |
 | --filesystem-id | 无        | 文件系统 ID                                                  |
-| --task-path     | 无        | 对于 FS_TO_COS, TaskPath 是 Bucket 映射目录的相对路径, 对于 COS_TO_FS 是 COS 上的路径。如果置为空, 则表示全部数据 |
+| --task-path     | 无        | 对于 FS_TO_COS，TaskPath 是 Bucket 映射目录的相对路径，对于 COS_TO_FS 是 COS 上的路径。如果置为空, 则表示全部数据 |
 | --task-name     | 无        | 任务名称                                                     |
 
 #### 输出参数
