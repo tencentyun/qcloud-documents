@@ -2,7 +2,7 @@
 通过 BOT 与业务安全，用户可以在 BOT 管理中开启并配置对应模块内容，并结合 BOT 流量分析与访问日志进行观察和分析。根据流量分析提供的会话状态信息进行精细化策略设置，保护网站核心接口和业务免受 BOT 侵害。
 
 BOT 管理设置支持配置 BOT 场景类型、客户端风险识别（前端对抗）、威胁情报、AI 策略、智能统计、动作分数、自定义规则、Token 配置、合法爬虫模块，通过配置这些模块，实现对 BOT 的精细化管理。BOT 最佳实践流程图如下所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/8f80bd7286dd6a1131c14caac08b5412.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/425c398725336d2946ce0e5370d34fbe.png)
 
 ## 前提条件
 - BOT 流量管理需要购买 WAF [对应实例的扩展包](https://cloud.tencent.com/document/product/627/11730#bot-.E6.B5.81.E9.87.8F.E7.AE.A1.E7.90.86.3Ca-id.3D.22bot.22.3E.3C.2Fa.3E)。
