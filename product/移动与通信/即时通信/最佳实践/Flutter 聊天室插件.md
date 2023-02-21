@@ -3,7 +3,7 @@
 
 ## Tencent Cloud AV Chat Room
 
-`Tencent Cloud AV Chat Room` 是基于[Tencent Cloud Chat SDK](https://pub.dev/packages/tencent_cloud_chat_sdk)并围绕聊天互动场景业务实现的 UI 组件。
+`Tencent Cloud AV Chat Room` 是基于 [Tencent Cloud Chat SDK](https://pub.dev/packages/tencent_cloud_chat_sdk) 并围绕聊天互动场景业务实现的 UI 组件。
 
 您可通过该组件快速实现一个包含**千万级互动**的应用。
 
@@ -11,12 +11,13 @@
     <img src="https://qcloudimg.tencent-cloud.cn/raw/7ab0e9189f6b382d8a2f52e174c69c23.jpg">
 </p>
 
+[](id:msg)
 ## 使用介绍
 
 ### 前置条件
 
-- 已[注册](https://www.tencentcloud.com/zh/document/product/378/17985)腾讯云账号并完成[身份验证](https://www.tencentcloud.com/zh/document/product/378/3629)。
-- 参照[创建并升级应用](https://www.tencentcloud.com/zh/document/product/1047/34577) 创建应用，并记录好 `SDKAppID`。
+- 已 [注册](https://www.tencentcloud.com/zh/document/product/378/17985) 腾讯云账号并完成 [身份验证](https://www.tencentcloud.com/zh/document/product/378/3629)。
+- 参照 [创建并升级应用](https://www.tencentcloud.com/zh/document/product/1047/34577) 创建应用，并记录好 `SDKAppID`。
 - 在 [IM 控制台](https://console.tencentcloud.com/im) 选择您的应用，在左侧导航栏依次点击 辅助工具->UserSig 生成&校验 ，创建 UserID 及其对应的 `UserSig`，复制`UserID`、`签名（Key）`、`UserSig`这三个，后续登录时会用到。
 - 创建一个 Flutter 应用。
 - 在 pubspec.yaml 文件中的 dependencies 下添加 tencent_cloud_av_chat_room。或者执行如下命令：
@@ -29,12 +30,12 @@ flutter pub add tencent_cloud_av_chat_room
 flutter pub get
 ```
 
-### 步骤 1: 初始化并登陆 IM
+### 步骤1：初始化并登录 IM
 
 初始化并登录 IM 有两种方式:
 
-- **组件外部**: 整个应用初始化并登录一次即可。
-- **组件内部**: 通过配置的方式将参数传入组件内部。
+- **组件外部**：整个应用初始化并登录一次即可。
+- **组件内部**：通过配置的方式将参数传入组件内部。
   如若您在现有 IM flutter 项目中集成该插件，可跳过该步骤。
 
 ##### 组件外部(推荐)
@@ -85,7 +86,7 @@ class _TencentAVChatRoomKitState extends State<TencentCloudAVChatRoom> {
 }
 ```
 
-### 步骤 2: 使用组件
+### 步骤2：使用组件
 
 在您合适的模块中使用该组件。
 
@@ -111,12 +112,12 @@ class _TencentAVChatRoomKitState extends State<TencentCloudAVChatRoom> {
 直播在生活中可谓是无处不在，越来越多的企业、开发者们正在搭建自己的直播平台。下面会介绍如何与腾讯云视立方搭建一个直播间。
 直播间主要包含直播和互动两部分，直播部分我们会采用腾讯云视立方移动直播来实现直播拉流, 画面播放等。互动采用本插件来实现直播点赞、送礼、弹幕收发等。
 
-本文相关代码均可在[Github](https://github.com/TencentCloud/chat-demo-flutter/tree/main/lib/src/pages/live_room)中下载查看。
+本文相关代码均可在 [Github](https://github.com/TencentCloud/chat-demo-flutter/tree/main/lib/src/pages/live_room) 中下载查看。
 
 ### 直播拉流和画面播放
 
 直播 SDK 是腾讯云视立方产品家族的子产品之一。直播 SDK 支持直播推流、拉流、主播观众互动连麦、主播跨房 PK 等能力，为用户提供稳定、极速的直播终端服务。
-参考[直播 Flutter SDK 标准直播拉流](https://cloud.tencent.com/document/product/454/71673)实现直播拉流和画面播放功能。
+参见 [直播 Flutter SDK 标准直播拉流](https://cloud.tencent.com/document/product/454/71673) 实现直播拉流和画面播放功能。
 
 **1: 设置 License**
 
@@ -217,9 +218,9 @@ class _LivePlayState extends State<LivePlayer> {
 ### 直播互动(点赞、送礼、弹幕收发)
 
 直播互动在直播场景中尤为重要。用户通过弹幕、送礼等方式与主播进行互动。
-接下来参考[使用介绍](#使用介绍)来集成本插件。
+接下来参见 [使用介绍](#msg) 来集成本插件。
 
-**1: 初始化、登录 IM**
+**1：初始化、登录 IM**
 
 我们在插件外部登录 IM,通常整个应用程序只需要初始化和登录 IM 一次即可。
 
@@ -247,7 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-**2: 使用插件**
+**2：使用插件**
 
 ```dart
 // live_room.dart
@@ -289,7 +290,7 @@ class LiveRoom extends StatelessWidget {
 
 上面我们通过`Stack Widget`将`LivePlayer(直播)`和`LiveRoom(互动)`通过层叠的方式结合在一起。
 
-**3: 如何自定义**
+**3：如何自定义**
 
 插件本身提供默认的 UI，但是往往在实际的使用过程中，用户都有不同的 UI, 接下来会介绍如何自定义本插件。
 
@@ -339,7 +340,7 @@ class LiveRoom extends StatelessWidget {
 	}
 ```
 
-**4: 礼物**
+**4：礼物**
 
 送礼在直播场景中是非常重要的场景。本插件默认提供了三种礼物类型的解析, 用户只需要按照特定的格式来发送自定义消息即可在界面上展示礼物消息。本插件默认带的送礼面板只用于展示礼物消息解析的功能，通常礼物是会牵扯到用户计费计量的逻辑，所以需要用户根据自己的业务需求在服务端计费后调用服务端接口发送礼物消息。送礼流程如下:
 
@@ -400,8 +401,8 @@ final normalGift = {
 };
 ```
 
-**5: 主题**
-本插件除了自定义外同时提供了`主题`能力，主题分为`颜色`和`字体`两部分。可按照您的需求自定义[主题](#tencentcloudavchatroomtheme)。
+**5：主题**
+本插件除了自定义外同时提供了`主题`能力，主题分为`颜色`和`字体`两部分。可按照您的需求自定义 [主题](#tencentcloudavchatroomtheme)。
 
 ## API Docs
 
@@ -558,6 +559,7 @@ TencentCloudAvChatRoomCustomWidgets(
 )
 ```
 
+[](id:tcentcloudavchatroomtheme)
 ### TencentCloudAvChatRoomTheme
 
 主题
