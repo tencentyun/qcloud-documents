@@ -3,7 +3,7 @@
 ## 操作步骤
 1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的集群 **ID/名称**进入集群详情页。
 2. 在集群详情页中单击**集群服务**，然后选择 YARN 组件右上角操作 > 作业查询，即可查看作业统计视图、资源消耗趋势，查询相关作业信息、任务信息查看、应用执行结果洞察及应用监控对比等。
-	1. 用户粒度的提交量、Memory、Vcore 的消耗量视图及分布，支持近期内的相关趋势查看。
+	1. 用户粒度的提交量、Memory、VCore 的消耗量视图及分布，支持近期内的相关趋势查看。
 ![](https://qcloudimg.tencent-cloud.cn/raw/82fcd7ea4fa9bc56be3dcca098906d7b.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/e5f61921666da3c3c48a53a4629045e4.png)
 	2. 作业级别提供用户、用用名、队列名、作业类型、持续时间及相关吞吐资源等多维信息筛查。
