@@ -1,5 +1,5 @@
 ## 前言
-本文以[Tencent Cloud AV Chat Room](https://pub.dev/packages/tencent_cloud_av_chat_room)插件为基础，结合[直播 Flutter SDK](https://cloud.tencent.com/document/product/454/71673)实现一个简单的直播互动Demo.
+本文以[Tencent Cloud AV Chat Room](https://pub.dev/packages/tencent_cloud_av_chat_room)插件为基础，结合[直播 Flutter SDK](https://cloud.tencent.com/document/product/454/71673)实现的直播业务场景.
 
 ## Tencent Cloud AV Chat Room
 
