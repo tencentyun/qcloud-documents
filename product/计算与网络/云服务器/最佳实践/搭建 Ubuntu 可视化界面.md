@@ -14,27 +14,39 @@ VNC 服务使用 TCP 协议，默认使用5901端口。则需在实例已绑定�
 
 
 ### 安装软件包
+#### 建议ubuntu18和20安装方式：
+<dx-tabs>
+::: Ubuntu 18.04
 1. [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
-2. 执行以下命令，将当前用户切换至 root 用户。
+2. 执行以下命令，清空缓存，更新您的软件包列表。
 ```shellsession
-sudo -i
+sudo apt clean all && sudo apt update
 ```
-3. 执行以下命令，清除缓存。
+3. 执行以下命令，安装桌面环境所需软件包。包括系统面板、窗口管理器、文件浏览器、终端等桌面应用程序。
 ```shellsession
-apt-get clean all
+sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop
 ```
-3. 执行以下命令，更新和获取最新的软件及版本信息。
+:::
+::: Ubuntu 20.04
+1. [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
+2. 执行以下命令，清空缓存，更新您的软件包列表。
 ```shellsession
-apt-get update
+sudo apt clean all && sudo apt update
 ```
-4. 执行以下命令，安装桌面环境所需软件包。包括系统面板、窗口管理器、文件浏览器、终端等桌面应用程序。
+3. 执行以下命令，安装桌面环境所需软件包。包括系统面板、窗口管理器、文件浏览器、终端等桌面应用程序。
 ```shellsession
-apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop
+sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop
 ```
-
-
+:::
+</dx-tabs>
 
 ### 配置 VNC
+<dx-tabs>
+::: 
+请在此输入  正文
+:::
+</dx-tabs>
+
 
 1. 按照实际情况选择执行以下命令，安装 VNC。
 <dx-tabs>
