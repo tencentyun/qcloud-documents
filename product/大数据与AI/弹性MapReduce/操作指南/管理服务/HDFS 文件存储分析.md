@@ -11,7 +11,7 @@
 	1. 可以查看 HDFS 存储的总文件数量、总存储量的日增量及日环比量。
 	2. 参照空文件（=0），小文件（<=2M）、其他（2M<文件存储量< 128M）及大文件（>=128M）定义提供文件数量分布和文件存储量分布视图。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f836dfb8c2449aa9981c2624e5aafca1.png)
-4.	通过视图反应各类文件数量和存储量的近期历史变化趋势。
+4.	通过视图直观查看各类文件数量和存储量的近期历史变化趋势。
 ![](https://qcloudimg.tencent-cloud.cn/raw/56292e2d6e50e118f7a35e778dad1a39.png)
 5.	查询 DayT-1 采集时间点 Top1000小文件/大文件的相关维度信息，提供文件名称、路径、用户组、所属用户、大小、最近一次访问时间等信息查询及下载.。
 ![](https://qcloudimg.tencent-cloud.cn/raw/780ee13bffb9514dc6eb455a3ce36026.png)
