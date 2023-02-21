@@ -25,7 +25,7 @@ CDN API 2.0下线通知：基于 API 2.0 接口访问时延较高和使用复杂
 | [CheckOvHost](https://cloud.tencent.com/document/api/228/10948)     | CheckDomain                                                  | 
 | [DeleteCdnHost  ](https://cloud.tencent.com/document/product/228/1396)  | [DeleteCdnDomain](https://cloud.tencent.com/document/product/228/41122)                                                       |
 | [DeleteCdnOvHost](https://cloud.tencent.com/document/api/228/10946)     | [DeleteCdnDomain](https://cloud.tencent.com/document/product/228/41122)                                                      |
-| DescribeCdnHostDetailedInf               | [DescribeCdnData](https://cloud.tencent.com/document/product/228/30986)                                                       |
+| DescribeCdnHostDetailedInfo               | [DescribeCdnData](https://cloud.tencent.com/document/product/228/30986)                                                       |
 | [DescribeCdnHostInfo       ](https://cloud.tencent.com/document/product/228/13022) | [DescribeCdnData](https://cloud.tencent.com/document/product/228/30986)                                                       |
 | [DescribeCdnHosts          ](https://cloud.tencent.com/document/product/228/3937)  | [DescribeDomains](https://cloud.tencent.com/document/product/228/41118)                                                       |
 | [DescribeOverseaCdnHosts   ](https://cloud.tencent.com/document/api/228/8653)      | [DescribeDomains](https://cloud.tencent.com/document/product/228/41118)                                                       |
@@ -37,7 +37,7 @@ CDN API 2.0下线通知：基于 API 2.0 接口访问时延较高和使用复杂
 | [GetCdnHostsDetailStatistic](https://cloud.tencent.com/document/product/228/13026) | [DescribeCdnData,DescribeOriginData](https://cloud.tencent.com/document/product/228/30986)                                                       |
 | GetCdnHostsHyStat                                                           | [DescribeCdnData,DescribeOriginData](https://cloud.tencent.com/document/product/228/30986)                                                       |
 | GetCdnHostsLogStat                                                          | [DescribeCdnData](https://cloud.tencent.com/document/product/228/30986)                                                       |
-| GetCdnHostsPathDetailStati                                                   | DescribeDomainPathData                                       | 
+| GetCdnHostsPathDetailStatistics                                                   | DescribeDomainPathData                                       | 
 | GetCdnIps                                                                 | [DescribeIpStatus](https://cloud.tencent.com/document/product/228/41954)                                                       |
 | [GetCdnLogList             ](https://cloud.tencent.com/document/product/228/8087)  | [DescribeCdnDomainLogs](https://cloud.tencent.com/document/product/228/39232)                                                       |
 | GetCdnMiddleSourceList                                                     | 下线                                                         |
@@ -45,7 +45,7 @@ CDN API 2.0下线通知：基于 API 2.0 接口访问时延较高和使用复杂
 | [GetCdnOriginStat          ](https://cloud.tencent.com/document/product/228/13211) | [DescribeOriginData](https://cloud.tencent.com/document/product/228/30984)                                                       |
 | [GetCdnOverseaOpenStat     ](https://cloud.tencent.com/document/api/228/20000)     | [DescribeDomains](https://cloud.tencent.com/document/product/228/41118)                                                       |
 | [GetCdnOverseaProvIspDetail](https://cloud.tencent.com/document/api/228/7344)      | [DescribeDistrictIspData ](https://cloud.tencent.com/document/product/228/47395)                                                       |
-| [GetCdnOverseaProvIspHyDeta](https://cloud.tencent.com/document/api/228/7422)      | [DescribeDistrictIspData](https://cloud.tencent.com/document/product/228/47395)                                                       |
+| [GetCdnOverseaProvIspHyDetailStat](https://cloud.tencent.com/document/api/228/7422)      | [DescribeDistrictIspData](https://cloud.tencent.com/document/product/228/47395)                                                       |
 | [GetCdnOverseaPushLogs     ](https://cloud.tencent.com/document/api/228/7360)      | [DescribePushTasks](https://cloud.tencent.com/document/product/228/37872)                                                       |
 | [GetCdnOverseaPv           ](https://cloud.tencent.com/document/api/228/7342)      | [DescribeCdnData](https://cloud.tencent.com/document/product/228/30986)                                                       |
 | [GetCdnOverseaRefreshLog   ](https://cloud.tencent.com/document/api/228/7347)      | [DescribePurgeTasks](https://cloud.tencent.com/document/product/228/37873)                                                       |

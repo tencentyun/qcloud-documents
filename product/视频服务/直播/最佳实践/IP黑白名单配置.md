@@ -4,6 +4,10 @@
 - 配置 IP **白名单**：只有配置的 IP 地址能够访问当前直播内容。
 - 配置 IP **黑名单**：只有配置的 IP 地址无法访问当前直播内容。
 
+## 注意事项
+- IP 黑白名单配置完成后约5分钟生效。
+- IP 黑白名单配置成功后，直播中的流需断流重推才能生效。
+
 ## 前提条件
 - 已开通云直播服务，并登录 [云直播控制台](https://console.cloud.tencent.com/live/livestat)。
 - 已添加 [播放域名](https://cloud.tencent.com/document/product/267/20381)。

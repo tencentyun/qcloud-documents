@@ -46,12 +46,20 @@
 <tr>
 <td>SSL 解析方式</td>
 <td>支持单向认证和双向认证。负载均衡器代理了 SSL 加解密的开销，保证访问安全。</td>
-<td><span>单向认证</span></td>
+<td>双向认证</td>
 </tr>
 <tr>
 <td>服务器证书</td>
-<td>可以选择 <a href="https://console.cloud.tencent.com/ssl">SSL 证书平台</a> 中已有的证书，或上传证书。</td>
-<td><span>单向认证</span></td>
+<td>可以选择 <a href="https://console.cloud.tencent.com/ssl">SSL 证书平台</a> 中已有的证书，或新建上传证书。服务器证书支持配置双证书，即两种不同类型的加密算法的证书。
+<dx-alert infotype="explain" title="">
+配置双证书，仅负载均衡支持，传统型负载均衡不支持，并且配置双证后，不支持开启 QUIC 功能。
+</dx-alert>
+</td>
+<td><span>选择已有</span></td>
+</tr>
+<td>CA 证书</td>
+<td>可以选择 <a href="https://console.cloud.tencent.com/ssl">SSL 证书平台</a> 中已有的证书，或新建上传证书。</td>
+<td><span>选择已有</span></td>
 </tr>
 </tbody>
 </table>

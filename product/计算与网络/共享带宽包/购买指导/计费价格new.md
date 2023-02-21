@@ -29,7 +29,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">中国大陆
+<td align="left">中国大陆（含金融专区）
 </td>
 <td align="left">80</td>
 </tr>
@@ -61,7 +61,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">除圣保罗以外的其他地域
+<td align="left">除圣保罗以外的其他地域（含金融专区）
 </td>
 <td align="left">108</td>
 </tr>

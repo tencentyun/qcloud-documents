@@ -14,32 +14,33 @@ COS 请求工具是腾讯云对象存储（Cloud Object Storage，COS）为您�
 
 ## 使用方法
 
-选择**对象存储**产品，选择所需的 API 接口，填写该接口下相应的参数，单击发送请求后获取相应的请求响应结果。
+在界面上方搜索**对象存储**产品，选择所需的 API 接口，填写该接口下相应的参数，单击**发送请求**后获取相应的请求响应结果。
 
-COS 请求工具的整体页面，从左至右依次是产品栏，接口栏，参数栏和结果栏。您可以在不同的栏目执行相应的操作，最终在结果栏发送请求并获取响应结果和相关的过程参数信息。如下图所示：
-![](https://main.qcloudimg.com/raw/5ff123127b7a8ff801f917c3e1c5470b.jpg)
+COS 请求工具的整体页面，从左至右依次是接口栏、参数栏和结果栏。您可以在不同的栏目执行相应的操作，最终在结果栏发送请求并获取响应结果和相关的过程参数信息。
 
 有关 COS 请求工具的详细操作请查看如下步骤。
 
 **1. 选择对象存储产品**
 
-在最左侧的产品栏中单击**对象存储**，将可以看到在 API 接口栏中与 COS 相关的 API 接口。
+在界面上方搜索**对象存储**产品，将可以看到与 COS 相关的 API 接口。
 
 >?COS 请求工具集成在云 API 3.0平台，该平台上搭载着其他腾讯云产品的 API 调试工具，您同样可以根据您的需要在该平台上选择其他产品并调试相应的接口。
 
 **2. 选择需要调试的 API 接口**
 
-您可以根据您的需求选择相应的 API 接口进行调试。API 接口栏中展示了三大类与 COS 相关的 API 接口： Service 接口、Bucket 接口和 Object 接口。
+您可以根据您的需求选择相应的 API 接口进行调试。API 接口栏中展示了 COS 相关的多种 API 接口：例如 Service 接口、Bucket 类接口、Object 类接口等。
 
-- 在 Service 类接口中，如 GET Service。此 API 可列出您账号下的所有存储桶信息，您需要输入您的 API 密钥信息。如果您需要获取您账户在指定区域内的存储桶信息，可在参数栏中选择对应的地域。如需了解更多该 API 的详细信息，请参见 [GET Service](https://cloud.tencent.com/document/product/436/8291) 文档。
-- 在 Bucket 类接口中，包含对存储桶进行操作的 API 接口，如 PUT Bucket lifecycle。如需了解更多的 Bucket 类接口，请参见 [Bucket 接口](https://cloud.tencent.com/document/product/436/7731)。
-- 在 Object 类接口中，包含各个可对对象进行操作的 API 接口，如 PUT Object。如需了解更多的 Object 类接口，请参见 [Object 接口](https://cloud.tencent.com/document/product/436/7739)。
+- 在 Service 类接口中，例如 GET Service。此 API 可列出您账号下的所有存储桶信息，您需要输入您的 API 密钥信息。如果您需要获取您账户在指定区域内的存储桶信息，可在参数栏中选择对应的地域。如需了解更多该 API 的详细信息，请参见 [GET Service](https://cloud.tencent.com/document/product/436/8291) 文档。
+- 在 Bucket 类接口中，包含对存储桶进行操作的 API 接口，例如 PUT Bucket lifecycle。如需了解更多的 Bucket 类接口，请参见 [Bucket 接口](https://cloud.tencent.com/document/product/436/7731)。
+- 在 Object 类接口中，包含各个可对对象进行操作的 API 接口，例如 PUT Object。如需了解更多的 Object 类接口，请参见 [Object 接口](https://cloud.tencent.com/document/product/436/7739)。
+
+更多接口介绍，请参见 [操作列表](https://cloud.tencent.com/document/product/436/10111)。
 
 **3. 输入 API 所需的参数信息**
 
 参数栏将展示您所选的 API 接口的必填参数。有关 COS 的各个 API 接口的参数信息，请参见 [API 文档](https://cloud.tencent.com/document/product/436/10009) 了解。
 
-API 密钥信息是在调用 API 接口这一环节中必填的参数。当您使用 API 接口对您的存储桶或者对象等资源进行操作时，您需要输入 API 密钥信息，用于授权此次 API 请求操作。您可以在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面上获取您的 API 密钥信息。
+API 密钥信息是在调用 API 接口这一环节中必填的参数。当您使用 API 接口对您的存储桶或者对象等资源进行操作时，您需要输入 API 密钥信息，用于授权此次 API 请求操作。建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
 
 >?对于每一个 API 接口，COS 请求工具在每一个必填的参数项后均加上了红色星号标识以提醒您该参数项为必填项。您也可以勾选**只看必填参数**，以减少参数栏上非必填的参数显示。
 
@@ -86,4 +87,4 @@ hello!
 
 
 ## 注意事项
-当您单击**发送请求**，确认将已填写必填参数的请求发送至 COS 服务端时，COS 将对您的存储桶和对象进行相应的操作，该操作无法撤回，无法回滚，请您在操作前慎重考虑。
+当您单击**发送请求**，确认将已填写必填参数的请求发送至 COS 服务端时，COS 将对您的存储桶和对象进行相应的操作，该操作无法撤回，无法回滚，请您谨慎操作。

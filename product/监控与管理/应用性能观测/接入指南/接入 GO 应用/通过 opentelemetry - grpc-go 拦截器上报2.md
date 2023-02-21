@@ -10,7 +10,7 @@
 
 
 ### 步骤2：修改接入点信息
-> ? 我们采用 grpc-go 拦截器方式上报数据，需要修改接入点信息为：[ap-guangzhou.apm.tencentcs.com](http://ap-guangzhou.apm.tencentcs.com/):14268/api/traces，可以直接将数据上报到 collector，无需使用 agent。
+> ? 我们采用 grpc-go 拦截器方式上报数据，需要修改接入点信息为：ap-guangzhou.apm.tencentcs.com:14268/api/traces，可以直接将数据上报到 collector，无需使用 agent。
 
 ### 步骤3：引入依赖
 需要引入 opentelemetry 的 SDK 埋点依赖。

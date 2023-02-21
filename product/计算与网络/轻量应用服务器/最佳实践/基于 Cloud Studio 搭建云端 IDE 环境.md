@@ -82,7 +82,7 @@ Cloud Studio 目前支持 Python、Java、Go、C/C++ 及 Node.js 语言。该步
 1. 创建一个目录 DEMO，并在 Cloud Studio 打开 DEMO 目录。
 2. 在 DEMO 目录下创建简单示例文件 main.js。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/fe2c7c63e4f4ee982d219b455214cdd6.png)
-3. 使用以下以下任意一种方式运行该程序：
+3. 使用以下任意一种方式运行该程序：
 <dx-tabs>
 ::: 命令行方式
 1. 选择窗口上方的**终端** > **新建终端**，打开终端。
