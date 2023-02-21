@@ -8,7 +8,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/ff53fd99144553d20002eebf4c65d86a.png)
 2. 在控制台中选择**消息推送**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d711129526a76e6ed286faa8d3ccbbe4.png)
-3. 单击**创建应用** > **创建手机/平板应用**
+3. 单击**创建应用** > **创建手机/平板应用**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/41bdfbd263c33caf0fe6577dc61ebfd8.png)
 4. 在新页面按照指引创建您的应用，输入应用名以及包名，然后单击**创建**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b19c5cdaddf18f9dd1e77b23563cbc40.png)
@@ -20,7 +20,7 @@
 1. 您将在应用列表中看到一个新的应用，单击**启用推送**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ccdaf7d20ef63989f1b01f7097e82f95.png)
 2. 在新页面选择接受协议并启用。
->!使用小米推送服务之前请仔细阅读<a href="https://dev.mi.com/console/doc/detail?pId=860">《小米推送技术服务协议》</a>，确保您的应用符合小米服务协议要求。若您的应用未在小米应用商店发布，则可能无法使用小米推送服务。
+>?使用小米推送服务之前请仔细阅读<a href="https://dev.mi.com/console/doc/detail?pId=860">《小米推送技术服务协议》</a>，确保您的应用符合小米服务协议要求。若您的应用未在小米应用商店发布，则可能无法使用小米推送服务。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/16ce68ff6c4619d0a0cf53e15562bdad.png)
 
@@ -89,15 +89,15 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/8254f757db9949bc64702bca64cf7326.png)
 5. 回到应用列表，找到新创建的应用并单击**应用详情**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/41e37985654d4517749ee10c9ce739c3.png)
-6. 单击**添加证书指纹**，填入您App签名的指纹。之后下载 hcs-services.json，并添加到您的Android项目中。然后单击保存退出页面。
+6. 单击**添加证书指纹**，填入您 App 签名的指纹。之后下载 hcs-services.json，并添加到您的 Android 项目中。然后单击保存退出页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2a996827af1060d5464da5fcb13d13a9.png)
-您可以通过 JDK bin 目录下的 keytool.jar，获取您的签名证书指纹。其中\<keystore-file\>为签名文件的路径。
+您可以通过 JDK bin 目录下的 keytool.jar，获取您的签名证书指纹。其中`\<keystore-file\>`为签名文件的路径。
 ```bash
 keytool -list -v -keystore <keystore-file>
 ```
 从结果中找到对应的证书指纹 - SHA256摘要信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d45d1d61978ed941d5ea12c37ffb8507.png)
-如果没有签名文件或密钥口令，也可以通过应用 Apk 包获取签名信息。其中\<apk-file\>为 Apk 文件的路径。
+如果没有签名文件或密钥口令，也可以通过应用 Apk 包获取签名信息。其中`\<apk-file\>`为 Apk 文件的路径。
 ```bash
 keytool -list -printcert -jarfile <apk-file>
 ```
@@ -157,7 +157,6 @@ OPPO 开发者账号的注册方法参考<a href="https://open.oppomobile.com/ne
 关于公信信道以及私信信道的区别，以及私信信道的申请方式，参考 OPPO 文档<a href="https://open.oppomobile.com/new/developmentDoc/info?id=11227">《推送私信通道申请》</a>。
 
 #### 新建信道
-
 1. 在管理中心选择 **OPPO PUSH**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3c68e4b9c64ffb67e50909ab30b0ab81.png)
 2. 在界面上方选择您的应用，然后单击左侧菜单**配置管理** > **新建通道**。
@@ -178,7 +177,6 @@ OPPO 开发者账号的注册方法参考<a href="https://open.oppomobile.com/ne
 ## vivo 参数获取[](id:vivo)
 
 ### 注册 vivo 开发者账号
-
 vivo开发者账号的注册方式参考<a href="https://dev.vivo.com.cn/documentCenter/doc/2">《企业开发者注册》</a>。vivo目前仅支持企业开发者注册。
 
 ### 新建应用
@@ -206,27 +204,6 @@ vivo开发者账号的注册方式参考<a href="https://dev.vivo.com.cn/documen
 2. 在此查看您的 AppID、AppKey 以及 AppSecret。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c16e9a0ac0bd97f0a942df91b7bcb566.png)
 3. 您需要将相关信息配置在 TMF 控制台以及您的 Android 应用中，以便正常使用推送功能。
-
-## Firebase Cloud Messaging 参数获取[](id:Firebase)
-
-### 创建 Google 账号
-Google账号的注册方式参考<a href="https://support.google.com/accounts/answer/27441?hl=zh-Hans">《创建 Google 帐号》</a>。
-
-### 新建应用
-1. 登录 [Firebase 官网](https://firebase.google.com/?hl=zh-cn)，单击**转到控制台**。
-![](https://qcloudimg.tencent-cloud.cn/raw/e734206617ce1dc2163d27eac6c35e0d.png)
-2. 单击**创建项目**新建一个项目。
-![](https://qcloudimg.tencent-cloud.cn/raw/0e2e8c74569815586012fdd1dadfecbe.png)
-3. 按照指引输入项目名称，创建项目。
-![](https://qcloudimg.tencent-cloud.cn/raw/12c114cb1d6957cc43a528603db25697.png)
-4. 回到控制台，单击您的项目。
-![](https://qcloudimg.tencent-cloud.cn/raw/e6fa22231457c55c28b42cd4fc18ff97.png)
-5. 单击 Android 的机器人图标添加一个 Android 应用。
-![](https://qcloudimg.tencent-cloud.cn/raw/f6813de8a8b1ca4f146991b6c39d7dad.png)
-6. 按照指引输入您的应用信息，注册应用。
-![](https://qcloudimg.tencent-cloud.cn/raw/a1e2023636ef57f7b7884adbca947fde.png)
-7. 下载 `google-services.json` 文件，添加到您的 Android 项目中。
-![](https://qcloudimg.tencent-cloud.cn/raw/0a954fd8eb802500d661583f0841bf3f.png)
 
 
 ### 下载密钥配置文件

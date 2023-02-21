@@ -49,8 +49,8 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的�
 ![](https://qcloudimg.tencent-cloud.cn/raw/b66da9824787768c8851fc8fd229364b.png)
 API 名称、描述支持自定义。分组可选择默认分组、新建分组。
 - 请求方法支持：GET、POST、PATCH、PUT、DELETE、HEAD。
-- 鉴权策略支持：NoAuth、BasicAuth、OAuth2.0、HMAC。
-- 后弹服务类型支持：集成流、第三方服务、数据库、Mock。集成流、第三方服务、Mock 的请求参数可自行添加，最多添加30条。
+- 鉴权方式支持：NoAuth、BasicAuth、OAuth2.0、HMAC。
+- 后端服务类型支持：集成流、第三方服务、数据库、Mock。集成流、第三方服务、Mock 的请求参数可自行添加，最多添加30条。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c77ed08f54ff871e2b1703b0176f4bdc.png)
 - 数据库类型支持新建或选择 MySQL 类型的数据源。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eceac720481e715399bd36a566372857.png)
@@ -110,6 +110,7 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 - 上架：运行中的API服务，可通过**上架**功能共享给企业的其他员工使用。在 **API 服务** > **操作** > **更多** > **上架**路径提交上架申请，提交后的 API 服务会被企业管理员审核，审核通过后可展示在 API 目录中，支持被当前主账号下的所有子账号订阅。
 - 下架：上架后的 API 服务，若不想继续被其他员工订阅，则可通过下架来完成。在 **API 服务** > **操作** > **更多** > **下架**路径提交下架申请，提交申请后需联系系统管理员或该项目的项目管理员进行审核，审核通过后即可下架，API 下架后不能被订阅。下架后的 API 服务会移出 API 目录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b8db2e0df40fb88bc49d45a89d7351db.png)
+
 #### 查看发布历史
 发布后的 API 服务可以更改状态、环境等。在 **API 服务** > **操作** > **更多** > **查看发布历史**路径。此功能可查看到 API 服务发布后的历史情况（最多显示10条）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/197a3e6e81907e85ceb89c11e1e9169c.png)
