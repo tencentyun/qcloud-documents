@@ -11,8 +11,8 @@ GET /ivc/ai/task/result?TaskId=xxx&ChannelId=channel01&Object=xxx&AIType=Pet&Beg
 
 | 字段名     | 类型    | 描述               | 必须 | 备注                                                         |
 | :--------- | :------ | :----------------- | :--- | :----------------------------------------------------------- |
-| TaskId     | String  | AI 任务 ID         | 是   |                                                              |
-| ChannelId  | String  | 通道 ID            | 是   |                                                              |
+| TaskId     | String  | AI 任务 ID         | 是   |                  -                                            |
+| ChannelId  | String  | 通道 ID            | 是   |                    -                                          |
 | Object     | String  | 桶内文件的路径     | 否   | 例如:想要查看 `bucket-id/a/b/c/dog.ts` 的识别结果，此时传的值为"a/b/c/dog.ts" |
 | DetectType | String  | AI 任务识别类型    | 否   | 可选值为Facemask(口罩识别)、Chefhat(厨师帽识别)、Smoking(抽烟检测)、Chefcloth(厨师服识别)、PhoneCall(接打电话识别)、Pet(宠物识别)、Body(人体识别)和 Car(车辆车牌识别) |
 | BeginTime  | Integer | 开始时间时间       | 否   | 秒级时间戳。                                                 |
