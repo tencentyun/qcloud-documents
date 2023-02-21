@@ -89,15 +89,15 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/8254f757db9949bc64702bca64cf7326.png)
 5. 回到应用列表，找到新创建的应用并单击**应用详情**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/41e37985654d4517749ee10c9ce739c3.png)
-6. 单击**添加证书指纹**，填入您App签名的指纹。之后下载 hcs-services.json，并添加到您的Android项目中。然后单击保存退出页面。
+6. 单击**添加证书指纹**，填入您 App 签名的指纹。之后下载 hcs-services.json，并添加到您的 Android 项目中。然后单击保存退出页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2a996827af1060d5464da5fcb13d13a9.png)
-您可以通过 JDK bin 目录下的 keytool.jar，获取您的签名证书指纹。其中\<keystore-file\>为签名文件的路径。
+您可以通过 JDK bin 目录下的 keytool.jar，获取您的签名证书指纹。其中<keystore-file\>为签名文件的路径。
 ```bash
 keytool -list -v -keystore <keystore-file>
 ```
 从结果中找到对应的证书指纹 - SHA256摘要信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d45d1d61978ed941d5ea12c37ffb8507.png)
-如果没有签名文件或密钥口令，也可以通过应用 Apk 包获取签名信息。其中\<apk-file\>为 Apk 文件的路径。
+如果没有签名文件或密钥口令，也可以通过应用 Apk 包获取签名信息。其中<apk-file\>为 Apk 文件的路径。
 ```bash
 keytool -list -printcert -jarfile <apk-file>
 ```
