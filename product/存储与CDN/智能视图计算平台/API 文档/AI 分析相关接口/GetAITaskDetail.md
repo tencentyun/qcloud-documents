@@ -11,7 +11,7 @@ GET /ivc/ai/task/detail?TaskId=xxx HTTP/1.1
 
 | 字段名 | 类型   | 描述       | 必须 | 备注 |
 | :----- | :----- | :--------- | :--- | :--- |
-| TaskId | String | AI 任务 ID | 是   |      |
+| TaskId | String | AI 任务 ID | 是   |   -   |
 
 #### 返回结果
 
