@@ -20,7 +20,7 @@
 | Java | [tencentcloud-cls-sdk-java](https://github.com/TencentCloud/tencentcloud-cls-sdk-java)  |
 | C++ | [tencentcloud-cls-sdk-c++](https://github.com/TencentCloud/tencentcloud-cls-sdk-cpp) |
 | Go | [tencentcloud-cls-sdk-go](https://github.com/TencentCloud/tencentcloud-cls-sdk-go)  |
-| JavaScript | [tencentcloud-cls-sdk-js](https://github.com/TencentCloud/tencentcloud-cls-sdk-js)   |
+| NodeJS | [tencentcloud-cls-sdk-js](https://github.com/TencentCloud/tencentcloud-cls-sdk-js)   |
 | Android | [tencentcloud-cls-sdk-android](https://github.com/TencentCloud/tencentcloud-cls-sdk-android) |
 | iOS | [tencentcloud-cls-sdk-ios](https://github.com/TencentCloud/tencentcloud-cls-sdk-ios) |
 

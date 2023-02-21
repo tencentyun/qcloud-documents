@@ -20,7 +20,7 @@ const headers = new Headers(init?: object | Array<[string, string]> | Headers);
     <tr>
       <td>init</td>
       <td>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | </br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | </br>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array&lt;[string, string]&gt;</a> | </br>
         Headers
       </td>
@@ -28,7 +28,7 @@ const headers = new Headers(init?: object | Array<[string, string]> | Headers);
       <td>
         初始化 Headers 对象，参数类型说明如下：<br/>
         <li>
-          <font color="#9ba6b7">Object</font><br/>
+          <font color="#9ba6b7">object</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
             构造函数将会枚举 Object 包含的所有可枚举属性，并初始化到新的 Headers 对象中。
           </div> 

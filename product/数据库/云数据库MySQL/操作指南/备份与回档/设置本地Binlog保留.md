@@ -1,4 +1,5 @@
 本文为您介绍如何通过控制台设置 MySQL 实例的 binlog 保留周期。
+>?单节点云盘实例不支持设置本地 binlog 保留。
 
 ## binlog 说明
 云数据库 MySQL 实例在执行大事务或大量 DML 时会产生较多的 binlog，binlog 写满 256MB 会进行一次切割，切割后的 binlog 文件会被上传至对象存储 COS，然后控制台的日志列表会显示上传到 COS 的 binlog 文件。

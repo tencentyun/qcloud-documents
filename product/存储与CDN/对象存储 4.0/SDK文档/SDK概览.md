@@ -5,7 +5,8 @@
 | Android SDK    | [Android SDK 快速入门](https://cloud.tencent.com/document/product/436/12159) |
 | C SDK    | [C SDK 快速入门](https://cloud.tencent.com/document/product/436/12296) |
 | C++ SDK    | [C++ SDK 快速入门](https://cloud.tencent.com/document/product/436/12301) |
-|  .NET SDK   |[.NET SDK 快速入门](https://cloud.tencent.com/document/product/436/32819)
+|  .NET(C#) SDK   |[.NET(C#) 快速入门](https://cloud.tencent.com/document/product/436/32819)  |
+|  Flutter SDK   |   [Flutter SDK 快速入门](https://cloud.tencent.com/document/product/436/86294)
 | Go SDK    |   [Go SDK 快速入门](https://cloud.tencent.com/document/product/436/31215)  |
 | iOS SDK        | [iOS SDK 快速入门](https://cloud.tencent.com/document/product/436/11280)    |
 | Java SDK | [Java SDK 快速入门](https://cloud.tencent.com/document/product/436/10199) |

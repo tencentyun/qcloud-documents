@@ -3,12 +3,12 @@
 
 ## 连接场景
 根据云上数据库实例类型的不同，连接方式也有所差异：
-若从本地连接云上高可用/集群版 SQL Server 实例，可通过以下3种方案进行连接。
+若从本地连接云上双节点（原高可用版/集群版） SQL Server 实例，可通过以下3种方案进行连接。
 - 方案1：通过 [VPN](https://cloud.tencent.com/document/product/554/18980) 或 [专线](https://cloud.tencent.com/document/product/216/7557) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定。
 - 方案2：通过外网连接，可在控制台 [开启外网地址](#kqwwdz) 或 [绑定 CLB 开启外网服务](#CLBKQWW)。
 - 方案3：借助 [具有外网 IP 的 Linux 云服务器进行端口映射](#WWIPLJSL)。
 
-若从本地连接基础版 SQL Server 实例，可通过以下3种方案进行连接。
+若从本地连接单节点（原基础版） SQL Server 实例，可通过以下3种方案进行连接。
 - 方案1：通过 [VPN](https://cloud.tencent.com/document/product/554/18980) 或 [专线](https://cloud.tencent.com/document/product/216/7557) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定。
 - 方案2：通过外网连接，可在控制台 [开启外网地址](#kqwwdz)。
 - 方案3：借助 [具有外网 IP 的 Linux 云服务器进行端口映射](https://cloud.tencent.com/document/product/238/11627#WWIPLJSL)。
@@ -34,7 +34,7 @@
  - **Server type**：选择 Database Engine。
  - **Server name**：实例的外网 IP 地址和端口号，需用英文逗号隔开。
  -  **Authentication**：选择 SQL Server Authentication。
- -  **Login 和 Password**：在实例**帐号管理**页创建帐号时，填写的帐号名和密码。
+ -  **Login 和 Password**：在实例**账号管理**页创建账号时，填写的账号名和密码。
 ![](https://main.qcloudimg.com/raw/14d90aa2eda6c841680f0fdc74db8219.png)
 3. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](https://main.qcloudimg.com/raw/c65c02197b506bd5b326128f1a3983a0.png)
@@ -88,7 +88,7 @@ c. 在弹出的对话框，逐步完成设置，然后单击**提交**即可完�
  - **Server type**：选择 Database Engine。
  - **Server name**：CLB 的 IP 地址和端口号，需用英文逗号隔开，例如 `10.0.0.1,4000`。
  -  **Authentication**：选择 SQL Server Authentication。
- -  **Login 和 Password**：在实例**帐号管理**页创建帐号时，填写的帐号名和密码。
+ -  **Login 和 Password**：在实例**账号管理**页创建账号时，填写的账号名和密码。
 ![](https://main.qcloudimg.com/raw/14d90aa2eda6c841680f0fdc74db8219.png)
 3. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](https://main.qcloudimg.com/raw/c65c02197b506bd5b326128f1a3983a0.png)
@@ -106,7 +106,7 @@ select @@VERSION
 >- 考虑到数据安全性，云数据库 SQL Server 尚未开放实例外网 IP，如有需求可以利用 SSH2 的端口映射在外网连接实例，并对其进行配置和管理。
 
 1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在实例详情页查看实例内网 IP 及端口号。该内网 IP 及端口号会在配置端口映射时使用。
-![](https://main.qcloudimg.com/raw/5482cc658c605ea56a5502097b862e92.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/312bfd162a46e436f10106e978532f9e.png)
 2. 准备一台具有外网 IP的 Linux 云服务器，请参见 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 3. 在本地使用 SSH 工具（如 SecureCRT 等，本文以 SecureCRT 为例）登录 Linux 云服务器，请参见 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 4. 在 SecureCRT 菜单栏选择 **Options** > **Session Options**，进入会话属性设置。
@@ -120,7 +120,7 @@ select @@VERSION
  - **Server type**：选择 Database Engine。
  - **Server name**：本机 IP 地址和端口号，需用英文逗号隔开，例如`10.0.0.1,4000`。端口号需与第6步中配置的端口保持一致。
  -  **Authentication**：选择 SQL Server Authentication。
- -  **Login 和 Password**：在实例**帐号管理**页创建帐号时，填写的帐号名和密码。
+ -  **Login 和 Password**：在实例**账号管理**页创建账号时，填写的账号名和密码。
 ![](https://main.qcloudimg.com/raw/14d90aa2eda6c841680f0fdc74db8219.png)
 9.  连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](https://main.qcloudimg.com/raw/c65c02197b506bd5b326128f1a3983a0.png)
@@ -130,5 +130,4 @@ select @@VERSION
 ```
 运行查询，SQL Server Management Studio 会返回 SQL Server 版的腾讯云云数据库实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/620a6143d5687581e9f2892e3fb76130.png)
-
 

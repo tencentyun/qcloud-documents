@@ -15,13 +15,11 @@ example.com {
 ```
 
 ## 如何自定义 DNS 
-
 您可以在集群详情页里设置自定义 DNS。请注意：若您同时配置了 host 映射和 DNS 域名解析，优先选择 DNS 域名解析。 
 
 ### 操作步骤
-
 1. 在 **[集群管理](https://console.cloud.tencent.com/oceanus/cluster) > 集群信息**中可设置自定义 DNS。
-![](https://qcloudimg.tencent-cloud.cn/raw/d10aa240b3bbaf44bea0a20e761c6d74.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/85f7eb127224817f59fd25bdd5207dc4.png)
 2. 在弹窗中设置 host 或域名，单击**确认**保存设置，保存后可以再次进行修改。
-![](https://qcloudimg.tencent-cloud.cn/raw/8f964ab7f19d3aa938a2f84e8d379938.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d30eba563c23380ab423c2565c71ebee.png)
 

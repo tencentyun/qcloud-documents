@@ -90,26 +90,28 @@ CCN 类型的 VPN 网关可以关联至云联网，每个 CCN 型 VPN 网关可�
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧导航栏选择 **VPN 连接** > **VPN 通道**。
 3. 在 “VPN 通道”页面上方选择**地域**，并单击**+新建**，进入“新建 VPN 通道”页面。
-4. 输入通道名称，选择 VPN 网关类型为**云联网**，选择对端网关，并输入预共享密钥（如`123456`），单击**下一步**。
-![](https://qcloudimg.tencent-cloud.cn/raw/73ec98f3d827edf562a891f0145e2e24.png)
-5. 输入 SPD 策略来限制本端哪些网段和对端哪些网段通信，单击**下一步**。
+4. 依据界面提示配置 VPN 通道基本信息。
 >!
 >- 每个规则中的多个对端网段间相互不能重叠。
 >- 同一网关下多个通道内的规则不能重叠。
 >- SPD 策略中的对端网段可以加入云联网中。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/abd5045c9068b3f95b74a2b50d0450f0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dc2a83205e3e97a514372caf689b980c.png)
+5. DPD 检测配置和健康检查。
+  - DPD 检测：保持默认配置，默认开启，如需修改请参见界面参数进行配置。
+  - 健康检查：保持默认配置，默认关闭。
+![](https://qcloudimg.tencent-cloud.cn/raw/6f5cc6824e5539361dbac4da5d2a6a27.png)
 6. （可选）配置 IKE 参数，如果不需要高级配置，可直接单击**下一步**。
-![](https://qcloudimg.tencent-cloud.cn/raw/5bda3697c674ec1c66ff1a86a6c650a5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4681b573876b2efff22ba1b96045cf1e.png)
 7. （可选）配置 IPsec 参数，如果不需要配置，可直接单击**完成**。
-![](https://qcloudimg.tencent-cloud.cn/raw/7bc148b32f53dc5096adfe6eb9db2739.png)
-8. 创建成功后，返回 VPN 通道列表页，在操作栏下单击**更多** > **下载配置文件**并完成下载。
+![](https://qcloudimg.tencent-cloud.cn/raw/d80f1f4a3003b79a0386f3017421067c.png)
+8. 基本配置和高级配置完成后单击**创建**。</br>创建成功后，返回 VPN 通道列表页，在操作栏下单击**更多** > **下载配置文件**并完成下载。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f43a2ac9cd436d5348162a956460581.png)
 
 
 ### 步骤五：配置 VPN 网关路由[](id:step5)
 VPN 通道配置成功后，需要配置 VPN 网关至对端网关的路由。
-1. 在左侧导航栏选择 **VPN 链接** > **VPN 网关**，并在右侧 VPN 网关列表中找到创建好的 VPN 网关，并单击其名称。 
+1. 在左侧导航栏选择 **VPN 连接** > **VPN 网关**，并在右侧 VPN 网关列表中找到创建好的 VPN 网关，并单击其名称。 
 2. 在 VPN 网关详情页签，单击**路由表**页签，然后单击**新增路由**。
 ![](https://main.qcloudimg.com/raw/099d7503dc5e7e2ad5e7324d7d9571f8.png)
 3. 在**新建路由**页面配置 VPN 网关至对端网关的路由策略。

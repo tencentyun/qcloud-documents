@@ -279,3 +279,4 @@ apt-get install python-pip -y
 
 ## 后续操作
 您可参考 [如何确认 Linux 实例内部的 Cloud-Init 服务是否正常运行？](https://cloud.tencent.com/document/product/213/19670#.E5.A6.82.E4.BD.95.E7.A1.AE.E8.AE.A4-linux-.E5.AE.9E.E4.BE.8B.E5.86.85.E9.83.A8.E7.9A.84-cloud-init-.E6.9C.8D.E5.8A.A1.E6.98.AF.E5.90.A6.E6.AD.A3.E5.B8.B8.E8.BF.90.E8.A1.8C.EF.BC.9F)，检查 Cloud-Init 是否正常运行。
+

@@ -1,4 +1,4 @@
-在边缘函数中，使用 cookies 进行 A/B 测试控制。
+该示例通过 cookies 保存会话信息，对请求进行 A/B 测试控制。使用边缘函数实现了 A/B 测试的场景。
 
 ## 示例代码
 
@@ -57,9 +57,9 @@ addEventListener('fetch', event => {
 
 ## 示例预览
 
-在浏览器地址栏中输入边缘函数触发规则，即可预览到示例效果。
+在浏览器地址栏中输入匹配到边缘函数触发规则的 URL，即可预览到示例效果。
 
-<img src="https://user-images.githubusercontent.com/117053395/207602883-96d3f71f-6087-4fa7-bbdd-c461f1d84776.png" width=609px>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/be300eb86d44426551e5b530e902e844.png" width=609px>
 
 ## 相关参考
 - [Runtime APIs: Cookies](https://cloud.tencent.com/document/product/1552/83932)

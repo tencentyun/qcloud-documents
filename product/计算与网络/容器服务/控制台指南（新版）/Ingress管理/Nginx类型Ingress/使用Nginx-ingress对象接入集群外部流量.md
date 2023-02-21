@@ -13,19 +13,15 @@
 
 ### Nginx-ingress 控制台操作指引
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
-3. 单击已安装 Nginx-ingress 组件的集群 ID，进入集群管理页面。
-4. 选择**服务与路由** > **Ingress**，进入 Ingress 信息页面。
-5. 单击**新建**，进入“新建Ingress”页面。
-6. 根据实际需求，设置 Ingress 参数。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/fbcd0a4496ab0d769958757df20ebfb6.png)
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，在左侧导航栏中单击**集群**。
+2. 进入集群管理页面，单击已安装 Nginx-ingress 组件的集群 ID，进入集群详情页。
+3. 选择**服务与路由** > **Ingress**，进入 Ingress 信息页面。
+4. 单击**新建**，进入“新建Ingress”页面。
+5. 根据实际需求，设置 Ingress 参数。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/85753c7d1111d1f3a958b6de7783e8a9.png)
  - Ingress 类型：选择 **Nginx Ingress Controller**。
  - 转发规则：需自行设置。
-7. 单击**创建Ingress**即可。
-
-
-
+6. 单击**创建Ingress**即可。
 
 
 

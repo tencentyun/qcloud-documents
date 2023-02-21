@@ -1,7 +1,7 @@
 ## 使用背景
 在腾讯云托管集群中运行容器化的工作负载时，通常需要访问存储在 Kubernetes 集群之外的一个或多个 SQL 或 NoSQL 数据库，但是将 SQL 数据库与 Kubernetes 一起使用时，存在定期轮换凭证和敏感信息传递到 Kubernetes 集群中的问题。为此，借助凭据管理系统（SSM）和腾讯云访问控制管理（CAM）来简化访问腾讯云数据库的整个过程，从而消除验证腾讯云数据库用户名和密钥存在的安全风险；同时凭据管理系统（SSM）定时轮转访问凭证的特性，间接解决人为操作所带来的负担。
 本文向您介绍运行在腾讯云容器服务 TKE 上的工作负载如何使用 CAM 对数据库身份验证。在示例中，首先在腾讯云数据库和凭据管理系统（SSM）中分别创建一个数据库实例和数据库凭据；然后开启 OIDC 资源访问控制能力，将创建的 CAM OIDC 提供商作为创建角色的载体，并关联访问腾讯云数据库和凭据管理系统（SSM）的策略；最后利用 Kubernetes 服务账户、腾讯云访问控制管理（CAM）以及凭据管理系统（SSM）安全地连接到腾讯云数据库。整体架构如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/08918f05aa2c6567ffe85d5615dc8c1e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/feb126cc18c32af2c85ff759edfba750.png)
 
 ## 限制条件
 
@@ -14,7 +14,6 @@
 
 ### 步骤1：准备托管集群
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，新建集群。
-![](https://qcloudimg.tencent-cloud.cn/raw/3fa78d22f9c353d427e28bb9e36a50af.png)
 <dx-alert infotype="explain" title="">
 - 如果您没有托管集群，您可以使用容器服务控制台创建 TKE 标准集群，详情见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 - 如果您已有托管集群，请在集群详情页检查集群版本，当集群版本不满足要求时，请升级集群。对运行中的 Kubernetes 集群进行升级，详情见 [升级集群](https://cloud.tencent.com/document/product/457/32192)。

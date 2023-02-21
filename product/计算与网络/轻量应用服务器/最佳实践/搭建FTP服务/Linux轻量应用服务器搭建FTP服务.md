@@ -31,7 +31,7 @@ sudo netstat -antup | grep ftp
 ```
 显示结果如下，则说明 FTP 服务已成功启动。
 ![](https://main.qcloudimg.com/raw/86f1992cc036513bc475c859cca90663.png)
-此时，vsftpd 已默认开启匿名访问模式，无需通过用户名和密码即可登录 FTP 服务器。使用此方式登录 FTP 服务器的用户没有权修改或上传文件的权限。
+此时，vsftpd 已默认开启匿名访问模式，无需通过用户名和密码即可登录 FTP 服务器。使用此方式登录 FTP 服务器的用户没有权限修改或上传文件的权限。
 
 
 ### 步骤3：配置 vsftpd[](id:user)
@@ -98,6 +98,9 @@ sudo systemctl restart vsftpd
 搭建好 FTP 服务后，您需要根据实际使用的 FTP 模式给 Linux 轻量应用服务器放通对应端口，详情请参见 [添加防火墙规则](https://cloud.tencent.com/document/product/1207/44577#.E6.B7.BB.E5.8A.A0.E9.98.B2.E7.81.AB.E5.A2.99.E8.A7.84.E5.88.99)。
 大多数客户端机器在局域网中，IP 地址是经过转换的。如果您选择了 FTP 主动模式，请确保客户端机器已获取真实的 IP 地址，否则可能会导致客户端无法登录 FTP 服务器。
 - 主动模式：放通端口21。
+<dx-alert infotype="notice" title="">
+FTP 服务器将通过20端口主动连接客户端，轻量应用服务器防火墙出流量默认允许所有请求，无需在控制台另外放通。查看 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577)。
+</dx-alert>
 - 被动模式：放通端口21，及 [修改配置文件](#config) 中设置的 `pasv_min_port` 到 `pasv_max_port` 之间的所有端口，本文放通端口为40000 - 45000。
 
 ### 步骤5：验证 FTP 服务
@@ -163,4 +166,53 @@ sudo chmod +w /home/test
 ls -l /home/test   
 # /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
 ``` 
+
+### Vsftpd 添加自签证书
+为 Vsftpd 添加 OpenSSL 自签证书，进一步提高文件数据传输的安全性。
+1. 执行以下命令，查看是否支持 SSL。
+```plaintext
+sudo ldd `which vsftpd`|grep ssl
+```
+2. 本文使用的 CentOS 7.6 默认安装了 OpenSSL。如实例操作系统未安装 OpenSSL ，则需要先执行以下命令安装 OpenSSL 后再进行以下步骤，如已安装，则跳过此步。
+#### CentOS
+```plaintext
+sudo yum install openssl
+```
+#### Ubuntu
+```plaintext
+sudo apt-get install openssl 
+sudo apt-get install libssl-dev
+```
+3. 执行以下命令，使用 OpenSSL 生成 SSL 密钥文件，并复制到指定目录下。
+```plaintext
+sudo openssl req -new -x509 -nodes -out vsftpd.pem -keyout vsftpd.pem
+```
+```plaintext
+sudo cp vsftpd.pem /etc/ssl/certs/vsftpd.pem
+```
+```plaintext
+sudo chmod 400 /etc/ssl/certs/vsftpd.pem
+```
+4. 执行以下命令，打开 vsftpd.conf 文件。
+```plaintext
+sudo vim /etc/vsftpd/vsftpd.conf
+```
+5. 按` i `切换至编辑模式，添加以下配置。
+```plaintext
+# SSL 配置
+ssl_enable=YES# 启用SSL
+allow_anon_ssl=NO# 匿名不支持SSL
+force_local_data_ssl=YES# 本地用户登录加密
+force_local_logins_ssl=YES# 本地用户数据传输加密
+rsa_cert_file=/etc/ssl/certs/vsftpd.pem
+ssl_tlsv1=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+```
+6. 按 Esc 后输入 `:wq` 保存后退出。
+7. 执行以下命令，重启 FTP 服务。
+8. 使用 FileZilla 进行连接测试。
+
+ <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d0ca85b60a79752057a448af35478164.png" />
+ <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/43486b6945e1489f4b4c524d1fac6de3.png" />
 

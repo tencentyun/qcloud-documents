@@ -43,7 +43,7 @@ df -TH
 ![](https://qcloudimg.tencent-cloud.cn/raw/aff304e37691f0f8caa7efc02d60522a.png)
     2. 执行以下命令，获取 UUID。
 ```
-blkid /dev/vda1
+sudo blkid /dev/vda1
 ``` 
 <dx-alert infotype="explain" title="">
 文件系统 UUID 不固定，请您定期确认及更新。例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。

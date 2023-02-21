@@ -8,11 +8,12 @@ Maven  依赖引用方式：
 
 ```
 <dependency>
-				<groupId>com.github.xingePush</groupId>
+				<groupId>io.github.tpnsPush</groupId>
 				<artifactId>xinge</artifactId>
-				<version>1.2.4.10</version>
+				<version>1.2.4.11</version>
 </dependency>
 ```
+>!groupId从1.2.4.11版本起有变更。
 
 ## 使用方法
 

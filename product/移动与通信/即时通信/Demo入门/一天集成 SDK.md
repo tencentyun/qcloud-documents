@@ -21,7 +21,7 @@ TUIKit 是对 IM SDK 封装的一层 UI 组件，包含常用的 IM 操作，例
 
 ## 步骤4：集成音视频通话（可选）
 即时通信 IM 服务可以快速集成 [实时音视频 TRTC 服务](https://cloud.tencent.com/document/product/647/17021)，用于实现 IM 应用中的用户视频通话、群聊视频会议等业务。
-详细的集成操作请参见 [集成视频通话](https://cloud.tencent.com/document/product/269/39167)。
+详细的集成操作请参见 [使用音视频通话](https://cloud.tencent.com/document/product/269/84296)。
 
 ## 相关文档
 - [价格说明](https://cloud.tencent.com/document/product/269/11673)

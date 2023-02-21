@@ -41,7 +41,7 @@
 ## 故障处理
 ### 通过 VNC 方式登录[](id:VNC)
 
-当您无法通过标准方式（Webshell）或者远程登录软件登录 Linux 实例时，您可以使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
+当您无法通过标准方式（orcaterm）或者远程登录软件登录 Linux 实例时，您可以使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例的管理页面，选择您需要登录的实例，单击**登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/b7f0594ddecad128707ee720502e10b0.png)

@@ -34,32 +34,31 @@
 - 一个修改 HTTP 请求头操作中，可添加多条不同类型操作，最多30条，执行顺序为从上至下。
 - 部分标准头部不支持修改，清单如下：
 ```js.
-Date
-Expires
-Content-Type
-Content-Encoding
-Content-Length
-Transfer-Encoding
-Cache-Control
-If-Modified-Since
-Last-Modified
-Connection
-Content-Range
-ETag
 Accept-Ranges
 Age
+Allow
 Authentication-Info
-Proxy-Authenticate
-Retry-After
-Set-Cookie
-Vary
-WWW-Authenticate
+Cache-Control
+Connection
+Content-Encoding
+Content-Length
 Content-Location
 Content-MD5
 Content-Range
-Meter
-Allow
+Content-Type
+Date
 Error
+ETag
+Expires
+If-Modified-Since
+Last-Modified
+Meter
+Proxy-Authenticate
+Retry-After
+Set-Cookie
+Transfer-Encoding
+Vary
+WWW-Authenticate
 ```
 
 ## 配置示例
@@ -94,14 +93,6 @@ Error
 </tr>
 </tbody></table>
 
-### Content-Disposition
-用来激活浏览器的下载，同时可以设置默认的下载的文件名。
-
-服务端向客户端浏览器发送文件时，如果是浏览器支持的文件类型，如 TXT、JPG 等类型，会默认直接使用浏览器打开，如果需要提示用户保存，则可以通过配置 Content-Disposition 字段覆盖浏览器默认行为。
-
-- 头部名称：Content-Disposition。
-- 头部值：常见配置示例如：`attachment;filename=FileName.txt`。
-
 ### Access-Control-Allow-Methods
 设置跨域允许的 HTTP 请求方法。
 
@@ -122,3 +113,12 @@ Error
 指定访问页面所使用的语言。
 - 头部名称：Content-Language。
 - 头部值：例如 zh-CN 或 en-US。
+
+### Content-Disposition
+用来激活浏览器的下载，同时可以设置默认的下载的文件名。
+
+服务端向客户端浏览器发送文件时，如果是浏览器支持的文件类型，如 TXT、JPG 等类型，会默认直接使用浏览器打开，如果需要提示用户保存，则可以通过配置 Content-Disposition 字段覆盖浏览器默认行为。
+
+- 头部名称：Content-Disposition。
+- 头部值：常见配置示例如：`attachment;filename=FileName.txt`。
+

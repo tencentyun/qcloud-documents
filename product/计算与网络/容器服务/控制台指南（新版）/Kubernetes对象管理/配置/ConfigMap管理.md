@@ -3,7 +3,7 @@
 通过 ConfigMap 您可以将配置和运行的镜像进行解耦，使得应用程序有更强的移植性。ConfigMap 是有 key-value 类型的键值对，您可以通过控制台的 Kubectl 工具创建对应的 ConfigMap 对象，也可以通过挂载数据卷、环境变量或在容器的运行命令中使用 ConfigMap。
 
 
-## ConfigMap 控制台操作指引
+## 通过控制台
 
 ### 创建 ConfigMap
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
@@ -14,6 +14,7 @@
 6. 根据实际需求，设置 ConfigMap 参数。关键参数信息如下：
  - 名称：自定义。
  - 命名空间：根据实际需求进行选择命名空间类型，定义变量名和变量值。
+ - 内容：添加变量名和变量值。
 7. 单击**创建ConfigMap**，完成创建。
 
 ### 使用 ConfigMap
@@ -22,30 +23,29 @@
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中单击**集群**，进入集群列表页。
 3. 单击需要部署 Workload 的集群 ID，进入集群管理页面。
-4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
-![](https://main.qcloudimg.com/raw/71e5e1f1c03b60792c9c3232ab6bc088.png)
-5. 单击**新建**，进入 “新建Workload” 页面。
-6. 根据页面信息，设置工作负载名、命名空间等信息。并在 “数据卷” 中，单击**添加数据卷**，添加数据卷。如下图所示：
-![添加数据卷](https://main.qcloudimg.com/raw/2e036dc898bd3fecfc59edd8742ff18a.png)
-7. 选择 “使用ConfigMap” 方式，填写名称，单击**选择配置项**。如下图所示：
-![](https://main.qcloudimg.com/raw/2647c950bda4780a0e254acc9fe10f94.png)
-8. 在弹出的 “设置ConfigMap” 窗口中，参考以下信息配置挂载点，并单击**确认**。如下图所示：
+4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。
+5. 单击**新建**，进入 “新建DaemonSet” 页面。
+6. 根据页面信息，设置工作负载名、命名空间等信息。并在 “数据卷” 中，单击**添加数据卷**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/90fad960bad9d99f46fbb6715cf46d59.png)
+7. 在“新增数据卷”弹窗中，参考以下信息配置挂载点，并单击**确认**。如下图所示：
+选择 “使用ConfigMap” 方式，填写名称，单击**选择配置项**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/beb91d1ca3b646a625a778a0b902674e.png)
+ - **数据卷类型**：选择 “使用ConfigMap” 方式。
+ - **数据卷名称**：自定义名称。
  - **选择ConfigMap**：根据实际需求进行选择。
  - **选项**：提供“全部”和“指定部分Key”两种选择。
  - **Items**：当选择“指定部分Key”选项时，可以通过添加 item 向特定路径挂载，如挂载点是 /data/config，文件名是 filename，最终会该键值对的值会存储在 /data/config/filename 下。
-![](https://main.qcloudimg.com/raw/0983836264d6d6434eb501adba7ba906.png)
-9. 单击**创建Workload**，完成创建。
+8. 单击**确认**。单击**创建Workload**，完成创建。
 
-#### 方式二： 环境变量中使用 ConfigMap 类型
+#### 方式二：环境变量中使用 ConfigMap 类型
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，单击**集群**，进入集群列表页。
-3. 单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
-4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
-![](https://main.qcloudimg.com/raw/71e5e1f1c03b60792c9c3232ab6bc088.png)
-5. 单击**新建**，进入 “新建Workload” 页面。
+2. 在左侧导航栏中单击**集群**，进入集群列表页。
+3. 单击需要部署 Workload 的集群 ID，进入集群管理页面。
+4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。
+5. 单击**新建**，进入 “新建DaemonSet” 页面。
 6. 根据页面信息，设置工作负载名、命名空间等信息。并在 “实例内容器” 的 “环境变量” 中，单击**新增变量**。如下图所示：
-![](https://main.qcloudimg.com/raw/48f6735d3be0ec6aa426dc78a317418e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ba27dd7c2fd45494900e33c64ba7116c.png)
 7. 选择 “ConfigMap” 环境变量方式，并根据实际需求选择资源。
 9. 单击**创建Workload**，完成创建。
 
@@ -54,17 +54,16 @@
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群列表页。
 3. 单击需要更新 ConfigMap 的集群 ID，进入集群管理页面。
-4. 选择 **配置管理** > **ConfigMap**，进入 ConfigMap 信息页面。
+4. 选择**配置管理** > **ConfigMap**，进入 ConfigMap 信息页面。
 5. 在需要更新的 ConfigMap 行中，单击右侧的**更新配置**，进入更新 ConfigMap 页面。
-![](https://main.qcloudimg.com/raw/2bfb0d32ab85682548a598175e1bbe19.png)
-7. 在 “更新配置” 页面，编辑 key-value 类型的键值对，单击**完成**。
-![](https://main.qcloudimg.com/raw/91790cab3cb4ebd35c0354cd555ae60a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2bbb806df312c3f0527fc9c786f3c7b3.png)
+7. 在 “更新配置” 页面，编辑 key-value 类型的键值对，单击**更新 ConfigMap**。
+![](https://qcloudimg.tencent-cloud.cn/raw/e5c79a05aeba7330b111e0a3ce3499e5.png)
 
 
 
 
-
-## Kubectl 操作 ConfigMap 指引
+## 通过 Kubectl 
 
 
 

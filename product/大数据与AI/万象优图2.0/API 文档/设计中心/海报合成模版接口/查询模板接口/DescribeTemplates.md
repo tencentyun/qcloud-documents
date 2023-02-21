@@ -35,8 +35,8 @@ Content-Type: application/xml
 | :----------------- | :----- | :------------------------------- | :------ | :--- |
 | pageNumber         | 无     | 第几页，默认值:1                 | Integer | 否   |
 | pageSize           | 无     | 每页个数，默认值:10              | Integer | 否   |
-| categoryIds        | 无     | 模版分类ID，支持传入多个，以`,`符号分割字符串                         | String    | 否   |
-| type           | 无     | Official(系统预设模板)，Custom(自定义模板)，All(所有模版)，默认值: Custom | String  | 否   |
+| categoryIds        | 无     | 模板分类ID，支持传入多个，以`,`符号分割字符串                         | String    | 否   |
+| type           | 无     | Official(系统预设模板)，Custom(自定义模板)，All(所有模板)，默认值: Custom | String  | 否   |
 
 
 
@@ -81,7 +81,7 @@ Container 节点 Response 的内容：
 | TotalCount         | Response | 模板总数                        | Int       |
 | PageNumber         | Response | 当前页数，同请求中的 pageNumber  | Int       |
 | PageSize           | Response | 每页个数，同请求中的 pageSize    | Int       |
-| TemplateList       | Response | 模板数组，Container中参数为模版具体参数  | Container 数组 |
+| TemplateList       | Response | 模板数组，Container中参数为模板具体参数  | Container 数组 |
 
 
 

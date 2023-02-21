@@ -13,10 +13,10 @@
 3. 单击**创建日志主题**，在弹出的创建日志集窗口中，填写相关信息：
       - 日志主题名称：例如 project_test
       - 日志集名称：例如 nginx
-![](https://main.qcloudimg.com/raw/6e2ff86cd07c0e132bee42850dfa678f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/53a6e98521eba259252758eb1726990a.png)
 4. 单击**确定**，即可创建日志集和主题。
 5. 日志主题新增成功，将进入日志主题管理页，如下图所示： 
-      ![](https://main.qcloudimg.com/raw/14416fdbda5ac39e4a650d1e37a5118c.png)
+      ![](https://qcloudimg.tencent-cloud.cn/raw/48ac29084696422dc23436cb3f7c1824.png)
    
 >? ETL 数据处理的源端和终端均为 CLS，故至少需创建两个 Topic。
 
@@ -45,7 +45,7 @@
 3. 单击函数名，进入该函数的详情页面。
 4. 在该函数的详情页面，选择左侧的**触发管理**，进入触发器浏览及操作界面，单击**创建触发器**，开始创建一个新的触发器。
 5. 在弹出的“创建触发器”窗口中添加已创建的函数。如下图所示： 
-![](https://main.qcloudimg.com/raw/f14b4d014c955731b0ee5eef8323e9a1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/87cef420759d16107b6ab060f549f553.png)
 6. 完成触发器配置后，单击**提交**，完成触发器创建。
 
 [](id:step05)

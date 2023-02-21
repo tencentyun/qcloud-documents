@@ -23,9 +23,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
 
->?
->
-> 上图 TUIKit 界面语言支持自动或手动在 **简体中文/繁体中文/英文** 间切换。如有多语言相关咨询，可 [联系我们](#contact)。
+>?上图 TUIKit 界面语言支持自动或手动在 **简体中文/繁体中文/英文/日语/韩语** 间切换。国际化界面语言用法详情，或新增其他语言包，[可参考本文档](https://cloud.tencent.com/document/product/269/84481)。
 
 ## 环境要求
 
@@ -311,7 +309,7 @@ UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/pr
 | 组件                                                                                                                               | 控制器                                                                                                                                  | 功能                                                                                                                                         |
 | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | [TIMUIKitChat](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChat-Implementation.html)                         | [TIMUIKitChatController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChatController.html)                         | 刷新历史消息列表/更新单条消息/手动发送额外的消息/为消息设置自定义字段 等                                                                     |
-| [TIMUIKitConversation](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitConversation/TIMUIKitConversation-Implementation.html) | [TIMUIKitConversationController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitConversation/TIMUIKitConversationController.html) | 获取及刷新会话列表/会话置顶/设置会话的草稿/清空会话内所有消息/删除会话 等                                                                    |
+| [TIMUIKitConversation](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitConversation/TIMUIKitConversation-Implementation.html) | [TIMUIKitConversationController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitConversation/TIMUIKitConversationController.html) | 获取及刷新会话列表/会话置顶/设置会话的草稿/清空会话内所有消息/删除会话/滚动到特定会话 等                                                                    |
 | [TIMUIKitProfile](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitProfile/TIMUIKitProfile-Implementation.html)                | [TIMUIKitProfileController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitProfile/TIMUIKitProfileController.html)                | 删除联系人好友/置顶当前联系人的会话/将用户加入黑名单/修改被加好友方式/更新联系人备注名/设置联系人消息免打扰/添加联系人好友/更新自己的资料 等 |
 
 他们的使用方式一致，以 [TIMUIKitChatController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChatController.html) 举例用法。完整代码可[参考DEMO](https://github.com/TencentCloud/tc-chat-demo-flutter/blob/main/lib/src/chat.dart)。
@@ -499,15 +497,9 @@ defaultConfig {
 :::
 </dx-codeblock>
 
-### 如何动态切换 TUIKit 界面语言？
+### 如果国际化界面语言？
 
-调用 `I18nUtils(null, language);` 即可。如：
-
-```dart
-I18nUtils(null, LanguageEnum.en);
-```
-
-> ?如需固定使用某语言，可在 [初始化 TUIKit](#init) 时，使用 language 参数传入。
+国际化界面语言用法详情，或新增其他语言包，[可参考本文档](https://cloud.tencent.com/document/product/269/84481)。
 
 ### 如何获取 API 接口调用报错/Flutter 层报错/弹窗提示信息？[](id:callback)
 
@@ -631,6 +623,6 @@ final isInitSuccess = await _coreInstance.init(
 
 ## 联系我们[](id:contact)
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：788910197 咨询。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e830ae8c7b8d9253eb71e7c3d9f7b2be.png)

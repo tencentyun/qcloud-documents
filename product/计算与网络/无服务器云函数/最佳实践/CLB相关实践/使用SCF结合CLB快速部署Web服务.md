@@ -18,8 +18,7 @@
 ### 创建 CLB 实例[](id:createCLB)
 
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/instance?rid=4&pid=0&type=OPEN)，创建负载均衡实例。详情可参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/8975#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E8.B4.AD.E4.B9.B0.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.9E.E4.BE.8B)。
-![](https://main.qcloudimg.com/raw/6422b8dda3b985825a93a74ecfcc06ce.png)
-本案例以 “上海” 地域为例，私有网络选择 [上一步](#createVPC) 中已创建的 VPC。
+本案例以 “上海” 地域为例，所属网络选择 [上一步](#createVPC) 中已创建的 VPC。
 2. 创建完成后，在“实例管理”页面中，找到目标负载均衡实例，为实例配置监听器。配置监听器详情可参见 监听器详情可参见 [配置 HTTP 监听器](https://cloud.tencent.com/document/product/214/36384)。
 本案例以监听器名称为`clb-scf-web`，监听协议端口为`81`为例。   
 
@@ -32,7 +31,7 @@
  - **创建方式**：选择**模板创建**。
  - **模糊搜索**：输入 “Web 静态页面托管”“Python3.6”，并进行搜索。
  单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
-![](https://main.qcloudimg.com/raw/847f64a37bb760cfae6660bae0426e2e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8c8d1618601f449b6667dcee6eb1fbe5.png)
 3. 在**基础配置**中，填写**函数名称**，选择**函数地域**。
    - 函数名称：例如 `clb-scf-web`。
    - 地域：需要与 CLB 地域相同，例如 “上海”。
@@ -55,6 +54,3 @@ VIP 即负载均衡向客户端提供服务的 IP 地址。
 3. 在该函数的详情页面，选择**触发管理**。
 4. 在“触发管理”页中获取 API 网关触发器访问路径，查看 Web 页面。如下图所示： 
 ![](https://main.qcloudimg.com/raw/579a6edd4c4f610c7783e84d1fa5bcc7.png)
-
-
-

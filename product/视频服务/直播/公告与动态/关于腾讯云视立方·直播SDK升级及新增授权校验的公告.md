@@ -1,15 +1,17 @@
 <style>.markdown-text-box table td, .markdown-text-box table th {text-align: center;}</style>
 
-腾讯云视立方·直播 SDK 移动端（Android & iOS & Flutter）即将发布 10.1 版本，新版本 SDK 采用“腾讯视频”同款播放内核打造，视频播放能力获得全面优化升级，详见 [升级特性](#up)。
+腾讯云视立方·直播 SDK 移动端（Android & iOS & Flutter）即将发布 10.1 版本，新版本 SDK 的播放器采用“腾讯视频”同款播放内核打造，视频播放能力获得全面优化升级，详见 [视频播放能力升级特性](#up)。
 
-同时从该版本开始将增加对**视频播放**功能模块的授权校验，**如果您的 App 已经拥有直播 License （原直播推流 License）或短视频 License 授权，当您升级至 10.1 版本后仍可继续正常使用**，不受到此次变更影响。您可以登录 [腾讯云直播控制台](https://console.cloud.tencent.com/live/livestat) 查看您当前的 License 信息。
+同时从该版本开始将增加对**视频播放**功能的授权校验，具体如下：
 
-如果您此前未获得过直播 License （原直播推流 License）或短视频 License 授权，**且需使用新版本 SDK 中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#warrant)。
-**若您无需使用视频播放功能或未升级至10.1及更高版本的 SDK，将不受到此次变更的影响。**
+- 如果您的 App 已经拥有直播 License （原直播推流 License）或短视频 License 授权，当您升级至 10.1 版本后仍可继续正常使用，不受到此次变更影响。您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 查看您当前的 License 信息。 
+- **若您无需使用直播 SDK 的直播播放或点播播放功能，或未升级至10.1及更高版本的 SDK，将不受到此次变更的影响。**
+- **如果您此前未获得直播 License （原直播推流 License）或短视频 License 授权，并且需要使用新版本 SDK（10.1 及其以上版本的直播 SDK 移动端）中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#warrant)。
 
 >! 10.1版本 SDK 预计在2022年05月底发布，您可在 [License 购买页](https://buy.cloud.tencent.com/vcube) 内购买包含视频播放功能的 License，并参考 [License 操作指引](https://cloud.tencent.com/document/product/1449/56981) 进行 License 的新增与续期操作。本次升级涉及的移动端（iOS & Android & Flutter）SDK 包含直播 SDK、直播 SDK（基础版）和全功能版 SDK，您可持续关注对应 SDK 官网通知以了解最新动态。
 
 [](id:warrant)
+
 ## 授权说明
 10.1 版本后，直播 License（原直播推流 License）、短视频 License 和视频播放 License **均可**授权解锁新版本 SDK 的**视频播放**功能模块，您只需购买其中的**任意一种** License，即可正常使用新版 SDK 中的直播和点播播放功能，相关 License 的购买、计费信息及操作指引如下：
 
@@ -62,7 +64,7 @@
 
 
 [](id:up)
-## 升级特性
+## 视频播放能力升级特性
 
 升级后的腾讯云视立方·直播 SDK 视频播放内核由腾讯内部完全自研，且经过长期优化和海量服务验证，对比系统播放器，性能提升 30% ~ 50%。 同时针对控制带宽成本、辅助运营增长、降低接入门槛等方面为企业用户进行了专门的优化升级，新增终端极速高清、版权保护、全链路数据洞察和场景化低代码等多种方案，打造业界独家、行业领先的企业级视频播放解决方案，全面满足企业级需求。
 
@@ -77,8 +79,8 @@
 <td style="text-align: left;">“腾讯视频”同款</td>
 <td style="text-align: left;">首次将“腾讯视频”播放能力以 SDK 的形式开放给广大开发者，在具备“臻彩视听”、精准 Seek、清晰度切换、小窗播放、离线缓存等多项“腾讯视频”同款播放功能的同时，具备同等水平的视频播放稳定性和机型适配性。</td>
 </tr><tr>
-<td style="text-align: left;">新增格式支持</td>
-<td style="text-align: left;">新增支持 QUIC、AV1、H.266 等格式，相比 H.264/H.265节省带宽 20%～55%，满足多样化的业务场景同时降低客户成本。</td>
+<td style="text-align: left;">新增点播能力支持</td>
+<td style="text-align: left;">点播播放场景下新增支持 QUIC协议，支持AV1、H.266编码格式，相比 H.264/H.265节省带宽 20%～55%，满足多样化的业务场景同时降低客户成本。</td>
 </tr><tr>
 <td style="text-align: left;">版权保护升级</td>
 <td style="text-align: left;">在支持私有协议加密、本地加密、防盗链等方案前提下，新增支持商业 DRM 加密方案，具备完整视频安全方案矩阵，全方位保护视频版权。</td>
@@ -93,6 +95,7 @@
 <td style="text-align: left;">提供类似腾讯视频号（沉浸式短视频）、腾讯新闻（Feed 流视频）的场景化方案，可以快速搭建相关场景 App；并新增视频封面、动态水印、列表轮播等多种功能组件，适配多样业务场景，降低开发成本。</td>
 </tr>
 </tbody></table>
+
 
 
 

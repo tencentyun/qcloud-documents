@@ -10,7 +10,7 @@
 
 ## 前提条件
 
-您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
 ## 第一部分：创建测试用户
 
@@ -240,4 +240,7 @@ const addAdvancedMsgListener = () => {
 
 ## 联系我们
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：437955475 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：437955475 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/095e39d0943d3670585659251c5a3b6d.png)
+

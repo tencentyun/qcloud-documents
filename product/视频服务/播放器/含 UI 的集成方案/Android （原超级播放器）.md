@@ -453,7 +453,7 @@ model.videoId.fileId = "您的 fileId";
 //播放模式，可设置自动播放模式：PLAY_ACTION_AUTO_PLAY，手动播放模式：PLAY_ACTION_MANUAL_PLAY
 model.playAction = PLAY_ACTION_MANUAL_PLAY;
 //设定封面的地址为网络 url 地址，如果 coverPictureUrl 不设定，那么就会自动使用云点播控制台设置的封面
-model.coverPictureUrl = "http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/cc1e28208602268011087336518/MXUW1a5I9TsA.png" 
+model.coverPictureUrl = "https://qcloudimg.tencent-cloud.cn/raw/946152ef79a6034786eb868f425b5f85.png" 
 mSuperPlayerView.playWithModelNeedLicence(model);
 ```
 
@@ -575,7 +575,7 @@ public DynamicWaterConfig(String dynamicWatermarkTip, int tipTextSize, int tipTe
 ### 7、视频下载
 
 支持用户在有网络的条件下缓存视频，随后在无网络的环境下观看；同时离线缓存的视频仅可在客户端内观看，不可被下载至本地，可有效防止下载视频的非法传播，保护视频安全。
-你可在 腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
+您可在 腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d5e47d5d2a50b98a4a2cf04fbfa523b7.png)
 
 DownloadMenuListView（ 缓存选择列表视图），用于选择下载对应清晰度的视频。左上角选择清晰度后，再点击要下载的视频选项，出现对勾后，代表开始了下载。点击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
@@ -618,9 +618,7 @@ public void initDownloadData(List<SuperPlayerModel> superPlayerModelList,
 | userName             | String                 | 用户名           |
 
 VideoDownloadListView（视频下载列表），显示所有正在下载的和下载完成视频的列表 View。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
-
-<img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a69c6b2c387702307128674240/wt31IYPsdQoA.jpg" style="zoom: 33%;" />
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/96c558825a509316b42806f70f73d9c9.png" style="zoom: 33%;" />
 
 
 ```java
@@ -652,15 +650,13 @@ public void addCacheVideo(List<TXVodDownloadMediaInfo> mediaInfoList, boolean is
 支持在进度条关键位置添加文字介绍，用户点击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。点击视频信息后，可以 seek 到打点信息位置。
 
 您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
-
-![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/9f41662a387702307128322419/WnDHUMF9V3YA.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/5ec269b5c8b328fa0a05f4812b8dde9f.png)
 
 #### 雪碧图
 
 支持用户在拖拽进度条或执行快进操作时查看视频缩略图，以快速了解指定进度的视频内容。缩略图预览基于视频雪碧图实现，您可以在云点播控制台中生成视频文件雪碧图，或直接生成雪碧图文件。
 您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
-
-![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/ad1f6b93387702307128908283/6YIALRXty4EA.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/8c958cf513889a498f0cb4e1492c39eb.png)
 
 ```java
 // 步骤1：播放视频 superplayerModel的url 变量需要为空，且 videoId 不为空，这样才会通过 PlayWithField 播放，才能在 onPlayEvent 回调中获取到打点信息和雪碧图数据

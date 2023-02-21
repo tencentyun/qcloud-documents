@@ -6,10 +6,13 @@ sync 命令用于同步上传、下载或拷贝文件，与 cp 命令不同的�
 ./coscli sync <source_path> <destination_path> [flag]
 ```
 
->? 
-> - 有关 bucketAlias 的说明，请参见 [下载与安装配置](https://cloud.tencent.com/document/product/436/63144#alias)。
-> - 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
->
+
+cp 命令包含以下参数：
+
+| 参数格式  | 参数用途     | 示例                |
+| --------- | ------------- | ------------------------ |
+|  source_path | 源文件路径。可以为本地路径或 COS 文件路径。COS 路径支持使用 [配置参数](https://cloud.tencent.com/document/product/436/63144#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 中的桶别名，或桶名称进行访问。如使用桶名称访问，需要额外携带 `endpoint` flag。|本地路径：~/example.txt<br>使用桶别名指定 COS 文件路径：cos://bucketalias/example.txt<br>使用桶名称指定 COS 文件路径：cos://examplebucket-1250000000/example.txt|
+|   destination_path | 目的文件路径。可以为本地路径或 COS 文件路径。COS 路径支持使用 [配置参数](https://cloud.tencent.com/document/product/436/63144#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 中的桶别名，或桶名称进行访问。如使用桶名称访问，需要额外携带 `endpoint` flag。|本地路径：~/example.txt<br>使用桶别名指定 COS 文件路径：cos://bucketalias/example.txt<br>使用桶名称指定 COS 文件路径：cos://examplebucket-1250000000/example.txt|
 
 sync 命令包含以下可选 flag：
 
@@ -18,12 +21,12 @@ sync 命令包含以下可选 flag：
 |    无       | --include     | 包含特定模式的文件             |
 |   无         | --exclude     | 排除特定模式的文件             |
 | -r        | --recursive   | 是否递归遍历文件夹下所有文件 |
-|   无       | --storage-class | 指定上传至文件的类型（默认 STANDARD） |
+|   无       | --storage-class | 指定上传文件的存储类型（默认 STANDARD），更多存储类型，请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417) |
 |   无       | --part-size     | 文件分块大小（默认32MB，最大支持5GB）     |
 |   无       | --thread-num    | 并发线程数（默认并发5）      |
 |   无       | --rate-limiting | 单链接速率限制（0.1 - 100MB/s）       |
 | 无 | --snapshot-path | 指定保存上传或者下载文件时的快照信息所在的目录。在下一次上传或者下载文件时，coscli 会读取指定目录下的快照信息进行增量上传或者下载。本选项用来加速目录文件同步。 |
-| 无 | --meta | 上传文件的元信息。包括部分 HTTP 标准属性（HTTP Header）以及以`x-cos-meta-`开头的用户自定义元数据（User Meta）。文件元信息格式为`header:value#header:value`，示例为`Expires:2022-10-12T00:00:00.000Z#Cache-Control:no-cache#Content-Encoding:gzip#x-cos-meta-x:x`。 |
+| 无 | --meta | 上传文件的元信息。包括部分 HTTP 标准属性（HTTP Header）以及以 `x-cos-meta-` 开头的用户自定义元数据（User Meta）。文件元信息格式为 `header:value#header:value`，示例为 `Expires:2022-10-12T00:00:00.000Z#Cache-Control:no-cache#Content-Encoding:gzip#x-cos-meta-x:x`。 |
 
 
 >?
@@ -37,6 +40,8 @@ sync 命令包含以下可选 flag：
 ```
 ./coscli sync ~/test/ cos://bucket1/example/ -r --include ".*.txt" --snapshot-path=/path/snapshot-path  --meta=x-cos-meta-a:a#ContentType:text#Expires:2022-10-12T00:00:00.000Z
 ```
+> - 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
+
 
 ## 操作示例
 

@@ -1,4 +1,5 @@
 本文档将介绍适用于点播播放和直播播放的 Web 播放器 SDK （TCPlayer），它可快速与自由 Web 应用集成，实现视频播放功能。Web 播放器 SDK （TCPlayer）内默认包含部分 UI ，您可按需取用。
+
 ## 概述
 Web 播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频播放。在浏览器不支持视频播放的情况下，实现了视频播放效果的多平台统一体验，并结合腾讯云点播视频服务，提供防盗链和播放 HLS 普通加密视频等功能。
 
@@ -344,7 +345,6 @@ Web 播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频播放
 
 播放器兼容常见的浏览器，播放器内部会自动区分平台，并使用最优的播放方案。例如：在 Chrome 等现代浏览器中优先使用 HTML5 技术实现视频播放，而手机浏览器上会使用 HTML5 技术或者浏览器内核能力实现视频播放。
 
-
 ## 集成指引
 
 通过以下步骤，您就可以在网页上添加一个视频播放器。
@@ -353,20 +353,20 @@ Web 播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频播放
 
 在本地的项目工程内新建 index.html 文件，html 页面内引入播放器样式文件与脚本文件：
 ```html
- <link href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/tcplayer.min.css" rel="stylesheet"/>
+ <link href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.2/tcplayer.min.css" rel="stylesheet"/>
  <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 Webrtc 视频，需要在 tcplayer.vx.x.x.min.js 之前引入 TXLivePlayer-x.x.x.min.js。-->
  <!--有些浏览器环境不支持 Webrtc，播放器会将 Webrtc 流地址自动转换为 HLS 格式地址，因此快直播场景同样需要引入 hls.min.x.xx.xm.js。-->
- <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/libs/TXLivePlayer-1.2.3.min.js"></script>
+ <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.2/libs/TXLivePlayer-1.2.3.min.js"></script>
  <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 HLS 协议的视频，需要在 tcplayer.vx.x.x.min.js 之前引入 hls.min.x.xx.xm.js。-->
- <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/libs/hls.min.1.1.5.js"></script>
+ <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.2/libs/hls.min.1.1.6.js"></script>
  <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 FLV 格式的视频，需要在 tcplayer.vx.x.x.min.js 之前引入 flv.min.x.x.x.js。-->
- <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/libs/flv.min.1.6.3.js"></script>
+ <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.2/libs/flv.min.1.6.3.js"></script>
   <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 DASH 视频，需要在 tcplayer.vx.x.x.min.js 之前引入 dash.min.x.x.x.js。-->
- <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/libs/dash.all.min.4.4.1.js"></script>
+ <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.2/libs/dash.all.min.4.5.2.js"></script>
  <!--播放器脚本文件-->
- <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/tcplayer.v4.6.0.min.js"></script>
+ <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.2/tcplayer.v4.7.2.min.js"></script>
 ```
-建议在使用播放器 SDK 的时候自行部署资源，[单击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/release.zip)。
+建议在使用播放器 SDK 的时候自行部署资源，[单击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.2/release.zip)。
 部署解压后的文件夹，不能调整文件夹里面的目录，避免资源互相引用异常。
 如果您部署的地址为 `aaa.xxx.ccc`，在合适的地方引入播放器样式文件与脚本文件：
 ```html
@@ -411,7 +411,7 @@ player.src(url); // url 播放地址
 
 :::
 ::: 通过 FileID 播放（点播）
-在 index.html 页面初始化的代码中加入以下初始化脚本，传入在准备工作中获取到的 fileID（[**媒资管理**](https://console.cloud.tencent.com/vod/media)）中的视频 ID 与 appID（在**账号信息**>[**基本信息**](https://console.cloud.tencent.com/developer)中查看）。
+在 index.html 页面初始化的代码中加入以下初始化脚本，传入在准备工作中获取到的 fileID（[**媒资管理**](https://console.cloud.tencent.com/vod/media)）中的视频 ID 与 appID（在**账号信息** > [**基本信息**](https://console.cloud.tencent.com/developer) 中查看）。
 
 <dx-codeblock>
 :::  javascript

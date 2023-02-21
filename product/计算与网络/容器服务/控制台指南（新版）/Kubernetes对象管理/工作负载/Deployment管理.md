@@ -7,14 +7,12 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 [](id:creatDeployment)
 ### 创建 Deployment
 1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
-2. 单击需要创建 Deployment 的集群 ID，进入待创建 Deployment 的集群管理页面。如下图所示：
-![](https://main.qcloudimg.com/raw/869f07b2d3f54c9b6abbb389b2da8690.png)
-3. 单击**新建**，进入 “新建Workload” 页面。
-根据实际需求，设置 Deployment 参数。关键参数信息如下：
- - **工作负载名**：输入自定义名称。
- - **标签**：一个键 - 值对（Key-Value），用于对资源进行分类管理。
+2. 单击需要创建 Deployment 的集群 ID，进入集群详情页面。
+3. 单击**新建**，进入 “新建Deployment” 页面。根据实际需求，设置 Deployment 参数。关键参数信息如下：
+ - **名称**：自定义工作负载名称。
+ - **标签**：一个键 - 值对（Key-Value），用于对资源进行分类管理。详情请参见 [通过标签查询资源](https://cloud.tencent.com/document/product/651/36479)。  
  - **命名空间**：根据实际需求进行选择。
- - **类型**：选择**Deployment（可扩展的部署 Pod）**。
+ - **OS类型**：支持选择 Linux 和 Windows。
  - **数据卷（选填）**：为容器提供存储，目前支持临时路径、主机路径、云硬盘数据卷、文件存储 NFS、配置文件、PVC，还需挂载到容器的指定路径中。
  - **实例内容器**：根据实际需求，为 Deployment 的一个 Pod 设置一个或多个不同的容器。
     - **名称**：自定义。
@@ -25,6 +23,7 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
          - **Always**：总是从远程拉取该镜像。
          - **IfNotPresent**：默认使用本地镜像，若本地无该镜像则远程拉取该镜像。
          - **Never**：只使用本地镜像，若本地没有该镜像将报异常。
+    - **环境变量**：设置容器中的变量。
     - **CPU/内存限制**：可根据 [Kubernetes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
     - **GPU 资源**：配置该工作负载使用的最少 GPU 资源。
     - **高级设置**：可设置 “**工作目录**”、“**运行命令**”、“**运行参数**”、“**容器健康检查**”和“**特权级**”等参数。
@@ -40,37 +39,32 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 
 #### 更新 YAML
 1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
-2. 单击需要更新 Deployment 的集群 ID，进入待更新 Deployment 的集群管理页面。如下图所示：
-![](https://main.qcloudimg.com/raw/91af8781e51bc79ba7f8ab011edc22c9.png)
+2. 单击需要更新 Deployment 的集群 ID，进入待更新 Deployment 的集群管理页面。
 3. 在需要更新 YAML 的 Deployment 行中，单击**更多** > **编辑YAML**，进入更新 Deployment 页面。
-5. 在 “更新Deployment” 页面，编辑 YAML，单击**完成**，即可更新 YAML。如下图所示：
-![更新YAML](https://main.qcloudimg.com/raw/ddc23ea3fc49bdb05e35c59b67a577ac.png)
+5. 在 “更新Deployment” 页面，编辑 YAML，单击**完成**，即可更新 YAML。
 
 #### 更新 Pod 配置
 
 1. 在集群管理页面，单击需要更新 Pod 配置的 Deployment 的集群 ID，进入待更新 Pod 配置的 Deployment 的集群管理页面。
 2. 在需要更新 Pod 配置的 Deployment 行中，单击**更新Pod配置**。如下图所示：
-![](https://main.qcloudimg.com/raw/d5f72a2bd47684b7729c40c94121c199.png)
-3. 在 “更新Pod配置” 页面，根据实际需求修改更新方式，设置参数。如下图所示：
-![](https://main.qcloudimg.com/raw/c9ba21f10f36bf6bb8c55cd787fb632a.png)
-4. 单击**完成**，即可更新 Pod 配置。
+![](https://qcloudimg.tencent-cloud.cn/raw/aa00d64e734db6a81782a65824b03acf.png)
+3. 在 “更新Pod配置” 页面，根据实际需求修改更新方式，设置参数。
+4. 单击**更新Pod配置**即可。
 
 ### 回滚 Deployment
 1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
-2. 单击需要回滚 Deployment 的集群 ID，进入待回滚 Deployment 的集群管理页面。如下图所示：
-![](https://main.qcloudimg.com/raw/91af8781e51bc79ba7f8ab011edc22c9.png)
-4. 单击需要回滚的 Deployment 名称，进入 Deployment 信息页面。
+2. 单击需要回滚 Deployment 的集群 ID，进入待回滚 Deployment 的集群管理页面。
+3. 单击需要回滚的 Deployment 名称，进入 Deployment 信息页面。
 5. 选择**修订历史**页签，在需要回滚的版本行中，单击**回滚**。如下图所示：
 ![](https://main.qcloudimg.com/raw/205acd0beec1c55638d0c4aee2bf195a.png)
 6. 在弹出的 “回滚资源” 提示框中，单击**确定**即可完成回滚。
 
 ### 调整 Pod 数量
 1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
-2. 单击需要调整 Pod 数量的 Deployment 的集群 ID，进入待调整 Pod 数量的 Deployment 的集群管理页面。如下图所示：
-![](https://main.qcloudimg.com/raw/91af8781e51bc79ba7f8ab011edc22c9.png)
-4. 在需要调整 Pod 数量的 Deployment 行中，单击**更新Pod数量**，进入更新 Pod 数量页面。如下图所示：
-![](https://main.qcloudimg.com/raw/9d2aec78fe094ef5ea6230e7507b23af.png)
-5. 根据实际需求调整 Pod 数量，单击**更新实例数目**即可完成调整。
+2. 单击需要调整 Pod 数量的 Deployment 的集群 ID，进入待调整 Pod 数量的 Deployment 的集群管理页面。
+3. 在需要调整 Pod 数量的 Deployment 行中，单击**更新Pod数量**，进入更新 Pod 数量页面。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/e289bd74895b068632432a82f52f28c1.png)
+5. 根据实际需求调整 Pod 数量，单击**更新实例数量**即可完成调整。
 
 ## Kubectl 操作 Deployment 指引
 
@@ -193,7 +187,7 @@ kubectl scale deployment [NAME] --replicas=[NUMBER]
 ::: 自动更新 Pod 数量
 **前提条件**
 
-开启集群中的 HPA 功能。TKE 创建的集群默认开启 HPA 功能。
+开启集群中的 HPA 功能。您在容器服务 TKE 中创建的集群默认开启 HPA 功能。
 
 **操作步骤**
 
@@ -212,6 +206,4 @@ kubectl autoscale deployment [NAME] --min=10 --max=15 --cpu-percent=80
 ```
 kubectl delete deployment [NAME]
 ```
-
-
 

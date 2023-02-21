@@ -162,7 +162,7 @@ Use "coscli [command] --help" for more information about a command.
 
 这两个命令在上传和下载大文件时会自动启用并发上传/下载。当以分块形式上传/下载文件时，会默认开启断点续传。
 
-以迁移 WordPress 为例，可以使用如下命令将 WordPress 的媒体库上传到 COS 中，其中 /yourpath/wp-content/uploads 就是你的 WordPress 站点目录本地的媒体库存储路径，而 wp-content/uploads 就是存放在 COS 中的路径。
+以迁移 WordPress 为例，可以使用如下命令将 WordPress 的媒体库上传到 COS 中，其中 /yourpath/wp-content/uploads 就是您的 WordPress 站点目录本地的媒体库存储路径，而 wp-content/uploads 就是存放在 COS 中的路径。
 
 ### 首次上传
 - 将本地 wp-content/uploads 文件夹下的所有文件上传至 bucket1 桶中的 wp-content/uploads 文件夹下
@@ -185,7 +185,4 @@ coscli cp /yourpath/wp-content/uploads/ cos://bucket1/wp-content/uploads/ -r --e
 coscli sync /yourpath/wp-content/uploads/ cos://bucket1/wp-content/uploads/ -r
 ```
 
-更多关于 COSCLI 的使用方法请查看 [官网文档介绍](https://cloud.tencent.com/document/product/436/63666?from=10680)。
-
-
-0
+更多关于 COSCLI 的使用方法请参见 [官网文档介绍](https://cloud.tencent.com/document/product/436/63666?from=10680)。

@@ -61,7 +61,7 @@ const { readable, writable } = new TransformStream(transformer?: any, writableSt
 readonly readable: ReadableStream;
 ```
 
-可读端，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81909)。
+可读端，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
 
 ### writable
 ```typescript

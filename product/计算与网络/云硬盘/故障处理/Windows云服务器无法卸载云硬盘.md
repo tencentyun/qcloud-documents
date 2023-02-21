@@ -32,3 +32,4 @@ Windows 云服务器在执行磁盘脱机操作后，通过控制台 [卸载云�
 ![](https://qcloudimg.tencent-cloud.cn/raw/dc03e11df6866a22562749552db0e5a0.png)
 5. 结束该进程，并再次尝试 [使用控制台卸载云硬盘](https://cloud.tencent.com/document/product/362/6740#useConsole)。
 若您无法手动结束问题进程（例如 svchost.exe、System 等系统进程），则请参考 [关机实例](https://cloud.tencent.com/document/product/213/4929) 将云服务器关机后，再次尝试 [使用控制台卸载云硬盘](https://cloud.tencent.com/document/product/362/6740#useConsole)。
+

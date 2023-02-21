@@ -19,7 +19,7 @@
 | 接口鉴权 | 签名鉴权机制，详见 [签名生成](#sign) |
 | 响应格式 | 统一采用 JSON 格式 |
 | 数据发送 | 建议每40ms 发送40ms 时长（即1:1实时率）的数据包，对应 pcm 大小为：8k 采样率640字节，16k 采样率1280字节<br>音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接 |
-| 并发限制 | 默认单账号限制并发连接数为50路，如您有提高并发限制的需求，[请提工单](https://console.cloud.tencent.com/workorder/category) 进行咨询 |
+| 并发限制 | 默认单账号限制并发数为200路，如您有提高并发限制的需求，请 [前往购买](https://buy.cloud.tencent.com/asr)。 |
 
 ## 接口调用流程
 接口调用流程分为两个阶段：握手阶段和识别阶段。两阶段后台均返回 text message，内容为 json 序列化字符串，以下是格式说明：
@@ -65,7 +65,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | expired | 是 | Integer | 签名的有效期截止时间 UNIX 时间戳，单位为秒。expired 必须大于 timestamp 且 expired - timestamp 小于90天 |
 | nonce | 是 | Integer | 随机正整数。用户需自行生成，最长10位 |
 | engine_model_type | 是 | String | 引擎模型类型<br>电话场景：<li>8k_en：电话 8k 英语；<li>8k_zh：电话 8k 中文普通话通用；<li>8k_zh_finance：电话 8k 金融领域模型；<br>非电话场景：<li>16k_zh：16k 中文普通话通用；<li>16k_en：16k 英语；<li>16k_ca：16k 粤语；<li>16k_ko：16k 韩语；<li>16k_zh-TW：16k 中文普通话繁体；<li>16k_ja：16k 日语；<li>16k_zh_medical 医疗；<li>16k_en_game 英文游戏；<li>16k_zh_court 法庭；<li>16k_en_edu 英文教育；<li>16k_zh_edu 中文教育；<li>16k_th 泰语；<li>16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）；<li>16k_zh-PY：中英粤。 |
-| voice_id | 是 | String | 16位 String 串作为每个音频的唯一标识，用户自己生成 |
+| voice_id | 是 | String | 音频流识别全局唯一标识，一个 websocket 连接对应一个，用户自己生成（推荐使用 uuid），最长128位。 |
 | voice_format | 否 | Int | 语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；10：opus（[opus 格式音频流封装说明](#jump)）；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac|
 | needvad | 否 | Integer | 0：关闭 vad，1：开启 vad<br>如果语音分片长度超过60秒，用户需开启 vad（人声检测切分功能） |
 | hotword_id | 否 | String | 热词表 id。如不设置该参数，自动生效默认热词表；如果设置了该参数，那么将生效对应的热词表 |
@@ -77,20 +77,21 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | convert_num_mode | 否 | Integer | 是否进行阿拉伯数字智能转换（目前支持中文普通话引擎）。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字，3: 打开数学相关数字转换。默认值为1 |
 | word_info | 否 | Int | 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎 8k_en、8k_zh、8k_zh_finance、16k_zh、16k_en、16k_ca、16k_zh-TW、16k_ja、16k_wuu-SH，默认为0|
 | vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000，单位 ms，此参数建议不要随意调整，可能会影响识别效果，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型 |
+|noise_threshold	|否	|Float|	噪音参数阈值，默认为0，取值范围：[-1,1]，对于一些音频片段，取值越大，判定为噪音情况越大。取值越小，判定为人声情况越大。<br>**慎用：可能影响识别效果**|
 | signature | 是 | String | 接口签名参数|
 
 **signature 签名生成** [](id:sign)
-1. 对除 signature 之外的所有参数按字典序进行排序，拼接请求 URL 作为签名原文，这里以 Appid=1259228442, SecretId=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r 为例拼接签名原文，则拼接的签名原文为：
+1. 对除 signature 之外的所有参数按字典序进行排序，拼接请求 URL 作为签名原文，这里以 `Appid=125922***`，`SecretId=*****Qq1zhZMN8dv0******` 为例拼接签名原文，则拼接的签名原文为：
 ```
-asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN
+asr.cloud.tencent.com/asr/v2/125922***?engine_model_type=16k_zh&expired=1673494772&needvad=1&nonce=1673408372&secretid=*****Qq1zhZMN8dv0******&timestamp=1673408372&voice_format=1&voice_id=c64385ee-3e5c-4fc5-bbfd-7c71addb35b0
 ```
-2. 对签名原文使用 SecretKey 进行 HmacSha1 加密，之后再进行 base64 编码。例如对上一步的签名原文， SecretKey=kFpwoX5RYQ2SkqpeHgqmSzHK7h3A2fni，使用 HmacSha1 算法进行加密并做 base64 编码处理：
+2. 对签名原文使用 SecretKey 进行 HmacSha1 加密，之后再进行 base64 编码。例如对上一步的签名原文， `SecretKey=*****SkqpeHgqmSz*****`，使用 HmacSha1 算法进行加密并做 base64 编码处理：
 ```
-Base64Encode(HmacSha1("asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN", "kFpwoX5RYQ2SkqpeHgqmSzHK7h3A2fni"))
+Base64Encode(HmacSha1("asr.cloud.tencent.com/asr/v2/125922***?engine_model_type=16k_zh&expired=1673494772&needvad=1&nonce=1673408372&secretid=*****Qq1zhZMN8dv0******&timestamp=1673408372&voice_format=1&voice_id=c64385ee-3e5c-4fc5-bbfd-7c71addb35b0", "*****SkqpeHgqmSz*****"))
 ```
 得到 signature 签名值为：
 ```
-HepdTRX6u155qIPKNKC+3U0j1N0=
+G8jDQBRg1JfeBi/YnTjyjekxfDA=
 ```
 3. 将 signature 值进行 **urlencode（必须进行 URL 编码，否则将导致鉴权失败偶现** ）后拼接得到最终请求 URL 为：
 ```
@@ -171,5 +172,5 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 | 5000 | 后台错误，请重试 |
 | 5001 | 后台识别服务器识别失败，请重试 |
 | 5002 | 后台识别服务器识别失败，请重试 |
-
+| 6001  | 境外调用请单击 [腾讯云国际站](https://www.tencentcloud.com/zh/products/asr) 开通服务。国内站用户请检查是否使用境外代理，如果使用请关闭。|
  

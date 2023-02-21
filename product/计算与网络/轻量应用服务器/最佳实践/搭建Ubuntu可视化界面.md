@@ -23,55 +23,70 @@ sudo -i
 ```
 3. 执行以下命令，更新和获取最新的软件及版本信息。
 ```
-sudo apt-get update
+apt update
 ```
-4. 执行以下命令，安装桌面环境所需软件包。包括系统面板、窗口管理器、文件浏览器、终端等桌面应用程序。
+4. 依次执行以下命令，安装桌面环境所需软件包。包括系统面板、窗口管理器、文件浏览器、终端等桌面应用程序。
 ```bash
-sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop
+apt install ubuntu-desktop
 ```
-
+```bash
+apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal gnome-session-flashback
+```
+<dx-alert infotype="notice" title="">
+Ubuntu 22.04 在安装时可能会弹出如下图所示的弹窗，此时点击 Tab 键，定位到 OK 键之后按回车。如果断开连接，则重新连接即可。
+</dx-alert>
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ca3aa99856e8d735ed0df8512dc8caa8.png" />
 
 ### 配置 VNC
 1. 按照实际情况选择执行以下命令，安装 VNC。
 <dx-tabs>
 ::: Ubuntu 18.04
-```
-sudo apt-get install vnc4server
+```Swift
+apt install tightvncserver
 ```
 :::
 ::: Ubuntu 20.04
+```plaintext
+apt install tightvncserver
 ```
-sudo apt-get install tightvncserver
+:::
+::: Ubuntu 22.04
+```plaintext
+apt install tightvncserver
 ```
 :::
 </dx-tabs>
 2. [](id:step02)执行以下命令，启动 VNC 服务，并设置 VNC 的密码。
 ```
-sudo vncserver
+vncserver
 ```
 返回类似如下结果，表示 VNC 启动成功。
 ![](https://main.qcloudimg.com/raw/adad6ffbb0b1b722d1e429133060134b.png)
 3. 执行以下命令，打开 VNC 配置文件。
 ```
-sudo vi ~/.vnc/xstartup
+vi ~/.vnc/xstartup
 ```
 4. 按 **i** 切换至编辑模式，并将配置文件修改为如下内容。
 ```
 #!/bin/sh
-export XKL_XMODMAP_DISABLE=1
-export XDG_CURRENT_DESKTOP="GNOME-Flashback:GNOME"
-export XDG_MENU_PREFIX="gnome-flashback-"
-gnome-session --session=gnome-flashback-metacity --disable-acceleration-check &
+ autocutsel -fork
+ xrdb $HOME/.Xresources
+ xsetroot -solid grey
+ export XKL_XMODMAP_DISABLE=1
+ export XDG_CURRENT_DESKTOP="GNOME-Flashback:Unity"
+ export XDG_MENU_PREFIX="gnome-flashback-"
+ unset DBUS_SESSION_BUS_ADDRESS
+ gnome-session --session=gnome-flashback-metacity --disable-acceleration-check --debug &
 ```
 编辑完成后如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/4a4517779b930fca5a7c39c673f81a35.png)
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ebbd7e38e78b35f60138b5f7ad6bc2ee.png" />
 5. 按 **Esc**，输入 **:wq**，保存文件并返回。
 6. 执行以下命令，重启桌面进程。
 ```
-sudo vncserver -kill :1 #杀掉原桌面进程，输入命令（其中的:1是桌面号）
+vncserver -kill :1 #杀掉原桌面进程，输入命令（其中的:1是桌面号）
 ```
 ```
-sudo vncserver -geometry 1920x1080 :1 #生成新的会话
+vncserver -geometry 1920x1080 :1 #生成新的会话
 ```
 7. [点此](https://www.realvnc.com/en/connect/download/viewer/) 前往 VNC Viewer 官网，并根据本地计算机的操作系统类型，下载对应的版本及安装。
 8. 在 VNC Viewer 软件中，输入 `轻量应用服务器的 IP 地址:1`，按 **Enter**。

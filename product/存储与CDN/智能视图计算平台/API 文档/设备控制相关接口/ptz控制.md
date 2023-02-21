@@ -28,12 +28,6 @@
 }
 ```
 
-| 字段名    | 类型   | 描述     | 是否必须 | 备注                                                         |
-| :-------- | :----- | :------- | :------- | :----------------------------------------------------------- |
-| ChannelId | string | 通道 ID   | 必须     |                                                              |
-| Type      | string | 命令类型 | 必须     | 上:up,下:down,左:left,右:right,上左:leftup,上右:rightup,下左:leftdown,下右:rightdown,放大:zoomin,缩小:zoomout,聚焦远:focusfar,聚焦近:focusnear,光圈放大:irisin:,光圈缩小:irisout |
-| Speed     | int    | 命令描述 | 必须     | 速度值范围1-8，超出或不填默认为4                             |
-
 <table>
 <thead>
 <tr>
@@ -50,6 +44,7 @@
 <td> string</td>
 <td>通道 ID</td>
 <td>必须</td>
+<td>-</td>
 </tr>
 <tr>
 <td>Type</td>
@@ -89,9 +84,9 @@
 
 | 字段名     | 类型   | 描述                             | 备注 |
 | :--------- | :----- | :------------------------------- | :--- |
-| RequestId  | string | 请求 ID                           |      |
-| Code       | int    | 状态码，0 成功，500 操作失败     |      |
-| StatusCode | int    | 错误码，200 OK，其他详见错误中心 |      |
-| Message    | string | 返回消息                         |      |
-| Data       | object | 返回结果                         |      |
+| RequestId  | string | 请求 ID                           |  -    |
+| Code       | int    | 状态码，0 成功，500 操作失败     |    -  |
+| StatusCode | int    | 错误码，200 OK，其他详见错误中心 |  -    |
+| Message    | string | 返回消息                         |   -   |
+| Data       | object | 返回结果                         |  -    |
 

@@ -25,7 +25,7 @@
 
 ## 前提条件
 
-1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 参照 [创建并升级应用](https://cloud.tencent.com/document/product/269/32577) 创建应用，并记录好 `SDKAppID`。
 
 [](id:part1)
@@ -315,6 +315,6 @@ Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_PackageUtili
 
 ## 联系我们
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：764231117 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：764231117 咨询。
 
-<img style="width: 200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0a958e8572783faf746ea3233781322c.jpg" />
+![](https://qcloudimg.tencent-cloud.cn/raw/26c9444af94d60e1c606f94cda7cff9d.png)

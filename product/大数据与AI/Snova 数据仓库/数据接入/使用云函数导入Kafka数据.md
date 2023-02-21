@@ -9,8 +9,8 @@
 
 ## 使用步骤
 ###  步骤一：创建函数
-在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 中选择**函数服务 > 新建**，在“新建函数”页面中选择**运行环境**为“Python3.6”，**模糊搜索**中搜索关键词“ckafka”，选择模板函数“CKafka 数据加载到 CDW”，设置完成后单击**下一步**。
-![](https://main.qcloudimg.com/raw/6115e15c0f228d08caeea72f59961262.png)
+在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 中选择**函数服务 > 新建**，在“新建函数”页面**模糊搜索**中搜索关键词“ckafka数据加载到CDW”，设置完成后单击**下一步**。
+![](https://qcloudimg.tencent-cloud.cn/raw/eb3f696d8b7589b35be1f4ffd1fbcae7.png)
 进入“函数配置”页面后，在“高级配置”中进行**环境配置**和**网络配置**，配置如下：
 - **环境配置**
  - 内存：根据实际运行情况来设置，默认为128MB。当导入过程中出现内存不足的问题时，需调大内存。

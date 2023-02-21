@@ -86,7 +86,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 7. 选择 [步骤5](#step5) 保存的证书文件，保持页面默认信息，一直单击**下一步**>**完成**。
 8. 参考申请证书的 [步骤3](#step3)，右键单击**个人**，单击**所有任务**>**导出**。如下图所示：
 ![](https://main.qcloudimg.com/raw/460d0c31c83acc14e4b80a708bf994e4.png)
-9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名（建议）”，单击下一步，完成导出保存文件。<span id="step9">如下图所示：
+9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名（建议）”，一直单击下一步，完成导出保存文件。<span id="step9">如下图所示：
 ![](https://main.qcloudimg.com/raw/c35cd7d547864b496ba063ff4c332666.png)
 ![](https://main.qcloudimg.com/raw/febcb2723b415cab110bac765ecde927.png)
 
@@ -169,8 +169,8 @@ https://cloud.tencent.com/saml.xml
 5. 导入腾讯云身份提供商的文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/acecf94a4147dc77c7ade97bd2c98f12.png)
 6. 保持页面默认信息，一直单击**下一步**>**完成**。
-7. 单击**信赖方信任**>**添加规则**>**编辑声明颁发策略**。如下图所示：
-![](https://main.qcloudimg.com/raw/1c34a7e2622257c74c7b6826e0c69d25.png)
+7. 单击**信赖方信任**>**单击编辑声明规则**>**添加规则**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/5354f193a7e0e9883f2f068fe158c924.png)
 8. 在添加转换声明规则向导页面，单击**选择规则类型**>**转换传入声明**>**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/cc5c6d362bbc8efe10dd63e90948ef3b.png)
 9. 在编辑规则页面，补充规则信息，单击**确定**。如下图所示：

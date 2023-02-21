@@ -16,16 +16,17 @@
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧导航栏中，单击**应用市场**进入“应用市场”管理页面。  
 3. 在应用市场页面搜索框，输入 `tke-autoscaling-placeholder` 进行搜索，找到该应用。如下图所示：
-![](https://main.qcloudimg.com/raw/b48a227c35dd1c52633a838c72e95b26.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/aca9b389007d9849cddbd0afe40b0c3c.png)
 4. 在“应用详情页”中，单击“基本信息”模块中的**创建应用**。  
 5. 在弹出的“创建应用”窗口中，按需配置并创建应用。如下图所示：
-![](https://main.qcloudimg.com/raw/72e50043f590875c14a0fe6b05c3b8fd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e7fac24f81425b62d238b9a30a3d2b37.png)
  配置说明如下：
  - **名称**：输入应用名称。最长63个字符，只能包含小写字母、数字及分隔符“-”，且必须以小写字母开头，数字或小写字母结尾。  
  - **地域**：选择需要部署的所在地域。  
  - **集群类型**：选择**标准集群**。  
  - **集群**：选择需要部署的集群 ID。  
  - **Namespace**：选择需要部署的 namespace。  
+ - **Chart 版本**：选择需要部署的 Chart 版本。
  - **参数**：配置参数中最重要的是 `replicaCount` 与 `resources.request`，分别表示 `tke-autoscaling-placeholder` 的副本数与每个副本占位的资源大小，它们共同决定缓冲资源的大小，可以根据流量突高需要的额外资源量来估算进行设置。  
  `tke-autoscaling-placeholder`  完整参数配置说明请参考如下表格：
 <table>

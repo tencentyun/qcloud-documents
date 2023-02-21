@@ -9,7 +9,7 @@
 ```sh
 npx vue create vue-hello-world
 ```
-
+ 
 ## 步骤2：发布项目
 
 安装并登录 CloudBase Framework，在项目根目录下运行：

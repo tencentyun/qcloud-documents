@@ -101,7 +101,7 @@ exports.main_handler = async (event, context) => {
  - 代码提交方式：选择**本地上传 zip 包**。
     将 `testNodejsSDK` 目录下的所有文件压缩为 zip 格式，并上传到云端。
 4. 
-在 [Serverless 控制台](https://console.cloud.tencent.com/scf/list) 中的函数详情页面，通过进入函数代码子页面，单击**运行**，测试运行函数。输出结果如下：
+在 [Serverless 控制台](https://console.cloud.tencent.com/scf/list) 单击新建的云函数，进入**函数管理**的**代码编辑**页面，然后单击**测试**，运行函数。输出结果如下：
 ```shell
 "Already invoked a function!"
 ```
