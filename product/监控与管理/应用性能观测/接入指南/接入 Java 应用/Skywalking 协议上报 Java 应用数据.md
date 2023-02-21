@@ -2,8 +2,8 @@
 
 ## 前提条件[](id:before)
 
-- 打开 [SkyWalking](https://archive.apache.org/dist/skywalking/8.5.0/) 下载页面，下载 SkyWalking 8.5.0 以上的（包含8.5.0）版本，并将解压后的 Agent 文件夹放至 Java 进程有访问权限的目录。
-- 插件均放置在 /plugins 目录中。在启动阶段将新的插件放进该目录，即可令插件生效。将插件从该目录删除，即可令其失效。另外，日志文件默认输出到 /logs 目录中。
+- 打开 [SkyWalking](https://archive.apache.org/dist/skywalking/8.5.0/) 下载页面，下载 SkyWalking8.5.0 以上的（包含8.5.0）版本，并将解压后的 Agent 文件夹放至 Java 进程有访问权限的目录。
+- 插件均放置在/plugins 目录中。在启动阶段将新的插件放进该目录，即可令插件生效。将插件从该目录删除，即可令其失效。另外，日志文件默认输出到/logs 目录中。
 
 ## 接入步骤
 
@@ -54,16 +54,13 @@ export SW_AGENT_NAME=<上报的服务名称> (等效于agent.service_name=<上�
 export SW_AGENT_COLLECTOR_BACKEND_SERVICES=<接入点>(等效于collector.backend_service=接入点)
 ```
 
->? 以上三种方式读取优先级关系为：虚拟机配置 (VM Options) ->环境变量->配置文件。优先级高的配置会将优先级的低的配置覆盖。
+>? 以上三种方式读取优先级关系为：服务器配置->环境变量->配置文件。优先级高的配置会将优先级的低的配置覆盖。
 
 ### 步骤4：选择相应方法指定插件路径
 
 根据应用的运行环境，选择相应的方法来指定 SkyWalking Agent 的路径。
-
 - Linux Tomcat 7/Tomcat 8 
-
   在 `tomcat/bin/catalina.sh` 第一行添加以下内容：
-
  ```routeros
 CATALINA_OPTS="$CATALINA_OPTS -javaagent:<skywalking-agent-path>"; export CATALINA_OPTS
 ```
@@ -73,6 +70,7 @@ CATALINA_OPTS="$CATALINA_OPTS -javaagent:<skywalking-agent-path>"; export CATALI
 --exec # 去掉前面的井号取消注释。 
 -javaagent:<步骤一目录绝对路径>
 ```
+
 - JAR File 或 Spring Boot 
   在应用程序的启动命令行中添加 `-javaagent` 参数（-javaagent 参数一定要放在 -jar 参数之前），参数内容如下：
 ```
@@ -80,9 +78,8 @@ java -javaagent:<skywalking-agent-path> -jar yourApp.jar
 ```
 - IDEA
   在 IDEA 中运行时，可在 Configuration 中配置应用程序的 VM option,添加 -javaagent 参数，参数配置如上一致。
-
+	
 ### 步骤5：重新启动应用
-
 完成上述部署步骤后，参见 [Skywalking 官网指导](https://github.com/apache/skywalking/blob/v8.2.0/docs/en/setup/service-agent/java-agent/README.md#install-javaagent-faqs) 重新启动应用即可。
 
 
