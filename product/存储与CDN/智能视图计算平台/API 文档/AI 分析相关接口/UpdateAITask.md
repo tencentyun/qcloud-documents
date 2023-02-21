@@ -17,7 +17,7 @@ TaskId=xxx
 
 | 字段名 | 类型   | 描述       | 必须 | 备注 |
 | :----- | :----- | :--------- | :--- | :--- |
-| TaskId | String | AI 任务 ID | 是   |      |
+| TaskId | String | AI 任务 ID | 是   |   -   |
 
 **body**
 
@@ -59,7 +59,7 @@ TaskId=xxx
 | Name        | String | AI 任务名称    | 否   | 仅支持中文、英文、数字、_、-，长度不超过32个字符；  |
 | Desc        | String | AI 任务描述    | 否   | 仅支持中文、英文、数字、_、-，长度不超过128个字符； |
 | ChannelList | Array  | 通道 ID 列表   | 否   | 不能添加存在于其他 AI 任务的通道，限制1000个通道。    |
-| CallbackUrl | String | AI 结果回调地址 | 否   |                                                     |
+| CallbackUrl | String | AI 结果回调地址 | 否   |                             -                        |
 | Templates   | Array  | AI 配置列表     | 否   | AI的配置列表。                                      |
 
 Templates 具体描述如下：
