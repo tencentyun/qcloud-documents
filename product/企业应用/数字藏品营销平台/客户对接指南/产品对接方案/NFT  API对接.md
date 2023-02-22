@@ -1,11 +1,11 @@
 ## 适用场景
 **数字藏品免费营销场景：**
-- 客户自有客户端（小程序 / App / H5 站点），有研发资源。
+- 客户自有客户端（小程序、App、H5 站点），有研发资源。
 - 个性化活动链路，按客户侧需求定制数字藏品活动，例如：积分商城兑换、会员运营活动抽奖等。
 - 个性化数字藏品管理链路。例如：在客户自有客户端个人中心中作为一个子模块。支持数字藏品查看、分享。
 
 **搭售场景：**
-- 客户自有客户端（小程序 / App / H5 站点），有研发资源支持。
+- 客户自有客户端（小程序、App、H5 站点），有研发资源支持。
 - 在现有的交易场景实现数字藏品搭售或买赠，例如：购买景区门票、演出门票、实物商品后赠送数字藏品。
 
 
@@ -87,5 +87,5 @@
 
 
 ## 相关资料
-- [腾讯数字藏品营销平台API协议 - v2.3 - 20220802](https://doc.weixin.qq.com/doc/w3_AQ0ARgYnABA7hHdTcPUQLeL11xhPS)
-- [腾讯数字藏品营销平台 - 品牌小程序对接流程图](https://doc.weixin.qq.com/flowchart/f3_AQ0ARgYnABAZXOQtslATOOG6ZD1nU?scode=AJEAIQdfAAosICjcQlAQ0ARgYnABA)
+- [腾讯 Web3.0 数字营销平台 API 协议 - v2.3 - 20220802](https://doc.weixin.qq.com/doc/w3_AQ0ARgYnABA7hHdTcPUQLeL11xhPS)
+- [腾讯 Web3.0 数字营销平台 - 品牌小程序对接流程图](https://doc.weixin.qq.com/flowchart/f3_AQ0ARgYnABAZXOQtslATOOG6ZD1nU?scode=AJEAIQdfAAosICjcQlAQ0ARgYnABA)
