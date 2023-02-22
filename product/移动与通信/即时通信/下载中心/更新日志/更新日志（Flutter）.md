@@ -27,8 +27,8 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 ### IM Flutter SDK（无 UI） 5.0.9 @2023.02.21
 
 - 新增：Voip 支持。`setOfflinePushConfig` 中新增 `isVoip` 的参数，如需使用 Voip 能力，将其设置为 `true` 即可。
-- 新增：支持Quic加速和本地数据库加密。
-- 修复：考虑到Web发送文件后再下载没有该文件的原生文件的缺陷。
+- 新增：支持 Quic 加速和本地数据库加密。
+- 修复：考虑到 Web 发送文件后再下载没有该文件的原生文件的缺陷。
 - 修复：桌面上的一些错误。
 
 ### IM Flutter TUIKit（含 UI） 1.6.0 @2023.02.08
