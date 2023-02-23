@@ -1,5 +1,4 @@
 ## 介绍
-
 Flink Connector Doris 目前支持通过 Flink 将数据写入 Doris，基于 [开源版本](https://doris.apache.org/zh-CN/docs/0.15/extending-doris/flink-doris-connector/) 实现。
 
 ## 版本说明
@@ -16,7 +15,7 @@ Flink Connector Doris 目前仅支持 Doris sink。支持的 Doris 版本为0.14
 
 ## DDL 定义
 
-### 作为数据目的地(Sink)
+### 作为数据目的地（Sink）
 
 ```sql
 CREATE TABLE doris_sink_table (
@@ -33,8 +32,7 @@ CREATE TABLE doris_sink_table (
 );
 ```
 
-### 作为Catalog
-
+### 作为 Catalog
 ```sql
 CREATE CATALOG doris_catalog WITH (
   'type' = 'doris',
@@ -59,7 +57,7 @@ CREATE CATALOG doris_catalog WITH (
 | sink.batch.size     | 单次写 BE 的最大行数                                         | 否       | 默认100        |
 | sink.max-retries    | 写 BE 失败之后的重试次数                                     | 否       | 默认1          |
 | sink.batch.interval | flush 间隔时间，超过该时间后异步线程将缓存中数据写入 BE。默认值为1秒，支持时间单位 ms、s、min、h 和 d。设置为0，表示关闭定期写入 | 否       | 默认1s         |
-| sink.properties.\*  | Stream load 的导入 [参数](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/stream-load-manual/)。例如 `sink.properties.column_separator' = ','`等 | 否       | -              |
+| sink.properties.\ *  | Stream load 的导入 [参数](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/stream-load-manual/)。例如 `sink.properties.column_separator' = ','`等 | 否       | -              |
 | sink.enable-2pc     | 是否采用事务写入 | 否    | false       |
 
 ### Catalog
@@ -73,81 +71,79 @@ CREATE CATALOG doris_catalog WITH (
 | default-database | 默认的database      | 是    | -           |
 
 ## 类型映射
-
 <table>
-  <tr>
-    <th><b>Doris 字段类型</th>
-    <th><b>Flink 字段类型</th>
-  </tr>
-  <tr>
-    <td>NULL_TYPE</td>
-    <td>NULL</td>
-  </tr>
-   <tr>
-    <td>BOOLEAN</td>
-    <td>BOOLEAN</td>
-  </tr>
-  <tr>
-    <td>TINYINT</td>
-    <td>TINYINT</td>
-  </tr>
-  <tr>
-    <td>SMALLINT</td>
-    <td>SMALLINT</td>
-  </tr>
-  <tr>
-    <td>INT</td>
-    <td>INT</td>
-  </tr>
-   <tr>
-    <td>BIGINT</td>
-    <td>BIGINT</td>
-  </tr>
-  <tr>
-    <td>FLOAT</td>
-    <td>FLOAT</td>
-  </tr>
-  <tr>
-    <td>DOUBLE</td>
-    <td rowspan="2">DOUBLE</td>
-  </tr>
-   <tr>
-    <td>TIME</td>
-  </tr>
-  <tr>
-    <td>DATE</td>
-		    <td>DATE</td>
-  </tr>
-  <tr>
-    <td>DATETIME</td>
-		    <td>TIMESTAMP</td>
-  </tr>
-   <tr>
-    <td>CHAR</td>
-		    <td rowspan="3">STRING</td>
-  </tr>
-  <tr>
-    <td>LARGEINT</td>
-  </tr>
-  <tr>
-    <td>VARCHAR</td>
-  </tr>
-  <tr>
-    <td>DECIMAL</td>
-    <td rowspan="2">DECIMAL</td>
-  </tr>
-  <tr>
-    <td>DECIMALV2</td>
-  </tr>
-  <tr>
-    <td>HLL</td>
-    <td>Unsupported datatype</td>
-  </tr>
+<tr>
+<th><b>Doris 字段类型</th>
+<th><b>Flink 字段类型</th>
+</tr>
+<tr>
+<td>NULL_TYPE</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>BOOLEAN</td>
+<td>BOOLEAN</td>
+</tr>
+<tr>
+<td>TINYINT</td>
+<td>TINYINT</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>SMALLINT</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>INT</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>BIGINT</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>FLOAT</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td rowspan="2">DOUBLE</td>
+</tr>
+<tr>
+<td>TIME</td>
+</tr>
+<tr>
+<td>DATE</td>
+		<td>DATE</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+		<td>TIMESTAMP</td>
+</tr>
+<tr>
+<td>CHAR</td>
+		<td rowspan="3">STRING</td>
+</tr>
+<tr>
+<td>LARGEINT</td>
+</tr>
+<tr>
+<td>VARCHAR</td>
+</tr>
+<tr>
+<td>DECIMAL</td>
+<td rowspan="2">DECIMAL</td>
+</tr>
+<tr>
+<td>DECIMALV2</td>
+</tr>
+<tr>
+<td>HLL</td>
+<td>Unsupported datatype</td>
+</tr>
 </table>
 
 
 ## 代码示例
-
 ```sql
 CREATE TABLE datagen_source_table ( 
     id INT,
@@ -195,11 +191,8 @@ INSERT INTO `doris_catalog`.`my_database`.`my_table` SELECT * FROM.datagen_sourc
 ```
 
 ## 注意事项
-
 ### Upsert
-
 若需要 Upsert ，则要求 Doris 表必须是 Uniqe 模型或者 Aggregate 模型。建表示例如下：
-
 ```sql
 -- Uniqe 模型建表语句
 CREATE TABLE `doris_sink_table` (
