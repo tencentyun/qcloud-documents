@@ -1,5 +1,4 @@
 ## 介绍
-
 SQLServer 的 CDC 源表（即 SQLServer 的流式源表），SQLServer CDC Connector 允许从 SQLServer 数据库读取全量数据和增量数据。本文档介绍如何设置 SQLServer CDC Connector。
 
 ## 版本说明
@@ -11,15 +10,12 @@ SQLServer 的 CDC 源表（即 SQLServer 的流式源表），SQLServer CDC Conn
 | 1.14      | 不支持 |
 
 ## 使用范围
-
 SQLServer CDC 只支持作为源表。
 
 ## SQLServer 数据库配置
-
 SQLServer 源表需要启用变更数据捕获。
-1. 启用数据库变更捕获，参考[云数据 SQL Server -> 变更数据捕获](https://cloud.tencent.com/document/product/238/59259)。
-1. 为 SQLServer 源表启用变更数据捕获，参考文档 [sys.sp_cdc_enable_table](https://learn.microsoft.com/zh-cn/sql/relational-databases/system-stored-procedures/sys-sp-cdc-enable-table-transact-sql?view=sql-server-ver16)。
-
+1. 启用数据库变更捕获，参考云数据 SQL Server [变更数据捕获](https://cloud.tencent.com/document/product/238/59259)。
+2. 为 SQLServer 源表启用变更数据捕获，参考文档 [sys.sp_cdc_enable_table](https://learn.microsoft.com/zh-cn/sql/relational-databases/system-stored-procedures/sys-sp-cdc-enable-table-transact-sql?view=sql-server-ver16)。
 ```sql
 USE MyDB
 GO
@@ -34,7 +30,6 @@ GO
 ```
 
 3. 检查源表是否启动变更数据捕获，参考文档 [sys.sp_cdc_help_change_data_capture](https://learn.microsoft.com/zh-cn/sql/relational-databases/system-stored-procedures/sys-sp-cdc-help-change-data-capture-transact-sql?view=sql-server-ver16)。
-
 ```sql
 USE MyDB
 GO
@@ -46,7 +41,6 @@ GO
 
 
 ## DDL 定义
-
 ```sql
 -- register a SqlServer table 'orders' in Flink SQL
 CREATE TABLE orders (
@@ -80,8 +74,8 @@ SELECT * FROM orders;
 | username         | 是   | 无     | String  | SQLSerer 数据库用户名                                        |
 | password         | 是   | 无     | String  | SQLSerer 数据库密码                                          |
 | database-name    | 是   | 无     | String  | SQLSerer 源表所属数据库名                                    |
-| schema-name      | 是   | 无     | String  | SQLSerer 源表所属 schema 名。支持 java 正则表达式，例如 (dbo.*) 可匹配 dbo、dbo1、dbo_test，对于正则表达式，强烈建议放置于括号内，以防止与 table-name 组合时出现错误 |
-| table-name       | 是   | 无     | String  | SQLServer 源表名。支持 java 正则表达式，对于正则表达式，强烈建议放置于括号内，以防止与 schema-name 组合时出现错误 |
+| schema-name      | 是   | 无     | String  | SQLSerer 源表所属 schema 名。支持 Java 正则表达式，例如 (dbo.*) 可匹配 dbo、dbo1、dbo_test，对于正则表达式，强烈建议放置于括号内，以防止与 table-name 组合时出现错误 |
+| table-name       | 是   | 无     | String  | SQLServer 源表名。支持 Java 正则表达式，对于正则表达式，强烈建议放置于括号内，以防止与 schema-name 组合时出现错误 |
 | port             | 否   | 1433   | Integer | SQLSerer 数据库端口                                          |
 | server-time-zone | 否   | UTC    | String  | SQLSerer 数据库会话时区设置，例如 'Asia/Shanghai'            |
 | debezium.*       | 否   | 无     | String  | Debezium 属性参数，从更细粒度控制 Debezium 客户端的行为。例如 'debezium.snapshot.mode' = 'initial_only'，详情参见 [Debezium's SQLServer Connector properties](https://debezium.io/documentation/reference/1.6/connectors/sqlserver.html#sqlserver-required-connector-configuration-properties) |
@@ -96,7 +90,6 @@ SELECT * FROM orders;
 | op_ts         | TIMESTAMP_LTZ(3) NOT NULL | Row 在数据库中进行更改的时间。全量阶段数据，该字段值为 0 |
 
 元数据使用示例：
-
 ```
 CREATE TABLE products (
     table_name STRING METADATA  FROM 'table_name' VIRTUAL,
@@ -140,7 +133,6 @@ CREATE TABLE products (
 | datetimeoffset                   | TIMESTAMP_LTZ(3) |
 
 ## 注意事项
-
 ### 全量阶段不能执行 checkpoint
 全量阶段由于没有可恢复的位点，SQLServer CDC 无法执行 checkpoint。为了不执行 checkpoint，SqlServer CDC 将等待直到 checkpoint 超时失败。checkpoint 超时失败默认情况下将触发 Flink 作业的 failover。因此，如果数据库表很大，建议添加以下 Flink 配置，以避免由于 checkpoint 超时而发生故障切换：
 ```
@@ -151,5 +143,4 @@ restart-strategy.fixed-delay.attempts: 2147483647
 ```
 
 ### 单线程读取
-
 SQLServer CDC 源无法并行读取，因为只有一个任务可以接收变更事件。
