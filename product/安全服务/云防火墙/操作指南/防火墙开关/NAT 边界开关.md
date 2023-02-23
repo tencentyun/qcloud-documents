@@ -24,8 +24,15 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 		- **接入模式**：若当前地域已有 NAT 网关，或者希望公网对外的出口 IP 保持不变，接入模式可以将 NAT 边界防火墙平滑接入到 NAT 网关与 CVM 实例之间。
 	- **弹性 IP**：若选择新建弹性 IP，系统会自动为用户申请一个弹性 IP，用户也可从所有闲置的弹性 IP 中选择一个进行绑定。
 	- **创建实例**：创建域名后，您可以使用当前地域下的所有远程运维服务和数据库防护功能。
-3. 选择需要接入的 VPC 或 NAT，单击**创建**,即可创建成功。
-
+3. 选择需要接入的 VPC 或 NAT后，进行防火墙网络配置，选择**新建引流子网方式**。建立引流子网的方式包括以下三种：
+>?引流子网：云防火墙会在您所接入的 VPC 中新建24网段的子网，用于将流量牵引至防火墙，您可以选择不同的创建子网的方式。
+>
+ - 自有网段优先：云防火墙会在所选的 VPC 内自动选择空闲子网网段；当 VPC 内无子网配额时，会使用所选 VPC 的扩展网段。
+ - 扩展网段优先：云防火墙会优先使用空闲的 VPC 保留的扩展网段，该模式下不会占用所选 VPC 子网配额。
+ >?扩展网段是指私有网络中的辅助网段，可参见 [私有网络-编辑 IPv4 CIDR](https://cloud.tencent.com/document/product/215/51962)。
+>
+ - 自定义：用户可以自定义供防火墙使用的子网网段，请注意必须为24网段；自定义网段必须属于当前 VPC 的 CIDR。输入示例：192.168.0.0/24。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/eda8fe525f28dfd3d99d74060af617b1.png" width=700px>
+4. 配置完成后，单击**创建**，即可成功创建 NAT 边界防火墙。
 
 ### **网络拓扑**
 云防火墙提供了一个可视化视图，帮助您快速梳理 NAT 边界的访问关系。在 NAT 边界可视化视图中，私有网络展现了 VPC 实例。
@@ -85,7 +92,9 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 	1. 在实例配置页面的出口绑定页签下，单击**新建规则**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/93371c28a105f9f4a38610ac74c555a0.png)
 	2. 在“新建出口绑定规则”弹框中，提供防火墙实例 ID 信息，用户可为当前 NAT 边界防火墙添加 SNAT 规则。
->?协议可选子网和私有网络，VPC 或子网的选项选择接入 NAT 边界防火墙，且当前没有绑定出口 NAT 规则的 VPC 或子网。
+>?
+>- 协议可选子网和私有网络，VPC 或子网的选项选择接入 NAT 边界防火墙，且当前没有绑定出口 NAT 规则的 VPC 或子网。
+>- 独占 IP 选项可将所选的外部 IP 地址作为独占规则的子网/私有网络的出口 IP，而不能被独占规则外其他子网/私有网络使用。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/3017bdac79455ab3b3b9d021a02ac7e0.png)
 - **接入 VPC 与公网 IP**
@@ -133,8 +142,9 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
    在已设置成功的限速规则中，单击操作栏中的**删除**，即可删除带宽限速规则限制。
   ![](https://qcloudimg.tencent-cloud.cn/raw/131fefd0f8e5a628b1a45abaf79ed8df.png)
 
-### 升级扩容
+### 规格调整
 1. 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击**升级扩容**，跳转到配置变更页面，在此页面可以升级带宽、版本、日志存储量等参数。
+
 >?这里升级扩容如果只扩容带宽，这个带宽指的是互联网边界带宽，也可以理解为云防火墙的总带宽。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/35b3a234dba83c085aaf5d03a3af6c2c.png)
@@ -146,22 +156,39 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 >
   1.	在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat)  > 防火墙实例页面，找到需要调整带宽的实例，单击**实例 ID** 或者右侧的**实例配置**。
   ![](https://qcloudimg.tencent-cloud.cn/raw/08e9a7b042469493768736b0efe4ae17.png)
-  2.	在防火墙实例页面，单击右上角的**升级扩容**。
-    ![](https://qcloudimg.tencent-cloud.cn/raw/4edea0780c58be508ce1f9d5445bdb8b.png)
+  2.	在防火墙实例页面，单击右上角的**规格调整**。
+![](https://qcloudimg.tencent-cloud.cn/raw/53e8344edfd65a5f71420246c1146f42.png)
   3.	分配好带宽后，单击**确定**，等待后台调整完成。
- ![](https://qcloudimg.tencent-cloud.cn/raw/adf33d804a842b35d7c1a42f1d762cc6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dd65b0c71dc30869aa7ec76ef5dc1bbb.png)
+
+### 实例规格
+NAT 防火墙实例规格档位表。
+>?下发规则数 = 源地址个数 × 目的地址个数 × 端口个数 × 协议个数。
+>
+| 规格档位 | 最低带宽/Mbps | 最高带宽/Mbps | 规则数配额/条 |
+| -------- | ------------- | ------------- | ------------- |
+| 1        | 0             | 599           | 5,000         |
+| 2        | 600           | 2,047         | 20,000        |
+| 3        | 2,048         | 4,097         | 40,000        |
+| 4        | 4,096         | 6,143         | 60,000        |
+| 5        | 6,144         | 10,239        | 120,000       |
+| 6        | 10,240        | 102,400       | 200,000       |
+
 
 ### 监控情况
 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面，可进行查看并监控基于 NAT 边界的带宽情况、同步资产、网络拓扑等。
 1. 在状态监控面板右上角，单击统计按钮，进入防火墙状态监控页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0b9928e4e91b60219766aeb0ba7869f.png)
 2. 在防火墙状态监控页面，可实时查看并监控基于 NAT 边界的带宽情况，可避免因 NAT 边界防火墙带宽超出规格而带来网络丢包和波动，从而及时作出扩容或关闭部分开关等调整。
-![](https://qcloudimg.tencent-cloud.cn/raw/ac04a154b1c458d8e2bb987fd83aa627.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d70384483aa12935b8abe6ecd31529c5.png)
 3. 在防火墙状态监控页面，支持以 IP 视角与子网视角查看带宽状态监控。
  - IP 视角：IP 地址的资产信息、所属 VPC、入向/出向带宽的峰值与均值情况、限速状态、限制速率操作。
  - 子网视角：子网名称、IPv4 CIDR 地址、入向/出向峰值带宽、开关状态、查看开关操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/9138c8bc1acc0ab6b761b213fc430839.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/1140b3afb91bb40dc1e65bb71e0d4399.png)
+4. 单击**查看全部监控指标**，可以查看该实例下更多监控指标数据，包括入/出包量数据等；您也可以前往 [云监控](https://console.cloud.tencent.com/monitor/overview2) 查看更多数据内容。
+![](https://qcloudimg.tencent-cloud.cn/raw/6532b4a073db7af7efca35839b539b69.png)
+5. 可设置监控数据的时间间隔、同比/环比、刷新时间等配置信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/3cd36935eb5d3a7ecfa5a5ce9198b1a6.png)
 ### 同步资产
 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击**同步资产**，可以主动调用后台接口重新读取并同步用户子网的资产信息，可避免发生因用户资产规模在后台轮询间隔内发生变化，但尚未被同步的情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/291374cd2e00814e7a2414c9c328e29e.png)
