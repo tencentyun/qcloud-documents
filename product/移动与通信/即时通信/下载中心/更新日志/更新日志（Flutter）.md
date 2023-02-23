@@ -24,7 +24,7 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ## 更新日志
 
-### IM Flutter TUIKit（含 UI） 1.7.0 @2023.02.08
+### IM Flutter TUIKit（含 UI） 1.7.0 @2023.02.23
 
 - 新增：支持使用位于屏幕右上角的动态舌头，快速导航到20多条新未读消息的群聊中的第一条未读消息。此功能允许在消息中快速移动，而不考虑消息的数量。
 - 新增：现在支持自定义所有头像的边界半径。您可以使用`TIMUIKitConfig`中的`defaultAvatarBorderRadius`设置默认的边框半径。
