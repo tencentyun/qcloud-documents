@@ -15,6 +15,8 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/228c84e2d9725b950bdb500e712500e1.png)
 5. 也支持在防火墙实例页面，选择所需实例，单击**带宽监控**，可查看对应防火墙实例的带宽详情。
 ![](https://qcloudimg.tencent-cloud.cn/raw/077314abf50801ad32b61f86a9ee73dc.png)
+6. 在防火墙状态监控页面，可实时查看并监控 VPC 间防火墙的带宽情况，超出带宽规格会导致 VPC 间防火墙切换 BYPASS 模式，即恢复所有路由，防火墙功能失效。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/113a02f5e2ba402e6e2691eba7ff4f4e.png" width=800px>
+7. 单击**查看全部监控指标**，可以查看该实例下更多监控指标数据，包括并发连接数等。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/03b560770fdfdd7f52a2df5ed36cf89a.png" width=800px>
 
 ## 查看规格信息
 在 [VPC 间开关页面](https://console.cloud.tencent.com/cfw/switch/vpc/vpc?tab=topo) 的规格信息模块中，可以查看规格信息，包括接入网络实例和 VPC 间防火墙实例。单击规则信息右上角的升级扩容，可以跳转到扩容界面。
@@ -31,9 +33,9 @@
      - 私有网络模式：选择私有网络 VPC 接入防火墙，通过修改相关私有网络的路由表，来实现路由牵引。
      - 云联网模式：选择云联网 CCN 接入防火墙（需要支持多路由表模式），通过修改云联网路由表，来实现路由牵引。
      - SASE 模式：功能限时内测中，如需使用请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
-     - 高级模式：高级模式采用云联网模式，需要云联网支持多路由表模式。该模式允许用户手动配置路由将流量牵引至防火墙，从而实现更灵活的配置。详情请参见 [VPC 间防火墙高级模式](https://cloud.tencent.com/document/product/1132/84623)。
- 4. 根据模式的选择不同，所需填写的参数也不相同，具体操作如下所示：
-      - **私有网络模式**，
+     - 高级模式：高级模式采用云联网模式，需要云联网支持多路由表模式。该模式允许用户手动配置路由将流量牵引至防火墙，从而实现更灵活的配置。详情请参见 [VPC 间防火墙高级模式](https://cloud.tencent.com/document/product/1132/84623)。 
+4. 根据模式的选择不同，所需填写的参数也不相同，具体操作如下所示：
+      - **私有网络模式**
         1. 单击**下一步**，该页面展示了所有的 VPC 网络，勾选建立了网络连接的 VPC，单击**下一步**。
 >!
 >- 当前版本支持10个 VPC 私有网络，如需更多请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
@@ -41,15 +43,23 @@
 >- 接入防火墙之前，需要确认 VPC 间已经创建对等链接/云联网，如果 VPC 之间没有建立连接，创建 VPC 防火墙不生效。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/9e1ca40ebb921f8e5c75ebe8ef2cc3bf.png)
-        2. 为每个 VPC 所属的地域创建防火墙实例。
-![](https://qcloudimg.tencent-cloud.cn/raw/14b778e37e9177a206ee77e4e6cbee8d.png)
+        2. 为每个 VPC 所属的地域创建防火墙实例。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/15f5b4030b8c3d3512873d20adda77c0.png" width=600px>
            **字段说明：**
 	       - 地域：接入防护的 VPC 所属的地域。
 	       - 异地灾备：VPC 间防火墙支持异地灾备，通过勾选来开启。
-![](https://qcloudimg.tencent-cloud.cn/raw/c9974ca6742e8203b1f5c43abd606a34.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ce10c8addb1fc7795fbac7b0f2759185.png)
            - 可用区：根据需求选择合适的可用区。
            - 实例带宽：目前最小1024，最大3072，支持 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)。如果不满足最大带宽可创建多个防火墙实例。
-     - **云联网模式**
+           - 防火墙网络配置，选择新建引流子网方式，新建引流子网方式包括以下三种：
+>?引流子网：云防火墙会在您所接入的 VPC 中新建24网段的子网，用于将流量牵引至防火墙，您可以选择不同的创建子网的方式。
+>
+         - 自有网段优先：云防火墙会在所选的 VPC 内自动选择空闲子网网段；当 VPC 内无子网配额时，会使用所选 VPC 的扩展网段。
+         - 扩展网段优先：云防火墙会优先使用空闲的 VPC 保留的扩展网段，该模式下不会占用所选 VPC 子网配额。
+ >?扩展网段是指私有网络中的辅助网段，可参见 [私有网络-编辑 IPv4 CIDR](https://cloud.tencent.com/document/product/215/51962)。
+>
+         - 自定义：用户可以自定义供防火墙使用的子网网段，请注意必须为24网段；自定义网段必须属于当前 VPC 的 CIDR。输入示例：192.168.0.0/24。
+ 
+ - **云联网模式**
         1. 单击**下一步**，选择需要加入 VPC 防火墙的云联网实例，单击**下一步**。
 >!
 >- 需要云联网实例支持多路由表模式，如未满足请先联系云联网开启多路由表功能。
@@ -57,12 +67,17 @@
 >
  ![](https://qcloudimg.tencent-cloud.cn/raw/80d3e43b2cdcb8e861200895e9286886.png)
        2. 防火墙实例部署地域分为单地域和全部地域，根据实际需求选择，并填写相关参数。
-          - 单地域：选择一个地域部署防火墙实例，所有开启了防火墙开关的 VPC 间流量都会经过该地域的防火墙实例，适合**星形拓扑结构**的业务网络。
-![](https://qcloudimg.tencent-cloud.cn/raw/f1a35ca5e330820777d1a9a2c82ce867.png)
-          - 全部地域：选择全部地域部署防火墙实例，开启了防火墙开关的 VPC 间流量都会经过本地域的防火墙实例，适合**网状拓扑结构**的业务网络。
+			   - 防火墙网络配置，选择新建引流私有网络方式，包括以下两种：
+			        - 自动选择：云防火墙会自动探测空闲的20段 VPC 网段用于防火墙引流。
+			        - 自定义：您可以自定义供防火墙使用的私有网络网段，请注意必须为20网段。
+			   - 单地域：选择一个地域部署防火墙实例，所有开启了防火墙开关的 VPC 间流量都会经过该地域的防火墙实例，适合**星形拓扑结构**的业务网络。
+			   ![](https://qcloudimg.tencent-cloud.cn/raw/f1a35ca5e330820777d1a9a2c82ce867.png)
+			   - 全部地域：选择全部地域部署防火墙实例，开启了防火墙开关的 VPC 间流量都会经过本地域的防火墙实例，适合**网状拓扑结构**的业务网络。
 ![](https://qcloudimg.tencent-cloud.cn/raw/19fd9f2f017301b0bb6debc632f04fb2.png)
 5. 单击**完成**，完成配置，创建过程需要等待若干分钟。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fe84998050bee4599de3f33f6f75340b.png)
+
+>?高级模式配置详见 [VPC 间防火墙高级模式 ](https://cloud.tencent.com/document/product/1132/84623) 文档。
 
 ## 管理防火墙实例
 防火墙实例创建完成后，可以对实例做一些操作，具体如下所示。
