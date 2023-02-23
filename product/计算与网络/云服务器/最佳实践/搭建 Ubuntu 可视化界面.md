@@ -39,15 +39,16 @@ sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-termi
 ```
 :::
 ::: Ubuntu 22.04
-1. 清空缓存，更新您的软件包列表。
+1. [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
+2. 清空缓存，更新您的软件包列表。
 ```shellsession
 sudo apt clean all && sudo apt update
 ```
-2. 安装桌面环境。
+3. 安装桌面环境。
 ```shellsession
 sudo apt install xfce4 xfce4-goodies
 ```
-3. 安装 vnc。
+4. 安装 vnc。
 ```shellsession
 sudo apt install tightvncserver
 ```
