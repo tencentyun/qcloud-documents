@@ -16,6 +16,8 @@ Flink Connector Doris 目前仅支持 Doris sink。支持的 Doris 版本为0.14
 
 ## DDL 定义
 
+### 作为数据目的地(Sink)
+
 ```sql
 CREATE TABLE doris_sink_table (
   id INT,
@@ -31,7 +33,21 @@ CREATE TABLE doris_sink_table (
 );
 ```
 
+### 作为Catalog
+
+```sql
+CREATE CATALOG doris_catalog WITH (
+  'type' = 'doris',
+  'fenodes' = 'FE_IP:FE_HTTP_PORT',       -- Doris FE http 地址
+  'table.identifier' = 'test.sales_order',  -- Doris 表名 格式：db.tbl
+  'username' = 'root',                      -- 访问Doris的用户名，拥有库的写权限
+  'password' = 'password',                  -- 访问Doris的密码
+  'default-database' = 'default'
+```
+
 ## WITH 参数
+
+### sink
 
 | 参数                | 说明                                                         | 是否必填 | 备注           |
 | ------------------- | ------------------------------------------------------------ | -------- | -------------- |
@@ -44,7 +60,17 @@ CREATE TABLE doris_sink_table (
 | sink.max-retries    | 写 BE 失败之后的重试次数                                     | 否       | 默认1          |
 | sink.batch.interval | flush 间隔时间，超过该时间后异步线程将缓存中数据写入 BE。默认值为1秒，支持时间单位 ms、s、min、h 和 d。设置为0，表示关闭定期写入 | 否       | 默认1s         |
 | sink.properties.\*  | Stream load 的导入 [参数](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/stream-load-manual/)。例如 `sink.properties.column_separator' = ','`等 | 否       | -              |
+| sink.enable-2pc     | 是否采用事务写入 | 否    | false       |
 
+### Catalog
+
+| 参数               | 说明               | 是否必填 | 备注          |
+| ---------------- | ---------------- | ---- | ----------- |
+| type             |                  | 是    | 固定值 `doris` |
+| fenodes          | Doris FE http 地址 | 是    | -           |
+| username         | 访问 Doris 的用户名    | 是    | -           |
+| password         | 访问 Doris 的密码     | 是    | -           |
+| default-database | 默认的database      | 是    | -           |
 
 ## 类型映射
 
@@ -124,8 +150,8 @@ CREATE TABLE doris_sink_table (
 
 ```sql
 CREATE TABLE datagen_source_table ( 
-	id INT, 
-	name STRING 
+    id INT,
+    name STRING
 ) WITH ( 
   'connector' = 'datagen',
   'rows-per-second'='1'  -- 每秒产生的数据条数
@@ -147,11 +173,33 @@ CREATE TABLE doris_sink_table (
 INSERT INTO doris_sink_table select * from datagen_source_table;
 ```
 
+```sql
+CREATE CATALOG doris_catalog WITH (
+  'fenodes' = 'FE_IP:FE_RESFUL_PORT',       -- Doris FE http 地址
+  'table.identifier' = 'test.sales_order',  -- Doris 表名 格式：db.tbl
+  'username' = 'root',                      -- 访问Doris的用户名，拥有库的写权限
+  'password' = 'password',                  -- 访问Doris的密码
+  'default-database' = 'default'
+);
+
+CREATE TABLE datagen_source_table (
+    id INT,
+    name STRING
+) WITH (
+  'connector' = 'datagen',
+  'rows-per-second'='1'  -- 每秒产生的数据条数
+);
+
+
+INSERT INTO `doris_catalog`.`my_database`.`my_table` SELECT * FROM.datagen_source_table;
+```
 
 ## 注意事项
+
 ### Upsert
 
 若需要 Upsert ，则要求 Doris 表必须是 Uniqe 模型或者 Aggregate 模型。建表示例如下：
+
 ```sql
 -- Uniqe 模型建表语句
 CREATE TABLE `doris_sink_table` (
