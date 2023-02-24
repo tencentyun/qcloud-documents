@@ -5,7 +5,7 @@
 ## 操作步骤
 ### 步骤1：选择要创建的 API
 从腾讯云微搭低代码控制台，进入 [数据源 > APIs 列表页](https://console.cloud.tencent.com/lowcode/datasource/connector)，选择新建 APIs，选择**开放服务 > 腾讯文档**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/cc3c321cced66e30eca41c1bd99d853b.png" style="width:60%"> 
+
 
 ### 步骤2：单击确定开始授权
 <img src="https://qcloudimg.tencent-cloud.cn/raw/884973e07e2dc9ae165b7c479d839e2e.png" style="width:60%">
