@@ -70,10 +70,13 @@ openssl x509 -in apns-dev-cert.pem -inform pem -noout -text
 
 ### 移动推送支持 p8 证书吗？
 
-p8 证书存在安全隐患。虽然 p8 比 p12 有更长的有效期，但是同时也有更大的推送权限和范围。若泄露，可能会造成更加严重的影响。首先移动推送推荐您使用 p12 来分别管理您的应用的推送服务，如果您一定要使用p8证书可按以下步骤申请：
-1：进入到开发者中心证书页面，选择Keys菜单然后点击+新建p8证书。![](https://qcloudimg.tencent-cloud.cn/raw/92b54fe04c5f1e57d26c7f3fbdca2d94.png)
-2：输入证书名字（Key Name）选择对应能力（APNs）。![](https://qcloudimg.tencent-cloud.cn/raw/2071ad1ea3b8eff991e2dff081e339be.png)
-3：下载证书到本地（p8证书创建后只能下载一次）。![](https://qcloudimg.tencent-cloud.cn/raw/991382a254d3fb584df437697ba4797e.png)
+p8 证书存在安全隐患。虽然 p8 比 p12 有更长的有效期，但是同时也有更大的推送权限和范围。若泄露，可能会造成更加严重的影响。首先移动推送推荐您使用 p12 来分别管理您的应用的推送服务，如果您一定要使用 p8 证书可按以下步骤申请：
+1. 进入到开发者中心证书页面，选择 Keys 菜单然后点击+新建p8证书。
+![](https://qcloudimg.tencent-cloud.cn/raw/92b54fe04c5f1e57d26c7f3fbdca2d94.png)
+2. 输入证书名字（Key Name）选择对应能力（APNs）。
+![](https://qcloudimg.tencent-cloud.cn/raw/2071ad1ea3b8eff991e2dff081e339be.png)
+3. 下载证书到本地（p8证书创建后只能下载一次）。
+![](https://qcloudimg.tencent-cloud.cn/raw/991382a254d3fb584df437697ba4797e.png)
 
 ### 推送消息无法收到？
 消息推送是一个涉及到很多关联模块协作的任务，每一个环节出现异常都可能会导致消息收不到，建议使用 [工具箱](https://console.cloud.tencent.com/tpns/user-tools) 进行排查。以下是最为常见的问题：
