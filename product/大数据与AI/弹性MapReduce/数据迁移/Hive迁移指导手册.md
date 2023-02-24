@@ -12,7 +12,7 @@ mysqldump -hX.X.X.X -uroot -pXXXX --single-transaction --set-gtid-purged=OFF hiv
 ```
 2. 确认目标集群 Hive 表数据在 HDFS 中的默认存储路径。
 Hive 表数据在 HDFS 中的默认存储路径由 `hive-site.xml` 中的 `hive.metastore.warehouse.dir` 配置项指定。如果目标集群 Hive 表在 HDFS 的存储路径需要与源集群 Hive 表路径一致，可以参考以下示例对配置文件进行修改。例如，源集群 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 为下面的值。
-```
+``` 
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
     <value>/apps/hive/warehouse</value>  
@@ -109,7 +109,7 @@ mysql> source upgrade-3.0.0-to-3.1.0.mysql.sql;
 ```
 9. 如果源 Hive 中有 phoneix 表，修改目标 Hive 元数据中 phoneix 表的 zookeeper 地址。
 通过下面的查询获取 phoenix 表的 `phoenix.zookeeper.quorum` 配置。
-```
+```swift
 mysql> SELECT PARAM_VALUE from TABLE_PARAMS where PARAM_KEY = 'phoenix.zookeeper.quorum';  
 +--------------------------------------------------+    
 | PARAM_VALUE |    
