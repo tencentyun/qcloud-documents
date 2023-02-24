@@ -15,7 +15,7 @@
 [](id:set)
 ## 配置 IP 黑白名单
 1. 选择 [域名管理](https://console.cloud.tencent.com/live/domainmanage)，单击需要配置 IP 黑名单的**播放域名**或右侧的**管理**，进入域名管理页。
-2. 在**访问控制** > **IP黑白名单配置**中，可选择开启或关闭 IP 黑白名单配置。
+2. 在**访问控制** > **IP 黑白名单配置**中，可选择开启或关闭 IP 黑白名单配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ecac632e3c11e9ad97413d91e63eccc2.png)
 3. 单击![](https://qcloudimg.tencent-cloud.cn/raw/b64d8a4343b3a1e340db3adb9002db60.png)按钮，选择开启 IP 黑白名单，并进行如下配置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f8ea9371028385a75f6fad476738c181.png)
