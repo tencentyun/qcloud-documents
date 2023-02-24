@@ -58,7 +58,7 @@ iOS、Android 上的应用可以通过集成腾讯云视立方·直播 SDK 来�
 ### Demo 体验
 
 - **Web 端直播推流**：可通过 **云直播控制台**>[Web 推流工具](https://console.cloud.tencent.com/live/tools/webpush) 进行测试 Web 端推流功能。
-<img src="https://main.qcloudimg.com/raw/a47e0c7d8b40f94c13339265034b188a.png" width=600>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d8b03e9885933ada99c73a9295cd823e.png" width=80%>
 - **Web 端直播拉流**：可通过 [TCPlayer](https://tcplayer.vcube.tencent.com/) 工具进行播放体验。
 >?
 >- Web 端直播推流和拉流均使用标准 WebRTC 协议，Web 端推流时不包含 B 帧 ，且音频编码为 OPUS 音频格式，所以不会产生音频转码及去 B 帧转码费用。
