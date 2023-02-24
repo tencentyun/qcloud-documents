@@ -1,36 +1,8 @@
-腾讯云微搭低代码自定义 API 支持调用第三方服务接口或使用代码来实现业务逻辑。开发者可以在应用、工作流或其他自定义 API 中使用 API。
-
-## 自定义 API 方法实现方式
-
-目前自定义 API 支持三种方式来实现自定义业务逻辑：
-
-- **HTTP 请求**：使用 HTTP 方式调用外部服务，通过简单的配置 HTTP 请求地址、方法、参数等即可完成方法的配置。
-- **自定义代码**：集成了常用 NPM 包、数据模型、API 等 [方法](https://cloud.tencent.com/document/product/1301/68440)，只支持 JS 开发语言，可以用来实现自定义业务逻辑。
-- **云开发云函数**：用户可以创建和使用云开发的云函数来实现完整的服务端功能，并通过自定义 API 的方法绑定并调用。
-
-具体如何实现自定义 API 可以参见 [新建自定义 API](https://cloud.tencent.com/document/product/1301/68457)。
-
-## 自定义 API 的使用
-
-开发者可以在应用编辑器或其他自定义 API 中使用：
-<table>
-<tr>
-<th colspan = "2" style = "width:41%">使用场景</th>
-<th>操作指引</th>
-</tr>
-<tr>
-<td rowspan = "2">应用编辑器</td>
-<td><a href = "https://cloud.tencent.com/document/product/1301/68458#components">添加行为事件</a></td>
-<td>在组件行为可以调用自定义 API 方法。</td>
-</tr>
-<tr>
-<td><a href = "https://cloud.tencent.com/document/product/1301/68458#editor">自定义方法</a></td>
-<td>可以在应用的低代码编辑器及微搭组件的组件代码中使用。</td>
-</tr>
-<tr>
-<td colspan = "2"><a href = "https://cloud.tencent.com/document/product/1301/68458#custom">自定义 API 方法</a></td>
-<td>在其他自定义 API 中通过<b>自定义代码</b>方式，可以调用其他自定义 API。</td>
-</tr>
-</table>
+腾讯云微搭低代码最新上线 API（开放服务）能力，可以打通外部应用数据或调用外部应用开放的服务，例如：腾讯文档、腾讯会议、腾讯地图、微信支付、腾讯云文字识别、腾讯云短信等。微搭开发者只需要创建 API 时完成授权或少量填写一些配置信息，即可使用对应产品的服务接口，而无需操心这些接口的实现细节。
 
 
+## 新建 API（开放服务）
+新建开放服务仅需进行部分配置，即可实现API连接，详情请参见 [新建 API](https://cloud.tencent.com/document/product/1301/68455)。
+
+## 使用API（开放服务）
+在应用编辑器、自定义数据模型和自定义 API 中，都可以使用 API，支持可视化和自定义代码两种方式。详情请参见 [使用和管理 API](https://cloud.tencent.com/document/product/1301/68456)。
