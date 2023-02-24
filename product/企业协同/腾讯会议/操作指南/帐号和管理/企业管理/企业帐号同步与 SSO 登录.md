@@ -23,12 +23,12 @@
       <th width="0%" >说明</td>
    </tr>
    <tr>
-      <td>CAS Server 登陆地址</td>
+      <td>CAS Server 登录地址</td>
       <td>发送访问请求会重定向请求至 CAS Server 登录地址。</td>
    </tr>
    <tr>
       <td>CAS Ticket 校验地址</td>
-      <td>认证过程中 CAS Sever 需验证票据 Service Ticket 的合法性，此为校验的地址。</td>
+      <td>认证过程中 CAS Server 需验证票据 Service Ticket 的合法性，此为校验的地址。</td>
    </tr>
 </table>	
 4. 将回调链接填至企业内 CAS 认证源设置中，单击**确定**。
@@ -67,4 +67,3 @@
 #### 步骤2：设置提交后发起审核
 - 审核通过后立即生效。
 - 审批中或审批失败时，设置内容不生效。
- 
