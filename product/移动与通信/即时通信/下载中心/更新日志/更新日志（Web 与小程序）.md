@@ -1,4 +1,27 @@
 
+### 2.26.2 @2023.2.24
+
+**新增**
+
+支持单聊消息撤回通知存未读，保障弱网下消息状态的准确性。
+
+**变更**
+
+删除视频消息默认封面图。
+
+**修复**
+
+空会话导致的会话列表排序问题。
+
+### 2.26.1 @2023.2.10
+
+**修复**
+
+- 群历史消息最近一条是群提示消息的场景下，群会话的 lastMessage.lastTime 不准确。
+- 调用 [markConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markConversation) 接口设置了会话标记，重新登录后标记内容缺失。
+- 调用 [createGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createGroup) 接口创建群组偶现查群资料失败。
+- 调用 [getMessageList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageList) 接口拉群历史消息，部分场景下历史消息缺失。
+
 ### 2.26.0 @2023.1.13
 
 **新增**

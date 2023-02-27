@@ -167,6 +167,10 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [setGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupAttributes) | 设置群属性。 |
 | [deleteGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteGroupAttributes) | 删除群属性。 |
 | [getGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupAttributes) | 获取群属性。 |
+| [setGroupCounters](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupCounters) | 设置群计数器。 |
+| [increaseGroupCounter](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#increaseGroupCounter) | 递增群计数器。 |
+| [decreaseGroupCounter](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#decreaseGroupCounter) | 递减群计数器。 |
+| [getGroupCounters](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupCounters) | 获取群计数器。 |
 
 ### 群成员
 | API | 描述 |

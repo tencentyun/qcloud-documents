@@ -3,11 +3,11 @@
 ## 双节点/三节点（本地 SSD 盘）
 主实例（双节点/三节点结构）、只读实例、灾备实例的规格信息可参考此表。
 <table class="table-striped">
-<thead><tr><th>隔离策略</th><th>CPU 和内存</th><th>最大 IOPS</th><th>存储空间</th></tr></thead>
 <tbody>
+<tr><th>隔离策略</th><th>CPU 和内存</th><th>最大 IOPS</th><th>存储空间</th></tr>
 <tr>
 <td rowspan="14">通用型</td>
-<td>1核 1000MB</td><td>1200</td><td rowspan="10">25GB - 3000GB</td></tr>	
+<td>1核 1000MB</td><td>1200</td><td rowspan="4">25GB - 3000GB</td></tr>        
 <tr>
 <td>1核 2000MB</td><td>2000</td></tr>
 <tr>
@@ -15,7 +15,7 @@
 <tr>
 <td>4核 8000MB</td><td>8000</td></tr>
 <tr>
-<td>4核 16000MB</td><td>14000</td></tr>
+<td>4核 16000MB</td><td>14000</td><td rowspan="6">25GB - 4000GB</td></tr>
 <tr>
 <td>8核 16000MB</td><td>20000</td></tr>
 <tr>
@@ -27,16 +27,16 @@
 <tr>
 <td>16核 96000MB</td><td>40000</td></tr>
 <tr>
-<td>16核 128000MB</td><td>40000</td><td rowspan="4">25GB - 6000GB</td></tr>
+<td>16核 128000MB</td><td>40000</td><td rowspan="3">25GB - 8000GB</td></tr>
 <tr>
 <td>24核 244000MB</td><td>60000</td></tr>
 <tr>
 <td>32核 256000MB</td><td>80000</td></tr>
 <tr>
-<td>48核 488000MB</td><td>120000</td></tr>
+<td>48核 488000MB</td><td>120000</td><td rowspan="1">25GB - 12000GB</td></tr>
 <tr>
 <td rowspan="26">独享型</td>
-<td>2核 16000MB</td><td>8000</td><td rowspan="7">25GB - 3000GB</td></tr>	
+<td>2核 16000MB</td><td>8000</td><td rowspan="7">25GB - 3000GB</td></tr>        
 <tr>
 <td>4核 16000MB</td><td>10000</td></tr>
 <tr>
@@ -87,7 +87,9 @@
 <td>64核 512000MB</td><td>150000</td><td rowspan="2">25GB - 12000GB</td></tr>
 <tr>
 <td>90核 720000MB</td><td>150000</td></tr>
-</tbody></table>	
+</tbody></table>        
+
+>?不同地域的实例规格对应的存储空间上限可能不同，请以实际购买页为准。
 
 ## 单节点（SSD 云硬盘）
 <table class="table-striped">

@@ -227,6 +227,10 @@
 <td>设备疑似处于虚拟运行环境，该标签仅支持 Android</td>   
 </tr> 
 <tr>      
+<td>207 </td>
+<td>疑似风险进程，该标签仅支持 Android</td>   
+</tr> 
+<tr>      
 <td>5007、1005 </td>
 <td>该设备疑似摄像头被劫持/被 hook，该标签支持 Android 和 iOS 系统 </td>   
 </tr>
@@ -237,7 +241,6 @@
 <td>5010</td>   
 <td>设备疑似改机，该标签仅支持 iOS</td>   
 </tr> 
-
 <tr>
 <td>5012、3</td>   
 <td>疑似模拟器，该标签支持 Android 和 iOS 系统</td>
@@ -255,8 +258,12 @@
 <td>疑似检测到系统劫持，该标签仅支持 Android</td>   
 </tr>
 <tr>      
-<td>1001 </td>
-<td>疑似设备参数篡改，该标签仅支持 Android</td>   
+<td>1001、502</td>
+<td>疑似设备参数篡改，该标签支持 Android 和 iOS 系统</td>   
+</tr>
+<tr>      
+<td>1003、5008</td>
+<td>疑似应用进程被动态调试，该标签支持 Android 和 iOS 系统</td>   
 </tr>
 <tr>      
 <td>5009 </td>

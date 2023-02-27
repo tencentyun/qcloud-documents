@@ -17,7 +17,7 @@
 >?安装金蝶的云服务器须和云数据库 SQL Server 实例在同一个地域，且同一私有网络。
 2. [创建云数据库 SQL Server 实例](https://cloud.tencent.com/document/product/238/36822)。
 3. 上传全量备份文件并完成数据恢复，详细步骤可参见 [上传备份至 COS](https://cloud.tencent.com/document/product/238/19103#.3Ca-id.3D.22shangchuan_beifen.22.3E.E4.B8.8A.E4.BC.A0.E5.A4.87.E4.BB.BD.E8.87.B3-cos.3C.2Fa.3E) 和 [通过 COS 源文件迁移数据](https://cloud.tencent.com/document/product/238/19103#.3Ca-id.3D.22qianyi_shuju.22.3E.E9.80.9A.E8.BF.87-cos-.E6.BA.90.E6.96.87.E4.BB.B6.E8.BF.81.E7.A7.BB.E6.95.B0.E6.8D.AE.3C.2Fa.3E)。
-4. 创建云数据库 SQL Server 帐号并授权，可参见 [创建帐号](https://cloud.tencent.com/document/product/238/7521)。
+4. 创建云数据库 SQL Server 账号并授权，可参见 [创建账号](https://cloud.tencent.com/document/product/238/7521)。
 
 ## 步骤二：设置允许执行分布式事务
 ### 设置云数据库 SQL Server

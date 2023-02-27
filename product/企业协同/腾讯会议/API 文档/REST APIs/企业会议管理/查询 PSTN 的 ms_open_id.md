@@ -1,9 +1,10 @@
 ## 接口描述
 - **描述**：
  - 会议创建者、主持人、联席主持人可以查询 PSTN 的 ms_open_id。
- - ms_open_id 是 PSTN 的识别标识，用户拨号进入后，在实时参会列表等 API 及 Webhook。
- - 由于可能出现一个座机号同时拨入的情况，所以可能同一个座机号对应多个 ms_open_id。
- - 仅当 pstn 接通后，该接口会返回对应的 ms_open_id。
+ - ms_open_id 是 PSTN 的识别标识，用户拨号进入后，在实时参会列表等 API 及 Webhook 中可以获取。
+ - 由于可能出现一个座机号同时拨入的情况，所以同一个座机号可能对应多个 ms_open_id。
+ - 仅当 PSTN 接通后，该接口会返回对应的 ms_open_id。
+ - 支持查询会议下 PSTN 的历史 ms_open_id 列表。
 - **调用方式**：POST
 - **鉴权方式：**JWT 鉴权
 - **接口请求域名**：
@@ -52,16 +53,23 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}/phone/ms-open-id
       <td>area</td>
       <td>Number</td>
       <td>必须</td>
-      <td>电话区号。</td>
+      <td>国家/地区代码。（例如：中国是86）。</td>
    </tr>
    <tr>
-      <td>phone_number</td>
-      <td>Number</td>
+      <td>phone</td>
+      <td>String</td>
       <td>必须</td>
-      <td>电话号码。</td>
+      <td>电话号码或固定电话总机号。</td>
+   </tr>
+   <tr>
+      <td>extension_number</td>
+      <td>String</td>
+      <td>非必须</td>
+      <td>固定电话分机号。</td>
    </tr>
 </table>
 
+  			
  
 
 ## 输出参数
@@ -80,7 +88,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}/phone/ms-open-id
    </tr>
    <tr>
       <td>ms_open_id_list</td>
-      <td>Object [] </td>
+      <td>Array []</td>
       <td>必须</td>
       <td>	返回的 ms_open_id 对象数组。</td>
    </tr>
@@ -99,15 +107,21 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}/phone/ms-open-id
       <td>area</td>
       <td>Number</td>
       <td>必须</td>
-      <td>电话区号。 </td>
+      <td>国家/地区代码。（例如：中国是86）。 </td>
    </tr>
    <tr>
-      <td>phone_number</td>
-      <td>Number </td>
+      <td>phone</td>
+      <td>String </td>
       <td>必须</td>
-      <td>	电话号码。</td>
+      <td>	电话号码或固定电话总机号。</td>
    </tr>
    <tr>
+      <td>extension_number</td>
+      <td>String </td>
+      <td>非必须</td>
+      <td>	固定电话分机号。</td>
+   </tr>
+<tr>
       <td>ms_open_id</td>
       <td>String</td>
       <td>必须</td>
@@ -125,7 +139,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}/phone/ms-open-id
   "phone_numbers":[
     {
       "area":86,
-      "phone_number":13888888888,
+      "phone":"13888888888",
     }
   ]
 }
@@ -134,11 +148,11 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}/phone/ms-open-id
 #### 输出示例
 ```plaintext
 {
-	"meeting_id":"1111111111111",
+    "meeting_id":"1111111111111",
   "ms_open_id_list":[
     {
       "area":86,
-      "phone_number":13888888888,
+      "phone":"13888888888",
       "ms_open_id":"xxxx"
     }
   ]

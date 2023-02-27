@@ -20,7 +20,7 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/1199/41708">找回公网 IP 地址</a></td>
-<td>若您误操作释放或退还了公网 IP 地址（包含弹性公网 IP 和普通公网 IP），可以在弹性公网 IP 控制台找回，找回后的公网 IP 为弹性公网 IP。</td>
+<td>若您操作失误释放或退还了公网 IP 地址（包含弹性公网 IP 和普通公网 IP），可以在弹性公网 IP 控制台找回，找回后的公网 IP 为弹性公网 IP。</td>
 </tr>
 <tr>
 <td rowspan="3">绑定 EIP</td>
