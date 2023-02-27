@@ -79,10 +79,10 @@
 <thead>
 <tr>
 <th colspan=2 style = "text-align:center">对比项</th>
-<th style = "text-align:center">体验版</th>
-<th style = "text-align:center">1v1 通话版</th>
-<th style = "text-align:center">群组通话版-38万分钟</th>
-<th style = "text-align:center">群组通话版-140万分钟</th>
+<th style = "text-align:center;width:190px;">体验版</th>
+<th style = "text-align:center;width:190px;">1v1 通话版</th>
+<th style = "text-align:center;width:190px;">群组通话版-38万分钟</th>
+<th style = "text-align:center;width:190px;">群组通话版-140万分钟</th>
 </tr>
 </thead>
 <tbody><tr>
