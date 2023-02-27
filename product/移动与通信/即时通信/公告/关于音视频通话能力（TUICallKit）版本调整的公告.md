@@ -16,17 +16,23 @@
 <thead>
 <tr>
 <th>调整前名称</th>
-<th>体验版</th>
-<th><strong>基础版</strong></th>
-<th>进阶版</th>
-<th><strong>尊享版</strong></th>
+<th>调整后名称</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>调整后名称</td>
 <td>体验版</td>
+<td>体验版</td>
+</tr>
+<tr>
+<td>基础版</td>
 <td><strong>1v1 通话版</strong></td>
+</tr>
+<tr>
 <td>进阶版</td>
+<td>进阶版</td>
+</tr>
+<tr>
+<td>尊享版</td>
 <td><strong>群组通话版</strong></td>
 </tr>
 </tbody></table>
@@ -34,32 +40,29 @@
 <table>
 <thead>
 <tr>
-<th>调整前 TUICallKit 名称</th>
-<th>体验版</th>
-<th>基础版</th>
-<th>进阶版</th>
-<th>尊享版</th>
+<th>TUICallKit 版本</th>
+<th>调整前 IM 基础套餐包配合关系</th>
+<th>调整后 IM 基础套餐包配合关系</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>调整后 TUICallKit 名称</td>
 <td>体验版</td>
-<td>1v1通话版</td>
-<td>进阶版</td>
-<td>群组通话版</td>
-</tr>
-<tr>
-<th>调整前 IM 基础套餐包配合关系</th>
-<th>可配合 IM 不同版本试用</th>
-<th><strong>配合 IM 专业版使用</strong></th>
-<th><strong>配合 IM 专业版使用</strong></th>
-<th><strong>配合 IM 旗舰版使用</strong></th>
-</tr>
-<tr>
-<td>调整后 IM 基础套餐包配合关系</td>
 <td>可配合 IM 不同版本试用</td>
+<td>可配合 IM 不同版本试用</td>
+</tr>
+<tr>
+<td>1v1通话版</td>
+<td>配合 IM 专业版使用</td>
 <td><strong>配合 IM 专业版或旗舰版使用</strong></td>
+</tr>
+<tr>
+<td>进阶版</td>
+<td>配合 IM 专业版使用</td>
 <td><strong>配合 IM 专业版或旗舰版使用</strong></td>
+</tr>
+<tr>
+<td>群组通话版</td>
+<td>配合 IM 旗舰版使用</td>
 <td><strong>配合 IM 专业版或旗舰版使用</strong></td>
 </tr>
 </tbody></table>
