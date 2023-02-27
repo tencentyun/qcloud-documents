@@ -15,7 +15,7 @@
  - **Server type**：选择 Database Engine。
  - **Server name**：数据库实例的内网 IP 和端口号，需用英文逗号隔开。例如，内网 IP 为`10.10.10.10`、端口号为`1433`，则在此填入`10.10.10.10,1433`。注意使用英文标点符号。
  -  **Authentication**：选择 SQL Server Authentication。
- -  **Login 和 Password**：在实例**帐号管理**页创建帐号时，填写的帐号名和密码。
+ -  **Login 和 Password**：在实例**账号管理**页创建账号时，填写的账号名和密码。
 ![](//mc.qcloudimg.com/static/img/1cac47c4fc515d30d2cb5a0ef0141e22/image.png)
 5. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](https://main.qcloudimg.com/raw/a25241cf8000e10bcf748abe99773a77.png)

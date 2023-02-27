@@ -2,8 +2,8 @@
 本文主要讲解如何使用 Excel 文件来实现应用的快速创建。
 
 ## 步骤1：使用 Excel 文件创建应用
-在 [创建应用入口](https://console.cloud.tencent.com/lowcode/create) 中单击**从 Excel 创建**的应用创建卡片，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/bf78aa097d41ffa219a392e1141a3a4b.png)
+在新建表单应用或数据管理应用时，都可以选择从 Excel 新建。
+![](https://qcloudimg.tencent-cloud.cn/raw/5db210989ed33b285ff7aebe3695f68f.png)
 
 ## 步骤2：选择应用创建方式
 目前微搭已提供三种 Excel 应用的创建方式，分别为微搭内置的 Excel 模板、本地 Excel 上传和个人腾讯文档的 Excel 文件，下文会分别讲解如何使用这三种方式进行 Excel 应用的创建。
@@ -11,13 +11,10 @@
 
 
 ### 使用模板创建
-
 1. 选择模板类型(以学生信息登记表模板为例)，然后单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f8198d83d874b91be3f9f6ab3613d65b.png)
 2. 设置模板中表头的字段名称、字段类型等参数，确认无误后单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/de406194d59e5e856a3869d5ba27d4e6.png)
-3. 填写**应用名称**后单击**创建应用**完成应用的创建，之后页面会跳转到编辑器页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/37fbc79bfa0ad798fc6292c857364fe5.png)
 
 
 ### 上传本地 Excel 文件创建
@@ -40,5 +37,5 @@
 
 ## 步骤3：生成数据模型应用
 使用上文的方式创建完成后，即可在微搭中生成对应的数据模型应用。
-![](https://qcloudimg.tencent-cloud.cn/raw/a9a0427d6331cf74c710c0656d90b79d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2f769ac5bf281c5517979764ea4f7fff.png)
 

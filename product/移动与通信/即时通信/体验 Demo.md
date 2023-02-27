@@ -144,7 +144,6 @@
                                 <a href="https://cloud.tencent.com/document/product/269/68376">快速入门</a>
             </div>
         </div>
-
 </div>
 </div>
 </div>
@@ -154,12 +153,22 @@
         <div class="card-container">
             <div class="card">
                             <img src="https://qcloudimg.tencent-cloud.cn/raw/09138952f85a605c2f66fca0d4286e7d.png" style="width: 48px" data-nonescope="true">
-                                <p class="titlename">Web</p>
+                                <p class="titlename">H5</p>
                 <p style="color:#586376;"><img style="width:100px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3c79e8bb16dd0eeab35e894a690e0444.png" /></p>
                                 <a href="https://cloud.tencent.com/document/product/269/68823">快速入门</a>
             </div>
 </div>
-
+        <div class="card-container">
+            <div class="card">
+                            <img src="https://qcloudimg.tencent-cloud.cn/raw/069bf96105cc6abf1c730e53f4238ad3.png" style="width: 48px" data-nonescope="true">
+                                <p class="titlename">Web</p>
+                                <p style="height: 107.53px;display: flex; justify-content: center;
+                                align-items: center;"><input type="button" value="社群聊天" style="height: 30px;width: 110px;background-color: #006eff;
+    color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;"  onclick="window.open('https://zhiliao.qq.com/')" /></p>
+                                <a href="https://cloud.tencent.com/document/product/269/68823">快速入门</a>
+            </div>
+</div>
 <div class="card-container">
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">

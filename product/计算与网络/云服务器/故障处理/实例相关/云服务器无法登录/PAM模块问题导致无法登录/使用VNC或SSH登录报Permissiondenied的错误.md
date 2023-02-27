@@ -66,5 +66,3 @@ sysctl -a 2>/dev/null | grep -Ei "file-max|nr_open"
 ```
 sysctl -p
 ```
-
-

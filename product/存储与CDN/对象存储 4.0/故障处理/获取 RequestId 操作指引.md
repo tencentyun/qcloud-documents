@@ -84,7 +84,7 @@ func main() {
  
    _, err := c.Object.Put(context.Background(), name, f, nil)
    if err != nil {
-       // error信息中直接包含RequestId字段
+       // error 信息中直接包含 RequestId 字段
        panic(err)
    }
    requestId := response.Header.Get("X-Cos-Request-Id")
@@ -107,7 +107,7 @@ ClientConfig clientConfig = new ClientConfig(region);
 clientConfig.setHttpProtocol(HttpProtocol.https);
 // 3 生成 cos 客户端。
 COSClient cosClient = new COSClient(cred, clientConfig);
-// Bucket的命名格式为 BucketName-APPID ，此处填写的存储桶名称必须为此格式
+// Bucket 的命名格式为 BucketName-APPID ，此处填写的存储桶名称必须为此格式
 String bucketName = "examplebucket-1250000000";
  
 String content = "Hello COS";
@@ -127,15 +127,15 @@ from qcloud_cos import CosS3Client
 import sys
 import logging
 
-# 正常情况日志级别使用INFO，需要定位时可以修改为DEBUG，此时SDK会打印和服务端的通信信息
+# 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在CosConfig中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
+# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在 CosConfig 中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
 secret_id = os.environ['COS_SECRET_ID']     # 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
 secret_key = os.environ['COS_SECRET_KEY']   # 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
-region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
-                           # COS支持的所有region列表参见https://cloud.tencent.com/document/product/436/6224
-token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的 region 可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+                           # COS 支持的所有 region 列表参见 https://cloud.tencent.com/document/product/436/6224
+token = None               # 如果使用永久密钥不需要填入 token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见 https://cloud.tencent.com/document/product/436/14048
 scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
 
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
@@ -148,11 +148,11 @@ try:
         Body=b'abcdefg'
     )
 
-    # 请求正常返回通过response查看request-id
+    # 请求正常返回通过 response 查看 request-id
     if 'x-cos-request-id' in response:  
         print(response['x-cos-request-id'])
 
-# 请求失败通过异常查看request-id
+# 请求失败通过异常查看 request-id
 except CosServiceError as e:
     print(e.get_request_id())
 ```
@@ -236,7 +236,7 @@ $region = "COS_REGION"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
    array(
        'region' => $region,
-       'schema' => 'https', //协议头部，默认为http
+       'schema' => 'https', //协议头部，默认为 http
        'credentials'=> array(
            'secretId'  => $secretId ,
            'secretKey' => $secretKey)));
@@ -267,11 +267,11 @@ QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
 2. [NSURL fileURLWithPath:@"/var/mobile/Containers/Data/Application/DBPF7490-D5U8-4ABF-A0AF-CC49D6A60AEB/Documents/exampleobject"]
 */
 NSURL* url = [NSURL fileURLWithPath:@"文件的URL"];
-// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 BucketName-Appid 组成，可以在 COS 控制台查看 https://console.cloud.tencent.com/cos5/bucket
 put.bucket = @"examplebucket-1250000000";
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
 put.object = @"exampleobject";
-// 需要上传的对象内容。可以传入NSData*或者NSURL*类型的变量
+// 需要上传的对象内容。可以传入 NSData*或者 NSURL*类型的变量
 put.body =  url;
 // 监听上传进度
 [put setSendProcessBlock:^(int64_t bytesSent,
