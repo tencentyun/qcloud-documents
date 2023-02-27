@@ -1,23 +1,23 @@
 NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防护，同时支持基于 SNAT、DNAT 进行的网络流量转发。
-## 操作指南
+
 1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw)，在左侧导航栏中，选择**防火墙开关** > **NAT 边界开关**。
 >?当某个 NAT 边界防火墙开关开启后，对应子网的互联网流量将经过防火墙，届时访问控制规则、入侵防御功能将对其生效，流量日志也会生成。
 >
 2. 在 NAT 边界开关页面，可进行创建实例、同步资产、查看并监控基于 NAT 边界的带宽情况等操作。
 
-###  **创建实例**	
+##  创建实例	
 1. 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击**创建实例**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0bc7107442d21b512222cf8da10fccc4.png)
 2. 在“新建 NAT 边界防火墙”弹窗中，可为当前账号创建一个新的 NAT 边界防火墙实例，填写相关字段，单击**下一步**。
 >?创建“NAT 边界防火墙”实例，涉及大量后台配置工作，这个步骤可能需要持续若干分钟。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/9196213357f491a807d7d69b94f10879.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0619a6e80fe05857d78fec9662c0756b.png)
 	**字段说明：**
 	- **地域**：选择创建地域，支持中国大陆、中国香港、中国台北与部分海外地域，创建实例后不可更改。
 >?用户可在拥有 VPC 的中国大陆、中国香港、中国台北与部分海外地域中进行地域选择，同地域下可创建多个防火墙实例，但总带宽不能超过限定规格。
 	- **可选区**：根据需求选择合适的可用区。
 	- **实例名称**：输入实例名称。
-	- **带宽规格**：根据需求选择带宽规格，最小20Mbps，如需更多带宽请 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)。
+	- **带宽规格**：根据需求选择带宽规格，最小20Mbps，如需更多带宽请 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)。带宽规格和规则数规格匹配，详情请参见 [实例规格](#sl)。
 >?互联网带宽保持一致，如果分了多个 NAT 防火墙，那么多个 NAT 防火墙的带宽之和，要小于等于互联网边界的带宽。
 	- **模式**：分为新增模式和接入模式。
 		- **新增模式**：若当前地域没有 NAT 网关，新增模式可以通过 NAT 边界防火墙内置的 NAT 功能，实现指定实例通过防火墙访问互联网。
@@ -34,14 +34,14 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
  - 自定义：用户可以自定义供防火墙使用的子网网段，请注意必须为24网段；自定义网段必须属于当前 VPC 的 CIDR。输入示例：192.168.0.0/24。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/eda8fe525f28dfd3d99d74060af617b1.png" width=700px>
 4. 配置完成后，单击**创建**，即可成功创建 NAT 边界防火墙。
 
-### **网络拓扑**
+## 网络拓扑
 云防火墙提供了一个可视化视图，帮助您快速梳理 NAT 边界的访问关系。在 NAT 边界可视化视图中，私有网络展现了 VPC 实例。
 1. 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击**网络拓扑**，可查看 NAT 边界的访问关系。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/3bd7a141bec8096a232ba34611059e78.png" width=700px>
 2. 单击某个 VPC 节点，可查看对应子网列表，可以只针对当前子网开启或关闭防火墙开关。
 <img src="https://main.qcloudimg.com/raw/3038c664f8b44abb950378f396e84acf.png" width=700px>
 
-### 防火墙开关
+## 防火墙开关
 在 [防火墙开关页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=switch)，支持开启或关闭 NAT 边界防护。云防火墙会定时自动同步云资产，因此不用担心资产变更后的防火墙配置（例如，变更了某个子网，防火墙会在短时间内自动同步）。
 - **开启防护**
  - 在实例列表上方，单击**全部开启**，所有未开启的 NAT 边界防火墙开关将被打开，所有路由表将会自动添加下一跳类型为 NAT 边界防火墙的路由策略，所有子网的互联网流量将会经过 NAT 边界防火墙。
@@ -67,7 +67,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 ![](https://main.qcloudimg.com/raw/25de90f0acc96be53dc16393b0ee49d2.png)
 
 
-### 实例配置
+## 实例配置
  在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击对应**实例 ID**，或者单击防火墙实例右侧的**实例配置**，可以进入实例配置的界面。
 - **端口转发**
 在右侧边栏中可以查看用户基于 NAT 边界防火墙实例所添加的 DNAT 端口转发规则，以及与实例关联的弹性 IP。
@@ -77,8 +77,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 >- 请勿前往私有网络控制台操作端口转发规则，否则可能造成网络中断。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/e17ae0b17ce490ad4467c52ecc79ef9e.png)
-	1. 在实例配置页面的端口转发页签下，单击**新建规则**。
-![](https://qcloudimg.tencent-cloud.cn/raw/e521d7de33c522f6b7e85183f8046917.png)
+	1. 在实例配置页面的端口转发页签下，单击**新建规则**。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/e521d7de33c522f6b7e85183f8046917.png" width=700px>
 	2. 在“新建端口转发规则”弹框中，用户可为当前 NAT 边界防火墙实例添加一条外部 IP 为用户所绑定的弹性 IP 的 DNAT 规则。
 >?
 >- 在外部 IP 端口下拉框内，提供的选项为当前 NAT 边界防火墙实例所绑定的弹性 IP。
@@ -89,8 +88,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 在新增模式下，当规则列表为空时，所有 VPC 的子网将随机选择 NAT 网关访问互联网。
 >!接入模式暂不支持出口绑定。
 >
-	1. 在实例配置页面的出口绑定页签下，单击**新建规则**。
-![](https://qcloudimg.tencent-cloud.cn/raw/93371c28a105f9f4a38610ac74c555a0.png)
+	1. 在实例配置页面的出口绑定页签下，单击**新建规则**。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/93371c28a105f9f4a38610ac74c555a0.png" width=700px>
 	2. 在“新建出口绑定规则”弹框中，提供防火墙实例 ID 信息，用户可为当前 NAT 边界防火墙添加 SNAT 规则。
 >?
 >- 协议可选子网和私有网络，VPC 或子网的选项选择接入 NAT 边界防火墙，且当前没有绑定出口 NAT 规则的 VPC 或子网。
@@ -106,7 +104,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
  单击**重新选择 VPC** > **确定**，即可重新选择 VPC。
 >?必须关闭当前防火墙实例下的所有子网开关和 DNS 流量开关。
 >
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4626d8fb79700110b1f0e13eec1c743f.png" width=700px>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/4626d8fb79700110b1f0e13eec1c743f.png" width=600px>
 -  接入 DNS 流量
  - 单击![](https://main.qcloudimg.com/raw/4810bf867dec5152045bc24a9ca018c5.png)开启对应 VPC 右侧的DNS流量开关，开启开关后，系统会修改所接入 VPC 的 DNS 解析地址，将 DNS 流量牵引至 NAT 边界防火墙，从而获取全流量域名。
 >?接入 VPC 中若存在未开启防火墙开关的子网，可能导致该子网 DNS 解析产生明显延迟，建议开启全部防火墙开关后再启用此开关。
@@ -142,9 +140,8 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
    在已设置成功的限速规则中，单击操作栏中的**删除**，即可删除带宽限速规则限制。
   ![](https://qcloudimg.tencent-cloud.cn/raw/131fefd0f8e5a628b1a45abaf79ed8df.png)
 
-### 规格调整
+## 规格调整
 1. 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击**升级扩容**，跳转到配置变更页面，在此页面可以升级带宽、版本、日志存储量等参数。
-
 >?这里升级扩容如果只扩容带宽，这个带宽指的是互联网边界带宽，也可以理解为云防火墙的总带宽。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/35b3a234dba83c085aaf5d03a3af6c2c.png)
@@ -152,7 +149,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 >?
 >- 调整的范围与互联网带宽保持一致，如果分了多个 NAT 防火墙，那么多个 NAT 防火墙的带宽之和，要小于等于互联网边界的带宽。
 >- 如果目标带宽超过当前购买的带宽规格，可以单击 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)，来调整互联网边界带宽。
->- 如果是小范围调整带宽，后台修改，无需切换网络。在较大范围调整带宽时，需要重新配置网络，否则会造成业务闪断。
+>- 如果是小范围调整带宽，无需切换网络。在较大范围调整带宽时（涉及到升级实例规格档位，详情请参见 [实例规格](#sl)），后台需要重新配置网络，可能会有3-5s的网络闪断。
 >
   1.	在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat)  > 防火墙实例页面，找到需要调整带宽的实例，单击**实例 ID** 或者右侧的**实例配置**。
   ![](https://qcloudimg.tencent-cloud.cn/raw/08e9a7b042469493768736b0efe4ae17.png)
@@ -161,7 +158,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
   3.	分配好带宽后，单击**确定**，等待后台调整完成。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd65b0c71dc30869aa7ec76ef5dc1bbb.png)
 
-### 实例规格
+## 实例规格[](id:sl)
 NAT 防火墙实例规格档位表。
 >?下发规则数 = 源地址个数 × 目的地址个数 × 端口个数 × 协议个数。
 >
@@ -175,26 +172,21 @@ NAT 防火墙实例规格档位表。
 | 6        | 10,240        | 102,400       | 200,000       |
 
 
-### 监控情况
+## 监控情况
 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面，可进行查看并监控基于 NAT 边界的带宽情况、同步资产、网络拓扑等。
-1. 在状态监控面板右上角，单击统计按钮，进入防火墙状态监控页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/f0b9928e4e91b60219766aeb0ba7869f.png)
-2. 在防火墙状态监控页面，可实时查看并监控基于 NAT 边界的带宽情况，可避免因 NAT 边界防火墙带宽超出规格而带来网络丢包和波动，从而及时作出扩容或关闭部分开关等调整。
-![](https://qcloudimg.tencent-cloud.cn/raw/d70384483aa12935b8abe6ecd31529c5.png)
+1. 在状态监控面板右上角，单击统计按钮，进入防火墙状态监控页面。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/f0b9928e4e91b60219766aeb0ba7869f.png" width=900px>
+2. 在防火墙状态监控页面，可实时查看并监控基于 NAT 边界的带宽情况，可避免因 NAT 边界防火墙带宽超出规格而带来网络丢包和波动，从而及时作出扩容或关闭部分开关等调整。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/d70384483aa12935b8abe6ecd31529c5.png" width=900px>
 3. 在防火墙状态监控页面，支持以 IP 视角与子网视角查看带宽状态监控。
  - IP 视角：IP 地址的资产信息、所属 VPC、入向/出向带宽的峰值与均值情况、限速状态、限制速率操作。
- - 子网视角：子网名称、IPv4 CIDR 地址、入向/出向峰值带宽、开关状态、查看开关操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/1140b3afb91bb40dc1e65bb71e0d4399.png)
-4. 单击**查看全部监控指标**，可以查看该实例下更多监控指标数据，包括入/出包量数据等；您也可以前往 [云监控](https://console.cloud.tencent.com/monitor/overview2) 查看更多数据内容。
-![](https://qcloudimg.tencent-cloud.cn/raw/6532b4a073db7af7efca35839b539b69.png)
-5. 可设置监控数据的时间间隔、同比/环比、刷新时间等配置信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/3cd36935eb5d3a7ecfa5a5ce9198b1a6.png)
-### 同步资产
+ - 子网视角：子网名称、IPv4 CIDR 地址、入向/出向峰值带宽、开关状态、查看开关操作。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/1140b3afb91bb40dc1e65bb71e0d4399.png" width=900px>
+4. 单击**查看全部监控指标**，可以查看该实例下更多监控指标数据，包括入/出包量数据等；您也可以前往 [云监控](https://console.cloud.tencent.com/monitor/overview2) 查看更多数据内容。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/6532b4a073db7af7efca35839b539b69.png" width=900px>
+5. 可设置监控数据的时间间隔、同比/环比、刷新时间等配置信息。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/3cd36935eb5d3a7ecfa5a5ce9198b1a6.png" width=900px>
+## 同步资产
 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击**同步资产**，可以主动调用后台接口重新读取并同步用户子网的资产信息，可避免发生因用户资产规模在后台轮询间隔内发生变化，但尚未被同步的情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/291374cd2e00814e7a2414c9c328e29e.png)
 
-### 对 VPC 及 NAT 进行其他操作
-#### **增加接入 VPC/NAT**
+## 对 VPC 及 NAT 进行其他操作
+### **增加接入 VPC/NAT**
 - **新增模式**：
 	1. 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat)  > 防火墙实例页面，单击**更多** > **接入配置**，在下拉框中，单击**增加接入 VPC**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0bcbd70b24735f895e2cbb9c6f5bc949.png)
@@ -214,7 +206,7 @@ NAT 防火墙实例规格档位表。
 >
 ![](https://main.qcloudimg.com/raw/cb8f1cef4a08eff10d1fee3f2235f52e.png)
 
-#### 重新选择接入 VPC/NAT
+### 重新选择接入 VPC/NAT
 - **新增模式**：
 	1. 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat)  > 防火墙实例页面，单击**更多** > **接入配置**，在下拉框中，单击**重新选择接入 VPC**。
 >!请先检查开关是否全部关闭，重新选择接入 VPC 需要关闭全部开关（不包含关闭中的开关）。
@@ -235,7 +227,7 @@ NAT 防火墙实例规格档位表。
 >
 ![](https://main.qcloudimg.com/raw/2ceceebd9fec596963f24f4c6c417719.png)
 
-#### 销毁实例
+### 销毁实例
 1. 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat)  > 防火墙实例页面，单击**更多**，在下拉框中，单击**销毁实例**。
 >!
 >- 销毁实例前必须关闭全部防火墙开关。

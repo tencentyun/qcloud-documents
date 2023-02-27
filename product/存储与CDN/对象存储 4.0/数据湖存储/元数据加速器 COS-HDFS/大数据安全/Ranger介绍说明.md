@@ -28,7 +28,7 @@ EMR 环境中默认安装目录在 /usr/local/service/hadoop/share/hadoop/common
 
 #### COSN Ranger Interface
 
-该插件由 COS Ranger Client 和 COS Ranger Client 公共数据定义以及接口定义。
+该插件由 COS Ranger Server 和 COS Ranger Client 公共数据定义以及接口定义。
 
 EMR 环境中默认安装目录在 /usr/local/service/hadoop/share/hadoop/common/lib 下。例如包名 cosn-ranger-interface-1.0.4.jar，1.0.4即为 COSN Ranger Interface 版本号。
 
