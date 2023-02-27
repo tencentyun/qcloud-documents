@@ -13,12 +13,10 @@
 - 根据国家《网络表演经营活动管理办法》及《网络交易监督管理办法》的最新规定，经营单位需记录网络直播视频内容并进行存储备份，保存时长根据直播类型建议存储60日至3年，详情请参见 [直播录制国家相关规定](https://cloud.tencent.com/document/product/267/80341)。
 
 
-
 ## 前提条件
 
 - 已开通腾讯云直播服务，并添加 [推流域名](https://cloud.tencent.com/document/product/267/20381)。
 - 已开通 [对象存储服务](https://cloud.tencent.com/document/product/436/38484)。
-
 
 
 ## 创建录制模板
@@ -110,7 +108,7 @@
 1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)>录制存储至COS。
    - **直接关联域名：**单击左上方的 **绑定域名**。
      ![](https://main.qcloudimg.com/raw/d32d938925b1aec96c0e6cfc418eb697.png)
-   - **新录制模板创建成功后关联域名：**[录制模板创建](#C_record) 成功后，单击提醒框中的 **去绑定域名**。
+   - **新录制模板创建成功后关联域名：**录制模板创建成功后，单击提醒框中的 **去绑定域名**。
      ![](https://main.qcloudimg.com/raw/4de2cb134a48920fc5527217704e7f76.png)
 2. 在域名绑定窗口中，选择您需绑定的**录制模板**及**推流域名**，单击 **确定** 即可绑定成功。
    ![](https://qcloudimg.tencent-cloud.cn/raw/ed874330b279d76e3fe80de2310b12b5.png)
@@ -129,15 +127,12 @@
 > - 若需解绑生效，解绑后请断流并重新推流直播，新的直播将不会生成录制文件。
 
 
-
-
 ## 修改模板
 
 1. 进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)>录制存储至COS。
 2. 选择您已创建成功的录制模板，并单击右侧的 **编辑**，即可进入修改模板信息。
 3. 单击 **保存** 即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eba64793c4ade862606eb5dfaedf6a46.png)
-
 
 
 ## 删除模板
@@ -151,8 +146,5 @@
 > - 控制台的录制模板管理为域名维度，暂时无法取消关联接口创建的规则，如果是通过录制管理接口关联指定流的，则需要通过调用 [删除录制规则](https://cloud.tencent.com/document/product/267/32613) 解除关联。 
 
 
-
 ## 相关操作
 **域名维度绑定**和**解绑**录制模板的具体操作及相关说明，请参见 录制配置。
-
-
