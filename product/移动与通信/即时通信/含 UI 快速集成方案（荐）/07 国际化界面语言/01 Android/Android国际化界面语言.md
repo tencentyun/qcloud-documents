@@ -44,8 +44,7 @@ public class MyApplication extends Application {
 }
 ```
 
->!
->调用 `changeLanguage` 方法并不会自动刷新 UI，需要获取字符串之后重新设置到控件上才能生效。
+>!调用 `changeLanguage` 方法并不会自动刷新 UI，需要获取字符串之后重新设置到控件上才能生效。
 
 
 #### 实时动态修改
