@@ -29,8 +29,8 @@ Authorization: Auth String
 | ignore-error | 当此参数为1时，针对文件过大等导致处理失败的场景，会直接返回原图而不报错。 | int    | 否       |
 
 >! 
-> - 通过 ObjectKey 进行商品抠图为内网操作，不会产生额外的外网流量。
-> - 通过 detect-url 进行商品抠图，会产生图片所在源站对应的外网流量。
+> - 通过 ObjectKey 进行 Logo 识别为内网操作，不会产生额外的外网流量。
+> - 通过 detect-url 进行 Logo 识别，会产生图片所在源站对应的外网流量。
 > 
 
 #### 请求头
