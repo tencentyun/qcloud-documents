@@ -1,10 +1,8 @@
-
-
 ## 简介
 
 Email 连接器可用于发送和收取邮件。
 - 邮件发送 SMTP 协议
-SMTP 是一个相对简单的基于文本的协议，在其之上指定一条消息的一个或多个接收者（在大多数情况下被确认是存在的），然后进行消息文本传输。SMTP 规定在两个相互通信的 SMTP 进程之间应如何交换信息。由于 SMTP 使用 CS 方式，因此负责发送邮件的 SMTP 进程为 SMTP 客户，而负责接收邮件的 SMTP 进程为 SMTP 服务器。至于邮件内部的格式，邮件如何存储，以及邮件系统应以多快的速度来发送邮件，SMTP 未做出规定，目前 Email 连接器的 SMTP 支持发送日历功能。
+SMTP 是一个相对简单的基于文本的协议，在其之上指定一条消息的一个或多个接收者（在大多数情况下被确认是存在的），然后进行消息文本传输。SMTP 规定在两个相互通信的 SMTP 进程之间应如何交换信息。由于 SMTP 使用 CS 方式，因此负责发送邮件的 SMTP 进程为 SMTP 客户，而负责接收邮件的 SMTP 进程为 SMTP 服务器。至于邮件内部的格式，邮件如何存储，以及邮件系统应以多快的速度来发送邮件，SMTP 未做出规定。
 - 邮件读取 POP3 和 IMAP 协议
 常用的邮件读取协议有两个，即邮局协议第3个版本 POP3 和网际报文存取协议 IMAP (Internet Message Access Protocol)。
  - **邮局协议**（英语：**P**ost **O**ffice **P**rotocol，缩写：**POP**）是 [TCP/IP](https://zh.wikipedia.org/wiki/TCP/IP) 协议族中的一员，由1996年5月发行之 [RFC 1939](https://tools.ietf.org/html/rfc1939) 首次定义。此协议主要用于支持使用客户端远程管理在服务器上的 [电子邮件](https://zh.wikipedia.org/wiki/电子邮件)。最新版本为 **POP3**，全名“Post Office Protocol - Version 3”，而提供 [SSL](https://zh.wikipedia.org/wiki/SSL) 加密的 POP3 协议则被称为 **POP3S**。
