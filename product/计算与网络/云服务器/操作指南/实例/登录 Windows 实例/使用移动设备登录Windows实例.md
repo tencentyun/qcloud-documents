@@ -1,6 +1,6 @@
 ## 操作场景
 本文以 Microsoft Remote Desktop 客户端为例，介绍如何在不同系统的移动设备上登录 Windows 实例。
-您也可以使用第三方远程桌面客户端软件：例如： [Parallels](https://www.parallels.cn/products/ras/download/client/#win)（仅供参考）。
+您也可以使用第三方远程桌面客户端软件，例如： [Parallels](https://www.parallels.cn/products/ras/download/client/#win)（仅供参考）。
 ## 适用移动设备
 iOS 及 Android 设备
 
