@@ -18,8 +18,12 @@ iOS 及 Android 设备
 本文操作步骤以 iOS 设备为例，Android 设备实际操作步骤与其无较大差异。
 </dx-alert>
 
-
-1. 下载 Microsoft 远程桌面（详情文档请参见 [用于远程桌面服务的远程桌面客户端和远程电脑](https://learn.microsoft.com/zh-cn/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)），并启动 RD Client。
+1. 下载 Microsoft 远程桌面，并启动 RD Client。
+ <dx-alert infotype="explain" title="">
+ 文档请参见：
+-  [用于远程桌面服务的远程桌面客户端和远程电脑](https://learn.microsoft.com/zh-cn/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)
+-  [Parallels](https://www.parallels.cn/products/ras/download/client/#win)
+</dx-alert>
 2. 在 **电脑** 页面中，选择右上角的 **+**，并在弹出菜单中单击**添加电脑**。
 3. 在 **添加电脑** 页面，配置以下登录信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/1f74914dc3567171ba64d91c2e4863e7.jpg)
