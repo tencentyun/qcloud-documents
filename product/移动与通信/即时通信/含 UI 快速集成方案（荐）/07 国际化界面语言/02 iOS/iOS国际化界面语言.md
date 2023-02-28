@@ -33,7 +33,7 @@ iOS 端 `TUIKit`默认自带 **简体中文** 和 **英语** 语言包，作为�
 @"en", // 英文
 ```
 
->? 语言代码清单见[附录](#code)。
+>? 语言代码清单见 [附录](#code)。
 
 ## 使用更多语言/自定义翻译表述
 
@@ -65,18 +65,18 @@ iOS 端 `TUIKit`默认自带 **简体中文** 和 **英语** 语言包，作为�
 
 如果是其他语种，则需要在 `TUIGlobalization.m`中的`+ (NSString *)tk_localizableLanguageKey`
 
-新增的语言词条包命名需要[符合标准](#code)，组件内部会跟随系统语言自适应。
+新增的语言词条包命名需要 [符合标准](#code)，组件内部会跟随系统语言自适应。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/4c62dfce72cf3148141f5bab1ae1bad7.png" style="zoom:40%;"/>
 
->? 语言代码清单见[ISO 639-1 语言代码](#code)。
+>? 语言代码清单见 [ISO 639-1 语言代码](#code)。
 
 #### 指定显示的语言
 如果您需要指定`TUIKit`界面语言，请在`[TUIGlobalization setCustomLanguage:@""]`中传入需要的语言，指定语言后，组件内部不再跟随系统语言。
 语言可选项，取值为 [ISO 639-1 语言代码](#code) 
 以韩语为例如`[TUIGlobalization setCustomLanguage:@"ko"];`
 
-效果展示如下:
+效果展示如下：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/0a2529e2228395252b3188676d4027a0.png" style="zoom:30%;"/>
 
 [](id:code)
@@ -103,7 +103,7 @@ iOS 端 `TUIKit`默认自带 **简体中文** 和 **英语** 语言包，作为�
 | 土耳其语   | tr     | 乌克兰语   | uk  |
 | 中文（简体） | zh-Hans | 中文（繁体） | zh-Hant |
 
-完整版[请见此处](https://quickref.me/iso-639-1)。
+完整版 [请见此处](https://quickref.me/iso-639-1)。
 
 
 
