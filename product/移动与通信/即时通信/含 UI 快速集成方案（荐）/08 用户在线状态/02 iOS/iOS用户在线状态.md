@@ -33,7 +33,7 @@ TUIKit 从 [6.5.2803](https://cloud.tencent.com/document/product/269/1606#6.5.28
 
 ## 效果展示
 
-#### 会话列表
+### 会话列表
 <table style="text-align:center;vertical-align:middle;width:600px">
   <tr>
     <th style="text-align:center;" width="300px">开启“显示用户在线状态” <br></th>
@@ -45,7 +45,7 @@ TUIKit 从 [6.5.2803](https://cloud.tencent.com/document/product/269/1606#6.5.28
 	 </tr>
 </table>
 
-#### 联系人列表
+### 联系人列表
 
 <table style="text-align:center;vertical-align:middle;width:600px">
   <tr>
@@ -60,13 +60,13 @@ TUIKit 从 [6.5.2803](https://cloud.tencent.com/document/product/269/1606#6.5.28
 
 ## 常见问题
 
-#### 调用订阅/取消订阅接口时，接口提示 “72001” 的错误码
+### 调用订阅/取消订阅接口时，接口提示 “72001” 的错误码
 
 72001 错误码表示在控制台上并没有开启对应的能力，请登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)  打开对应的功能开关。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/bae708cef66717ef0e1298a26cafff81.png)
 
-#### Error: 套餐包不支持该接口的使用，请升级到旗舰版套餐
+### Error: 套餐包不支持该接口的使用，请升级到旗舰版套餐
 
 “用户在线状态”功能仅旗舰版套餐支持，该报错信息表示您当前的套餐包不支持此能力，请登录 [即时通信 IM 购买页](https://buy.cloud.tencent.com/avc) 开通旗舰版套餐包进行体验。
 

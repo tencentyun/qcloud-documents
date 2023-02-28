@@ -35,7 +35,7 @@ TUIChatConfigs.getConfigs().getGeneralConfig().setEnableMessageTyping(false);
 ```
 ## 常见问题
 
-#### 为什么开启开关后没有对方正在输入提示？
+### 为什么开启开关后没有对方正在输入提示？
 
 在单聊会话中显示“对方正在输入...”的规则是：对方在30秒内向您发送过消息且当前正在输入文字。
 
