@@ -76,8 +76,8 @@ iOS 端 `TUIKit`默认自带 **简体中文** 和 **英语** 语言包，作为�
 语言可选项，取值为 [ISO 639-1 语言代码](#code) 
 以韩语为例如`[TUIGlobalization setCustomLanguage:@"ko"];`
 
-效果展示如下：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0a2529e2228395252b3188676d4027a0.png" style="zoom:30%;"/>
+效果如图所示：
+<img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/0969ee07a0e552c3566b9b7be75f7674.png" />
 
 [](id:code)
 ## 附录：语言代码表
