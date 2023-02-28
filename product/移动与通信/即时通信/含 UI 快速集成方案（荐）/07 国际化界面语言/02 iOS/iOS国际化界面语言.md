@@ -19,11 +19,11 @@ iOS 端 `TUIKit`默认自带 **简体中文** 和 **英语** 语言包，作为�
 
 如果您的 App 需要的语言仅包括 **简体中文** 和 **英语**，请参考本部分。
 
-#### 跟随系统语言
+### 跟随系统语言
 
 直接使用 `TUIKit` 即可，无需额外步骤。组件内部语言会跟随系统语言。
 
-#### 指定显示的语言
+### 指定显示的语言
 
 如果您需要指定`TUIKit`界面语言，请在`[TUIGlobalization setCustomLanguage:@""]`中传入需要的语言，指定语言后，组件内部不再跟随系统语言。
 语言可选项，取值为：
@@ -43,7 +43,7 @@ iOS 端 `TUIKit`默认自带 **简体中文** 和 **英语** 语言包，作为�
 
 本章节以添加韩语语言包为例，讲解新增语言包和自定义翻译的流程。
 
-#### 新增语言资源文件
+### 新增语言资源文件
 
 我们自带的所有语言包，以String文件模板的形式，存储于您项目里Pods中`TUICore`组件的`TUIKitLocalizable/Localizable/` 路径。
 
@@ -56,11 +56,11 @@ iOS 端 `TUIKit`默认自带 **简体中文** 和 **英语** 语言包，作为�
 以韩语为例，新增`ko.lproj/Localizable.strings`的语言资源文件：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/2e16061a7fe4fec49e19412b8f093ae8.png" style="zoom:50%;"/>
 
-#### 个性化自定义翻译
+### 个性化自定义翻译
 上一步已经创建好了韩语资源文件 `ko.lproj/Localizable.strings`，
 不同语言资源文件中语言的 `key` 是相同的，具体内容可以自定义翻译。
 
-#### 跟随系统语言
+### 跟随系统语言
 如果是简体中文、繁体中文、英文、韩语、俄语、乌克兰语，添加完lproj资源包后直接使用TUIKit即可，无需额外步骤。
 
 如果是其他语种，则需要在 `TUIGlobalization.m`中的`+ (NSString *)tk_localizableLanguageKey`
@@ -71,7 +71,7 @@ iOS 端 `TUIKit`默认自带 **简体中文** 和 **英语** 语言包，作为�
 
 >? 语言代码清单见 [ISO 639-1 语言代码](#code)。
 
-#### 指定显示的语言
+### 指定显示的语言
 如果您需要指定`TUIKit`界面语言，请在`[TUIGlobalization setCustomLanguage:@""]`中传入需要的语言，指定语言后，组件内部不再跟随系统语言。
 语言可选项，取值为 [ISO 639-1 语言代码](#code) 
 以韩语为例如`[TUIGlobalization setCustomLanguage:@"ko"];`

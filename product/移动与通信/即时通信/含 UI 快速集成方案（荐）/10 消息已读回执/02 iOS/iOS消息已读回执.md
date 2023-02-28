@@ -7,22 +7,22 @@ TUIKit 分别从 [6.2.2363](https://cloud.tencent.com/document/product/269/1606#
 
 ## 效果展示
 
-#### 单聊消息已读回执
+### 单聊消息已读回执
 
 通过消息左侧 “已读” / “未读” 标签展示。
 
 <img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/6afa30a2d7ec4432bf85e62061c8fef6.png"  />
 
-#### 群聊消息已读回执
+### 群聊消息已读回执
 
 消息左侧显示消息阅读情况：无人阅读时，显示"未读"；部分人阅读时，显示“x人已读”，x 为已经阅读消息的人数；所有人已读时，显示“全部已读”。
 
-#### 消息列表
+### 消息列表
 
 <img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/694f4ebe6d67e3eb7c464a95ee984571.png"  />
 
 
-#### 已读回执详情
+### 已读回执详情
 点击“x人已读”即可进入已读回执详情页面，“未读”、“全部已读”不可点击。
 
 <table style="text-align:center;vertical-align:middle;width:600px">
@@ -58,11 +58,11 @@ TUIChatConfig.defaultConfig.msgNeedReadReceipt = YES;
 
 ## 常见问题
 
-#### Error: 套餐包不支持该接口的使用，请升级到旗舰版套餐
+### Error: 套餐包不支持该接口的使用，请升级到旗舰版套餐
 
 “消息已读回执” 功能仅旗舰版套餐支持，该报错信息表示您当前的套餐包不支持此能力，请登录 [即时通信 IM 购买页](https://buy.cloud.tencent.com/avc) 开通旗舰版套餐包进行体验。
 
-#### 6.3.2609 之前版本的单聊已读回执功能不需要开通旗舰版套餐也可以使用，为什么 6.3.2609 之后需要开通旗舰版套餐包了？
+### 6.3.2609 之前版本的单聊已读回执功能不需要开通旗舰版套餐也可以使用，为什么 6.3.2609 之后需要开通旗舰版套餐包了？
 
 6.3.2609 版本之前的单聊已读回执无法针对单条消息上报已读，只能批量上报整条会话所有的消息已读。6.3.2609 及之后的版本使用了旗舰版套餐包专属的 [消息已读回执](https://cloud.tencent.com/document/product/269/75343) 功能，可以针对单条消息上报已读，使用体验更好。如果想回退到旧版本方案，可以参考 [TUIKit 恢复旧版 C2C 已读上报指引](https://docs.qq.com/doc/DWWRPaHpSQ0hpZlVI)。
 

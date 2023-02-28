@@ -27,7 +27,7 @@ public class TUIConversationConfig {
 ```java
 TUIConversationConfig.getInstance().setShowUserStatus(true);
 ```
-#### 会话列表效果
+### 会话列表效果
 
 <table style="text-align:center;vertical-align:middle;width:600px">
   <tr>
@@ -56,7 +56,7 @@ public class TUIContactConfig {
 TUIContactConfig.getInstance().setShowUserStatus(true);
 ```
 
-#### 联系人列表效果
+### 联系人列表效果
 
 <table style="text-align:center;vertical-align:middle;width:600px">
   <tr>
@@ -72,13 +72,13 @@ TUIContactConfig.getInstance().setShowUserStatus(true);
 
 ## 常见问题
 
-#### 调用订阅/取消订阅接口时，接口提示 “72001” 的错误码
+### 调用订阅/取消订阅接口时，接口提示 “72001” 的错误码
 
 **72001** 错误码表示在控制台上并没有开启对应的能力，请登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)  打开对应的功能开关。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/bae708cef66717ef0e1298a26cafff81.png)
 
-#### Error: 套餐包不支持该接口的使用，请升级到旗舰版套餐
+### Error: 套餐包不支持该接口的使用，请升级到旗舰版套餐
 
 “用户在线状态”功能仅旗舰版套餐包支持，该报错信息表示您当前的套餐包不支持此能力，请登录 [即时通信 IM 购买页](https://buy.cloud.tencent.com/avc) 开通旗舰版套餐包进行体验。
 

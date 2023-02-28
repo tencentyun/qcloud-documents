@@ -20,11 +20,11 @@ Android 端 `TUIKit` 默认自带 **简体中文** 和 **英语** 语言包，�
 
 如果您的 App 需要的语言仅包括 **简体中文** 和 **英语**，请参考本部分。
 
-#### 跟随系统语言
+### 跟随系统语言
 
 直接使用 `TUIKit` 即可，无需额外步骤。组件内部语言会跟随系统语言。
 
-#### 指定显示的语言
+### 指定显示的语言
 
 如果您需要指定 TUIKit 界面的语言，需要在 Appliction 初始化时调用以下代码进行设置，例如设置为英文：
 
@@ -47,7 +47,7 @@ public class MyApplication extends Application {
 >!调用 `changeLanguage` 方法并不会自动刷新 UI，需要获取字符串之后重新设置到控件上才能生效。
 
 
-#### 实时动态修改
+### 实时动态修改
 
 您可以参考 `TUIKitDemo` 的 [LanguageSelectActivity.java](https://github.com/TencentCloud/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/login/LanguageSelectActivity.java) 文件中的代码。也可以使用如下方法切换语言，例如切换为英文：
 
@@ -59,7 +59,7 @@ context.startActivity(intent);
 ```
 
 
-#### 使用 WebView 之后发现语言切换失败处理方法
+### 使用 WebView 之后发现语言切换失败处理方法
 
 使用 WebView 之后导致语言切换失败是 Android 7 及以后版本的 bug，原因是 WebView 初始化时会修改 App 的语言为手机系统语言。需要在 [TUIThemeManager.java](Android/TUIKit/TUICore/tuicore/src/main/java/com/tencent/qcloud/tuicore/TUIThemeManager.java) 的 `setThemeInternal` 方法中调用以下代码解决此问题：
 
@@ -110,7 +110,7 @@ private void setThemeInternal(Context context) {
 
 本章节以 `TUIGroup` 组件添加韩语语言包为例，讲解新增语言包和自定义翻译的流程。
 
-#### 新增语言资源文件
+### 新增语言资源文件
 
 在 Android Studio 中的 `TUIGroup` 组件目录下，右键菜单中新增 Android Resource File：
 
@@ -125,7 +125,7 @@ private void setThemeInternal(Context context) {
  <img style="width:600px" src="https://qcloudimg.tencent-cloud.cn/raw/8d08a6ba7738bdadc21e9e5278a217fe.png" />
 
 
-#### 个性化自定义翻译
+### 个性化自定义翻译
 
 上一步已经创建好了韩语资源文件 `values-ko-rKR/strings.xml`，现在把 `values/strings.xml` 文件中的内容复制到 `values-ko-rKR/strings.xml`，用韩语替换对应的英文，如图所示：
 
@@ -133,11 +133,11 @@ private void setThemeInternal(Context context) {
 
 不同语言资源文件中语言的 `name` 是相同的，具体内容可以自定义翻译。
 
-#### 跟随系统语言
+### 跟随系统语言
 
 直接使用 `TUIKit` 即可，将手机默认语言设置为韩语后启动 App ，App 语言可以自动显示为韩语。
 
-#### 指定显示的语言
+### 指定显示的语言
 
 如果您需要指定 `TUIKit` 界面的语言为韩语，应该先在 `Appliction` 初始化时向语言管理器中添加韩语，然后再设置 `TUIKit` 界面的语言为韩语：
 
