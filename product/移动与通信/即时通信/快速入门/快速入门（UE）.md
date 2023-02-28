@@ -7,7 +7,7 @@
 
 在应用 [基础信息页面](https://console.cloud.tencent.com/im/detail)，记录应用 sdkappid 和密钥，在后续使用 [初始化](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#aecee922675b671cd979d68604a4be1bb) 和 [登录](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#a6a9c19be21327ace77ab75657d2944b3) 接口时会用到。
 
-### 步骤2：安装 UE5，并创建新项目
+### 步骤2：安装 UE5 并创建新项目
 
 1. 安装 [Epic games Luncher](https://store.epicgames.com/en-US/download)，并且通过 Epic 安装 Unreal Engine 5.0.0+版本，安装好如图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c806cbcb84a52bfd27fdd45ee3a96569.png)
@@ -27,7 +27,7 @@ git clone https://github.com/TencentCloud/chat-plugin-ue5.git
 
 
 
-### 步骤4： Plugin引入
+### 步骤4： Plugin 引入
 
 在项目根目录创建插件目录，命名问 Plugins，将步骤三中下载的插件包（Plugins/下的 TencentCoudChat 文件夹）引入其中，引入后可在 UE5 Editor 的编辑 > 插件模块查看到如图所示插件安装：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b09deaa84f6509ecf2429fc5a7e4d3cf.png)
