@@ -20,7 +20,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/035138a51db138d1bd7c4523ecf6fee6.png)
 
 ## 后续操作
-- 流计算 Oceanus 可创建四种类型的作业，详情可参见 [创建 SQL 作业](https://cloud.tencent.com/document/product/849/48301)、[创建 JAR 作业](https://cloud.tencent.com/document/product/849/48300)、[开发 Python 作业](https://cloud.tencent.com/document/product/849/70714)、[创建 ETL 作业](https://cloud.tencent.com/document/product/849/57853)。
+- 流计算 Oceanus 可创建四种类型的作业，详情可参见 [创建 SQL 作业](https://cloud.tencent.com/document/product/849/48301)、[创建 JAR 作业](https://cloud.tencent.com/document/product/849/48300)、[创建 Python 作业](https://cloud.tencent.com/document/product/849/81987)、[创建 ETL 作业](https://cloud.tencent.com/document/product/849/57853)。
 - 作业创建成功后，可查看 [作业类型](https://cloud.tencent.com/document/product/849/59421) 和 [作业信息](https://cloud.tencent.com/document/product/849/48286)，以及支持的 [作业操作](https://cloud.tencent.com/document/product/849/48289)。
 - 作业创建完成后，即可进行作业开发，更多内容可参见 [作业开发](https://cloud.tencent.com/document/product/849/59419)。
 - 如果遇到权限问题或需要对子账户进行权限控制，可以查看文档 [权限管理](https://cloud.tencent.com/document/product/849/70605) 一章。
