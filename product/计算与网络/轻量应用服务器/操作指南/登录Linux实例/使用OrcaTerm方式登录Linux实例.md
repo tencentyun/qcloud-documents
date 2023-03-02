@@ -35,30 +35,6 @@ Windows，Linux 或者 Mac OS
     - 成功登录后，您可参考 [最佳实践](https://cloud.tencent.com/document/product/1207/45116) 及 [第三方教程](https://cloud.tencent.com/document/product/1207/58793)，进行搭建中小型网站、Web 应用、博客、论坛、小程序/小游戏、电商、云盘/图床、云端开发测试和学习环境等轻量级、低负载且访问量适中的应用。
     - WebSehll 界面功能丰富，您可参考 [更多 OrcaTerm 功能](#wedShellWork) 使用移动端的虚拟键盘，在控制台上更改 OrcaTerm 外观、上传/下载文件、发起实例自助检测、开启多会话、分屏、获取提示，开启轻量应用服务器的便捷使用。
 
-## 相关操作
-### 关闭或开启 OrcaTerm 一键登录
-
-
-<dx-alert infotype="explain" title="">
-服务器创建成功后，默认开启 OrcaTerm 一键登录功能，您可参考以下步骤进行关闭或再次开启 OrcaTerm 一键登录功能。
-</dx-alert>
-
-
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
-2. 在服务器列表中找到对应的实例，进入服务器详情页。
-3. 在“远程登录”的“一键登录”中，按需选择**开启**或**关闭** OrcaTerm 一键登录：
- - **关闭**：当无需使用一键登录时，可选择关闭此功能。
-<dx-alert infotype="notice" title="">
-- 关闭一键登录后，并不会影响您使用本地 SSH 客户端远程登录实例，您也可以选择再次开启一键登录功能。
-- 关闭一键登录操作并不会在实例操作系统中同步删除系统默认密钥的公钥（默认保存在操作系统的 lighthouse 用户下）。您可以自行删除公钥，但删除将会导致再次开启一键登录功能无效。
-</dx-alert>
- - **开启**：开启一键登录后，您可以基于系统默认密钥实现浏览器 OrcaTerm 一键登录实例。
-<dx-alert infotype="notice" title="">
-请确认系统默认私钥的公钥（默认保存在操作系统的 lighthouse 用户下）未被删除，否则开启后仍无法正常一键登录。
-</dx-alert>
-
-
-
 ### 更多 OrcaTerm 功能[](id:wedShellWork)
 
 OrcaTerm 目前具备丰富的功能，希望您在使用过程中拥有满意的体验。欢迎您参与 [OrcaTerm 使用满意度调研](https://wj.qq.com/s2/10389082/ca3a/) 来提出更多建议或反馈，我们会不断改进 OrcaTerm，使您拥有更好的产品体验！

@@ -172,5 +172,5 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 | 5000 | 后台错误，请重试 |
 | 5001 | 后台识别服务器识别失败，请重试 |
 | 5002 | 后台识别服务器识别失败，请重试 |
-
+| 6001  | 境外调用请单击 [腾讯云国际站](https://www.tencentcloud.com/zh/products/asr) 开通服务。国内站用户请检查是否使用境外代理，如果使用请关闭。|
  

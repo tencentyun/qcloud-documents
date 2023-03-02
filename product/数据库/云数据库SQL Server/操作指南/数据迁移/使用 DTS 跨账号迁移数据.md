@@ -19,9 +19,9 @@
 1. 使用源数据库所属的腾讯云主账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/role)（如果子账号子有 CAM 和角色相关的权限，也可以使用子账号登录）。
 2. 左侧导航单击角色，进入角色管理页面，然后单击**新建角色**。
 3. 在选择角色载体页面，选择腾讯云账户方式。
-![](https://qcloudimg.tencent-cloud.cn/raw/e965b0046f06882c7539c9d8b57078cb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/86d2d4bb2608bdb2648d3a1225df6c58.png)
 4. 在**输入角色载体信息**页面，配置相关信息，单击**下一步**。
-![](https://qcloudimg.tencent-cloud.cn/raw/cbdf89b1162af1067fe807f034039228.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/536c1b2c3ca6738df7c21863c28a744c.png)
  - 云账号类型：选择**其他主账号**。
  - 账号 ID：填入目标数据库所属的腾讯云主账号 ID，主账号 ID 可在 [账号信息](https://console.cloud.tencent.com/developer) 中查看。目标数据库实例属于子账号名下时，此处也填写主账号 ID。
  - 外部 ID：可依据情况，选择性开启。
@@ -40,11 +40,11 @@
 >?如果执行迁移任务的账号为主账号，授权步骤到此结束；如果为子账号，还需要继续进行如下步骤7-11，请求当前主账号持有人，对子账号进行策略授权。
 >
 7. （可选）使用目标数据库所属的腾讯云主账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/role)，在左侧导航单击**策略**，然后在右侧单击**新建自定义策略**，并选择**按策略语法创建**。
-![](https://qcloudimg.tencent-cloud.cn/raw/26684d6392c871a6e691cc000114525f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0e14b343f3e2c72ac8a075b3411874e5.png)
 8. （可选）选择**空白模板**，然后单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/886ff22b2fdf38a5dbfa4316f616abc7.png)
 9. （可选）创建一个策略，策略的名称以及描述可以根据自己的需求填写，策略内容复制示例代码后，将红框中的内容替换成对应的信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/9dd5f4b464ba1caf201cc1dfc0dd866b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ca063529415f14948313d45de827383c.png)
 策略语法示例：
 ```
 {
@@ -67,7 +67,7 @@
 1. 使用目标数据库实例所属腾讯云账号，登录 [DTS 控制台](https://console.cloud.tencent.com/dts/overview)。
 2. 选择**数据迁移 > 新建迁移任务**，购买一个新的迁移任务。
 3. 购买完成后，返回数据迁移列表，单击**操作**列的**配置**，进入配置迁移任务页面。
-4. 在设置源和目标数据页面，配置源库和目标库信息。
+4. 在设置源和目标数据库页面，配置源库和目标库信息。
 跨账号关键参数配置如下：
  - 接入类型：选择云数据库，表示源数据库属于腾讯云数据库实例。
  - 是否跨账号：选择跨账号。
@@ -96,3 +96,4 @@
 - 使用主账号来创建迁移任务。
 - 请求目标数据库所属的主账号持有人，参考 [授权账号](#SQZH) 对子账号授权，策略语法中的 resource，填写报错框中蓝色字段部分。
 ![](https://qcloudimg.tencent-cloud.cn/raw/07d125c0a11ff0a27b34dc65d5f1ab57.png)
+

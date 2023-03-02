@@ -58,7 +58,7 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 - 同一个商业智能服务器可接入的数据库实例的个数不限，即可通过同一个商业智能服务器同时连接多个源实例及目标实例，运行多个 SSIS 项目任务。
 - 商业智能服务器的 CPU 和内存规格大小的占用与 SSIS 项目的任务复杂度有关，商业智能服务器的磁盘大小的占用与所添加的平面文件大小有关。
 - 平面文件需要上传到对象存储 COS上，才可获取要上传的 COS 源文件链接，将平面文件部署至商业智能服务器中，注意对象存储的对象访问权限需要设置为公有读私有写。平面文件只支持 txt,csv,xlsx,xls 后缀。文件名必须是字母开头且只支持数字，字母，下划线和中划线。
-- 通过控制台创建的商业智能服务器的 Windows 鉴权帐号，会自动在您创建的帐号前添加域前缀，该前缀您无需关注。例如：您在控制台创建的帐号为 act1，则列表中的帐号名显示为 xx_x_xx_xxxx/act1。
+- 通过控制台创建的商业智能服务器的 Windows 鉴权账号，会自动在您创建的账号前添加域前缀，该前缀您无需关注。例如：您在控制台创建的账号为 act1，则列表中的账号名显示为 xx_x_xx_xxxx/act1。
 - SSIS 项目涉及的相关源数据库实例、目标数据库实例及商业智能服务器需要互通，以此才可保证各实例间可以互相访问，进而进行 SSIS 项目的部署。因此在部署 SSIS 项目前，需要将 SSIS 项目相关的源、目标数据库实例与商业智能服务器实例加入至同一互通组中且每个实例均需要开启商业智能服务互通 IP。
 - 数据库实例及商业智能服务器实例，在加入互通组后，均有两个 IP 地址，一个为内网 IP，一个为商业智能服务互通 IP，两个 IP 地址各有所用，请在操作步骤中注意区分。
 - SSIS 项目仅支持项目部署模式。
@@ -71,9 +71,9 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 **1. [购买商业智能服务器](https://cloud.tencent.com/document/product/238/75224)**
 云数据库 SQL Server 使用 Integration Services（SSIS）数据集成服务能力，需要通过商业智能服务器中 Integration Services 引擎进行项目部署。如果您的 SSIS 项目相关的源及目标云数据库 SQL Server 实例已存在同地域的商业智能服务器，则可跳过此步骤，直接通过已存在的商业智能服务器进行**步骤2**。如果您第一次使用 SSIS 功能，则需购买商业智能服务器。
 
-**2. [创建 Windows 鉴权帐号](https://cloud.tencent.com/document/product/238/75225)**
-商业智能服务器实例需要创建 Windows 鉴权帐号，后续才可用该帐号登录商业智能服务器实例部署 SSIS 项目。故在部署 SSIS 项目前，您需要先在商业智能服务器中创建 Windows 鉴权帐号。
->?商业智能服务器中创建的帐号均是具有 Windows 鉴权的帐号，商业智能服务器仅允许使用 Windows 鉴权帐号，且帐号权限不支持修改。
+**2. [创建 Windows 鉴权账号](https://cloud.tencent.com/document/product/238/75225)**
+商业智能服务器实例需要创建 Windows 鉴权账号，后续才可用该账号登录商业智能服务器实例部署 SSIS 项目。故在部署 SSIS 项目前，您需要先在商业智能服务器中创建 Windows 鉴权账号。
+>?商业智能服务器中创建的账号均是具有 Windows 鉴权的账号，商业智能服务器仅允许使用 Windows 鉴权账号，且账号权限不支持修改。
 
 **3. [添加平面文件](https://cloud.tencent.com/document/product/238/75226)**
 在 SSIS 项目部署之前，需要确定 SSIS 项目中是否有涉及平面文件，如果有涉及平面文件，则需要在 SSIS 项目部署之前，将平面文件添加于商业智能服务器中。如果 SSIS 项目的源和目标不涉及平面文件，则该步骤无需操作，直接进行**步骤4**。
@@ -83,9 +83,9 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 
 **5. [部署 SSIS 项目](https://cloud.tencent.com/document/product/238/75228)**
 在 SSIS 项目部署之前，首先需要连接商业智能服务器。需要进行以下步骤：
-5.1 在 Windows 云服务器 CVM 创建与商业智能服务器中同名同密码的 Windows 系统鉴权帐号。
-5.2 使用5.1步骤中在 Windows 云服务器 CVM 上创建的 Windows 系统鉴权帐号来登录 Windows 云服务器 CVM。
-5.3 使用 Windows 系统鉴权帐号登录商业智能服务器实例。
+5.1 在 Windows 云服务器 CVM 创建与商业智能服务器中同名同密码的 Windows 系统鉴权账号。
+5.2 使用5.1步骤中在 Windows 云服务器 CVM 上创建的 Windows 系统鉴权账号来登录 Windows 云服务器 CVM。
+5.3 使用 Windows 系统鉴权账号登录商业智能服务器实例。
 5.4 部署 SSIS 项目。
 5.5 配置 SSIS 服务，包括平面文件连接配置及源和目标 SQL Server 数据库实例连接配置。
 5.6 运行 SSIS 服务，执行 package 包。
@@ -111,7 +111,7 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 <td>设置实例维护信息</td><td>与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/43218" target="_blank">设置实例维护信息</a>。</td></tr>
 <td>查看监控图表</td><td>商业智能服务器 实例监控项与 SQL Server 数据库实例的监控项不完全一致，详细监控项以实际监控页面显示为准，操作请参考 <a href="https://cloud.tencent.com/document/product/238/70272" target="_blank">查看监控图表</a>。</td></tr>
 <td>配置安全组</td><td>商业智能服务器 实例也需要配置安全组，请参见 <a href="https://cloud.tencent.com/document/product/238/43287" target="_blank">配置安全组</a>。</td></tr>
-<td>帐号管理</td><td>创建、删除帐号登操作请参见 <a href="https://cloud.tencent.com/document/product/238/75225" target="_blank">创建 Windows 鉴权帐号</a>。</td></tr>
+<td>账号管理</td><td>创建、删除账号登操作请参见 <a href="https://cloud.tencent.com/document/product/238/75225" target="_blank">创建 Windows 鉴权账号</a>。</td></tr>
 <td>SSIS 管理</td><td>SSIS 管理添加文件操作请参见 <a href="https://cloud.tencent.com/document/product/238/75226" target="_blank">添加平面文件</a>。</td></tr>
 <tr>
 <td rowspan="1">互通组管理</td>

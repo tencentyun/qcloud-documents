@@ -436,7 +436,10 @@ UIKIT_EXTERN NSString *const WBFaceErrorDomainCompareServer;
 | 42101| 	音频录制中出错	| -| 
 | 42102	| 没有检测到麦克风声音	| -| 
 | 42103	| 播报音频文件加载失败	| -| 
-| 42014	| 麦克风被占用，音频播报失败	| -| 
+| 42104	| 麦克风被占用，音频播报失败	| -| 
+| 42105	| 视频录制中出错| 	
+| 42106	| 音量过低，用户主动退出	| -  |  
+
 
 **Domain 为：WBFaceErrorDomainCompareNetwork**
 

@@ -277,7 +277,7 @@ Discord 会在创建服务器时，默认创建四个频道，使用腾讯云 IM
     "GroupId": "@TGS#_@TGS#cQVLVHIM62CJ", // 话题所属的群ID（必填）
     "TopicId": "@TGS#_@TGS#cQVLVHIM62CJ@TOPIC#_TestTopic",     // 用户自定义话题 ID（选填）
     "TopicName": "TestTopic",         // 话题的名称（必填）
-    "From_Account": "1400187352", // 创建话题的成员
+    "From_Account": "test_user", // 创建话题的成员
     "CustomString": "This is a custom string",    // 自定义字符串
     "FaceUrl": "http://this.is.face.url", // 话题头像 URL（选填）
     "Notification": "This is topic Notification", // 话题公告（选填）

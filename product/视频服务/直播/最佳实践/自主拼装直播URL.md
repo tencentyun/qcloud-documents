@@ -20,7 +20,7 @@
 包含 txSecret 和 txTime 两部分：`txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)`。
 开启推流鉴权后需使用包含鉴权 Key 的 URL 进行推流。若未开启推流鉴权，则推流地址中无需 “?” 及其后内容。
  - **txTime（地址有效期）** 
-表示何时该 URL 会过期，格式支持十六进制的 UNIX 时间戳。
+表示何时该 URL 会过期，格式支持十六进制的 UNIX 时间戳（时间单位：秒）。
 >?例如`5867D600`代表2017年1月1日0时0点0分过期，我们的客户一般会将 txTime 设置为当前时间24小时以后过期，过期时间不要太短也不要太长，当主播在直播过程中遭遇网络闪断时会重新恢复推流，如果过期时间太短，主播会因为推流 URL 过期而无法恢复推流。
  - **txSecret（防盗链签名）**
 用以防止攻击者伪造您的后台生成推流 URL，计算方法参见 [最佳实践-防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
@@ -66,7 +66,7 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
 - **鉴权参数（非必需）** 
   包含 txSecret 和 txTime 两部分：`txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)`。
 开启播放鉴权后需使用包含鉴权 Key 的 URL 进行播放。若未开启播放鉴权，则播放地址中无需 “?” 及其后内容。
- - **txTime（地址有效期）：** 表示何时该 URL 会过期，格式支持十六进制的 UNIX 时间戳。
+ - **txTime（地址有效期）：** 表示何时该 URL 会过期，格式支持十六进制的 UNIX 时间戳（时间单位：秒）。
  - **txSecret（防盗链签名）：**用以防止攻击者伪造您的后台生成播放 URL，计算方法参见 [最佳实践-防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 
 
