@@ -40,10 +40,10 @@ public class MyAppGlideModule extends AppGlideModule {
     @Override
     public void registerComponents(@NonNull Context context, @NonNull Glide glide, Registry registry) {
         //注册支持 CIImageLoadRequest 的 loader
-        registry.prepend(CIImageLoadRequest.class, InputStream.class, new CIImageRequestModelLoader.Factory());
+        registry.append(CIImageLoadRequest.class, InputStream.class, new CIImageRequestModelLoader.Factory());
 
         //注册主色解码器
-        registry.prepend(InputStream.class, Bitmap.class, new ImageAveDecoder(glide.getBitmapPool()));
+        registry.append(InputStream.class, Bitmap.class, new ImageAveDecoder(glide.getBitmapPool()));
     }
 }
 ```
@@ -52,7 +52,7 @@ public class MyAppGlideModule extends AppGlideModule {
 
 ```
 //先在 AppGlideModule 中注册主色解码器
-registry.prepend(InputStream.class, Bitmap.class, new ImageAveDecoder(glide.getBitmapPool()));
+registry.append(InputStream.class, Bitmap.class, new ImageAveDecoder(glide.getBitmapPool()));
 
 //使用 glide 的 thumbnail 进行主色预加载
 Glide.with(context)
@@ -66,7 +66,7 @@ Glide.with(context)
 目前仅用于格式转换时，header 传输目标图片格式的情况。
 
 ```
-registry.prepend(CIImageLoadRequest.class, InputStream.class, new CIImageRequestModelLoader.Factory());
+registry.append(CIImageLoadRequest.class, InputStream.class, new CIImageRequestModelLoader.Factory());
 ```
 
 

@@ -25,11 +25,11 @@ public class MyAppGlideModule extends AppGlideModule {
     public void registerComponents(@NonNull Context context, @NonNull Glide glide, Registry registry) {
         /*------------------解码器 开始-------------------------*/
         //注册 TPG 静态图片解码器
-        registry.prepend(Registry.BUCKET_BITMAP, InputStream.class, Bitmap.class, new StreamTpgDecoder(glide.getBitmapPool(), glide.getArrayPool()));
-        registry.prepend(Registry.BUCKET_BITMAP, ByteBuffer.class, Bitmap.class, new ByteBufferTpgDecoder(glide.getBitmapPool()));
+        registry.append(Registry.BUCKET_BITMAP, InputStream.class, Bitmap.class, new StreamTpgDecoder(glide.getBitmapPool(), glide.getArrayPool()));
+        registry.append(Registry.BUCKET_BITMAP, ByteBuffer.class, Bitmap.class, new ByteBufferTpgDecoder(glide.getBitmapPool()));
         //注册 TPG 动图解码器
-        registry.prepend(InputStream.class, TpgSequenceDrawable.class, new StreamTpgSequenceDecoder(glide.getBitmapPool(), glide.getArrayPool()));
-        registry.prepend(ByteBuffer.class, TpgSequenceDrawable.class, new ByteBufferTpgSequenceDecoder(glide.getBitmapPool()));
+        registry.append(InputStream.class, TpgSequenceDrawable.class, new StreamTpgSequenceDecoder(glide.getBitmapPool(), glide.getArrayPool()));
+        registry.append(ByteBuffer.class, TpgSequenceDrawable.class, new ByteBufferTpgSequenceDecoder(glide.getBitmapPool()));
         /*------------------解码器 结束-------------------------*/
     }
 }
@@ -38,15 +38,15 @@ public class MyAppGlideModule extends AppGlideModule {
 #### 加载静态 TPG 图片
 
 ```
-registry.prepend(Registry.BUCKET_BITMAP, InputStream.class, Bitmap.class, new StreamTpgDecoder(glide.getBitmapPool(), glide.getArrayPool()));
-registry.prepend(Registry.BUCKET_BITMAP, ByteBuffer.class, Bitmap.class, new ByteBufferTpgDecoder(glide.getBitmapPool()));
+registry.append(Registry.BUCKET_BITMAP, InputStream.class, Bitmap.class, new StreamTpgDecoder(glide.getBitmapPool(), glide.getArrayPool()));
+registry.append(Registry.BUCKET_BITMAP, ByteBuffer.class, Bitmap.class, new ByteBufferTpgDecoder(glide.getBitmapPool()));
 ```
 
 #### 加载动图类型 TPG 图片
 
 ```
-registry.prepend(InputStream.class, TpgSequenceDrawable.class, new StreamTpgSequenceDecoder(glide.getBitmapPool(), glide.getArrayPool()));
-registry.prepend(ByteBuffer.class, TpgSequenceDrawable.class, new ByteBufferTpgSequenceDecoder(glide.getBitmapPool()));
+registry.append(InputStream.class, TpgSequenceDrawable.class, new StreamTpgSequenceDecoder(glide.getBitmapPool(), glide.getArrayPool()));
+registry.append(ByteBuffer.class, TpgSequenceDrawable.class, new ByteBufferTpgSequenceDecoder(glide.getBitmapPool()));
 ```
 
 ### 步骤二：使用 Glide 加载图片
