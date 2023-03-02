@@ -98,6 +98,10 @@ tar -xvf goosefs-lite-${version}.tar.gz
     <name>fs.cosn.upload_thread_pool</name>
     <value>32</value>
   </property>
+  <property>
+    <name>fs.cosn.tmp.dir</name>
+    <value>/data/goosefs-lite-tmp/</value>
+  </property>
 </configuration>
 ```
 
