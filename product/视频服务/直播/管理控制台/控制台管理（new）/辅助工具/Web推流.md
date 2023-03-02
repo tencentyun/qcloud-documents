@@ -3,7 +3,7 @@
 ## 前提条件
 - 已登录 [云直播控制台](https://console.cloud.tencent.com/live)。
 - 已添加 [推流域名](https://cloud.tencent.com/document/product/267/20381)。
-- 您的设备已安装摄像头，并浏览器支持 Flash 插件调用摄像头权限。
+- 您的设备已安装摄像头，并允许浏览器调用摄像头权限。
 
 ## 单路推流
 1. 登录云直播控制台，选择 [**Web 推流**](https://console.cloud.tencent.com/live/tools/webpush)，单击单路推流。

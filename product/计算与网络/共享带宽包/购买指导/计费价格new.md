@@ -13,7 +13,6 @@
 自2022年06月01日00时00分起，静态单线 IP（移动/电信/联通共享带宽包）将支持按天结算，如有疑问请咨询<a href="https://cloud.tencent.com/online-service">  在线支持</a>，给您带来不便，敬请谅解。
 </dx-alert>
 
-
 </td></tr>
 </table>
 
@@ -51,6 +50,29 @@
 </tbody></table>
 
 ### 后付费带宽包
+
+#### 按带宽计费
+<table>
+<thead>
+<tr>
+<th align="left">地域</th>
+<th align="left" width="35%">单价（元/Mbps/天）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>除圣保罗以外的其他地域（含金融专区）</td>
+<td>3.6</td>
+</tr>
+<tr>
+<td>圣保罗</td>
+<td>4.6</td>
+</tr>
+</tbody></table>
+
+
+
+#### 按月结算
 >?常规 BGP 后付费带宽包目前处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
 >
 <table>
@@ -95,29 +117,6 @@
 </tbody></table>
 
 ### 后付费带宽包
-
-#### 按带宽计费
-<table>
-<thead>
-<tr>
-<th align="left">地域</th>
-<th align="left" width="35%">单价（元/Mbps/天）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>除圣保罗以外的其他地域（含金融专区）</td>
-<td>3.6</td>
-</tr>
-<tr>
-<td>圣保罗</td>
-<td>4.6</td>
-</tr>
-</tbody></table>
-
-
-
-#### 按月结算
 <table>
 <thead>
 <tr>
@@ -209,7 +208,6 @@
 </table>
 
 ### 按月结算
-
 <table>
 <tr>
 <th>地域</th><th>移动带宽包价格<br/>（单位：元/Mbps/月）</th><th>联通带宽包价格<br/>（单位：元/Mbps/月）</th><th>电信带宽包价格<br/>（单位：元/Mbps/月）</th>

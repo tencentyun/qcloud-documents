@@ -1,6 +1,6 @@
 ## 操作场景
 本文以 Microsoft Remote Desktop 客户端为例，介绍如何在不同系统的移动设备上登录 Windows 实例。
-
+您也可以使用第三方远程桌面客户端软件，例如： [Parallels](https://www.parallels.cn/products/ras/download/client/#win)（仅供参考）。
 ## 适用移动设备
 iOS 及 Android 设备
 
@@ -18,10 +18,9 @@ iOS 及 Android 设备
 本文操作步骤以 iOS 设备为例，Android 设备实际操作步骤与其无较大差异。
 </dx-alert>
 
-
 1. 下载 Microsoft 远程桌面，并启动 RD Client。
-2. 在“电脑”页面中，选择右上角的 **+**，并在弹出菜单中单击**添加电脑**。
-3. 在“添加电脑”页面，配置以下登录信息。如下图所示：
+2. 在 **电脑** 页面中，选择右上角的 **+**，并在弹出菜单中单击**添加电脑**。
+3. 在 **添加电脑** 页面，配置以下登录信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/1f74914dc3567171ba64d91c2e4863e7.jpg)
  - **电脑名称**：云服务器的公网 IP。获取方式请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
  - **用户帐户**：默认选择“在需要时询问”。

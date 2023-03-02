@@ -122,7 +122,7 @@ dependencies {
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-<uses-permissionandroid:name="android.permission.POST_NOTIFICATIONS"/>
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
 <!-- 【常用】 移动推送 TPNS SDK所需权限 -->
 <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -294,7 +294,7 @@ dependencies {
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
-<uses-permissionandroid:name="android.permission.POST_NOTIFICATIONS"/>
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
 <!-- 【常用】 移动推送 TPNS SDK所需权限 -->
 <uses-permission android:name="android.permission.VIBRATE" />
