@@ -116,7 +116,7 @@ wemeet.collaboration.leave()
  - inmeeting（会中）
  - inCollaboration（一起用模式）
  - preMeetingDetail（会前预定会议、会议详情等）
- - historyMeetingDetail（会后历史详情）)
+ - historyMeetingDetail（会后历史详情）
  - unknown（未知）
 
 
