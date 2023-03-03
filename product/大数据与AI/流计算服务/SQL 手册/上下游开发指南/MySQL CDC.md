@@ -456,9 +456,8 @@ insert into print_table select * from mysql_cdc_source_table;
 
 ### 用户权限
 用于同步的源数据库的用户必须拥有以下权限 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD。
-
 ```mysql
-GRANT SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT, SELECT, RELOAD  ON ${database}.${table} TO '${username}';
+GRANT SELECT, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'user' IDENTIFIED BY 'password';
 FLUSH PRIVILEGES;
 ```
 
