@@ -26,10 +26,10 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
 2. 在页面的右下角找到**开通腾讯实时音视频服务**功能区。
  - 若您需要体验音视频通话功能，可单击卡片内的 **免费体验** 开通 TUICallKit 的 7 天免费试用服务。
-<img width="690" alt="image" src="https://user-images.githubusercontent.com/88317062/208899669-9623aafe-b048-4f3b-b8bc-816d78365017.png"> 
- - 您可参见 [音视频通话能力版本说明](#step2) 确认所需要使用的版本，单击 **[前往加购](https://buy.cloud.tencent.com/avc)**  以购买正式的音视频通话能力。在购买页内的增值服务中勾选“音视频通话能力”，并选择所需版本即可。
-<img width="691" alt="image" src="https://user-images.githubusercontent.com/88317062/208899974-466c3d91-db07-44e6-ab60-7bcf37c13c4d.png"> 
-<img width="1249" alt="image" src="https://user-images.githubusercontent.com/88317062/208900352-f27333f1-a5a2-496b-93a1-6e18fdae5864.png"> 
+<img width="690" alt="image" src="https://qcloudimg.tencent-cloud.cn/raw/a7caebe5a773c93fb23d00b4488003b1.png"> 
+ - 您可参见 [音视频通话能力版本说明](#step2) 确认所需要使用的版本，单击 **[购买正式版](https://buy.cloud.tencent.com/avc)**  以购买正式的音视频通话能力。在购买页内的增值服务中勾选“音视频通话能力”，并选择所需版本即可。
+<img width="691" alt="image" src="https://qcloudimg.tencent-cloud.cn/raw/c0d6f96d96a1d10a6422f143b620c94b.png"> 
+<img width="1249" alt="image" src="https://qcloudimg.tencent-cloud.cn/raw/79e1c65b1cc44442b9f83ea2f62e7683.png"> 
 
 
 
