@@ -1,7 +1,11 @@
-仅标准账号类型支持创建**高防 EIP**，若您无法确定账户类型，请参见 [弹性公网 IP-账户类型说明](https://cloud.tencent.com/document/product/1199/49090#judge)。
+
+>?仅标准账号类型支持创建**高防 EIP**，若您无法确定账户类型，请参见 [弹性公网 IP-账户类型说明](https://cloud.tencent.com/document/product/1199/49090#judge)。
 
 
 ## 步骤一：购买企业版高防包
+登录腾讯云官网，进入 [DDoS 高防包购买页](https://buy.cloud.tencent.com/antiddos#/native) 进行选购。更多详情请参见 [购买指引](https://cloud.tencent.com/document/product/1021/43894)。
+
+
 ## 步骤二：创建 BGP 带宽包
 参考 [创建 IP 带宽包](https://cloud.tencent.com/document/product/684/39942) 文档，创建 BGP 带宽包。
 >?如您在需要使用的地域已创建常规 BGP 带宽包 可跳过此步骤至 [步骤三](#S3)。
@@ -10,7 +14,7 @@
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/ip?rid=1)，在左侧操作栏中，单击**公网 IP**。
 2. 在公网  IP 页面，选择地域，单击**申请**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb4b6d38cb0c3d1ce2f5b3988d3e6255.png)
-3. 在申请 EIP 窗口中，配置相关参数，单击**确定**，完成 EIP 的申请。
+3. 在申请 EIP 窗口中，配置相关参数，单击**确定**，完成 EIP 的申请。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/35a6b94661a18b31d2a92b7eb2eea57d.png" width=600px>
 <table>
 <thead>
 <tr>
@@ -54,4 +58,3 @@
 
 ## 后续操作
 若需要为 EIP 绑定云资源，请参见 [弹性公网 IP-EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
-
