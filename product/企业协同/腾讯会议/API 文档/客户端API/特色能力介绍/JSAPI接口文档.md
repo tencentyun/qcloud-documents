@@ -20,7 +20,6 @@ const callback = (resp) => {
 };
 
 wemeet.collaboration.start({
-  url: 'https://xxxx.xx/xxx', //发起协作的URL
   callback,
 })
   .catch(err => {
@@ -31,7 +30,7 @@ wemeet.collaboration.start({
 
 
 ## 结束一起用
-调用 wemeet.collaboration.start 结束**一起用**。
+调用 wemeet.collaboration.end 结束**一起用**。
 - 客户端支持：Win、Mac、IOS、Android
 - 支持的版本：3.12.0
 - 是否需要鉴权：否
@@ -81,7 +80,7 @@ wemeet.collaboration.join()
 
 
 ## 离开一起用
-调用 wemeet.collaboration.start 离开**一起用**。
+调用 wemeet.collaboration.leave 离开**一起用**。
 - 客户端支持：Win、Mac、IOS、Android
 - 支持的版本：3.12.0
 - 是否需要鉴权：否
