@@ -41,34 +41,51 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 <tr>
 <th style="text-align: center" colspan=2>对比项</th>
 <th style="text-align: center">体验版</th>
-<th style="text-align: center">基础版</th>
-<th style="text-align: center">进阶版</th>
-<th style="text-align: center">尊享版</th>
+<th style="text-align: center">1v1通话版</th>
+<th style="text-align: center">群组通话版-38万分钟</th>
+<th style="text-align: center">群组通话版-140万分钟</th>
 </tr>
 </thead>
 <tbody><tr>
-<td style="text-align: center" colspan=2>价格</td>
+<td style="text-align: center" rowspan=2>价格</td>
+<td>限时8折优惠</td>
 <td style="text-align: center">0元/7天</td>
-<td style="text-align: center">500元/月<br></td>
-<td style="text-align: center">1000元/月<br></td>
-<td style="text-align: center">1500元/月<br></td>
+<td style="text-align: center">500元/月<br><a href="https://buy.cloud.tencent.com/avc">立即选购</a></td>
+<td style="text-align: center">1500元/月<br><a href="https://buy.cloud.tencent.com/avc">立即选购</a></td>
+<td style="text-align: center">5000元/月<br><a href="https://buy.cloud.tencent.com/avc">立即选购</a></td>
 </tr>
 <tr>
-<td style="text-align: center" colspan=2>即时通信相关功能</td>
-<td style="text-align: center">可配合 IM 不同版本试用</td>
-<td style="text-align: center">配合 <a href="https://cloud.tencent.com/document/product/269/11673#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1.E8.AF.A6.E6.83.85">IM 专业版</a> 使用</td>
-<td style="text-align: center">配合 <a href="https://cloud.tencent.com/document/product/269/11673#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1.E8.AF.A6.E6.83.85">IM 专业版</a> 使用</td>
-<td style="text-align: center">配合 <a href="https://cloud.tencent.com/document/product/269/11673#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1.E8.AF.A6.E6.83.85">IM 旗舰版</a> 使用</td>
+<td>刊例价</td>
+<td style="text-align: center">0元/7天</td>
+<td style="text-align: center"><del>625</del>元/月</td>
+<td style="text-align: center"><del>1875</del>元/月</td>
+<td style="text-align: center"><del>6250</del>元/月</td>
 </tr>
 <tr>
-<td style="text-align: center" colspan=2>赠送通话时长（超出后付费）</td>
+<td colspan=2>开通条件</td>
+<td style="text-align: center">IM 为任意版本均可开通</td>
+<td style="text-align: center"colspan=3>IM 为专业版或旗舰版时可开通</td>
+</tr>
+<tr>
+<td colspan=2>对应 TRTC 包月套餐</td>
+<td style="text-align: center">体验版</td>
+<td style="text-align: center">基础版</td>
+<td style="text-align: center">尊享版</td>
+<td style="text-align: center">旗舰版</td>
+</tr>
+<tr>
+<td colspan=2>赠送音视频时长<br>（仅支持抵扣音视频时长用量）</td>
 <td style="text-align: center">-</td>
-<td style="text-align: center">110,000分钟/月</td>
-<td style="text-align: center">235,000分钟/月</td>
-<td style="text-align: center">380,000分钟/月</td>
+<td style="text-align: center">11万 分钟/月</td>
+<td style="text-align: center">38万 分钟/月</td>
+<td style="text-align: center">140万 分钟/月</td>
 </tr>
 <tr>
-<td style="text-align: center;width:60px" rowspan=14>通话相关功能</td>
+<td colspan=2>超出赠送资源部分后付费</td>
+<td style="text-align: center" colspan=4>通话时长后付费价格详见 <a href="https://cloud.tencent.com/document/product/647/44248">音视频时长计费说明</a>，DAU 与峰值群组数后付费价格详见 <a href="https://cloud.tencent.com/document/product/269/11673#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1.E8.B5.84.E8.B4.B9.3Ca-id.3D.22jc.22.3E.3C.2Fa.3E">IM计费说明</a> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;width:60px" rowspan=15>通话相关功能</td>
 <td>微信同款 UI 设计</td>
 <td style="text-align: center">✓</td>
 <td style="text-align: center">✓</td>
@@ -111,6 +128,13 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 <td style="text-align: center">✓</td>
 </tr>
 <tr>
+<td>视频通话切换语音通话</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+</tr>
+<tr>
 <td>群组通话</td>
 <td style="text-align: center">✓</td>
 <td style="text-align: center">-</td>
@@ -125,54 +149,46 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 <td style="text-align: center">✓</td>
 </tr>
 <tr>
-<td>视频通话切换语音通话</td>
-<td style="text-align: center">✓</td>
-<td style="text-align: center">✓</td>
-<td style="text-align: center">✓</td>
-<td style="text-align: center">✓</td>
-</tr>
-<tr>
 <td>多端登录通话</td>
-<td style="text-align: center">✓<br>（仅配合 IM 旗舰版使用）</td>
+<td style="text-align: center">✓<br>（需配合 IM 旗舰版使用）</td>
 <td style="text-align: center">-</td>
-<td style="text-align: center">-</td>
-<td style="text-align: center">✓</td>
+<td style="text-align: center">✓<br>（需配合 IM 旗舰版使用）</td>
+<td style="text-align: center">✓<br>（需配合 IM 旗舰版使用）</td>
 </tr>
 <tr>
 <td>同平台多端登录通话</td>
-<td style="text-align: center">✓<br>（仅配合 IM 旗舰版使用）</td>
+<td style="text-align: center">✓<br>（需配合 IM 旗舰版使用）</td>
 <td style="text-align: center">-</td>
-<td style="text-align: center">-</td>
-<td style="text-align: center">✓</td>
+<td style="text-align: center">✓<br>（需配合 IM 旗舰版使用）</td>
+<td style="text-align: center">✓<br>（需配合 IM 旗舰版使用）</td>
 </tr>
 <tr>
 <td>AI 降噪</td>
-<td style="text-align: center">-</td>
-<td style="text-align: center">-</td>
 <td style="text-align: center">✓</td>
-<td style="text-align: center">✓</td>
-</tr>
-<tr>
-<td>TUIChat 发送语音消息支持 AI 降噪和自动增益</td>
-<td style="text-align: center">-</td>
 <td style="text-align: center">-</td>
 <td style="text-align: center">✓</td>
 <td style="text-align: center">✓</td>
 </tr>
 <tr>
 <td>弱网通话卡顿优化</td>
-<td style="text-align: center">-</td>
+<td style="text-align: center">✓</td>
 <td style="text-align: center">-</td>
 <td style="text-align: center">✓</td>
 <td style="text-align: center">✓</td>
 </tr>
 <tr>
-<td style="text-align: center" colspan=2>超出赠送资源部分后付费</td>
-<td style="text-align: center" colspan=4>通话时长后付费价格详见 <a href="https://cloud.tencent.com/document/product/647/44248">音视频时长计费说明</a>，DAU 与 峰值群组数后付费价格详见 <a href="https://cloud.tencent.com/document/product/269/11673#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1.E8.B5.84.E8.B4.B9.3Ca-id.3D.22jc.22.3E.3C.2Fa.3E"> IM 计费说明</a></td>
+<td>小程序通话加速</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">-</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
 </tr>
 <tr>
-<td style="text-align: center" colspan=2>支持平台</td>
-<td style="text-align: center" colspan=4>iOS、Android、Web、<strong>微信小程序（进阶版与尊享版支持）</strong>、uni-app、Flutter（即将上线）</td>
+<td>支持平台</td>
+<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong></td>
+<td style="text-align: center">iOS、Android、Web、uni-app</td>
+<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong></td>
+<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong></td>
 </tr>
 </tbody></table>
 
