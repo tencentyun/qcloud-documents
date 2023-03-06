@@ -1,10 +1,10 @@
 ## 使用场景 
 
-为 TKE Serverless 集群挂载文件存储（Cloud File Storage，CFS）Turbo 类型存储，该组件基于私有协议将腾讯云 CFS Turbo 文件系统挂载到工作负载，目前仅支持静态配置。CFS 存储类型详情见 [文件存储类型及性能规格](https://cloud.tencent.com/document/product/582/38112)。  
+为 Serverless 容器服务挂载文件存储（Cloud File Storage，CFS）Turbo 类型存储，该组件基于私有协议将腾讯云 CFS Turbo 文件系统挂载到工作负载，目前仅支持静态配置。CFS 存储类型详情见 [文件存储类型及性能规格](https://cloud.tencent.com/document/product/582/38112)。  
 
 ## 前提条件
 
-已创建 TKE Serverless 集群且集群版本 >=1.14。  
+已创建 Serverless 容器服务且版本 >=1.14。  
 
 ## 使用步骤 
 
