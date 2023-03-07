@@ -20,7 +20,7 @@ repositories {
 在app或者其他类库的 `build.gradle` 中添加：
 
 ```
-implementation 'com.qcloud.cos:avif:1.0.0'     
+implementation 'com.qcloud.cos:avif:1.1.0'     
 ```
 
 安装时会自动包含 SO 库，建议在 Module 的 build.gradle 文件中使用 NDK 的“abiFilter”配置，设置支持的 SO 库架构。

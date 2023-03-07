@@ -7,7 +7,7 @@
 Glide是一个知名开源的图片缓存库。更多信息，请参见[Glide 官方文档](https://bumptech.github.io/glide/)
 
 ```
-implementation 'com.qcloud.cos:avif:1.0.0'   
+implementation 'com.qcloud.cos:avif:1.1.0'   
 implementation 'com.github.bumptech.glide:glide:version'
 annotationProcessor 'com.github.bumptech.glide:compiler:version' 
 ```
@@ -35,14 +35,14 @@ public class MyAppGlideModule extends AppGlideModule {
 }
 ```
 
-#### 加载静态 AVIF 图片
+#### 注册静态 AVIF 图片解码器
 
 ```
 registry.append(Registry.BUCKET_BITMAP, InputStream.class, Bitmap.class, new StreamAvifDecoder(glide.getBitmapPool(), glide.getArrayPool()));
 registry.append(Registry.BUCKET_BITMAP, ByteBuffer.class, Bitmap.class, new ByteBufferAvifDecoder(glide.getBitmapPool()));
 ```
 
-#### 加载动图类型 AVIF 图片
+#### 注册动图类型 AVIF 图片解码器
 
 ```
 registry.append(InputStream.class, AvifSequenceDrawable.class, new StreamAvifSequenceDecoder(glide.getBitmapPool(), glide.getArrayPool()));

@@ -7,7 +7,7 @@
 subsampling-scale-image-view是一个知名开源的图片缓存库。更多信息，请参见[官方文档](https://github.com/davemorrissey/subsampling-scale-image-view)
 
 ```
-implementation 'com.qcloud.cos:tpg:1.3.7' 
+implementation 'com.qcloud.cos:tpg:1.3.8' 
 
 implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
 
