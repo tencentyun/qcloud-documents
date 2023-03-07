@@ -151,7 +151,7 @@ XML PHP SDK 的存储桶可用区域简称发生了变化， 在初始化时，�
 | 硅谷       | na-siliconvalley     | 无 |
 | 弗吉尼亚       | na-ashburn     | 无 |
 | 曼谷       | ap-bangkok     | 无 |
-| 莫斯科       | eu-moscow     | 无 |
+
 
 
 ### 步骤4：更改 API
