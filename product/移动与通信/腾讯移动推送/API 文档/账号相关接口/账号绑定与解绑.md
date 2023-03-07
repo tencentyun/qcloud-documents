@@ -14,7 +14,7 @@
 
 | 参数名 | 类型 | 是否必需 | 参数说明 |
 | -------------- | ------- | ---- | ---------------------------------------- |
-| operator_type | Integer | 是 | 操作类型参数，取值范围为[1,5]；值对应功能说明如下：<li>1：Token 追加设置 account。</li><li>2：Token 覆盖设置 account。</li><li>3：Token 删除绑定的多个 account。</li><li>4：Token 删除绑定的所有 account。</li><li>5： account 删除绑定的所有 Token。</li> |
+| operator_type | Integer | 是 | 操作类型参数，取值范围为[1,5]；值对应功能说明如下：<li>1：Token 追加设置 account（该类型已废弃）。</li><li>2：Token 覆盖设置 account。</li><li>3：Token 删除绑定的多个 account。</li><li>4：Token 删除绑定的所有 account。</li><li>5： account 删除绑定的所有 Token。</li> |
 | account_list | Array  | 否 | 账号标识集合，当 operator_type = 5 时有效，且必填每个元素包含 account，以及 account_type 字段，加上 account_type 就可以设置类型。 <br> 示例如下：<br>`[{"account":"926@126.com"},{"account":"1527000000"}，{"account":"2849249569","account_type":9}]`|
 | token_list | Array  | 否 | 设备标识集合， operator_type = 4 时有效，且必填|
 | token_accounts | Array  | 否 | 当 operator_type = 1、2 、3 时有效且必须每次调用最多允许设置20个 Token。每个 Token_account 由1个 Token 和1个 account_list 组成。 具体示例如下：<br>`[{"token":"token1","account_list":[{"account":"926@126.com"},{"account":"1527000000"}],`<br>`{"token":"token2","account_list":[{"account":"926@163.com",{"account":"1527000001"}]}]` |
@@ -36,7 +36,7 @@
 
 ## 示例说明
 #### 请求示例
-- Token 追加设置 Account：
+- Token 追加设置 Account（该类型已废弃）：
 ```json
 {
     "operator_type": 1,
@@ -156,15 +156,14 @@
 
 #### 返回示例
 
-Token 追加设置 Account：
+Token 删除绑定 Account：
 ``` json
 {
-    "result": [
-        "ok",
-        "ok"
-    ],
     "ret_code": 0,
-    "err_msg": "ok"
+    "err_msg": "NO_ERROR",
+    "result": [
+        "0"
+    ]
 }
 ```
 
