@@ -28,7 +28,7 @@
 <li>加速 IP：采用 Anycast 加速，使公网访问更稳定、可靠、低延迟。加速 IP 需要开通 <a href="https://cloud.tencent.com/document/product/644">Anycast 公网加速</a> 才可申请，请提交  <a href="https://cloud.tencent.com/apply/p/47mdddtoc56">内测申请</a>。</li>
 <li>静态单线 IP：通过单个网络运营商访问公网，成本低且便于自主调度。如需体验，请联系商务经理申请。该功能的地域支持情况请参见 <a href="https://cloud.tencent.com/document/product/1199/41648#.E4.BD.BF.E7.94.A8.E8.A7.84.E5.88.99">使用限制</a>。</li>
 <li>
-高防 EIP：云原生 DDos 防护 BGP IP，需配合 <a href="https://cloud.tencent.com/document/product/1021/87036">企业版高防包<a > 使用，提供 Tbps 级别 DDos 全力防护。高防 EIP 分别与业务资源、高防资源绑定后，便可拥有 DDoS 防护能力
+高防 EIP：云原生 DDos 防护 BGP IP，需配合 <a href="https://cloud.tencent.com/document/product/1021/87036">企业版高防包<a > 使用，提供 Tbps 级别 DDos 全力防护。高防 EIP 分别与业务资源、高防资源绑定后，便可拥有 DDoS 防护能力。
 </li>
 <li>
 目前仅标准账户类型支持，传统账户类型需升级后才能使用，升级详情请参见 <a href="https://cloud.tencent.com/document/product/1199/49090">账户类型升级说明</a>。

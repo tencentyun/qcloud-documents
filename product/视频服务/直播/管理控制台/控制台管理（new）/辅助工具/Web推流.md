@@ -30,31 +30,31 @@
 > 
 ![](https://main.qcloudimg.com/raw/1cdda05bdee9acb361fde98d754796a6.png)
 5. **推流预览**。在确定采集方式和配置以及推流配置后，开启预览，即可在右侧看到推流预览。
-![](https://qcloudimg.tencent-cloud.cn/raw/a770f2ed54f24f28c9b0ab579de3d56d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/30a294ae08740005590ea4c72559cb7d.png)
 6. 输入 WebRTC 推流地址或单击 **快速生成**，进行以下配置：
   - 选择您的推流域名。
   - 编辑 AppName，用于区分同一个域名下多个 App 的地址路径，默认值为 live。
   - 填写自定义的流名称 StreamName，例如：`test`。
-  - 选择过期时间，例如：`2021-08-28 16:16:52`。
+  - 选择过期时间，例如：`2023-03-06 00:00:00`。
   - 单击 **确定**，快速自动生成 WebRTC 推流地址填入地址栏。
-![](https://main.qcloudimg.com/raw/5b642ef826145e1797ebd7249546d64a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/78aa1679ca95466634fae126598d6067.png)
 7. 单击 **开始推流**，即可开始推流。
-	1. 您可单击![](https://main.qcloudimg.com/raw/da098f4e5ab01021e3c4704b0de41240.png)和![](https://main.qcloudimg.com/raw/aa8d8d4c9c32359a249de37ed0d723be.png)按钮来关闭/开启画面和声音，单击关闭画面或声音系统依旧正常采集，但是无法预览，推流可以正常发起但是没有画面和声音。
+	1. 您可单击![](https://qcloudimg.tencent-cloud.cn/raw/b2390afbbc7b72bfeee8c2c5b2ad09cf.png)和![](https://qcloudimg.tencent-cloud.cn/raw/dd90a3030e3a7421d8e4d0f5f50f5092.png)按钮来关闭/开启画面和声音，单击关闭画面或声音系统依旧正常采集，但是无法预览，推流可以正常发起但是没有画面和声音。
 > ? 推流成功后，采集预览的状态不支持变更，而且推流可能会产生对应的带宽/流量或其他增值服务费用。
 > 
-![](https://main.qcloudimg.com/raw/1795b1d211017b79eb7ea855c7a4a276.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/65ac3b98bda7bff46adf9f41ab837c85.png)
 	2. 采集方式为摄像头采集时，单击**开启美颜**，即可开启美颜能力。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eec3cddc8d84e43037d240444a74a138.png)
 	3. 美颜能力模块可以对画面中人物进行美化，增加互动贴纸以及提供美妆、虚拟背景等能力。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8192f858c2a36f3aa86a3ac98b2a6429.png)
 >! 美颜能力仅提供功能体验，并不包含在云直播产品服务范围内，了解产品情况，详见[腾讯特效](https://cloud.tencent.com/document/product/616/71399)。
 8. 推流成功后您可在下方单击 **立即查看**，快速跳转至查看直播流推流相关数据。非当前账号推流地址无法获取推流数据和播放地址，您可以通过当前账号下的推流域名生成推流地址，或者使用拉流转推功能，将直播流同时转推到当前账号下。
-![](https://main.qcloudimg.com/raw/2a08d6de7da2d61cd6415456f688eb15.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a454fda302348b25e5c72def9cea8f2c.png)
 9. 若您在 **域名管理** 中已添加播放域名，即可在下方 **选择播放域名** 快速生成的播放地址。若您需生成有转码配置的播放地址，需先将播放域名绑定转码模板，才可生成播放转码流。
-![](https://main.qcloudimg.com/raw/a4dec8a211e1b2f6a7ba8432a2e89076.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/35259f25d08b4e6e572fd02049a57ad7.png)
 其中，播放地址由以下4部分组成：
 ![](https://main.qcloudimg.com/raw/72989c8f55fe7f2ed596bd09882f5a09.png)支持 RTMP、FLV 、 HLS 和 UDP 协议，可以单击播放地址后的二维码，通过 [腾讯云工具包 App](https://cloud.tencent.com/document/product/454/6555#rtmpdemo) 扫码查看播放地址：
-![](https://main.qcloudimg.com/raw/23580118a446c188d02f77a721c25691.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dd38347d6c9c1dbfa13b734953e91fb6.png)
 >! 当选择的播放域名已开启 HTTPS 配置时，生成的 FLV 和 HLS 地址会默认带上 HTTPS。
 
 
@@ -66,7 +66,7 @@
 <dx-tabs>
 ::: 摄像头采集
 摄像头采集是通过摄像头/麦克风（支持外接）进行视频/声音的采集。单击 **开启摄像头**/ **开启麦克风**，首次开启需授予浏览器使用摄像头和麦克风权限。
-![](https://qcloudimg.tencent-cloud.cn/raw/b447bb6ae74788d5e149f9f0e7dfe6b5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e4e48d5ca9baa920d51b1dc3c65d392d.png)
 :::
 ::: 屏幕分享采集
 屏幕分享采集是通过浏览器捕获对应窗口/界面进行分享采集。单击 **选择屏幕分享** 选择分享的内容，可为整个屏幕/某个窗口/浏览器标签页。需选择分享屏幕后才可进行保存。
@@ -105,7 +105,7 @@
 1. 在确定输入配置以及推流配置后，可在右侧预览框中看到预览画面，并且可对画面进行画面编辑。
 2. 单击**进入画面编辑**，选中预览框中需要调整的画面，可对画面进行拖动与缩放大小。
 3. 调整完成后单击**退出画面编辑**，若是处于推流中，保存后将按新画面布局继续推流。
-![](https://qcloudimg.tencent-cloud.cn/raw/a66e1fbfecb872f2d179f6b1949d26f5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5ca7c92917a1fa723b05ceb9fdc1e64a.png)
 
 > ? 进入画面编辑可以在预览框中调整画面布局，退出画面编辑可在预览框中查看推流的预览画面，编辑页面不影响实时推流，退出编辑才会保存配置。
 
@@ -114,19 +114,19 @@
 2. 选择您的推流域名。
 3. 编辑 AppName，用于区分同一个域名下多个 App 的地址路径，默认值为 live。
 4. 填写自定义的流名称 StreamName，例如：`test`。
-5. 选择过期时间，例如：`2022-06-17 15:39:50`。
+5. 选择过期时间，例如：`2023-03-06 00:00:00`。
 6. 单击 **确定**，快速自动生成 WebRTC 推流地址填入地址栏。
-![](https://qcloudimg.tencent-cloud.cn/raw/9e968223d0c4832df12b361033475848.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3d26b186e774cbc5c6739e1e9e18d450.png)
 
 ### 开始推流
-1. 单击 **开始推流**，即可开始推流。您可单击![](https://main.qcloudimg.com/raw/da098f4e5ab01021e3c4704b0de41240.png)和![](https://main.qcloudimg.com/raw/aa8d8d4c9c32359a249de37ed0d723be.png)按钮来关闭/开启画面和声音，单击关闭画面或声音系统依旧正常采集，但是无法预览，推流可以正常发起但是没有画面和声音。
+1. 单击 **开始推流**，即可开始推流。您可单击![](https://qcloudimg.tencent-cloud.cn/raw/b2390afbbc7b72bfeee8c2c5b2ad09cf.png)和![](https://qcloudimg.tencent-cloud.cn/raw/dd90a3030e3a7421d8e4d0f5f50f5092.png)按钮来关闭/开启画面和声音，单击关闭画面或声音系统依旧正常采集，但是无法预览，推流可以正常发起但是没有画面和声音。
 2. 推流成功后您可在下方单击 **立即查看**，快速跳转至查看直播流推流相关数据。非当前账号推流地址无法获取推流数据和播放地址，您可以通过当前账号下的推流域名生成推流地址，或者使用拉流转推功能，将直播流同时转推到当前账号下。
-![](https://qcloudimg.tencent-cloud.cn/raw/3e9199f069bbe1b38d9c7f49a3807fee.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a2a021b2f67070abb5e3eefb5fed42ac.png)
 3. 若您在 **域名管理** 中已添加播放域名，即可在下方 **选择播放域名** 快速生成的播放地址。若您需生成有转码配置的播放地址，需先将播放域名绑定转码模板，才可生成播放转码流。
-![](https://main.qcloudimg.com/raw/a4dec8a211e1b2f6a7ba8432a2e89076.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/972f34258b1727a8f7a71b2c67bbbc96.png)
 其中，播放地址由以下4部分组成：
 ![](https://main.qcloudimg.com/raw/72989c8f55fe7f2ed596bd09882f5a09.png)
 支持 RTMP、FLV 、 HLS 和 UDP 协议，可以单击播放地址后的二维码，通过 [腾讯云工具包 App](https://cloud.tencent.com/document/product/454/6555#rtmpdemo) 扫码查看播放地址：
-![](https://main.qcloudimg.com/raw/23580118a446c188d02f77a721c25691.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/353b82aee9d5f895106adcf49828183a.png)
 
 >! 当选择的播放域名已开启 HTTPS 配置时，生成的 FLV 和 HLS 地址会默认带上 HTTPS。

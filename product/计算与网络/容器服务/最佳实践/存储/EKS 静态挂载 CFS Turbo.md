@@ -1,10 +1,10 @@
 ## 使用场景 
 
-为 TKE Serverless 集群挂载文件存储（Cloud File Storage，CFS）Turbo 类型存储，该组件基于私有协议将腾讯云 CFS Turbo 文件系统挂载到工作负载，目前仅支持静态配置。CFS 存储类型详情见 [文件存储类型及性能规格](https://cloud.tencent.com/document/product/582/38112)。  
+为 Serverless 容器服务挂载文件存储（Cloud File Storage，CFS）Turbo 类型存储，该组件基于私有协议将腾讯云 CFS Turbo 文件系统挂载到工作负载，目前仅支持静态配置。CFS 存储类型详情见 [文件存储类型及性能规格](https://cloud.tencent.com/document/product/582/38112)。  
 
 ## 前提条件
 
-已创建 TKE Serverless 集群且集群版本 >=1.14。  
+已创建 Serverless 容器服务且版本 >=1.14。  
 
 ## 使用步骤 
 
@@ -63,7 +63,7 @@ spec:
 参数说明：  
 - **metadata.name**：创建 PV 名称。  
 - **spec.csi.volumeHandle**：与 PV 名称保持一致。   
-- **spec.csi.volumeAttributes.host**：文件系统 ip 地址，可在文件系统挂载点信息中查看。   
+- **spec.csi.volumeAttributes.host**：文件系统 IP 地址，可在文件系统挂载点信息中查看。   
 - **spec.csi.volumeAttributes.fsid**：文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 "tcp0:/" 与 "/cfs" 之间的字符串，如下图）。  
 - **spec.csi.volumeAttributes.path**: 文件系统子目录，不填写默认为 “/”（为提高挂载性能，插件后端将“/”目录实际定位到“/cfs目录下”）。如需指定子目录挂载，须确保该子目录在文件系统“/cfs”中存在，挂载后 workload 将无法访问到该子目录的上层目录。例如：path: /test，需在文件系统中保证/cfs/test目录存在。
 ![](https://qcloudimg.tencent-cloud.cn/raw/56b46e1e64fb2531f313da0a61485097.png)
