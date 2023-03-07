@@ -161,7 +161,6 @@ XML SDK 的存储桶可用区域简称发生了变化，下表列出了不同区
 | 硅谷       | na-siliconvalley     | 无 |
 | 弗吉尼亚       | na-ashburn     | 无 |
 | 曼谷       | ap-bangkok     | 无 |
-| 莫斯科       | eu-moscow     | 无 |
 
 在初始化时，请将存储桶所在区域简称设置到 `QCloudServiceConfiguration`的 `regionName`中。
 

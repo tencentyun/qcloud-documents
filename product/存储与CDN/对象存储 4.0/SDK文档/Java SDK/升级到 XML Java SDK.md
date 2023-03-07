@@ -83,7 +83,6 @@ XML SDK 的存储桶可用区域简称发生了变化，不同区域在 JSON SDK
 | 硅谷             | na-siliconvalley | 无                |
 | 弗吉尼亚         | na-ashburn       | 无                |
 | 曼谷             | ap-bangkok       | 无                |
-| 莫斯科           | eu-moscow        | 无                |
 
 在初始化`COSClient`的时候，将存储桶所在区域的简称设置到`ClientConfig`中：
 

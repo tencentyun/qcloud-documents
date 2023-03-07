@@ -73,7 +73,6 @@ XML  JavaScript SDK  的存储桶可用区域简称发生了变化，不同区�
 | 硅谷             | na-siliconvalley | 无          |
 | 弗吉尼亚         | na-ashburn       | 无          |
 | 曼谷             | ap-bangkok       | 无          |
-| 莫斯科           | eu-moscow        | 无          |
 
 您也可以参考 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档。
 
