@@ -24,7 +24,7 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 [](id:step1)
 ## 开通音视频通话能力
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
-2. 在页面的右下角找到**开通腾讯实时音视频服务**功能区。
+2. 在页面的右下角找到**腾讯实时音视频服务 TRTC** 功能区。
  - 若您需要体验音视频通话功能，可单击卡片内的 **免费体验** 开通 TUICallKit 的 7 天免费试用服务。
 <img width="690" alt="image" src="https://qcloudimg.tencent-cloud.cn/raw/a7caebe5a773c93fb23d00b4488003b1.png"> 
  - 您可参见 [音视频通话能力版本说明](#step2) 确认所需要使用的版本，单击 **[购买正式版](https://buy.cloud.tencent.com/avc)**  以购买正式的音视频通话能力。在购买页内的增值服务中勾选“音视频通话能力”，并选择所需版本即可。
@@ -39,20 +39,20 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 <table>
 <thead>
 <tr>
-<th style="text-align: center" colspan=2>对比项</th>
-<th style="text-align: center">体验版</th>
-<th style="text-align: center">1v1通话版</th>
-<th style="text-align: center">群组通话版-38万分钟</th>
-<th style="text-align: center">群组通话版-140万分钟</th>
+<th colspan=2 style = "text-align:center">对比项</th>
+<th style = "text-align:center;width:19%;">体验版</th>
+<th style = "text-align:center;width:19%;">1v1 通话版</th>
+<th style = "text-align:center;width:19%;">群组通话版-38万分钟</th>
+<th style = "text-align:center;width:19%;">群组通话版-140万分钟</th>
 </tr>
 </thead>
 <tbody><tr>
 <td style="text-align: center" rowspan=2>价格</td>
 <td>限时8折优惠</td>
 <td style="text-align: center">0元/7天</td>
-<td style="text-align: center">500元/月<br><a href="https://buy.cloud.tencent.com/avc">立即选购</a></td>
-<td style="text-align: center">1500元/月<br><a href="https://buy.cloud.tencent.com/avc">立即选购</a></td>
-<td style="text-align: center">5000元/月<br><a href="https://buy.cloud.tencent.com/avc">立即选购</a></td>
+<td style="text-align: center">500元/月<br><a href="https://buy.cloud.tencent.com/avc?addRavLicense=1">立即选购</a></td>
+<td style="text-align: center">1500元/月<br><a href="https://buy.cloud.tencent.com/avc?addRavLicense=1">立即选购</a></td>
+<td style="text-align: center">5000元/月<br><a href="https://buy.cloud.tencent.com/avc?addRavLicense=1">立即选购</a></td>
 </tr>
 <tr>
 <td>刊例价</td>
@@ -185,10 +185,10 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 </tr>
 <tr>
 <td>支持平台</td>
-<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong></td>
-<td style="text-align: center">iOS、Android、Web、uni-app</td>
-<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong></td>
-<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong></td>
+<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong>、Flutter</td>
+<td style="text-align: center">iOS、Android、Web、uni-app、Flutter</td>
+<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong>、Flutter</td>
+<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong>、Flutter</td>
 </tr>
 </tbody></table>
 
