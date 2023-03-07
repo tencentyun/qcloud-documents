@@ -4,7 +4,7 @@
 
 ### 安装 Glide 和 AVIF SDK
 
-Glide是一个知名开源的图片缓存库。更多信息，请参见[Glide 官方文档](https://bumptech.github.io/glide/)。
+Glide是一个知名开源的图片缓存库。更多信息，请参见 [Glide 官方文档](https://bumptech.github.io/glide/)。
 
 ```
 implementation 'com.qcloud.cos:avif:1.1.0'   
@@ -51,7 +51,7 @@ registry.append(ByteBuffer.class, AvifSequenceDrawable.class, new ByteBufferAvif
 
 ### 步骤二：使用 Glide 加载图片
 
-更多信息，请参见[Glide 官方文档](https://bumptech.github.io/glide/)。
+更多信息，请参见 [Glide 官方文档](https://bumptech.github.io/glide/)。
 
 ```
 Glide.with(context).load(url).into(imageView);

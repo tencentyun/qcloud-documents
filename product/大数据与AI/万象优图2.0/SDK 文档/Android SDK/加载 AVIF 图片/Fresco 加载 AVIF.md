@@ -4,7 +4,7 @@
 
 ### 安装 Fresco 和 AVIF SDK
 
-Fresco是一个知名开源的图片缓存库。更多信息，请参见[Fresco 官方文档](https://frescolib.org/docs/index.html)。
+Fresco是一个知名开源的图片缓存库。更多信息，请参见 [Fresco 官方文档](https://frescolib.org/docs/index.html)。
 
 ```
 implementation 'com.qcloud.cos:avif:1.1.0'   
@@ -58,7 +58,7 @@ draweeView.setController(controller);
 
 ### 步骤二：使用 Fresco 加载图片
 
-更多信息，请参见[Fresco 官方文档](https://frescolib.org/docs/index.html)。
+更多信息，请参见 [Fresco 官方文档](https://frescolib.org/docs/index.html)。
 
 1. 布局文件中加入 SimpleDraweeView
 

@@ -4,7 +4,7 @@
 
 ### 安装 subsampling-scale-image-view 和 AVIF SDK
 
-subsampling-scale-image-view是一个知名开源的图片缓存库。更多信息，请参见[官方文档](https://github.com/davemorrissey/subsampling-scale-image-view)。
+subsampling-scale-image-view是一个知名开源的图片缓存库。更多信息，请参见 [官方文档](https://github.com/davemorrissey/subsampling-scale-image-view)。
 
 ```
 implementation 'com.qcloud.cos:avif:1.1.0'   
@@ -38,7 +38,7 @@ subsamplingScaleImageView.setRegionDecoderClass(SkiaImageRegionDecoder.class);
 
 ### 步骤三：使用 subsampling-scale-image-view 加载图片
 
-更多信息，请参见[subsampling-scale-image-view 官方文档](https://github.com/davemorrissey/subsampling-scale-image-view)。
+更多信息，请参见 [subsampling-scale-image-view 官方文档](https://github.com/davemorrissey/subsampling-scale-image-view)。
 
 ```
 // 加载 uri 图片
