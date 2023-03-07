@@ -43,33 +43,13 @@
 <td align="left">90</td>
 </tr>
 <tr>
-<td align="left">中国香港、中国台北、首尔、莫斯科、圣保罗、多伦多
+<td align="left">中国香港、中国台北、首尔、圣保罗、多伦多
 </td>
 <td align="left">100</td>
 </tr>
 </tbody></table>
 
 ### 后付费带宽包
-
-#### 按带宽计费
-<table>
-<thead>
-<tr>
-<th align="left">地域</th>
-<th align="left" width="35%">单价（元/Mbps/天）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>除圣保罗以外的其他地域（含金融专区）</td>
-<td>3.6</td>
-</tr>
-<tr>
-<td>圣保罗</td>
-<td>4.6</td>
-</tr>
-</tbody></table>
-
 
 
 #### 按月结算
@@ -152,7 +132,7 @@
 <td align="left">288</td>
 </tr>
 <tr>
-<td align="left">欧洲（法兰克福、莫斯科）</td>
+<td align="left">欧洲（法兰克福）</td>
 <td align="left">108</td>
 <td align="left">108</td>
 <td align="left">108</td>
