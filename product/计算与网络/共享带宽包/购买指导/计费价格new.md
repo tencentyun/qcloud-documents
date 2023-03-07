@@ -50,7 +50,24 @@
 </tbody></table>
 
 ### 后付费带宽包
-
+#### 按带宽计费
+<table>
+<thead>
+<tr>
+<th align="left">地域</th>
+<th align="left" width="35%">单价（元/Mbps/天）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>除圣保罗以外的其他地域（含金融专区）</td>
+<td>3.6</td>
+</tr>
+<tr>
+<td>圣保罗</td>
+<td>4.6</td>
+</tr>
+</tbody></table>
 
 #### 按月结算
 >?常规 BGP 后付费带宽包目前处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
