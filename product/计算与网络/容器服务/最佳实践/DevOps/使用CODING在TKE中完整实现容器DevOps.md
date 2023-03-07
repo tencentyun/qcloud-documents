@@ -20,32 +20,40 @@ Coding 目前无缝对接 TKE 服务，本文档介绍在 Coding 中如何实现
 ### CD（Continuous Delivery 和 Continuous Deployment）
 > ? 持续交付与持续部署的区别：持续交付是一种能力，持续部署是一种方式。  
 
-- 持续交付（Continuous Delivery）简称 CD。在完成 CI 的流程后，持续交付支持以下操作：
-  - 自动将已经验证的代码发布到存储库。  
-  - 预生产环境部署。  
-  - 交付给质量团队或用户。  
+#### Continuous Delivery
+持续交付（Continuous Delivery）简称 CD。在完成 CI 的流程后，持续交付支持以下操作：
+- 自动将已经验证的代码发布到存储库。  
+- 预生产环境部署。  
+- 交付给质量团队或用户。  
 
-  具体流程如下图所示：
+具体流程如下图所示：
 ![](https://main.qcloudimg.com/raw/c9e69c621bd787d93d17d103cf0b902e.png)
-- 持续部署（Continuous Deployment）简称 CD，是 CICD 的最后一个阶段。持续部署将持续交付在内的所有变更自动部署到生产环境。一般情况下，出于业务考虑可以选择不部署，如需部署必须先实施持续交付。具体流程如下图所示：
+
+#### Continuous Deployment
+持续部署（Continuous Deployment）简称 CD，是 CICD 的最后一个阶段。持续部署将持续交付在内的所有变更自动部署到生产环境。一般情况下，出于业务考虑可以选择不部署，如需部署必须先实施持续交付。具体流程如下图所示：
 ![](https://main.qcloudimg.com/raw/597edfd80f9a23ebb223e7ecd54d7714.png)
 
 
 
 ### CI/CD 工具[](id:CICD)
 
-目前存在以下两种类型的 CI/CD 工具：
-- **On-Premise**：需要用户搭建服务器来运行 CI/CD 工具。  
-- **Hosted 工具类 SaaS 服务**：无需用户搭建服务器。Hosted 的优势如下：
-  - **维护成本低**：运行环境由服务托管，维护成本为零。而使用 On-Premise 工具，会花大量时间部署和维护服务器。  
-  - **干净的运行环境**：使用 Python 作为项目的开发语言时，需要对不同的 Python 版本（2.7、3.6、3.7）进行持续集成，Hosted CI/CD 每次可创建一个新的运行环境，可随时调整版本。  
-  - **预装软件和运行时**：项目在做持续集成时，需要依赖不同的运行时和工具链，Hosted CI/CD Service 已预装大量常用的软件和运行时，缩减了搭建环境的时间。  
+目前存在两种类型的 CI/CD 工具：**On-Premise** 和 **Hosted 工具类 SaaS 服务**。
+
+#### On-Premise
+On-Premise 需要用户搭建服务器来运行 CI/CD 工具。  
+
+#### Hosted 工具类 SaaS 服务
+Hosted 工具类 SaaS 服务无需用户搭建服务器。
+Hosted 的优势如下：
+- 维护成本低：运行环境由服务托管，维护成本为零。而使用 On-Premise 工具，会花大量时间部署和维护服务器。  
+- 干净的运行环境：使用 Python 作为项目的开发语言时，需要对不同的 Python 版本（2.7、3.6、3.7）进行持续集成，Hosted CI/CD 每次可创建一个新的运行环境，可随时调整版本。  
+- 预装软件和运行时：项目在做持续集成时，需要依赖不同的运行时和工具链，Hosted CI/CD Service 已预装大量常用的软件和运行时，缩减了搭建环境的时间。  
 
 ### Coding
 Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理系统（包含完整的 CICD 流程）。从需求提交到产品迭代，产品设计、代码管理、自动化测试、持续集成、构建物管理及持续部署，整套流程均在 Coding 完成。使用 Coding 可以实现流水线标准化作业及自动化版本记录，从而降低企业研发管理难度，提升研发效率。  
 - Coding 同时支持 Hosted 模式和 On-Premise 模式（支持私有化部署）的 [CICD 工具](#CICD)。  
 - Coding 支持 Jenkins、代码管理（也同时支持 github，gitlab）、敏捷开发管理以及支持 Kubernetes 容器化部署，无缝支持容器服务 TKE。  
-- 中小企业可使用 [Hosted 模式](#CICD) 来快速应对产品交付，实现业务快速迭代。  
+- 中小企业可使用 Hosted 模式来快速应对产品交付，实现业务快速迭代。  
 
 ## 操作步骤
 ### 开通 DevOps 服务
@@ -53,7 +61,7 @@ Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理
 
 1. 登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。  
 2. 进入“容器 DevOps”页面。如下图所示：
-![](https://main.qcloudimg.com/raw/6f1e13d45996ec30637a0c8d3db9348b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/417d955da54cb3a5d13e3df0fdb859f6.png)
 3. 选择**开通服务** > **前往访问管理**，进入“角色管理”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/ed82a514b85c63f9ac26554f8d27bbbb.png)   
 4. 单击**同意授权**，授权成功即跳转至**开通服务**页面。如下图所示：

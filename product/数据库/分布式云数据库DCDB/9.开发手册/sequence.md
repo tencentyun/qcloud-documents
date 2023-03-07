@@ -28,7 +28,7 @@ drop tdsql_sequence test.s1
 
 ## 查询 Sequence
 ```
-show create tdsql_sequence test.s2
+show tdsql_sequence
 ```
 
 ## 使用 Sequence
@@ -201,6 +201,8 @@ mysql> select tdsql_nextval(test.s2);
 ```
 
 需要注意，Sequence 的部分关键字以 `TDSQL_` 前缀开始：
+>?若已打开 oldstyle 配置项，proxy 将兼容标准 Sequence 关键字，即关键字前可不添加`TDSQL_` 前缀。
+>
 ```
  TDSQL_CYCLE
  TDSQL_INCREMENT
@@ -217,3 +219,4 @@ mysql> select tdsql_nextval(test.s2);
  TDSQL_SEQUENCE 
  TDSQL_SETVAL   
 ```
+

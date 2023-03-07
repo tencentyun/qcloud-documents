@@ -1,4 +1,4 @@
-为保护您的站点资源不被非法站点下载盗用，您可按需选择 Type ABCD 四种鉴权方式的某一种，本文为您详细介绍 Type B 的的各个参数字段和原理。
+为保护您的站点资源不被非法站点下载盗用，您可按需选择 Type ABCD 四种鉴权方式的某一种，本文为您详细介绍 Type B 的各个参数字段和原理。
 
 ## 算法说明
 
@@ -53,10 +53,10 @@ CDN 服务器接受到客户请求后，解析出 url 中的 timestamp 参数 + 
 </tr>
 </tbody></table>
 	- 拼接签名串：dimtm5evg50ijsx2hvuwyfoiu65202002271610/test.jpg
-	- 计算签名串的 md5 值：md5hash = md5sum(pkeytimestampuri) =md5sum(dimtm5evg50ijsx2hvuwyfoiu65202002271610/test.jpg) = 2e03a07cfa55a47768226d3e5ea82a8
+	- 计算签名串的 md5 值：md5hash = md5sum(pkeytimestampuri) =md5sum(dimtm5evg50ijsx2hvuwyfoiu65202002271610/test.jpg) = 2e03a07cfa55a47768226d3e5ea82a8d
 - **生成鉴权 URL**
-`http://cloud.tencent.com/202002271610/2e03a07cfa55a47768226d3e5ea82a8/test.jpg`
-当客户端通过加密 URL 进行访问时，如果 CDN 服务器计算出来的 md5hash 值与访问请求中带的 md5hash 值相同，都为 2e03a07cfa55a47768226d3e5ea82a8，则鉴权通过，反之鉴权失败。
+`http://cloud.tencent.com/202002271610/2e03a07cfa55a47768226d3e5ea82a8d/test.jpg`
+当客户端通过加密 URL 进行访问时，如果 CDN 服务器计算出来的 md5hash 值与访问请求中带的 md5hash 值相同，都为 2e03a07cfa55a47768226d3e5ea82a8d，则鉴权通过，反之鉴权失败。
 ## 注意事项 
 
 **缓存命中率**

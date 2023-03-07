@@ -24,6 +24,49 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ## 更新日志
 
+### IM Flutter TUIKit（含 UI） 1.7.0 @2023.02.08
+
+- 新增：支持使用位于屏幕右上角的动态舌头，快速导航到20多条新未读消息的群聊中的第一条未读消息。此功能允许在消息中快速移动，而不考虑消息的数量。
+- 新增：现在支持自定义所有头像的边界半径。您可以使用`TIMUIKitConfig`中的`defaultAvatarBorderRadius`设置默认的边框半径。
+- 优化：贴纸发送面板上的删除按钮进行了改进，可用性更好。
+- 优化：屏幕上的一些英文标签已更新，以更好地反映当地表达。
+- 修复：已解决发送大量贴纸时导致错误的问题。
+- 修复：已解决贴纸面板中出现的一些错误。
+
+### IM Flutter SDK（无 UI） 5.0.9 @2023.02.21
+
+- 新增：Voip 支持。`setOfflinePushConfig` 中新增 `isVoip` 的参数，如需使用 Voip 能力，将其设置为 `true` 即可。
+- 新增：支持 Quic 加速和本地数据库加密。
+- 修复：考虑到 Web 发送文件后再下载没有该文件的原生文件的缺陷。
+- 修复：桌面上的一些错误。
+
+### IM Flutter TUIKit（含 UI） 1.6.0 @2023.02.08
+
+- 新增：`TIMUIKitConversationController` 上的 `scrollToConversation`。现在可以实现滚动到对话列表中的特定对话，并可以实现当用户双击标签栏时滚动到下一个未读对话，[参考我们的Demo源码](https://github.com/TencentCloud/chat-demo-flutter/blob/main/lib/src/conversation.dart)。
+- 优化：历史消息列表长时间滚动时的性能。
+
+### IM Flutter TUIKit（含 UI） 1.5.0 @2023.02.02
+
+- 新增：全局`TIMUIKitConfig`上新配置`defaultAvatarAssetPath`，目的是定义默认头像。
+- 新增：支持Flutter 3.7.0。
+- 修复：`chatBgColor`配置。
+
+### IM Flutter TUIKit（含 UI） 1.4.0 @2023.01.13
+
+- 新增：文本消息及回复引用消息中的文字翻译功能。长按文本，选择翻译即可。可通过 `ToolTipsConfig` 的 `showTranslation` 参数控制开启。
+- 优化：长按消息弹窗的出现位置。
+- 优化：键盘弹起事件。
+
+### IM Flutter SDK（无 UI） 5.0.8 @2023.01.13
+
+- 新增：群组计数能力，普通群和直播群支持群计数器 meta counter，详情可查看groupCounter相关API
+- 新增：文本消息翻译能力，详情查看 [translateText](https://cloud.tencent.com/document/product/269/85380)。
+
+### IM Flutter TUIKit（含 UI） 1.3.0 @2023.01.11
+
+- 修复：转移群主的群 Tips 消息，无法展示新群主昵称。
+- 优化：移除点开文件前的二次确认框。
+
 ### IM Flutter TUIKit（含 UI） 1.2.0 @2023.01.06
 
 - 修复：聊天组件，从录音状态，切换至输入状态时，输入框无法显示问题。

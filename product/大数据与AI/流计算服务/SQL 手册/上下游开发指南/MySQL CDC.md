@@ -19,10 +19,10 @@ Flink 作业运行期间会周期性执行快照，记录下 Binlog 位置，当
 ## 版本说明
 
 | Flink 版本 | 说明                                                         |
-| -------- | ----------------------------------------------------------- |
-| 1.11      | <li>支持 mysql 版本为 5.6</li>                       |
-| 1.13      | <li>支持 mysql 版本为 5.6, 5.7, 8.x</li><li>默认配置，需要 source 表有 pk。如果 source 表没有 pk，需要 with 参数需要设置 `'scan.incremental.snapshot.enabled' = 'false'`</li> |
-| 1.14      | <li>支持 mysql 版本为 5.6, 5.7, 8.x</li><li>默认配置，需要 source 表有 pk。如果 source 表没有 pk，需要 with 参数需要设置 `'scan.incremental.snapshot.enabled' = 'false'`</li>               |
+| ---------- | ------------------------------------------------------------ |
+| 1.11       | <li>支持 mysql 版本为 5.6</li>                               |
+| 1.13       | <li>支持 mysql 版本为 5.6, 5.7, 8.x</li><li>默认配置，需要 source 表有 pk。如果 source 表没有 pk，需要 with 参数需要设置 `'scan.incremental.snapshot.enabled' = 'false'`</li> |
+| 1.14       | <li>支持 mysql 版本为 5.6, 5.7, 8.x</li><li>默认配置，需要 source 表有 pk。如果 source 表没有 pk，需要 with 参数需要设置 `'scan.incremental.snapshot.enabled' = 'false'`</li> |
 
 ## 使用范围
 
@@ -47,30 +47,32 @@ CREATE TABLE `mysql_cdc_source_table` (
 
 ## WITH 参数
 
-| 参数                                     | 说明                                                         | 是否必填 | 备注                                                    |
-| --------------------------------------- | ----------------------------------------------------------- | ------- | --------------------------------------------- |
-| connector                                | 源表类型                                                     | 是       | 固定值为 `mysql-cdc`                         |
-| hostname                                 | MySQL 数据库的 IP 地址或者 Hostname                          | 是       | -                                    |
-| port                                     | MySQL 数据库服务的端口号                                     | 否       | 默认值为3306                            |
+| 参数                                     | 说明                                                         | 是否必填 | 备注                                                         |
+| ---------------------------------------- | ------------------------------------------------------------ | -------- | ------------------------------------------------------------ |
+| connector                                | 源表类型                                                     | 是       | 固定值为 `mysql-cdc`                                         |
+| hostname                                 | MySQL 数据库的 IP 地址或者 Hostname                          | 是       | -                                                            |
+| port                                     | MySQL 数据库服务的端口号                                     | 否       | 默认值为3306                                                 |
 | username                                 | MySQL 数据库服务的用户名                                     | 是       | 有特定权限（包括 SELECT、RELOAD、SHOW DATABASES、REPLICATION SLAVE 和 REPLICATION CLIENT）的 MySQL 用户 |
-| password                                 | MySQL 数据库服务的密码                          | 是       | -                                            |
-| database-name                 | MySQL 数据库名称     | 是       | 数据库名称支持正则表达式以读取多个数据库的数据               |
-| table-name                               | MySQL 表名                  | 是       | 表名支持正则表达式以读取多个表的数据                         |
-| server-id  | 数据库客户端的一个 ID  | 否       | 该 ID 必须是 MySQL 集群中全局唯一的。建议针对同一个数据库的每个作业都设置不同的 ID 范围值，例如`5400-5405`。默认会随机生成一个6400 - Integer.MAX_VALUE 的值 |
+| password                                 | MySQL 数据库服务的密码                                       | 是       | -                                                            |
+| database-name                            | MySQL 数据库名称                                             | 是       | 数据库名称支持正则表达式以读取多个数据库的数据               |
+| table-name                               | MySQL 表名                                                   | 是       | 表名支持正则表达式以读取多个表的数据                         |
+| server-id                                | 数据库客户端的一个 ID                                        | 否       | 该 ID 必须是 MySQL 集群中全局唯一的。建议针对同一个数据库的每个作业都设置不同的 ID 范围值，例如`5400-5405`。默认会随机生成一个6400 - Integer.MAX_VALUE 的值 |
 | server-time-zone                         | 数据库在使用的会话时区                                       | 否       | 例如 Asia/Shanghai，该参数控制了 MySQL 中的 TIMESTAMP 类型如何转成 STRING 类型 |
-| append-mode                              | 开启 append 流模式                                             | 否       | Flink1.13及以上版本支持, 例如：将 mysql-cdc 数据以 append 的方式同步到 hive                |
+| append-mode                              | 开启 append 流模式                                           | 否       | Flink1.13及以上版本支持, 例如：将 mysql-cdc 数据以 append 的方式同步到 hive |
 | debezium.min.row.count.to.stream.results | 当表的条数大于该值时，会使用分批读取模式                     | 否       | 默认值为1000。Flink 采用以下方式读取 MySQL 源表数据：<li/>全量读取：直接将整个表的数据读取到内存里。优点是速度快，缺点是会消耗对应大小的内存，如果源表数据量非常大，可能会有 OOM 风险<li/>分批读取：分多次读取，每次读取一定数量的行数，直到读取完所有数据。优点是读取数据量比较大的表没有 OOM 风险，缺点是读取速度相对较慢 |
 | debezium.snapshot.fetch.size             | 在 Snapshot 阶段，每次读取 MySQL 源表数据行数的最大值        | 否       | 仅当分批读取模式时，该参数生效                               |
 | debezium.skipped.operations              | 需要过滤的 oplog 操作。操作包括 c 表示插入，u 表示更新，d 表示删除。默认情况下，不跳过任何操作，以逗号分隔 | 否       | -                                                            |
-| scan.incremental.snapshot.enabled        | 增量快照                                                     | 否       | 默认为 true                     |
-| scan.incremental.snapshot.chunk.size     | 当读取表的快照时，表快照捕获的表的块大小(行数)             | 否       | 默认为 8096     |
-| scan.lazy-calculate-splits.enabled     | 全量阶段JM中数据分片懒加载避免数据量太大，分片数据太多导致JM OOM             | 否       | 默认为 true   |
-| scan.newly-added-table.enabled     | 动态加表            | 否       | 默认为 false                                         |
-| connect.timeout     | 尝试连接到 MySQL 数据库服务器后在超时之前等待的最长时间             | 否       | 默认 30s                       |
-| connect.max-retries     | 建立MySQL连接尝试最大的次数             | 否       | 默认 3                                         |
-| connection.pool.size     | 连接池大小             | 否       | 默认 20                                         |
-| jdbc.properties.\*     | 自定义JDBC URL参数，例如: `'jdbc.properties.useSSL' = 'false'`             | 否       | 默认 20      
-| heartbeat.interval  | 发送心跳事件的时间间隔，用于跟踪最新可用的binlog偏移量, 一般用于解决慢表的问题(更新缓慢的数据表)   | 否  | 默认 20      |
+| scan.incremental.snapshot.enabled        | 增量快照                                                     | 否       | 默认为 true                                                  |
+| scan.incremental.snapshot.chunk.size     | 当读取表的快照时，表快照捕获的表的块大小(行数)               | 否       | 默认为 8096                                                  |
+| scan.lazy-calculate-splits.enabled       | 全量阶段JM中数据分片懒加载避免数据量太大，分片数据太多导致JM OOM | 否       | 默认为 true                                                  |
+| scan.newly-added-table.enabled           | 动态加表                                                     | 否       | 默认为 false                                                 |
+| scan.split-key.mode                      | 联合主键作为 splitkey 的模式                                 | 否       | 取值为 default / specific；其中 default 为默认逻辑，采用联合主键的第一个字段作为 splitkey；设置为 specific  需要设置 scan.split-key.specific-column 指定联合主键中的某个字段 |
+| scan.split-key.specific-column           | 指定联合主键中某个字段作为 splitkey                          | 否       | 当 scan.split-key.mode 为 specific 时必填。取值为联合主键中某个字段名 |
+| connect.timeout                          | 尝试连接到 MySQL 数据库服务器后在超时之前等待的最长时间      | 否       | 默认 30s                                                     |
+| connect.max-retries                      | 建立MySQL连接尝试最大的次数                                  | 否       | 默认 3                                                       |
+| connection.pool.size                     | 连接池大小                                                   | 否       | 默认 20                                                      |
+| jdbc.properties.\*                       | 自定义JDBC URL参数，例如: `'jdbc.properties.useSSL' = 'false'` | 否       | 默认 20                                                      |
+| heartbeat.interval                       | 发送心跳事件的时间间隔，用于跟踪最新可用的binlog偏移量, 一般用于解决慢表的问题(更新缓慢的数据表) | 否       | 默认 20                                                      |
 | debezium.\*                              | Debezium 属性参数                                            | 否       | 从更细粒度控制 Debezium 客户端的行为。例如`'debezium.snapshot.mode' = 'never'`，详情请参见 [配置属性](https://debezium.io/documentation/reference/1.2/connectors/mysql.html?spm=a2c4g.11186623.2.9.28af38b6Z3SJlk#mysql-connector-configuration-properties_debezium) |
 
 
@@ -85,66 +87,82 @@ CREATE TABLE `mysql_cdc_source_table` (
 <th>描述</th>
 </tr>
 <tr>
-<td>database_name</td>
+<td>database_name/meta.database_name</td>
 <td>STRING NOT NULL</td>
 <td>包含该 Row 的数据库名称</td>
 </tr>
 <tr>
-<td>table_name</td>
+<td>table_name/meta.table_name</td>
 <td>STRING NOT NULL</td>
 <td>包含该 Row 的表名称</td>
 </tr>
 <tr>
-<td>op_ts</td>
+<td>op_ts/meta.op_ts</td>
 <td>TIMESTAMP_LTZ(3) NOT NULL</td>
 <td>Row 在数据库中进行更改的时间</td>
 </tr>
 <tr>
-<td>batch_id</td>
+<td>meta.batch_id</td>
 <td>BIGINT</td>
 <td>binlog 的批 id</td>
 </tr>
 <tr>
-<td>is_ddl</td>
+<td>meta.is_ddl</td>
 <td>BOOLEAN</td>
 <td>是否 DDL 语句</td>
 </tr>
 <tr>
-<td>mysql_type</td>
+<td>meta.mysql_type</td>
 <td>MAP</td>
 <td>数据表结构</td>
 </tr>
 <tr>
-<td>update_before</td>
+<td>meta.update_before</td>
 <td>ARRAY</td>
 <td>未修改前字段的值</td>
 </tr>
 <tr>
-<td>pk_names</td>
+<td>meta.pk_names</td>
 <td>ARRAY</td>
 <td>主键字段名</td>
 </tr>
 <tr>
-<td>sql</td>
+<td>meta.sql</td>
 <td>STRING</td>
 <td>暂时为空</td>
 </tr>
 <tr>
-<td>sql_type</td>
+<td>meta.sql_type</td>
 <td>MAP</td>
 <td>sql_type 表的字段到 Java 数据类型 ID 的映射</td>
 </tr>
 <tr>
-<td>ts</td>
+<td>meta.ts</td>
 <td>TIMESTAMP_LTZ(3) NOT NULL</td>
 <td>收到该 ROW 并处理的当前时间</td>
 </tr>
 <tr>
-<td>op_type</td>
+<td>meta.op_type</td>
 <td>STRING</td>
 <td>数据库操作类型，例如 INSERT/DELETE 等</td>
 </tr>
+<tr>
+<td>meta.file</td>
+<td>STRING</td>
+<td>全量阶段时为空。增量阶段时为数据来自的 binlog 文件名，例如 mysql-bin.000101</td>
+</tr>
+<tr>
+<td>meta.pos</td>
+<td>BIGINT</td>
+<td>全量阶段时为0。增量阶段时为数据来自的 binlog 文件偏移，例如 143127802</td>
+</tr>
+<tr>
+<td>meta.gtid</td>
+<td>STRING</td>
+<td>全量阶段时为 null。增量阶段时为数据对应的 gtid 值，例如 3d3c4464-c320-11e9-8b3a-6c92bf62891a:66486240</td>
+</tr>
 </table>
+
 
 
 ## 使用示例
@@ -438,9 +456,8 @@ insert into print_table select * from mysql_cdc_source_table;
 
 ### 用户权限
 用于同步的源数据库的用户必须拥有以下权限 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD。
-
 ```mysql
-GRANT SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT, SELECT, RELOAD  ON ${database}.${table} TO '${username}';
+GRANT SELECT, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'user' IDENTIFIED BY 'password';
 FLUSH PRIVILEGES;
 ```
 

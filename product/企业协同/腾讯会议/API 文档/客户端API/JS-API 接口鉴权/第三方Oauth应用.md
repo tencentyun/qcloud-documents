@@ -25,9 +25,9 @@ https://meeting.tencent.com/wemeet- webapi/v2/oauth2/oauth/access_token
 #### 输出参数
 <table>
    <tr>
-      <th width="30%" >参数名称</td>
-      <th width="30%" >参数类型</td>
-      <th width="40%" >参数描述</td>
+      <th width="20%" >参数名称</td>
+      <th width="20%" >参数类型</td>
+      <th width="60%" >参数描述</td>
    </tr>
    <tr>
       <td>code</td>
@@ -54,9 +54,9 @@ https://meeting.tencent.com/wemeet- webapi/v2/oauth2/oauth/access_token
 **data 内数据结构**
 <table>
    <tr>
-      <th width="30%" >参数名称</td>
-      <th width="30%" >参数类型</td>
-      <th width="40%" >参数描述</td>
+      <th width="20%" >参数名称</td>
+      <th width="20%" >参数类型</td>
+      <th width="60%" >参数描述</td>
    </tr>
    <tr>
       <td>access_token</td>
@@ -181,8 +181,8 @@ JS_SDK Config 包含的字段：
 <table>
    <tr>
       <th width="20%" >参数名称</td>
-      <th width="40%" >参数类型</td>
-      <th width="20%" >参数描述</td>
+      <th width="20%" >参数类型</td>
+      <th width="60%" >参数描述</td>
    </tr>
    <tr>
       <td>corp_id</td>
@@ -215,9 +215,9 @@ JS_SDK Config 包含的字段：
  - 签名对应明文的字段
 <table>
    <tr>
-      <th width="30%" >字段顺序</td>
-      <th width="30%" >参数名称</td>
-      <th width="40%" >参数描述</td>
+      <th width="20%" >字段顺序</td>
+      <th width="20%" >参数名称</td>
+      <th width="60%" >参数描述</td>
    </tr>
    <tr>
       <td>1</td>
@@ -279,9 +279,9 @@ sha256
 param：AuthConfigParam
 <table>
    <tr>
-      <th width="30%" >XXXXX</td>
-      <th width="30%" >XXXXX</td>
-      <th width="40%" >XXXXX</td>
+      <th width="20%" >参数名称</td>
+      <th width="20%" >参数类型</td>
+      <th width="60%" >参数描述</td>
    </tr>
    <tr>
       <td>sdkId </td>

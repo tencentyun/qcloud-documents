@@ -3,6 +3,7 @@
 ## 前提条件
 若需创建计费模式为共享带宽包的 EIP，请先创建共享带宽包，详情请参见 [创建 IP 带宽包](https://cloud.tencent.com/document/product/684/39942)，一个 IP 带宽包可以加入多个 EIP。
 
+
 ## 操作步骤
 1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在“公网 IP”页面顶部，选择**地域**，单击**申请**。
@@ -19,26 +20,32 @@
 </thead>
 <tbody>
 <tr>
-<td>IP 地址类型</td>
-<td>腾讯云支持常规 IP、加速 IP 和静态单线 IP 等多种类型的 EIP。
+<td><span style="font-weight:bold">IP 地址类型</span></td>
+<td>腾讯云支持常规 BGP IP、精品 BGP IP、加速 IP、高防 EIP 和静态单线 IP 等多种类型的 EIP。
 <ul>
 <li>常规 BGP IP：普通 BGP IP，用于平衡网络质量与成本。</li>
-<li>精品 BGP IP：专属线路，避免绕行国际运营商出口，网络延时更低。目前仅标准账户类型支持，传统账户类型需升级后才能使用，升级详情请参见 <a href="https://cloud.tencent.com/document/product/1199/49090">账户类型升级说明</a>。仅香港地域支持，价格详情请参见 <a href="https://cloud.tencent.com/document/product/684/15255#cn2">精品网带宽包</a>。如需体验，请提交 <a href="https://cloud.tencent.com/apply/p/224jt7718s8">内测申请</a>。</li>
+<li>精品 BGP IP：专属线路，避免绕行国际运营商出口，网络延时更低。目前仅标准账户类型支持，传统账户类型需升级后才能使用，升级详情请参见 <a href="https://cloud.tencent.com/document/product/1199/49090">账户类型升级说明</a>。仅香港地域支持精品 BGP IP，价格详情请参见 <a href="https://cloud.tencent.com/document/product/1199/51693#.3Ca-id.3D.22monthly.22.3E.E5.8C.85.E6.9C.88.E5.B8.A6.E5.AE.BD.3C.2Fa.3E">精品 BGP 包月带宽</a>、<a href="https://cloud.tencent.com/document/product/684/15255#.3Ca-id.3D.22cn2.22.3E.E7.B2.BE.E5.93.81-bgp-.E5.B8.A6.E5.AE.BD.E5.8C.85.3C.2Fa.3E">精品 BGP 带宽包</a>。如需使用精品 BGP 后付费共享带宽包，请提交 <a href="https://cloud.tencent.com/apply/p/8o8lmsr5nj8">内测申请</a> 或联系您的商务经理申请开通。</li>
 <li>加速 IP：采用 Anycast 加速，使公网访问更稳定、可靠、低延迟。加速 IP 需要开通 <a href="https://cloud.tencent.com/document/product/644">Anycast 公网加速</a> 才可申请，请提交  <a href="https://cloud.tencent.com/apply/p/47mdddtoc56">内测申请</a>。</li>
 <li>静态单线 IP：通过单个网络运营商访问公网，成本低且便于自主调度。如需体验，请联系商务经理申请。该功能的地域支持情况请参见 <a href="https://cloud.tencent.com/document/product/1199/41648#.E4.BD.BF.E7.94.A8.E8.A7.84.E5.88.99">使用限制</a>。</li>
+<li>
+高防 EIP：云原生 DDos 防护 BGP IP，需配合 <a href="https://cloud.tencent.com/document/product/1021/87036">企业版高防包<a > 使用，提供 Tbps 级别 DDos 全力防护。高防 EIP 分别与业务资源、高防资源绑定后，便可拥有 DDoS 防护能力。
+</li>
+<li>
+目前仅标准账户类型支持，传统账户类型需升级后才能使用，升级详情请参见 <a href="https://cloud.tencent.com/document/product/1199/49090">账户类型升级说明</a>。
+</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>计费模式</td>
+<td><span style="font-weight:bold">计费模式</span></td>
 <td>
 <ul>
 <li>常规 BGP IP 支持按流量、包月带宽、按小时带宽和共享带宽包计费模式，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/51693">公网网络费用</a>。
 </li>
-<li>精品 BGP IP、加速 IP 和静态单线 IP 只支持共享带宽包计费模式，不支持其它计费模式，创建后会自动新增并添加到共享带宽包中。
+<li>精品 BGP IP 支持按包月带宽和共享带宽包计费模式，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/51693#JPBGP">公网网络费用</a>、<a href="https://cloud.tencent.com/document/product/684/15255#cn2">精品 BGP 共享带宽包</a>。
 </li>
-
-</ul>
+<li>加速 IP、静态单线 IP 和高防 EIP 只支持共享带宽包计费模式，暂时不支持其它计费模式。
+</li>
 </ul>
 </td>
 </tr>

@@ -13,7 +13,6 @@
 自2022年06月01日00时00分起，静态单线 IP（移动/电信/联通共享带宽包）将支持按天结算，如有疑问请咨询<a href="https://cloud.tencent.com/online-service">  在线支持</a>，给您带来不便，敬请谅解。
 </dx-alert>
 
-
 </td></tr>
 </table>
 
@@ -29,7 +28,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">中国大陆
+<td align="left">中国大陆（含金融专区）
 </td>
 <td align="left">80</td>
 </tr>
@@ -44,13 +43,16 @@
 <td align="left">90</td>
 </tr>
 <tr>
-<td align="left">中国香港、中国台北、首尔、莫斯科、圣保罗、多伦多
+<td align="left">中国香港、中国台北、首尔、圣保罗、多伦多
 </td>
 <td align="left">100</td>
 </tr>
 </tbody></table>
 
 ### 后付费带宽包
+
+
+#### 按月结算
 >?常规 BGP 后付费带宽包目前处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
 >
 <table>
@@ -61,7 +63,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">除圣保罗以外的其他地域
+<td align="left">除圣保罗以外的其他地域（含金融专区）
 </td>
 <td align="left">108</td>
 </tr>
@@ -74,8 +76,9 @@
 
 ## [精品 BGP 带宽包](id:cn2)
 >?
->- 目前仅标准账户类型支持精品 BGP 带宽包，传统账户类型需升级后才能使用，升级详情请参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。如需体验，请提交 [内测申请](https://cloud.tencent.com/apply/p/224jt7718s8)。
->- 仅中国香港地域支持精品 BGP IP。
+>- 目前仅标准账户类型支持，传统账户类型需升级后才能使用，升级详情请参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。
+>- 仅香港地域支持精品 BGP IP，价格详情请参见 [精品 BGP 包月带宽](https://cloud.tencent.com/document/product/1199/51693#.3Ca-id.3D.22monthly.22.3E.E5.8C.85.E6.9C.88.E5.B8.A6.E5.AE.BD.3C.2Fa.3E)、[精品 BGP 带宽包](https://cloud.tencent.com/document/product/684/15255#.3Ca-id.3D.22cn2.22.3E.E7.B2.BE.E5.93.81-bgp-.E5.B8.A6.E5.AE.BD.E5.8C.85.3C.2Fa.3E)。
+>- 如需使用精品 BGP 后付费共享带宽包，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
 >
 
 ### 预付费带宽包
@@ -129,7 +132,7 @@
 <td align="left">288</td>
 </tr>
 <tr>
-<td align="left">欧洲（法兰克福、莫斯科）</td>
+<td align="left">欧洲（法兰克福）</td>
 <td align="left">108</td>
 <td align="left">108</td>
 <td align="left">108</td>
@@ -155,7 +158,7 @@
 >?
 >- 自2022年06月01日00时00分起，静态单线 IP（电信/联通/移动共享带宽包）将支持按天结算，如有疑问请咨询[ 在线支持](https://cloud.tencent.com/online-service)，给您带来不便，敬请谅解。
 >- 目前仅广州、上海、南京、济南、杭州、福州、北京、石家庄、武汉、长沙、成都、重庆地域支持静态单线 IP 线路类型，其他地域支持情况请以控制台页面为准。
->- 该功能处于内测阶段，如需体验，请提交[ 内测申请](https://cloud.tencent.com/apply/p/6nzb3jwbsk)。广州、上海、南京、北京、成都、重庆地域暂未开放申请，如需使用，请联系您的商务经理。
+>- 该功能处于内测阶段，广州、上海、南京、北京、成都、重庆地域暂未开放申请，如需使用，请联系您的商务经理。
 >- 按月结算计费方式仅限月消费大于10万元的客户申请，可联系您的商务经理开通，或提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 >
 
@@ -185,7 +188,6 @@
 </table>
 
 ### 按月结算
-
 <table>
 <tr>
 <th>地域</th><th>移动带宽包价格<br/>（单位：元/Mbps/月）</th><th>联通带宽包价格<br/>（单位：元/Mbps/月）</th><th>电信带宽包价格<br/>（单位：元/Mbps/月）</th>

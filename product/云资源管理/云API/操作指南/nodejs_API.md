@@ -293,8 +293,10 @@ function getDate(timestamp) {
 }
 function main(){
     // 密钥参数
-    const SECRET_ID = "AKIDz8krbsJ5**********mLPx3EXAMPLE"
-    const SECRET_KEY = "Gu5t9xGAR***********EXAMPLE"
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5**********mLPx3EXAMPLE
+    const SECRET_ID = process.env.TENCENTCLOUD_SECRET_ID
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGAR***********EXAMPLE
+    const SECRET_KEY = process.env.TENCENTCLOUD_SECRET_KEY
 
     const endpoint = "cvm.tencentcloudapi.com"
     const service = "cvm"
@@ -545,8 +547,10 @@ function sort_params(params){
 
 function main(){
     // 密钥参数
-    const SECRET_ID = "AKIDz8krbsJ5**********mLPx3EXAMPLE"
-    const SECRET_KEY = "Gu5t9xGAR***********EXAMPLE"
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5**********mLPx3EXAMPLE
+    const SECRET_ID = process.env.TENCENTCLOUD_SECRET_ID
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGAR***********EXAMPLE
+    const SECRET_KEY = process.env.TENCENTCLOUD_SECRET_KEY
 
     const endpoint = "cvm.tencentcloudapi.com"
     const Region = "ap-guangzhou"

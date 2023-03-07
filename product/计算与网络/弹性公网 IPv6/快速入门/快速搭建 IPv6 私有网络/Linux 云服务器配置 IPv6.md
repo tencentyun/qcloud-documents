@@ -1,10 +1,9 @@
-Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手动配置](#manual)。请根据您的实际情况选择对应的方式，推荐您使用更高效的自动配置工具配置 IPv6 地址。
-
->?
->- cent8.x/ubuntu 16/ubuntu 20无需单独配置，IPv6 信息将自动下发。
->- 默认云服务器的 IPv6 地址仅具有私网通信能力，若您想要通过该 IPv6 地址访问公网或被公网访问，则需通过弹性公网 IPv6 为该 IPv6 地址开通公网能力，操作详情请参见 [为云服务器的 IPv6 地址开通公网](https://cloud.tencent.com/document/product/1142/47665#step4)。
+Linux云服务器配置 IPv6 有三种方式：[自动获取](#zdhq)、[工具配置](#gjpz) 和 [手动配置](#manual)。请根据您的实际情况选择对应的方式，对于不支持自动获取方式的情况，推荐您使用更高效的工具配置方式配置IPv6 地址。
+>?默认云服务器的 IPv6 地址仅具有私网通信能力，若您想要通过该 IPv6 地址访问公网或被公网访问，则需通过弹性公网 IPv6 为该 IPv6 地址开通公网能力，操作详情请参见 [为云服务器的 IPv6 地址](https://cloud.tencent.com/document/product/1142/47665#step4)。
 >
 
+- **自动获取**：指镜像的默认配置支持通过 DHCP 动态获取 IPv6 地址，同时能够自动生成 IPv6 的默认路由。
+  - CentOS 8.0/CentOS 8.2/CentOS 8.4支持自动获取，IPv6 信息将自动下发。
 - **工具配置**：指通过工具一键配置 IPv6，根据镜像类型及购买时间的不同，使用的配置方法也不同，具体如下表所示。
 <table>
 <tbody>
@@ -374,30 +373,36 @@ netmask <子网前缀长度>
 gateway <IPv6网关>
 ```
  2. 重启网络服务：运行`service network restart` 或 `systemctl restart networking`。
-6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18，请执行如下操作配置 IPv6。
- 1. 编辑网卡配置文件。
+6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18 和 Ubuntu 20，请执行如下操作配置 IPv6。
+ 1. 获取 IPv6 网关地址[](id:step001)。
+    1. 登录[ 云控制台]()，查看云服务器所在子网的 IPv6 CIDR 信息。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/21d54065f295b7f87b0374d5e2e7cdc0.png)
+    2. 根据 IPv6 CIDR 信息得到 IPv6 网地址：系统默认会采用子网 IPv6 CIDR的“.1”地址作为网关，如上图 IPv6 CIDR 为2402:4e00:1018:9a01::/64,则网关地址为2402:4e00:1018:9a01::1。
+ 2. 编辑网卡配置文件。
 ```plaintext
 vi /etc/netplan/50-cloud-init.yaml
 ```
- 2. 添加 IPv6 地址和网关配置。
-> !只添加 addresses 和 gateway6。
+ 3. 根据[ 步骤1 ](#step001)获得的 IPv6 网关地址，添加 IPv6 网关配置。
+>!只添加 gateway6。
 >
 ```plaintext
 network:
-version: 2
-ethernets:
-eth0:
-dhcp4: true                         //开启dhcp4
-match:
-macaddress: 52:54:00:75:ce:c2  //MAC地址
-set-name: eth0                      //网卡名
-addresses:
-		 - 2a00:7b80:454:2000::xxx/64    //设置IPv6地址和掩码
-gateway6: 2a00:7b80:454::1          //设置IPv6网关地址
+ version: 2
+ ethernets:
+   eth0:
+      dhcp4: true                         //开启dhcp
+      match:
+            macaddress: 52:54:00:c3:4a:0e  //MAC地址
+      set-name: eth0                      //网卡名
+      gateway6:2402:4e00:1018:9a01::1   //设置IPv6网关地址
 ```
- 3. 执行如下命令，使配置生效。
+ 4. 执行如下命令，使配置生效。
 ```plaintext
 netplan apply
+```
+ 5. 执行如下命令，检查 IPv6 网关配置是否生效。
+```plaintext
+ip -6 route show | grep default
 ```
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 

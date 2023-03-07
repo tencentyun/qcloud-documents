@@ -8,11 +8,11 @@
 
 ### 创建实例
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击 **新建**。
-2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。如下图所示：
- 其中，“镜像”选择为应用模板 > 从零开始场景 > CentOS 7.6 应用模板，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
+  - **镜像**：选择为应用模板 > 从零开始场景 > CentOS 7.6 应用模板，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
 <dx-alert infotype="explain" title="">
-应用模板即应用镜像。
-查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+- 应用模板即应用镜像。
+- 查看镜像说明详情请参见 [基本概念](https://cloud.tencent.com/document/product/1207/79254)。
 </dx-alert>
 
 ### 创建文件系统
@@ -32,7 +32,7 @@
 
 ### 使用内网互联
 1. 轻量应用服务器实例关联云联网
-参考 [申请云联网关联](https://cloud.tencent.com/document/product/1207/56847#association)，将轻量应用服务实例关联云联网。
+参考 [申请云联网关联](https://cloud.tencent.com/document/product/1207/56847#association)，将轻量应用服务器实例关联云联网。
 2. 文件系统 VPC 实例关联云联网
 参考 [关联网络实例](https://cloud.tencent.com/document/product/877/18747)，将文件系统的 VPC 实例关联至云联网。
 

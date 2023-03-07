@@ -1,0 +1,175 @@
+云直播提供将直播画面进行录制并将文件存储到云点播中，可通过云点播对录制视频进行下载、预览等处理。本文将为您介绍如何创建、绑定、解绑、修改以及删除录制模板。
+创建录制模板有以下两种方式：
+
+- 通过云直播控制台创建录制模板，具体操作步骤请参见 [创建录制模板](#C_record)。
+- 通过 API 创建录制模板，具体参数及示例说明请参见 [创建录制模板](https://cloud.tencent.com/document/api/267/32614)。
+
+## 注意事项
+
+- 录制的视频文件默认保存至 [云点播](https://console.cloud.tencent.com/vod/overview) 控制台，建议提前开通点播服务，并可提前选购点播相关资源包，避免点播业务欠费停用，详细请参见 [点播快速入门](https://cloud.tencent.com/document/product/266/8757)。
+- 开启录制功能后请确保云点播服务处于正常使用状态。云点播服务未开通或账号欠费导致云点播服务停服等情况将影响直播无法进行录制，期间不会产生录制文件和录制费用。
+- 直播过程中预计在录制结束5分钟左右可获取对应文件。例如，某直播从12:00开始录制，12:30结束录制，则12:35左右可获取12:00 - 12:30的对应片段，以此类推。
+- 受限于音视频文件格式（FLV/MP4/HLS）对编码类型的支持，视频编码类型支持H.264，音频编码类型支持 AAC。
+- 录制模板创建成功后，可与推流域名进行关联，相关文档可参见  [录制配置](https://cloud.tencent.com/document/product/267/35251)，关联成功后约5分钟 - 10分钟生效。
+- 若需了解生成的录制文件命名规则，请参见 [录制模板参数-VodFileName](https://cloud.tencent.com/document/api/267/20474#RecordParam)。
+- 模板绑定、修改和解绑均只影响更新后的直播流，已经在直播中的流不会受影响；直播中的流需要断流重推才会使用新的规则。
+- 混流录制不支持中国内地（大陆）和国际/港澳台的直播混流，会导致录制文件错误，影响正常观看回放。
+- 根据国家《网络表演经营活动管理办法》及《网络交易监督管理办法》的最新规定，经营单位需记录网络直播视频内容并进行存储备份，保存时长根据直播类型建议存储60日至3年，详情请参见 [直播录制国家相关规定](https://cloud.tencent.com/document/product/267/80341)。
+
+
+## 前提条件
+
+- 已开通腾讯云直播服务，并添加 [推流域名](https://cloud.tencent.com/document/product/267/20381)。
+- 已开通 [云点播服务](https://cloud.tencent.com/document/product/266/8757#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BC.80.E9.80.9A.E4.BA.91.E7.82.B9.E6.92.AD)。
+
+[](id:C_record)
+
+## 创建录制模板
+
+1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
+2. 单击 **创建模板** 设置模板信息，进行如下配置：
+   ![](https://qcloudimg.tencent-cloud.cn/raw/c39508938cd9be815320ed67b2289d43.png)
+<table>
+   <thead><tr><th width="20%" colspan=2>配置项</th><th>配置描述</th></tr></thead>
+   <tbody><tr>
+   <tr>
+   <td colspan=2>模板名称</td>
+   <td>直播录制模板名称，可自定义（仅支持中文、英文、数字、_、-）。</td>
+   </tr><tr>
+   <td colspan=2>模板描述</td>
+   <td>直播录制模板介绍描述，可自定义（仅支持中文、英文、数字、_、-）。</td>
+   </tr><tr>   
+   <td rowspan=3 width="10%">录制内容</td>
+   <td width="30%">录制原始流</td> 
+   <td>录制视频针对直播原始码率录制，默认录制原始流。选择该配置会在直播流转码（包括转码、加水印及混流）前进行录制，录制的视频不带转码、水印及混流效果。对 WebRTC 推流录制原始流可能出现音频播放不兼容的情况，建议选择“带水印录制”或“指定转码流录制”。</ul></td>
+   </tr><tr>
+   <td>带水印录制</td>
+   <td>选择该配置会在直播流加水印模板配置的水印后进行录制，若未配置水印模板则录制原始流。</td>
+   </tr><tr>
+   <td>指定转码流录制</td>
+   <td>单击指定转码流录制，可选择已配置的转码模板，或点击模板名称前往修改转码模板配置。选择该配置会在推流后自动根据转码模板id发起转码进行录制，若转码模板被误删，则效果等同于录制内容"按带水印录制"
+。</td>
+   </tr><tr>
+   <td colspan=2>录制格式</td>
+   <td>录制视频输出格式有  HLS、MP4、FLV 和 AAC 四种，其中 AAC 为纯音频录制。</td>
+   </tr>
+   </tbody></table>
+> ! 
+> - WebRTC 推流录制原始流会丢失音频，建议选择其它录制内容。
+> - 录制转码流功能暂不支持时移场景使用，若录制模板已关联时移配置，会按照原始流进行录制。
+> - 若指定转码流录制中选择纯音频转码模板时，录制格式中只可选择音频格式。
+> - 录制转码流需要先发起转码任务，会额外产生转码费用，若使用相同转码模板进行播放，不会重复计费。
+3. 选择录制内容，勾选需要录制格式后，弹出相关格式的设置界面，可选择一个或多个录制格式同时进行设置。请进行如下设置：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/858d4339c61317ae13a0cc878527cfcd.png" width=900>
+<table>
+   <thead><tr><th width="27%" colspan=2>配置项</th><th>配置描述</th></tr></thead>
+   <tbody><tr>
+      <tr>
+      <td colspan=2>单个录制文件时长（分钟）</td>
+      <td><ul style="margin-bottom:0px">
+						<li>录制 HLS 格式最长单个文件时长无限制，如果超出续录等待时长则新建文件继续录制。</li>
+						<li>录制 FLV 格式单个文件时长限制为1分钟 - 720分钟。</li>
+						<li>录制 MP4 或 AAC 格式单个文件时长限制为1分钟 - 120分钟。</li>
+          </ul></td>
+      </tr><tr>
+      <td colspan=2>续录等待时长（秒）</td>
+      <td>仅  HLS 格式支持文件推流中断续录，续录等待时长可设置为1s - 1800s。</td>
+      </tr><tr>
+      <td colspan=2>保存时长（天）</td>
+      <td>单个录制文件保存最大时长均为1500天，文件保存时长0为永久。可选择 <b>永久存储</b> 或 <b>指定时间</b>。</td>
+      </tr><tr>
+      <td colspan=2>指定点播应用/分类</td>
+      <td>支持录制至云点播 VOD 指定 <a href="https://console.cloud.tencent.com/vod/app-manage">子应用</a> 的点播分类中，默认录制至账号主应用，仅支持写入状态为开启的子应用。</td>
+      </tr><tr>
+      <td rowspan=3 width="12%">高级配置</td>
+      <td>视频存储策略</td> 
+      <td><ul style=margin:0><li>若录制视频为正常业务回放需要,标准存储即可满足需求，默认为标准存储。</li><li>支持对录制至云点播上的媒资进行降冷操作，若录制文件不需要频繁访问，可以使用降冷功能来实现低频访问长期存储。</li></ul></td>
+      </tr><tr>
+      <td>点播任务流处理</td>
+      <td> 单击 <b>选择绑定的任务流</b> 可选择绑定点播子应用下已建立的任务流，或从当前点播任务流选择界面点击任务流名称前往点播控制台新增/修改任务流配置。绑定成功后，在生成录制文件后执行点播任务流模板，产生对应的 <a href="https://cloud.tencent.com/document/product/266/2838">云点播费用</a>。</td>
+       </tr><tr>
+       <td>边录边传</td> 
+      <td>目前只支持FLV格式开启边录边传功能，开启后可实现录制结束后文件即刻上传，单个录制文件时长最大可支持到12小时，同时增强FLV录制容灾能力；回放文件在线拖动播放可能会卡顿，但不影响在本地播放。</td>
+      </tr>
+      </tbody></table>
+> ! 视频存储策略中：
+> - 选择 **标准存储** 时，若目前选中的应用已开启降冷策略，录制文件会先生成标准存储文件后再根据降冷策略进行降冷，可点击此处[查看策略](https://console.cloud.tencent.com/vod/inactivation)。
+> - 选择 **低频存储** 时，若目前选中的应用/分类已开启降冷策略，录制文件会先直接生成低频存储文件后再判断是否执行点播降冷策略。
+4. 单击 **保存** 即可。
+
+[](id:conect)
+## 关联域名
+
+1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
+   - **直接关联域名：**单击左上方的 **绑定域名**。
+     ![](https://qcloudimg.tencent-cloud.cn/raw/7c0525f583d65b27adf82ff89f0a3ef8.png)
+   - **新录制模板创建成功后关联域名：**[录制模板创建](#C_record) 成功后，单击提醒框中的 **去绑定域名**。
+     ![](https://main.qcloudimg.com/raw/4de2cb134a48920fc5527217704e7f76.png)
+2. 在域名绑定窗口中，选择您需绑定的**录制模板**及**推流域名**，单击 **确定** 即可绑定成功。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/ed874330b279d76e3fe80de2310b12b5.png)
+
+> ? 支持通过单击 **添加** 为当前模板绑定多个推流域名。
+
+[](id:unite)
+## 解除绑定
+
+1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
+2. 选择已关联域名的录制模板，选择需要解绑的域名，单击右侧的 **解绑**。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/1c6bc059ac9e5647f11e8d56eb3b3120.png)
+3. 确认是否解绑当前关联域名，单击 **确定** 即可解绑。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/a8569179e3e2d020fab1795225669280.png)
+
+> ? 
+> - 录制模板解除绑定后，不影响正在直播中的流。
+> - 若需解绑生效，解绑后请断流并重新推流直播，新的直播将不会生成录制文件。
+
+[](id:change)
+
+## 修改模板
+
+1. 进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
+2. 选择您已创建成功的录制模板，并单击右侧的 **编辑**，即可进入修改模板信息，单击 **保存** 即可。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/01ef1a4899dc4dca6b82bc20cda40b96.png)
+
+[](id:delete)
+## 删除模板
+
+1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
+2. 选择您已创建成功的录制模板，单击右上方 **删除**。
+3. 确认是否删除当前录制模板，单击 **确定** 即可成功删除。
+   ![](https://main.qcloudimg.com/raw/15188b9f71c0f7beb2eb450bac55493e.png)
+
+> ! 
+> - 若模板已被关联，需要先 [解除绑定](#unite)，才可以进行删除操作。
+> - 控制台的录制模板管理为域名维度，暂时无法取消关联接口创建的规则，如果是通过录制管理接口关联指定流的，则需要通过调用 [删除录制规则](https://cloud.tencent.com/document/product/267/32613) 解除关联。 
+
+## 相关操作
+
+**域名维度绑定**和**解绑**录制模板的具体操作及相关说明，请参见 [录制配置](https://cloud.tencent.com/document/product/267/35251)。
+
+## 相关问题
+
+[](id:que1)
+
+#### 直播录制后生成的视频名称是按什么规则生成？
+
+控制台创建的录制模板，回调后生成的录制文件按照默认拼接方式命名，格式为：
+`{StreamID}*{StartYear}-{StartMonth}-{StartDay}-{StartHour}-{StartMinute}-{StartSecond}*{EndYear}-{EndMonth}-{EndDay}-{EndHour}-{EndMinute}-{EndSecond} `
+
+**其中：**
+
+| 占位符        | 含义          |
+| ------------- | ------------- |
+| {StreamID}    | 流 ID         |
+| {StartYear}   | 开始时间-年   |
+| {StartMonth}  | 开始时间-月   |
+| {StartDay}    | 开始时间-日   |
+| {StartHour}   | 开始时间-小时 |
+| {StartMinute} | 开始时间-分钟 |
+| {StartSecond} | 开始时间-秒   |
+| {EndYear}     | 结束时间-年   |
+| {EndMonth}    | 结束时间-月   |
+| {EndDay}      | 结束时间-日   |
+| {EndHour}     | 结束时间-小时 |
+| {EndMinute}   | 结束时间-分钟 |
+| {EndSecond}   | 结束时间-秒   |

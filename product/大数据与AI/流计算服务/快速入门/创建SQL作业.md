@@ -46,18 +46,15 @@ INSERT INTO `Data_Output`   --步骤 3 ： 将数据源表（Source） Data_Intp
 SELECT AVG(age), AVG(score) FROM `Data_Input`;
 ```
 
-
 ## 步骤4：设置作业参数
 在作业参数中设置 Checkpoint 和算子默认并行度等参数的值，使用其他上下游数据则需选择相应的内置 Connector。
->?至少要添加一个 Connector，需选择 Kafka Connector。
-
 
 ## 步骤5：发布运行 SQL 作业
 单击**发布草稿**，将进行作业运行检查，检查通过后将进入发布确认。发布将生成新的作业版本，版本号由系统自动生成。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bdf936b67899e3841eebd2ca65997e81.png)
 
 发布草稿后，单击**版本管理**，可以查看并切换当前作业的不同版本。
-![](https://qcloudimg.tencent-cloud.cn/raw/d6fd906d5a1ad2d4b27c2367f588abd0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7571594adc1d82334aeae2bb383d543b.png)
 
 切换到期望运行的作业版本后，单击**运行版本**，再单击**确认**即可启动作业。
 ![](https://qcloudimg.tencent-cloud.cn/raw/635a8f4fd7d1fee30c5b1e28ab87621d.png)

@@ -234,7 +234,7 @@ CAM 于2022年7月14日（周四）09:00 - 2022年7月29日（周五）变更 Re
 <td>DownloadModel</td>
 </tr>
 <tr>
-<td>多媒体创作引擎</td>
+<td>智能创作</td>
 <td>cme</td>
 <td>AccessWeb</td>
 </tr>

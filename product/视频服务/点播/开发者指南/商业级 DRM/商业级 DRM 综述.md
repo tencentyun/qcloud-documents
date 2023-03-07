@@ -52,4 +52,4 @@
 - 存储费用：转码或转自适应码流的输出，会占用存储空间，因此会产生存储费用。
 - DRM 许可证费用：终端播放 DRM 加密的视频时，需要获取 DRM 许可证，产生 DRM 许可证费用。如果使用第三方 DRM 集成方案，此项费用将由第三方 DRM 提供商收取。
 
-以上费用的具体单价，请参见 [购买指南](https://intl.cloud.tencent.com/document/product/266/14666)。
+以上费用的具体单价，请参见 [购买指南](https://cloud.tencent.com/document/product/266/14666#drm-.E5.8A.A0.E5.AF.86)。

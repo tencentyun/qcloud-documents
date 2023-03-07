@@ -391,7 +391,7 @@ int CBCEnAndDeTest(struct KeyManager *p,unsigned char plaintext[],char masterKey
         unsigned char ch_dedata[1024];
         size_t i_dedatalen = 0;
         size_t sourceLength = 0;
-				
+
         struct KeyManager keymanager;
         struct MsgHead enheader,deheader;
 
@@ -416,7 +416,7 @@ int CBCEnAndDeTest(struct KeyManager *p,unsigned char plaintext[],char masterKey
 
         /*分片大小*/
         size_t blockSize = 0;
-		/*选择加解密算法*/
+        /*选择加解密算法*/
         enum Algorithm al_en = SM4_CBC_128;
 
         strcpy(encryptionContext,"{\"name\":\"test\",\"date\":\"20200228\"}");
@@ -432,8 +432,8 @@ int CBCEnAndDeTest(struct KeyManager *p,unsigned char plaintext[],char masterKey
                 printf("InitKeyManager error\n");
                 return ( 0 );
         }
-		
-		/*ch_cipher 是加密后的密文内容 */
+
+        /*ch_cipher 是加密后的密文内容 */
         i_ret = Encrypt(ch_orig,sourceLength,&keymanager,masterKeys,al_en,encryptionContext,blockSize,&enheader,ch_cipher,&i_cipherlen);
         if (i_ret == 0)
         {
@@ -466,13 +466,18 @@ int main()
         memset(region,0,sizeof(region));
         memset(masterKeys,0,sizeof(masterKeys));
         memset(domainName,0,sizeof(domainName));
-        
+
         struct KeyManager keymanager;
 
         strcpy(region,"ap-guangzhou");
         strcpy(domainName,"kms.tencentcloudapi.com");
-        strcpy(keymanager.secretId,"replace-with-real-secretId");
-        strcpy(keymanager.secretKey,"replace-with-real-secretKey");
+
+	char *secretID;
+	char *secretKey;
+	secretID = getenv("secret_id");
+	secretKey = getenv("secret_key");
+        strcpy(keymanager.secretId, secretID);
+        strcpy(keymanager.secretKey, secretKey);
         strcpy(plaintext,"abcdefg123456789abcdefg123456789abcdefg");
 
         i_ret = InitSdk(region,keymanager.secretId,keymanager.secretKey,domainName);
@@ -484,12 +489,11 @@ int main()
 
         NewMasterKey(masterKeys,"ap-guangzhou","replace-with-realkeyid");
         AddMasterKey(masterKeys,"ap-beijing","replace-with-realkeyid");
-       
+
         CBCEnAndDeTest(&keymanager,plaintext,masterKeys);
 
         return ( 0 );
 }
-
 ```
 
 ## 原生加密方式的接口说明
@@ -1441,7 +1445,7 @@ int Sm4CbcTest()
 int main()
 {
         int i_ret = 0;
-        
+
         char region[128];
         char secretId[128];
         char secretKey[128];
@@ -1450,12 +1454,17 @@ int main()
         memset(secretId,0,sizeof(secretId));
         memset(secretKey,0,sizeof(secretKey));
         memset(domainName,0,sizeof(domainName));
-        
+
         strcpy(region,"ap-guangzhou");
         strcpy(domainName,"kms.tencentcloudapi.com");
-        strcpy(secretId,"replace-with-real-secretId");
-        strcpy(secretKey,"replace-with-real-secretKey");
-        
+
+	char *secretID;
+	char *secretKey;
+	secretID = getenv("secret_id");
+	secretKey = getenv("secret_key");
+        strcpy(keymanager.secretId, secretID);
+        strcpy(keymanager.secretKey, secretKey);
+
         i_ret = InitSdk(region,secretId,secretKey,domainName);
         if ( i_ret != 0 )
         {
@@ -1465,9 +1474,8 @@ int main()
 
         Sm4CbcTest();
 
-        return ( 0 );	
+        return ( 0 );    
 }
-
 ```
 
 <span id="test2"></span>

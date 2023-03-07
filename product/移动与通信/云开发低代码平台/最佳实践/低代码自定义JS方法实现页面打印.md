@@ -36,22 +36,22 @@ export default async function({event, data}) {
 ```
 
 ## 最佳实践案例
-创建空白页面，加入**标题**组件，标题属性为**合同打印**。
-![](https://qcloudimg.tencent-cloud.cn/raw/55449916b5949d51af7a9bd716df9ae9.png)
-增加**表单容器组件**，绑定目标数据源（举例：合同数据模型）。
-![](https://qcloudimg.tencent-cloud.cn/raw/1afe7b093a83948197dff079786b2ff9.png)
-增加**按钮**组件，命名**打印**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ca2eb0fcb5d2d012d17109d06eb53faf.png)
-给“打印”按钮添加“点击”事件。
-![](https://qcloudimg.tencent-cloud.cn/raw/cf360c4ce706bd2e8b04fca3c3ab1e71.png)
-打开低码编辑器，在自定义方法 **print** 中拷贝上面的**核心代码**。
+1. 创建空白页面，加入**文本**组件，文本内容为**合同打印**。
+![](https://qcloudimg.tencent-cloud.cn/raw/ab2440885e8e1117291c92849576f443.png)
+2. 增加**表单容器组件**，绑定目标数据源（举例：合同数据模型）。
+![](https://qcloudimg.tencent-cloud.cn/raw/bb85a9ea5ac4358a98c899f2169154dd.png)
+3. 增加**按钮**组件，命名**打印**。
+![](https://qcloudimg.tencent-cloud.cn/raw/96df38c5b3f3b55ea9ea65b0d5fea606.png)
+4. 给**打印**按钮添加**点击**事件。
+![](https://qcloudimg.tencent-cloud.cn/raw/5e5711e0b7128a3b1dace6a46b7a8cd3.png)
+5. 打开低码编辑器，在自定义方法**print**中拷贝上面的**核心代码**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/33ea44d5c835b9f7f9f136591b13180f.png)
-打开调试工具，找出到打印区域 div 的 id，当前举例 id 是“root”。
+6. 打开调试工具，找出到打印区域 div 的 ID，当前举例 ID 是 **root**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9653aade4a39223af1f275000c792729.png)
-如果希望在打印的时候不显示“提交”、“打印”按钮，可以找出这两组按钮 div 的 id，当前举例 id 是“id92”。
+7. 如果希望在打印的时候不显示**提交**、**打印**按钮，可以找出这两组按钮 div 的 ID，当前举例 ID 是 **id92**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/84d71b1c86bb5aea864476529ffe47b6.png)
-在代码编辑器中添加打印区域 id 和隐藏区域 id。
+8. 在代码编辑器中添加打印区域 ID 和隐藏区域 ID。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dff2a5c1efbebb4096ef43e3c77ee3b2.png)
-保存以后，回到表单页面，选择打印按钮，如下图实现打印。
+9. 保存以后，回到表单页面，选择**打印**按钮，如下图实现打印。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e59e2a889b86d63cb9a1e8a5f2ee818e.png)
 

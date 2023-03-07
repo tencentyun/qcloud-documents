@@ -1,0 +1,91 @@
+## 服务端验证结果
+**此方式用于：**
+合作伙伴服务端生成签名，并调用银行卡识别服务端查询结果，鉴权完成后返回结果（服务端上传 order_no 和 wbappid 查询）。
+
+### 合作方后台生成签名
+#### 准备步骤
+- **前置条件：**请合作方确保 SIGN ticket 已经正常获取，获取方式请参见 [SIGN ticket 获取](https://cloud.tencent.com/document/product/1007/37305) 。
+- 合作方为银行卡 OCR 识别服务生成签名，需要具有以下参数：
+
+| 参数         | 说明                            | 来源                                       |
+| ---------- | ----------------------------- | ---------------------------------------- |
+|wbappid| 业务流程唯一标识  | 参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请              |
+| order_no   | 订单号，字母/数字组成的字符串，本次银行卡识别合作伙伴上传的订单号，唯一标识   | 合作方自行分配，不要带有特殊字符                               |
+| version    | 默认值：1.0.0                     |                              -            |
+| ticket | 合作伙伴服务端缓存的 tikcet，注意是 SIGN 类型 | 获取方式请参见 [SIGN ticket 获取](https://cloud.tencent.com/document/product/1007/37305) |
+| nonceStr   | 32位随机字符串，字母和数字              | 合作方自行生成，不要带有特殊字符                                  |
+
+#### 基本步骤
+1. 生成一个32位的随机字符串 nonceStr（其为字母和数字，登录时也要用到）。
+2. 将 wbappid、order_no、version、ticket、nonceStr 共5个参数的值进行字典序排序。
+3. 将排序后的所有参数字符串拼接成一个字符串。
+4. 将排序后的字符串进行 SHA1 编码，编码后的40位字符串作为签名（sign）。
+
+>!签名算法请参见 [签名算法说明](https://cloud.tencent.com/document/product/1007/37307) 。
+
+### 银行卡 OCR 识别结果查询接口
+#### 请求
+- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/server/getBankCardOcrResult`
+- **请求方法：**GET
+- **请求参数：**
+
+|参数 | 说明 |  类型   |长度（字节） |  是否必填|
+|------|--------|---------|-----------------|-------------|
+|app_id |请您 [点此链接](https://cloud.tencent.com/document/product/1007/56130) 扫描二维码添加腾讯云人脸核身小助手，进行线下对接获取  |String|  腾讯服务分配| 是|
+|order_no|  订单号，字母/数字组成的字符串，合作方订单的唯一标识| String| 32  |是|
+|get_file|  是否需要获取银行卡 OCR 图片文件<br/>值为1：返回文件<br/>其他：不返回  |String|  1 |否|
+|nonce| 随机数|  String  |32 |是|
+|version  |版本号，默认值：1.0.0  |String |20 |是|
+|sign |签名值，使用本页第一步生成的签名|  String| 40  |是|
+
+
+- **请求示例：**
+```
+https://miniprogram-kyc.tencentcloudapi.com/api/server/getBankCardOcrResult?app_id=xxx&nonce=xxx&order_no=xxx&version=1.0.0&sign=xxx&get_file=xxxx
+```
+
+#### 响应
+**响应参数：**
+
+|参数|  类型  |说明|
+|-----|---------|-----|
+|code|  String  |0：银行卡识别成功|
+|msg  |String|  返回结果描述|
+|orderNo| String| 订单编号|
+|bankCardNo|  String  |resultCode 为0返回：银行卡号|
+|bankCardValidDate  |String |resultCode 为0返回：银行卡有效期|
+|bankcardCropPhoto| Base64 String|  银行卡切边图片|
+|bankcardNoPhoto| Base64 String|  银行卡卡号切边图片|
+|originBankcardPhoto| Base64 String |识别原始图片|
+|warnCode|  String| 银行卡告警码，在银行卡日期失效或者过期会提示<br/>当 frontCode 为0时才会出现告警码，告警码的含义请参考通用响应码列表的 [银行卡 OCR 错误码](https://cloud.tencent.com/document/product/1007/47903)|
+|operateTime| String  |做 OCR 的操作时间|
+|multiWarnCode| String  |多重告警码，含义请参考 [银行卡 OCR 错误码](https://cloud.tencent.com/document/product/1007/47903)|
+|clarity| String  |图片清晰度|
+
+**响应示例：**
+```
+{
+   "code":"0",
+   "msg":"请求成功",
+   "bizSeqNo":"21062120001184412617492807497465",
+   "result":{
+        "bizSeqNo":"21062120001184412617492807497465",
+        "transactionTime":"20210621174928",
+        "orderNo":"bankcardPic5923ab9a3bc34488b51",
+        "bankCardNo":"xxxxxxxxxxxxxxxxxxx",
+        "bankCardValidDate":"12/2024",
+        "warnCode":"0",
+        "multiWarnCode":"0",
+        "operateTime":"2021-06-21 17:40:06",
+        "clarity":"79",
+        "success":false
+},
+"transactionTime":"20210621174928"
+}
+```
+
+>!
+>- 银行卡照片信息作为存证，合作伙伴可以通过此接口拉取识别结果和文件，需要注意请求参数的 get_file 需要设置为1；如果不上传参数或者参数为空，默认不返回照片信息。为确保用户操作整体流程顺利完成，部分情况下获取照片会有1秒左右的延迟。
+>- 照片均为 Base64 位编码，其中照片解码后格式一般为 JPG。
+>- 对于银行卡 OCR 识别有日期失效或者过期的情况，详情请参见通用响应码列表的 [银行卡 OCR 错误码](https://cloud.tencent.com/document/product/1007/47903)。
+>- success：false 无意义，合作伙伴可忽略，无需处理。 

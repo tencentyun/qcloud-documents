@@ -56,7 +56,7 @@
 
 #### Google FCM
 
->? 如果您的应用不面向海外客户，可不完成本 Google FCM 系列操作。
+>? 如果您的应用不面向境外客户，可不完成本 Google FCM 系列操作。
 
 1. 前往 [Google Firebase控制台](https://console.firebase.google.com/) 创建一个项目，无需启用 Google Analysis。
 ![](https://qcloudimg.tencent-cloud.cn/raw/80c3108f8685752170721ac51052aead.png)
@@ -224,11 +224,11 @@ apksigner sign --ks keystore.jks --ks-pass pass:您创建的keystore密码 --out
 
 在您的项目中安装 IM Flutter 离线推送插件。
 
-请注意，我们提供两个版本的消息推送插件，中国大陆版和国际版。iOS都使用APNS通道，但安卓通道有差异。
+请注意，我们提供两个版本的消息推送插件，中国大陆版和国际版。iOS都使用APNS通道，但 Android 通道有差异。
 
 | 版本类型 | 包名 | Google FCM 支持 | 国内厂商原生支持 | 描述 |
 |---------|---------|---------|---------|---------|
-| 中国大陆版 | [tencent_chat_push_for_china](https://pub.dev/packages/tencent_chat_push_for_china) | 否 | 是 | 安卓离线推送仅走国内厂商原生通道 |
+| 中国大陆版 | [tencent_chat_push_for_china](https://pub.dev/packages/tencent_chat_push_for_china) | 否 | 是 | Android 离线推送仅走国内厂商原生通道 |
 | 国际版 | [tim_ui_kit_push_plugin](https://pub.dev/packages/tim_ui_kit_push_plugin) | 是 | 是 | 在配置 Google FCM 相关信息，且当前设备 Google FCM 可用的情况下，优先使用 Google FCM 通道，其次再尝试国内厂商通道 |
 
 请根据目标客户群里，选用合适的推送插件。
@@ -278,7 +278,7 @@ static final PushAppInfo appInfo = PushAppInfo(
 
 #### Google FCM
 
->? 如果您的应用不面向海外客户，可不完成本 Google FCM 系列操作。如需要，请保证使用的推送插件为国际版 [tim_ui_kit_push_plugin](https://pub.dev/packages/tim_ui_kit_push_plugin)。
+>? 如果您的应用不面向境外客户，可不完成本 Google FCM 系列操作。如需要，请保证使用的推送插件为国际版 [tim_ui_kit_push_plugin](https://pub.dev/packages/tim_ui_kit_push_plugin)。
 
 ##### 兼容 Android 模拟器调试
 
@@ -968,16 +968,12 @@ flutter pub add tim_ui_kit_push_plugin
 
 #### Android
 
-1. 确保 `@mipmap/ic_launcher` 存在且为您的应用 Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
+确保 `@mipmap/ic_launcher` 存在且为您的应用 Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3a5b95e6ffc519890122b7d474101a0.png)
+
 如果不存在，可手动将您的应用 Icon 复制进去，或通过 Android Studio 自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9641cb0de6a2172f57064d08f32a5a68.png)
-2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，在您应用的主 activity 中，添加如下代码。
-```xml
-<activity
-    android:showWhenLocked="true"
-    android:turnScreenOn="true">
-```
+
 
 #### iOS
 

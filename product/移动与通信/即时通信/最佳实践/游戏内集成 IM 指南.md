@@ -109,7 +109,7 @@ IM 存储方案包含资料的存储和其读写能力。下面介绍 IM 存储�
 
 #### IM 用户资料存储限制
 - **业务特性限制**
- - 存储数据：string 和 buffer 类型的恶存储长度不得超过500自解
+ - 存储数据：string 和 buffer 类型的恶存储长度不得超过500字节
  - 自定义字段：自定义字段的关键字必须是英文字母且长度不得超过8字节，自定义字段的值最长不能超过500字节
  - 好友关系链：单个用户支持3000个好友
 - **接口相关限制**
@@ -141,7 +141,7 @@ TencentIMSDK.AddRecvNewMsgCallback((List<Message> messages, string user_data)=>{
   }
 })
 // 监听 `RecvNewMsgCallback`回调，在其中接受消息
-// 希望停止接收消息，调用 `RemoveRecvNewMsgCallback`移除舰艇。该步骤非必需，可按照业务需求调用。
+// 希望停止接收消息，调用 `RemoveRecvNewMsgCallback`移除监听。该步骤非必需，可按照业务需求调用。
 ```
 关于更多有关内容请参见 [Unity-接收消息](https://cloud.tencent.com/document/product/269/76657)。
 - **系统发送邮件**：系统向用户发系统邮件可以通过 服务端 API 的几种方式，下面列出不同方法的特点：
@@ -155,7 +155,7 @@ TencentIMSDK.AddRecvNewMsgCallback((List<Message> messages, string user_data)=>{
 </thead>
 <tbody><tr>
 <td><a href="https://cloud.tencent.com/document/product/269/2282">单发单聊消息</a></td>
-<td>向指定账号发消息，接收方看到的发送着不是管理员，而是管理员指定的账号</td>
+<td>向指定账号发消息，接收方看到的发送者不是管理员，而是管理员指定的账号</td>
 <td>向某个特定用户发送消息，如段位赛奖励等</td>
 </tr>
 <tr>
@@ -525,10 +525,10 @@ TIMResult res = TencentIMSDK.GroupGetMemberInfoList(param, (int code, string des
 
 ### 组内语音/视频聊天
 
-游戏内的语音/视频聊天也是一项很重要的功能。腾讯云 IM 提供给予即时通信 IM 和 [实施音视频品视频 TRTC](https://cloud.tencent.com/document/product/647) 音视频通话功能（TUICallKit），为 IM 聊天提供实施的音频通话或视频通话。
+游戏内的语音/视频聊天也是一项很重要的功能。腾讯云 IM 提供即时通信 IM 和 [实时音视频品视频 TRTC](https://cloud.tencent.com/document/product/647) 音视频通话功能（TUICallKit），为 IM 聊天提供实时的音频通话或视频通话。
 
 >? 
->- 为了更好的体验音视频通话功能，我们面为为每个 SDKAppID 提供了音视频通话能力7天体验版。您可以在 IM [控制台](https://console.cloud.tencent.com/im) 中为您的应用领取体验版进行体验使用，每个 SDKAppID 有且仅有一次领取体验版的机会。
+>- 为了更好的体验音视频通话功能，我们为每个 SDKAppID 提供了音视频通话能力7天体验版。您可以在 IM [控制台](https://console.cloud.tencent.com/im) 中为您的应用领取体验版进行体验使用，每个 SDKAppID 有且仅有一次领取体验版的机会。
 >- 更多有关集成音视频通话能力和价格，详情请见 [音视频通话](https://cloud.tencent.com/document/product/269/82462)。更多关于 TUICallKit 的内容，请参见 [含 UI 集成方法-音视频通话](https://cloud.tencent.com/document/product/269/72445)。
 
 

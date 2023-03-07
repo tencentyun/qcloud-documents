@@ -1,16 +1,16 @@
-本文将为您介绍如何上报 Jaeger HTTP 上报 Go 应用数据。
+本文将为您介绍如何通过 opentelemetry - grpc-go 上报 Go 应用数据。
 
 ## 操作步骤
 
 ### 步骤1：获取接入点和 Token
-进入**应用监控** > **应用列表**，单击**接入应用**页面，在接入应用时选择 GO 语言与 Jaeger HTTP 的数据采集方式。
+进入**应用监控** > **应用列表**，单击**接入应用**页面，在接入应用时选择 GO 语言与  opentelemetry - grpc-go 的数据采集方式。 
 在选择接入方式步骤获取您的接入点和 Token，如下图所示：
 ![](https://main.qcloudimg.com/raw/d7d94913947d31edf70e85c6462c6bac.png)
 
 
 
 ### 步骤2：修改接入点信息
-> ? 我们采用 grpc-go 拦截器方式上报数据，需要修改接入点信息为：[ap-guangzhou.apm.tencentcs.com](http://ap-guangzhou.apm.tencentcs.com/):14268/api/traces，可以直接将数据上报到 collector，无需使用 agent。
+> ? 我们采用 grpc-go 拦截器方式上报数据，需要修改接入点信息为：ap-guangzhou.apm.tencentcs.com:14268/api/traces，可以直接将数据上报到 collector，无需使用 agent。
 
 ### 步骤3：引入依赖
 需要引入 opentelemetry 的 SDK 埋点依赖。
