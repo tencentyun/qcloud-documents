@@ -4,7 +4,7 @@
 
 ### 安装 Fresco 和 TPG SDK
 
-Fresco是一个知名开源的图片缓存库。更多信息，请参见[Fresco 官方文档](https://frescolib.org/docs/index.html)
+Fresco是一个知名开源的图片缓存库。更多信息，请参见[Fresco 官方文档](https://frescolib.org/docs/index.html)。
 
 ```
 implementation 'com.qcloud.cos:tpg:1.3.8' 
@@ -58,9 +58,9 @@ draweeView.setController(controller);
 
 ### 步骤二：使用 Fresco 加载图片
 
-更多信息，请参见[Fresco 官方文档](https://frescolib.org/docs/index.html)
+更多信息，请参见[Fresco 官方文档](https://frescolib.org/docs/index.html)。
 
-1、布局文件中加入 SimpleDraweeView
+1. 布局文件中加入 SimpleDraweeView
 
 ```
 <com.facebook.drawee.view.SimpleDraweeView
@@ -71,7 +71,7 @@ draweeView.setController(controller);
   />
 ```
 
-2、开始加载图片
+2. 开始加载图片
 
 如果是全局配置 TPG 解码器，则直接使用 Fresco 加载图片即可。
 
