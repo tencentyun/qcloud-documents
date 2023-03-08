@@ -5,9 +5,9 @@
 <table>
 <tr>
 <th width="20%">带宽类型</th>
-<th>线路说明</th>
-<th width="20%">计费模式</th>
-<th width="19%">创建说明</th>
+<th width="25%">线路说明</th>
+<th width="25%">计费模式</th>
+<th width="20%">创建说明</th>
 </tr>
 <tr>
 <td><a href="#bgp">常规 BGP 带宽包</a></td>
@@ -28,11 +28,6 @@
 <tr>
 <td rowspan="2"><a href="#singleip">移动/联通/电信带宽包</a></td>
 <td rowspan="2">通过单个网络运营商访问公网，静态单线 IP 线路类型的带宽包
-
-<dx-alert infotype="explain" title="">
-自2022年06月01日00时00分起，静态单线 IP（移动/电信/联通共享带宽包）将支持按天结算，如有疑问请咨询<a href="https://cloud.tencent.com/online-service">  在线支持</a>，给您带来不便，敬请谅解。
-</dx-alert>
-
 </td>
 <td>后付费模式（后付费-月95计费）</td>
 </tr>
