@@ -16,9 +16,7 @@
 ```
 
 ### 使用SDWebImage 直接加载TPG图。
-SDWebImage-CloudInfinite 模块在app启动时已自动将TPG解码器加入到SDWebImage解码器队列中，在加载解码器时自动找到TPG解码器来解码图片。
-支持动图，无需额外操作。
-使用时与SDWebImage使用没有任何区别。
+SDWebImage-CloudInfinite 模块在app启动时已自动将TPG解码器加入到SDWebImage解码器队列中，在加载解码器时自动找到TPG解码器来解码图片。支持动图，无需额外操作。使用时与SDWebImage使用没有任何区别。
 
 **Objective-C**
 ```
