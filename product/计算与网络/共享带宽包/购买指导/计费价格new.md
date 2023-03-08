@@ -3,17 +3,43 @@
 ## 带宽类型
 共享带宽包按照带宽类型，可分为如下类型的带宽包：
 <table>
-<tr><th width="30%">带宽类型</th><th>说明</th></tr>
-<tr><td><a href="#bgp">常规 BGP 带宽包</a></td><td>普通 BGP IP 线路类型的带宽包。可手动创建。</td></tr>
-<tr><td><a href="#cn2">精品 BGP 带宽包</a></td><td>使用专属线路的精品 BGP IP 线路类型的带宽包。可手动创建。</td></tr>
-<tr><td><a href="#anycast">Anycast 加速 BGP 带宽包</a></td><td>采用 Anycast 加速 BGP IP 线路类型的带宽包。自动创建，不支持手动创建。</td></tr>
-<tr><td><a href="#singleip">移动/联通/电信带宽包</a></td><td>通过单个网络运营商访问公网，静态单线 IP 线路类型的带宽包。自动创建，不支持手动创建。
+<tr>
+<th width="20%">带宽类型</th>
+<th>线路说明</th>
+<th width="20%">计费模式</th>
+<th width="19%">创建说明</th>
+</tr>
+<tr>
+<td><a href="#bgp">常规 BGP 带宽包</a></td>
+<td>普通 BGP IP 线路类型的带宽包</td>
+<td rowspan="2">预付费模式、后付费模式（后付费-按带宽计费、后付费-月TOP5计费、后付费-月95计费）</td>
+<td rowspan="2">可在控制台手动创建</td>
+</tr>
+<tr>
+<td><a href="#cn2">精品 BGP 带宽包</a></td>
+<td>使用专属线路的精品 BGP IP 线路类型的带宽包</td>
+</tr>
+<tr>
+<td><a href="#anycast">Anycast 加速 BGP 带宽包</a></td>
+<td>采用 Anycast 加速 BGP IP 线路类型的带宽包</td>
+<td>后付费模式（后付费-月95计费）</td>
+<td rowspan="2">自动创建，不支持手动创建</td>
+</tr>
+<tr>
+<td rowspan="2"><a href="#singleip">移动/联通/电信带宽包</a></td>
+<td rowspan="2">通过单个网络运营商访问公网，静态单线 IP 线路类型的带宽包
 
 <dx-alert infotype="explain" title="">
 自2022年06月01日00时00分起，静态单线 IP（移动/电信/联通共享带宽包）将支持按天结算，如有疑问请咨询<a href="https://cloud.tencent.com/online-service">  在线支持</a>，给您带来不便，敬请谅解。
 </dx-alert>
 
-</td></tr>
+</td>
+<td>后付费模式（后付费-月95计费）</td>
+</tr>
+<tr>
+<td>后付费模式（后付费-按日结算）</td>
+<td>可在控制台手动创建</td>
+</tr>
 </table>
 
 ## [常规 BGP 带宽包](id:bgp)
