@@ -1,5 +1,5 @@
 Apache Zeppelin 是一款基于 Web 的 Notebook 产品，能够交互式数据分析。使用 Zeppelin，您可以使用丰富的预构建语言后端（或解释器）制作交互式的协作文档，例如 Scala(Apache Spark)、Python(Apache Spark)、SparkSQL、 Hive、Shell 等。
->? EMR 330及以上、EMR 260及以上，已默认配置了 flink、hbase、kylin、livy、spark的Interpreter，其他版本和组件可参考 [官方文档](https://zeppelin.apache.org/) 根据 Zepplin 版本进行配置。
+>? EMR-V3.3.0及以上、EMR-V2.6.0及以上，已默认配置了 flink、hbase、kylin、livy、spark 的 Interpreter，其他版本和组件可参考 [官方文档](https://zeppelin.apache.org/) 根据 Zepplin 版本进行配置。
 
 
 ## 前提条件
