@@ -3,17 +3,38 @@
 ## 带宽类型
 共享带宽包按照带宽类型，可分为如下类型的带宽包：
 <table>
-<tr><th width="30%">带宽类型</th><th>说明</th></tr>
-<tr><td><a href="#bgp">常规 BGP 带宽包</a></td><td>普通 BGP IP 线路类型的带宽包。可手动创建。</td></tr>
-<tr><td><a href="#cn2">精品 BGP 带宽包</a></td><td>使用专属线路的精品 BGP IP 线路类型的带宽包。可手动创建。</td></tr>
-<tr><td><a href="#anycast">Anycast 加速 BGP 带宽包</a></td><td>采用 Anycast 加速 BGP IP 线路类型的带宽包。自动创建，不支持手动创建。</td></tr>
-<tr><td><a href="#singleip">移动/联通/电信带宽包</a></td><td>通过单个网络运营商访问公网，静态单线 IP 线路类型的带宽包。自动创建，不支持手动创建。
-
-<dx-alert infotype="explain" title="">
-自2022年06月01日00时00分起，静态单线 IP（移动/电信/联通共享带宽包）将支持按天结算，如有疑问请咨询<a href="https://cloud.tencent.com/online-service">  在线支持</a>，给您带来不便，敬请谅解。
-</dx-alert>
-
-</td></tr>
+<tr>
+<th width="20%">带宽类型</th>
+<th width="25%">线路说明</th>
+<th width="25%">计费模式</th>
+<th width="20%">创建说明</th>
+</tr>
+<tr>
+<td><a href="#bgp">常规 BGP 带宽包</a></td>
+<td>普通 BGP IP 线路类型的带宽包</td>
+<td rowspan="2">预付费模式、后付费模式（后付费-按带宽计费、后付费-月TOP5计费、后付费-月95计费）</td>
+<td rowspan="2">可在控制台手动创建</td>
+</tr>
+<tr>
+<td><a href="#cn2">精品 BGP 带宽包</a></td>
+<td>使用专属线路的精品 BGP IP 线路类型的带宽包</td>
+</tr>
+<tr>
+<td><a href="#anycast">Anycast 加速 BGP 带宽包</a></td>
+<td>采用 Anycast 加速 BGP IP 线路类型的带宽包</td>
+<td>后付费模式（后付费-月95计费）</td>
+<td rowspan="2">自动创建，不支持手动创建</td>
+</tr>
+<tr>
+<td rowspan="2"><a href="#singleip">移动/联通/电信带宽包</a></td>
+<td rowspan="2">通过单个网络运营商访问公网，静态单线 IP 线路类型的带宽包
+</td>
+<td>后付费模式（后付费-月95计费）</td>
+</tr>
+<tr>
+<td>后付费模式（后付费-按日结算）</td>
+<td>可在控制台手动创建</td>
+</tr>
 </table>
 
 ## [常规 BGP 带宽包](id:bgp)
@@ -43,14 +64,13 @@
 <td align="left">90</td>
 </tr>
 <tr>
-<td align="left">中国香港、中国台北、首尔、莫斯科、圣保罗、多伦多
+<td align="left">中国香港、中国台北、首尔、圣保罗、多伦多
 </td>
 <td align="left">100</td>
 </tr>
 </tbody></table>
 
 ### 后付费带宽包
-
 #### 按带宽计费
 <table>
 <thead>
@@ -69,8 +89,6 @@
 <td>4.6</td>
 </tr>
 </tbody></table>
-
-
 
 #### 按月结算
 >?常规 BGP 后付费带宽包目前处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
@@ -152,7 +170,7 @@
 <td align="left">288</td>
 </tr>
 <tr>
-<td align="left">欧洲（法兰克福、莫斯科）</td>
+<td align="left">欧洲（法兰克福）</td>
 <td align="left">108</td>
 <td align="left">108</td>
 <td align="left">108</td>
@@ -178,7 +196,7 @@
 >?
 >- 自2022年06月01日00时00分起，静态单线 IP（电信/联通/移动共享带宽包）将支持按天结算，如有疑问请咨询[ 在线支持](https://cloud.tencent.com/online-service)，给您带来不便，敬请谅解。
 >- 目前仅广州、上海、南京、济南、杭州、福州、北京、石家庄、武汉、长沙、成都、重庆地域支持静态单线 IP 线路类型，其他地域支持情况请以控制台页面为准。
->- 该功能处于内测阶段，如需体验，请提交[ 内测申请](https://cloud.tencent.com/apply/p/6nzb3jwbsk)。广州、上海、南京、北京、成都、重庆地域暂未开放申请，如需使用，请联系您的商务经理。
+>- 该功能处于内测阶段，广州、上海、南京、北京、成都、重庆地域暂未开放申请，如需使用，请联系您的商务经理。
 >- 按月结算计费方式仅限月消费大于10万元的客户申请，可联系您的商务经理开通，或提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 >
 
