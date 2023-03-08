@@ -20,7 +20,6 @@ Apache Zeppelin 是一款基于 Web 的 Notebook 产品，能够交互式数据�
 2. EMR 3.3.0 及以上、EMR 2.6.0 及以上，已默认配置 Spark 对接 EMR 的集群（Spark On Yarn）。
 	- 如果您的版本是 EMR 3.1.0、EMR 2.5.0、EMR 2.3.0 请参考 [文档](https://zeppelin.apache.org/docs/0.8.2/interpreter/spark.html) 进行 Spark 解释器配置。
 	- 如果您的版本是 EMR3.2.1，请参考 [文档](https://zeppelin.apache.org/docs/0.9.0/interpreter/spark.html) 进行 Spark 解释器配置。
-![](https://main.qcloudimg.com/raw/3794475f902450a00a86e2bb00dd3c42.png)
 3. 进入自己的 notebook。
  ![](https://main.qcloudimg.com/raw/d56fe984a78c0f8f59498d2c24ee5b73.png)
 4. 编写 wordcount 程序，并运行如下命令：
