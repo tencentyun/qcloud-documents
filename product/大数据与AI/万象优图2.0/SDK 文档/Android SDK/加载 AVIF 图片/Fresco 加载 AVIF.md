@@ -9,6 +9,8 @@ Fresco是一个知名开源的图片缓存库。更多信息，请参见 [Fresco
 ```
 implementation 'com.qcloud.cos:avif:1.1.0'   
 implementation 'com.facebook.fresco:fresco:version'
+// 如果需要支持 avif 动图解码器 则需要加上 fresco:animated-base 依赖
+implementation 'com.facebook.fresco:animated-base:version'
 ```
 
 ### 步骤一：配置解码器
