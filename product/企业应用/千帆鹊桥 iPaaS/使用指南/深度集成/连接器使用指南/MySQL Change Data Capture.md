@@ -53,7 +53,7 @@ show variables like 'log_bin';
   show variables like '%binlog_format%';
   show variables like '%binlog_row_image%';
 ```
-    - 变量 binlog_format 的值应该为“ROW”，变量 binlog_row_image 的值应该为“FULL”。如果满足要求，直接跳到 [2](https://support.huaweicloud.com/usermanual-roma/fdi-ug-190624018.html#fdi-ug-190624018__li1053633210211)，否则继续执行下一步。
+    - 变量 binlog_format 的值应该为“ROW”，变量 binlog_row_image 的值应该为“FULL”。如果满足要求，直接跳到 2，否则继续执行下一步。
  3. 执行以下命令退出数据库。
 ```
 exit;

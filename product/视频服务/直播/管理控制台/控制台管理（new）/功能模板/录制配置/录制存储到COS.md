@@ -23,8 +23,8 @@
 
 1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
 2. 在直播录制中选择录制存储至 COS。
-3. 单击**创建录制模板** 设置模板信息，进行如下配置：
-   ![](https://qcloudimg.tencent-cloud.cn/raw/5b4be3ce104a74e1092053be5ffcda8a.png)
+3. 单击**创建模板** 设置模板信息，进行如下配置：
+   ![](https://qcloudimg.tencent-cloud.cn/raw/6330b07b1247185083ed191ff7231f7c.png)
 <table>
    <thead><tr><th width="20%" colspan=2>配置项</th><th>配置描述</th></tr></thead>
    <tbody><tr>
@@ -37,13 +37,14 @@
    </tr><tr>   
    <td rowspan=3 width="10%">录制内容</td>
    <td width="30%">录制原始流</td> 
-   <td>选择该配置会在直播流转码（包括转码、加水印及混流）前进行录制，录制的视频不带转码、水印及混流效果，对 WebRTC 推流录制原始流会丢失音频，建议选择其它录制内容。</ul></td>
+   <td>录制视频针对直播原始码率录制，默认录制原始流。选择该配置会在直播流转码（包括转码、加水印及混流）前进行录制，录制的视频不带转码、水印及混流效果。对 WebRTC 推流录制原始流可能出现音频播放不兼容的情况，建议选择“带水印录制”或“指定转码流录制”。</ul></td>
    </tr><tr>
    <td>带水印录制</td>
-   <td>选择该配置会在直播流加水印模板配置的水印后进行录制。</td>
+   <td>选择该配置会在直播流加水印模板配置的水印后进行录制，若未配置水印模板则录制原始流。</td>
    </tr><tr>
    <td>指定转码流录制</td>
-   <td>单击指定转码流录制，可选择已配置的转码模板，或点击模板名称前往修改转码模板配置。选择该配置会在推流后自动根据转码模板id发起转码进行录制，若转码模板被误删，则按带水印录制。</td>
+   <td>单击指定转码流录制，可选择已配置的转码模板，或点击模板名称前往修改转码模板配置。选择该配置会在推流后自动根据转码模板id发起转码进行录制，若转码模板被误删，则效果等同于录制内容"按带水印录制"
+。</td>
    </tr><tr>
    <td colspan=2>录制格式</td>
    <td>录制视频输出格式有  HLS、FLV、MP4 和 AAC 四种，其中 AAC 为纯音频录制。</td>
@@ -78,11 +79,11 @@
 				<li>可在 Bucket 中选择您已在 <b>对象存储</b> 中创建并完成授权的 COS bucket。</li>
 				<li>Region 为上述 Bucket 所属地域信息，不可修改。</li>
 </ul></td>
-</tr><tr>      
-<td colspan=2>容灾存储路径</td>      
+</tr><tr>      
+<td colspan=2>容灾存储路径</td>      
 <td>可开启容灾存储路径，当网络抖动导致录制文件不能存储到主存储路径时，系统会自动将文件存储至容灾路径下，以防止文件丢失。当主存储路径恢复后，容灾路径下的录制文件会自动同步到主存储路径下。主备region不能相同。</td>
-</tr><tr>      
-<td colspan=2>存储文件夹</td>      
+</tr><tr>      
+<td colspan=2>存储文件夹</td>      
 <td><ul style="margin-bottom:0px"><li>录制存储文件夹默认按照 <code>{RecordSource}/{Domain}/{AppName}/{StreamID}/{RecordId}/{StartYear}-{StartMonth}-{StartDay}-{StartHour}-{StartMinute}-{StartSecond}</code> 进行存储。其中变量包含：</li>
 <li>{RecordSource}：录制内容，原始流则为origin，转码流则为转码模板id</li>  
 <li>{StartYear}：开始时间-年</li> 
@@ -102,12 +103,11 @@
 > ? 由于录制文件是边录边传，导致无法在上传前获取到结束时间，无法在文件名中添加结束时间。
 
 [](id:conect)
-
 ## 关联域名
 
 1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)>录制存储至COS。
    - **直接关联域名：**单击左上方的 **绑定域名**。
-     ![](https://main.qcloudimg.com/raw/d32d938925b1aec96c0e6cfc418eb697.png)
+     ![](https://qcloudimg.tencent-cloud.cn/raw/7c0525f583d65b27adf82ff89f0a3ef8.png)
    - **新录制模板创建成功后关联域名：**录制模板创建成功后，单击提醒框中的 **去绑定域名**。
      ![](https://main.qcloudimg.com/raw/4de2cb134a48920fc5527217704e7f76.png)
 2. 在域名绑定窗口中，选择您需绑定的**录制模板**及**推流域名**，单击 **确定** 即可绑定成功。
@@ -118,7 +118,7 @@
 ## 解除绑定
 1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)>录制存储至COS。
 2. 选择已关联域名的录制模板，选择需要解绑的域名，单击右侧的 **解绑**。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/d2f0024b98c330addc479e2d51c8810e.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/440c2bc8eaa91b9e0648cce5ce57d4e4.png)
 3. 确认是否解绑当前关联域名，单击 **确定** 即可解绑。
    ![](https://main.qcloudimg.com/raw/690daf43f9b1d5f57b6033720c19860a.png)
 
@@ -132,7 +132,7 @@
 1. 进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)>录制存储至COS。
 2. 选择您已创建成功的录制模板，并单击右侧的 **编辑**，即可进入修改模板信息。
 3. 单击 **保存** 即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/eba64793c4ade862606eb5dfaedf6a46.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0059445110bafcfbc8c4a985eea53930.png)
 
 
 ## 删除模板

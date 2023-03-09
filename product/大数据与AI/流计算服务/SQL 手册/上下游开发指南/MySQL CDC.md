@@ -456,9 +456,8 @@ insert into print_table select * from mysql_cdc_source_table;
 
 ### 用户权限
 用于同步的源数据库的用户必须拥有以下权限 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD。
-
 ```mysql
-GRANT SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT, SELECT, RELOAD  ON ${database}.${table} TO '${username}';
+GRANT SELECT, SHOW DATABASES, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'user' IDENTIFIED BY 'password';
 FLUSH PRIVILEGES;
 ```
 
@@ -483,9 +482,12 @@ CREATE TABLE db_order_dim (
 ```
 
 ### server-id   定义
-不建议显式的定义`server-id`，避免不同作业读取同一个库可能出现的冲突问题，可以设置为范围值，例如`5400-5405`。也可以使用 SQL Hints 来指定`server-id`
-
-```sql
+不建议显式指定 `server-id`，Oceanus 平台会自动生成随机 `server-id` 值（默认会随机生成一个 `6400 - Integer.MAX_VALUE` 的值），以避免不同作业读取同一个库可能出现的 `server-id` 冲突问题。
+如果必须要手动指定 `server-id` 值，建议设置为范围值，例如 `5400-5405`，因为每个并行读取器应该有一个唯一的服务器 ID，所以 `server-id` 必须是 `5400-5405` 这样的范围，且范围必须大于并行度。
+指定 `server-id` 有以下两种方式：
+1. `mysql-cdc` DDL 的 WITH 参数中指定。
+2. 使用 SQL Hints 来指定 `server-id` 。
+``` 
 SELECT * FROM source_table /*+ OPTIONS('server-id'='5401-5404') */ ;
 ```
 
@@ -500,4 +502,3 @@ SELECT * FROM source_table /*+ OPTIONS('server-id'='5401-5404') */ ;
 2. 读取快照时，源可以在块粒度上执行检查点。
 3. 读取快照时，源不需要获取全局读锁（FLUSH TABLES WITH read lock）。
 
-如果您希望源并行运行，每个并行读取器应该有一个唯一的服务器 ID。此时，server-id 必须是5400~6400这样的范围，且范围必须大于并行度。

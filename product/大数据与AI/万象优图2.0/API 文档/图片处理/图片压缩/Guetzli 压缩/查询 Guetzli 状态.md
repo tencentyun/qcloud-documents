@@ -29,7 +29,7 @@ GET /?guetzli HTTP/1.1
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 章节。
 
 #### 非公共头部
 
@@ -45,7 +45,7 @@ GET /?guetzli HTTP/1.1
 
 #### 公共响应头
 
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 章节。
 
 #### 特有响应头
 
