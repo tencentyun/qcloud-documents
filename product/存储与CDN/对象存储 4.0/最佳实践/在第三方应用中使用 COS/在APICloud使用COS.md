@@ -71,11 +71,11 @@ demo.registerServiceForKey({"serviceKey":"test","useHttps":true})
 | ----------- | ------ | ------------------------------------------------------------ | -------- |
 | serviceKey  | 字符串 | cos 服务实例唯一标识，不传则注册默认服务                      | 否       |
 | appId       | 字符串 | 您的 AppID                                                    | 否       |
-| region      | 字符串 | 服务地域名称,可用的服务地域名称请查看官网 https://www.qcloud.com/document/product/436/6224 中提供的地域，这里填入官网里提供的地域简称，例如 ap-beijing 等。 | 否       |
+| region      | 字符串 | 服务地域名称,可用的服务地域名称请查看官网 ` https://www.qcloud.com/document/product/436/6224 ` 中提供的地域，这里填入官网里提供的地域简称，例如 ap-beijing 等。 | 否       |
 | isPrefixURL | 布尔值 |                                                              | 否       |
 | timeOut     | 整型   | 超时时间                                                     | 否       |
 | serviceName | 字符串 | 服务的基础名称, 默认值为:  myqcloud.com                      | 否       |
-| suffix      | 字符串 | 自定义域名：http://bucketname.suffix 未指定该参数，该存储桶host为 http://bucketname.**** 。 指定该参数为 testsuffix，该存储桶 host 为 http://bucketname.testsuffix.**** 。 在ios 端生效。 | 否       |
+| suffix      | 字符串 | 自定义域名：`http://bucketname.suffix` 未指定该参数，该存储桶host为 http://bucketname.**** 。 指定该参数为 testsuffix，该存储桶 host 为 http://bucketname.testsuffix.**** 。 在ios 端生效。 | 否       |
 | useHttps    | 布尔值 | 是否使用 https                                                | 否       |
 | userAgent   | 字符串 | 设置自定义 ua                                                 | 否       |
 | host        | 字符串 | 自定义域名，不包含“http://”， 在安卓端生效                   | 否       |
@@ -104,15 +104,15 @@ demo.registerTransferManger({"serviceKey":"test","useHttps":true})
 | ----------- | ------ | ------------------------------------------------------------ | -------- |
 | serviceKey  | 字符串 | cos 服务实例唯一标识，不传则注册默认服务                      | 否       |
 | appId       | 字符串 | 您的 AppID                                                    | 否       |
-| region      | 字符串 | 服务地域名称,可用的服务地域名称请查看官网 https://www.qcloud.com/document/product/436/6224 中提供的地域，这里填入官网里提供的地域简称，例如 ap-beijing 等。 | 否       |
+| region      | 字符串 | 服务地域名称,可用的服务地域名称请查看官网 ` https://www.qcloud.com/document/product/436/6224` 中提供的地域，这里填入官网里提供的地域简称，例如 ap-beijing 等。 | 否       |
 | isPrefixURL | 布尔值 |                                                              | 否       |
 | timeOut     | 整型   | 超时时间                                                     | 否       |
 | serviceName | 字符串 | 服务的基础名称, 默认值为:  myqcloud.com                      | 否       |
-| suffix      | 字符串 | 自定义域名：http://bucketname.suffix 未指定该参数，该存储桶 host 为 http://bucketname.**** 。 指定该参数为 testsuffix，该存储桶 host 为 http://bucketname.testsuffix.**** 。在ios 端生效。 | 否       |
+| suffix      | 字符串 | 自定义域名：`http://bucketname.suffix ` 未指定该参数，该存储桶 host 为 http://bucketname.**** 。 指定该参数为 testsuffix，该存储桶 host 为 http://bucketname.testsuffix.**** 。在 ios 端生效。 | 否       |
 | useHttps    | 布尔值 | 是否使用 https                                                | 否       |
 | userAgent   | 字符串 | 设置自定义 ua                                                 | 否       |
-| host        | 字符串 | 自定义域名，不包含“http://”， 在安卓端生效                   | 否       |
-| port        | 整型   | 自定义端口， 在安卓端生效                                    | 否       |
+| host        | 字符串 | 自定义域名，不包含“http://”， 在 Android 端生效                   | 否       |
+| port        | 整型   | 自定义端口， 在 Android 端生效                                    | 否       |
 
 返回参数
 
@@ -373,7 +373,7 @@ demo.uploadObject({
             alert(err.data);
         }else{
             if(ret.result == "begin"){
-                // 在begin时，拿到taskId，用于取消任务。
+                // 在 begin 时，拿到 taskId，用于取消任务。
                 uploadTaskId = JSON.parse(ret.data).taskId;
                 alert(uploadTaskId);
             }
