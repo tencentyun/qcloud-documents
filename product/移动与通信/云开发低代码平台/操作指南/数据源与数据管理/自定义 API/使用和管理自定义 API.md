@@ -10,7 +10,7 @@
 [](id:editor)
 ### 通过低代码编辑器调用 
 进入应用编辑器，可以在应用的低代码编辑器及微搭组件的组件代码中使用，详情可参见 [代码编辑器](https://cloud.tencent.com/document/product/1301/57912)。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/663007350ea32951eb99769ef109a28d.png" width="600px">
+![](https://qcloudimg.tencent-cloud.cn/raw/4acde41263d01b5b047ac2b25d0efb4c.png)
 <dx-codeblock>
 :::  js
 export default async function({event, data}) {
@@ -56,7 +56,7 @@ module.exports = async function (params, context) {
 数据模型需要发布才会在正式环境生效，有两种方式可以发布数据模型：
 - 在  **数据模型列表**页面，找到编辑的数据模型，在 **操作** 列单击 **更多 > 发布**。
 - 在 **自定义 API 详情** 页面，在 **基础信息** 卡片中 **状态 > 立即发布**。 
-![](https://qcloudimg.tencent-cloud.cn/raw/21b3fa4dac8677fbb71f5c735e791036.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b53d700f1caffbbece9b39ddfba8cc76.png)
 
 
 [](id:delete)
