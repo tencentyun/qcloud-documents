@@ -8,7 +8,6 @@
 ### 查看配置
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏选择**域名管理**，单击域名操作列的**管理**，进入域名配置页面，切换 Tab 至**高级配置**，即可找到 **POST 请求大小配置**，POST 请求大小限制支持自定义开启/关闭，默认为关闭状态。开启时，最大可调整限制为200 MB。
-![](https://main.qcloudimg.com/raw/699164be49344192830b158c1fd7fd55.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f084f3111e850e8b8b5be464742e34c5.png)
 
 >!部分平台无 POST 请求大小的限制，域名暂不支持此功能。
-
