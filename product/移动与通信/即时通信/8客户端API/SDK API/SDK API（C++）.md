@@ -67,8 +67,9 @@
 | [SetGroupReceiveMessageOpt](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a866d06c28faf058f253f29be6f5b3fe2) | 设置群聊消息免打扰状态                                                                    |
 | [GetHistoryMessageList](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a4bbdbdd063d5dad2d164059e1f5d7851) | 获取历史消息高级接口                                         |
 | [RevokeMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a3f271fcb935ada0ef05709367638a1a6) | 撤回消息，消息对象可以由 CreateXXXMessage 接口创建得来     |
-| [MarkC2CMessageAsRead](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a024f95bcf2b37a354f11f5b5a4d6920f) | 设置单聊（C2C）消息已读                                      |
-| [MarkGroupMessageAsRead](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#abdf09c92dccfb71b58b8a36f42494b8d) | 设置群组消息已读                                             |                                                
+| [MarkC2CMessageAsRead](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a024f95bcf2b37a354f11f5b5a4d6920f) | 设置单聊（C2C）消息已读（待废弃接口，请使用 [CleanConversationUnreadMessageCount](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#a07c3643440d1ec96ede4a4e67e7b52a9) 接口）                                     |
+| [MarkGroupMessageAsRead](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#abdf09c92dccfb71b58b8a36f42494b8d) | 设置群组消息已读（待废弃接口，请使用 [CleanConversationUnreadMessageCount](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#a07c3643440d1ec96ede4a4e67e7b52a9) 接口）                                      |                                                
+| [MarkAllMessageAsRead](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a78aa9bd36291eb581a347a2cba96509a) | 标记所有会话为已读（待废弃接口，请使用 [CleanConversationUnreadMessageCount](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#a07c3643440d1ec96ede4a4e67e7b52a9) 接口）                                      |                                                
 | [DeleteMessages](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#ac340e09d426d983fb4b6cf48d9a7ebca) | 删除本地及云端的消息                                         |
 | [ClearC2CHistoryMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#aade0f8d9a53a87473990714f17a297bc) | 清空单聊本地及云端的消息                                     |
 | [ClearGroupHistoryMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a1207155633e3deb59616d4deb779d1eb) | 清空群聊本地及云端的消息                                     |
@@ -145,6 +146,7 @@
 | [PinConversation](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#ab5afaa92ec352f112125f5dcef288f8d) | 置顶会话         |
 | [MarkConversation](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#ab8d1930cd9956457cd465bd23aa3bd63) | 标记会话 |
 | [GetTotalUnreadMessageCount](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#a50e0d25b7f47c12c815e610bf5b9a048) | 获取会话总未读数 |
+| [CleanConversationUnreadMessageCount](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#a07c3643440d1ec96ede4a4e67e7b52a9) | 清理会话的未读消息计数 |
 | [CreateConversationGroup](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#ab2d52eebca186348cdc6d655e39303b2) | 创建会话分组 |
 | [GetConversationGroupList](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#afd90c81411d1ab6eeaea2eb7bb888954) | 获取会话分组列表 |
 | [DeleteConversationGroup](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMConversationManager.html#a896e015bc43c459cf8b6d34665f201c6) | 删除会话分组 |
