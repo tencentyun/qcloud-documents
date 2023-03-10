@@ -51,7 +51,7 @@ let image = UIImage.avifImage(withContentsOf: data);
 #import "UIImage+AVIFDecode.h"
 
 // data为图片NSData类型数据
-// 缩小两倍 并指定解码的范围(rect以原图为基准)
+// 缩小两倍 并指定解码的范围( rect 以原图为基准)
 UIImage * image = [UIImage AVIFImageWithContentsOfData:imageData scale:2 rect:CGRectMake(x, y, width, height)];
 ```
 

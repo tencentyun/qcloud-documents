@@ -1,5 +1,5 @@
 
-本文将介绍如何使用 SDWebImage 加载网络AVIF 图片。
+本文将介绍如何使用 SDWebImage 加载网络 AVIF 图片。
 
 ### 安装 AVIF SDK
 
@@ -14,27 +14,27 @@
     pod install
 ```
 
-### 使用SDWebImage 直接加载AVIF图片链接。
-SDWebImage-CloudInfinite 模块在APP启动时已自动将AVIF解码器加入到SDWebImage解码器队列中，在加载解码器时自动找到AVIF解码器来解码图片。支持动图，无需额外操作。使用时与SDWebImage使用没有任何区别。
+### 使用 SDWebImage 直接加载 AVIF 图片链接。
+SDWebImage-CloudInfinite 模块在 APP 启动时已自动将 AVIF 解码器加入到 SDWebImage 解码器队列中，在加载解码器时自动找到 AVIF 解码器来解码图片。支持动图，无需额外操作。使用时与 SDWebImage 使用没有任何区别。
 
 **Objective-C**
 ```
-[imageView sd_setImageWithURL:[NSURL URLWithString:@"AVIF图片链接"]];
+[imageView sd_setImageWithURL:[NSURL URLWithString:@"AVIF 图片链接"]];
 ```
 
 **swift**
 ```
-UIImageView() .sd_setImage(with: NSURL.init(string: "AVIF图片链接"))
+UIImageView() .sd_setImage(with: NSURL.init(string: "AVIF 图片链接"))
 ```
 
 >? 图片链接可以携带万象处理参数。
 
-### 使用SDWebImage指定加载AVIF格式并携带万象处理参数。
-SDWebImage-CloudInfinite 中 UIImageView+CI类是模仿 SDWebImage 调用风格，封装了一组可以传入 transform 的方法。
+### 使用 SDWebImage 指定加载 AVIF 格式并携带万象处理参数。
+SDWebImage-CloudInfinite 中 UIImageView+CI 类是模仿 SDWebImage 调用风格，封装了一组可以传入 transform 的方法。
 
 **Objective-C**
 ```
-// 构建 CITransformation实例
+// 构建 CITransformation 实例
 CITransformation * transform = [CITransformation new];
 
 // 设置TPG格式以及传参方式
