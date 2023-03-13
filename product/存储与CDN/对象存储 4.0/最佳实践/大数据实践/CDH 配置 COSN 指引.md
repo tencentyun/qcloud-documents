@@ -10,7 +10,6 @@ COSN 大数据组件支持情况如下：
 | 组件名称 | COSN 大数据组件支持情况 | 服务组件是否需要重启                         |
 | -------- | ----------------------- | -------------------------------------------- |
 | Yarn     | 支持                    | 重启 NodeManager                             |
-| Yarn     | 支持                    | 重启 NodeManager                             |
 | Hive     | 支持                    | 重启 HiveServer 和 HiveMetastore             |
 | Spark    | 支持                    | 重启 NodeManager                             |
 | Sqoop    | 支持                    | 重启 NodeManager                             |
