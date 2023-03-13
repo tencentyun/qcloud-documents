@@ -10,7 +10,6 @@ COSN 大数据组件支持情况如下：
 | 组件名称 | COSN 大数据组件支持情况 | 服务组件是否需要重启                         |
 | -------- | ----------------------- | -------------------------------------------- |
 | Yarn     | 支持                    | 重启 NodeManager                             |
-| Yarn     | 支持                    | 重启 NodeManager                             |
 | Hive     | 支持                    | 重启 HiveServer 和 HiveMetastore             |
 | Spark    | 支持                    | 重启 NodeManager                             |
 | Sqoop    | 支持                    | 重启 NodeManager                             |
@@ -126,7 +125,7 @@ hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar teragen  -Dmapred.job.maps=500 
 hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar terasort -Dmapred.max.split.size=134217728 -Dmapred.min.split.size=134217728 -Dfs.cosn.read.ahead.block.size=4194304 -Dfs.cosn.read.ahead.queue.size=32 cosn://examplebucket-1250000000/terasortv1/1k-input  cosn://examplebucket-1250000000/terasortv1/1k-output
 ```
 
->?`cosn://    schema`后面请替换为用户大数据业务的存储桶路径。
+>?`cosn://    schema` 后面请替换为用户大数据业务的存储桶路径。
 
 #### 2. Hive
 

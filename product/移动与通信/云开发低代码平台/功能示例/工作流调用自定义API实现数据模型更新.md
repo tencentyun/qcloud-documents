@@ -55,7 +55,7 @@ module.exports = async function (params, context) {
 
 #### 创建触发工作流页面
 创建名称为**合同创建触发工作流**的自定义页面。为了实现通过页面表单提交后触发工作流，这里使用**表单容器**组件绑定数据模型**合同**，保留**合同 ID**、**合同名称**两个字段作为表单提交字段。
-![](https://qcloudimg.tencent-cloud.cn/raw/942890d97b653386d9595609f33a28b1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1334f94e78a9ffb8ef29ce142b1d270e.png)
 
 #### 创建存储数据标识 ID 的变量
 创建变量 ID，用于存储表单提交保存以后返回的数据标识 ID，以及作为工作流的传递参数。
@@ -63,13 +63,13 @@ module.exports = async function (params, context) {
 
 #### 增加变量赋值事件
 选择**调用数据源**事件，将出参的新记录 ID（即数据标识 ID）保存至上面创建的**变量 ID**。
-![](https://qcloudimg.tencent-cloud.cn/raw/731b026f692bac5bd46433b4e18fd81f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/17ca3a2f5562ec762c74862ee1411eb7.png)
 
 #### 增加触发流程事件
 在**变量赋值**成功时添加**触发流程**动作，流程选择上面创建的**合同流程**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ff8fac65d253d111b8d82be9ba3bbf48.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4a4619297e193c77a02ae98f11377e37.png)
 **参数 ID** 使用上面创建的变量 **ID**，作为流程开发的传入变量参数。
-![](https://qcloudimg.tencent-cloud.cn/raw/d2c80dd3c253ca6aa6404edb6b49e8ea.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/06d54e7af387a9e16130f31b7c750bb9.png)
 以上设置完成后，可以发布应用测试结果。
 
 ### 步骤5：结果验证

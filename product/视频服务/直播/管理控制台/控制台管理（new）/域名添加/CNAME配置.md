@@ -72,7 +72,7 @@
     </tr>
 </table>
 5. 单击 **保存**，配置 CNAME 完毕。
-![](https://main.qcloudimg.com/raw/d7babb75869f1b8285e32bff75ccf817.png)
+![](https://main.qcloudimg.com/raw/8fca7c6b1e84403b15191aaeb16e4fc1.png)
 
 >! 
 >- 更多域名解析记录相关问题，请参见 [主机记录和记录值](https://cloud.tencent.com/document/product/302/3468)。
