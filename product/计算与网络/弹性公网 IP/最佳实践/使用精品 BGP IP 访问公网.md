@@ -2,7 +2,6 @@
 >?
 >- 目前仅标准账户类型支持，传统账户类型需升级后才能使用，升级详情请参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。
 >- 仅香港地域支持精品 BGP IP，价格详情请参见 [精品 BGP 包月带宽](https://cloud.tencent.com/document/product/1199/51693#.3Ca-id.3D.22monthly.22.3E.E5.8C.85.E6.9C.88.E5.B8.A6.E5.AE.BD.3C.2Fa.3E)、[精品 BGP 带宽包](https://cloud.tencent.com/document/product/684/15255#.3Ca-id.3D.22cn2.22.3E.E7.B2.BE.E5.93.81-bgp-.E5.B8.A6.E5.AE.BD.E5.8C.85.3C.2Fa.3E)。
->- 如需使用精品 BGP 后付费共享带宽包，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
 >
 
 
