@@ -23,8 +23,8 @@
  部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
 </dx-alert>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/01b281841885cc44f2e9e2da139a68b2.png"/>
-3. 在弹出的**镜像市场**对话框中，选择**基础软件**，输入 **discuz** 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
-4. 按需选择镜像，本文以选择 **Discuz! 3.4 开源论坛|社区系统 基于LNMP搭建 PHP环境 Redis| CentOS** 为例，单击**免费使用**。如下图所示：
+3. 在弹出的**镜像市场**对话框中，选择**全部**，输入 **discuz** 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
+4. 按需选择镜像，本文以选择 **Discuz! X-lighthouse 镜像v2.0** 为例，单击**免费使用**。如下图所示：
 <dx-alert infotype="explain" title="">
 单击镜像名可查看镜像详情。
 </dx-alert>
