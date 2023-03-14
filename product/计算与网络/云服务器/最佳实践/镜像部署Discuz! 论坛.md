@@ -28,7 +28,7 @@
 <dx-alert infotype="explain" title="">
 单击镜像名可查看镜像详情。
 </dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/64d2007c886fb4d1dfa6c1d960a4e05b.png" style="width:718px"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/429bd22bdb1091c8fcaf1d44e07699dc.png" style="width:718px"/>
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
 ### 步骤2：安装并启动 Discuz! 论坛
