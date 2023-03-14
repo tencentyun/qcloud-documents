@@ -14,14 +14,16 @@
 </dx-alert>
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的**新建**。
-2. 根据页面提示选择机型，并在“镜像”中选择**镜像市场** > **从镜像市场选择**。如下图所示：
+2. 根据页面提示选择机型，并在**镜像**中选择**镜像市场** > **从镜像市场选择**。如下图所示：
 <dx-alert infotype="notice" title="">
 - 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
 - 建议选择内存大于2GB，系统盘容量大于40GB的实例配置。
+- 按量计费不支持选择镜像市场的镜像，只有包年包月才可以进行选择。
 </dx-alert>
-<img src="https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png"/>
-3. 在“镜像市场”窗口的搜索框中，选择**运维工具**，输入“宝塔”并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
-4. 按需选择镜像，本文以选择 **[宝塔Windows面板官方版（WAMP/WNMP/Tomcat/Node.js）](https://market.cloud.tencent.com/products/31884)** 为例，单击**免费使用**。如下图所示：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/9aaa2ed5bb07ac7a231ba5d44e5b82be.png"/>
+3. 在**镜像市场**窗口的搜索框中，选择**操作系统**，输入**宝塔**并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/36085906c4e49960fd493f65eb584df7.png" />
+4. 按需选择镜像，本文选择以实际查询出的结果为例，单击**免费使用**。如下图所示：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d77f1c167def23ea16b8ece70f987914.png" />
 5. 在实例关联的安全组需添加放通8888端口的入站规则，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
 存储介质、带宽等其他配置请根据实际需求选择，最终选择购买完成宝塔面板搭建。
