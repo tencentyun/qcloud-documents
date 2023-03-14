@@ -1,34 +1,29 @@
-### APICloud 中使用 cosClient 模块访问 COS
-
-#### 一、简介
+## 简介
 
 本文将介绍如何使用 APICloud 快速集成 cos 功能模块并开发跨平台应用。
 
+## APICloud 相关资源
 
-#### 二、APICloud 相关资源
+- [官网以及文档](https://www.apicloud.com/mod_detail/147670)
+- [视频教程](https://ke.qq.com/course/5911100/14831329532850748#term_id=106129926)
 
-* 官网以及文档：https://www.apicloud.com/mod_detail/147670
-* 视频教程：https://ke.qq.com/course/5911100/14831329532850748#term_id=106129926
-
-#### 三、准备
-
+## 准备
 按照 APICloud 教程创建 App，并在模块库中搜索 cosClient 模块并点击添加。
 
-#### 四、cosClient 简单使用
+## cosClient 简单使用
 
-##### 1. 获取模块实例
+### 1. 获取模块实例
 
 ```
 var demo = api.require('cosClient');
 ```
 
-##### 2. 配置密钥
+### 2. 配置密钥
 
 COS SDK 模块提供两种密钥配置方法：
 
-* 临时密钥（推荐使用）
-  在 script 标签中实现如下方法：
-
+- #### 临时密钥（推荐使用）
+  在 script 标签中实现如下：
 ```
 function refreshCredentail() {
     // 通过请求接口获取临时秘钥 secretID 、secretKey、token、startDate、expirationDate；
@@ -36,36 +31,31 @@ function refreshCredentail() {
     return  "secretID=***&secretKey=***&token=***&startDate=***&expirationDate=***";
 }
 ```
-
-* 永久密钥
-  在注册服务之前设置永久密钥
-
+- #### 永久密钥
+  在注册服务之前设置永久密：
 ```
 var demo = api.require('cosClient');
 demo.setupPermanentCredentail({"secretID":secretID,"secretKey":secretKey});
 ```
 
-##### 3. 注册 cos 服务实例
-
+### 3. 注册 cos 服务实例
 ```
 demo.registerTransferManger({"serviceKey":"test","useHttps":true})
 ```
 
 
-#### 五、cosClient 接口文档
+## cosClient 接口文档
 
-##### 1. 注册基础服务
+### 1. 注册基础服务
 
-* 实例代码
-
+#### 实例代码
 ```
 var demo = api.require('cosClient');
 demo.registerServiceForKey({"serviceKey":"test","useHttps":true})
 ```
 
-* 参数说明
-
-请求参数
+#### 参数说明
+- 请求参数
 
 | 参数名      | 类型   | 说明                                                         | 是否必传 |
 | ----------- | ------ | ------------------------------------------------------------ | -------- |
@@ -81,24 +71,21 @@ demo.registerServiceForKey({"serviceKey":"test","useHttps":true})
 | host        | 字符串 | 自定义域名，不包含“http://”， 在 Android 端生效                   | 否       |
 | port        | 整型   | 自定义端口， 在 Android 端生效                                    | 否       |
 
-返回参数
-
-```
+- 返回参数
 无
-```
 
-##### 2. 注册传输服务
+### 2. 注册传输服务
 
-* 实例代码
+#### 实例代码
 
 ```
 var demo = api.require('cosClient');
 demo.registerTransferManger({"serviceKey":"test","useHttps":true})
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
+- 请求参数
 
 | 参数名      | 类型   | 说明                                                         | 是否必传 |
 | ----------- | ------ | ------------------------------------------------------------ | -------- |
@@ -114,15 +101,13 @@ demo.registerTransferManger({"serviceKey":"test","useHttps":true})
 | host        | 字符串 | 自定义域名，不包含“http://”， 在 Android 端生效                   | 否       |
 | port        | 整型   | 自定义端口， 在 Android 端生效                                    | 否       |
 
-返回参数
-
-```
+- 返回参数
 无
-```
 
-##### 3. 获取桶列表
 
-* 实例代码
+### 3. 获取桶列表
+
+#### 实例代码
 
 ```
 /// 模块名称 cosClient，用过模块名拿到模块实例。
@@ -139,16 +124,15 @@ demo.getBucketList(
 });
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
+- 请求参数
 
 | 参数名     | 类型   | 说明                                                    | 是否必传 |
 | ---------- | ------ | ------------------------------------------------------- | -------- |
 | serviceKey | 字符串 | cos 服务实例唯一标识，不传则使用默认服务实例进行网络请求 | 否       |
 
-返回参数
-
+- 返回参数
 ```
 {
     "result":"success",
@@ -169,9 +153,9 @@ demo.getBucketList(
 
 ```
 
-##### 4. 删除存储桶
+### 4. 删除存储桶
 
-* 实例代码
+#### 实例代码
 
 ```
 /// 模块名称 cosClient，用过模块名拿到模块实例。
@@ -190,9 +174,9 @@ demo.deleteBucket({
 });
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
+- 请求参数
 
 | 参数名     | 类型   | 说明                                                    | 是否必传 |
 | ---------- | ------ | ------------------------------------------------------- | -------- |
@@ -200,19 +184,14 @@ demo.deleteBucket({
 | region     | 字符串 | 桶地域                                                  | 是       |
 | bucket     | 字符串 | 存储桶名称，格式为 BucketName-APPID                     | 是       |
 
-返回参数
-删除成功
-
+- 返回参数
+ - 删除成功
 ```
 {
     "result":"success"
 }
 ```
-
-or
-
-删除失败并返回错误信息
-
+ - 删除失败并返回错误信息
 ```
 {
     "result":"error",
@@ -220,9 +199,9 @@ or
 }
 ```
 
-##### 5. 创建存储桶
+### 5. 创建存储桶
 
-* 实例代码
+#### 实例代码
 
 ```
 /// 模块名称 cosClient，用过模块名拿到模块实例。
@@ -241,9 +220,9 @@ demo.createBucket({
 });
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
+- 请求参数
 
 | 参数名            | 类型   | 说明                                                         | 是否必传 |
 | ----------------- | ------ | ------------------------------------------------------------ | -------- |
@@ -257,19 +236,14 @@ demo.createBucket({
 | readWriteAccount  | 字符串 | 赋予被授权者读写权限。格式: id="OwnerUin"；                  | 否       |
 | enableMAZ         | 布尔值 | 是否使用多 AZ，默认否                                         | 否       |
 
-返回参数
-删除成功
-
+- 返回参数
+ - 创建成功
 ```
 {
     "result":"success"
 }
 ```
-
-or
-
-创建失败并返回错误信息
-
+ - 创建失败并返回错误信息
 ```
 {
     "result":"error",
@@ -278,9 +252,9 @@ or
 ```
 
 
-##### 6. 获取存储桶内容
+### 6. 获取存储桶内容
 
-* 实例代码
+#### 实例代码
 
 ```
 var demo = api.require('cosClient');
@@ -294,9 +268,9 @@ demo.listBucketContent({"serviceKey":"test","bucket":"0-appid","region":"ap-chen
 });
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
+- 请求参数
 
 | 参数名     | 类型   | 说明                                                         | 是否必传 |
 | ---------- | ------ | ------------------------------------------------------------ | -------- |
@@ -309,10 +283,9 @@ demo.listBucketContent({"serviceKey":"test","bucket":"0-appid","region":"ap-chen
 | maxKeys    | 字符串 | 单次返回的最大条目数量，默认1000                             | 否       |
 
 
-返回参数
+- 返回参数
 
-- 成功
-
+ - 获取成功
 ```
 {
     "result":"success",
@@ -344,11 +317,7 @@ demo.listBucketContent({"serviceKey":"test","bucket":"0-appid","region":"ap-chen
 }
 }
 ```
-
-or
-
-- 获取失败并返回错误信息
-
+ - 获取失败并返回错误信息
 ```
 {
     "result":"error",
@@ -356,9 +325,9 @@ or
 }
 ```
 
-##### 7. 上传文件
+### 7. 上传文件
 
-* 实例代码
+#### 实例代码
 
 ```
 var uploadTaskId;
@@ -381,12 +350,12 @@ demo.uploadObject({
 });
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
+- 请求参数
 
 | 参数名             | 类型   | 说明                                                         | 是否必传 |
-| ------------------ | ------ | ------------------------------------------------------------ | -------- |
+| ---------------- | ----------- | ------------------------------------------------------------ | -------- |
 | serviceKey         | 字符串 | cos 服务实例唯一标识，不传则使用默认服务实例进行网络请求      | 否       |
 | region             | 字符串 | 桶地域                                                       | 是       |
 | bucket             | 字符串 | 存储桶名称，格式为 BucketName-APPID                          | 是       |
@@ -398,10 +367,9 @@ demo.uploadObject({
 | enableVerification | 字符串 | 是否在上传完成以后，将 COS 返回的文件 MD5与本地文件算出来的 md5进行校验。默认开启，如果校验出错，文件仍然会被上传到 COS, 不过我们会在本地抛出校验失败的 error。 | 否       |
 
 
-返回参数
+- 返回参数
 
-- 上传初始化阶段
-
+ - 上传初始化阶段
 ```
 {
     "result":"begin",
@@ -412,8 +380,7 @@ demo.uploadObject({
 }
 ```
 
-- 上传阶段
-
+ - 上传阶段
 ```
 {
     "result":"processing",
@@ -424,10 +391,9 @@ demo.uploadObject({
 }
 ```
 
-- 完成
+ - 完成
 
-1. 成功
-
+ - 上传成功
 ```
 {
     "result":"success",
@@ -435,8 +401,7 @@ demo.uploadObject({
 }
 ```
 
-2. 错误
-
+ - 上传失败并返回错误信息
 ```
 {
     "result":"error",
@@ -444,9 +409,8 @@ demo.uploadObject({
 }
 ```
 
-##### 8.  暂停上传
-
-* 实例代码
+### 8.  暂停上传
+#### 实例代码
 
 ```
 var demo = api.require('cosClient');
@@ -454,16 +418,16 @@ var demo = api.require('cosClient');
 demo.pauseUploadObject({"taskId":uploadTaskId});
 ```
 
-* 请求参数
+#### 请求参数
 
 | 参数名 | 类型   | 说明                                        | 是否必传 |
 | ------ | ------ | ------------------------------------------- | -------- |
 | taskId | 字符串 | 上传接口中获取 由业务保存，用于取消当前任务 | 否       |
 
 
-##### 9. 下载文件
+### 9. 下载文件
 
-* 实例代码
+#### 实例代码
 
 ```
 var downloadTaskId;
@@ -487,9 +451,9 @@ demo.uploadObject({
 });
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
+- 请求参数
 
 | 参数名             | 类型   | 说明                                                         | 是否必传 |
 | ------------------ | ------ | ------------------------------------------------------------ | -------- |
@@ -503,10 +467,9 @@ demo.uploadObject({
 | enableVerification | 字符串 | 是否在上传完成以后，将 COS 返回的文件 MD5与本地文件算出来的 MD5进行校验。默认开启，如果校验出错，文件仍然会被上传到 COS, 不过我们会在本地抛出校验失败的 error。默认校验。 | 否       |
 
 
-返回参数
+- 返回参数
 
-- 下载初始化阶段
-
+ - 下载初始化阶段
 ```
 {
     "result":"begin",
@@ -516,8 +479,7 @@ demo.uploadObject({
 }
 ```
 
-- 下载阶段
-
+ - 下载阶段
 ```
 {
     "result":"processing",
@@ -528,10 +490,9 @@ demo.uploadObject({
 }
 ```
 
-- 完成
+ - 完成
 
-1. 成功
-
+ -  下载成功
 ```
 {
     "result":"success",
@@ -539,8 +500,7 @@ demo.uploadObject({
 }
 ```
 
-2. 错误
-
+ -  下载失败并返回错误信息
 ```
 {
     "result":"error",
@@ -548,26 +508,25 @@ demo.uploadObject({
 }
 ```
 
-##### 10. 暂停下载
+### 10. 暂停下载
 
-* 实例代码
-
+#### 实例代码
 ```
 var demo = api.require('cosClient');
 // uploadTaskId 为从下载接口中获取 由业务保存。
 demo.pauseDownloadObject({"taskId":downloadTaskId});
 ```
 
-* 请求参数
+#### 请求参数
 
 | 参数名 | 类型   | 说明                                        | 是否必传 |
 | ------ | ------ | ------------------------------------------- | -------- |
 | taskId | 字符串 | 下载接口中获取 由业务保存，用于取消当前任务 | 否       |
 
 
-##### 11. 获取文件信息
+### 11. 获取文件信息
 
-* 实例代码
+#### 实例代码
 
 ```
 var demo = api.require('cosClient');
@@ -584,9 +543,9 @@ demo.headObject({
 });
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
+- 请求参数
 
 | 参数名     | 类型   | 说明                                                    | 是否必传 |
 | ---------- | ------ | ------------------------------------------------------- | -------- |
@@ -597,10 +556,9 @@ demo.headObject({
 | versionId  | 字符串 | 文件版本号                                              | 否       |
 
 
-返回参数
+- 返回参数
 
-- 成功
-
+ - 获取成功
 ```
 {
     "result":"success",
@@ -608,8 +566,7 @@ demo.headObject({
 }
 ```
 
-- 失败
-
+ - 获取失败并返回错误信息
 ```
 {
     "result":"error",
@@ -618,9 +575,9 @@ demo.headObject({
 ```
 
 
-##### 12. 暂停下载
+### 12. 暂停下载
 
-* 实例代码
+#### 实例代码
 
 ```
 var demo = api.require('cosClient');
@@ -628,16 +585,16 @@ var demo = api.require('cosClient');
 demo.pauseDownloadObject({"taskId":uploadTaskId});
 ```
 
-* 请求参数
+#### 请求参数
 
 | 参数名 | 类型   | 说明                                        | 是否必传 |
 | ------ | ------ | ------------------------------------------- | -------- |
 | taskId | 字符串 | 下载接口中获取 由业务保存，用于取消当前任务 | 否       |
 
 
-##### 13. 删除文件
+### 13. 删除文件
 
-* 实例代码
+#### 实例代码
 
 ```
 var demo = api.require('cosClient');
@@ -655,9 +612,9 @@ demo.deleteObject({
 });
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
+- 请求参数
 
 | 参数名     | 类型   | 说明                                                    | 是否必传 |
 | ---------- | ------ | ------------------------------------------------------- | -------- |
@@ -668,18 +625,16 @@ demo.deleteObject({
 | versionId  | 字符串 | 文件版本号                                              | 否       |
 
 
-返回参数
+- 返回参数
 
-- 成功
-
+ - 删除成功
 ```
 {
     "result":"success",
 }
 ```
 
-- 失败
-
+ - 删除失败并返回错误信息
 ```
 {
     "result":"error",
@@ -687,9 +642,9 @@ demo.deleteObject({
 }
 ```
 
-##### 14. 取消所有请求任务
+### 14. 取消所有请求任务
 
-* 实例代码
+#### 实例代码
 
 ```
 var demo = api.require('cosClient');
@@ -705,19 +660,16 @@ demo.cancelAll({
 });
 ```
 
-* 参数说明
+#### 参数说明
 
-请求参数
-
+- 请求参数
 ```
 |  参数名   | 类型  | 说明 | 是否必传 |
 |  ----  | ----  | --- | --- |
 | serviceKey  | 字符串 | cos服务实例唯一标识，取消对应服务实例发起的网络请求 | 否 |
 ```
 
-返回参数
-
-```
+- 返回参数
 无
-```
+
 
