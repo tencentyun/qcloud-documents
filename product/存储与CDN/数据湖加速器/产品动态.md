@@ -3,7 +3,33 @@ GooseFS 版本更新列表如下，如您有任何疑问或建议，欢迎 [联�
 <table ><thead ><tr>
 <th >版本号</th><th >更新日期</th><th >更新说明</th><th >下载链接</th></tr>
 
-</thead><tbody ><tr>
+</thead><tbody >
+
+<tr>
+<td>1.4.1</td>
+<td>2023年3月1日</td>
+<td><ul>
+<li>功能优化<ol ><li>支持清理和查看未完成文件列表</li>
+<li>优化递归加载元数据（loadmetadata -R）操作加锁粒度</li>
+</ol></li>
+<li>问题修复<ol ><li>修复 Flume 写入场景认证流和数据流状态统一问题</li>
+<li>修复大文件写入耗尽客户端资源后死锁的问题</li>
+
+</ol>
+</ul>
+
+</td>
+<td><li>GooseFS ：<a href="https://downloads.tencentgoosefs.cn/goosefs/1.4.1/release/goosefs-1.4.1-bin.tar.gz" >点击下载</a></li>
+<li>GooseFS（KonaJDK 版本）：<a href="https://downloads.tencentgoosefs.cn/goosefs/1.4.1/release/goosefs-1.4.1-bin-konajdk11.tar.gz" >点击下载</a></li>
+<li>GooseFS 客户端：<a href="https://downloads.tencentgoosefs.cn/goosefs/1.4.1/release/goosefs-client-1.4.1-bin.tar.gz" >点击下载</a></li>
+<li>GooseFS 客户端（KonaJDK 版本）：<a href="https://downloads.tencentgoosefs.cn/goosefs/1.4.1/release/goosefs-client-1.4.1-bin-konajdk11.tar.gz" >点击下载</a></li>
+<li>GooseFS FUSE 客户端：<a href="https://downloads.tencentgoosefs.cn/goosefs/1.4.1/release/goosefs-fuse-1.4.1-bin.tar.gz" >点击下载</a></li>
+<li>GooseFS FUSE 客户端（KonaJDK 版本）：<a href="https://downloads.tencentgoosefs.cn/goosefs/1.4.1/release/goosefs-fuse-1.4.1-bin-konajdk11.tar.gz" >点击下载</a></li>
+</td>
+</tr>
+
+
+<tr>
 <td>1.4.0</td>
 <td>2022年11月11日</td>
 <td><ul>
