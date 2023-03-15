@@ -1,14 +1,14 @@
 ## 合作伙伴服务端验证结果
-此方式用于：合作伙伴服务端生成签名，并调用身份证 NFC 服务端查询结果，鉴权完成后返回结果（服务端上送 orderNo 和 appId 查询）。
+此方式用于：合作伙伴服务端生成签名，并调用实证 NFC 服务端查询结果，鉴权完成后返回结果（服务端上送 orderNo 和 appId 查询）。
 ### 合作方后台生成签名
 #### 准备步骤
 前置条件：请合作方确保 SIGN ticket 已经正常获取，获取方式见 [获取 SIGN ticket](https://cloud.tencent.com/document/product/1007/57613)。
-合作方为身份证 NFC 识别服务生成签名，需要具有以下参数：
+合作方为实证 NFC 识别服务生成签名，需要具有以下参数：
 
 | 参数 | 说明 | 来源 |
 |---------|---------|---------|
 | appId| 腾讯服务分配的 Appid| 参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请 | 
-| orderNo| 订单号，本次NFC识别合作伙伴上送的订单号，唯一标识，字母/数字组成的字符串| 合作方自行分配| 
+| orderNo| 订单号，本次 NFC 识别合作伙伴上送的订单号，唯一标识，字母/数字组成的字符串| 合作方自行分配| 
 | version| 默认值：1.0.0| -| 
 | api ticket| 合作伙伴服务端缓存的   tikcet，注意是 SIGN 类型| 获取方式见 [获取 SIGN ticket](https://cloud.tencent.com/document/product/1007/57613)| 
 | nonceStr | 32位随机字符串，字母和数字| 合作方自行生成| 
@@ -21,7 +21,7 @@
 
 >! 签名算法可参考 [签名算法说明](https://cloud.tencent.com/document/product/1007/57640)。
 
-## 身份证 NFC 识别结果查询接口
+## 实证 NFC 识别结果查询接口
 ### 请求
 请求 URL：`https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult?orderNo=xxx`
 >! 为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
@@ -30,15 +30,15 @@
 报文格式：`Content-Type: application/json`。
 请求参数：
 
-| 参数 | 说明 | 类型 |	长度（字节） | 是否必填 |
+| 参数 | 说明 | 类型 |    长度（字节） | 是否必填 |
 |---------|---------|---------|---------|---------|
 | appId | 腾讯服务分配的 Appid | 字符串 | 腾讯服务分配 | 是| 
 | orderNo | 订单号，合作方订单的唯一标识，字母/数字组成的字符串| 字符串| 32| 是| 
 | nonce| 随机数| 字符串| 32| 是| 
 | version| 版本号，默认值：1.0.0| 字符串| 20| 是| 
 | sign| 签名值，使用本页第一步生成的签名| 字符串| 40| 是| 
-| reqId| 本次身份证NFC读取唯一标识| 字符串| 40| 是| 
-|getPhoto	|是否需要获取 NFC 识别的身份证图片文件，值为1则返回图片	|字符串	|1|	否|
+| reqId| 本次实证 NFC读取唯一标识| 字符串| 40| 是| 
+|getPhoto   |是否需要获取 NFC 识别的证件图片文件，值为1则返回图片 |字符串    |1| 否|
 
 ### 响应
 响应参数：
@@ -64,19 +64,19 @@ nfcEnResult 响应参数结构内容：
 | 参数 | 类型 | 说明 |
 |---------|---------|---------|
 | orderNo| string| 订单编号| 
-| reqId| string| 本次身份证 NFC 读取唯一标识| 
+| reqId| string| 本次实证 NFC 读取唯一标识| 
 | name| string| 证件姓名| 
 | sex| string| 性别| 
 | nation| string| 民族| 
 | birth| string| 出生日期| 
 | address| string| 地址| 
-| idcard| string| 身份证号| 
+| idcard| string| 证件号| 
 | validDateBegin| string| 证件的有效期起始时间| 
 | validDateEnd| string| 证件的有效期结束时间| 
 | signingOrganization| string| 发证机关| 
-| frontPhoto| Base 64 string| 身份证正面照| 
-| backPhoto| Base 64 string| 身份证反面照| 
-| portraitPhoto| Base 64 string| 身份证人像照| 
+| frontPhoto| Base 64 string| 证件正面照| 
+| backPhoto| Base 64 string| 证件反面照| 
+| portraitPhoto| Base 64 string| 证件人像照| 
 
 ```
 {
