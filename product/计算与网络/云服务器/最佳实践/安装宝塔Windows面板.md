@@ -21,8 +21,8 @@
 - 按量计费不支持选择镜像市场的镜像，只有包年包月才可以进行选择。
 </dx-alert>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/9aaa2ed5bb07ac7a231ba5d44e5b82be.png"/>
-3. 在**镜像市场**窗口的搜索框中，选择**操作系统**，输入**宝塔**并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
-<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/6b919641487272aeaf0411ef9f3d0dcf.png" />
+3. 在**镜像市场**窗口的搜索框中，输入**宝塔**并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3c170bf9ab01377753bddfad7ae848f0.png" />
 4. 按需选择镜像，本文选择以实际查询出的结果为例，单击**免费使用**。如下图所示：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d77f1c167def23ea16b8ece70f987914.png" />
 5. 在实例关联的安全组需添加放通8888端口的入站规则，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
