@@ -3,7 +3,7 @@
 以下为接入配置的步骤。
 
 ## 基础配置[](id:xx)
-本文档介绍了接入 NFC OCR SDK 接口，NFC 读取居民身份证需要 iPhone 7 及以上，iOS14.5 及以上。
+本文档介绍了接入 NFC OCR SDK 接口，NFC 读取证件需要 iPhone 7 及以上，iOS14.5 及以上。
 1. 在苹果开发者管理平台配置 Bundle Id。
 请登录苹果开发者管理平台，确认当前 bundle ID 下的 NFC Tag Reading 已经选中。
 配置路径 Certificates，Identifiers & Profiles > Identifiers > 选中需要配置接入 SDK 的 App 对应的 ID。
@@ -38,7 +38,7 @@ SDK 文件目录如下：
 ```
 target 'NFCOCRDevDemo' do
   use_frameworks!
-	  # Pods for NFCOCRDevDemo
+      # Pods for NFCOCRDevDemo
   pod 'WBNFCReaderService'，:path => '../WBNFCReaderService'
 end
 ```
@@ -167,15 +167,5 @@ dyld: Library not loaded: @rpath/libswiftCore.dylib
 2022-06-09 16:26:57.328858+0800 Demo[11049:1234104] [CoreNFC] -[NFCHardwareManager areFeaturesSupported:outError:]:166 XPC Error: Error Domain=NSCocoaErrorDomain Code=4099 "The connection to service named com.apple.nfcd.service.corenfc was invalidated: failed at lookup with error 159 - Sandbox restriction."
 ```
 请参考本文档的 [项目基础配置](#xx)  检查配置项。
-
-
-
-
-
-
-
-
-
-
 
 
