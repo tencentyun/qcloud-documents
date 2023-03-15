@@ -38,6 +38,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
 |need_password   |Boolean | 非会议创建者是否需要密码入会。<br>非会议创建者查询会议，且存在会议密码，则字段为 true；其他情况，字段不返回。  |
+|disable_invitation | Integer  |是否禁用邀请。<br>禁用后会中用户将无法点击邀请，且会议号将被加*。<br>0：启用邀请<br>1：禁用邀请<br>仅腾讯会议客户端3.14.10以上版本支持。 |
 |status|String|当前会议状态：<br>1. MEETING_STATE_INVALID：<br> 非法或未知的会议状态，错误状态。<br>  2. MEETING_STATE_INIT：<br> 会议待开始。会议预定到预定结束时间前，会议尚无人进会。<br>  3. MEETING_STATE_CANCELLED：<br> 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。<br> 4. MEETING_STATE_STARTED：<br> 会议已开始。会议中有人则表示会议进行中。<br>5. MEETING_STATE_ENDED：<br> 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<br>6. MEETING_STATE_NULL：<br> 会议无状态。会议已过预定结束时间，会议尚无人进会。<br>7. MEETING_STATE_RECYCLED：<br> 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。  |
 |type   |Integer  | 会议类型：<br>0：预约会议类型<br>1：快速会议类型   |
 |join_url   |String  | 加入会议 URL。  |
@@ -204,6 +205,7 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
   ]
 }
 ```
+
 #### 输出示例（周期性会议）
 ```plaintext
 {
