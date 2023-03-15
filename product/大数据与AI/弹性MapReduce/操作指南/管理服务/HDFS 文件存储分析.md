@@ -16,5 +16,11 @@
 5.	查询 DayT-1 采集时间点 Top1000小文件/大文件的相关维度信息，提供文件名称、路径、用户组、所属用户、大小、最近一次访问时间等信息查询及下载.。
 ![](https://qcloudimg.tencent-cloud.cn/raw/780ee13bffb9514dc6eb455a3ce36026.png)
 
->! 以上相关分析功能仅覆盖开启高可用的集群。
+<dx-alert infotype="alarm" title="风险说明">
+文件存储分析依赖的分析数据将于北京时间每天14:00开始采集。
+1. 文件存储分析涉及对备份 fsimage 文件采集分析，该分析影响本机内存使用增加（最大增幅4G），若集群内存使用机器总占比连续高位时，可 [工单反馈](https://console.cloud.tencent.com/workorder/category) 关闭该功能。 
+2. HA 集群该分析功能执行在 Standby Master 节点，非 HA 集群该分析功能执行在 Master 节点。
+</dx-alert>
 
+
+  
