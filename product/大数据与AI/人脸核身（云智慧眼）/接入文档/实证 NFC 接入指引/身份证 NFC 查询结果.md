@@ -61,22 +61,23 @@ NfcQueryRsp 响应参数结构：
 
 nfcEnResult 响应参数结构内容：
 
-| 参数 | 类型 | 说明 |
-|---------|---------|---------|
-| orderNo| string| 订单编号| 
-| reqId| string| 本次实证 NFC 读取唯一标识| 
-| name| string| 证件姓名| 
-| sex| string| 性别| 
-| nation| string| 民族| 
-| birth| string| 出生日期| 
-| address| string| 地址| 
-| idcard| string| 证件号| 
-| validDateBegin| string| 证件的有效期起始时间| 
-| validDateEnd| string| 证件的有效期结束时间| 
-| signingOrganization| string| 发证机关| 
-| frontPhoto| Base 64 string| 证件正面照| 
-| backPhoto| Base 64 string| 证件反面照| 
-| portraitPhoto| Base 64 string| 证件人像照| 
+| 参数 | 类型 | 说明 |居民身份证|港澳回乡证|
+|---------|---------|---------|---------|---------|
+| orderNo| string| 订单编号| &#10003;| &#10003;|
+| reqId| string| 本次实证 NFC 读取唯一标识| &#10003;| &#10003;|
+| name| string| 姓名| &#10003;| &#10003;|
+|enName|string|英文名|-|&#10003;|
+| sex| string| 性别| &#10003;| &#10003;|
+| nation| string| 民族| &#10003;| -|
+| birth| string| 出生日期| &#10003;| &#10003;|
+| address| string| 地址| &#10003;| -|
+| idcard| string| 证件号| &#10003;| &#10003;|
+| validDateBegin| string| 证件的有效期起始时间| &#10003;| -|
+| validDateEnd| string| 证件的有效期结束时间| &#10003;| &#10003;|
+| signingOrganization| string| 发证机关| &#10003;| -|
+| frontPhoto| Base 64 string| 证件正面照| &#10003;|-|
+| backPhoto| Base 64 string| 证件反面照| &#10003;| -|
+| portraitPhoto| Base 64 string| 证件人像照| &#10003;| &#10003;|
 
 ```
 {
