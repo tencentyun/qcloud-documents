@@ -12,8 +12,12 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/77d96cb8b0b654202a17c3a9933d98c3.png)
 
 2. 在 Xcode 中配置 Info.plist 文件。
+**实证 NFC 配置**
 在 info.plist 中添加 NFCReaderUsageDescription 和 ISO7816 application identifiers for NFC Tag Reader Session，在 item0 中填写 F049442E43484E。
-![](https://qcloudimg.tencent-cloud.cn/raw/ee94ff153ec04366850e6107dd26340a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d83fb5355bd8fc73268b7ca6a668afe4.png)
+**旅行证 NFC 配置**
+在 http://info.plist 中添加 NFCReaderUsageDescription 和 ISO7816 application identifiers for NFC Tag Reader Session，在 item0 中填写 A0000002471001（下图配置了两个 item，同时支持身份证和旅行证件识别）。
+![](https://qcloudimg.tencent-cloud.cn/raw/a09e9b36fe48cd835844b7da0e69511b.png)
 3. 在 Xcode 中配置 Capabilities。
 在 IDE 中，依次选择 target > Signing&Capabilities > All ，添加 Near Field Communication Tag Reading。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6184d7e07c5de148443171c646abeb96.png)
@@ -57,31 +61,63 @@ end
 >! status 要选 Optional，否则在不支持 CoreNFC 的低版本手机上会出现 crash。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/a8768442d17ae4948322b8bce723023f.png)
+
 ## SDK 调用
 ### 调用前准备
 App 接入 SDK 前，需要获取腾讯服务分配的接入参数，通过 App 后台计算签名。
 ### SDK 主要 API 介绍
 1. WBOCRReaderService 类提供 NFC SDK 入口和回调。
-WBOCRReaderService 是 SDK 的核心类，通过这个类对外提供 NFC 身份证识别能力，它是个单例类，通过 sharedInstance来实例化。
+WBOCRReaderService 是 SDK 的核心类，通过这个类对外提供 NFC 证件识别能力，它是个单例类，通过 sharedInstance来实例化。
 ```
 + (WBOCRReaderService * _Nonnull)sharedInstance;
 ```
-SDK 的入口方法如下，入参通过 WBOCRReaderParam 类传入。
+SDK 的入口方法如下, 入参通过 WBOCRReaderParam 类传入。
+	- **实证 NFC 识别入口**
 ```
-/// SDK 入口方法
+/// SDK 入口方法1 -- 身份证 NFC (带 UI 的入口)
 /// - Parameters:
-///   - param: 请求 SDK 的业务参数，字段参考 `WBOCRReaderParam` 类
-///   - fromVC: 跳转的 UIViewController 或者 UINavigationController，SKD 基于这个 VC 跳转
-///   - loginSucceedBlock: SDK 登录成功回调，收到这个回调之后，  即将进入 SDK 页面
-///   - readSucceedBlock:  SDK 识别成功回调，接收到这个回调之后，SDK 即将退出，回到 App 页面
-///   - failedBlock:       SDK 异常回调，接收到这个回调之后，SDK 即将退出，回到 App 页面
+/// - param: 请求 SDK 的业务参数, 字段参考 `WBOCRReaderParam` 类
+/// - fromVC: 跳转的 UIViewController 或者 UINavigationController, SKD 基于这个 VC 跳转
+/// - loginSucceedBlock: SDK 登录成功回调, 收到这个回调之后, 即将进入 SDK 页面
+/// - readSucceedBlock: SDK 识别成功回调, 接收到这个回调之后, SDK 即将退出, 回到 APP 页面
+/// - failedBlock: SDK 异常回调, 接收到这个回调之后, SDK 即将退出, 回到 APP 页面
+- (void)startReaderServiceWith:(WBOCRReaderParam *_Nonnull)param fromVC:(UIViewController *_Nonnull)fromVC loginSucceedBlock:(void (^ _Nonnull)(void))loginSucceedBlock readSucceedBlock:(void (^ _Nonnull)(WBOCRReaderResult *_Nonnull))readSucceedBlock failedBlock:(void (^ _Nonnull)(WBOCRReadError *_Nonnull))failedBlock SWIFT_AVAILABILITY(ios,introduced=14.5);
 
-- (void)startReaderServiceWith:(WBOCRReaderParam *)param
-                        fromVC:(UIViewController *)fromVC
-             loginSucceedBlock:(void (^ _Nonnull)(void))loginSucceedBlock
-              readSucceedBlock:(void (^ _Nonnull)(WBOCRReaderResult * _Nonnull))readSucceedBlock
-                   failedBlock:(void (^ _Nonnull)(WBOCRReadError * _Nonnull))failedBlock SWIFT_AVAILABILITY(ios，introduced=14.5);
+/// SDK 入口方法2 -- 身份证 NFC (无 UI 的入口)
+/// - Parameters:
+/// - param: 请求 SDK 的业务参数, 字段参考 `WBOCRReaderParam` 类
+/// - loginSucceedBlock: SDK 登录成功回调, 收到这个回调之后, 即将进入 SDK 页面
+/// - readSucceedBlock: SDK 识别成功回调, 接收到这个回调之后, SDK 即将退出, 回到 APP 页面
+/// - failedBlock: SDK 异常回调, 接收到这个回调之后, SDK 即将退出, 回到 APP 页面
+- (void)startReaderServiceWith:(WBOCRReaderParam *_Nonnull)param loginSucceedBlock:(void (^ _Nonnull)(void))loginSucceedBlock readSucceedBlock:(void (^ _Nonnull)(WBOCRReaderResult *_Nonnull))readSucceedBlock failedBlock:(void (^ _Nonnull)(WBOCRReadError * _Nonnull))failedBlock SWIFT_AVAILABILITY(ios,introduced=14.5);
 ```
+	- **旅行证识别入口**
+和身份证识别相比，旅行证识别需要额外传入三个参数：旅行证编号、出生日期和截止日期。
+```
+/// SDK 入口方法3 -- 旅行证识别入口（带 UI 入口）
+/// - Parameters:
+/// - param: 请求 SDK 的业务参数, 字段参考 `WBOCRReaderParam` 类
+/// - passportNumber: 旅行证件编号
+/// - dateOfBirth: 出生日期 6位数字
+/// - expiryDate: 截止日期 6位数字
+/// - fromVC: 跳转的 UIViewController 或者 UINavigationController, SKD 基于这个 VC 跳转
+/// - loginSucceedBlock: SDK 登录成功回调, 收到这个回调之后, 即将进入 SDK 页面
+/// - readSucceedBlock: SDK 识别成功回调, 接收到这个回调之后, SDK 即将退出, 回到 APP 页面
+/// - failedBlock: SDK 异常回调, 接收到这个回调之后, SDK 即将退出, 回到 APP 页面
+- (void)startPassportReaderServiceWith:(WBOCRReaderParam *_Nonnull)param passportNumber:(NSString *_Nonnull)passportNumber dateOfBirth:(NSString *_Nonnull)dateOfBirth expiryDate:(NSString *_Nonnull)expiryDate fromVC:(UIViewController *_Nonnull)fromVC loginSucceedBlock:(void (^ _Nonnull)(void))loginSucceedBlock readSucceedBlock:(void (^ _Nonnull)(WBOCRReaderResult *_Nonnull))readSucceedBlock failedBlock:(void (^ _Nonnull)(WBOCRReadError * _Nonnull))failedBlock;
+
+/// SDK 入口方法4-- 旅行证识别入口
+/// - Parameters:
+/// - param: 请求 SDK 的业务参数, 字段参考 `WBOCRReaderParam` 类
+/// - passportNumber: 旅行证件编号
+/// - dateOfBirth: 出生日期 6位数字
+/// - expiryDate: 截止日期 6位数字
+/// - loginSucceedBlock: SDK 登录成功回调, 收到这个回调之后, 即将进入 SDK 页面
+/// - readSucceedBlock: SDK 识别成功回调, 接收到这个回调之后, SDK 即将退出, 回到 APP 页面
+/// - failedBlock: SDK 异常回调, 接收到这个回调之后, SDK 即将退出, 回到 APP 页面
+- (void)startPassportReaderServiceWith:(WBOCRReaderParam *_Nonnull)param passportNumber:(NSString *_Nonnull)passportNumber dateOfBirth:(NSString *_Nonnull)dateOfBirth expiryDate:(NSString *_Nonnull)expiryDate loginSucceedBlock:(void (^ _Nonnull)(void))loginSucceedBlock readSucceedBlock:(void (^ _Nonnull)(WBOCRReaderResult *_Nonnull))readSucceedBlock failedBlock:(void (^ _Nonnull)(WBOCRReadError *_Nonnull))failedBlock;
+```
+
 通过 sdkVersion 属性来查看 SDK 的版本号。
 ```
 @property (nonatomic，readonly，copy) NSString * _Nonnull sdkVersion;
