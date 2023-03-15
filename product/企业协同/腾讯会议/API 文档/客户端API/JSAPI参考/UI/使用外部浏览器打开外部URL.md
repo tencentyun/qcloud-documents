@@ -2,7 +2,7 @@
 - 业务方需要用浏览器打开外部的链接地址。
 - 通过浏览器实现下载文件。
 >!使用此方法时，浏览器打开可信域名的 URL 时，将会向用户弹框来获取用户的许可，界面如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/12a9a67cb92f84479471a319599663cc.png)
+<img style="width:500px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/12a9a67cb92f84479471a319599663cc.png" />
 
 ## 操作步骤
 ### 步骤一：配置 H5 可信域名
