@@ -33,11 +33,9 @@ pod init
   
   # 请使用您的真实项目名称替换 your_project_name
   target 'your_project_name' do
-    # Comment the next line if you don't want to use dynamic frameworks
-    # TUIKit 组件依赖了静态库，需要屏蔽此设置。
-    # use_frameworks!
-  
-    # 开启 modular headers。请按需开启，开启后 Pod 模块才能使用 @import 导入。
+    # 从 7.1 版本开始，TUIKit 组件依赖动态库，需要开启此设置。如果您不升级到 7.1 及以后，可以保持关闭。
+    use_frameworks!
+    # 请按需开启 modular headers，开启后 Pod 模块才能使用 @import 导入，简化 Swift 引用 OC 的方式。
     # use_modular_headers!
     
     # 集成聊天功能
@@ -50,6 +48,10 @@ pod init
     pod 'TUIGroup/UI_Classic' 
     # 集成搜索功能（需要购买旗舰版套餐）
     pod 'TUISearch/UI_Classic' 
+    # 集成投票插件，从 7.1 版本开始支持
+    pod 'TUIPoll'
+    # 集成群接龙插件，从 7.1 版本开始支持
+    pod 'TUIGroupNote'
     # 集成离线推送
     pod 'TUIOfflinePush'
     # 集成音视频通话功能
@@ -69,7 +71,6 @@ pod init
   
   # 请使用您的真实项目名称替换 your_project_name
   target 'your_project_name' do
-    # Comment the next line if you don't want to use dynamic frameworks
     # TUIKit 组件依赖了静态库，需要屏蔽此设置。
     # use_frameworks!
   
@@ -95,11 +96,10 @@ pod init
   ```
 :::
 </dx-tabs>
-> ?1、如果您直接 `pod 'TUIChat'`，不指定经典版或简约版，默认会集成两套版本 UI 组件。 
-> 2、经典版和简约版 UI 不能混用，集成多个组件时，您必须同时全部选择经典版 UI 或简约版 UI。
-> 例如，经典版 TUIChat 组件必须与经典版 TUIConversation、TUIContact、TUIGroup组件搭配使用。同理，简约版 TUIChat 组件必须与简约版 TUIConversation、TUIContact、TUIGroup 组件搭配使用。
-> 3、如果您使用的是 Swift，请开启 use_modular_headers!，并将头文件引用改成 @import 模块名形式引用。
-> 
+> ?
+> 1. 如果您直接 `pod 'TUIChat'`，不指定经典版或简约版，默认会集成两套版本 UI 组件。 
+> 2. 经典版和简约版 UI 不能混用，集成多个组件时，您必须同时全部选择经典版 UI 或简约版 UI。例如，经典版 TUIChat 组件必须与经典版 TUIConversation、TUIContact、TUIGroup组件搭配使用。同理，简约版 TUIChat 组件必须与简约版 TUIConversation、TUIContact、TUIGroup 组件搭配使用。
+> 3. 如果您使用的是 Swift，请开启 use_modular_headers!，并将头文件引用改成 @import 模块名形式引用。
 4. 执行以下命令，安装 TUIKit 组件。
 ```bash
 pod install
@@ -435,9 +435,7 @@ pod 'TUICallKit'
 4. 添加离线推送。
 在使用离线推送之前，您需要开通 [IM 离线推送](https://cloud.tencent.com/document/product/269/75429) 服务。
 关于 App 的配置，您可以参考文档：[集成 TUIOfflinePush 跑通离线推送功能](https://cloud.tencent.com/document/product/269/74284)。
-
-配置完成后，当单击接收到的**音视频通话离线推送通知**时， TUICallKit 会自动拉起**音视频通话邀请界面**。
-	
+>?配置完成后，当单击接收到的**音视频通话离线推送通知**时， TUICallKit 会自动拉起**音视频通话邀请界面**。
 5. 附加增值能力
 集成 TUIChat 和 TUICallkit 的组件后，在聊天界面发送语音消息时，即可**录制带 AI 降噪和自动增益的语音消息**。该功能需要购买 [音视频通话能力](https://cloud.tencent.com/document/product/1640/79968) 进阶版及以上套餐，仅 IMSDK 7.0 及以上版本支持。当套餐过期后，录制语音消息会切换到系统 API 进行录音。
 下面是使用两台华为 P10 同时录制的语音消息对比：

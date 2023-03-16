@@ -10,7 +10,7 @@ const { AppHandleRespType } = wemeet;
 const callback = (resp) => {
   const { status, message } = resp;
   if (status === AppHandleRespType.SUCCESS) {
-    console.log('startCollaboration failed');
+    console.log('startCollaboration success');
   } else if (status === AppHandleRespType.CANCELED) {
     console.log('user canceled');
   } else {
@@ -41,7 +41,7 @@ const { AppHandleRespType } = wemeet;
 const callback = (resp) => {
   const { status, message } = resp;
   if (status === AppHandleRespType.SUCCESS) {
-    console.log('endCollaboration failed');
+    console.log('endCollaboration success');
   } else if (status === AppHandleRespType.CANCELED) {
     console.log('user canceled');
   } else {

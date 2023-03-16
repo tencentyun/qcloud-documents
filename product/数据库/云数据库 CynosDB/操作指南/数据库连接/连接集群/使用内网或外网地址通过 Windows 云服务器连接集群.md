@@ -39,7 +39,7 @@ TDSQL-C MySQL 版支持实例级独立 IP 地址，即您可以通过集群下�
 <thead><tr><th>参数</th><th>说明</th></tr></thead>
 <tbody><tr>
 <td>Hostname</td>
-<td>输入 TDSQL-C MySQL 版集群下目标实例的内/外网地址，内/外网地址查询方法参见 <a href="https://cloud.tencent.com/document/product/1003/79678#SLIPDZ2">步骤一</a>。若为外网地址，请确认是否已开启，如未开启，请参见 <a href="https://cloud.tencent.com/document/product/1003/79682">开启或关闭外网地址</a>。</td></tr>
+<td>输入 TDSQL-C MySQL 版集群下目标实例的内/外网地址，内/外网地址查询方法参见 <a href="#SLIPDZ2">步骤一</a>。若为外网地址，请确认是否已开启，如未开启，请参见 <a href="https://cloud.tencent.com/document/product/1003/79682">开启或关闭外网地址</a>。</td></tr>
 <tr>
 <td>Port</td>
 <td>内网（或外网）对应端口。</td></tr>

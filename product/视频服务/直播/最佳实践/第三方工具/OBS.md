@@ -95,7 +95,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 
 ### 关于快直播去除 B 帧设置
 快直播 Web 方案**不支持 B 帧解码播放**，所以如果原始流存在 B 帧，则后台会自动进行转码去掉 B 帧，但这样会引入额外的转码延迟，并且会**产生转码费用**。建议尽量不推包含 B 帧的流，用户可以通过调整推流端软件（如 OBS）的视频编码参数来去除 B 帧。如果使用 OBS 推流，可以通过设置，关闭 B 帧。如下图：
-![](https://qcloudimg.tencent-cloud.cn/raw/bf0a1866b3201d20307a618bcf293960.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/77c00afcfeadd53e492bbe6354d49e27.png)
 
 ### 本地直播录制相关设置
 若您有直播时进行本地录制的需求，可以选择直播时在本地进行录制备份，设置方法如下：
