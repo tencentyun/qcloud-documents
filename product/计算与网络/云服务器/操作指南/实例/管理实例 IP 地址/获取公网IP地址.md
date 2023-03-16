@@ -5,7 +5,7 @@
 <dx-tabs>
 ::: 使用控制台获取
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
-2. 在实例的管理页面，根据实际使用的视图模式进行操作：
+2. 在[实例控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=19)的管理页面，根据实际使用的视图模式进行操作：
   - **列表视图**：鼠标移动至主 IP 地址列，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: 0;"/>，即可复制该 IP 地址。	如下图所示：
 ![](https://main.qcloudimg.com/raw/7f184b52a3311b4d3cc45b810bbda04f.png)
   - **页签视图**：在实例页面中，单击 “IP地址”中公网地址后的 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: 0;"/> 即可复制公网 IP。如下图所示：
