@@ -1,12 +1,5 @@
-本文为您介绍如何通过控制台创建 MySQL 实例。
-
 ## 前提条件
-已注册腾讯云账号并完成实名认证。
-- 如需注册腾讯云账号：
-<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.3128.btn1">点此注册腾讯云账号</a></div>
-- 如需完成实名认证：
-<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/developer" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点此完成实名认证</a></div>
-
+购买前需要实名认证，请参见 [实名认证指引](https://cloud.tencent.com/document/product/378/3629)。
 ## 购买页导入已有配置指引
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ed6eaa2490278ab07901920e8b72a8d.png)
 当登录的账号有已创建的云数据库 MySQL 实例时，如需购买与已创建实例相同配置的实例，可单击购买页上方的**导入已有配置**，快捷自动配置好各项参数，便于您基于已有配置快捷调整或购买。
@@ -65,5 +58,7 @@
 4. 支付完成后，返回实例列表，会看到实例显示**发货中**（大概需要3min - 5min中，请耐心等待），待实例状态变为**运行中**，即可进行正常操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/35e6e0a371d82923a09aa731826c243b.png)
 
+## API 购买
+通过 API 购买云数据库的用户，可参考 [创建实例](https://cloud.tencent.com/document/product/236/15871)。
 ## 后续操作
-通过 Windows 云服务器或 Linux 云服务器，以内外网两种不同的方式连接云数据库 MySQL，请参见 [连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)。
+[连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)
