@@ -6,12 +6,12 @@
 下载 SDK 之前，请查阅 [变更历史](https://cloud.tencent.com/document/product/596/31926)。
 
 ## Linux C++ SDK 下载
-| 类型   | 版本   | GCC 版本 | Protobuf 版本 | 操作系统| SDK下载 |                                                       
-| ------- | ------- | ----------- | ------------ | ---------- |------------ | 
-| TDR 表 | TcaplusTdrApi3.46.0 | Gcc4  | |Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusTdrApi3.46.0Gcc4.tar.gz) |
-| TDR 表 | 	TcaplusTdrApi3.55.0 | Gcc4 | |Linux x86_65 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusTdrApi3.55.0Gcc4.tar.gz) |
-| TDR 表 | TcaplusTdrApi3.46.0 | Gcc8  | |Linux x86_66 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusTdrApi3.46.0Gcc8.tar.gz) |
-| TDR 表 | TcaplusTdrApi3.55.0 | Gcc8  | |Linux x86_67 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusTdrApi3.55.0Gcc8.tar.gz) |
+| 类型   | 版本   | GCC 版本 | Protobuf 版本 | 操作系统| SDK下载             |                                                       
+| ------- | ------- | ----------- | ------------ | ---------- |---------------------------- | 
+| TDR 表 | TcaplusTdrApi3.46.0 | Gcc4  |  |Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusTdrApi3.46.0Gcc4.tar.gz) |
+| TDR 表 | 	TcaplusTdrApi3.55.0 | Gcc4 |  |Linux x86_65 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusTdrApi3.55.0Gcc4.tar.gz) |
+| TDR 表 | TcaplusTdrApi3.46.0 | Gcc8  |  |Linux x86_66 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusTdrApi3.46.0Gcc8.tar.gz) |
+| TDR 表 | TcaplusTdrApi3.55.0 | Gcc8  |  |Linux x86_67 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusTdrApi3.55.0Gcc8.tar.gz) |
 | Protobuf 表 | TcaplusPbApi3.46.0 | Gcc4  |Pb3.5.0 |Linux x86_68 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusPbApi3.46.0Gcc4Pb3.5.0.tar.gz) |
 | Protobuf 表 | TcaplusPbApi3.55.0 | Gcc4  |Pb3.5.0 |Linux x86_69 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusPbApi3.55.0Gcc4Pb3.5.0.tar.gz) |
 | Protobuf 表 | TcaplusPbApi3.46.0 | Gcc8  |Pb3.12.4 |Linux x86_70 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TcaplusPbApi3.46.0Gcc8Pb3.12.4.tar.gz) |
