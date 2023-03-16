@@ -4,7 +4,7 @@
 
 ## 前提条件
 
-使用清单分析功能，首先需要 [添加 COS 清单](https://cloud.tencent.com/document/product/436/33702) 服务，然后创建一个清单分析云函数，创建指引请参见 [添加 COS 清单分析函数]()。
+使用清单分析功能，首先需要 [添加 COS 清单](https://cloud.tencent.com/document/product/436/33702) 服务，然后创建一个清单分析云函数，创建指引请参见 [添加 COS 清单分析函数](https://cloud.tencent.com/document/product/436/86505)。
 
 ## 操作步骤
 
@@ -16,7 +16,7 @@
 >! 使用清单分析功能，需要先添加清单任务。
 
 5. 若您已添加了 COS 清单分析函数，请单击下方 COS 清单分析部分的**立即使用**，此时系统会检测您是否已添加 COS 清单分析函数规则。
-   若您未添加 COS 清单分析函数，请参考 [添加 COS 清单分析函数]() 进行函数添加。
+   若您未添加 COS 清单分析函数，请参考 [添加 COS 清单分析函数](https://cloud.tencent.com/document/product/436/86505) 进行函数添加。
 6. 添加 COS 清单分析函数完成后，在此页面选择对应的函数名称，选择您需要分析的清单时间段，单击**创建分析任务**，在弹出的窗口中配置如下信息： 
    ![img](https://qcloudimg.tencent-cloud.cn/raw/ff67cc19a53fa1c863c21c43a0d7805d.png)
 

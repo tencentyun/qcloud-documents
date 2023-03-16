@@ -1,4 +1,21 @@
 
+### 2.26.4 @2023.3.14
+
+**新增**
+
+- [sendMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#sendMessage) 发送消息支持不过安全审核。
+- uni-app 离线推送支持荣耀手机。
+
+**变更**
+
+- 体积优化，减少45KB。
+- 提升 SDK 稳定性。
+
+**修复**
+
+- 偶现的 [joinGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#joinGroup) 后查询群资料失败导致加群失败。
+- 最近联系人中有带未读数的空会话，未读数无法清零。
+
 ### 2.26.2 @2023.2.24
 
 **新增**

@@ -44,7 +44,7 @@
 
 ### 部署
 
-1. 首先 [下载 GooseFS 的二进制分发包](https://downloads.tencentgoosefs.cn/goosefs/1.4.0/release/goosefs-1.4.0-bin.tar.gz)。
+1. 首先 [下载 GooseFS 的二进制分发包](https://downloads.tencentgoosefs.cn/goosefs/1.4.1/release/goosefs-1.4.1-bin.tar.gz)。
 2. 分发包下载后解压，进入到 GooseFS 的目录中，执行如下操作：
 - 通过拷贝 conf/goosefs-site.properties.template 创建 conf/goosefs-site.properties 配置文件：
 ```bash
@@ -117,7 +117,7 @@ GooseFS 在 `scripts` 目录下提供了批量配置 SSH 免密登录以及批�
 
 Standalone 架构采用的是单 Master 节点，多 Worker 节点的集群部署架构。具体可参考如下步骤部署运行：
 
-1. [下载 GooseFS 的二进制分发包](https://downloads.tencentgoosefs.cn/goosefs/1.4.0/release/goosefs-1.4.0-bin.tar.gz)。
+1. [下载 GooseFS 的二进制分发包](https://downloads.tencentgoosefs.cn/goosefs/1.4.1/release/goosefs-1.4.1-bin.tar.gz)。
 2. 使用 `tar zxvf goosefs-x.x.x-bin.tar.gz` 命令解压到安装路径后。可参见批量部署工具的介绍配置和执行集群的批量部署，也可以继续参考下文详细地手动部署流程。
 
 （1）从 `conf` 目录下拷贝 `template` 文件创建配置文件：
@@ -129,9 +129,10 @@ $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
 goosefs.master.hostname=<MASTER_HOSTNAME>
 goosefs.master.mount.table.root.ufs=<STORAGE_URI>
 ```
-其中，`goosefs.master.hostname` 设置为单 master 节点的 hostname 或 ip。`goosefs.master.mount.table.root.ufs` 则指定 GooseFS 根目录所挂载的底层文件系统（UFS）路径URI。注意：这个 URI 必须保证 Master 和 Worker 节点都能访问到，因此不支持本地目录。
+其中，`goosefs.master.hostname` 设置为单 master 节点的 hostname 或 ip。`goosefs.master.mount.table.root.ufs` 则指定 GooseFS 根目录所挂载的底层文件系统（UFS）路径URI。
+>!这个 URI 必须保证 Master 和 Worker 节点都能访问到，因此不支持本地目录。
 
-例如可以挂载一个 COS 路径为 GooseFS 根路径：goosefs.master.mount.table.root.ufs=cosn://bucket-1250000000/goosefs/。
+例如，您可以挂载一个 COS 路径为 GooseFS 根路径：`goosefs.master.mount.table.root.ufs=cosn://bucket-1250000000/goosefs/`。
 
 在 `masters` 配置文件中指定单 Master 节点的 hostname 或 ip，例如：
 
@@ -175,7 +176,7 @@ goosefs.master.mount.table.root.ufs=<STORAGE_URI>
 goosefs.master.embedded.journal.addresses=<EMBBEDDED_JOURNAL_ADDRESS>
 ```
 
-上述配置选项中，说明如下：
+>?上述配置选项中，说明如下：
 -  `goosefs.master.mount.table.root.ufs` 则设置为挂载到 GooseFS 根目录的底层存储 URI。
 -  `goosefs.master.embedded.journal.addresses` 则设置为所有备节点的 `ip:embedded_journal_port` 或 `host:embedded_journal_port`。其中，embedded_journal_port 默认为9202。例如：192.168.1.1:9202,192.168.1.2:9202,192.168.1.3:9202。
 

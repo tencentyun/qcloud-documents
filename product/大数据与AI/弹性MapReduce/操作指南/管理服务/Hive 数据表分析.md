@@ -26,9 +26,14 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/42a14c956567c8456d1712960cc47b9e.png)
 5. 可查看数据表的所属库、存储量、文件量、小文件占比及表的分区情况,文件存储量和小文件占比为维度可直观反应 Hive 小文件问题情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/88e9dbd4eb7701882a8986b56818ff4f.png)
-6.	点击操作**查看分区**，可查看别分区名、分区大小、文件总数等维度信息，通过分区大小和文件总数可感知分区的倾斜情况及文件量信息。
+6.	单击操作**查看分区**，可查看别分区名、分区大小、文件总数等维度信息，通过分区大小和文件总数可感知分区的倾斜情况及文件量信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/24559c2dd9826ec84b3acf6d8e4184eb.png)
 
->! 以上相关分析功能仅覆盖开启高可用的集群。
+<dx-alert infotype="alarm" title="风险说明">
+数据表分析以来的分析数据将于北京时间每天14:00开始采集。
+1. 主要采集 HMS 库表、分区元数据及 NameNode 目录信息，此操作将影响 HMS、NameNode 请求量微增，若请求量持续突破负载瓶颈可 [工单反馈](https://console.cloud.tencent.com/workorder/category) 关闭该功能。 
+2. HMS 及 NameNode 数据采集仅涉及元数据信息不涉及具体业务数据。
+</dx-alert>
+
 
   

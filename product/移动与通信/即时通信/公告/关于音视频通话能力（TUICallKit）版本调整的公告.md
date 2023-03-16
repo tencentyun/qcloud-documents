@@ -68,7 +68,7 @@
 </tbody></table>
    > !
    >
-   > 音视频通话能力提供的**多端登录通话**和**同平台多端登录通话**2项功能，由 IM 的**同平台多设备在线**功能提供底层支持，目前**仅 IM 旗舰版支持**该功能，因此上述音视频通话能力的2项功能需要配合 **IM 旗舰版**使用。
+   > 音视频通话能力提供的**多端登录通话**和**同平台多端登录通话**2项功能，由 IM 的**同平台多设备在线**功能提供底层支持，目前**仅 [IM 旗舰版](https://cloud.tencent.com/document/product/269/11673#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1.E8.AF.A6.E6.83.85.3Ca-id.3D.22jcfw.22.3E.3C.2Fa.3E) 支持**该功能，因此上述音视频通话能力的2项功能需要配合 **[IM 旗舰版](https://cloud.tencent.com/document/product/269/11673#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1.E8.AF.A6.E6.83.85.3Ca-id.3D.22jcfw.22.3E.3C.2Fa.3E)** 使用。
    > 
 3. 音视频通话能力进阶版将下线，届时不再提供购买入口。**若您有处于有效期内的音视频通话能力进阶版应用，仍可正常使用；不论是否到期，均可参考 [续费指南](https://cloud.tencent.com/document/product/269/82462#.E7.BB.AD.E8.B4.B9.E6.AD.A3.E5.BC.8F.E7.89.88) 按原定价格进行续期**。
 4. 新增一个赠送时长140万分钟的群组通话版，功能与原尊享版（现名群组通话版，赠送通话时长38万分钟）一致，**赠送通话时长增加至140万分钟**，您可按需选购，价格及功能详情请参见 [版本说明](#info)。
@@ -219,17 +219,17 @@
 </tr>
 <tr>
 <td style = "text-align:center">支持平台</td>
-<td style = "text-align:center">iOS、Android、Web、uni-app、<strong>微信小程序</strong></td>
-<td style = "text-align:center">iOS、Android、Web、uni-app</td>
-<td style = "text-align:center">iOS、Android、Web、uni-app、<strong>微信小程序</strong></td>
-<td style = "text-align:center">iOS、Android、Web、uni-app、<strong>微信小程序</strong></td>
+<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong>、Flutter</td>
+<td style="text-align: center">iOS、Android、Web、uni-app、Flutter</td>
+<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong>、Flutter</td>
+<td style="text-align: center">iOS、Android、Web、uni-app、<strong>微信小程序</strong>、Flutter</td>
 </tr>
 </tbody></table>
 
 
 > ?
 >
-> 1. [](id:1)开通条件：TUICallKit 为 IM 和 TRTC 联合提供的服务，因此在开通 TUICallKit 需首先保证应用已有对应版本的 IM 基础套餐包。
+> 1. [](id:1)开通条件：TUICallKit 为 IM 和 TRTC 联合提供的服务，因此在开通 TUICallKit 需首先保证应用已有对应版本的 IM 基础套餐包。可了解更多详情请 [单击购买](https://buy.cloud.tencent.com/avc)。
 > 2. [](id:2)对应 TRTC 包月套餐：TUICallKit 为 IM 和 TRTC 联合提供的服务，同时 TUICallKit 为 TRTC 包月套餐提供的功能项之一，因此购买 TUICallKit 相当于订阅对应版本 TRTC 包月套餐，**仅收取一次费用**，更多 TRTC 包月套餐功能及版本说明可参见 [TRTC 版本功能](https://cloud.tencent.com/document/product/647/85386)。
 >    示例：您在 IM 为专业版/旗舰版的情况下，购买了上表中价格为 6250元/月的**群组通话版-140万分钟**的版本，则：您订阅了 TRTC 旗舰版包月套餐，同时开通了 TUICallKit 群组通话版。 
 > 3. [](id:3)赠送音视频时长：购买 TUICallKit 相当于订阅对应版本 TRTC 包月套餐， TRTC 包月套餐将赠送音视频时长用量，有效期一个月，仅可用于抵扣订阅套餐服务的应用（SDKAppId）产生的实时音视频音视频时长用量， 超额用量计费说明请参见 [音视频时长计费说明](https://cloud.tencent.com/document/product/647/44248)。
