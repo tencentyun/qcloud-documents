@@ -1,7 +1,7 @@
 ## 1.准备工作
 在导出导入数据前，需要梳理待迁移的库表，改造 shardkey，然后在目标实例创建需要迁移的表结构，可参考 [数据表迁移](https://cloud.tencent.com/document/product/557/8637) 中表结构迁移的部分。
 
-下载 [mydumper-myloader工具包](工具包链接) 并将其解压到有较大剩余空间的磁盘中。
+下载 [mydumper-myloader工具包](https://tdsql-demo-1309409385.cos.ap-guangzhou.myqcloud.com/mydumper-myloader-for-tdsql.tar.gz) 并将其解压到有较大剩余空间的磁盘中。
 
 ## 2.导出源实例数据
 找一个剩余容量大于实例规格的磁盘，将工具拷贝进数据备份目录，执行数据导出操作：
