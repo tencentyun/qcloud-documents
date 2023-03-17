@@ -117,3 +117,4 @@ sudo mount.lustre -o user_xattrXXXXXXXXXXXXXXXXXXX
 sudo mount.lustre XXXXXXXXXXXXXXXXXXX
 ```
 >?若需要只读挂载，可在挂载时添加 -o ro 的指令。
+>卸载与NFS协议的文件系统使用方式一致，使用umount /path/to/umount,即可完成卸载操作。
