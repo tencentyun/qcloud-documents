@@ -1,15 +1,16 @@
 关键字 Sequence 语法和 MariaDB/Oracle 兼容，但是保证分布式全局递增且唯一，具体使用如下：
+- TDSQL_INCREMENT BY 设置序列步长，正数表示升序序列，负数表示降序序列。设置值必须在序列最大值与最小值之间，缺省则默认1。
+-  START WITH 设置序列起始值，缺省则默认序列最小值。
+-  TDSQL_MAXVALUE 和 TDSQL_NOMAXVALUE 设置序列最大值，TDSQL_MAXVALUE 缺省或者设置TDSQL_NOMAXVALUE 时，递增序列最大值为9223372036854775807，递减序列最大值为-1。
+-  TDSQL_MINVALUE 和 TDSQL_NOMINVALUE 设置序列最小 TDSQL_MINVALUE 缺省或者设置TDSQL_NOMINVALUE 时，递增序列最小值为1，递减序列最小值为-9223372036854775808。
+-  TDSQL_CYCLE 和 TDSQL_NOCYCLE 设置序列是否循环，缺省默认不循环。
+-  TDSQL_CACHE 和 TDSQL_NOCACHE 设置缓存序列数量，缺省默认缓存20。
+-  DSQL_ORDER 和 TDSQL_NOORDER。设置序列对于并发请求保证完全有序。TDSQL 目前仅支持无序。
+
 
 >?
 >- 在 TDSQL MySQL 版 分布式数据库当中使用 Sequence 时，须在该关键字前面加 `tdsql_` 前缀，且要求 proxy 版本最低为1.19.5-M-V2.0R745D005；可通过数据库管理语句 `/*Proxy*/show status` 查询 proxy 版本，若 proxy 版本较老可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行升级。
 >- 目前 Sequence 为保证分布式全局数值唯一，导致性能较差，主要适用于并发不高的场景。
->- TDSQL_INCREMENT BY 设置序列步长，正数表示升序序列，负数表示降序序列。设置值必须在序列最大值与最小值之间，缺省则默认1。
->- START WITH 设置序列起始值，缺省则默认序列最小值。
->- TDSQL_MAXVALUE 和 TDSQL_NOMAXVALUE 设置序列最大值，TDSQL_MAXVALUE 缺省或者设置TDSQL_NOMAXVALUE 时，递增序列最大值为9223372036854775807，递减序列最大值为-1。
->- TDSQL_MINVALUE 和 TDSQL_NOMINVALUE 设置序列最小值，TDSQL_MINVALUE 缺省或者设置TDSQL_NOMINVALUE 时，递增序列最小值为1，递减序列最小值为-9223372036854775808。
->- TDSQL_CYCLE 和 TDSQL_NOCYCLE 设置序列是否循环，缺省默认不循环。
->- TDSQL_CACHE 和 TDSQL_NOCACHE 设置缓存序列数量，缺省默认缓存20。
->- TDSQL_ORDER 和 TDSQL_NOORDER。设置序列对于并发请求保证完全有序。TDSQL 目前仅支持无序。
 
 创建序列需要 CREATE SEQUENCE 系统权限。序列的创建语法如下：
 ```
