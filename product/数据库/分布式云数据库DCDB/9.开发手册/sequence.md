@@ -1,8 +1,15 @@
 关键字 Sequence 语法和 MariaDB/Oracle 兼容，但是保证分布式全局递增且唯一，具体使用如下：
 
 >?
->- 在 TDSQL MySQL版 分布式数据库当中使用 Sequence 时，须在该关键字前面加 `tdsql_` 前缀，且要求 proxy 版本最低为1.19.5-M-V2.0R745D005；可通过数据库管理语句 `/*Proxy*/show status` 查询 proxy 版本，若 proxy 版本较老可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行升级。
+>- 在 TDSQL MySQL 版 分布式数据库当中使用 Sequence 时，须在该关键字前面加 `tdsql_` 前缀，且要求 proxy 版本最低为1.19.5-M-V2.0R745D005；可通过数据库管理语句 `/*Proxy*/show status` 查询 proxy 版本，若 proxy 版本较老可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行升级。
 >- 目前 Sequence 为保证分布式全局数值唯一，导致性能较差，主要适用于并发不高的场景。
+>- TDSQL_INCREMENT BY 设置序列步长，正数表示升序序列，负数表示降序序列。设置值必须在序列最大值与最小值之间，缺省则默认1。
+>- START WITH 设置序列起始值，缺省则默认序列最小值。
+>- TDSQL_MAXVALUE 和 TDSQL_NOMAXVALUE 设置序列最大值，TDSQL_MAXVALUE 缺省或者设置TDSQL_NOMAXVALUE 时，递增序列最大值为9223372036854775807，递减序列最大值为-1。
+>- TDSQL_MINVALUE 和 TDSQL_NOMINVALUE 设置序列最小值，TDSQL_MINVALUE 缺省或者设置TDSQL_NOMINVALUE 时，递增序列最小值为1，递减序列最小值为-9223372036854775808。
+>- TDSQL_CYCLE 和 TDSQL_NOCYCLE 设置序列是否循环，缺省默认不循环。
+>- TDSQL_CACHE 和 TDSQL_NOCACHE 设置缓存序列数量，缺省默认缓存20。
+>- TDSQL_ORDER 和 TDSQL_NOORDER。设置序列对于并发请求保证完全有序。TDSQL 目前仅支持无序。
 
 创建序列需要 CREATE SEQUENCE 系统权限。序列的创建语法如下：
 ```
@@ -18,7 +25,7 @@
 create tdsql_sequence test.s1 start with 12 tdsql_minvalue 10 maxvalue 50000 tdsql_increment by 5 tdsql_nocycle
 create tdsql_sequence test.s2 start with 12 tdsql_minvalue 10 maxvalue 50000 tdsql_increment by 1 tdsql_cycle
 ```
-- 以上SQL语句包含开始值、最小值、最大值、步长、缓存大小及是否回绕6个参数，参数都应为正整数。
+- 以上 SQL 语句包含开始值、最小值、最大值、步长、缓存大小及是否回绕6个参数，参数都应为正整数。
 - 参数默认值，开始值（1）、最小值（1）、最大值（LONGLONG_MAX-1）、步长（1）、是否回绕（0）。
 
 ## 删除 Sequence
@@ -28,7 +35,7 @@ drop tdsql_sequence test.s1
 
 ## 查询 Sequence
 ```
-show tdsql_sequence
+show create tdsql_sequence test.s1
 ```
 
 ## 使用 Sequence
