@@ -1,11 +1,11 @@
-﻿本文指导您通过专线接入+私有NAT网关的SNAT和DNAT功能实现本地数据中心IDC（Internet Data Center）与云上地址做资源访问。
+本文指导您通过专线接入 + 私有 NAT 网关的 SNAT 和 DNAT 功能实现本地数据中心 IDC（Internet Data Center）与云上地址做资源访问。
 >?
 >- NAT 型专线网关 V3R2 版本目前处于内测中，如有需要，请联系 [在线支持](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
 >- 私网 NAT 网关功能目前处于内测中，如有需要，请联系 [在线支持](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
 >
 
 ## 业务场景
-用户使用专线打通腾讯云和客户IDC，实现资源访问，同时期望指定访问IP地址并无IP冲突。可以通过私网NAT+专线方案来说实现。
+用户使用专线打通腾讯云和客户 IDC，实现资源访问，同时期望指定访问 IP 地址并无 IP 冲突。可以通过私网 NAT + 专线方案来说实现。
 ![](https://qcloudimg.tencent-cloud.cn/raw/81eafce1f3db0e521f3a43d75256204a.png)
 
 
@@ -23,7 +23,7 @@
 1. 登录 [NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?rid=1)
 2. 在左侧导航栏的 NAT 网关 > 私网 NAT 创建专线网关，关联实例本例选择私有网络。
 3. 选择所在地域和 VPC。
-4. 填写完，单击立即开通。
+4. 填写如下，单击**立即开通**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb4407161c72e3af956979d7d367e633.png)
 更多详细配置可参考 [NAT 网关](https://cloud.tencent.com/document/product/552)。
 
