@@ -60,14 +60,24 @@ CHDFS 客户端默认异步 flush，因为相比起本地磁盘，云端的访�
 
 ## 配置项说明
 
-|        配置项      |                             说明                             |  默认值   | 是否必填 |
-| :------------------------------| :----------------------------------------------------| :-------| :------ |
-|       fs.ofs.tmp.cache.dir        |   存放临时数据    |    无     |    是    |
-|       fs.ofs.map.block.size       | chdfs 文件系统的 block 大小，单位为字节。默认为128MB（只对 map 切分有影响，和 chdfs 底层存储切块大小无关） | 134217728 |    否    |
-| fs.ofs.data.transfer.thread.count |               chdfs 传输数据时的并行线程数                |    32     |    否    | 
-| fs.ofs.block.max.memory.cache.mb  | chdfs 插件使用的内存 buffer 的大小，单位为 MB。(对读写都有加速作用) |    16     |    否    |
-|  fs.ofs.block.max.file.cache.mb   |  chdfs 插件使用的磁盘 buffer 的大小，单位为 MB。（对写有加速作用）  |    256    |    否    |
-|   fs.ofs.prev.read.block.count    | 读取时，预读的 chdfs block 数量（chdfs 的底层 block 大小一般为4MB）|     4     |    否    |
-|      fs.ofs.plugin.info.log       |          是否打印插件的调试日志，日志以 info 级别打印。可选值为 true、false |   false   |    否    |
-|      fs.ofs.bucket.region       |          文件系统或者元数据加速器 bucket 所在的地域，如 ap-shanghai，ap-beijing，配置项适用于 chdfs_hadoop_plugin_network 版本V2.7及其以上|   false   |    否    |
+|        配置项      |                             说明                             |  默认值   | 是否必填 | 版本要求 |
+| :------------------------------| :----------------------------------------------------| :-------| :------ | :-------|
+|       fs.ofs.tmp.cache.dir        |   存放临时数据    |    无     |    是    | 无 |
+|       fs.ofs.map.block.size       | chdfs 文件系统的 block 大小，单位为字节。默认为128MB（只对 map 切分有影响，和 chdfs 底层存储切块大小无关） | 134217728 |    否    | 无 |
+| fs.ofs.data.transfer.thread.count |               chdfs 传输数据时的并行线程数                |    32     |    否    |  无 |
+| fs.ofs.block.max.memory.cache.mb  | chdfs 插件使用的内存 buffer 的大小，单位为 MB。(对读写都有加速作用) |    16     |    否    | 无 |
+|  fs.ofs.block.max.file.cache.mb   |  chdfs 插件使用的磁盘 buffer 的大小，单位为 MB。（对写有加速作用）  |    256    |    否    |  无  |
+|   fs.ofs.prev.read.block.count    | 读取时，预读的 chdfs block 数量（chdfs 的底层 block 大小一般为4MB）|     4     |    否    |  chdfs_hadoop_plugin-x.x.x-shaded 1.1.6(含) 版本后默认为 16  |
+|      fs.ofs.plugin.info.log       |          是否打印插件的调试日志，日志以 info 级别打印。可选值为 true、false |   false   |    否    |   无  |
+|      fs.ofs.bucket.region       |          文件系统或者元数据加速器 bucket 所在的地域，如 ap-shanghai，ap-beijing|   false   |    否    | chdfs_hadoop_plugin_network 版本V2.7及其以上   |
+| fs.ofs.meta.server.port | 元数据端口 | 443 | 否 | 无 |
+| fs.ofs.meta.transfer.tls | 元数据是否使用 tls | true | 否 | 无  |
+| fs.ofs.data.transfer.https | 数据流是否使用 tls | false | 否 |  无 |
+| fs.ofs.meta.send.max.retry | 元数据请求重试次数 | 10 | 否 |  无 |
+| fs.ofs.data.transfer.endpoint.suffix | 数据流自定义域名 | 无 | 否 |  无 |
+| fs.ofs.prev.read.block.release.enable | 开启预读 | true | 否 | 无  |
+| fs.ofs.meta.endpoint.suffix | 元数据自定义域名 | 无 | 否 | chdfs_hadoop_plugin-x.x.x-shaded 1.1.2(含)后支持 |
+| fs.ofs.data.transfer.distinguish.host | 拆分endpoint 和 Host，使用未备案域名时须配置为 true | false | 否 | chdfs_hadoop_plugin-x.x.x-shaded 1.1.2(含)后支持 |
+
+
 
