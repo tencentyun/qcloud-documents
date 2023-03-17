@@ -5,7 +5,7 @@
 >
 
 ## 业务场景
-用户使用专线打通腾讯云和客户 IDC，实现资源访问，同时期望指定访问 IP 地址并无 IP 冲突。可以通过私网 NAT + 专线方案来说实现。
+用户使用专线打通腾讯云和客户 IDC 实现资源访问，同时期望指定访问 IP 地址并无 IP 冲突，可以通过私网 NAT + 专线方案来说实现。
 ![](https://qcloudimg.tencent-cloud.cn/raw/81eafce1f3db0e521f3a43d75256204a.png)
 
 
@@ -21,9 +21,8 @@
 ## 操作步骤
 ### 步骤一：创建私网 NAT 网关[](id:step1)
 1. 登录 [NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?rid=1)
-2. 在左侧导航栏的 NAT 网关 > 私网 NAT 创建专线网关，关联实例本例选择私有网络。
-3. 选择所在地域和 VPC。
-4. 填写如下，单击**立即开通**。
+2. 在左侧导航栏单击 **NAT 网关** > **私网 NAT 网关**，选择地域和所在私有网络，单击**新建**。
+3. 填写如下配置信息，单击**立即开通**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb4407161c72e3af956979d7d367e633.png)
 更多详细配置可参考 [NAT 网关](https://cloud.tencent.com/document/product/552)。
 
