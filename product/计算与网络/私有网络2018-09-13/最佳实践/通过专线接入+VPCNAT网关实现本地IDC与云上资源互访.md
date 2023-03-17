@@ -62,7 +62,7 @@
 
 ## 步骤六：配置本地 IDC
 通道创建最后一步时请单击下载配置指引下载 CPE 配置指引文件，按照文件中提供的几款通用厂商的配置方法进行配置。
-更多详细配置请参考 [独享专用通道](https://cloud.tencent.com/document/product/216/74769)。
+更多详细配置请参考 [独享专用通道](https://cloud.tencent.com/document/product/216/74769#step4)。
 
 ## 步骤七：测试联通性
 测试云上 CVM 实例是否与本地 IDC 互访。
