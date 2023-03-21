@@ -42,7 +42,7 @@ api project(':tuichat')
 api project(':tuicallkit')
 ```
 :::
-::: iOS & Mac
+::: iOS
 ```objectivec
 // 1. 在 podfile 文件中添加以下内容。
 pod 'TUIChat'          
@@ -78,7 +78,7 @@ AudioRecorder.getInstance().startRecord(new AudioRecorder.Callback() {
 AudioRecorder.getInstance().stopRecord();
 ```
 :::
-::: iOS & Mac
+::: iOS
 ```objectivec
 TUIAudioRecorder *recorder = [[TUIAudioRecorder alloc] init];
 // 开始录制
