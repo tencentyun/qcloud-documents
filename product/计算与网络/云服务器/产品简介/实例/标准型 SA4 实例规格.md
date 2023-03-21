@@ -1,31 +1,4 @@
 <div class="sect1">
-	<h2 id="INSTANCETYPE">实例类型</h2>
-	<div class="sectionbody">
-		<div class="paragraph">
-			<p>腾讯云实例族可分为以下类型：</p>
-		</div>
-		<div class="dlist">
-<table>
-<tr>
-<th style="width: 18%;">类型</th>
-<th style="width: 25%;">子类型</th>
-<th>描述</th>
-</tr>
-<tr>
-<td><a href="#S">标准型实例族</a></td>
-<td>
-<ul style="margin-bottom: 0;">
- <li><a href="#S6">标准型 SA4</a> </li>
-</ul>
-</td>
-<td>均衡的计算、内存和网络资源，可满足大多数场景下的应用资源需求</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-
-<div class="sect1">
 	<h2 id="S">标准型实例族</h2>
 		<div class="sectionbody">
 			<div class="paragraph">
@@ -42,7 +15,7 @@
 						<td class="tableblock halign-left valign-top">
 							<div>
 								<div class="sect2">
-									<h3 id="S6">标准型 S6</h3>
+									<h3 id="S6">标准型 SA4</h3>
 									<div class="paragraph">
 									<p>标准型 SA4 实例是最新一代的标准型实例，基于全新优化虚拟化平台，提供了平衡、稳定的计算、内存和网络资源，是众多应用程序的最佳选择。</p>
 									<p>标准型 SA4 实例采用的AMD EPYC™ Genoa全新处理器，内存采用最新 DDR5，默认网络优化，最高内网收发能力达4500万pps，最高内网带宽可支持100Gbps。
