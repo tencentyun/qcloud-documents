@@ -259,7 +259,8 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 
 - [SDK API手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
-- [音视频通话](https://cloud.tencent.com/document/product/269/79861) 
-- [快速入门（小程序）](https://cloud.tencent.com/document/product/269/68376) 
-- [快速入门（uni-app）](https://cloud.tencent.com/document/product/269/64506) 
+- [集成音视频通话](https://cloud.tencent.com/document/product/269/79861) 
+- [chat-uikit-vue npm](https://www.npmjs.com/package/@tencentcloud/chat-uikit-vue)
+- [chat-uikit-vue Github仓库](https://github.com/TencentCloud/chat-uikit-vue)
+- [chat-uikit-vue Demo源码及跑通示例](https://github.com/TencentCloud/chat-uikit-vue/tree/main/Demo)
 
