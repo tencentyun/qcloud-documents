@@ -42,8 +42,8 @@ sudo ./cfs_turbo_client_setup
 <table>
 <table>
     <tr>
-        <td>操作系统类型</td>
-        <td>操作系统版本</td>
+        <th>操作系统类型</td>
+        <th>操作系统版本</td>
     </tr>
     <tr>
         <td rowspan=8>CentOS</td>
@@ -116,4 +116,6 @@ sudo mount.lustre -o user_xattrXXXXXXXXXXXXXXXXXXX
 ```shell
 sudo mount.lustre XXXXXXXXXXXXXXXXXXX
 ```
->?若需要只读挂载，可在挂载时添加 -o ro 的指令。
+>? 
+>- 若需要只读挂载，可在挂载时添加 -o ro 的指令。
+>- 卸载与 NFS 协议的文件系统使用方式一致，使用 umount /path/to/umount，即可完成卸载操作。

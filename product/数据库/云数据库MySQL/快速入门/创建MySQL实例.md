@@ -7,9 +7,12 @@
 - 如需完成实名认证：
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/developer" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点此完成实名认证</a></div>
 
-## 购买页导入已有配置指引
-![](https://qcloudimg.tencent-cloud.cn/raw/5ed6eaa2490278ab07901920e8b72a8d.png)
-当登录的账号有已创建的云数据库 MySQL 实例时，如需购买与已创建实例相同配置的实例，可单击购买页上方的**导入已有配置**，快捷自动配置好各项参数，便于您基于已有配置快捷调整或购买。
+>?新版购买页支持一键**导入已有配置**，当登录的账号有已创建的云数据库 MySQL 实例时，通过此功能可自动配置好实例购买页的各项参数，便于您基于已有配置进行快捷调整或直接购买，操作指引如下。
+>1. 在购买页单击右上角的**导入已有配置**。
+>![](https://qcloudimg.tencent-cloud.cn/raw/5ed6eaa2490278ab07901920e8b72a8d.png)
+>2. 在弹窗里，勾选对应地域的已有目标实例，单击**确定**。
+>![](https://qcloudimg.tencent-cloud.cn/raw/833583881c0b09a8924dd27b63f89808.png)
+
 ## 控制台购买
 1. 登录 [MySQL 购买页](https://buy.cloud.tencent.com/cdb)，根据实际需求完成**基础配置**和**实例配置**，单击**下一步：设置网络和数据库**。
 **基础配置**

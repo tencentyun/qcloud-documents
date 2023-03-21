@@ -12,7 +12,7 @@
 开发者可以根据业务需求使用 **HTTP 请求**、**自定义代码**或**云开发云函数**方式实现自定义 API 方法。
 
 #### HTTP 请求
-可简单对接第三方 HTTP 接口，通过简单的配置 HTTP 请求地址 、方法 、参数等等即可往完成方法的配置。详情请参见 [HTTP 请求](https://docs.cloudbase.net/lowcode/datasource/add-methods#http%E8%AF%B7%E6%B1%82)。
+可简单对接第三方 HTTP 接口，通过简单的配置 HTTP 请求地址 、方法 、参数等等即可完成方法的配置。详情请参见 [HTTP 请求](https://docs.cloudbase.net/lowcode/datasource/add-methods#http%E8%AF%B7%E6%B1%82)。
 
 #### 自定义代码
 集成了常用 NPM 包、数据模型、 API 等 API，只支持 JS 开发语言，可以用来实现自定义业务逻辑，详情请参见 [自定义代码](https://cloud.tencent.com/document/product/1301/68440)。
