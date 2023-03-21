@@ -232,7 +232,7 @@ module.exports = {
 即时通信 IM - 含 UI 集成方案（ Web & H5 ） 目前仅支持 Vue3 版本接入，建议升级至 Vue3 版本体验最新含 UI 集成功能，或采用 [无 UI 集成方案](https://cloud.tencent.com/document/product/269/75285) 集成 IM SDK 。
 
 
-### 相关文档
+## 相关文档
 
 - [SDK API手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
