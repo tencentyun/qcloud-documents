@@ -1,11 +1,3 @@
-<div class="paragraph">
-	<p>创建腾讯云云服务器时，用户指定的实例类型决定了实例的主机硬件配置。每个实例类型提供不同的计算、内存和存储功能。用户可基于需要部署运行的应用规模，选择一种适当的实例类型。这些实例族由 CPU、内存、存储、异构硬件和网络带宽组成不同的组合，您可灵活地为您的应用程序选择适当的资源。</p>
-</div>
-
-<div class="paragraph">
-	<p>对于稳定业务，推荐您选择包年包月的计费模式，购买时长越久越划算；对于突发性业务高峰，您可以选择按量计费的计费模式，随时开通/销毁计算实例，按实例的实际使用量付费。计费精确到秒，最大程度降低成本。</p>
-</div>
-
 <div class="sect1">
 	<h2 id="INSTANCETYPE">实例类型</h2>
 	<div class="sectionbody">
@@ -30,8 +22,6 @@
 </tr>
 </table>
 </div>
-<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>部分实例族已停售，详情请参见 <a href="https://cloud.tencent.com/document/product/213/37660">实例规格（已停售）</a>。</p>
-</blockquote>
 </div>
 </div>
 
