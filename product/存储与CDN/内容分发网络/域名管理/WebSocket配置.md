@@ -24,7 +24,7 @@ WebSocket 协议是基于 TCP 的一种持久化协议，它实现了客户端�
 
 ### 推荐配置
 
-WebSocket 是客户端和源站间建立的会话连接，建议根据您的心跳包机制配置 WebSocke t超时时间，若您的 WebSocket 没有心跳包机制则您的 WebSocket 超时时间建议配置成60s
+WebSocket 是客户端和源站间建立的会话连接，建议根据您的心跳包机制配置 WebSocket 超时时间，若您的 WebSocket 没有心跳包机制则您的 WebSocket 超时时间建议配置成60s
 
 ### 配置约束
  
