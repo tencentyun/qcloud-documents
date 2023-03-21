@@ -39,3 +39,28 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
 ## 输出参数
 成功返回空消息体，失败返回 [错误码](https://cloud.tencent.com/document/product/1095/43704) 和错误信息。
 
+
+## 示例
+### 输入示例
+
+```plaintext
+PUT
+https://api.meeting.qq.com/v1/mra-control/meetings/100001/raise-hand
+{
+   "operator_id":"user1",
+   "operator_id_type":1,
+   "instanceid":1,
+   "raise_hand":true,
+   "user":{
+      "ms_open_id":"1234567",
+      "instanceid":9
+            }
+}
+```
+
+
+### 输出示例
+
+```plaintext
+{}
+```
