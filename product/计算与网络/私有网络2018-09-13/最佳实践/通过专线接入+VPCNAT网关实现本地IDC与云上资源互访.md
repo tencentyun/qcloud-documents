@@ -40,7 +40,7 @@
 - 使用自主独占型物理专线创建的通道为独占型专用通道，即独占专用通道，适用于大带宽接入、业务独享等场景，创建详情请参见 [独享专用通道](https://cloud.tencent.com/document/product/216/74769)。
 - 使用合作伙伴与腾讯预连接的物理专线创建的专用通道为共享型专用通道，即共享专用通道，适用于无大带宽入云需求、上云时间要求较短的场景，创建详情请参见 [共享专用通道](https://cloud.tencent.com/document/product/216/74570)。
 
-## [](id:step4)步骤四：配置私网 NAT 网关 SNAT 和 DNAT 条目
+### [](id:step4)步骤四：配置私网 NAT 网关 SNAT 和 DNAT 条目
 1. 登录 [NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?rid=1)，在左侧导航栏选择私网 NAT 网关，单击已创建私网 NAT 网关 ID。
 2. 在**私网 NAT 网关详情**页面，在 **SNAT** 和 **DNAT** 页签配置 SNAT 和 DNAT 规则，本例以 SNAT 为例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9d532a6c65e50eb32963e3ad07141d6c.png)
@@ -51,7 +51,7 @@
 >?更多详细配置请参见 [操作总览](https://cloud.tencent.com/document/product/552/12958)。
 >
 
-## [](id:step5)步骤五：配置 VPC 路由表路由策略
+### [](id:step5)步骤五：配置 VPC 路由表路由策略
 1. 登录 [路由表控制台](https://console.cloud.tencent.com/vpc/route?rid=1)。
 2. 在**路由表**页面找到您 VPC 对应的路由表，进入路由表详情页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ca39e93e4bbe5460e83b431752627ecf.png)
@@ -62,12 +62,12 @@
 >
 
 
-## 步骤六：配置本地 IDC
+### 步骤六：配置本地 IDC
 通道创建最后一步时，请单击下载配置指引：下载 CPE 配置指引文件，按照文件中提供的几款通用厂商的配置方法进行配置。
 >?更多详细配置请参考 [独享专用通道](https://cloud.tencent.com/document/product/216/74769#step4)。
 >
 
-## 步骤七：测试联通性
+### 步骤七：测试联通性
 测试云上 CVM 实例是否与本地 IDC 互访。
 1. 登录您 VPC 内的 CVM。
 2. 使用 ping 命令 ping 您本地 IDC 内服务器 IP 地址，如果能收到 icmp 回包，则说明 CVM 与 IDC 已连通。
