@@ -30,7 +30,6 @@
 	<h2 id="S">标准型实例族</h2>
 		<div class="sectionbody">
 			<div class="paragraph">
-				<p>标准型实例是计算、内存和网络资源的均衡，可满足大多数场景下的应用资源需求。</p>
 </div>
 
 
