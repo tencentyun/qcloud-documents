@@ -184,7 +184,7 @@ NAT 防火墙实例规格档位表。
 3. 在防火墙状态监控页面，支持以 IP 视角与子网视角查看带宽状态监控。
  - IP 视角：IP 地址的资产信息、所属 VPC、入向/出向带宽的峰值与均值情况、限速状态、限制速率操作。
  - 子网视角：子网名称、IPv4 CIDR 地址、入向/出向峰值带宽、开关状态、查看开关操作。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/1140b3afb91bb40dc1e65bb71e0d4399.png" width=900px>
-4. 单击**查看全部监控指标**，可以查看该实例下更多监控指标数据，包括入/出包量数据等；您也可以前往 [云监控](https://console.cloud.tencent.com/monitor/overview2) 查看更多数据内容。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/6532b4a073db7af7efca35839b539b69.png" width=900px>
+4. 单击**查看全部监控指标**，可以查看该实例下更多监控指标数据，包括入/出包量数据等；您也可以前往 [腾讯云可观测平台](https://console.cloud.tencent.com/monitor/overview2) 查看更多数据内容。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/6532b4a073db7af7efca35839b539b69.png" width=900px>
 5. 可设置监控数据的时间间隔、同比/环比、刷新时间等配置信息。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/3cd36935eb5d3a7ecfa5a5ce9198b1a6.png" width=900px>
 ## 同步资产
 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击**同步资产**，可以主动调用后台接口重新读取并同步用户子网的资产信息，可避免发生因用户资产规模在后台轮询间隔内发生变化，但尚未被同步的情况。
