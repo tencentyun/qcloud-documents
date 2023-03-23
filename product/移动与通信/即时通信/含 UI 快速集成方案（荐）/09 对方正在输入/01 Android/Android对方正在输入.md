@@ -11,8 +11,8 @@
     <th style="text-align:center;" width="300px">关闭“对方正在输入”<br></th>
   </tr>
   <tr>
-    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/de7fbbf9b4db230dacf7b3c6b5055ab6.png"  />    </td>
-    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/85e4bbb27a6e74127b0648333fe6b017.png" />     </td>
+    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/b4a94e3da254d36010baeba264375f42/%E5%AF%B9%E6%96%B9%E6%AD%A3%E5%9C%A8%E8%BE%93%E5%85%A5%E4%B8%AD2.png"  />    </td>
+    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/8258bdd8e6a9edcbe64fe08e292f8f05/%E5%85%B3%E9%97%AD%E6%AD%A3%E5%9C%A8%E8%BE%93%E5%85%A5%E4%B8%AD2.png" />     </td>
 	 </tr>
 </table>
 

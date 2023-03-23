@@ -1,4 +1,3 @@
-
 ## 接口描述
 - **描述：**将三方应用获取到 open_id 转换为本企业用户的 userid。
 - 鉴权方式：JWT 鉴权。
@@ -8,7 +7,7 @@
 https://api.meeting.qq.com/v1/users/open-id-to-userid
 ```
 
-## 请求参数
+## 输入参数
 <table>
    <tr>
       <th width="20%" >参数名称</td>
@@ -31,7 +30,7 @@ https://api.meeting.qq.com/v1/users/open-id-to-userid
 </table>
 
 
-## 返回数据
+## 输出参数
 <table>
    <tr>
       <th width="20%" >参数名称</td>
@@ -74,3 +73,30 @@ https://api.meeting.qq.com/v1/users/open-id-to-userid
       <td>转换成功后，该 open_id 所对应的本企业下用户的 userid。</td>
    </tr>
 </table>
+
+## 示例
+### 输入示例
+
+```plaintext
+POST  https://api.meeting.qq.com/v1/users/open-id-to-userid
+{
+   "open_id_list":["123456"],
+   "sdkId":"120001"
+}
+```
+
+
+### 输出示例
+
+```plaintext
+{
+   "userid_list":[
+                          {
+                               "open_id":"123456",
+                               "userid":"user1"
+                          }
+                          ]
+   "invalid_open_id_list":[]
+}
+```
+

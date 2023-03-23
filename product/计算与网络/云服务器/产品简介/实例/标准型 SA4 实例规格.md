@@ -21,7 +21,7 @@
 </tr>
 </table>
 </div>
-<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例规格族正在邀测中，欢迎您的建议与反馈 <a href="https://cloud.tencent.com/apply/p/jxftjls5x3"> SA4实例测试使用调查问卷</a>。</p>
+<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>该实例规格族正在邀测中，欢迎您的建议与反馈 <a href="https://cloud.tencent.com/apply/p/jxftjls5x3">（SA4实例测试使用调查问卷）</a>。</p>
 </blockquote>
 </div>
 </div>

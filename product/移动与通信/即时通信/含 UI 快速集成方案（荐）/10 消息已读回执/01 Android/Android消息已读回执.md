@@ -11,7 +11,7 @@ TUIKit 分别从 [6.2.2363](https://cloud.tencent.com/document/product/269/1606#
 
 通过消息左侧 “已读” / “未读” 标签展示。
 
-<img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/6afa30a2d7ec4432bf85e62061c8fef6.png"  />
+<img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/7c41cb7cb5ec8b11a5dcf0f3808e52ca/%E5%8D%95%E8%81%8A%E5%B7%B2%E8%AF%BB2.png"  />
 
 
 ### 群聊消息已读回执
@@ -20,7 +20,7 @@ TUIKit 分别从 [6.2.2363](https://cloud.tencent.com/document/product/269/1606#
 
 ### 消息列表
 
-<img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/694f4ebe6d67e3eb7c464a95ee984571.png"  />
+<img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/59ca752a93309eb93259bd61b83047d2/%E7%BE%A4%E5%B7%B2%E8%AF%BB%E5%9B%9E%E6%89%A72.png"  />
 
 
 ### 已读回执详情
@@ -34,8 +34,8 @@ TUIKit 分别从 [6.2.2363](https://cloud.tencent.com/document/product/269/1606#
     <th style="text-align:center;" width="300px">未读 群成员<br></th>
   </tr>
   <tr>
-    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/a7e9627ba2f8c240767102e85c759673.png"  />    </td>
-    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/60c5216fc9ffa18ca39d7fcc889aba5b.png" />     </td>
+    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/e539ce90fa5fd48800edf16b4fb5dc46/%E7%BE%A4%E5%9B%9E%E6%89%A7%E5%B7%B2%E8%AF%BB2.png"  />    </td>
+    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/5bec8ae768860e8a1dc4be31d7d8fab5/%E7%BE%A4%E5%9B%9E%E6%89%A7%E6%9C%AA%E8%AF%BB2.png" />     </td>
 	 </tr>
 </table>
 
