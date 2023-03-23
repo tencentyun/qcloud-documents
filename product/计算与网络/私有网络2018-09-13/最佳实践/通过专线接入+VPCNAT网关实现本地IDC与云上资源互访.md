@@ -6,7 +6,7 @@
 
 ## 业务场景
 用户使用专线打通腾讯云和客户 IDC 实现资源访问，同时期望指定访问 IP 地址并无 IP 冲突，可以通过私网 NAT + 专线方案来实现。
-![](https://qcloudimg.tencent-cloud.cn/raw/81eafce1f3db0e521f3a43d75256204a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a8ca0ed6f2549cfc8a42acee98431c01.png)
 
 
 ## 前提条件
