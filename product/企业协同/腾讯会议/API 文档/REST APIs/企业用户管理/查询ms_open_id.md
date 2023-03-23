@@ -27,3 +27,22 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}/ms-open-id
 | ---------- | ------ | --------  | ------------------------------------------------------- | 
 | meeting_id | string | 必须      | 会议唯一 ID。                                             |        
 | ms_open_id | string | 必须        | 当场会议的用户临时 ID，可用于会控操作，适用于所有用户。 |        
+
+
+## 示例
+### 输入示例
+
+```plaintext
+GET
+https://api.meeting.qq.com/v1/meetings/100001/ms-open-id?operator_id=user1&operator_id_type=1
+```
+
+
+### 输出示例
+
+```plaintext
+{
+   "meeting_id":"100001",
+   "ms_open_id":"12345678"
+}
+```
