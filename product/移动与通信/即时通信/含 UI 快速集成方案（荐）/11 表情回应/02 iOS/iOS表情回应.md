@@ -15,11 +15,10 @@ TUIKit 从 [6.3.2609](https://cloud.tencent.com/document/product/269/1606#6.3.26
     <th style="text-align:center;" width="300px">更多表情<br></th>
   </tr>
   <tr>
-    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/b81c3d7765739d646bea6c05a60b0d21.png"  />    </td>
-    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/e038fd247746691916194bb1e2406d13.png" />     </td>
+    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/5850964be7a7714cc7670c7f665e142d/%E8%A1%A8%E6%83%85%E5%9B%9E%E5%BA%94%E9%95%BF%E6%8C%892.png"  />    </td>
+    <td style="text-align:center;"><img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/c20688323e340222f0ab5b15951a0346/%E8%A1%A8%E6%83%85%E5%9B%9E%E5%BA%94%E6%9B%B4%E5%A4%9A2.png" />     </td>
 	 </tr>
 </table>
-
 
 ### 展示表情回应
 
@@ -28,7 +27,7 @@ TUIKit 从 [6.3.2609](https://cloud.tencent.com/document/product/269/1606#6.3.26
 在消息下方，会显示回应的表情和回应了该表情的聊天成员昵称，点击表情可以快速回应相同表情或者取消回应该表情。
 
 
-<img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/4f1f215699a3a385cc6aa19ac5f8f00b.png"  /> 
+<img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/ff3495b661378c83ac797b30df10d159/%E8%A1%A8%E6%83%85%E5%9B%9E%E5%BA%94%E6%A0%B7%E5%BC%8F2.png"  /> 
 
 
 
@@ -53,7 +52,7 @@ TUIChatConfig.defaultConfig.enablePopMenuEmojiReactAction = NO;
 ```
 关闭之后消息长按弹窗的效果：
 
-<img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/004b960bd49eaac74550ec4f96c87115.png" />
+<img style="width:250px" src="https://qcloudimg.tencent-cloud.cn/raw/88d9732233d3422b5c91d1c593a980a2/%E8%A1%A8%E6%83%85%E5%9B%9E%E5%BA%94%E5%85%B3%E9%97%AD2.png" />
 
 ## 交流与反馈[](id:feedback)
 欢迎加入 QQ 群进行技术交流和反馈问题。
