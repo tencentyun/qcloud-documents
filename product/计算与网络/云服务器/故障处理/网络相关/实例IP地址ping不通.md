@@ -51,8 +51,7 @@
 实例必须具备公网 IP 才能与 Internet 上的其他计算机相互访问。若实例没有公网 IP，内网 IP 外部则无法直接 ping 通实例。
 </dx-alert>
 
-
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+1. 通过登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 检查服务器是否设置公网 IP。
 2. 在**实例列表**页面中，选择需要 ping 通的实例 ID/实例名，进入该实例的详情页面。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d90e03b056c338f25d9cd20d6415f8a3.png)
 3. 在**网络信息**栏，查看实例是否配置了公网 IP。
@@ -63,7 +62,7 @@
 ### 检查实例安全组是否设置[](id:CheckSecurityGroupSetting)
 
 安全组是一个虚拟防火墙，可以控制关联实例的入站流量和出站流量。而安全组的规则可以指定协议、端口、策略等。由于 ping 使用的是 ICMP 协议，请确认实例关联的安全组是否允许 ICMP。执行以下操作，查看实例使用的安全组以及详细的入站和出站规则：
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+1. 通过登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，检查实例安全组设置。
 2. 在**实例列表**页面中，选择需要安全组设置的实例 ID/实例名，进入该实例的详情页面。
 3. 选择**安全组**页签，进入该实例的安全组管理页面。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5880372a92c092aba58b8706fc859eca.png)
@@ -73,7 +72,6 @@
 
 
 ### 检查系统内实例是否处于设置状态[](id:CheckOSSetting)
-
 判断实例的操作系统类型，选择不同的检查方式。
 - Linux 操作系统，请 [检查 Linux 内核参数和防火墙设置](#CheckLinux)。
 - Windows 操作系统，请 [检查 Windows 防火墙设置](#CheckWindows)，若非防火墙问题，可尝 [检查服务器内 Windows 实例网络是否设置](#reset)。
@@ -85,7 +83,7 @@
 Linux 系统是否允许 ping 由内核和防火墙设置两个共同决定，任何一个禁止，都会造成 ping 包 **Request timeout**。
 </dx-alert>
 
-
+通过腾讯云 VNC 登录进入服务器内部进行检查。
 
 ##### 检查内核参数 icmp_echo_ignore_all
 
@@ -168,7 +166,7 @@ reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Netw
 ### 检查服务器内域名解析是否正确的配置[](id:CheckDNS)
 
 ping 不通域名的另外一个原因是由于域名解析没有正确地配置。如果您使用的是腾讯云的域名服务，您可以执行以下操作，检查域名解析。
-1. 登录 [域名服务控制台](https://console.cloud.tencent.com/domain)。
+1. 登录 [域名服务控制台](https://console.cloud.tencent.com/domain)，检查域名解析。
 2. 在**我的域名**管理页面，选择需检查域名解析的域名行，单击**解析**，查看域名解析详情。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/84467abd08a414129180140650689ef7.png)
 
