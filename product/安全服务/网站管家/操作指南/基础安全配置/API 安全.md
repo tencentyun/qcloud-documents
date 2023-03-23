@@ -14,7 +14,7 @@
 ### 导入 API（推荐）
 1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-baseconfig)** > **API 安全**页面，单击**导入 API**，弹出导入API 接口弹窗。
 2. 在导入 API 接口弹窗中，选择上传文件类型，单击**点击上传**，传入 API 文件即可。
->?目前 WAF 支持两种 swagger2.0 文件的解析，分别是： YML 文件和 JOSN 文件。导入规则说明：
+>?目前 WAF 支持两种 swagger2.0 文件的解析，分别是： YML 文件和 JSON 文件。导入规则说明：
 >- 格式：导入 API 描述文件，文件后缀名必须为 .yml 或 .json，单次上传的 API 描述文件不超过100KB。
 >- 数量：每次最多可上传创建20条 API，导入已经存在的 API 会默认跳过。
 >- 导入创建成功的 API ，可进行编辑，请根据实际情况进行接口确认。
