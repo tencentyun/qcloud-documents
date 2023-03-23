@@ -37,7 +37,7 @@
   </tr>
   <tr>
     <td>服务器内域名解析未正确的配置</td>
-    <td><a href="#CheckDNS">检查服务器内域名解析是否正确的配置</a></td>检查服务器内 Windows 实例的防火墙设置
+    <td><a href="#CheckDNS">检查服务器内域名解析是否正确的配置</a></td>
   </tr>
 </tbody>
 </table>
