@@ -76,13 +76,13 @@
 
 判断实例的操作系统类型，选择不同的检查方式。
 - Linux 操作系统，请 [检查 Linux 内核参数和防火墙设置](#CheckLinux)。
-- Windows 操作系统，请 [检查 Windows 防火墙设置](#CheckWindows)，若非防火墙问题，可尝 [重置 Windows 网络设置](#reset)。
+- Windows 操作系统，请 [检查 Windows 防火墙设置](#CheckWindows)，若非防火墙问题，可尝 [检查服务器内 Windows 实例网络是否设置](#reset)。
 
 
 #### 检查 Linux 内核参数和防火墙设置[](id:CheckLinux)
 
 <dx-alert infotype="explain" title="">
-Linux 系统是否允许 ping 由内核和防火墙设置两个共同决定，任何一个禁止，都会造成 ping 包 “Request timeout”。
+Linux 系统是否允许 ping 由内核和防火墙设置两个共同决定，任何一个禁止，都会造成 ping 包 **Request timeout**。
 </dx-alert>
 
 
