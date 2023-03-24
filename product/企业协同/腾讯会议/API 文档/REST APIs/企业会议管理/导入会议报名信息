@@ -56,13 +56,19 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/import
 ### 输入示例
 
 ```plaintext
-POST  https://api.meeting.qq.com/v1/meeting/set-waiting-room-welcome-message
+POST
+https://api.meeting.qq.com/v1/meetings/100001/enroll/import
 {
-    "meeting_id": "100001",
-    "operator_id_type": 1,
-    "welcome_text": "欢迎大家",
+    "instanceid": 2,
     "operator_id": "user1",
-    "enable_welcome": true
+    "operator_id_type": 1,
+    "enroll_list": [
+        {
+            "area": "86",
+            "phone_number": "13612113333",
+            "nike_name":"asdn"
+        }
+    ]
 }
 ```
 
@@ -71,7 +77,17 @@ POST  https://api.meeting.qq.com/v1/meeting/set-waiting-room-welcome-message
 
 ```plaintext
 {
-    "welcome_text": "欢迎大家",
-    "enable_welcome": true
+    "total_count": 1,
+    "enroll_list": [
+        {
+            "userid": "",
+            "area": "86",
+            "phone_number": "13612113333",
+            "nick_name": "asdn",
+            "enroll_code": "1112",
+            "enroll_id": 1386442,
+            "open_id": ""
+        }
+    ]
 }
 ```
