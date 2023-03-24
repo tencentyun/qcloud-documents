@@ -198,6 +198,7 @@
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;"  onclick="window.open('https://comm.qq.com/im_demo_download/macos_flutter.dmg')" /><br><br><input type="button" value="Windows" style="height: 30px;width: 110px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;"  onclick="window.open('https://comm.qq.com/im_demo_download/windows_flutter.appx')" /></p>
+    <a style="margin-top: 70px" href="https://support.apple.com/zh-cn/guide/mac-help/mh40616/mac">mac 安装</a><br>
                                 <a style="margin-top: 70px" href="https://cloud.tencent.com/document/product/269/68823">快速入门</a>
             </div>
 </div>
