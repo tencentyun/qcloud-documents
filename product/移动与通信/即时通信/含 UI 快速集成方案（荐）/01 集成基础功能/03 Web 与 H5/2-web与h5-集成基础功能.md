@@ -119,7 +119,12 @@ mkdir -p ./src/TUIKit && cp -r ./node_modules/@tencentcloud/chat-uikit-vue/ ./sr
 ::: Windows\s 端
 <dx-codeblock>
 ::: shell
-npm i @tencentcloud/chat-uikit-vue 
+npm i @tencentcloud/chat-uikit-vue
+:::
+</dx-codeblock>
+
+<dx-codeblock>
+::: shell
 xcopy .\node_modules\@tencentcloud\chat-uikit-vue .\src\TUIKit /i /e
 :::
 </dx-codeblock>
@@ -345,7 +350,7 @@ npm run dev
 ### 步骤8：拨打您的第一通电话
 
 自 @tencentcloud/chat-uikit-vue v1.4.0 版本起自动接入音视频通话功能，无需手动集成。 
-如果您是v1.4.0 以下版本，可以通过接入 call-uikit-vue 体验通话功能。详情请参考 [音视频通话 ( Web & H5 )](https://cloud.tencent.com/document/product/269/79861) 。
+如果您是 v1.4.0 以下版本，可以通过接入 call-uikit-vue 体验通话功能。详情请参考 [音视频通话 ( Web & H5 )](https://cloud.tencent.com/document/product/269/79861) 。
  <img width="1015" alt="page05" src="https://user-images.githubusercontent.com/57951148/196082955-e046f0b1-bba2-491d-91b3-f30f2c6f4aae.png">
 
 ## 常见问题
