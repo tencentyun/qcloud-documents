@@ -1,3 +1,4 @@
+
 添加完成加速域名后，CDN 会为您分配一个 CNAME 域名。您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受 CDN 加速服务。如下将为您提供配置示例，更多详细操作请查看 [配置 CNAME](https://cloud.tencent.com/document/product/228/3121)。
 - 若您的域名解析服务商为腾讯云：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d938b5198158c689b800c3741ad52bd5.png)

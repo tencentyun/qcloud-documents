@@ -24,7 +24,7 @@ flutter pub add tencentcloud_cos_sdk_plugin
 2. 这将向您的包的 pubspec.yaml 添加这样一行（并运行隐式 flutter pub get）
 ```
 dependencies:
-  tencentcloud_cos_sdk_plugin: ^1.0.1
+  tencentcloud_cos_sdk_plugin: ^1.0.2
 ```
 3. 在您的 Dart 代码中，您可以使用 import 进行导入，然后开始使用：
 ```

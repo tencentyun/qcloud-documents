@@ -51,3 +51,27 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/import
 | nick_name    | String  | 报名的昵称。                     |
 | enroll_code    | String  | 报名码，用于电话入会的凭证。                |
 
+
+## 示例
+### 输入示例
+
+```plaintext
+POST  https://api.meeting.qq.com/v1/meeting/set-waiting-room-welcome-message
+{
+    "meeting_id": "100001",
+    "operator_id_type": 1,
+    "welcome_text": "欢迎大家",
+    "operator_id": "user1",
+    "enable_welcome": true
+}
+```
+
+
+### 输出示例
+
+```plaintext
+{
+    "welcome_text": "欢迎大家",
+    "enable_welcome": true
+}
+```

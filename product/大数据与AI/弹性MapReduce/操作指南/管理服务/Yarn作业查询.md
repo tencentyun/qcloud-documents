@@ -6,7 +6,7 @@
 	1. 用户粒度的提交量、Memory、VCore 的消耗量视图及分布，支持近期内的相关趋势查看。
 ![](https://qcloudimg.tencent-cloud.cn/raw/82fcd7ea4fa9bc56be3dcca098906d7b.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/e5f61921666da3c3c48a53a4629045e4.png)
-	2. 作业级别提供用户、用用名、队列名、作业类型、持续时间及相关吞吐资源等多维信息筛查。
+	2. 作业级别提供用户、应用名、队列名、作业类型、持续时间及相关吞吐资源等多维信息筛查。
 ![](https://qcloudimg.tencent-cloud.cn/raw/638988895213d6c57369da1259d71904.png)
 	3. 统计列表可按照指定的用户、队列等信息统计其资源消耗量,帮助统计资源开销情况辅助成本核查（接口同步支持）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8e9584f6c4ec3486fbdda41de2ba2108.png)
