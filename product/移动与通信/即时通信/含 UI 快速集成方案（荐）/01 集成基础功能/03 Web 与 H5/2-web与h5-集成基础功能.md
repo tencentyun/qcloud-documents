@@ -10,7 +10,10 @@
 
 ### 步骤1：创建项目
 
-推荐使用 vue-cli 方式创建项目， 配置 Vue3 + TypeScript + sass。
+TUIKit 支持使用 webpack 或 vite 创建项目工程，配置 Vue3 + TypeScript + sass。以下是几种项目工程搭建示例：
+<dx-tabs>
+::: vue-cli 
+使用 vue-cli 方式创建项目， 配置 Vue3 + TypeScript + sass。
 如果您尚未安装 vue-cli ，可以在 terminal 或 cmd 中采用如下方式进行安装：
 <dx-codeblock>
 ::: shell
@@ -33,6 +36,73 @@ vue create chat-example
 cd chat-example
 :::
 </dx-codeblock>
+
+:::
+::: create-vue
+使用 create-vue 方式创建项目，配置 Vue3 + TypeScript + sass。
+确保你安装了最新 LTS 版本的 Node.js，然后在命令行中运行以下命令安装并执行 create-vue：
+<dx-codeblock>
+::: shell
+npm init vue@latest
+:::
+</dx-codeblock>
+
+按照如下选择进行配置：
+<img style="width:600px;" src="https://qcloudimg.tencent-cloud.cn/raw/a1d7ad02db73b19000c6b0cd9b43b1e3.png">
+
+创建项目完成后，切换到项目所在目录，安装项目对应依赖以及 TUIKit 所需环境（ TypeScript、sass、sass-loader）
+<dx-codeblock>
+::: shell
+
+# 切换至项目所在目录
+
+cd chat-example
+
+# 安装项目依赖
+
+npm install
+
+# 安装 TUIKit 所需环境
+
+npm install typescript sass sass-loader -D
+
+:::
+</dx-codeblock>
+
+:::
+::: vite
+使用 vite 方式创建项目，配置 Vue3 + TypeScript + sass。
+<dx-codeblock>
+::: shell
+npm create vite@latest
+:::
+</dx-codeblock>
+
+按照如下选择进行配置：
+<img style="width:600px;" src="https://qcloudimg.tencent-cloud.cn/raw/7b8252b1f36871df22c2613fb3abdcc6.png">
+
+创建项目完成后，切换到项目所在目录，安装项目对应依赖以及 TUIKit 所需环境（ TypeScript、sass、sass-loader）
+<dx-codeblock>
+::: shell
+
+# 切换至项目所在目录
+
+cd chat-example
+
+# 安装项目依赖
+
+npm install
+
+# 安装 TUIKit 所需环境
+
+npm install typescript sass sass-loader -D
+
+:::
+</dx-codeblock>
+:::
+</dx-tabs>
+
+
 
 ### 步骤2：下载 TUIKit 组件
 
@@ -67,6 +137,8 @@ xcopy .\node_modules\@tencentcloud\chat-uikit-vue .\src\TUIKit /i /e
 import { createApp } from 'vue';
 import App from './App.vue';
 import { TUIComponents, TUICore, genTestUserSig } from './TUIKit';
+// import TUICallKit
+import { TUICallKit } from '@tencentcloud/call-uikit-vue';
 
 const SDKAppID = 0; // Your SDKAppID
 const secretKey = ''; //Your secretKey
@@ -78,6 +150,8 @@ const TUIKit = TUICore.init({
 });
 // TUIKit add TUIComponents
 TUIKit.use(TUIComponents);
+// TUIKit add TUICallKit
+TUIKit.use(TUICallKit);
 
 // login TUIKit
 TUIKit.login({
@@ -106,7 +180,7 @@ userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tenc
 ### 步骤5：调用 TUIKit 组件
 
 在需要展示的页面，调用 TUIKit 的组件即可使用。
-例如：在 App.vue 页面中，使用 TUIConversation、TUIChat、TUISearch 快速搭建聊天界面。
+例如：在 App.vue 页面中，使用 TUIConversation、TUIChat、TUISearch、TUICallKit 快速搭建聊天界面（以下示例代码同时支持 Web 端与 H5 端）。
 <dx-codeblock>
 :::  js
 <template>
@@ -120,26 +194,77 @@ userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tenc
         <h1>欢迎使用腾讯云即时通信IM</h1>
       </TUIChat>
     </div>
+    <Drag :show="showCall" class="callkit-drag-container" domClassName="callkit-drag-container">
+      <!-- TUICallKit 组件：通话 UI 组件主体 -->
+      <TUICallKit
+        :allowedMinimized="true"
+        :allowedFullScreen="false"
+        :beforeCalling="beforeCalling"
+        :afterCalling="afterCalling"
+        :onMinimized="onMinimized"
+        :onMessageSentByMe="onMessageSentByMe"
+      />
+    </Drag>
+    <Drag :show="showCallMini" class="callkit-drag-container-mini" domClassName="callkit-drag-container-mini">
+      <!-- TUICallKitMini 组件：通话 UI 悬浮窗组件，提供最小化功能 -->
+      <TUICallKitMini style="position: static" />
+    </Drag>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue';
 import { TUIEnv } from './TUIKit/TUIPlugin';
+import Drag from './TUIKit/TUIComponents/components/drag';
+import { handleErrorPrompts } from './TUIKit/TUIComponents/container/utils';
+
 
 export default defineComponent({
   name: 'App',
+  components: {
+    Drag,
+  },
   setup() {
     const data = reactive({
       env: TUIEnv(),
       currentModel: 'conversation',
+      showCall: false,
+      showCallMini: false,
     });
+    const TUIServer = (window as any)?.TUIKitTUICore?.TUIServer;
     const handleCurrentConversation = (value: string) => {
       data.currentModel = value ? 'message' : 'conversation';
+    };
+    // beforeCalling：在拨打电话前与收到通话邀请前执行
+    const beforeCalling = (type: string, error: any) => {
+      if (error) {
+        handleErrorPrompts(error, type);
+        return;
+      }
+      data.showCall = true;
+    };
+    // afterCalling：结束通话后执行
+    const afterCalling = () => {
+      data.showCall = false;
+      data.showCallMini = false;
+    };
+    // onMinimized：组件切换最小化状态时执行
+    const onMinimized = (oldMinimizedStatus: boolean, newMinimizedStatus: boolean) => {
+      data.showCall = !newMinimizedStatus;
+      data.showCallMini = newMinimizedStatus;
+    };
+    // onMessageSentByMe：在整个通话过程内发送消息时执行
+    const onMessageSentByMe = async (message: any) => {
+      TUIServer?.TUIChat?.handleMessageSentByMeToView(message);
+      return;
     };
     return {
       ...toRefs(data),
       handleCurrentConversation,
+      beforeCalling,
+      afterCalling,
+      onMinimized,
+      onMessageSentByMe,
     };
   },
 });
@@ -168,18 +293,44 @@ export default defineComponent({
   height: 100%;
   position: relative;
 }
+.callkit-drag-container {
+  left: calc(50% - 25rem);
+  top: calc(50% - 18rem);
+  width: 50rem;
+  height: 36rem;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.callkit-drag-container-mini {
+  width: 168px;
+  height: 56px;
+  right: 10px;
+  top: 70px;
+}
 </style>
+
 :::
 </dx-codeblock>
 
 ### 步骤6：启动项目
 
 执行以下命令启动项目：
+<dx-tabs>
+::: vue-cli 
 <dx-codeblock>
 ::: shell
 npm run serve
 :::
 </dx-codeblock>
+:::
+::: create-vue / vite
+<dx-codeblock>
+::: shell
+npm run dev
+:::
+</dx-codeblock>
+:::
+</dx-tabs>
 
 ### 步骤7：发送您的第一条消息
 
@@ -190,6 +341,12 @@ npm run serve
    ![](https://qcloudimg.tencent-cloud.cn/raw/b111b422237771635d8a8fe4826e5738.png)
 	H5 端 “发送您的第一条消息” 具体步骤示例：
 	![](https://qcloudimg.tencent-cloud.cn/raw/239afb314ee33326219c019663e65028.png)
+
+### 步骤 8: 拨打您的第一通电话
+
+自 @tencentcloud/chat-uikit-vue v1.4.0 版本起自动接入音视频通话功能，无需手动集成。 
+如果您是v1.4.0 以下版本，可以通过接入 call-uikit-vue 体验通话功能。详情请参考[音视频通话 ( Web & H5 )](https://cloud.tencent.com/document/product/269/79861) 
+ <img width="1015" alt="page05" src="https://user-images.githubusercontent.com/57951148/196082955-e046f0b1-bba2-491d-91b3-f30f2c6f4aae.png">
 
 ## 常见问题
 
@@ -230,6 +387,9 @@ module.exports = {
 
 #### 如何使用 Vue2 版本接入？
 即时通信 IM - 含 UI 集成方案（ Web & H5 ） 目前仅支持 Vue3 版本接入，建议升级至 Vue3 版本体验最新含 UI 集成功能，或采用 [无 UI 集成方案](https://cloud.tencent.com/document/product/269/75285) 集成 IM SDK 。
+
+#### 音视频通话能力包未开通？音视频通话发起失败？
+请点击 [音视频通话-常见问题](https://cloud.tencent.com/document/product/269/79861#.E5.B8.B8.E8.A7.81.E9.97.AE.E9.A2.98) 查看解决方案。
 
 
 ## 相关文档
