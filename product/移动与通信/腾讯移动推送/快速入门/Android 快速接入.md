@@ -16,7 +16,7 @@
 ## 步骤1：开始接入
 
 1. 在【配置管理】页面中， 单击【快速接入】。
-![](https://main.qcloudimg.com/raw/26118ca32c232eae530cd290f9aa2195.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c6048081702ddf7320dbea9323ba35ae.png)
 2. 按照接入指引的操作顺序完成配置，然后单击【点击验证】。
 ![](https://main.qcloudimg.com/raw/7c4cf6eddf838d55a4dfa858ac3d6e3f.png)
 3. 若出现以下提示，则表示 SDK 接入成功 。
