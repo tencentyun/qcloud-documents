@@ -26,14 +26,14 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ### IM Flutter TUIKit（含 UI） 2.0.0-preview.1 @2023.03.24
 
-- 新增：TUIKit目前扩展至支持所有平台，包括iOS、安卓、WEB、Windows、MacOS，代码库发生了重大变化。用户界面已得到增强，以适应不同宽度的屏幕，宽屏幕和窄屏幕都有不同的布局。
-- 添加：添加了从屏幕复制信息(如组ID)的功能。
+- 新增：TUIKit 目前扩展至支持所有平台，包括 iOS、Android、Web、Windows、MacOS，代码库发生了重大变化。用户界面已得到增强，以适应不同宽度的屏幕，宽屏幕和窄屏幕都有不同的布局。
+- 添加：添加了从屏幕复制信息(如组 ID)的功能。
 - 优化：改进了群管理逻辑，非管理员无法再访问管理界面。
 - 优化：发送消息时优化了光标定位。
 - 优化：改进和优化了滚动条功能。
-- 优化：消息中的可点击URL支持已得到增强，URL现在支持带和不带“https://”“前缀。
+- 优化：消息中的可点击URL支持已得到增强，URL 现在支持带和不带 `https://` 前缀。
 
->? 本版本为不兼容更新。此版本将 TUIKit 从仅移动端（iOS/Android/移动端Web）扩展到全平台支持（包括 iOS/Android/Web/Windows/macOS），代码改动量较大。因此，请用户评估自己的业务逻辑的兼容复杂度后进行升级，新用户使用此版本则不影响。具体用法可参考开源 Demo 源码: https://github.com/TencentCloud/chat-demo-flutter
+>? 本版本为不兼容更新。此版本将 TUIKit 从仅移动端（iOS/Android/移动端Web）扩展到全平台支持（包括 iOS/Android/Web/Windows/macOS），代码改动量较大。因此，请用户评估自己的业务逻辑的兼容复杂度后进行升级，新用户使用此版本则不影响。具体用法可参考 [开源 Demo 源码](https://github.com/TencentCloud/chat-demo-flutter)。
 
 ### IM Flutter TUIKit（含 UI） 1.7.0 @2023.02.23
 
