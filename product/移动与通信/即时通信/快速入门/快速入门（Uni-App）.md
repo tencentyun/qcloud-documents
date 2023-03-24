@@ -23,7 +23,9 @@ chat-uikit-uniapp 界面效果如下图所示：
 - node（12.13.0 ≤ node 版本 ≤ 17.0.0, 推荐使用 Node.js 官方 LTS 版本 16.17.0）
 - npm（版本请与 node 版本匹配）
 
-> ! 如果您需要集成 vue2 TUIKit，请参见 [vue2 TUIKit 源码集成](https://github.com/TencentCloud/TIMSDK/tree/master/uni-app/TUIKit-vue2-js)。
+> ! 暂时不支持 vue2。
+
+
 ## TUIKit 源码集成
 通过以下步骤发送您的第一条消息。
 
