@@ -9,7 +9,7 @@
 ![](https://main.qcloudimg.com/raw/f9d75fe01ea90d8e66c1fc0dde8540d8.png)
 
 ## 前提条件
-您已创建云联类型的专线网关，详情请参见[ 创建专线网关](https://cloud.tencent.com/document/product/216/19256)。
+您已创建云联网类型的专线网关，详情请参见[ 创建专线网关](https://cloud.tencent.com/document/product/216/19256)。
 
 ## 操作步骤
 1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc) ，并在左侧导航栏单击**专线网关**。

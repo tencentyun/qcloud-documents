@@ -27,8 +27,8 @@
 ## 创建录制模板
 
 1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
-2. 单击 **创建录制模板** 设置模板信息，进行如下配置：
-   ![](https://qcloudimg.tencent-cloud.cn/raw/5ac4f20bad1ccb0718df3d83a1d098e9.png)
+2. 单击 **创建模板** 设置模板信息，进行如下配置：
+   ![](https://qcloudimg.tencent-cloud.cn/raw/c39508938cd9be815320ed67b2289d43.png)
 <table>
    <thead><tr><th width="20%" colspan=2>配置项</th><th>配置描述</th></tr></thead>
    <tbody><tr>
@@ -41,13 +41,14 @@
    </tr><tr>   
    <td rowspan=3 width="10%">录制内容</td>
    <td width="30%">录制原始流</td> 
-   <td>录制视频针对直播原始码率录制，默认录制原始流。录制的视频不带转码、水印及混流效果。</ul></td>
+   <td>录制视频针对直播原始码率录制，默认录制原始流。选择该配置会在直播流转码（包括转码、加水印及混流）前进行录制，录制的视频不带转码、水印及混流效果。对 WebRTC 推流录制原始流可能出现音频播放不兼容的情况，建议选择“带水印录制”或“指定转码流录制”。</ul></td>
    </tr><tr>
    <td>带水印录制</td>
-   <td>选择该配置会在直播流加水印模板配置的水印后进行录制。</td>
+   <td>选择该配置会在直播流加水印模板配置的水印后进行录制，若未配置水印模板则录制原始流。</td>
    </tr><tr>
    <td>指定转码流录制</td>
-   <td>单击指定转码流录制，可选择已配置的转码模板，或点击模板名称前往修改转码模板配置。选择该配置会在推流后自动根据转码模板id发起转码进行录制，录制的视频带水印模板配置的水印效果。若转码模板被误删，则按带水印录制。</td>
+   <td>单击指定转码流录制，可选择已配置的转码模板，或点击模板名称前往修改转码模板配置。选择该配置会在推流后自动根据转码模板id发起转码进行录制，若转码模板被误删，则效果等同于录制内容"按带水印录制"
+。</td>
    </tr><tr>
    <td colspan=2>录制格式</td>
    <td>录制视频输出格式有  HLS、MP4、FLV 和 AAC 四种，其中 AAC 为纯音频录制。</td>
@@ -97,12 +98,11 @@
 4. 单击 **保存** 即可。
 
 [](id:conect)
-
 ## 关联域名
 
 1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
    - **直接关联域名：**单击左上方的 **绑定域名**。
-     ![](https://main.qcloudimg.com/raw/d32d938925b1aec96c0e6cfc418eb697.png)
+     ![](https://qcloudimg.tencent-cloud.cn/raw/7c0525f583d65b27adf82ff89f0a3ef8.png)
    - **新录制模板创建成功后关联域名：**[录制模板创建](#C_record) 成功后，单击提醒框中的 **去绑定域名**。
      ![](https://main.qcloudimg.com/raw/4de2cb134a48920fc5527217704e7f76.png)
 2. 在域名绑定窗口中，选择您需绑定的**录制模板**及**推流域名**，单击 **确定** 即可绑定成功。
@@ -111,17 +111,15 @@
 > ? 支持通过单击 **添加** 为当前模板绑定多个推流域名。
 
 [](id:unite)
-
 ## 解除绑定
 
 1. 登录云直播控制台，进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
 2. 选择已关联域名的录制模板，选择需要解绑的域名，单击右侧的 **解绑**。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/b78e6f4ed372bf00117e25374d35253c.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/1c6bc059ac9e5647f11e8d56eb3b3120.png)
 3. 确认是否解绑当前关联域名，单击 **确定** 即可解绑。
-   ![](https://main.qcloudimg.com/raw/690daf43f9b1d5f57b6033720c19860a.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/a8569179e3e2d020fab1795225669280.png)
 
 > ? 
->
 > - 录制模板解除绑定后，不影响正在直播中的流。
 > - 若需解绑生效，解绑后请断流并重新推流直播，新的直播将不会生成录制文件。
 
@@ -131,7 +129,7 @@
 
 1. 进入 **功能配置** > [**直播录制**](https://console.cloud.tencent.com/live/config/record)。
 2. 选择您已创建成功的录制模板，并单击右侧的 **编辑**，即可进入修改模板信息，单击 **保存** 即可。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/75bca39f0d7d472fc6264cc30314f99b.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/01ef1a4899dc4dca6b82bc20cda40b96.png)
 
 [](id:delete)
 ## 删除模板
@@ -142,7 +140,6 @@
    ![](https://main.qcloudimg.com/raw/15188b9f71c0f7beb2eb450bac55493e.png)
 
 > ! 
->
 > - 若模板已被关联，需要先 [解除绑定](#unite)，才可以进行删除操作。
 > - 控制台的录制模板管理为域名维度，暂时无法取消关联接口创建的规则，如果是通过录制管理接口关联指定流的，则需要通过调用 [删除录制规则](https://cloud.tencent.com/document/product/267/32613) 解除关联。 
 

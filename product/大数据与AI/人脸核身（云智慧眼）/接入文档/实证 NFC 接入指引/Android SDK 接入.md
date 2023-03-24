@@ -28,10 +28,10 @@ android{
 }
 //添加依赖
 dependencies {   
-       //1. 云NFC SDK
-      implementation(name: 'WbCloudNfcSdk-pro-v1.0.5-1fec32a'，ext: 'aar')
-       //2.云公共组件
-      implementation(name: 'WbCloudNormal-v5.1.2-90776e2'，ext: 'aar')    }
+		//1. 云NFC SDK
+		implementation(name: 'WbCloudNfcSdk-pro-v2.0.0-1fec32a', ext: 'aar')
+		//2.云公共组件
+		implementation(name: 'WbCloudNormal-v5.1.3-90776e2', ext: 'aar')    }
 ```
 
 ### 2. 混淆配置
@@ -182,9 +182,10 @@ WbCloudOcrSdk.init() 里 Bundle data，除了必须要传的 InputData 对象（
                 openApiSign，
  openApiOcrCertId);
         data.putSerializable(WbCloudOcrSDK.INPUT_DATA，inputData);
-  //个性化参数设置，可以不设置，不设置则为默认选项。
-  //此处均设置为和默认设置不同
-  data.putString(WbCloudNfcSDK.NFC_TIME， nfcTimeOut);//设置NFC识别的时间上限，默认 15 秒，建议默认
+	//个性化参数设置，可以不设置，不设置则为默认选项。
+	//此处均设置为和默认设置不同
+	data.putLong(WbCloudNfcSDK.NFC_TIME, 60000);//识别超时时间。身份证默认20s,回乡证默认60s。
+	data.putString(WbCloudNfcSDK.NFC_TYPE, "3");//1表示身份证，3表示回乡证。默认身份证
       //1.初始化 SDK，得到是否登录 SDK成功的回调结果，请在主线程中调用此接口。
         WbCloudNfcSDK.getInstance().init(MainActivity.this，data，new WbCloudNfcSDK.NfcLoginListener() {
             @Override

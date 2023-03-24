@@ -32,7 +32,7 @@ make install
 XML C++ SDK 与 JSON C++ SDK 的初始化过程相同，但对应配置文件 "config.json" 内容不同。在 XML C++ SDK 配置文件中，请对应修改以下变化内容：
 
 - 删除 JSON C++ SDK 中 "APPID" 配置项。
-- `ConnectTimeoutInms` 代替了 `CurlConnectTimeoutInms`和`CurlGlobalConnectTimeoutInms`，新增`ReceiveTimeoutInms`，在 Request 基类中也实现对应设置接口，可针对不同操作进行修改。
+- `ConnectTimeoutInms` 代替了 `CurlConnectTimeoutInms` 和 `CurlGlobalConnectTimeoutInms`，新增 `ReceiveTimeoutInms`，在 Request 基类中也实现对应设置接口，可针对不同操作进行修改。
 - XML C++ SDK 的初始化默认参数在文件 "cos_sys_config.cpp" 中有详细说明。
 - JSON C++ SDK 和 XML C++ SDK 对应 Region 描述不同，详细区别见下方“更改存储桶名称和可用域简称”。
 
@@ -70,7 +70,7 @@ XML C++ SDK 的存储桶可用区域简称发生了变化，在初始化时，�
 | 广州（华南）     | ap-guangzhou     | gz          |
 | 成都（西南）     | ap-chengdu       | cd          |
 | 重庆             | ap-chongqing     | 无          |
-| 香港             | ap-hongkong      | hk          |
+| 中国香港             | ap-hongkong      | hk          |
 | 新加坡           | ap-singapore     | sgp         |
 | 多伦多           | na-toronto       | ca          |
 | 法兰克福         | eu-frankfurt     | ger         |
@@ -79,7 +79,6 @@ XML C++ SDK 的存储桶可用区域简称发生了变化，在初始化时，�
 | 硅谷             | na-siliconvalley | 无          |
 | 弗吉尼亚         | na-ashburn       | 无          |
 | 曼谷             | ap-bangkok       | 无          |
-| 莫斯科           | eu-moscow        | 无          |
 
 **4. 更改 API**
 
@@ -90,22 +89,22 @@ API 主要有以下变化：
 **（1）没有单独的目录接口**
 
 在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
-为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，展示方式上模拟了传统文件夹。
+为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了**文件夹**或**目录**的展示方式，具体实现是通过创建一个键值为 `project/`，内容为空的对象，展示方式上模拟了传统文件夹。
 
-例如：上传对象`project/doc/a.txt `，分隔符`/`会模拟「文件夹」的展示方式，在控制台上可以看到「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含了 a.txt 文件 。
+例如：上传对象 `project/doc/a.txt `，分隔符`/`会模拟**文件夹**的展示方式，在控制台上可以看到**文件夹**project 和 doc，其中 doc 是 project 下一级**文件夹**，并包含了 a.txt 文件 。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。如果使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以 '/' 结尾的0KB 文件。这样在您调用 GetBucket 接口时，就可以将该文件当做文件夹。
 
 **（2）多线程上传下载操作**
 
-在 XML C++ SDK 中，我们封装了多线程分块上传和下载操作，为`MultiUploadObjectReq`和`MultiGetObjectReq`接口，对 API 设计和传输性能都能做了优化。
+在 XML C++ SDK 中，我们封装了多线程分块上传和下载操作，为 `MultiUploadObjectReq` 和 `MultiGetObjectReq` 接口，对 API 设计和传输性能都能做了优化。
 
 主要特性有：
 
 - 可设置分块大小进行多线程上传和下载
-- `MultiUploadObjectReq`接口封装了分块上传的所有接口，包括 Init、Upload、Complete 和 Abort 操作。
+- `MultiUploadObjectReq` 接口封装了分块上传的所有接口，包括 Init、Upload、Complete 和 Abort 操作。
 
-使用`MultiUploadObjectReq`上传的示例代码：
+使用 `MultiUploadObjectReq` 上传的示例代码：
 
 ```cpp
 qcloud_cos::CosConfig config("./config.json");

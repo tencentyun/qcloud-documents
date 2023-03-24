@@ -440,54 +440,12 @@ TIMResult res = TencentIMSDK.GroupGetMemberInfoList(param, (int code, string des
 >- 更多有关群组选择和关于群组的其他事项，请参见 [群组系统](https://cloud.tencent.com/document/product/269/1502) 。更多有关**群组管理的控制台指南**，请参见 [群组管理控制台指南](https://cloud.tencent.com/document/product/269/38657)。
 
 ### 敏感信息过滤
+在游戏场景中，用户很可能会发送不合适的内容，特别是与敏感事件/人物相关、黄色不良内容等令人反感的内容，不仅严重损害了用户们的身心健康，更很有可能违法并导致应用被监管部门查封。
 
-过滤敏感内容也是游戏即时通信中非常重要的功能，实现方案如下：
-1. 绑定用户群发消息前回调
-2. 判断通过回调数据判断消息类型，将消息数据传递给天御或者其他第三方检测服务
-3. 如消息为普通文本消息，可等天御检测同步返回，再将是否下发消息的数据包返回给 IM 后台
+即时通信 IM 支持内容审核（反垃圾信息）功能，可针对不安全、不适宜的内容进行自动识别、处理，为您的产品体验和业务安全保驾护航。可以通过以下两种内容审核方式来实现：
+- [本地审核功能](https://cloud.tencent.com/document/product/269/83795#bdsh)：在客户端本地检测在单聊、群聊、资料场景中由即时通信 SDK 发送的文本内容，支持对已配置的敏感词进行拦截或者替换处理。此功能通过在 IM 控制台开启服务并配置词库的方式实现。
+- [云端审核功能](https://cloud.tencent.com/document/product/269/83795#ydsh)：在服务端检测由单聊、群聊、资料场景中产生的文本、图片、音频、视频内容，支持针对不同场景的不同内容分别配置审核策略，并对识别出的不安全内容进行拦截。此功能已提供默认预设拦截词库和审核场景，只需在 IM 控制台打开功能开关，即可直接使用。
 
-发送消息前回调数据示例：
-
-```json
-{
-    "CallbackCommand": "Group.CallbackBeforeSendMsg", // 回调命令
-    "GroupId": "@TGS#2J4SZEAEL", // 群组 ID
-    "Type": "Public", // 群组类型
-    "From_Account": "jared", // 发送者
-    "Operator_Account":"admin", // 请求的发起者
-    "Random": 123456, // 随机数
-    "OnlineOnlyFlag": 1, //在线消息，为1，否则为0；直播群忽略此属性，为默认值0。
-    "MsgBody": [ // 消息体，参见 TIMMessage 消息对象
-        {
-            "MsgType": "TIMTextElem", // 文本
-            "MsgContent": {
-                "Text": "red packet"
-            }
-        }
-    ],
-    "CloudCustomData": "your cloud custom data"
-}
-```
-
->?开发者可通过 MsgBody 中 MsgType 字段判断消息类型。完整字段说明可参见 [回调文档](https://intl.cloud.tencent.com/document/product/1047/34374)。
-
-开发者可以选择对不合法的消息进行不一样的处理，可在回调中回包给 IM 后台来控制。
-
-```json
-{
-    "ActionStatus": "OK",
-    "ErrorInfo": "",
-    "ErrorCode": 0 // 不同的ErrorCode有不同的含义
-}
-```
-
-| ErrorCode | 含义 |
-| --- | --- |
-| 0 | 允许发言，正常下发消息 |
-| 1 | 拒绝发言，客户端返回10016 |
-| 2 | 静默丢弃，客户端返回正常 |
-
->?开发者可根据自身业务进行选择使用。
 
 ### 自定义消息类型（如道具赠送、交易）
 

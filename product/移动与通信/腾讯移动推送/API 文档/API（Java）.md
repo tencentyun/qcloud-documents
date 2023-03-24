@@ -10,7 +10,7 @@ Maven  依赖引用方式：
 <dependency>
 				<groupId>io.github.tpnsPush</groupId>
 				<artifactId>xinge</artifactId>
-				<version>1.2.4.11</version>
+				<version>1.2.4.12</version>
 </dependency>
 ```
 >!groupId从1.2.4.11版本起有变更。

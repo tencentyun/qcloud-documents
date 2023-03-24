@@ -41,7 +41,7 @@
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/214/8801" target="_blank">GetMonitorData</a></br>（负载均衡监控接口）</td>
 <td><a href="https://cloud.tencent.com/document/product/214/8801" target="_blank">GetMonitorData</a></br>（拉取指标监控数据）</td>
-<td>此接口为云监控 API 接口，切换至 API3.0 接口的方式请参见 <a href="https://cloud.tencent.com/document/product/248/81039#getmonitordata">接口迁移说明</a>。</td>
+<td>此接口为腾讯云可观测平台 API 接口，切换至 API3.0 接口的方式请参见 <a href="https://cloud.tencent.com/document/product/248/81039#getmonitordata">接口迁移说明</a>。</td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/214/6045" target="_blank">ReplaceCert</a></br>（更换 HTTPS 类型负载均衡证书）</td>

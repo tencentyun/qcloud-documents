@@ -18,6 +18,7 @@ Content-Length: <length>
 >? 
 > - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> - <ObjectKey> 为存储桶对象。
 > 
 
 #### 请求参数
@@ -71,7 +72,7 @@ Content-Type: application/x-mpegURL
 Content-Length: 266005
 Connection: keep-alive
 Date: Fri, 10 Mar 2016 09:45:46 GMT
-Server: tencent-cos
+Server: tencent-ci
 x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZm****
 
 <M3U8文件内容>

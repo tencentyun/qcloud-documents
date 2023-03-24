@@ -62,7 +62,7 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述                            | 类型      |
 | :----------------- | :------- | :------------------------------ | :-------- |
 | RequestId          | Response | 请求的唯一 ID                   | String    |
-| Template           | Response | 模板具体参数  | Container  |
+| Template           | Response | 模板具体可替换参数，该 Container 中的参数根据具体模板中可替换的参数返回  | Container  |
 
 
 
@@ -96,12 +96,12 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
     <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
-    <TemplateList>
+    <Template>
         <TemplateId>62e27c0cd73bf6bb0e903721</TemplateId>
 		<width>1280</width>,
 		<height>720</height>
 	    <name>央视频下载观看1<name>
 		<thumb>https://static.taishan.qq.com/xrdnest/psd/e9c62e867425f9188f86a319b1fd7a96/5db75609b417e6c77ff14ba2252e2a24.png?imageMogr2/thumbnail/!50p/format/webp</thumb>
-    </TemplateList>
+    </Template>
 </Response>
 ```

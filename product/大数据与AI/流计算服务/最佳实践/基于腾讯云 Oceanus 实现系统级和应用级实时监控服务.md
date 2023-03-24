@@ -191,11 +191,7 @@ message,
 from DataInput;
 ```
 
-#### 4. 作业参数  
-内置 connector：选择`flink-connector-elasticsearch6`和`flink-connector-kafka`。
->?需根据实际版本选择。
-
-#### 5. ES 数据查询  
+#### 4. ES 数据查询  
 在 ES 控制台的 Kibana 页面查询数据，或者进入某台相同子网的 CVM 下，使用以下命令进行查询：
 ```shell
 # 查询索引  username:password请替换为实际账号密码

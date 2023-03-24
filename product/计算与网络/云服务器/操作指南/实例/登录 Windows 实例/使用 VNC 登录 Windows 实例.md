@@ -4,8 +4,8 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
 
 ## 使用限制
 
-- VNC 登录的云服务器暂时不支持复制粘贴功能、中文输入法以及文件的上传、下载。
-- VNC 登录云服务器时，需要使用主流浏览器，例如 Chrome，Firefox，IE 10及以上版本等。
+- VNC 登录的云服务器暂时不支持复制文件粘贴功能、中文输入法以及文件的上传、下载。
+- VNC 登录云服务器时，需要使用主流浏览器，例如 Chrome，Firefox，Microsoft Edge等。
 - VNC 登录为独享终端，即同一时间只有一个用户可以使用 VNC 登录。
 
 
@@ -34,5 +34,8 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
 ![](https://main.qcloudimg.com/raw/145f91a7e8a723318bc58bfbdae42e95.png)
 4. 在弹出的登录窗口中，选择左上角的**发送远程命令**，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/c80f6463097d758333c443b618560094.png)
+ <dx-alert infotype="explain" title="">
+如果 vnc 下发送 Ctrl-Alt-Delete 无响应，建议您通过重启实例来恢复。
+</dx-alert>
 5. 输入登录密码，按 **Enter**，即可登录到 Windows 云服务器。
 

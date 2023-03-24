@@ -43,3 +43,27 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
 | screen_shared_state | Bool | 	屏幕共享状态：<br>true：开启<br>false：关闭 |
 | default_layout | Integer | 	当前成员的默认分屏设置：<br>1：等分模式<br>2：全屏模式<br>3：1+N<br>**说明：**该参数仅支持 MRA 设备。 |
 | raise_hands_state | Bool | 举手状态：<br>true：举手中<br>false：手放下 |
+
+
+## 示例
+### 输入示例
+```plaintext
+GET 
+https://api.meeting.qq.com/v1/meetings/100001/query-participant?operator_id=user1&operator_id_type=1&instanceid=1&user_ms_open_id=12345678&user_instance_id=9
+```
+
+### 输出示例
+```plaintext
+{
+   "ms_open_id":"",
+   "instanceid":9,
+   "user_role":0,
+   "IP":"192.168.2.2",
+   "name":"user2",
+   "audio_state":true,
+   "video_state":false,
+   "screen_shared_state":false,
+   "default_layout":1,
+   "raise_hands_state":false
+}
+```

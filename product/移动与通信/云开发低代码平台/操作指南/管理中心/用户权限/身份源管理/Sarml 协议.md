@@ -49,7 +49,7 @@ https://lowcode-1gf52uyb34bc16a7.ap-shanghai.tcb-api.tencentcloudapi.com/auth/v1
 [](id:step4)
 ### 步骤4：应用发布后使用第三方认证源登录
 1. 发布应用。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/23cd95d69ad8e33345ac2f8e32dd42d4.png" style = "width:80%"> 
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/a9cd5919453edd6c6755dace760ebd1c.png" style = "width:80%"> 
 2. 访问应用时直接进入登录页，单击第三方认证源。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/243ec4a34b5c454dd26c4970520d53c7.png" style = "width:80%">  
 3. 跳转到第三方 idp 登录页面。

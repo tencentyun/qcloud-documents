@@ -230,3 +230,13 @@ module.exports = {
 
 #### 如何使用 Vue2 版本接入？
 即时通信 IM - 含 UI 集成方案（ Web & H5 ） 目前仅支持 Vue3 版本接入，建议升级至 Vue3 版本体验最新含 UI 集成功能，或采用 [无 UI 集成方案](https://cloud.tencent.com/document/product/269/75285) 集成 IM SDK 。
+
+
+## 相关文档
+
+- [SDK API手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
+- [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
+- [集成音视频通话](https://cloud.tencent.com/document/product/269/79861) 
+- [chat-uikit-vue npm](https://www.npmjs.com/package/@tencentcloud/chat-uikit-vue)
+- [chat-uikit-vue Github仓库](https://github.com/TencentCloud/chat-uikit-vue)
+- [chat-uikit-vue Demo源码及跑通示例](https://github.com/TencentCloud/chat-uikit-vue/tree/main/Demo)

@@ -7,7 +7,7 @@ Web 应用防火墙提供域名 IPv6接入配置和防护能力，在开启 IPv6
 
 
 ## 操作步骤
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏选择**域名列表**。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏选择**接入管理**。
 2. 在域名列表域名，选择要开启 IPv6功能的域名，单击![](https://qcloudimg.tencent-cloud.cn/raw/4c2a6f21d580a298869fd5455dbf46f1.png)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/246b09ddb9b62b638fc37a7325904adb.png)
 3. 单击**确认**，即可开启 IPv6功能。
@@ -19,7 +19,6 @@ Web 应用防火墙提供域名 IPv6接入配置和防护能力，在开启 IPv6
 ## 热点问题
 ### 如果源站没有设置 IPv6回源，那访问端是否支持以 IPv6形式访问？
 当源站没有 IPv6资源时，访问端以 IPv6形式访问，WAF 会自行将资源转换为 IPv4回源。
-
 
 ### 如果源站没有设置 IPv4回源，那访问端是否支持以 IPv4形式访问？
 当源站没有 IPv4资源时，访问端以 IPv4形式访问，WAF 会自行将资源转换为 IPv6回源。

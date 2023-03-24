@@ -210,10 +210,9 @@ including all tables
 ```
 
 
-
 ## 使用提醒
 1. 目前只支持同步 MySQL 类型数据库作为整库同步的源表。
-2. 目前同步到目标端时，除 Hudi 和 Hive （需要提前注册 Hive Catalog）作为目标表外，其它的目标端还不支持自动建表，需要事先在目标端中建立和 Mysql 库中数据表对应的表结构。
+2. 目前同步到目标端时，除 Iceberg、Elasticsearch、Hudi 和 Hive（需要提前注册 Hive Catalog）作为目标表外，其它的目标端还不支持自动建表，，需要事先在目标端中建立和 Mysql 库中数据表对应的表结构。
 3. 推荐搭配 MySQL CDC Source 复用功能开启，一起使用，可以降低对数据库的压力。
 4. CDAS 语法没有限制下游输出的类型，理论上可以同步到**任意的**下游类型。
 5. 当同步的表的数量非常多的时候，flink 生成的单个 task 的 name 会非常长，导致 metric 系统占用大量的内存，影响作业稳定性，Oceanus 针对这种情况引入了 `pipeline.task-name-length` 参数来限制 taskName 的长度，能极大的提高作业稳定性和日志可读性。（适用 Flink-1.13 和 Flink-1.14 版本）。

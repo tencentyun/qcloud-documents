@@ -25,7 +25,7 @@ DELETE /?guetzli HTTP/1.1
 
 #### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 章节。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
@@ -35,7 +35,7 @@ DELETE /?guetzli HTTP/1.1
 ## 响应
 #### 响应头
 #### 公共响应头
-该响应使用公共响应头，了解公共响应头详情，请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应使用公共响应头，了解公共响应头详情，请参阅 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 章节。
 #### 特有响应头
 该响应无特殊的响应头。
 #### 响应体

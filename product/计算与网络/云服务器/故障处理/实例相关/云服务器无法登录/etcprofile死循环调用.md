@@ -21,3 +21,4 @@ vim  /etc/profile
 4. 按 **i** 进入编辑模式，在 `/etc/profile` 相关命令前增加 `#` 以注释该命令。
 5. 按 **Esc** 退出编辑模式，并输入 **:wq** 保存修改。
 6. 重新 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 进行登录。
+

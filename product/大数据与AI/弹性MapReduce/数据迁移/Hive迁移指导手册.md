@@ -12,7 +12,7 @@ mysqldump -hX.X.X.X -uroot -pXXXX --single-transaction --set-gtid-purged=OFF hiv
 ```
 2. 确认目标集群 Hive 表数据在 HDFS 中的默认存储路径。
 Hive 表数据在 HDFS 中的默认存储路径由 `hive-site.xml` 中的 `hive.metastore.warehouse.dir` 配置项指定。如果目标集群 Hive 表在 HDFS 的存储路径需要与源集群 Hive 表路径一致，可以参考以下示例对配置文件进行修改。例如，源集群 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 为下面的值。
-```
+``` 
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
     <value>/apps/hive/warehouse</value>  
@@ -107,26 +107,30 @@ upgrade-1.2.0-to-2.0.0.mysql.sql -> upgrade-2.0.0-to-2.1.0.mysql.sql -> upgrade-
 mysql> source upgrade-2.3.0-to-3.0.0.mysql.sql;  
 mysql> source upgrade-3.0.0-to-3.1.0.mysql.sql;  
 ```
-9. 修改目标 Hive 元数据中 phoneix 表的 zookeeper 地址。
-如果源 Hive 中有 phoneix 表，通过下面的查询获取 phoenix 表的 `phoenix.zookeeper.quorum` 配置。
-```
+9. 如果源 Hive 中有 phoneix 表，修改目标 Hive 元数据中 phoneix 表的 zookeeper 地址。
+通过下面的查询获取 phoenix 表的 `phoenix.zookeeper.quorum` 配置。
+```swift
 mysql> SELECT PARAM_VALUE from TABLE_PARAMS where PARAM_KEY = 'phoenix.zookeeper.quorum';  
 +--------------------------------------------------+    
 | PARAM_VALUE |    
 +--------------------------------------------------+    
 | 172.17.64.57,172.17.64.78,172.17.64.54 |     
-+--------------------------------------------------+  
++--------------------------------------------------+
 ```
-查看目标集群的 zookeeper 地址，即 `hive-site.xml` 配置文件中 `hbase.zookeeper.quorum` 指定的值。
+查看目标集群的 zookeeper 地址，即 hive-site.xml 配置文件中 `hbase.zookeeper.quorum` 指定的值。
 ```
 <property>  
     <name>hbase.zookeeper.quorum</name>  
     <value>172.17.64.98:2181,172.17.64.112:2181,172.17.64.223:2181</value>  
-</property>  
+</property>
 ```
 将目标 Hive 元数据中的 phoenix 表的 zookeeper 地址改为目标集群的 zookeeper 地址。
 ```
-mysql> UPDATE TABLE_PARAMS set PARAM_VALUE  = '172.17.64.98,172.17.64.112,172.17.64.223' where PARAM_KEY = 'phoenix.zookeeper.quorum';    
+mysql> UPDATE TABLE_PARAMS set PARAM_VALUE  = '172.17.64.98,172.17.64.112,172.17.64.223' where PARAM_KEY = 'phoenix.zookeeper.quorum';
 ```
-10. 启动目标 Hive 服务 MetaStore、HiveServer2、WebHcataLog。
-11. 最后可通过简单的 Hive sql 查询进行验证。
+10. 检查目标 Hive 元数据中表名的大小写格式，参考以下示例将所有小写表名改为大写：
+```
+alter table metastore_db_properties rename to   METASTORE_DB_PROPERTIES;
+```
+11. 启动目标 Hive 服务 MetaStore、HiveServer2、WebHcataLog。
+12. 最后可通过简单的 Hive sql 查询进行验证。

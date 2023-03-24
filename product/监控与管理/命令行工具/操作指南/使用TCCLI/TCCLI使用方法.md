@@ -17,7 +17,7 @@ TCCLI 集成了腾讯云所有支持云 API 的产品，您可以在命令行下
 </dx-alert>
 
 
-### 使用 TTCLI 创建 CVM
+### 使用 TCCLI 创建 CVM
 执行以下命令，创建一台 CVM。
 ```bash
 tccli cvm RunInstances

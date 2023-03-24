@@ -74,7 +74,7 @@ XML SDK 的存储桶可用区域简称发生了变化，不同区域在 JSON SDK
 | 广州（华南）     | ap-guangzhou     | gz                |
 | 成都（西南）     | ap-chengdu       | cd                |
 | 重庆             | ap-chongqing     | 无                |
-|香港             | ap-hongkong      | hk                |
+|中国香港             | ap-hongkong      | hk                |
 | 新加坡           | ap-singapore     | sgp               |
 | 多伦多           | na-toronto       | ca                |
 | 法兰克福         | eu-frankfurt     | ger               |
@@ -83,9 +83,8 @@ XML SDK 的存储桶可用区域简称发生了变化，不同区域在 JSON SDK
 | 硅谷             | na-siliconvalley | 无                |
 | 弗吉尼亚         | na-ashburn       | 无                |
 | 曼谷             | ap-bangkok       | 无                |
-| 莫斯科           | eu-moscow        | 无                |
 
-在初始化`COSClient`的时候，将存储桶所在区域的简称设置到`ClientConfig`中：
+在初始化 `COSClient` 的时候，将存储桶所在区域的简称设置到 `ClientConfig` 中：
 
 ```java
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
@@ -99,10 +98,10 @@ API 主要有以下变化：
 
 **（1）没有单独的目录接口**
 
-在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/text.txt`而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和 delimiter，模拟「文件夹」或「目录」的展示方式。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象 `project/text.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和 delimiter，模拟**文件夹**或**目录**的展示方式。
 
 例如：您上传了四个对象 `project/folder1/picture.jpg`、`project/folder2/text.txt`、`project/folder2/music.mp3`、`project/video.mp4`。
-在 Java SDK 中，您可以调用 listObjects 方法，指定 prefix 为`project/`和 delimiter 为`/`，调用返回对象的 getCommonPrefixes 方法， 获取到具有相同前缀的「目录」：
+在 Java SDK 中，您可以调用 listObjects 方法，指定 prefix 为 `project/` 和 delimiter 为`/`，调用返回对象的 getCommonPrefixes 方法， 获取到具有相同前缀的**目录**：
 
 [//]: # (.cssg-snippet-put-and-list-objects)
 ```java
@@ -164,7 +163,7 @@ Thread.sleep(1000);
 
 // 暂停任务，获取 PersistableUpload
 PersistableUpload persistableUpload = upload.pause();
-//也可通过如下方式，获取PersistableUpload
+//也可通过如下方式，获取 PersistableUpload
 // while(persistableUpload == null) {
 //     persistableUpload = upload.getResumeableMultipartUploadId();
 //     System.out.println(System.currentTimeMillis());

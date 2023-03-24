@@ -14,14 +14,13 @@
 - 已开通云直播服务，并登录 [云直播控制台](https://console.cloud.tencent.com/live/livestat)。
 - 已 [添加播放域名](https://cloud.tencent.com/document/product/267/20381)。
 
-
 [](id:open)
 ## 开启 Referer 防盗链
 1.  选择 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)**，单击需配置 Referer 防盗链的 **播放域名** 或右侧的 **管理**，进入域名管理页。
-2.  在 **访问控制** > **Referer 防盗链配置** 中，单击**编辑**进入 Referer 防盗链配置页。
- ![](https://main.qcloudimg.com/raw/d6949ba7921409a09968d33811856146.png)
-3.  单击![](https://main.qcloudimg.com/raw/c032c517e25867ff592f128424154688.png)按钮，选择开启 Referer 防盗链，并进行如下配置：
- ![](https://main.qcloudimg.com/raw/dfaee7724fcc8a31fa9beb7603e96e89.png)
+2.  在 **访问控制** > **Referer 防盗链配置** 中，单击![](https://main.qcloudimg.com/raw/c032c517e25867ff592f128424154688.png)按钮，选择开启 Referer 防盗链。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/a3a02fd269d9a26dcbdb2a4c0b25b2e9.png)
+3.  并进行如下配置：
+ ![](https://qcloudimg.tencent-cloud.cn/raw/9c3f0b0109e20478ac1729fff3ae1016.png)
 <table id="setmess">
 <tr><th width="14%">配置项</th><th>说明</th>
 </tr><tr>
@@ -50,28 +49,19 @@
 </tr></table>
 4. 单击**保存**，即可保存配置。
 
-
 [](id:change)
 ## 修改 Referer 防盗链
 1.   选择 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)**，单击需修改 Referer 防盗链配置的 **播放域名** 或右侧的 **管理**，进入域名管理页。
 2.   在 **访问控制** > **Referer防盗链配置** 中，单击 **编辑** 进入 Referer 防盗链配置页。
 3.   根据您的实际需求修改 [配置项](#setmess) 信息，单击 **保存** 即可完成修改。
 
-![](https://main.qcloudimg.com/raw/696fe5a20ee56b969a4383c8aa477a4c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/32c0b6e7f8bca7490b80a42936a8cc4a.png)
 
 [](id:close)
 ## 关闭 Referer 防盗链
 [开启 Referer 防盗链](#open) 后，若您需关闭此功能，具体操作如下：
 
 1.   选择 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)**，单击需关闭 Referer 防盗链配置的 **播放域名** 或右侧的 **管理**，进入域名管理页。
-2.   在 **访问控制** > **Referer防盗链配置** 中，单击 **编辑** 进入 Referer 防盗链配置页。
-3.   单击![](https://main.qcloudimg.com/raw/e72f89a0deb6858428dc3e93ce7e7088.png)按钮，选择关闭 Referer 防盗链。
-4.   单击**保存**即可。
+2.   在 **访问控制** > **Referer防盗链配置** 中，单击![](https://main.qcloudimg.com/raw/e72f89a0deb6858428dc3e93ce7e7088.png)按钮，选择关闭 Referer 防盗链。
 
-![](https://main.qcloudimg.com/raw/e8795543f82c78ac2b3728bd0403f47e.png)
-
-
-
-
-
-
+![](https://qcloudimg.tencent-cloud.cn/raw/7017c86f9ab358a9f31b7fbe1d1a18a7.png)

@@ -23,12 +23,12 @@
  部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
 </dx-alert>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/01b281841885cc44f2e9e2da139a68b2.png"/>
-3. 在弹出的**镜像市场**对话框中，选择**基础软件**，输入 **discuz** 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
-4. 按需选择镜像，本文以选择 **Discuz! 3.4 开源论坛|社区系统 基于LNMP搭建 PHP环境 Redis| CentOS** 为例，单击**免费使用**。如下图所示：
+3. 在弹出的**镜像市场**对话框中，选择**全部**，输入 **discuz** 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。
+4. 按需选择镜像，本文以选择 **Discuz! X-lighthouse 镜像v2.0** 为例，单击**免费使用**。如下图所示：
 <dx-alert infotype="explain" title="">
 单击镜像名可查看镜像详情。
 </dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/64d2007c886fb4d1dfa6c1d960a4e05b.png" style="width:718px"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/429bd22bdb1091c8fcaf1d44e07699dc.png" style="width:718px"/>
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
 ### 步骤2：安装并启动 Discuz! 论坛
@@ -63,4 +63,5 @@
 如果您在搭建 Discuz! 论坛的过程中遇到问题，可参考以下文档进行分析并解决问题：
 - 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 - 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
+
 

@@ -41,7 +41,7 @@ export default async function({event, data}) {
 2. 增加**表单容器组件**，绑定目标数据源（举例：合同数据模型）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb85a9ea5ac4358a98c899f2169154dd.png)
 3. 增加**按钮**组件，命名**打印**。
-![](https://qcloudimg.tencent-cloud.cn/raw/96df38c5b3f3b55ea9ea65b0d5fea606.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ca6c93a4aefb8394a58b5303ce0144d5.png)
 4. 给**打印**按钮添加**点击**事件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5e5711e0b7128a3b1dace6a46b7a8cd3.png)
 5. 打开低码编辑器，在自定义方法**print**中拷贝上面的**核心代码**。

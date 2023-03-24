@@ -15,12 +15,12 @@
 选择控制台左侧菜单栏[工作空间](https://console.cloud.tencent.com/oceanus/workspace)。单击进入空间。
 ![](https://qcloudimg.tencent-cloud.cn/raw/893c0135a7c946d48a68969c3565ec76.png)
 进入空间后，单击控制台左侧菜单栏 [作业管理](https://console.cloud.tencent.com/oceanus/job)，选择新建作业所在集群的地域，然后单击**新建**，单击**新建作业**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ca8b2b050fe9716bcc68701e10ec3abb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0995172f3316654f9b927ed0db2374b7.png)
 选择所需创建的作业，填写作业名称，选择运行集群，以上内容填写完成后，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/035138a51db138d1bd7c4523ecf6fee6.png)
 
 ## 后续操作
-- 流计算 Oceanus 可创建四种类型的作业，详情可参见 [创建 SQL 作业](https://cloud.tencent.com/document/product/849/48301)、[创建 JAR 作业](https://cloud.tencent.com/document/product/849/48300)、[开发 Python 作业](https://cloud.tencent.com/document/product/849/70714)、[创建 ETL 作业](https://cloud.tencent.com/document/product/849/57853)。
+- 流计算 Oceanus 可创建四种类型的作业，详情可参见 [创建 SQL 作业](https://cloud.tencent.com/document/product/849/48301)、[创建 JAR 作业](https://cloud.tencent.com/document/product/849/48300)、[创建 Python 作业](https://cloud.tencent.com/document/product/849/81987)、[创建 ETL 作业](https://cloud.tencent.com/document/product/849/57853)。
 - 作业创建成功后，可查看 [作业类型](https://cloud.tencent.com/document/product/849/59421) 和 [作业信息](https://cloud.tencent.com/document/product/849/48286)，以及支持的 [作业操作](https://cloud.tencent.com/document/product/849/48289)。
 - 作业创建完成后，即可进行作业开发，更多内容可参见 [作业开发](https://cloud.tencent.com/document/product/849/59419)。
 - 如果遇到权限问题或需要对子账户进行权限控制，可以查看文档 [权限管理](https://cloud.tencent.com/document/product/849/70605) 一章。
