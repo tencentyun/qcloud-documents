@@ -138,6 +138,11 @@ mkdir -p ./src/TUIKit && cp -r ./node_modules/@tencentcloud/chat-uikit-vue/ ./sr
 <dx-codeblock>
 ::: shell
 npm i @tencentcloud/chat-uikit-vue 
+:::
+</dx-codeblock>
+
+<dx-codeblock>
+::: shell
 xcopy .\node_modules\@tencentcloud\chat-uikit-vue .\src\TUIKit /i /e
 :::
 </dx-codeblock>
@@ -361,10 +366,10 @@ npm run dev
 	H5 端 “发送您的第一条消息” 具体步骤示例：
 	![](https://qcloudimg.tencent-cloud.cn/raw/239afb314ee33326219c019663e65028.png)
 
-### 步骤 8: 拨打您的第一通电话
+### 步骤 8：拨打您的第一通电话
 
 自 @tencentcloud/chat-uikit-vue v1.4.0 版本起自动接入音视频通话功能，无需手动集成。 
-如果您是v1.4.0 以下版本，可以通过接入 call-uikit-vue 体验通话功能。详情请参考[音视频通话 ( Web & H5 )](https://cloud.tencent.com/document/product/269/79861) 
+如果您是 v1.4.0 以下版本，可以通过接入 call-uikit-vue 体验通话功能。详情请参考[音视频通话 ( Web & H5 )](https://cloud.tencent.com/document/product/269/79861) 
  <img width="1015" alt="page05" src="https://user-images.githubusercontent.com/57951148/196082955-e046f0b1-bba2-491d-91b3-f30f2c6f4aae.png">
 
 	
