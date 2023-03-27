@@ -64,8 +64,7 @@
 4. 在列表中，找到需要删除的网络 ACL，单击**删除**并确定操作，即可删除该网络 ACL 及该网络 ACL 的所有规则。
 >?若**删除**置灰，如下图中的网络 ACL `testEg`，表示该网络 ACL 正与子网相关联，您需要先解除子网关联后，才能进行删除操作。
 >
-![](https://main.qcloudimg.com/raw/52d13aac33e609dc59d132ffa4c71171.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/be350dde84410a644d8cf6f52f248c96.png)
 
 
 
