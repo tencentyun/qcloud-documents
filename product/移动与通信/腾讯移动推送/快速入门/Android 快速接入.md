@@ -10,20 +10,20 @@
 ### 创建 Android 平台应用
 1. 接入 SDK 之前，需要您前往移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 Android 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
    ![](https://main.qcloudimg.com/raw/6c410b88409bb658e3920ec1b764c5c0.png)
-2. 完成以上步骤后，进入应用的【配置管理】页面，准备接入。
+2. 完成以上步骤后，进入应用的**配置管理**页面，准备接入。
    ![](https://main.qcloudimg.com/raw/fa8bc3c2c4fdf67cd5b837232fc9457b.png)
 
 ## 步骤1：开始接入
 
-1. 在【配置管理】页面中， 单击【快速接入】。
+1. 在**配置管理**页面中， 单击**快速接入**。
 ![](https://main.qcloudimg.com/raw/26118ca32c232eae530cd290f9aa2195.png)
-2. 按照接入指引的操作顺序完成配置，然后单击【点击验证】。
+2. 按照接入指引的操作顺序完成配置，然后单击**点击验证**。
 ![](https://main.qcloudimg.com/raw/7c4cf6eddf838d55a4dfa858ac3d6e3f.png)
 3. 若出现以下提示，则表示 SDK 接入成功 。
 ![](https://main.qcloudimg.com/raw/393d62182039f2164517d18b86cdb52a.png)
 	若出现以下提示，请确认 App 是否成功注册推送服务，可参见 [接入结果验证](#jierujieguo)。
 	![](https://main.qcloudimg.com/raw/b234996ccd14cd5681bda3c5afcb5f30.png)
->!为提升离线抵达率，移动推送SDK 默认开启联合保活能力，开发者可手动关闭，详情请参见 [关闭移动推送保活功能](https://cloud.tencent.com/document/product/548/36674#.E5.A6.82.E4.BD.95.E5.85.B3.E9.97.AD-tpns-.E7.9A.84.E4.BF.9D.E6.B4.BB.E5.8A.9F.E8.83.BD.EF.BC.9F)。
+>!为提升离线抵达率，移动推送 SDK 默认开启联合保活能力，开发者可手动关闭，详情请参见 [关闭移动推送保活功能](https://cloud.tencent.com/document/product/548/36674#.E5.A6.82.E4.BD.95.E5.85.B3.E9.97.AD-tpns-.E7.9A.84.E4.BF.9D.E6.B4.BB.E5.8A.9F.E8.83.BD.EF.BC.9F)。
 
 
 
@@ -43,10 +43,10 @@ XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab4aabb65
 ## 步骤3：厂商通道快速接入
 
 1. 在配置管理页面打开厂商推送通道开关并配置好应用的 AppId、SecretKey 等信息，申请方式可查看各厂商通道的说明文档。
- - 单击【查看说明文档】，可查看厂商通道说明。
+ - 单击**查看说明文档**，可查看厂商通道说明。
  - 在右侧 AppId、AppKey、AppSecret 处可配置厂商通道信息。
    ![](https://main.qcloudimg.com/raw/054128d0cbc0304e512cc67e36999138.png)
-2. 厂商通道信息配置完成后，单击页面上方【配置文件下载】，下载包含厂商通道配置信息的配置文件，然后用该配置文件替换工程文件中旧的配置文件即可。
+2. 厂商通道信息配置完成后，单击页面上方**配置文件下载**，下载包含厂商通道配置信息的配置文件，然后用该配置文件替换工程文件中旧的配置文件即可。
  ![](https://main.qcloudimg.com/raw/4dfa37ac471c1c3b18cc559d5780a6be.png)
 
 ## 问题排查指引
