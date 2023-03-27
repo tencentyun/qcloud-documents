@@ -364,6 +364,8 @@ userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tenc
 	 </tr>
 </table>
 
+>! 如果您在集成 TUIKit 之后还需要支持单人/多人音视频通话功能，请参见 [使用音视频通话](https://cloud.tencent.com/document/product/269/68378)。
+
 ## 常见问题
  
 #### 1. 什么是 UserSig？

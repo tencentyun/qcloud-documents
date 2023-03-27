@@ -6,7 +6,7 @@
 
 ## 业务场景
 用户使用专线打通腾讯云和客户 IDC 实现资源访问，同时期望指定访问 IP 地址并无 IP 冲突，可以通过私网 NAT + 专线方案来实现。
-![](https://qcloudimg.tencent-cloud.cn/raw/c12d9dca6faff9955804a06ba57e6db7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/eed46c83d8dcb6747d2a2bc26f85168c.png)
 
 ## 前提条件
 - 已完成物理专线建设，详情可参见 [申请接入物理专线](https://cloud.tencent.com/document/product/216/48586)。
@@ -14,7 +14,7 @@
 
 ## 注意事项
 - 私网 NAT 网关需要配置网络地址映射关系，不配业务将不通。
-- 在私网 NAT 中配置的 SNAT 本端三层、SNAT 本端四层和 DNAT 对端四层会自动产生映射关系；对端三层不会产生 NAT 映射关系。同时由于默认不发布 VPC CIDR，因此不能单独配置对端三层使用，需要与本端搭配使用。
+- 在私网 NAT 中配置的 SNAT 本端三层、SNAT 本端四层和 DNAT 对端四层会自动产生映射关系；对端三层不会产生 NAT 映射关系。同时由于默认不发布 VPC CIDR，因此如果单独使用对端三层规则，需要在 IDC 侧手动配置 VPC CIDR 路由才能通，推荐和本端搭配使用。
 
 ## 操作步骤
 ### 步骤一：创建私网 NAT 网关[](id:step1)

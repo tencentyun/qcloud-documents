@@ -81,7 +81,7 @@ https://api.meeting.qq.com/v1/users/open-id-to-userid
 POST  https://api.meeting.qq.com/v1/users/open-id-to-userid
 {
    "open_id_list":["123456"],
-   "sdkId":"120001"
+   "sdkid":"120001"
 }
 ```
 

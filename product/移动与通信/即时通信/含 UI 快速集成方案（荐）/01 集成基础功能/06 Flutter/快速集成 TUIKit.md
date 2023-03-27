@@ -40,11 +40,11 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 | iOS  | 支持 |
 | Android  | 支持 |
 | [Web](#web)  | 支持，0.1.5版本起 |
-| macOS  | 开发中，敬请期待 |
-| Windows  | 开发中，敬请期待 |
+| macOS  | 支持，2.0.0 版本起 |
+| Windows  | 支持，2.0.0 版本起 |
 | [混合开发](https://cloud.tencent.com/document/product/269/83153) （将 Flutter SDK 添加至现有原生应用） | 1.0.0版本起支持 |
 
->? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及TUIKit，帮助您一套代码，全平台运行。
+>? Web/macOS/Windows 平台需要简单的几步额外引入，详情请参见 [拓展更多平台](https://cloud.tencent.com/document/product/269/68823#.E6.8B.93.E5.B1.95.E6.9B.B4.E5.A4.9A.E5.B9.B3.E5.8F.B0)。
 
 ## 前提条件
 

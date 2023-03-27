@@ -6,9 +6,9 @@
 
 
 
-## 可能原因
+## 现象描述
 
-CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器登录不上等问题。而引起 CPU 或内存使用率过高可能由硬件、系统进程、业务进程或者木马病毒等因素所致。您可以使用 [云监控](https://cloud.tencent.com/document/product/248/13466)，创建 CPU 或内存使用率阈值告警，当 CPU 或内存使用率超过阈值时，将及时通知到您。
+CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器登录不上等问题。而引起 CPU 或内存使用率过高可能由硬件、系统进程、业务进程或者木马病毒等因素所致。您可以使用 [腾讯云可观测平台](https://cloud.tencent.com/document/product/248/13466)，创建 CPU 或内存使用率阈值告警，当 CPU 或内存使用率超过阈值时，将及时通知到您。
 
 ## 排查思路
 
@@ -28,35 +28,60 @@ CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器�
 - **服务**：系统中所有的服务（包括并未运行的服务）。
 
 
+## 可能原因
+<table>
+<thead>
+  <tr>
+    <th>可能原因</th>
+    <th>处理措施</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>使用 VNC 方式登录云服务器</td>
+    <td ><a href="#F1">检查使用 VNC 方式登录云服务器</a></td>
+  </tr>
+  <tr>
+    <td>进程占用情况</td>
+    <td><a href="#F2">检查进程占用情况</a></td>
+  </tr>
+  <tr>
+    <td>分析占用资源的进程情况</td>
+    <td><a href="#F3">检查分析占用资源的进程情况</a></td>
+  </tr>
+</tbody>
+</table>
+
+
 ## 故障处理
 
-### 使用 VNC 方式登录云服务器
+### 检查使用 VNC 方式登录云服务器[](id:F1)
 
 
 <dx-alert infotype="explain" title="">
 由于云服务器负载高时会导致无法建立远程连接，推荐 [使用 VNC 方式登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。 
 </dx-alert>
 
-
+通过腾讯云 VNC 登录进入服务器内部进行操作。
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例的管理页面，找到目标云服务器实例，单击**登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
-3. 在弹出的 “标准登录 | Windows 实例” 窗口中，选择 **VNC登录**。
-4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
+3. 在弹出的**标准登录 | Windows 实例**窗口中，选择**VNC登录**。
+4. 在弹出的登录窗口中，选择左上角的**发送远程命令**，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
-### 查看进程占用情况
-
-1. 在云服务器中，右键单击 “任务栏”，选择**任务管理器**。如下图所示：
+### 检查进程占用情况[](id:F2)
+通过登录 Windows 实例窗口进行操作。
+1. 在云服务器中，右键单击**任务栏**，选择**任务管理器**。如下图所示：
 ![](//mc.qcloudimg.com/static/img/12539e5b76898e30bbb3bf510b0a5262/image.png)
-2. 在打开的 “任务管理器” 中，即可查看资源占用情况。如下图所示：
+2. 在打开的**任务管理器**中，即可查看资源占用情况。如下图所示：
 <dx-alert infotype="explain" title="">
 您可单击 CPU 或内存，以升序/降序对进程进行排序。
 </dx-alert>
 <img src="https://main.qcloudimg.com/raw/f4e85ae575a486ea9d6641ce9a7a8e21.png"/>
 
 
-### 进程分析
+### 检查分析占用资源的进程情况[](id:F3)
 
 根据任务管理器中的进程，分析与排查问题，以采取对应解决方案。
 #### 占用大量 CPU 或内存资源的进程为系统进程

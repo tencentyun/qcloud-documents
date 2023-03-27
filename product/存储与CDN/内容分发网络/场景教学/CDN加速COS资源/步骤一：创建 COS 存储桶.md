@@ -1,3 +1,4 @@
+
 在创建 COS 存储桶之前，想必您已经开通了 COS 服务，若未开通，详情请参见 [如何开通腾讯云 COS](https://cloud.tencent.com/document/product/436/38484)。
 1. 根据需求，基础信息配置如下：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/bcd9fa2e7d272967612fcb0894698177.png" width="70%">

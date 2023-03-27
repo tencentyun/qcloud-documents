@@ -50,7 +50,7 @@
 >- 如果想要给云服务器的其他弹性网卡也分配 IPv6 地址，请参见 [申请和释放 IPv6
 ](https://cloud.tencent.com/document/product/576/37972) 进行操作。
 >
-5. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见  [Linux 云服务器配置 IPv6 ](https://cloud.tencent.com/document/product/1142/47666) 和  [Windows 云服务器配置 IPv6](https://cloud.tencent.com/document/product/1142/47667)。
+5. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见  [Linux 云服务器配置 IPv6 ](https://cloud.tencent.com/document/product/215/47556) 和  [Windows 云服务器配置 IPv6](https://cloud.tencent.com/document/product/215/47558)。
 
 ### 步骤四：为云服务器的 IPv6 地址开通公网[](id:step4)
 默认云服务器的 IPv6 地址仅具有私网通信能力，若您想要通过该 IPv6 地址访问公网或被公网访问，则需通过弹性公网 IPv6 为该 IPv6 地址开通公网访问能力。

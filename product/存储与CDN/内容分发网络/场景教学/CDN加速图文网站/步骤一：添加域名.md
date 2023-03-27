@@ -1,3 +1,4 @@
+
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧导航栏中，单击**域名管理**进入域名管理页面，单击**添加域名**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cab23bbfda82f8b7f31573ffd9ba4e06.png)
 2. 域名配置
