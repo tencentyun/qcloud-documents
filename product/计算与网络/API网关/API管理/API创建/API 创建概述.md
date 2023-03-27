@@ -11,7 +11,7 @@ API 创建即在 API 网关内完成 API 的定义。该任务指导您通过 AP
 4. 单击**新建**，进行后续配置。
 
 ## API 类型
-目前在 API 网关中可创建五种后端类型的 API，其中后端对接公网 URL/IP、VPC、SCF、Mock 的 API 统称为通用 API，后端对接 TSF 的 API 称为微服务 API，具体如下表所示：
+目前在 API 网关中可创建六种后端类型的 API，其中后端对接公网 URL/IP、VPC、SCF、COS 、Mock 的 API 统称为通用 API，后端对接 TSF 的 API 称为微服务 API，具体如下表所示：
 <table>
 <thead>
   <tr>
@@ -22,7 +22,7 @@ API 创建即在 API 网关内完成 API 的定义。该任务指导您通过 AP
 </thead>
 <tbody>
   <tr>
-    <td rowspan="4">通用 API</td>
+    <td rowspan="5">通用 API</td>
     <td>公网 URL/IP</td>
     <td><a href="https://cloud.tencent.com/document/product/628/52199">创建后端对接公网 URL/IP 的 API</a></td>
   </tr>
@@ -34,6 +34,8 @@ API 创建即在 API 网关内完成 API 的定义。该任务指导您通过 AP
     <td>云函数 SCF</td>
 		<td><a href="https://cloud.tencent.com/document/product/628/52201">创建后端对接云函数 SCF 的 API</a></td>
   </tr>
+	<tr><td>对象存储 COS</td>
+<td><a href="https://cloud.tencent.com/document/product/628/70988">创建后端对接对象存储 COS 的 API</a></td></tr>
   <tr>
     <td>Mock</td>
 		<td><a href="https://cloud.tencent.com/document/product/628/52202">创建后端对接 Mock 的 API</a></td>
