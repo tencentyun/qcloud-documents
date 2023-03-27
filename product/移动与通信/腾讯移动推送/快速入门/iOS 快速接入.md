@@ -35,12 +35,12 @@
 
 ### 配置项1、2 - AccessID、AccessKey
 
-登录 [移动推送控制台](https://console.cloud.tencent.com/tpns)。
+登录 [移动推送控制台](https://console.cloud.tencent.com/tpns/product)。
 
 1. 产品管理 - 要配置推送能力的产品，选择 iOS 或者 macOS 平台的配置管理。
-   ![](https://main.qcloudimg.com/raw/5f812069da22e2c345ef69a4ad1b920c.jpg)
+    ![](https://qcloudimg.tencent-cloud.cn/raw/d091a5755656c24a8a8002f6c1036a0a.png)
 2. 进入产品配置管理详情页，分别复制 AccessID 和 AccessKey，粘贴到一键集成工具对应的输入框内。
-   ![](https://main.qcloudimg.com/raw/83ee926eac28ed555f46393f7399b926.jpg)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/1ce90dc89481ca9af3b4231e21e5277e.png)
 
 ### 配置项3 - 选择工程语言
 
