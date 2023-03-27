@@ -24,7 +24,7 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | Objective-C | iOS | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/Demo/TUIKitDemo/Private/GenerateTestUserSig.h) | 
 |Objective-C | Mac | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/Mac/Demo/TUIKitDemo/Debug/GenerateTestUserSig.h) |
 | C++ | Windows | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/Windows/Demo/IMApp/GenerateTestUserSig.h) |
-| Javascript | Web | [GenerateTestUserSig.js](https://github.com/TencentCloud/chat-uikit-vue/blob/main/debug/GenerateTestUserSig.js) |
+| Javascript | Web | [GenerateTestUserSig.js](https://github.com/TencentCloud/chat-uikit-vue/blob/main/TUIKit/debug/GenerateTestUserSig.js) |
 | Javascript | 小程序 | [GenerateTestUserSig.js](https://github.com/TencentCloud/chat-uikit-wechat/blob/main/debug/GenerateTestUserSig.js) | 
 |Dart|Flutter|[GenerateTestUserSig.dart](https://github.com/TencentCloud/chat-demo-flutter/blob/main/lib/utils/GenerateUserSig.dart)|
 
