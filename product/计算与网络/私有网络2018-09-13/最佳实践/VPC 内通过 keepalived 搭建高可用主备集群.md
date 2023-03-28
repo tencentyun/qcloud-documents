@@ -45,9 +45,9 @@
 4. 在弹出的**申请高可用虚拟 IP** 对话框中输入名称，选择 HAVIP 所在的私有网络和子网等信息，单击**确定**即可。
 >?HAVIP 的 IP 地址可以自动分配，也可以手动填写。如果您选择手动填写，请确认填写内网 IP 在所属子网网段内，且不属于系统保留 IP。例如，所属子网网段为：10.0.0.0/24，则可填的内网 IP 范围 为：10.0.0.2 - 10.0.0.254。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/41cf780c146b5ef6429f3c37ff2aa04b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9435c1fb132500911efdc8a62d21dc11.png)
 申请成功的 HAVIP 如下图所示。
-![](https://qcloudimg.tencent-cloud.cn/raw/add23ca5be144f2cfd8994a99f236db0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b356efe469e28a4c76abb2405132c743.png)
 
 ### 步骤2：在主服务器和备服务器上安装 keepalived 软件（推荐1.2.24版本及以上）
 本文以 CentOS 7.6镜像类型服务器为例提供 keepalived 的安装方法。
@@ -190,9 +190,9 @@ HAVIP-01 和 HAVIP-02 在本例中将被配置成“等权重节点”，即 sta
    ```
 4. 按“esc”退出编辑状态，输入`:wq!`保存并退出。
 5. 重启 keepalived 进程使配置生效。
- ```plaintext
+```plaintext
  systemctl start keepalived
- ```
+```
 6. 检查两台云服务器的主备状态，并确认 HAVIP 已经正确的绑定到主备服务器。
 >?此示例中 HAVIP-01 先启动 keepalived 服务，所以正常情况下，HAVIP-01 将被选择为主节点。
 >
