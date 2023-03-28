@@ -138,7 +138,7 @@ vncserver -geometry 1920x1080 :1 #生成新的会话
 
 ::: Ubuntu 22.04
 [](id:g1)
-1. 运行 VNC。
+1. 执行以下命令，运行 VNC。
 ```shellsession
 vncserver
 ```
