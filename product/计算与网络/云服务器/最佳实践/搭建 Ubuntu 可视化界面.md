@@ -128,7 +128,7 @@ vncserver -kill :1 #杀掉原桌面进程，输入命令（其中的:1是桌面�
 ```shellsession
 vncserver -geometry 1920x1080 :1 #生成新的会话
 ```
-6. [点此](https://www.realvnc.com/en/connect/download/viewer/) 前往 VNC Viewer 官网，并根据本地计算机的操作系统类型，下载对应的版本及安装。
+6. [点此](https://www.realvnc.com/en/connect/download/viewer/) 前往 VNC Viewer 官网，并根据本地计算机的操作系统类型，下载对应的版本并安装。
 7. 在 VNC Viewer 软件中，输入 `云服务器的 IP 地址:1`，按 **Enter**。
 ![](https://main.qcloudimg.com/raw/df25e2085e9d27d53b1827ccf98a3618.png)
 8. 在弹出的提示框中，单击 **Continue**。
