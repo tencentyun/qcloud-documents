@@ -10,9 +10,9 @@
 > 2. 同一个腾讯云账号，最多可创建 300 个即时通信 IM 应用。若已有 300 个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。
 > 3. **应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
 2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/febed2f15dee6ff09f066ba228c7fc27.png" style="zoom:80%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/febed2f15dee6ff09f066ba228c7fc27.png" style="zoom:80%;"/> 
 3. 创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间、标签以及到期时间。请记录 SDKAppID 信息。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/853d2c3c0d5887dadc254eb0e03a215e.png" style="zoom:80%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/853d2c3c0d5887dadc254eb0e03a215e.png" style="zoom:80%;"/> 
 
 
 [](id:step2)
