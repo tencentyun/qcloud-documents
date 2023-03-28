@@ -9,7 +9,7 @@
 	![](https://qcloudimg.tencent-cloud.cn/raw/1618199ea30dab9ece1f5d125ff0ba9b.png)
 4. 在弹出的**绑定弹性公网 IP** 对话框中，单击需要绑定的 EIP。
 >!
->+ 如无可用的 EIP，请先在 EIP 控制台创建 EIP 后再执行绑定操作，一个 HAVIP 只能绑定一个 EIP。
+>+ 如无可用的 EIP，请先在 EIP 控制台 [创建 EIP](https://cloud.tencent.com/document/product/1199/41698) 后再执行绑定操作，一个 HAVIP 只能绑定一个 EIP。
 >+ 如果 HAVIP 未绑定到云服务器实例上，绑定此 HAVIP 的 EIP 将处于**闲置**状态，系统会收取资源闲置费用。因此，请正确配置高可用，确保绑定成功。常见配置案例请参考：
 >  + [最佳实践 - 用 HAVIP + Keepallved 搭建高可用主备集群](https://cloud.tencent.com/document/product/215/20186)
 >  + [最佳实践 - 用 HAVIP + Windows Server Failover Cluster 搭建高可用 DB](https://cloud.tencent.com/document/product/215/20187) 
