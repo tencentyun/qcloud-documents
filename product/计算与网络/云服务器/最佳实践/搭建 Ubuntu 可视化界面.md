@@ -26,7 +26,7 @@ sudo apt clean all && sudo apt update
 ```shellsession
 sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop
 ```
-4. 按照实际情况执行以下命令，安装 VNC。
+4. 执行以下命令，安装 VNC。
 ```shellsession
 apt-get install vnc4server
 ```
@@ -41,7 +41,7 @@ sudo apt clean all && sudo apt update
 ```shellsession
 sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop
 ```
-4. 按照实际情况执行以下命令，安装 VNC。
+4. 执行以下命令，安装 VNC。
 ```shellsession
 apt-get install tightvncserver
 ```
@@ -56,7 +56,7 @@ sudo apt clean all && sudo apt update
 ```shellsession
 sudo apt install xfce4 xfce4-goodies
 ```
-4.按照实际情况执行以下命令，安装 VNC。
+4.执行以下命令，安装 VNC。
 ```shellsession
 sudo apt install tightvncserver
 ```
