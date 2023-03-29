@@ -52,7 +52,7 @@ WebKit.framework
 libc++.tbd
 ```
 
--	Build Setting --> Linking --> Other Linker Flag 设置 增加 -ObjC 和 -lz linker flag
+-   Build Setting --> Linking --> Other Linker Flag 设置 增加 -ObjC 和 -lz linker flag
 
 ### 2. 集成过程中注意事项
  **cocoapods 集成时 `:path` 参数说明**
@@ -168,7 +168,7 @@ init SDK 接口如下：
 ```
 /// 标准版本 SDK 登录接口, 这个接口完成 SDK 登录
 /// @param sdkType     本次识别的卡证类型,详细参考 `WBOCRCardType`
-/// @param appId       人脸核身控制台内申请的 wbappid
+/// @param appId       人脸核身控制台内申请的 WBappid
 /// @param nonce       每次请求需要的一次性nonce，一次有效
 /// @param userId      每个用户唯一的标识
 /// @param sign        签名信息，由接入方后台提供，一次有效

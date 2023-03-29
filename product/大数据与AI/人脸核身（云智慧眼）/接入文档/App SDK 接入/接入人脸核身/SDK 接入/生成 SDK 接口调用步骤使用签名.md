@@ -5,7 +5,7 @@
 
 | 参数名 | 说明 | 来源 |
 |---------|---------|---------|
-| wbappId | 业务流程唯一标识 | 参考 获取 WBappid 指引在人脸核身控制台内申请 | 
+| WBappid | 业务流程唯一标识 | 参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请 | 
 | userId | 用户唯一标识 | 合作方自行分配（和 SDK 里面定义的 userId 保持一致） | 
 | version | 参数值为：1.0.0 | - |
 | ticket | 合作伙伴服务端获取的 ticket，注意是 NONCE 类型 | 获取方式见 [NONCE ticket 获取](https://cloud.tencent.com/document/product/1007/37306) |
@@ -15,7 +15,7 @@
 
 ### 基本步骤
 1. 生成一个 32 位的随机字符串 nonce（其为字母和数字，登录时也要用到）。
-2. 将 wbappId、userId、version 连同 ticket、nonce 共五个参数的值进行字典序排序。
+2. 将 WBappid、userId、version 连同 ticket、nonce 共五个参数的值进行字典序排序。
 3. 将排序后的所有参数字符串拼接成一个字符串。
 4. 将排序后的字符串进行 SHA1 编码，编码后的 40 位字符串作为签名（sign）。
 
@@ -24,13 +24,13 @@
 ### 参考示例
 - **请求参数：**
 
-|参数名|	参数值|
+|参数名|   参数值|
 |---------|---------|
-|appId	|IDAXXXXX|
-|userId	|userID19959248596551|
-|nonce|	kHoSxvLZGxSoFsjxlbzEoUzh5PAnTU7T|
-|version	|1.0.0|
-|ticket	|XO99Qfxlti9iTVgHAjwvJdAZKN3nMuUhrsPdPlPVKlcyS50N6tlLnfuFBPIucaMS|
+|appId  |IDAXXXXX|
+|userId |userID19959248596551|
+|nonce| kHoSxvLZGxSoFsjxlbzEoUzh5PAnTU7T|
+|version    |1.0.0|
+|ticket |XO99Qfxlti9iTVgHAjwvJdAZKN3nMuUhrsPdPlPVKlcyS50N6tlLnfuFBPIucaMS|
 
  - 字典排序后的参数为：
 ```
