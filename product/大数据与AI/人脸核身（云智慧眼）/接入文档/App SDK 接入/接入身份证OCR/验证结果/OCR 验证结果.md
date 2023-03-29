@@ -1,6 +1,6 @@
 ## 服务端验证结果
 **此方式适用于：**
-合作伙伴服务端生成签名，并调用身份证识别服务端查询结果，鉴权完成后返回结果（服务端上传 order_no 和 wbappid 查询）。
+合作伙伴服务端生成签名，并调用身份证识别服务端查询结果，鉴权完成后返回结果（服务端上传 order_no 和 WBappid 查询）。
 ### 合作方后台生成签名
 #### 准备步骤
 - **前置条件：请合作方确保 SIGN ticket 已经正常获取，获取方式见 [SIGN ticket 获取](https://cloud.tencent.com/document/product/1007/37305) 。**
@@ -8,7 +8,7 @@
 
 |参数 | 说明 | 来源|
 |----- | ----- | ------|
-|wbappid| 业务流程唯一标识  | 参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请 |
+|WBappid| 业务流程唯一标识  | 参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请 |
 |order_no | 订单号，字母/数字组成的字符串，本次人脸核身合作伙伴上传的订单号，唯一标识 | 合作方自行分配，不要带有特殊字符|
 |version | 默认值：1.0.0 | -  |
 |ticket | 合作伙伴服务端缓存的 tikcet，注意是 SIGN 类型 | 获取方式见 [SIGN ticket 获取](https://cloud.tencent.com/document/product/1007/37305)|
@@ -16,7 +16,7 @@
 
 #### 基本步骤
 1. 生成一个32位的随机字符串 nonceStr（其为字母和数字，登录时也要用到）。
-2. 将 wbappid、order_no、version、ticket、nonceStr 共5个参数的值进行字典序排序。
+2. 将 WBappid、order_no、version、ticket、nonceStr 共5个参数的值进行字典序排序。
 3. 将排序后的所有参数字符串拼接成一个字符串。
 4. 将排序后的字符串进行 SHA1 编码，编码后的40位字符串作为签名（sign）。
 
