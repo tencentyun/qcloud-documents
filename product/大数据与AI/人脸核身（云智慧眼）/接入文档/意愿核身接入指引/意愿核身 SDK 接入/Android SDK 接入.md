@@ -109,53 +109,53 @@ public interface WbCloudFaceVerifyResultListener {
 ### 识别结果类
 WbFaceVerifyResult 是 SDK 用来给合作方传递身份识别结果的对象，在 WbCloudFaceVerifyResultListener 回调中作为参数返回给合作方 App。WbFaceVerifyResult 对象的各个字段意义如下表所示：
 
-| 字段名 | 类型 | 字段含义 |	说明| 
+| 字段名 | 类型 | 字段含义 | 说明| 
 |---------|---------|---------|---------|
-| isSuccess	| boolean	| 人脸核身是否成功	| True 代表人脸核身对比成功；false 代表人脸核身失败，具体的失败原因请参考 [WbFaceError 对象说明](#WbFaceError)| 
-| sign	| String	| 签名| 	供 App 校验人脸核身结果的安全性| 
-| liveRate	| String	| 活体检测分数| 	-| | 
-| similarity	| String	| 人脸比对分数	| “仅活体检测” 类型不提供此分数| 
-| userImageString	| String| 	用户人脸核身图片	| 经过 Base64 编码后的用户人脸核身图片，仅用户成功通过验证时返回| 
-| WbFaceError	| 自定义对象	| 人脸核身错误	| 人脸核身成功时为 null| 
-| WbFaceWillModeResult	| 自定义对象	| 意愿性结果信息	| -| 
+| isSuccess | boolean   | 人脸核身是否成功  | True 代表人脸核身对比成功；false 代表人脸核身失败，具体的失败原因请参考 [WbFaceError 对象说明](#WbFaceError)| 
+| sign  | String    | 签名|   供 App 校验人脸核身结果的安全性| 
+| liveRate  | String    | 活体检测分数|   -| | 
+| similarity    | String    | 人脸比对分数    | “仅活体检测” 类型不提供此分数| 
+| userImageString   | String|   用户人脸核身图片    | 经过 Base64 编码后的用户人脸核身图片，仅用户成功通过验证时返回| 
+| WbFaceError   | 自定义对象 | 人脸核身错误    | 人脸核身成功时为 null| 
+| WbFaceWillModeResult  | 自定义对象 | 意愿性结果信息   | -| 
 
 ### WbFaceError 对象说明 [](id:WbFaceError)
 WbFaceError 是 SDK 用来给合作方传递人脸核身错误信息的对象，在 WbCloudFaceVerifyLoginListener 回调和 WbFaceVerifyResult 对象中作为参数返回给合作方 App。WbFaceError 对象的各个字段意义如下表所示，各个字段的内容取值详情请参见 SaaS 服务[ 错误码](https://cloud.tencent.com/document/product/1007/35871)。
 
 | 字段名 | 类型 | 字段含义 |说明| 
 |---------|---------|---------|---------|
-| domain	| String	| 错误发生的阶段	| 只有当domain=WBFaceErrorDomainCompareServer时表示用户完成了刷脸，可以通过接口去拉取刷脸结果。其他domain表示用户刷脸中途退出或命中了风控逻辑，后端无法查询到刷脸结果| 
-| code	| String	| 错误码	| -| 
-| desc	| String	| 错误描述| 	如有需求，可以展示给用户| 
-| reason	| String	| 错误信息内容	| 错误的详细实际原因，主要用于定位问题| 
+| domain    | String    | 错误发生的阶段   | 只有当domain=WBFaceErrorDomainCompareServer时表示用户完成了刷脸，可以通过接口去拉取刷脸结果。其他domain表示用户刷脸中途退出或命中了风控逻辑，后端无法查询到刷脸结果| 
+| code  | String    | 错误码   | -| 
+| desc  | String    | 错误描述|     如有需求，可以展示给用户| 
+| reason    | String    | 错误信息内容    | 错误的详细实际原因，主要用于定位问题| 
 
 ### WbFaceWillModeResult 对象说明
 WbFaceWillModeResult 是 SDK 用来给合作方传递意愿性表达综合信息的对象，在 WbCloudFaceVerifyResultListener 中的 WbFaceVerifyResult 对象中作为参数返回给合作方 App。WbFaceWillModeResult 对象的各个字段意义如下表所示，各个字段的内容取值详情请参见 SaaS 服务 [错误码](https://cloud.tencent.com/document/product/1007/35871)。
 
-| 字段名 | 类型 | 字段含义 |	说明|
+| 字段名 | 类型 | 字段含义 | 说明|
 |---------|---------|---------|---------|
-| faceCode	| String	| 人脸识别结果码| 	-| 
-| faceMsg	| String	| 人脸识别结果信息| 	-| 
-| willCode	| String| 	ASR 结果码	| -| 
-| willMsg	| String	| ASR 结果信息	| -| 
-| videoPath| 	String| 意愿性存证视频存储地址	| 如果打开了本地存储意愿性视频开关，将在此处返回意愿性视频地址| 
+| faceCode  | String    | 人脸识别结果码|  -| 
+| faceMsg   | String    | 人脸识别结果信息|     -| 
+| willCode  | String|   ASR 结果码 | -| 
+| willMsg   | String    | ASR 结果信息  | -| 
+| videoPath|    String| 意愿性存证视频存储地址 | 如果打开了本地存储意愿性视频开关，将在此处返回意愿性视频地址| 
 
 ### 接口参数说明
 **InputData 对象说明**
 InputData 是用来给 SDK 传递一些必须参数所需要使用的对象（WbCloudFaceVerifySdk.initWillSdk() 的第二个参数），合作方需要往里塞入SDK 需要的一些数据以便启动刷脸 SDK。
 其中 InputData 对象中的各个参数定义如下表，请合作方按下表标准传入对应的数据。
 
-| 参数 | 说明 | 类型 |	<nobr>长度（字节）|		是否必填|	
+| 参数 | 说明 | 类型 |    <nobr>长度（字节）|       是否必填|   
 |---------|---------|---------|---------|---------|
-| faceId	| 刷脸 id 号，由合作方向人脸识别后台拉取获得	| String	| -	| 是| 
-| agreementNo| 	订单号，合作方订单的唯一标识	| String	| 32	| 是| 
-| openApiAppId	| 业务流程唯一标识，即   wbappid，可参考 获取 WBappid 指引在人脸核身控制台内申请| 	String| 	8| 	是| 
-|openApiAppVersion	| 接口版本号，默认填 1.0.0	|String|	20	|是|
-| openApiNonce	| 32 位随机字符串，每次请求需要的一次性  nonce| 	String	| 32| 	是| 
-| openApiUserId	| User Id，每个用户唯一的标识| 	String| 	30| 	是| 
-| openApiSign	| 获取方式请参考 生成SDK接口调用步骤使用签名 | 	String	| 40| 	是| 
-|verifyMode	|刷脸类型：分级模式 FaceVerifyStatus.Mode.GRADE| FaceVerifyStatus.Mode	|-	|是|
-| keyLicence	|在人脸核身控制台内申请	| String	|以实际申请为准|	是|
+| faceId    | 刷脸 id 号，由合作方向人脸识别后台拉取获得   | String    | - | 是| 
+| agreementNo|  订单号，合作方订单的唯一标识  | String    | 32    | 是| 
+| openApiAppId  | 业务流程唯一标识，即   WBappid，可参考 获取 WBappid 指引在人脸核身控制台内申请|    String|     8|  是| 
+|openApiAppVersion  | 接口版本号，默认填 1.0.0   |String|    20  |是|
+| openApiNonce  | 32 位随机字符串，每次请求需要的一次性  nonce|  String  | 32|   是| 
+| openApiUserId | User Id，每个用户唯一的标识|    String|     30|     是| 
+| openApiSign   | 获取方式请参考 生成SDK接口调用步骤使用签名 |     String  | 40|   是| 
+|verifyMode |刷脸类型：分级模式 FaceVerifyStatus.Mode.GRADE| FaceVerifyStatus.Mode   |-  |是|
+| keyLicence    |在人脸核身控制台内申请    | String    |以实际申请为准|   是|
 
 **个性化参数设置（可选）**
 WbCloudFaceVerifySdk.initSdk() 里 Bundle data，除了必须要传的 InputData 对象之外，还可以由合作方为其传入一些个性化参数，量身打造更契合自己 App 的 SDK。如果合作方未设置这些参数，则以下所有参数按默认值设置。
@@ -191,61 +191,61 @@ SDK 在登录以及返回人脸服务结果时，如果发生错误或者识别�
 
 | Code（错误码） | Description（描述） | Reason（详细实际原因） |
 |---------|---------|---------|
-| 11000	| 传入参数为空	| 传入的xx为空| 
-| 11001	| 传入的 keyLicence | 不可用	传入的 keyLicence 不可用| 
-| 11002	| 报文加解密失败	| 报文加解密失败| 
+| 11000 | 传入参数为空    | 传入的xx为空| 
+| 11001 | 传入的 keyLicence | 不可用  传入的 keyLicence 不可用| 
+| 11002 | 报文加解密失败   | 报文加解密失败| 
 
 ### WBFaceErrorDomainLoginNetwork
 | Code（错误码） | Description（描述） | Reason（详细实际原因） |
 |---------|---------|---------|
-|21100|	网络异常	|登录时网络异常（请求未到达后台）|
-|21200	|网络异常	|登录时后台返回参数有误（请求到达后台）|
+|21100| 网络异常    |登录时网络异常（请求未到达后台）|
+|21200  |网络异常   |登录时后台返回参数有误（请求到达后台）|
 
 
 ### WBFaceErrorDomainLoginServer
 | Code（错误码） | Description（描述） | Reason（详细实际原因） |
 |---------|---------|---------|
-|其他错误码	|透传后台错误码	|例如签名问题等|
+|其他错误码  |透传后台错误码    |例如签名问题等|
 
 ### WBFaceErrorDomainGetInfoNetwork
 | Code（错误码） | Description（描述） | Reason（详细实际原因） |
 |---------|---------|---------|
-|31100|	网络异常	|获取活体类型/光线/意愿性表达资源，网络异常（请求未到达后台）|
-|31200	|网络异常	|获取活体类型/光线/意愿性表达资源，后台返回参数有误（请求到达后台）|
+|31100| 网络异常    |获取活体类型/光线/意愿性表达资源，网络异常（请求未到达后台）|
+|31200  |网络异常   |获取活体类型/光线/意愿性表达资源，后台返回参数有误（请求到达后台）|
 
 
 ### WBFaceErrorDomainNativeProcess
 | Code（错误码） | Description（描述） | Reason（详细实际原因） |
 |---------|---------|---------|
-| 41000	| 用户取消	| 回到后台/单击 home/左上角/上传时左上角取消| 
-| 41001	| 无法获取唇语数据	| 获取数字活体的数字有问题| 
-| 41002	| 权限异常，未获取权限	| 相机| 
-| 41003	| 相机运行中出错	| -| 
-| 41004	| 视频录制中出错	| 不能存/启动失败/结束失败| 
-| 41005	| 请勿晃动人脸，保持姿势	| 未获取到最佳图片| 
-| 41006	| 视频大小不满足要求	| 视频大小不满足要求| 
-| 41007	| 超时	| 预检测/动作活体| 
-| 41008| 	检测中人脸移出框外	| 活体/数字/反光| 
-| 41009	| 光线活体本地错误	| -| 
-| 41010	| 风险控制超出次数	| 用户重试太多次| 
-| 41011	| 没有检测到读数声音	| 数字活体过程中没有发声| 
-| 41012	| 初始化模型失败，请重试	| 初始化算法模型失败| 
-| 41013	| 初始化 sdk 异常	| WbCloudFaceVerifySdk 未被初始化| 
-| 41014	| 简单模式本地加密失败| 	编码转换异常/加解密编码失败| 
-| 41101	| 音频录制中出错	| 意愿性录音失败| 
-| 41102| 	没有检测到麦克风声音	| 意愿性检测音量过低| 
-| 41103	| 播报音频文件加载失败	| 意愿性播放音频失败| 
+| 41000 | 用户取消  | 回到后台/单击 home/左上角/上传时左上角取消| 
+| 41001 | 无法获取唇语数据  | 获取数字活体的数字有问题| 
+| 41002 | 权限异常，未获取权限    | 相机| 
+| 41003 | 相机运行中出错   | -| 
+| 41004 | 视频录制中出错   | 不能存/启动失败/结束失败| 
+| 41005 | 请勿晃动人脸，保持姿势   | 未获取到最佳图片| 
+| 41006 | 视频大小不满足要求 | 视频大小不满足要求| 
+| 41007 | 超时    | 预检测/动作活体| 
+| 41008|    检测中人脸移出框外   | 活体/数字/反光| 
+| 41009 | 光线活体本地错误  | -| 
+| 41010 | 风险控制超出次数  | 用户重试太多次| 
+| 41011 | 没有检测到读数声音 | 数字活体过程中没有发声| 
+| 41012 | 初始化模型失败，请重试   | 初始化算法模型失败| 
+| 41013 | 初始化 sdk 异常    | WbCloudFaceVerifySdk 未被初始化| 
+| 41014 | 简单模式本地加密失败|   编码转换异常/加解密编码失败| 
+| 41101 | 音频录制中出错   | 意愿性录音失败| 
+| 41102|    没有检测到麦克风声音  | 意愿性检测音量过低| 
+| 41103 | 播报音频文件加载失败    | 意愿性播放音频失败| 
 
 ### WBFaceErrorDomainCompareNetwork
 | Code（错误码） | Description（描述） | Reason（详细实际原因） |
 |---------|---------|---------|
-| 51100	| 网络异常	| 对比时，网络异常（请求未到达后台）| 
-| 51200	| 网络异常	| 对比时，后台返回参数有误（请求到达后台）| 
+| 51100 | 网络异常  | 对比时，网络异常（请求未到达后台）| 
+| 51200 | 网络异常  | 对比时，后台返回参数有误（请求到达后台）| 
 
 ### WBFaceErrorDomainCompareServer
 | Code（错误码） | Description（描述） | Reason（详细实际原因） |
 |---------|---------|---------|
-|其他错误码|	透传后台错误码	|-|
+|其他错误码| 透传后台错误码 |-|
 
 ## 接入示例
 权威库网纹图片比对、自带对比源对比接入示例：
