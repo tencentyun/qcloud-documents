@@ -19,7 +19,7 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧导航栏中，单击**专线网关**，进入管理页面。
 3. 单击网关类型为 NAT 型专线网关 ID，进入详情页。
-![](https://main.qcloudimg.com/raw/61ed3ea77cf82597f5bd525fee500dad.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1c65b34bafd8bfc18264cab90bbd7084.png)
 4. 在专线网关详情页中，选择**本端 IP 转换**选项卡，进行本端 IP 转换配置。
 5. 在 IP 映射页左上角，单击**新增**，新增本端 IP 映射。
 ![](https://main.qcloudimg.com/raw/272179c4b42889d1135b425b1d258262.png)
