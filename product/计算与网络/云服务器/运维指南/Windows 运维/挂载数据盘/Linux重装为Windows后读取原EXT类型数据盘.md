@@ -34,6 +34,3 @@ DiskInternals Linux Reader 软件的获取方式：`http://www.diskinternals.com
 2. 双击进入`/root/mnt`目录内，右键单击要拷贝的文件，选择 **Save**，保存文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/2d2f39e89014f72aaef1bfc3d1d101f3.png)
 
-
-
-
