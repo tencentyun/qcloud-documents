@@ -15,9 +15,10 @@
 
 ## 步骤3：[创建云联网实例](https://cloud.tencent.com/document/product/877/18752)
 
-
 ## 步骤4：创建专用通道连接云联网专线网关
-1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc)，在左侧目录中，单击**专用通道**，进入管理页面。
+>? 本文以独享专用通道为例，共享专用通道同理。
+>
+1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc)，在左侧目录中，单击**独享专用通道**，进入管理页面。
 2. 单击**+新建**。
 3. 在弹出框中，根据页面提示填写相关信息，接入网络选择**云联网**，专线网关选择刚刚创建的云联网专线网关“dcg-\***”。
 ![](https://main.qcloudimg.com/raw/4ab1e79ebf07f674c83b6b14f0e64210.png)
