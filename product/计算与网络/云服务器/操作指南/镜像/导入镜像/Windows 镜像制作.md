@@ -141,3 +141,4 @@ bootmenupolicy          Standard
 ![](https://main.qcloudimg.com/raw/447f09239201bfccd8adf62bd804c13e.png)
 出现如下图所示结果，表示已成功制作镜像。
 ![](https://main.qcloudimg.com/raw/8a487604cfccb0bf34caad4cc75b3b15.png)
+
