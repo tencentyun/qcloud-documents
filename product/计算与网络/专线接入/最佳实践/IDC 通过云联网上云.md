@@ -13,7 +13,8 @@
 3. 单击<b>新建</b>，输入用户发布网段。
 ![](https://main.qcloudimg.com/raw/1145030e32101278bec3348d2e436167.png)
 
-## 步骤3：[创建云联网实例](https://cloud.tencent.com/document/product/877/18752)
+## 步骤3：创建云联网实例
+详细信息，请参见 [创建云联网实例](https://cloud.tencent.com/document/product/877/18752)。
 
 ## 步骤4：创建专用通道连接云联网专线网关
 >? 本文以独享专用通道为例，共享专用通道同理。
