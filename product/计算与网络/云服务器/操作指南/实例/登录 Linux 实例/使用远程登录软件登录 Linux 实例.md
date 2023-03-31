@@ -75,5 +75,3 @@ Windows
 当您成功登录云服务器后，您可以在腾讯云服务器上搭建个人站点，论坛或者使用其他操作。相关操作可参考：
 - [搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/34064)
 - [搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/34065)
-
-

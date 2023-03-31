@@ -188,7 +188,7 @@ HAVIP-01 和 HAVIP-02 在本例中将被配置成“等权重节点”，即 sta
        }
    }
    ```
-4. 按“esc”退出编辑状态，输入`:wq!`保存并退出。
+4. 按“esc”退出编辑状态，输入`:wq`保存并退出。
 5. 重启 keepalived 进程使配置生效。
 ```plaintext
  systemctl start keepalived

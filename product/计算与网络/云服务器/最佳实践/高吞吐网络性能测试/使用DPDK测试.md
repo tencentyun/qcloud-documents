@@ -198,4 +198,3 @@ PPS × packet length × 8bit/B × 10<sup>-9</sup> = 带宽
 - 测试结果中 Rx-pps 为瞬时统计值，您可多次测试求其平均值，得到更准确的结果。
 </dx-alert>
 
-
