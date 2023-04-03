@@ -31,7 +31,7 @@ RTE_DEFINE_PER_LCORE(struct udp_hdr, lcore_udp_hdr);
 RTE_DEFINE_PER_LCORE(uint16_t, test_port);
 ```
 		修改完成后，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/986339620a9b4d690ba89c6e23f41783.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/986339620a9b4d690ba89c6e23f41783.png" width="50%">
     2. 找到 `ol_flags |= PKT_TX_MACSEC;`，另起一行输入如下内容：
 ```shellsession
 /* dummy test udp port */
@@ -44,7 +44,7 @@ RTE_PER_LCORE(lcore_udp_hdr).src_port = rte_cpu_to_be_16(2222);
 RTE_PER_LCORE(lcore_udp_hdr).dst_port = rte_cpu_to_be_16(rte_lcore_id() * 2000 + RTE_PER_LCORE(test_port) % 64);
 ```
 修改完成后，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/5292a45d611ad354690cfd129335b333.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/5292a45d611ad354690cfd129335b333.png" width="70%">
     4. 找到 `copy_buf_to_pkt(&pkt_udp_hdr, sizeof(pkt_udp_hdr), pkt,`，将其替换为如下内容：
 ```shellsession
 copy_buf_to_pkt(&RTE_PER_LCORE(lcore_udp_hdr), sizeof(RTE_PER_LCORE(lcore_udp_hdr)), pkt,
@@ -59,7 +59,7 @@ vim dpdk/config/common_base
 按 **i** 进入编辑模式，找到 `CONFIG_RTE_MAX_MEMSEG=256`，将其修改为1024。修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/6dea86be41b819b3f16042630346d2e3.png)
 按 i 进入编辑模式，找到 `CONFIG_RTE_MAX_LCORE=128`，如果你的系统中 cpu core 数大于128就可以改成256。修改完成后如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4247747c42915d68ec71704df91a9672.png" width="50%"> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/4247747c42915d68ec71704df91a9672.png" width="25%"> 
 按 **Esc** 输入 **:wq** 保存修改并退出。
 <dx-alert infotype="explain" title="">
 接受及发送端机器均需修改以上配置文件，您可使用以下命令，将修改完成的文件发送至对端，避免重复修改。
@@ -176,7 +176,7 @@ ifconfig eth0 up
 ```shellsession
 /root/dpdk/build/app/testpmd  -l 8-191 -w 0000:00:05.0 -- --burst=128 --nb-cores=32 --txd=512 --rxd=512 --txq=16 --rxq=16  --forward-mode=txonly --txpkts=1430 --stats-period=1
 ```
->?其中 `-l 8-191 -w 0000:00:05.0` 这两个参数可以替换成你测试环境中的实际值，以下相同处理。
+>?其中 `-l 8-191 -w 0000:00:05.0` 这两个参数需要替换成您测试环境中的实际值，以下相同处理。
 >
  - 接收端：
 ```shellsession
