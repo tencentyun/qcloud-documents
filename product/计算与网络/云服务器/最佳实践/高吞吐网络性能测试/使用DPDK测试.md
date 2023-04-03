@@ -32,14 +32,14 @@ RTE_DEFINE_PER_LCORE(uint16_t, test_port);
 ```
 		修改完成后，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/986339620a9b4d690ba89c6e23f41783.png)
-    2. 找到 ol_flags |= PKT_TX_MACSEC;，另起一行输入如下内容：
+    2. 找到 `ol_flags |= PKT_TX_MACSEC;`，另起一行输入如下内容：
 ```shellsession
 /* dummy test udp port */
 memcpy(&RTE_PER_LCORE(lcore_udp_hdr), &pkt_udp_hdr, sizeof(pkt_udp_hdr));
-for (nb_pkt = 0; nb_pkt < nb_pkt_per_burst; nb_pkt++) {
-     RTE_PER_LCORE(test_port)++;
-     RTE_PER_LCORE(lcore_udp_hdr).src_port = rte_cpu_to_be_16(2222);
-     RTE_PER_LCORE(lcore_udp_hdr).dst_port = rte_cpu_to_be_16(rte_lcore_id() * 2000 + RTE_PER_LCORE(test_port) % 64);
+然后找到for (nb_pkt = 0; nb_pkt < nb_pkt_per_burst; nb_pkt++) {，另起一行输入如下内容：
+RTE_PER_LCORE(test_port)++;
+RTE_PER_LCORE(lcore_udp_hdr).src_port = rte_cpu_to_be_16(2222);
+RTE_PER_LCORE(lcore_udp_hdr).dst_port = rte_cpu_to_be_16(rte_lcore_id() * 2000 + RTE_PER_LCORE(test_port) % 64);
 ```
 修改完成后，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5292a45d611ad354690cfd129335b333.png)
