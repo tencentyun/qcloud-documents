@@ -16,7 +16,8 @@
 
  ## API 异常访问行为挖掘最佳实践
 发现 API 的异常访问行为、调查 API 的访问的异常行为，是在日常安全运营中发现并修补安全/运营漏洞的最佳手段。那么在 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，可以通过 API 流量分析、BOT 流量分析等相关安全视图，进行快速的 API 异常访问行为的发现及挖掘，实现快速的安全运营闭环。
-
+>?API 流量分析功能当前处于公测中，支持 [提交工单](https://console.cloud.tencent.com/workorder/category?step=0&source=14) 或联系商务经理申请试用该功能，公测期间仅支持开启3个域名。
+>
 API 的异常访问行为发掘调查主要分为以下几个步骤：
 
 1. 发现异常访问请求。
