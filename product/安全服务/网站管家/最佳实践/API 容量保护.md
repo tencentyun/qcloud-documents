@@ -84,7 +84,7 @@ CC 防护功能可配置每个客户端的整体的访问频次，一旦客户�
 #### BOT 管理设置
 通过配置 [BOT 管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) > **BOT 防护**页面的会话平均速度条件，可以控制每个客户端的会话持续访问速度。
 
-1. 在 BOT 防护页面的景化管理模块，单击目标场景的的**查看配置**。
+1. 在 BOT 防护页面的场景化管理模块，单击目标场景的的**查看配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/315cd12c273c12cae8ec851aadcc5914.png)
 2. 单击自定义规则的**添加规则**，配置相关参数，单击**确定**即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/45aae8e8b20674a191ab1a6e85b6e712.png)
@@ -125,10 +125,10 @@ CC 防护功能可配置每个客户端的整体的访问频次，一旦客户�
 在 Web 应用防火墙的 [BOT 管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) > **BOT 防护**页面，通过简单的配置，实现对 API、客户端的次数调用，敏感 API 调用前，对其进行敏感操作保护。
 
 #### 敏感 API 调度前进行人机识别
-<img src="https://qcloudimg.tencent-cloud.cn/raw/93ecbd64daa25603f6dea1a55cade3a8.png"  width=870px>
+![](https://qcloudimg.tencent-cloud.cn/raw/2fe7362e4b8251576454fb3feafd6d60.png)
 
 #### 限制客户端在单一会话时间内的 API 调度总次数
-<img src="https://qcloudimg.tencent-cloud.cn/raw/518766d2d84d78a87ba653d88d6c2a23.png"  width=870px>
+![](https://qcloudimg.tencent-cloud.cn/raw/a3da8b75b816f85ace4e14ba56ab8bdb.png)
 
 ### 如何进行客户端的 API 访问进行验签？
 客户端的验签可以有很多种方式，包括但不限于：
@@ -139,5 +139,5 @@ CC 防护功能可配置每个客户端的整体的访问频次，一旦客户�
 用户可以通过配置 mtls、客户端数据签名挑战等方式进行数据的加强验签。
 
 在 Web 应用防火墙中，通过开启前端对抗功能，对客户端的 API 数据进行验签，并进行定向防重放功能。对抗 API 滥用有良好的效果，详细可以参见 [客户端风险识别](https://cloud.tencent.com/document/product/627/65690)。
-![](https://qcloudimg.tencent-cloud.cn/raw/e2a850ae7190762f9b7848b116b37f3a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b27ecd963a15f5f4e155c53e7aa9c6fb.png)
 
