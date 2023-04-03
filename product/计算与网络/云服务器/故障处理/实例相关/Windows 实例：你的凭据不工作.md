@@ -16,15 +16,15 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 <tbody>
   <tr>
     <td>Windows 实例网络访问策略未修改</td>
-    <td ><a href="#eax">检查并修改Windows 实例网络访问策略</a></td>
+    <td ><a href="#eax">检查并修改 Windows 实例网络访问策略</a></td>
   </tr>
   <tr>
     <td>Windows 实例凭据未分配</td>
-    <td><a href="#step01">检查并修改Windows 实例凭据分配</a></td>
+    <td><a href="#step01">检查并修改 Windows 实例凭据分配</a></td>
   </tr>
   <tr>
     <td>Windows 实例本地主机的凭据未设置</td>
-    <td><a href="#step02">检查并设置Windows 实例本地主机的凭据</a></td>
+    <td><a href="#step02">检查并设置 Windows 实例本地主机的凭据</a></td>
   </tr>
   <tr>
     <td>云服务器密码保护共享未关闭</td>
@@ -41,8 +41,8 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 </dx-alert>
 
 
-
-### 步骤1：检查并修改Windows 实例网络访问策略[](id:eax)
+ 
+### 步骤1：检查并修改 Windows 实例网络访问策略[](id:eax)
 通过腾讯云的 VNC 登录进入服务器内部进行操作。
 1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 2. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: 0;">，打开 **Windows PowerShell** 窗口。
@@ -54,9 +54,9 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 ![](https://main.qcloudimg.com/raw/51dd491d451560dd0d963fb35335405e.png)
 7. 重新连接 Windows 云服务器，验证连接是否成功。
  - 验证连接已成功，任务结束。
- - 验证连接未成功，请执行步骤2：[检查并修改Windows 实例凭据分配](#step01)。
+ - 验证连接未成功，请执行步骤2：[检查并修改 Windows 实例凭据分配](#step01)。
 
-### 步骤2：检查并修改Windows 实例凭据分配[](id:step01)
+### 步骤2：检查并修改 Windows 实例凭据分配[](id:step01)
 1. 在**本地组策略编辑器**的左侧导航栏中，依次展开**计算机配置** > **管理模板** > **系统** > **凭据分配**目录。
 2. 找到并打开**凭据分配**中的**允许分配保存的凭据用于仅 NTLM 服务器身份验证**。如下图所示：
 ![](https://main.qcloudimg.com/raw/10eeb0291b2a4fd91c316c39b523370d.png)
@@ -68,9 +68,9 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 ![](https://main.qcloudimg.com/raw/077166adce1756333626312a0d3531cc.png)
 7. 重新连接 Windows 云服务器，验证连接是否成功。
  - 验证连接已成功，任务结束。
- - 验证连接未成功，请执行步骤3：[检查并设置Windows 实例本地主机的凭据](#step02)。
+ - 验证连接未成功，请执行步骤3：[检查并设置 Windows 实例本地主机的凭据](#step02)。
 
-### 步骤3：检查并设置Windows 实例本地主机的凭据[](id:step02)
+### 步骤3：检查并设置 Windows 实例本地主机的凭据[](id:step02)
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;"> >  **控制面板** > **用户帐户**，选择**凭据管理器**下的**管理 Windows 凭据**，进入 Windows 凭据界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/32f4e4d6ec88ddea583cf452b830e597.png)
 2. 查看 Windows 凭据下是否有当前登录的云服务器凭据。
