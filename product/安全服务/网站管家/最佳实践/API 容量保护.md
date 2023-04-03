@@ -54,7 +54,7 @@
 此处可以使用  Web 应用防火墙中的 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-baseconfig)** > **网页防篡改**模块对 API 内容进行快速缓存，对业务 API 进行特定的数据缓存，帮助业务系统快速内容缓存。
 1. 在网页防篡改页面，单击**添加规则**，弹出添加防篡改规则弹窗。
 2. 在添加防篡改规则对话框中，填写相关字段，设置完成后，单击**添加**。
-![](https://qcloudimg.tencent-cloud.cn/raw/4ae95611eb90b72d8a2bd7086f17c0de.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3a8a0cfd1f3bff4f1820c959a34fbfa5.png)
   **字段说明：**
 	- **规则名称**：防篡改规则名称，最长50个字符，可以在攻击日志中按照规则名称进行搜索。
 	- **页面路径**：防篡改路径，需要进行防篡改保护的 URL，需要指定详细 URL，不支持路径配置。
@@ -78,15 +78,15 @@ CC 防护功能可配置每个客户端的整体的访问频次，一旦客户�
 1. 在 [CC 防护页面](https://console.cloud.tencent.com/guanjia/tea-baseconfig)，单击**添加规则**。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/e09b6939285958ecd663950ff2b4db6f.png" width=700px>
 2. 在添加 CC 防护规则对话框中，配置相关参数，单击**确定**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/c78e84c47e8e51789afc471c270b9b4b.png" width=870px>
+![](https://qcloudimg.tencent-cloud.cn/raw/5d61d8c344d0ef1e7a4bb5fa1b3d23f1.png)
 
 #### BOT 管理设置
-通过配置 [BOT 管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) > **自定义会话设置**中的会话平均速度条件，可以控制每个客户端的会话持续访问速度。
+通过配置 [BOT 管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) > **BOT 防护**页面的会话平均速度条件，可以控制每个客户端的会话持续访问速度。
 
-1. 在 BOT 管理页面的高级设置模块，单击自定义规则的**前往配置**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/1389b46be27345c459cadf7f2d829839.png"  width=700px>
-2. BOT 自定义设置页面，单击**添加规则**，配置相关参数，单击**确定**即可。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/baf98c6ca169d3c9c6481d53ee1fd7c3.png"  width=870px>
+1. 在 BOT 防护页面的景化管理模块，单击目标场景的的**查看配置**。
+![](https://qcloudimg.tencent-cloud.cn/raw/315cd12c273c12cae8ec851aadcc5914.png)
+2. 单击自定义规则的**添加规则**，配置相关参数，单击**确定**即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/45aae8e8b20674a191ab1a6e85b6e712.png)
 
 #### Session 设置/会话设置
 由于在现网环境下，IPv4 的 IP 数量越发紧张，目前很多 IP 运营商都会将客户端放置在 NAT IP 下，即一个 IP 下面有多个业务客户端。如果单纯对业务进行 IP 的限速，在面对 NAT IP 的情况下，容易触碰到业务配置的 IP 限频策略，导致误拦截的现象。如果业务配置限频过于宽松，又会使相关业务的限频拦截无法起到限流的效果。
@@ -96,23 +96,23 @@ CC 防护功能可配置每个客户端的整体的访问频次，一旦客户�
 - **Session 设置**
  1.  登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏选择**基础安全**。
  2. 在基础安全页面，左上角选择需要防护的域名，单击 **CC 防护**，进入 CC 防护页面。
- <img src="https://qcloudimg.tencent-cloud.cn/raw/5e4564d35c7388711034878864f189eb.png" width=700px>
+![](https://qcloudimg.tencent-cloud.cn/raw/d128887c1fef2d236415d3bf179a77d0.png)
  2. 在 SESSION 设置模块中，单击**设置**，设置 SESSION 维度信息。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/154dd23236f82de255052f8bfba0285b.png" width=700px>
  3. 在 SESSION 设置对话框，配置相关参数，单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/90c67bcf884d1bb8935c99ba40fb56ad.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0c405b63ce762159b2603bef9c1ed5a6.png)
 **参数说明：**
-   - **SESSION 位置**：可选择 COOKIE、GET 或 POST，其中 GET 或 POST 是指 HTTP 请求内容参数，非 HTTP 头部信息。
-   - **匹配说明**：位置匹配或者字符串匹配。
+   - **SESSION 位置**：可选择	HEADER、COOKIE、GET 或 POST，其中 GET 或 POST 是指 HTTP 请求内容参数，非 HTTP 头部信息。
+   - **匹配模式**：除	HEADER 模式（仅支持位置匹配）外，均支持选择字符串模式匹配或位置匹配。
    - **SESSION 标识**：取值标识，32个字符以内。
+   -  **开始位置**：字符串或位置匹配的开始位置，1-2048以内的整数，并且最多只能提取128个字符。
    - **结束位置**：字符串或位置匹配的结束位置，1-2048以内的整数，并且最多只能提取128个字符。
 - **会话设置**
  1. 在[ BOT 管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) > **高级设置**模块，单击会话管理的**前往配置**。
- <img src="https://qcloudimg.tencent-cloud.cn/raw/6482e262a73a10a522fa51fd9e789e04.png" width=700px>
+![](https://qcloudimg.tencent-cloud.cn/raw/1c59789543f11375c0ea03592a7d8fff.png)
   2. 在会话管理页面，单击**添加配置**，配置相关参数，单击**确定**即可。
 >?会话管理应为可持续性跟踪 tokenid ，例如登录后的 set-cookies 的值。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/ab5e7a5ca3c5a2e19b2f8fb8b7f6f766.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5779eb9259f08d8141b1d57f26d2f07e.png)
 **参数说明：**
    - **Token 位置：**	可选择 HEADER、COOKIE、GET 或 POST，其中 GET 或 POST 是指 HTTP 请求内容参数，非 HTTP 头部信息。
    - **Token 标识：**取值标识。
@@ -121,7 +121,7 @@ CC 防护功能可配置每个客户端的整体的访问频次，一旦客户�
 ### 控制客户端的 API 调用
 每一个敏感的 API 都有应该存在调用次数限制，例如：在短信 API 服务中，如果不对其进行相关限制，攻击者会滥用 API 接口，消耗短信资源包，造成超额的计费账单。如果敏感 API 接口在客户端调用前，进行 2fa/mfa 或人机识别等验证，可以有效减少异常 API 调度。
 
-在 Web 应用防火墙的 [BOT 管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) > **自定义会话设置**中，通过简单的配置，实现对 API、客户端的次数调用，敏感 API 调用前，对其进行敏感操作保护。
+在 Web 应用防火墙的 [BOT 管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) > **BOT 防护**页面，通过简单的配置，实现对 API、客户端的次数调用，敏感 API 调用前，对其进行敏感操作保护。
 
 #### 敏感 API 调度前进行人机识别
 <img src="https://qcloudimg.tencent-cloud.cn/raw/93ecbd64daa25603f6dea1a55cade3a8.png"  width=870px>
