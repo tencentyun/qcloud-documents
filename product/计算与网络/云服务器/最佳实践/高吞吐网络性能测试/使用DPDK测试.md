@@ -58,7 +58,7 @@ vim dpdk/config/common_base
 ```
 按 **i** 进入编辑模式，找到 `CONFIG_RTE_MAX_MEMSEG=256`，将其修改为1024。修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/6dea86be41b819b3f16042630346d2e3.png)
-按 i 进入编辑模式，找到 CONFIG_RTE_MAX_LCORE=128，如果你的系统中cpu core数大于128就可以改成256。修改完成后如下图所示：
+按 i 进入编辑模式，找到 `CONFIG_RTE_MAX_LCORE=128`，如果你的系统中 cpu core 数大于128就可以改成256。修改完成后如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/4247747c42915d68ec71704df91a9672.png" width="50%"> 
 按 **Esc** 输入 **:wq** 保存修改并退出。
 <dx-alert infotype="explain" title="">
