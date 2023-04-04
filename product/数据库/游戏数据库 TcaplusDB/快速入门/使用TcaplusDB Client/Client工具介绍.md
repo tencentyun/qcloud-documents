@@ -8,12 +8,12 @@ tcaplus_client 是一个 TcaplusDB 表访问的客户端工具，可通过下表
 
 Linux x86_64 平台的 TcaplusServiceAPI 发布包包含64位 Linux 版本的 tcaplus_client 工具：
 
-| 版本          | 发布时间   | 操作系统     | 下载包名                                                     |
-| ------------- | ---------- | ------------ | ------------------------------------------------------------ |
-| 3.46.0.199033 | 2020/12/28 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/release/3-46/TcaplusPbApi3.46.0.199033.x86_64_release_20201210.tar.gz) |
+| 版本         | 操作系统  | Client下载   |
+|--------------|-------------|-------------------|
+| 3.46.0.200178 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tcaplus-client/3.46/tcaplus_client) |
+| 3.55.0.208149 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tcaplus-client/3.55/tcaplus_client) |
 
 >?相关操作需要在用户腾讯云账号下申请的同 VPC 网络、同子网的云服务器 CVM 中进行。
-
 
 ### 安装客户端
 下载完成 TcaplusServiceApi 安装包后，将其 [通过上传工具](https://cloud.tencent.com/document/product/213/39138) 上传至与 TcaplusDB 集群同一VPC，同一子网的云服务器中。
