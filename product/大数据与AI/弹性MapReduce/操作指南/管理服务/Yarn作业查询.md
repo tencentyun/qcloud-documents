@@ -12,7 +12,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/8e9584f6c4ec3486fbdda41de2ba2108.png)
 >! 
 >- 其中 Spark 类型应用的任务信息、应用洞察、应用对比新功能需 check Spark History 版本是否符合，check 命令如下：`curl "http://localhost:10000/api/v1/applications" | json_pp`，返回数据为非正常的 json 格式数据则 SparkHistory 版本不符合，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开启相关功能。
->- 作业查询将每30s采集一次 ResourceManager 数据，此执行对业务集群几乎影响。
+>- 作业查询将每30s采集一次 ResourceManager 数据，采集操作对集群业务影响微小可忽略。
 
 3. 在作业列表中单击**更多 > 应用洞察**，查看应用的详细洞察项及相关的洞察规则、结果、建议。
 ![](https://qcloudimg.tencent-cloud.cn/raw/552c830d64b3269377084084897559d0.png)

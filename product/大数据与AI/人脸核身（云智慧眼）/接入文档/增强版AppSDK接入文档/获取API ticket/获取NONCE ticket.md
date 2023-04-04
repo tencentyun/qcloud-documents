@@ -4,12 +4,12 @@
 - API ticket 的 NONCE 类型，其有效期为120秒，且一次性有效, 即每次启动 SDK 刷脸都要重新请求 NONCE ticket。
 
 ## 请求
-- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`	
+- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket`    
 - 请求方法：`GET` 
 - 请求参数：
 <table><tbody>
 <tr><th >参数</th><th >说明</th><th >类型</th><th><nobr>长度（字节）</nobr></th><th >是否必填</th></tr>
-<tr><td >app_id</td><td>业务流程唯一标识，即 wbappid，可参考<a href="https://cloud.tencent.com/document/product/1007/49634"> 获取 WBappid</a>  指引在人脸核身控制台内申请</td><td >String</td><td >8</td><td >是</td></tr>
+<tr><td >app_id</td><td>业务流程唯一标识，即 WBappid，可参考<a href="https://cloud.tencent.com/document/product/1007/49634"> 获取 WBappid</a>  指引在人脸核身控制台内申请</td><td >String</td><td >8</td><td >是</td></tr>
 <tr><td >access_token</td><td >请根据 <a href='https://cloud.tencent.com/document/product/1007/37304'>Access Token 获取</a> 指引进行获取</td><td >String</td><td>64</td><td >是</td></tr>
 <tr><td >type</td><td >ticket 类型，默认值：NONCE（必须大写）</td><td >String</td><td >20</td><td >是</td></tr>
 <tr><td >version</td><td >版本号</td><td >String</td><td >20</td><td >是</td></tr>

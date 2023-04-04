@@ -1,0 +1,220 @@
+本文为您介绍通过控制台，从云数据库 MySQL 迁移数据至云原生数据库 TDSQL-C MySQL 版。
+## 操作场景
+云原生数据库 TDSQL-C MySQL 版100%兼容云数据库 MySQL，具备超百万级 QPS 数据吞吐量，支持最高 PB 级海量存储，保证数据安全可靠，在同等规格情况下，TDSQL-C MySQL 版价格更实惠，性能更强劲。
+
+当前已支持在控制台，通过全量+增量数据进行一键迁移，适用于从云数据库 MySQL 迁移至云原生数据库 TDSQL-C MySQL 版的场景，可实现读写实例不停机平滑迁移，且保留原有的 IP 地址、监控及参数等各项设置。
+**迁移源端**：云数据库 MySQL
+**迁移目标端**：TDSQL-C MySQL 版
+## 使用限制
+- 仅支持云数据库 MySQL 5.7、8.0的单节点版、双节点版和三节点版一键迁移至 TDSQL-C MySQL 版。
+>?一键迁移无内核小版本限制，迁移至 TDSQL-C MySQL 版后，该集群将自动升级为最新的内核小版本。
+- 当前版本的一键迁移仅支持迁移云数据库 MySQL 主实例，只读实例与灾备实例迁移正在开发中，敬请期待。
+
+## 功能优势
+- 功能完全免费，无需 DTS 工具。
+- 迁移过程数据0丢失。
+- 支持增量迁移。
+- 支持在线热迁移，迁移过程仅会闪断一次（即当连接地址从云数据库 MySQL 切换至 TDSQL-C MySQL 版时）。
+- 迁移后可保留数据库原连接地址，无需应用程序修改任何连接配置即可切换至 TDSQL-C MySQL 版。
+
+[](id:QYDZB)
+## 迁移规格对照表
+当前一键迁移支持的云数据库 MySQL 实例规格与迁移后 TDSQL-C MySQL 版对应的规格如下：
+>!MySQL 实例规格与 TDSQL-C MySQL 版支持的实例规格略有差异，差异部分表格中以蓝色标识。
+
+| MySQL 单节点版规格 | MySQL 双节点版规格 | MySQL 三节点版规格 | TDSQL-C MySQL 版规格 |
+|---------|---------|---------|---------|
+| 1核1000MB | 1核1000MB | 1核1000MB | 1核1GB |
+| 1核2000MB | 1核2000MB | 1核2000MB | 1核2GB |
+| 2核4000MB | 2核4000MB | 2核4000MB | 2核4GB |
+| 2核8000MB | 2核16000MB | 2核16000MB | <font color="#0099FF">2核16GB</font> |
+| 4核8000MB | 4核8000MB | 4核8000MB | 4核8GB |
+| 4核16000MB | 4核16000MB | 4核16000MB | 4核16GB |
+|  | 4核24000MB | 4核24000MB | 4核24GB |
+|  | 4核32000MB | 4核32000MB | 4核32GB |
+|  | 8核16000MB | 8核16000MB | 8核16GB |
+|  | 8核32000MB | 8核32000MB | 8核32GB |
+|  | 8核48000MB | 8核48000MB | 8核48GB |
+|  | 8核64000MB | 8核64000MB | 8核64GB |
+|  | 12核48000MB | 12核48000MB | 12核48GB |
+|  | 12核72000MB | 12核72000MB | 12核72GB |
+|  | 12核96000MB | 12核96000MB | 12核96GB |
+|  | 16核32000MB | 16核32000MB | <font color="#0099FF">16核64GB</font> |
+|  | 16核64000MB | 16核64000MB | 16核64GB |
+|  | 16核96000MB | 16核96000MB | 16核96GB |
+|  | 16核128000MB | 16核128000MB | 16核128GB |
+|  | 24核96000MB | 24核96000MB | 24核96GB |
+|  | 24核128000MB | 24核128000MB | <font color="#0099FF">24核144GB</font> |
+|  | 24核144000MB | 24核144000MB | 24核144GB |
+|  | 24核192000MB | 24核192000MB | 24核192GB |
+|  | 24核244000MB | 24核244000MB | <font color="#0099FF">32核256GB</font> |
+|  | 24核256000MB | 24核256000MB | <font color="#0099FF">32核256GB</font> |
+|  | 32核128000MB | 32核128000MB | 32核128GB |
+|  | 32核192000MB | 32核192000MB | 32核192GB |
+|  | 32核256000MB | 32核256000MB | 32核256GB |
+|  | 48核192000MB | 48核192000MB | 48核192GB |
+|  | 48核288000MB | 48核288000MB | 48核288GB |
+|  | 48核384000MB | 48核384000MB | 48核384GB |
+|  | 48核488000MB | 48核488000MB | 48核488GB |
+|  | 64核256000MB | 64核256000MB | 64核256GB |
+|  | 64核384000MB | 64核384000MB | 64核384GB |
+|  | 64核512000MB | 64核512000MB | <font color="#0099FF">88核710GB</font> |
+|  | 80核690000MB | 80核690000MB | <font color="#0099FF">88核710GB</font> |
+|  | 90核720000MB | 90核720000MB | <font color="#0099FF">88核710GB</font> |
+
+## 备份策略
+- 目前 TDSQL-C MySQL 版备份空间暂不收费，您可免费使用备份功能。
+- 目前 TDSQL-C MySQL 版暂不支持自动逻辑备份与物理备份，迁移至 TDSQL-C MySQL 版后将采用快照备份系统，快照备份具有备份时用户无感知、秒级恢复速度等优势。
+>?快照备份周期规则：根据日志生成速率等因素，实现7*24小时不间断备份，对实例性能无影响，备份文件生成周期间隔6-48小时。
+- 目前 TDSQL-C MySQL 版支持设置快照备份文件保留时间功能，如需回档，您可在设置的备份保留时间内选择任一时间点进行回档。
+
+## 操作步骤
+使用一键迁移，将根据 [迁移规格对照表](#QYDZB) 创建一个规格对应的 TDSQL-C MySQL 版集群，并进行数据库迁移，在迁移完成后，需进行连接地址切换，详细操作如下。
+### 一、开始迁移
+1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb/instance)。
+2. 在实例列表勾选需要迁移的 MySQL 实例，单击上方的**一键迁移**。
+![](https://qcloudimg.tencent-cloud.cn/raw/804b211a186b86f2c04031269b9dc037.png)
+>?您也可以单击**实例 ID** 进入实例详情页，然后单击右上方的**一键迁移**。
+>
+3. 进入迁移界面后，预览当前 MySQL 实例与迁移后的新 TDSQL-C MySQL 版集群的对比信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/9784b394873c186304cc7bd30bb0d3a5.png)
+
+| 字段 | 说明 | 
+|---------|---------|
+| 所在地域 | 实例所在地域。 | 
+| 所在网络 | 实例使用的网络。 | 
+| 计算计费模式 | 实例计算节点的计费模式。 | 
+| 存储计费模式 | 实例存储的计费模式。 | 
+| 计算规格 | 实例的计算节点规格。 | 
+| 存储规格 | 实例的存储容量。 | 
+| 实例数 | 展示支持迁移的 MySQL 实例下的数量，当前仅支持主实例迁移。 | 
+| 配置费用 | 展示迁移前后的配置费用。 | 
+
+4. 在迁移界面，系统会对需要迁移的云数据库 MySQL 实例与迁移到 TDSQL-C MySQL 版后实例的信息进行迁移检查，您可根据检查结果对应操作。
+**检查项如下**
+
+| 检查项 | 说明 | 
+|---------|---------|
+| 可用区 | TDSQL-C MySQL 版暂不支持部分可用区，这类可用区实例将无法迁移。 |
+| InnoDB 引擎 | TDSQL-C MySQL 版仅支持 InnoDB 引擎迁移，若需要迁移的 MySQL 实例为 RocksDB 引擎，则无法迁移。 |
+| 外网开通 | 如需要迁移的 MySQL 实例开启了外网，则在迁移前需关闭外网。 |
+| 具有只读实例 | 如需要迁移的 MySQL 实例具有只读实例，则无法迁移，当前版本无法迁移只读实例。 |
+| 具有灾备实例 | 如需要迁移的 MySQL 实例具有灾备实例，则无法迁移，当前版本无法迁移灾备实例。 |
+| 数据加密 | TDSQL-C MySQL 版暂不支持。 |
+| 自定义密码复杂度功能 | 如需要迁移的 MySQL 实例开启自定义密码复杂度，则在迁移前需关闭。 |
+| SSL | TDSQL-C MySQL 版暂不支持。 |
+| 数据库代理 | 如需要迁移的 MySQL 实例开启了数据库代理，则在迁移前需关闭。此功能在迁移后的 TDSQL-C MySQL 版可重新开启和配置。 |
+
+**情形一：迁移检查不通过**
+若迁移检查不通过，将无法进行迁移，部分选项（数据加密、自定义密码复杂度、SSL、数据库代理）提供**一键修复**功能，您可单击**一键修复**，修复成功后可进行一键迁移。
+**情形二：迁移检查通过**
+若迁移检查通过，您可单击**一键迁移**开始迁移。
+### 二、迁移中
+一键迁移将采用迁移源端云数据库 MySQL 实例最近一次全量备份文件，在 TDSQL-C MySQL 版新建集群并持续进行数据同步，迁移期间云数据库 MySQL 实例显示迁移状态为**迁移中**，在TDSQL-C MySQL 版集群列表可以看到新建的目标集群，迁移状态也为**迁移中**。
+![](https://qcloudimg.tencent-cloud.cn/raw/22e7eb38ea99483d8411ef4aaaee81f7.png)
+>?
+>- 数据同步完成后，将进行数据一致性校验，若校验完成，则迁移状态转换为“地址待切换”，点击**详情** > **切换**，进行连接地址切换，切换仅会造成秒级闪断，需要确保业务具有重连机制。
+>- 地址待切换状态将存在**72小时**，若超时未操作，则视为放弃迁移，系统将自动取消迁移流程。
+>- 点击切换后，IP 地址交换，数据将写入 TDSQL-C MySQL 版新建集群。
+
+### 三、迁移完成
+连接地址切换后，视为迁移完成，云数据库 MySQL 侧的迁移源端实例将自动进入回收站，退款将用于购买迁移后目标端的 TDSQL-C MySQL 版集群，购买结余金额将自动放回您的腾讯云账号中。
+### 四、迁移回滚
+>?本版本的一键迁移暂不支持回滚功能，请在连接地址切换前做好业务检查。若后续需要重新使用迁移源端的云数据库 MySQL 实例，需在有效期内进入云数据库 MySQL 侧回收站进行恢复，**恢复后连接地址将改变，需重新适配应用程序**。
+
+## 常见问题
+#### 一键迁移后，迁移源端云数据库 MySQL 支持的部分高级功能参数在迁移目标端 TDSQL-C MySQL 版上也支持吗？
+暂不全部支持，TDSQL-C MySQL 版将逐步进行适配。迁移后，TDSQL-C MySQL 版具体是否存在云数据库 MySQL 支持的高级功能参数，请参见下表。
+
+<dx-tabs>
+::: MySQL 5.7 版本
+| MySQL 侧参数名 | MySQL 侧参数值 | TDSQL-C MySQL 侧参数是否存在 |
+|---------|---------|---------|
+| cdb_recycle_bin_enabled | OFF | 否 |
+| information_schema_stats_expiry | 86400 | 否 |
+| binlog_row_event_max_size | 8192 | 否 |
+| innodb_backquery_history_limit | 8000000 | 否 |
+| innodb_ddl_threads | 4 | 否 |
+| innodb_parallel_ddl | OFF | 否 |
+| innodb_adaptive_hash_index | OFF | 否 |
+| cdb_plan_cache | OFF | 否 | 
+| innodb_table_drop_mode | sync_drop | 否 |
+| cdb_recycle_bin_retention | 604800 | 否 |
+| slave_net_timeout | 120 | 否 |
+| innodb_backquery_enable | OFF | 否 |
+| innodb_fast_ddl | OFF | 否 |
+| max_length_for_sort_data | 1024 | 否 |
+| slave_parallel_type | LOGICAL_CLOCK | 否 |
+| cdb_optimize_large_trans_binlog | OFF | 否 |
+| innodb_fast_ahi_cleanup_for_drop_table | OFF | 否 |
+| txsql_parallel_exchange_buffer_size | 1048576 | 否 |
+| innodb_temp_data_file_path | ibtmp1:12M:autoextend | 否 |
+| slave_rows_search_algorithms | TABLE_SCAN,INDEX_SCAN,HASH_SCAN | 否 |
+| cdb_recycle_scheduler_interval | 0 | 否 |
+| innodb_ddl_buffer_size | 10485760 | 否 |
+| cdb_kill_idle_trans_timeout | 0 | 否 |
+| collation_server | utf8_tolower_ci | 是 |
+| delay_key_write | ON | 否 |
+| innodb_async_truncate_size | 128 | 否 |
+| cdb_more_gtid_feature_supported | OFF | 否 |
+| cdb_opt_outline_enabled | OFF | 否 |
+| innodb_txsql_parallel_partitions_per_worker | 13 | 否 |
+| cdb_kill_user_extra | root@% | 否 |
+| slave_parallel_workers | 0 | 否 |
+| innodb_backquery_window | 900 | 否 |
+:::
+::: MySQL 8.0 版本
+| MySQL 侧参数名 | MySQL 侧参数值 | TDSQL-C MySQL 侧参数是否存在 |
+|---------|---------|---------|
+| cdb_recycle_bin_enabled | OFF | 否 |
+| information_schema_stats_expiry | 86400 | 否 |
+| binlog_row_event_max_size | 8192 | 否 |
+| innodb_backquery_history_limit | 8000000 | 否 |
+| innodb_ddl_threads | 4 | 否 |
+| innodb_parallel_ddl | OFF | 否 |
+| innodb_adaptive_hash_index | OFF | 否 |
+| cdb_plan_cache | OFF | 否 | 
+| innodb_table_drop_mode | sync_drop | 否 |
+| cdb_recycle_bin_retention | 604800 | 否 |
+| slave_net_timeout | 120 | 否 |
+| innodb_backquery_enable | OFF | 否 |
+| innodb_fast_ddl | OFF | 否 |
+| max_length_for_sort_data | 1024 | 否 |
+| slave_parallel_type | LOGICAL_CLOCK | 否 |
+| cdb_optimize_large_trans_binlog | OFF | 否 |
+| innodb_fast_ahi_cleanup_for_drop_table | OFF | 否 |
+| txsql_parallel_exchange_buffer_size | 1048576 | 否 |
+| innodb_temp_data_file_path | ibtmp1:12M:autoextend | 否 |
+| slave_rows_search_algorithms | TABLE_SCAN,INDEX_SCAN,HASH_SCAN | 否 |
+| cdb_recycle_scheduler_interval | 0 | 否 |
+| innodb_ddl_buffer_size | 10485760 | 否 |
+| cdb_kill_idle_trans_timeout | 0 | 否 |
+| collation_server | utf8_tolower_ci | 是 |
+| delay_key_write | ON | 否 |
+| innodb_async_truncate_size | 128 | 否 |
+| cdb_more_gtid_feature_supported | OFF | 否 |
+| cdb_opt_outline_enabled | OFF | 否 |
+| innodb_txsql_parallel_partitions_per_worker | 13 | 否 |
+| cdb_kill_user_extra | root@% | 否 |
+| slave_parallel_workers | 0 | 否 |
+| innodb_backquery_window | 900 | 否 |
+:::
+</dx-tabs>
+
+
+#### 一键迁移后，迁移源端云数据库 MySQL IOPS 监控项在迁移目标端 TDSQL-C MySQL 版上支持吗？
+暂不支持，TDSQL-C MySQL 版将逐步进行适配。
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

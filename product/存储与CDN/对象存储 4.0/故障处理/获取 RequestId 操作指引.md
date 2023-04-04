@@ -59,9 +59,9 @@ package main
  
 import (
    "context"
+   "fmt"
    "net/http"
    "net/url"
-   "os"
    "strings"
    "github.com/tencentyun/cos-go-sdk-v5"
 )
@@ -82,7 +82,7 @@ func main() {
    // 1.通过字符串上传对象
    f := strings.NewReader("Hello COS")
  
-   _, err := c.Object.Put(context.Background(), name, f, nil)
+   response, err := c.Object.Put(context.Background(), name, f, nil)
    if err != nil {
        // error 信息中直接包含 RequestId 字段
        panic(err)

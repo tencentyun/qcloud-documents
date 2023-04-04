@@ -14,7 +14,7 @@ SDK 运行时提示权限，需要用户授权。
 
 ```
 defaultConfig {
-	ndk {
+    ndk {
           //设置支持的 so 库框架
           abiFilters 'armeabi-v7a', 'armeabi', 'arm64-v8a'
      }
@@ -26,7 +26,7 @@ defaultConfig {
 - OCR SDK（WbCloudOcr）最低支持到 Android API 14: Android 4.0(ICS)，请在构建项目时注意版本是否支持。
 - WbCloudOcr 将以 AAR 文件的形式提供。
 - 需要为 Android SDK 添加依赖，方式如下：
-将提供的 AAR 文件加入到 App 工程的 libs 文件夹下面，并且在 build.gradle 中添加下面的配置。
+将提供的 AAR 文件加入到 App 工程的 libs 文件夹下面，并且在 build.gradle 中添加下面的配置。
 ```
 android{
      //...
@@ -143,7 +143,7 @@ compile(name: 'WbCloudNormal-release-v5.1.1', ext: 'aar')
 ## 接口调用
 SDK 接口提供的是有 UI 模式：：SDK 对接口进行封装并且实现了识别页面，合作方只需要调用接口，即可以快速拉起 SDK，接收结果回调。接入简单，适合快速接入。
 ### SDK 接口调用方法
-SDK 代码调用的入口为 `com.tencent.cloud.huiyansdkocr.WbCloudOcrSDK ` 这个类。
+SDK 代码调用的入口为 `com.tencent.cloud.huiyansdkocr.WbCloudOcrSDK ` 这个类。
 ```
 public class WbCloudOcrSDK{
 
@@ -268,7 +268,7 @@ InputData 是用来给 SDK 传递一些必须参数所需要使用的对象（Wb
 | 参数              | 说明                                                         | 类型                  | 长度（字节）       | 是否必填 |
 | ----------------- | ------------------------------------------------------------ | --------------------- | ------------------ | -------- |
 | orderNo     | 每次 OCR 识别请求的唯一订单号: 建议为32位字符串(不超过32位)         | String                | 32                 | 是       |
-| openApiAppId  | 业务流程唯一标识，即 wbappid，可参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请| String | 8 | 必填 |
+| openApiAppId  | 业务流程唯一标识，即 WBappid，可参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请| String | 8 | 必填 |
 | openApiAppVersion | 接口版本号，默认填1.0.0                  | String                | 20                 | 是       |
 | openApiNonce      | 与服务端生成签名的随机数保持一致   | String            | 32           | 是       |
 | openApiUserId     | User Id，每个用户唯一的标识                | String                | 30                 | 是       |
@@ -300,34 +300,34 @@ InputData 是用来给 SDK 传递一些必须参数所需要使用的对象（Wb
 ## OCR Android 错误码
 ### 终端返回错误码
 
-|错误码|	错误码描述|
+|错误码|   错误码描述|
 |-|-|
 |IDOCR_LOGIN_PARAMETER_ERROR = -20000|传入参数有误|
 |IDOCR_USER_CANCEL = 200101|用户取消操作|
 |IDOCR_RECOGNISE_TIME_OUT="200102"|识别超时|
-|IDOCR__ERROR_USER_NO_NET = 100101	|无网络|
-|IDOCR_USER_2G = 100102	|不支持2G网络|
-|IDOCR_ERROR_PERMISSION_CAMERA = 100103 	|无相机权限|
-|IDOCR_ERROR_PERMISSION = 100105 |	权限异常|
-|IDOCR_LOGIN__ERROR = -10000 	|登录错误|
-|SERVER_FAIL = -30000 |	内部服务错误|
+|IDOCR__ERROR_USER_NO_NET = 100101  |无网络|
+|IDOCR_USER_2G = 100102 |不支持2G网络|
+|IDOCR_ERROR_PERMISSION_CAMERA = 100103     |无相机权限|
+|IDOCR_ERROR_PERMISSION = 100105 |  权限异常|
+|IDOCR_LOGIN__ERROR = -10000    |登录错误|
+|SERVER_FAIL = -30000 | 内部服务错误|
 |DECODE_FAIL="300101"|解码 emg 异常(包括 emg 为空)|
  
 ### 后台返回错误码
 
-|错误码|	错误码描述|
+|错误码|   错误码描述|
 |-|-|
-|INTERNAL_SERVER_ERROR = 999999 |	网络不给力，请稍后再试|
+|INTERNAL_SERVER_ERROR = 999999 |   网络不给力，请稍后再试|
 |FRONT_INTERNAL_SERVER_ERROR = 999998 |网络不给力，请稍后再试|
-|SERVICE_TIME_OUT = 999997 |	网络不给力，请稍后再试|
-|OAUTH_INVALID_REQUEST = 400101 	|不合法请求|
-|OAUTH_INVALID_LOGIN_STATUS = 400102 |	不合法请求|
-|OAUTH_ACCESS_DENIED = 400103 	|服务器拒绝访问此接口|
-|OAUTH_INVALID_PRIVILEGE = 400104 	|无权限访问此请求|
-|OAUTH_REQUEST_VALIDATE_ERROR = 400105 |	身份验证不通过|
-|OAUTH_TPS_EXCEED_LIMIT = 400501 	|请求超过最大限制|
-|OAUTH_INVALID_VERSION = 400502 	|请求上送版本参数错误|
-|OAUTH_INVALID_FILE_HASH = 400503 	|文件校验值错误|
+|SERVICE_TIME_OUT = 999997 |    网络不给力，请稍后再试|
+|OAUTH_INVALID_REQUEST = 400101     |不合法请求|
+|OAUTH_INVALID_LOGIN_STATUS = 400102 |  不合法请求|
+|OAUTH_ACCESS_DENIED = 400103   |服务器拒绝访问此接口|
+|OAUTH_INVALID_PRIVILEGE = 400104   |无权限访问此请求|
+|OAUTH_REQUEST_VALIDATE_ERROR = 400105 |    身份验证不通过|
+|OAUTH_TPS_EXCEED_LIMIT = 400501    |请求超过最大限制|
+|OAUTH_INVALID_VERSION = 400502     |请求上送版本参数错误|
+|OAUTH_INVALID_FILE_HASH = 400503   |文件校验值错误|
 |OAUTH_REQUEST_RATE_LIMIT = 400504 |请求访问频率过高|
 
 

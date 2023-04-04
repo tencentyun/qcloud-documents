@@ -9,7 +9,7 @@
 - **请求参数：**
 <table><tbody>
 <tr><th >参数</th><th >说明</th><th >类型</th><th >长度（字节）</th><th >是否必填</th></tr>
-<tr><td >app_id</td><td>业务流程唯一标识，即 wbappid，可参考<a href="https://cloud.tencent.com/document/product/1007/49634"> 获取 WBappid</a>  指引在人脸核身控制台内申请</td><td >String</td><td >8</td><td >是</td></tr>
+<tr><td >app_id</td><td>业务流程唯一标识，即 WBappid，可参考<a href="https://cloud.tencent.com/document/product/1007/49634"> 获取 WBappid</a>  指引在人脸核身控制台内申请</td><td >String</td><td >8</td><td >是</td></tr>
 <tr><td >access_token</td><td >请根据 <a href='https://cloud.tencent.com/document/product/1007/37304'>Access Token 获取</a> 指引进行获取</td><td >String</td><td>90</td><td >是</td></tr>
 <tr><td >type</td><td >ticket 类型，默认值：NONCE（必须大写）</td><td >String</td><td >20</td><td >是</td></tr>
 <tr><td >version</td><td >版本号</td><td >String</td><td >20</td><td >是</td></tr>
@@ -37,16 +37,16 @@ https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&acc
 **响应示例：**
 ```
 {
-	  "code": "0",
-	  "msg": "请求成功",
-	  "transactionTime": "20151022044027",
-	  "tickets": [
-		{
-			  "value": "ticket_string",
-			  "expire_in": "120",
-			  "expire_time": "20151022044027"
-		}
-	]
+      "code": "0",
+      "msg": "请求成功",
+      "transactionTime": "20151022044027",
+      "tickets": [
+        {
+              "value": "ticket_string",
+              "expire_in": "120",
+              "expire_time": "20151022044027"
+        }
+    ]
 }
 ```
 >!

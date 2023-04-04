@@ -9,8 +9,8 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 紧急模式 CC 防护默认关闭，开启前请确认自定义 CC 防护规则处于未启用状态。
 1. 登录 [ Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏，选择**配置中心** > **基础安全**，进入基础安全页面。
 2. 在基础安全页面，左上角选择需要防护的域名，单击 **CC 防护**，进入 CC 防护页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/3ada4f39570ab64459dd2a8726ba7ce2.png)
-2. 单击紧急模式 CC 防护模块的![](https://qcloudimg.tencent-cloud.cn/raw/d3ac9fa840f84ca53bd0884f728d348f.png)，经过二次确认后，即可进行紧急模式 CC 防护配置。
+![](https://qcloudimg.tencent-cloud.cn/raw/c2673cdf9607c4243b9fa6b96aa32784.png)
+2. 单击紧急模式 CC 防护模块的![](https://qcloudimg.tencent-cloud.cn/raw/1802cf02852f120ad4629b4d0b7f1c32.png)经过二次确认后，即可进行紧急模式 CC 防护配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5d972e0a8d55be64adf412b4a383feb1.png)
 **配置项说明：**
 **状态开关：** 当开启紧急模式 CC 防护时，若网站遭大流量 CC 攻击会自动触发防护（网站 QPS 不低于1000QPS），无需人工参与。若无明确的防护路径，建议启用紧急模式 CC 防护，可能会存在一定误报。可以在控制台进入 [IP 查询](https://console.cloud.tencent.com/guanjia/tea-ipsearch)，查看拦截 IP 信息，并及时处理。
@@ -22,11 +22,11 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 基于 IP 的 CC 防护策略，不需要对 SESSION 维度进行设置，直接配置即可。
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏，选择**配置中心** > **基础安全**，进入基础安全页面。
 2. 在基础安全页面，左上角选择需要防护的域名，单击 **CC 防护**，进入 CC 防护页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/3ada4f39570ab64459dd2a8726ba7ce2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c2673cdf9607c4243b9fa6b96aa32784.png)
 2. 在CC 防护页面，单击**添加规则**，弹出添加 CC 防护规则弹窗。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e09b6939285958ecd663950ff2b4db6f.png)
 3. 在添加 CC 防护规则弹窗中，填写相应参数，单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ca65fca899d0d0dc7ea8f822a1d1fe5f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2c8b00a6150c5074b7d4e6d000fd23f2.png)
 **字段说明：**
  - **规则名称**：CC 防护规则名称，50个字符以内。
  - **识别方式**：支持 IP 和 SESSION 识别模式，默认为 IP，SESSION 模式需要提前设置 SESSION 位置信息。
@@ -113,15 +113,14 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
  - **优先级**：默认为50，可输入1 - 100的整数，数字越小，代表这条规则的执行优先级越高，相同优先级下，创建时间越晚，优先级越高。
 5. 规则操作，选择已经创建的规则，可以对规则进行关闭、修改和删除。
 ![](https://qcloudimg.tencent-cloud.cn/raw/966d8ea4b5e077a67717a53a832149f0.png)
-6. 根据规则设置，触发 CC 攻击行为。
-![](https://qcloudimg.tencent-cloud.cn/raw/ce52ad171d3a73c8ac97cd56dea2760c.png)
+6. 根据规则设置，触发 CC 攻击行为。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/ce52ad171d3a73c8ac97cd56dea2760c.png" width=700px>
 7. 可在 [黑白名单页面](https://console.cloud.tencent.com/guanjia/tea-iplist)，对 IP 进行加白或者加黑处理，在 [IP 查询页面](https://console.cloud.tencent.com/guanjia/tea-ipsearch) 可以查看阻断信息。
 
 #### 示例三： 基于 SESSION 的 CC 防护设置
 基于 SESSION 访问速率的 CC 防护，能够有效解决在办公网、商超和公共 WIFI 场合，用户因使用相同 IP 出口而导致的误拦截问题。
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏，选择**配置中心** > **基础安全**，进入基础安全页面。
 2. 在基础安全页面，左上角选择需要防护的域名，单击 **CC 防护**，进入 CC 防护页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/3ada4f39570ab64459dd2a8726ba7ce2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c2673cdf9607c4243b9fa6b96aa32784.png)
 3. 单击 SESSION 设置处的**设置**，弹出 SESSION 设置弹窗。
 ![](https://qcloudimg.tencent-cloud.cn/raw/135c1a626032f0733ddb64763e6726c3.png)
 4. 在 SESSION 设置弹窗中，此示例选择 COOKIE 作为测试内容，标识为 security，开始位置为0，结束位置为9，配置完成后单击**确定**。
@@ -136,9 +135,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/9f91d01eecbb125534bcc9eccf2f44ce.png)
 5. 进入 SESSION 测试页面，设置内容为 security = 0123456789……，后继 Web 应用防火墙将把 security 后面10位字符串作为 SESSION 标识，SESSION 信息也可以删除重新配置。
 ![](https://main.qcloudimg.com/raw/bf87f5f7037e7758d8c281151852ad70.png)
-6. 设置基于 SESSION 的 CC 防护策略，配置过程和示例一保持一致，识别模式选择 SESSION 即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/a925857223b54575966c674bac3aa540.png)
+6. 设置基于 SESSION 的 CC 防护策略，配置过程和示例一保持一致，识别模式选择 SESSION 即可。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/a925857223b54575966c674bac3aa540.png" width=700px>
 7. 配置完成，基于 SESSION 的 CC 防护策略生效。
 >!使用基于 SESSION 的 CC 防护机制，无法在 IP 封堵状态中查看封堵信息。
-
 

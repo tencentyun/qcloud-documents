@@ -39,6 +39,8 @@ API 的调用场景可分为如下三种类型：
 ## 操作步骤
 ### 步骤1：发现 API 资产
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择 **API 流量分析**。
+>?API 流量分析功能当前处于公测中，支持 [提交工单](https://console.cloud.tencent.com/workorder/category?step=0&source=14) 或联系商务经理申请试用该功能，公测期间仅支持开启3个域名。
+>
 2. 在 API 流量分析页面，左上角选择需要防护的域名，并单击开启是否开启分析的![](https://qcloudimg.tencent-cloud.cn/raw/54de1d8ce243aa5ab8de791a85f43ef6.png)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b1d6eb3422531dd07052c945a63ef44b.png)
 3. 开启开关后，即可在相关 API 详情页查看对应 API 的相关详情信息。

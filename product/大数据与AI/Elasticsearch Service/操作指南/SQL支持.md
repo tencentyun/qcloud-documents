@@ -10,8 +10,10 @@ POST /_xpack/sql?format=txt
     "query": "SELECT * FROM my_index"
 }
 ```
+>? 使用时将以上示例中的 my_index 替换成已有的索引。
+>
 更多原生 SQL 解析器的 API 及使用方法请参见 [官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/sql-rest.html)。
- 
+
 ### 开源 SQL 解析插件
 - 7.5.1及以上版本：
 ```
@@ -28,10 +30,12 @@ POST /_sql
 }
 ```
 
+>? 使用时将以上示例中 test_index 替换成已有的索引。
+>
 更多 SQL 插件的 API 及使用方法请参见 [文档](https://github.com/NLPchina/elasticsearch-sql/blob/master/README.md)。
 
 ### SQL JDBC 访问
-ES 6.4.3及以上的白金版中，支持通过 JDBC 访问 ES 集群。您首先需要下载 JDBC 驱动，JDBC 驱动可以在 [官网下载](https://www.elastic.co/downloads/jdbc-client)，或在 Maven 中添加依赖来下载：
+ES 6.4.3及以上的白金版中，支持通过 JDBC 访问 ES 集群。您首先需要下载 JDBC 驱动，JDBC 驱动可以 [点击下载](https://www.elastic.co/downloads/jdbc-client)，或在 Maven 中将如下内容粘贴到 pom 文件，添加依赖来下载：
 ```
 <dependency>
   <groupId>org.elasticsearch.plugin</groupId>
