@@ -1,6 +1,6 @@
-### 常见编译错误
+### 编译可执行程序的时候提示错误： PocoCrypto.so.64: undefined reference ，该如何处理？
 
-1. 编译可执行程序的时候提示错误：
+
 ```shell
    PocoCrypto.so.64: undefined reference to `PEM_write_bio_PrivateKey@libcrypto.so.10'
    libPocoNetSSL.so.64: undefined reference to `X509_check_host@libcrypto.so.10'
@@ -14,7 +14,8 @@
 ```
 这种情况一般是工程里自带的 poco 库的编译依赖的 SSL 版本与客户机器上的版本不一致导致的，需要用户重新编译 poco 库，并替换掉 third_party 里的poco库。
 
-注意此处下载源码编译时建议从 github 下载，如果从 poco 官网下载，请下载 COMPLETE 版本。 
+>! 此处建议执行以下命令从github下载源码。如果从poco官网下载，请下载COMPLETE版本。
+
 ```shell
 wget https://github.com/pocoproject/poco/archive/refs/tags/poco-1.9.4-release.zip
 cd poco-poco-1.9.4-release/
@@ -24,11 +25,19 @@ cd my_build
 cmake .. 
 make -j5
 ```
-2. 编译 poco 库的时候无法编译出 PocoNetSSL 库，一般是因为机器没装 openssl-devel 库。
+
+
+### 编译 poco 库的时候无法编译出 PocoNetSSL 库，该如何处理？
+
+
+一般是因为机器没装 openssl-devel 库。使用如下命令安装。
 ```shell
 yum install -y openssl-devel
 ```
-3. 编译可执行程序的时候提示错误：
+
+
+
+### 编译可执行程序的时候提示错误： undefined reference to qcloud_cos ，该如何处理？
 ```shell
 undefined reference to `qcloud_cos::CosConfig::CosConfig(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
 ```
