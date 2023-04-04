@@ -107,6 +107,7 @@ std::string bucket_name = "examplebucket-1250000000";
 std::string object_name = "exampleobject";
 
 // 添加存储桶名称和对象键，以及 HTTP 请求方法。
+// 注意：用户无需对 object_name 进行编码操作
 qcloud_cos::GeneratePresignedUrlReq req(bucket_name, object_name, qcloud_cos::HTTP_GET);
 std::string presigned_url = cos.GeneratePresignedUrl(req); 
 
