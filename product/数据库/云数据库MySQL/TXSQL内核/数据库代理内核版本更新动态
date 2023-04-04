@@ -1,8 +1,6 @@
 本文介绍云数据库 MySQL 数据库代理的内核版本更新说明。
-
 >?如不满足云数据库 MySQL 内核版本要求，可先升级数据库内核版本，详细操作请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
 >
-
 <table>
 <thead>
 <tr>
