@@ -125,10 +125,10 @@ CC 防护功能可配置每个客户端的整体的访问频次，一旦客户�
 在 Web 应用防火墙的 [BOT 管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) > **BOT 防护**页面，通过简单的配置，实现对 API、客户端的次数调用，敏感 API 调用前，对其进行敏感操作保护。
 
 #### 敏感 API 调度前进行人机识别
-![](https://qcloudimg.tencent-cloud.cn/raw/2fe7362e4b8251576454fb3feafd6d60.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6c13d305451f2965da17359458ca654f.png)
 
 #### 限制客户端在单一会话时间内的 API 调度总次数
-![](https://qcloudimg.tencent-cloud.cn/raw/a3da8b75b816f85ace4e14ba56ab8bdb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6762cd8ffbf5661e09acb28c6bd5d26f.png)
 
 ### 如何进行客户端的 API 访问进行验签？
 客户端的验签可以有很多种方式，包括但不限于：
@@ -140,4 +140,3 @@ CC 防护功能可配置每个客户端的整体的访问频次，一旦客户�
 
 在 Web 应用防火墙中，通过开启前端对抗功能，对客户端的 API 数据进行验签，并进行定向防重放功能。对抗 API 滥用有良好的效果，详细可以参见 [客户端风险识别](https://cloud.tencent.com/document/product/627/65690)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b27ecd963a15f5f4e155c53e7aa9c6fb.png)
-
