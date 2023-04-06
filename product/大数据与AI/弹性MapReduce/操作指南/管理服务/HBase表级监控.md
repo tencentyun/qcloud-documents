@@ -1,5 +1,5 @@
 ## 功能介绍
-数据表分析提供 Hbase 表级、表内 Regions、Regionservers 的读写请求量和存储情况等维度信息；同时提供 Region 分析，结合实际场景支持对所属表或所属 RegionServer 分析读取 QPS、写入 QPS 信息级历史变化趋势。
+数据表分析提供 Hbase 表级、表内 Regions、Regionservers 的读写请求量和存储情况等维度信息；同时提供 Region 分析，结合实际场景支持对所属表或所属 RegionServer 分析读取 QPS、写入 QPS 信息及历史变化趋势。
 
 ## 操作步骤
 1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的**集群ID/名称**进入集群详情页。
@@ -20,7 +20,7 @@ Hbase 数据表列表可查看表级请求 QPS、写入 QPS、MetaStore 存储�
 ### RegionServers 操作
 单击 **RegionServers 操作**，即可查看表所分布的各个 RegionServer 的请求延迟。
 ![](https://qcloudimg.tencent-cloud.cn/raw/09fcc7436b02d9f7dc63d17f49545739.png)
-### Region 分析
+## Region 分析
 Region 分析可检索所属表或筛选所属 RegionServer，通过平均请求 QPS、平均读写 QPS 信息定位集群热点请求分布。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7e5d4ca2c0fb2418c7491a72a1ce9f13.png)
 点击列 title 平均读取 QPS、平均写入 QPS 的视图按钮，可查看当前页 Region 记录指标的历史趋势，观测突变请求信息，支持时间区间选择。
