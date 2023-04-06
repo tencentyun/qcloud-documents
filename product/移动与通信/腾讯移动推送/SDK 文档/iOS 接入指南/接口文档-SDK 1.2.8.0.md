@@ -520,6 +520,7 @@ badgeNumber：应用的角标数。
 
 ```
 
+<!--
 ##  应用内消息展示
 ### 轮询时间设置
 
@@ -544,7 +545,7 @@ NSTimeInterval：NSTimeInterval类型，应用内消息轮询时间间隔。
 /// 按钮事件响应代理
 @property (weak, nonatomic, nullable) id<XGInAppMessageActionDelegate> actionDelegate;
 ```
-
+-->
 
 ## 查询设备通知权限
 
