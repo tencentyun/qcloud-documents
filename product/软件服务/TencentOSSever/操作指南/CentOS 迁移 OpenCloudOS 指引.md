@@ -68,7 +68,7 @@ wget https://mirrors.opencloudos.tech/opencloudos/8.6/AppStream/x86_64/os/Packag
 #arm版本
 wget https://mirrors.opencloudos.tech/opencloudos/8/AppStream/aarch64/os/Packages/migrate2opencloudos-1.0-1.oc8.noarch.rpm 
 ```
-4. 执行以下命令安装迁移工具,该命令会在 /usr/sbin下创建 migrate2opencloudos.py。
+4. 执行以下命令安装迁移工具，该命令会在 /usr/sbin下创建 migrate2opencloudos.py。
 ```plaintexy
 rpm -ivh migrate2opencloudos-1.0-1.oc8.noarch.rpm
 ```

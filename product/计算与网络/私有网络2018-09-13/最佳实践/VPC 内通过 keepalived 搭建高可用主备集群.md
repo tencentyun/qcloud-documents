@@ -9,7 +9,7 @@
 ![](//mc.qcloudimg.com/static/img/a5aa34fb87508284d9e7a07898085728/1.png)
 - 在传统的物理网络中，可以通过 keepalived 的 VRRP 协议协商主备状态，其原理是：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 迁移到主设备上。
 - 在腾讯云 VPC 中，支持部署 keepalived 来搭建主备高可用集群。与物理网络相比，主要区别是：
-   - 使用的 VIP 必须是从腾讯云申请的 [高可用虚拟 IP (HAVIP)](https://cloud.tencent.com/document/product/215/36691) 。
+   - 使用的 VIP 必须是从腾讯云申请的 [高可用虚拟 IP (HAVIP) 概述](https://cloud.tencent.com/document/product/215/36691) 。
    - VIP 有子网属性，只能在同一个子网下的机器间宣告绑定。
 
 ## 注意事项

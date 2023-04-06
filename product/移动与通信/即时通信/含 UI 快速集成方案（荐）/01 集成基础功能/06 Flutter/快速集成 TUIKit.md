@@ -281,6 +281,22 @@ class UserProfile extends StatelessWidget {
 
 此时，您的应用已经可以完成消息收发，管理好友关系，展示用户详情及展示会话列表。
 
+### 步骤6: 音视频通话
+### 1 添加依赖
+音视频通话功能依赖TUICallKit,首先在工程中完成对TUICallKit依赖，在工程的配置文件pubspec.yaml文件中添加依赖：
+
+```
+dependencies:
+  tencent_calls_uikit:
+```
+#### 2 音视频通话功能
+在TIMUIKit中已经集成了音视频通话功能，TUIKit通过插件查询功能检测当前工程是否已经完成对TUICallKit的依赖，若存在音视频通话组件，则在TIMUIKitChat和TIMUIKitProfile中会出现音视频通话的相关功能按钮。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/13ba2d71c18c9f1ab7e915e1eaa3347c.png)
+
+此时，您的应用便可使用音视频通话功能。
+
+
 ### 附加1：TUIKit 的更多能力
 
 您还可以继续使用以下 TUIKit 组件快速实现完整 IM 功能。
