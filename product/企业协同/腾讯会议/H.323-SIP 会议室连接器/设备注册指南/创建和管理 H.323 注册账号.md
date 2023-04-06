@@ -63,7 +63,7 @@ H.323 终端注册到腾讯会议 [会议室连接器服务](gk.qqmra.com)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fc19537f91d501f2ed2a0d0bce0ce6c0.png)
 
 ### 账号删除
-对已创建的账号， 可以选择进行删除操作。
+对已创建的账号，可以选择进行删除操作。
 - **单个删除：**单击账号对应选择的**更多** > **删除**将删除该账号。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9256d955f1c96fdf07e85cef36f9343d.png)
 - **批量删除：**选择多个账号后，单击**删除**将删除选中的账号。

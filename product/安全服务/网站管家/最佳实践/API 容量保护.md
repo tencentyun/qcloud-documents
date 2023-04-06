@@ -84,7 +84,7 @@ CC 防护功能可配置每个客户端的整体的访问频次，一旦客户�
 #### BOT 管理设置
 通过配置 [BOT 管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) > **BOT 防护**页面的会话平均速度条件，可以控制每个客户端的会话持续访问速度。
 
-1. 在 BOT 防护页面的场景化管理模块，单击目标场景的的**查看配置**。
+1. 在 BOT 防护页面的场景化管理模块，单击目标场景的**查看配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/315cd12c273c12cae8ec851aadcc5914.png)
 2. 单击自定义规则的**添加规则**，配置相关参数，单击**确定**即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/45aae8e8b20674a191ab1a6e85b6e712.png)
