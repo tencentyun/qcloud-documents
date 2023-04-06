@@ -434,7 +434,7 @@
 <td>SQL 任务处于 PEDING 状态的平均时间</td>
 </tr>
 <tr>
-<td>运 SQL 任务处于RUNNING 状态的时间</td>
+<td>SQL 任务处于RUNNING 状态的时间</td>
 <td>HIVE.H2.SQL.OPERATION.RUNNING</td>
 <td>ms</td>
 <td>SQL 任务处于 RUNNING 状态的平均时间</td>
