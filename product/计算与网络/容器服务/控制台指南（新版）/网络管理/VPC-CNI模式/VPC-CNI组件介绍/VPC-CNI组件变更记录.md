@@ -24,7 +24,7 @@ kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.templat
 <tr>
 	<td>v3.4.7</td><td>2022-09-07 </td>
     <td>
-<li>支持 ip-scheduler 优先调度策略，已固定 IP 的 Pod 优先调度到子网匹配的网卡上。</li><li> eni-ipamd 支持支持干跑（dryrun）同步存量自定义资源（CR），及时发现变更异常。</li><li>优化网卡和IP绑定的轮询逻辑，减少因 网卡/IP 正在绑定导致的报错。</li><li>修复非固定 IP 模式共享网卡释放时小概率造成内部 IP 分配泄漏的问题。</li>
+<li>支持 ip-scheduler 优先调度策略，已固定 IP 的 Pod 优先调度到子网匹配的网卡上。</li><li> eni-ipamd 支持干跑（dryrun）同步存量自定义资源（CR），及时发现变更异常。</li><li>优化网卡和IP绑定的轮询逻辑，减少因 网卡/IP 正在绑定导致的报错。</li><li>修复非固定 IP 模式共享网卡释放时小概率造成内部 IP 分配泄漏的问题。</li>
     </td><td>对业务无影响</td>
 </tr>
 <tr>
@@ -102,7 +102,7 @@ kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.templat
 <tr>
 	<td>v3.3.4</td><td>2021-07-07 </td>
     <td>
-<li> 修复 CVM 已关机下不断重试解绑网卡的问题。</li><li> 修复异步 志同步写导致的 panic 问题。</li><li> 优化非固定 IP 模式的网卡同步逻辑，保证内部数据一致性，避免解绑正在使用的网卡。</li><li> 修复从 v3.2 升级的非固定 IP 集群由于子网 IP 不足导致存量节点不能分配 IP 的问题。</li><li> 修复存量网卡主 IP 被 Pod 使用的网卡可能会被错误释放的问题。</li>
+<li> 修复 CVM 已关机下不断重试解绑网卡的问题。</li><li> 修复异步日志同步写导致的 panic 问题。</li><li> 优化非固定 IP 模式的网卡同步逻辑，保证内部数据一致性，避免解绑正在使用的网卡。</li><li> 修复从 v3.2 升级的非固定 IP 集群由于子网 IP 不足导致存量节点不能分配 IP 的问题。</li><li> 修复存量网卡主 IP 被 Pod 使用的网卡可能会被错误释放的问题。</li>
     </td><td>对业务无影响</td>
 </tr>
 <tr>

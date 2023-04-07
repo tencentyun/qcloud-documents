@@ -134,7 +134,7 @@ Namespace=QCE/CDB
 
 | 指标英文名     | 指标中文名     | 指标说明                   | 单位 | 维度                             | 统计粒度                     |
 | -------------- | -------------- | -------------------------- | ---- | -------------------------------- | ---------------------------- |
-| ThreadsCreated | 已创建的线程数 | 创建用来处理连接的线程数   | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| ThreadsCreated | 已创建的线程数 | 创建用来处理连接的线程数   | 个   | Proxy | 5s、60s、300s、3600s、86400s |
 | ThreadsRunning | 运行的线程数   | 激活的（非睡眠状态）线程数 | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 
 ### 引擎监控（扩展）- 访问
@@ -144,12 +144,18 @@ Namespace=QCE/CDB
 | ComCommit   | 提交数     | 每秒提交次数 | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | ComRollback | 回滚数     | 每秒回滚次数 | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 
-### 引擎监控（扩展）- 表
+### 数据库代理（Proxy）
 
-| 指标英文名          | 指标中文名       | 指标说明               | 单位 | 维度                             | 统计粒度                     |
-| ------------------- | ---------------- | ---------------------- | ---- | -------------------------------- | ---------------------------- |
-| OpenedTables        | 已经打开的表数   | 引擎已经打开的表的数量 | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
-| TableLocksImmediate | 立即释放的表锁数 | 引擎立即释放的表锁数   | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| 指标英文名              | 指标中文名 | 单位 | 维度                             | 统计粒度                     |
+| ----------------------- | ---------- | ---- | -------------------------------- | ---------------------------- |
+| ProxyCpuUseRate         | CPU 利用率 | %    | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| ProxyCurrentConnections | 当前连接数 | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| ProxyMemoryUseRate      | 内存利用率 | %    | InstanceId、InstanceType（选填）   | 5s、60s、300s、3600s、86400s |
+| ProxyQueries            | 请求数     | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| ProxyRouteMaster        | 写请求数   | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| ProxyRouteSlave         | 读请求数   | 个   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| ProxyMemoryUse          | 内存占用   | MB   | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+
 
 ### 部署监控（备机）
 

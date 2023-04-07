@@ -157,46 +157,45 @@ region1 = 'replace-with-real-region1'
 keyId1 = 'replace-with-realkeyid1'
 region2 = 'replace-with-real-region2'
 keyId2 = 'replace-with-realkeyid2'
-secretId = 'replace-with-real-secretId'
-secretKey = 'replace-with-real-secretKey'
+secretId = os.getenv('SECRET_ID')         # read from environment variable or use whitebox encryption to protect secret ID
+secretKey = os.getenv('SECRET_KEY')   # read from environment variable or use whitebox encryption to protect secret key    region = "ap-guangzhou"
 domainName = 'kms.tencentcloudapi.com'
 
 def ECBEnAndDeWithSignTest():
-	   ret,masterKey = NewMasterKey(region1,keyId1)
-	   if ret != 0:
-		   print('NewMasterKey error:',ret)
-		   return
-	   ret,masterKey = AddMasterKey(masterKey,region2,keyId2)
-	   if ret != 0:
-		   print('AddMasterKey error:',ret)
-		   return
-	
-	   keymanager = InitKeyManager(masterKey,0,0,0,secretId,secretKey)
-	   if keymanager == None:
-		   print('KeyManager error')
-		   return
-	
-	   ret,enheader,endata = Encrypt(b'hello',keymanager,masterKey,Algorithm.SM4_ECB_128_WITH_SIGNATURE,'{}',0)
-	   if ret == 0:
-		   print('Encrypt ok')
-	   else:
-		   print('Encrypt error:',ret)
-		   return
+       ret,masterKey = NewMasterKey(region1,keyId1)
+       if ret != 0:
+           print('NewMasterKey error:',ret)
+           return
+       ret,masterKey = AddMasterKey(masterKey,region2,keyId2)
+       if ret != 0:
+           print('AddMasterKey error:',ret)
+           return
 
-	   ret,deheader,dedata = Decrypt(endata,keymanager)
-	   if ret == 0:
-		   print ('dedata:',)
-		   print (dedata)
-	   else:
-		   print('Decrypt error:',ret)
+       keymanager = InitKeyManager(masterKey,0,0,0,secretId,secretKey)
+       if keymanager == None:
+           print('KeyManager error')
+           return
+
+       ret,enheader,endata = Encrypt(b'hello',keymanager,masterKey,Algorithm.SM4_ECB_128_WITH_SIGNATURE,'{}',0)
+       if ret == 0:
+           print('Encrypt ok')
+       else:
+           print('Encrypt error:',ret)
+           return
+
+       ret,deheader,dedata = Decrypt(endata,keymanager)
+       if ret == 0:
+           print ('dedata:',)
+           print (dedata)
+       else:
+           print('Decrypt error:',ret)
 
 ret = InitSdk(region1,secretId,secretKey,domainName)
 if ret != 0:
-	   print('InitSdk error:',ret)
-	   sys.exit(1)
+       print('InitSdk error:',ret)
+       sys.exit(1)
 
 ECBEnAndDeWithSignTest()
-
 ```
 
 ## 原生加密方式的接口说明
@@ -467,43 +466,43 @@ iv = b'1234567890abcdef'
 aad = b'1234567890abcdef'
 
 region = 'replace-with-real-region'
-secretId = 'replace-with-real-secretId'
-secretKey = 'replace-with-real-secretKey'
+secretId = os.getenv('SECRET_ID')         # read from environment variable or use whitebox encryption to protect secret ID
+secretKey = os.getenv('SECRET_KEY')   # read from environment variable or use whitebox encryption to protect secret key    region = "ap-guangzhou"
 domainName = 'kms.tencentcloudapi.com'
 
 ret = InitSdk(region,secretId,secretKey,domainName)
 if ret != 0:
-	   print('InitSdk error:',ret)
-	   sys.exit(1)
+       print('InitSdk error:',ret)
+       sys.exit(1)
 
 ret,pubKey,priKey = Sm2GetKey()
 if ret == 0:
-	   print ('Sm2GetKey ok')
-	
-	   ret,sm2endata = Sm2Encrypt(pubKey,b'this Sm2Test')
-	   if ret == 0:
-		   print ('Sm2Encrypt:',sm2endata)
-		   ret,sm2dedata = Sm2Decrypt(priKey,sm2endata)
-		   if ret == 0:
-			   print ('Sm2Decrypt:',sm2dedata)
-		   else:
-			   print ('Sm2Decrypt is error',ret)
-	   else:
-		   print ('Sm2Encrypt is error',ret)
-	
-	
-	   ret,sign = Sm2Sign(pubKey,priKey,b'hello world')
-	   if ret == 0:
-		   print ('Sm2Sign is ok',sign)
-		   ret = Sm2Verify(pubKey,sign,b'hello world')
-		   if ret == 0:
-			   print ('Sm2Verify is ok')
-		   else:
-			   print ('Sm2Verify is error',ret)
-	   else:
-		   print ('Sm2Sign is error',ret)
+       print ('Sm2GetKey ok')
+
+       ret,sm2endata = Sm2Encrypt(pubKey,b'this Sm2Test')
+       if ret == 0:
+           print ('Sm2Encrypt:',sm2endata)
+           ret,sm2dedata = Sm2Decrypt(priKey,sm2endata)
+           if ret == 0:
+               print ('Sm2Decrypt:',sm2dedata)
+           else:
+               print ('Sm2Decrypt is error',ret)
+       else:
+           print ('Sm2Encrypt is error',ret)
+
+
+       ret,sign = Sm2Sign(pubKey,priKey,b'hello world')
+       if ret == 0:
+           print ('Sm2Sign is ok',sign)
+           ret = Sm2Verify(pubKey,sign,b'hello world')
+           if ret == 0:
+               print ('Sm2Verify is ok')
+           else:
+               print ('Sm2Verify is error',ret)
+       else:
+           print ('Sm2Sign is error',ret)
 else:
-	   print ('Sm2GetKey is error',ret)
+       print ('Sm2GetKey is error',ret)
 
 
 
@@ -514,85 +513,84 @@ pemInfo += "-----END PUBLIC KEY-----\n"
 
 ret,pubKey = Sm2PemChangeToPubkey(pemInfo.encode())
 if ret == 0:
-	   print('Sm2PemChangeToPubkey ok')
+       print('Sm2PemChangeToPubkey ok')
 else:
-	   print('Sm2PemChangeToPubkey error')
+       print('Sm2PemChangeToPubkey error')
 
 priKey = base64.b16decode("B8F66F0097488D8FA91FE857DFC9886356BA26A48C23F44271DD702F374174F0")
 
 ret,digest = HashForSM3WithSM2(b'hello',pubKey,b'1234567812345678')
 if ret == 0:
-	   print('HashForSM3WithSM2 ok')
+       print('HashForSM3WithSM2 ok')
 else:
-	   print('HashForSM3WithSM2 error')
+       print('HashForSM3WithSM2 error')
 
 ret,sign = Sm2SignWithDigest(pubKey,priKey,digest)
 if ret == 0:
-	   print('Sm2SignWithDigest ok')
+       print('Sm2SignWithDigest ok')
 else:
-	   print('Sm2SignWithDigest error')
+       print('Sm2SignWithDigest error')
 
 ret = Sm2VerifyWithDigest(pubKey,sign,digest)
 if ret == 0:
-	   print('Sm2VerifyWithDigest ok')
+       print('Sm2VerifyWithDigest ok')
 else:
-	   print('Sm2VerifyWithDigest error')
+       print('Sm2VerifyWithDigest error')
 
 
 ret,hmac = Sm3Hmac(b'hello',key)
 if ret == 0:
-	   print ('Sm3Hmac is ok:',hmac)
+       print ('Sm3Hmac is ok:',hmac)
 else:
-	   print ('Sm3Hmac is error',ret)
+       print ('Sm3Hmac is error',ret)
 
 ret,digest = Sm3Digest(b'hello')
 if ret == 0:
-	   print ('Sm3Digest is ok:',digest)
+       print ('Sm3Digest is ok:',digest)
 else:
-	   print ('Sm3Digest is error',ret)
+       print ('Sm3Digest is error',ret)
 
 ret,en_data = Sm4CbcEncrypt(b'this Sm4CbcTest',key,iv)
 if ret == 0:
-	   ret,de_data = Sm4CbcDecrypt(en_data,key,iv)
-	   if ret == 0:
-		   print (de_data)
-	   else:
-		   print ('Sm4CbcDecrypt is error',ret)
+       ret,de_data = Sm4CbcDecrypt(en_data,key,iv)
+       if ret == 0:
+           print (de_data)
+       else:
+           print ('Sm4CbcDecrypt is error',ret)
 else:
-	   print ('Sm4CbcEncrypt is error',ret)
+       print ('Sm4CbcEncrypt is error',ret)
 
 
 
 ret,en_data = Sm4CtrEncrypt(b'this Sm4CtrTest',key,iv)
 if ret == 0:
-	   ret,de_data = Sm4CtrDecrypt(en_data,key,iv)
-	   if ret == 0:
-		   print (de_data)
-	   else:
-		   print ('Sm4CtrDecrypt is error',ret)
+       ret,de_data = Sm4CtrDecrypt(en_data,key,iv)
+       if ret == 0:
+           print (de_data)
+       else:
+           print ('Sm4CtrDecrypt is error',ret)
 else:
-	   print ('Sm4CtrEncrypt is error',ret)
+       print ('Sm4CtrEncrypt is error',ret)
 
 
 
 ret,en_data = Sm4EcbEncrypt(b'this Sm4EcbTest',key)
 if ret == 0:
-	   ret,de_data = Sm4EcbDecrypt(en_data,key)
-	   if ret == 0:
-		   print (de_data)
-	   else:
-		   print ('Sm4EcbDecrypt is error',ret)
+       ret,de_data = Sm4EcbDecrypt(en_data,key)
+       if ret == 0:
+           print (de_data)
+       else:
+           print ('Sm4EcbDecrypt is error',ret)
 else:
-	   print ('Sm4EcbEncrypt is error',ret)
+       print ('Sm4EcbEncrypt is error',ret)
 
 ret,en_data,tag = Sm4GcmEncrypt(b'this Sm4GcmTest',key,iv,aad)
 if ret == 0:
-	   ret,de_data = Sm4GcmDecrypt(en_data,key,iv,aad,tag)
-	   if ret == 0:
-		   print (de_data)
-	   else:
-		   print ('Sm4GcmDecrypt is error',ret)
+       ret,de_data = Sm4GcmDecrypt(en_data,key,iv,aad,tag)
+       if ret == 0:
+           print (de_data)
+       else:
+           print ('Sm4GcmDecrypt is error',ret)
 else:
-	   print ('Sm4GcmEncrypt is error',ret)
-
+       print ('Sm4GcmEncrypt is error',ret)
 ```

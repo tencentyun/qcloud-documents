@@ -33,17 +33,17 @@ import (
 )
 
 func main() {
-    // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
-    // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+    // 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+    // 替换为用户的 region，存储桶 region 可以在 COS 控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
     u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
     b := &cos.BaseURL{BucketURL: u}
     client := cos.NewClient(b, &http.Client{
         Transport: &cos.AuthorizationTransport{
             // 通过环境变量获取密钥
             // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
-            SecretID: os.Getenv("SECRETID"),
+            SecretID: os.Getenv("SECRETID"),  // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
             // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
-            SecretKey: os.Getenv("SECRETKEY"),
+            SecretKey: os.Getenv("SECRETKEY"),  // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
         },
     })
     lc := &cos.BucketPutLifecycleOptions{
@@ -131,7 +131,7 @@ type BucketLifecycleAbortIncompleteMultipartUpload struct {
 | Expiration                     | LifecycleConfiguration.Rule                                  | 规则过期属性                                                 | Container | 否       |
 | Transition                     | LifecycleConfiguration.Rule                                  | 规则转换属性，用于描述对象何时进行存储类型的转换和转换的存储类型 | Container | 否       |
 | Days                           | LifecycleConfiguration.Rule .Transition 或 Expiration        | 指明规则对应的动作在对象最后的修改日期过后多少天操作： 如果是 Transition，该字段有效值是非负整数 如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
-| Date                           | LifecycleConfiguration.Rule .Transition 或 Expiration        | 指明规则对应的动作在何时操作，支持`2007-12-01T12:00:00.000Z` 和`2007-12-01T00:00:00+08:00`这两种格式 | String    | 否       |
+| Date                           | LifecycleConfiguration.Rule .Transition 或 Expiration        | 指明规则对应的动作在何时操作，支持 `2007-12-01T12:00:00.000Z` 和`2007-12-01T00:00:00+08:00` 这两种格式 | String    | 否       |
 | ExpiredObjectDeleteMarker      | LifecycleConfiguration.Rule .Expiration                      | 删除过期对象删除标记，枚举值 true，false                     | String    | 否       |
 | AbortIncompleteMultipartUpload | LifecycleConfiguration.Rule                                  | 设置允许分片上传保持运行的最长时间                           | Container | 否       |
 | DaysAfterInitiation            | LifecycleConfiguration.Rule .AbortIncompleteMultipartUpload  | 指明分片上传开始后多少天内必须完成上传                       | Integer   | 是       |
@@ -168,17 +168,17 @@ import (
 )
 
 func main() {
-    // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
-    // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+    // 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+    // 替换为用户的 region，存储桶 region 可以在 COS 控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
     u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
     b := &cos.BaseURL{BucketURL: u}
     client := cos.NewClient(b, &http.Client{
         Transport: &cos.AuthorizationTransport{
             // 通过环境变量获取密钥
             // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
-            SecretID: os.Getenv("SECRETID"),
+            SecretID: os.Getenv("SECRETID"),  // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
             // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
-            SecretKey: os.Getenv("SECRETKEY"),
+            SecretKey: os.Getenv("SECRETKEY"),  // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
         },
     })
     _, _, err := client.Bucket.GetLifecycle(context.Background())
@@ -256,17 +256,17 @@ import (
 )
 
 func main() {
-    // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
-    // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+    // 存储桶名称，由bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+    // 替换为用户的 region，存储桶 region 可以在 COS 控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
     u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
     b := &cos.BaseURL{BucketURL: u}
     client := cos.NewClient(b, &http.Client{
         Transport: &cos.AuthorizationTransport{
             // 通过环境变量获取密钥
             // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
-            SecretID: os.Getenv("SECRETID"),
+            SecretID: os.Getenv("SECRETID"),  // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
             // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
-            SecretKey: os.Getenv("SECRETKEY"),
+            SecretKey: os.Getenv("SECRETKEY"),  // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
         },
     })
     _, err := client.Bucket.DeleteLifecycle(context.Background())

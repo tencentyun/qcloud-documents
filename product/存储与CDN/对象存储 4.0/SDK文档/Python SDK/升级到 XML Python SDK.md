@@ -1,4 +1,4 @@
-如果您细心对比过 JSON Python SDK 和 XML Python SDK 的文档，您会发现并不是一个简单的增量更新。XML Python SDK 在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 XML Python SDK，请参考下面的指引，完成 Python SDK 的升级工作。
+s如果您细心对比过 JSON Python SDK 和 XML Python SDK 的文档，您会发现并不是一个简单的增量更新。XML Python SDK 在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 XML Python SDK，请参考下面的指引，完成 Python SDK 的升级工作。
 
 ## 功能对比
 
@@ -8,7 +8,7 @@
 | -------- | :------------: | :------------------:    |
 | 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式，支持断点续传<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB）| 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB|
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
-| 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
+| 存储桶 ACL 操作 | 设置存储桶 ACL<br>获取设置存储桶 ACL<br>删除设置存储桶 ACL   | 不支持 |
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
 | 目录操作 | 不单独提供接口   | 创建目录<br>查询目录<br>删除目录 |
 
@@ -54,12 +54,12 @@ import logging
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在CosConfig中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
-secret_id = 'SecretId'     # 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-secret_key = 'SecretKey'   # 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
-                           # COS支持的所有region列表参见https://cloud.tencent.com/document/product/436/6224
-token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在 CosConfig 中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
+secret_id = os.environ['COS_SECRET_ID']     # 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+secret_key = os.environ['COS_SECRET_KEY']   # 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的 region 可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+                           # COS 支持的所有 region 列表参见 https://cloud.tencent.com/document/product/436/6224
+token = None               # 如果使用永久密钥不需要填入 token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见 https://cloud.tencent.com/document/product/436/14048
 scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
 
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
@@ -103,7 +103,7 @@ XML Python SDK 的存储桶可用区域简称发生了变化，在初始化时�
 | 广州（华南）   | ap-guangzhou | gz |
 | 成都（西南）   | ap-chengdu   | cd |
 | 重庆       | ap-chongqing | 无 |
-| 香港       | ap-hongkong  | hk |
+| 中国香港       | ap-hongkong  | hk |
 | 新加坡      | ap-singapore | sgp |
 | 多伦多      | na-toronto   | ca |
 | 法兰克福     | eu-frankfurt | ger |
@@ -112,7 +112,7 @@ XML Python SDK 的存储桶可用区域简称发生了变化，在初始化时�
 | 硅谷       | na-siliconvalley     | 无 |
 | 弗吉尼亚       | na-ashburn     | 无 |
 | 曼谷       | ap-bangkok     | 无 |
-| 莫斯科       | eu-moscow     | 无 |
+
 
 
 **4. 更改 API**
@@ -121,9 +121,9 @@ API 变化有以下四点：
 
 **（1）没有单独的目录接口**
 
-在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为 `project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了**文件夹**或**目录**的展示方式，具体实现是通过创建一个键值为 `project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
 
-例如：上传对象`project/doc/a.txt`，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
+例如：上传对象 `project/doc/a.txt`，分隔符`/`会模拟**文件夹**的展示方式，于是可以看到控制台上出现**文件夹** project 和 doc，其中 doc 是 project 下一级**文件夹**，并包含 a.txt 文件。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以`/`结尾的0KB 文件。这样在您调用 GetBucket 接口时，就可以将该文件当做文件夹。
 

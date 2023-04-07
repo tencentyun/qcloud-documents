@@ -41,7 +41,7 @@ slmgr /ato
 ```
 (Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Control\ProductOptions\).ProductPolicy.count
 ```
- - 若返回结果为例如56184等万级别数值，则无需再次激活系统。
+ - 若返回结果为例如“56184”等万级别数值，则无需再次激活系统。
  - 若返回结果为 “未激活值：1960”，则请参考以下方法进行解决。
 <dx-tabs>
 ::: 方法1

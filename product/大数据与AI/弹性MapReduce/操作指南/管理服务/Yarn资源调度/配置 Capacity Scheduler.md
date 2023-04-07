@@ -47,7 +47,7 @@ Capacity Scheduler 是容量调度器，容量调度器以分层的方式组织�
 <tr>
 <td>用户最小容量</td>
 <td>yarn.scheduler.capacity.&lt;queue-path>.minimum-user-limit-percent&lt;/queue-path></td>
-<td>每个用户最低资源保障（百分比）。任何时刻，一个队列中每个用户可使用的资源量均有一定的限制。当一个队列中同时运行多个用户的应用程序时中，每个用户的使用资源量在一个最小值和最大值之间浮动，其中，最小值取决于正在运行的应用程序数目，而最大值则由 minimum-user-limit-percent 决定。</td>
+<td>每个用户最低资源保障（百分比）。任何时刻，一个队列中每个用户可使用的资源量均有一定的限制。当一个队列中同时运行多个用户的应用程序时，每个用户的使用资源量在一个最小值和最大值之间浮动，其中，最小值取决于正在运行的应用程序数目，而最大值则由 minimum-user-limit-percent 决定。</td>
 </tr>
 <tr>
 <td>用户资源因子</td>

@@ -63,10 +63,17 @@ tar -xvf goosefs-lite-${version}.tar.gz
 - 将 fs.cosn.userinfo.secretId 配置为腾讯云密钥 Key。
 - 将 fs.cosn.bucket.region 配置为存储桶地域。
 
+>!
+>- 建议用户尽量避免在配置中使用永久密钥，采取配置子账号密钥或者临时密钥的方式有助于提升业务安全性。为子账号授权时建议按需授权子账号可执行的操作和资源，避免发生预期外的数据泄露。
+>- 如果您一定要使用永久密钥，建议对永久密钥的权限范围进行限制，可通过限制永久密钥的可执行操作、资源范围和条件（访问 IP 等），提升使用安全性。
+>
+
 **示例：**
 
 ```xml
 <configuration>
+  <!--账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。-->
+  <!--建议使用子账号密钥或者临时密钥的方式完成配置，提升配置安全性。为子账号授权时建议按需授权子账号可执行的操作和资源-->
   <property>
     <name>fs.cosn.impl</name>
     <value>org.apache.hadoop.fs.CosFileSystem</value>
@@ -105,6 +112,8 @@ groupadd supergroup
 4. 修改配置信息：
 ```xml
 <configuration>
+  <!--账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。-->
+  <!--建议使用子账号密钥或者临时密钥的方式完成配置，提升配置安全性。为子账号授权时建议按需授权子账号可执行的操作和资源-->
   <property>
     <name>fs.cosn.impl</name>
     <value>org.apache.hadoop.fs.CosFileSystem</value>
@@ -147,7 +156,7 @@ groupadd supergroup
  ./bin/goosefs-lite mount <MountPoint> cosn://<BucketName>/
 ```
 其中：
-- &lt;MountPoint&gt; 为本地挂载目录（例如`/mnt/goosefs-lite-mnt-dir`）。
+- &lt;MountPoint&gt; 为本地挂载目录（例如 `/mnt/goosefs-lite-mnt-dir`）。
 - &lt;BucketName&gt; 为存储桶名称（例如 examplebucket-1250000000）。
 
 **示例：**
@@ -174,7 +183,7 @@ pid     mount_point     cos_path
 - -oro：将挂载点设置为只读，不允许写入和删除操作。
 
 
->?单个参数可通过 `-o` 指定，例如`-oro`；多个参数可通过逗号分割，例如`-o"ro,allow_other"`。
+>?单个参数可通过 `-o` 指定，例如`-oro`；多个参数可通过逗号分割，例如 `-o"ro,allow_other"`。
 
 ### 步骤6：卸载存储桶
 
@@ -187,7 +196,7 @@ Unmount fuse at /mnt/goosefs-lite-mnt/ (PID: 17206).
 ### 步骤7：参数调优
 
 GooseFS-Lite 包含两个配置文件，分别为 conf/core-site.xml 及 conf/goosefs-lite.properties。
-您可以通过修改 conf/core-site.xml 调优上传下载带宽。常用参数如下，更多参数可参考 [Hadoop-COS](https://cloud.tencent.com/document/product/436/6884) 文档。
+您可以通过修改 conf/core-site.xml 调优上传下载带宽。常用参数如下，更多参数可参见 [Hadoop-COS](https://cloud.tencent.com/document/product/436/6884) 文档。
 
 | 属性键           | 说明                                           | 默认值 | 必填项 |
 | ---------------- | ---------------------------------------------- | ------ | ------ |
@@ -211,7 +220,7 @@ GooseFS-Lite 包含两个配置文件，分别为 conf/core-site.xml 及 conf/go
 | goosefs.fuse.async.release.wait_time.max.ms         | open 和 rename 操作的文件正在被写入时，等待写入操作完成的时间，单位：ms | 5000 | 否   |
 | goosefs.fuse.umount.timeout                         | 卸载文件系统时，等待未完成操作的时间，单位：ms | 120000        | 否   |
 
-当您的读取和写入并发度较大，您可以通过如下方式，调整 GooseFS-Lite 最大 JVM 运行内存，避免 FullGC 和 OutOfMemoryError。JVM 默认值为`-Xms2G -Xmx2G -XX:MaxDirectMemorySize=4G -XX:+UseG1GC`，调整方式如下：
+当您的读取和写入并发度较大，您可以通过如下方式，调整 GooseFS-Lite 最大 JVM 运行内存，避免 FullGC 和 OutOfMemoryError。JVM 默认值为 `-Xms2G -Xmx2G -XX:MaxDirectMemorySize=4G -XX:+UseG1GC`，调整方式如下：
 ```
 export JAVA_OPTS=" -Xms16G -Xmx16G  -XX:MaxDirectMemorySize=16G -XX:+UseG1GC"
 ./bin/goosefs-lite mount /mnt/goosefs-lite-mnt/ cosn://examplebucket-1250000000/

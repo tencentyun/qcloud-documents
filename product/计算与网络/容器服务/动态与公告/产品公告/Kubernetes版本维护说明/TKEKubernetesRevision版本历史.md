@@ -37,6 +37,14 @@ Kubernetes 1.24通过 Dockershim 对 Docker 的支持已移除，新建节点的
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
   <tbody>
+	<tr>
+    <td>2023-01-12</td>
+    <td>	v1.22.5-tke.9</td>
+    <td>
+<li>支持原生节点放大特性。(kube-scheduler)</li>
+<li>为 list_too_many_objects_events_total 指标增加 delegated_to_storage 标签，表示请求是否透传到 etcd。(kube-apiserver)</li>
+</td>
+  </tr>
 			  <tr>
     <td>2023-01-05</td>
     <td>	v1.22.5-tke.8</td>

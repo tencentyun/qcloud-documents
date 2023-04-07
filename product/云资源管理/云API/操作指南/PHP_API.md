@@ -265,8 +265,10 @@ X-TC-Region: ap-guangzhou
 
 ```php
 <?php
-$secretId = "AKIDz8krbsJ5**********mLPx3EXAMPLE";
-$secretKey = "Gu5t9xGAR***********EXAMPLE";
+// 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5**********mLPx3EXAMPLE
+$secretId = getenv("TENCENTCLOUD_SECRET_ID");
+// 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGAR***********EXAMPLE
+$secretKey = getenv("TENCENTCLOUD_SECRET_KEY");
 $host = "cvm.tencentcloudapi.com";
 $service = "cvm";
 $version = "2017-03-12";
@@ -478,8 +480,10 @@ https://cvm.tencentcloudapi.com/?Action=DescribeInstances&InstanceIds.0=ins-09dx
 
 ```php
 <?php
-$secretId = "AKIDz8krbsJ5**********mLPx3EXAMPLE";
-$secretKey = "Gu5t9xGAR***********EXAMPLE";
+// 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5**********mLPx3EXAMPLE
+$secretId = getenv("TENCENTCLOUD_SECRET_ID");
+// 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGAR***********EXAMPLE
+$secretKey = getenv("TENCENTCLOUD_SECRET_KEY");
 $param["Nonce"] = 11886;//rand();
 $param["Timestamp"] = 1465185768;//time();
 $param["Region"] = "ap-guangzhou";

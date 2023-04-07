@@ -19,10 +19,10 @@
 子网是私有网络的一个网络空间，为逻辑概念，同一私有网络下可以创建不同可用区的子网，同一私有网络下不同可用区的子网默认可以内网互通，即使您选择同地域下其他可用区的子网，实际业务连接访问为就近逻辑，也不会增加网络时延。
 
 ## 操作步骤
-1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，选择地域，单击需要转网的**实例 ID / 名称**。
-![](https://qcloudimg.tencent-cloud.cn/raw/e854b28f4e0bf54fa79c813865892216.png)
+1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，选择地域，单击需要转网的**实例 ID / 名称**或操作列的**管理**。
+![](https://qcloudimg.tencent-cloud.cn/raw/8b83161862d67bf6dd8ae0c9cf22d397.png)
 2. 在**实例详情**页的**基本信息** > **所属网络**，单击**更改网络**。
-![](https://qcloudimg.tencent-cloud.cn/raw/51d2d0cd1e47d040fd3966e5a2b09924.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4ea69441ad54865e1db3174fb86a33b6.png)
 3. 在弹出的对话框，选择 VPC 网络，设置旧 IP 回收时间，选择分配或指定新 IP 后，单击**确定**。
  - 选择网络：选择 VPC 网络后，仅对应 VPC 网络的主机可访问数据库。
  - 旧IP地址回收时间：可选范围为0 - 168小时，设置为0时，将立即回收。

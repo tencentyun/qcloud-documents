@@ -59,7 +59,7 @@ GET _cat/nodes
 在 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus) 的**作业管理 > 新建作业**中新建 **SQL 作业**，选择在新建的集群中新建作业。然后在作业的**开发调试 > 作业参数**中添加必要的 connector，如 mysql-cdc connector、elasticsearch6/7 connector。
 >!ES connector 版本要与购买的 ES 组件版本一致。
 
-![](https://main.qcloudimg.com/raw/9b95d4a12dab6d6f54cb4f94213b8db2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4faa79d1a1df6e1aac0bce7b4046c2aa.png)
 
 ### 创建 Source 端
 选择 mysql 作为数据源，并将后续的数据持续更新到 ES 中。

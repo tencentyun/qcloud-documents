@@ -58,3 +58,4 @@ sudo systemctl restart docker
 sudo su echo "EXTRA_ARGS=\"–registry-mirror=https://mirror.ccs.tencentyun.com\"" >> /var/lib/boot2docker/profile  exit 
 ```
  2. 重启 Boot2Docker。
+

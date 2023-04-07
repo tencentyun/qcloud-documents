@@ -17,7 +17,7 @@ SDK 依赖于 bolts 和 okHttp 两个常见的类，如果是这两个类中的�
 如果您是通过代理的方式访问 COS，那么首先检查下代理是否支持 HTTPS，否则请 [联系我们](https://cloud.tencent.com/document/product/436/37708) 处理。
 
 ### 上传进度到了 100%，最终还是回调了 onFailed 接口，该如何处理？
-上传进度这里只是代表 SDK 写入到网络中的进度，100% 并不表示上传完成，只有回调 onSuccess 接口才真正上传成功，如果在最后发送 Complete Multipart Upload 请求时产生了异常，那么会回调 onFailed 接口。
+上传进度这里只是代表 SDK 写入到网络中的进度，100% 并不表示上传完成，只有回调 onSuccess 接口才真正上传成功。如果您在最后发送 Complete Multipart Upload 请求时产生了异常，那么会回调 onFailed 接口表示上传失败，您可根据 onFailed 回调的信息查看具体的异常和解决办法。
 
 ### 使用分块上传报错，例如 400 BadRequest、409 Conflict 等错误，该如何处理？
 请尽量使用 SDK 提供的高级接口 TransferManager 来上传和下载，不要自己去封装分块上传的接口，否则很容易出错。

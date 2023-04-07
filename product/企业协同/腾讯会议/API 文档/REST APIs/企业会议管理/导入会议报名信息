@@ -51,3 +51,43 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/import
 | nick_name    | String  | 报名的昵称。                     |
 | enroll_code    | String  | 报名码，用于电话入会的凭证。                |
 
+
+## 示例
+### 输入示例
+
+```plaintext
+POST
+https://api.meeting.qq.com/v1/meetings/100001/enroll/import
+{
+    "instanceid": 2,
+    "operator_id": "user1",
+    "operator_id_type": 1,
+    "enroll_list": [
+        {
+            "area": "86",
+            "phone_number": "13612113333",
+            "nike_name":"asdn"
+        }
+    ]
+}
+```
+
+
+### 输出示例
+
+```plaintext
+{
+    "total_count": 1,
+    "enroll_list": [
+        {
+            "userid": "",
+            "area": "86",
+            "phone_number": "13612113333",
+            "nick_name": "asdn",
+            "enroll_code": "1112",
+            "enroll_id": 1386442,
+            "open_id": ""
+        }
+    ]
+}
+```

@@ -10,22 +10,22 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 | Ubuntu（64位）                                               | Ubuntu Server_14.04.1_LTS_64位、Ubuntu Server_16.04.1_LTS_64位、Ubuntu Server_18.04.1_LTS_64位 |
 | Debian（64位）                                               | Debian_8.2_64位、Debian_9.0_64位                             |
 | openSUSE（64位）                                             | openSUSE_42.3_64位                                           |
-|TencentOS Server|	TencentOS Server 3.1、TencentOS Server 2.4|
+| TencentOS Server                                             | TencentOS Server 3.1、TencentOS Server 2.4                   |
 
 ## 支持功能
 
 LogListener 版本支持重要功能如下，详细版本功能信息请参考 [LogListener 版本变更](https://cloud.tencent.com/document/product/614/54164)：
 
-| LogListener 版本 | 支持功能           | 功能说明                      | 相关文档                             |
-| --------------- | ------------------------ | -------------------------- | --------------------------------- |
-| v2.8.0   | 支持GBK编码采集；优化json提取模式转义符    | Loglistener 支持采集GBK编码模式的日志文本 | -   |
-| v2.7.4   | 支持采集主机名 hostname    | Loglistener 会默认采集机器的主机名作为默认字段上报，以 \_\_HOSTNAME\_\_ 作为 key 展现，例如 \_\_HOSTNAME\_\_：VM-108-centos。   | -   |
-| v2.6.4   | 支持用户通过组合解析自定义复杂日志解析规则   | 使用 Loglistener 组合解析格式解析日志，此模式支持用户在控制台输入代码（JSON 格式）用来定义日志解析的流水线逻辑。   | [组合解析格式](https://cloud.tencent.com/document/product/614/61310)   |
-| v2.6.0   | 支持腾讯云 CVM 批量部署功能   | 支持用户在控制台选择 CVM 实例，接口批量下发部署 LogListener 任务，自动完成 LogListener 的安装部署（包括 accesskey，ID 配置，地域配置）。   | [CVM 批量部署 LogListener](https://cloud.tencent.com/document/product/614/60593)   |
-| v2.5.4          | 支持 LogListener 服务日志功能 | LogListener 服务日志功能支持记录 LogListener 端运行状态和采集监控的日志数据并配置可视化视图，提供重要指标数据。 | [LogListener 服务日志](https://cloud.tencent.com/document/product/614/55281) |
-| v2.5.2          | 支持上传解析失败日志        | 所有解析失败的日志，均以 LogParseFailure 作为键名称（Key），原始日志内容作为值（Value）进行上传。 | -                                                            |
-| v2.5.0          | 支持 LogListener 自动升级功能 | 支持用户在控制台预设时间段指定机器组进行 agent 自动升级，也可对目标机器实行手动升级。 | [LogListener 升级指南](https://cloud.tencent.com/document/product/614/55468) |
-| v2.4.5          | 支持多行-完全正则采集模式   | LogListener 采集配置规则新增**多行-完全正则**提取模式采集日志。 | [完全正则（多行）](https://cloud.tencent.com/document/product/614/52366) |
+| LogListener 版本 | 支持功能                                   | 功能说明                                                     | 相关文档                                                     |
+| ---------------- | ------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| v2.8.0           | 支持GBK编码采集；优化json提取模式转义符    | Loglistener 支持采集GBK编码模式的日志文本                    | -                                                            |
+| v2.7.4           | 支持采集主机名 hostname                    | Loglistener 会默认采集机器的主机名作为默认字段上报，以 \_\_HOSTNAME\_\_ 作为 key 展现，例如 \_\_HOSTNAME\_\_：VM-108-centos。 | -                                                            |
+| v2.6.4           | 支持用户通过组合解析自定义复杂日志解析规则 | 使用 Loglistener 组合解析格式解析日志，此模式支持用户在控制台输入代码（JSON 格式）用来定义日志解析的流水线逻辑。 | [组合解析格式](https://cloud.tencent.com/document/product/614/61310) |
+| v2.6.0           | 支持腾讯云 CVM 批量部署功能                | 支持用户在控制台选择 CVM 实例，接口批量下发部署 LogListener 任务，自动完成 LogListener 的安装部署（包括 accesskey，ID 配置，地域配置）。 | [CVM 批量部署 LogListener](https://cloud.tencent.com/document/product/614/60593) |
+| v2.5.4           | 支持 LogListener 服务日志功能              | LogListener 服务日志功能支持记录 LogListener 端运行状态和采集监控的日志数据并配置可视化视图，提供重要指标数据。 | [LogListener 服务日志](https://cloud.tencent.com/document/product/614/55281) |
+| v2.5.2           | 支持上传解析失败日志                       | 所有解析失败的日志，均以 LogParseFailure 作为键名称（Key），原始日志内容作为值（Value）进行上传。 | -                                                            |
+| v2.5.0           | 支持 LogListener 自动升级功能              | 支持用户在控制台预设时间段指定机器组进行 agent 自动升级，也可对目标机器实行手动升级。 | [LogListener 升级指南](https://cloud.tencent.com/document/product/614/55468) |
+| v2.4.5           | 支持多行-完全正则采集模式                  | LogListener 采集配置规则新增**多行-完全正则**提取模式采集日志。 | [完全正则（多行）](https://cloud.tencent.com/document/product/614/52366) |
 
 
 
@@ -36,7 +36,6 @@ LogListener 版本支持重要功能如下，详细版本功能信息请参考 [
 
 
 LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64.tar.gz)
-
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`/usr/local/loglistener/tools`，执行安装命令 。
 >?从2.8.3 版本开始，Loglistener 安装包不再添加版本号后缀，使用 loglistener-linux-x64 默认安装最新版本。如果需要安装特定版本可以在后面指定版本号，如将 loglistener-linux-x64 替换为 loglistener-linux-x64-2.8.0，将会指定安装2.8.0版本。
 
@@ -51,12 +50,11 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64.tar.gz && t
 
 ### 2. 初始化 LogListener
 
-在`loglistener/tools`路径下，以 root 权限执行 LogListener 初始化命令（默认使用内网方式访问服务），初始化命令如下：
+以安装路径`/usr/local/`为例，在`/usr/local/loglistener/tools`路径下，以 root 权限执行 LogListener 初始化命令（默认使用内网方式访问服务），初始化命令如下：
 ```shell
 ./loglistener.sh init -secretid AKIDPEtPyKabfW8Z3Uspdz83xxxxxxxxxxx -secretkey whHwQfjdLnzzCE1jIf09xxxxxxxxxxxx -region ap-xxxxxx
 ```
 >?初始化命令中 **-secretid**、**-secretkey**、**-region**、**-network** 为需要自主填写的参数，详细介绍请见如下 [参数说明](#parameterdescription)。
-
 <span id="parameterdescription"></span>
 
 #### 参数说明
@@ -68,14 +66,13 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64.tar.gz && t
 | region    | region 表示日志服务所在的 [地域](https://cloud.tencent.com/document/product/614/18940)，此处填写域名简称，例如 ap-beijing、ap-guangzhou 等 |
 | network   | 表示 loglistener 通过哪种方式访问服务域名，取值：intra 内网访问（默认），internet 外网访问 |
 | IP        | 机器的 IP 标识。若不填写，loglistener 会自动获取本机的 IP 地址 |
-| label     | 机器组标示，标示机器组需要填写标示信息，多个标示按逗号分隔 |
+| label     | 机器组标示，标示机器组需要填写标示信息，多个标示按逗号分隔   |
 
 默认使用内网域名：
 
 ![](https://main.qcloudimg.com/raw/ea417c6d60ab21e52984d04c1364b30d.png)
 
 如果需要通过外网方式访问服务域名，需要显式设置网络参数`internet`，执行如下命令：
-
 ```plaintext
 ./loglistener.sh init -secretid AKIDPEtPyKabfW8Z3Uspdz83xxxxxxxxxxxx -secretkey whHwQfjdLnzzCE1jIf0xxxxxxxxxxxx -region ap-xxxxxx -network internet
 ```
@@ -86,16 +83,14 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64.tar.gz && t
 > - region 为您所使用的日志服务区域，而非您的业务机器所处的区域。
 > - 云服务器与日志集同地域的情况下，建议使用内网方式访问服务域名。云服务器与日志集在不同地域的情况下，建议使用外网方式访问服务域名。
 > - 关于日志采集权限详情，可参考 [授权子账号对 CLS 某个日志主题具有日志采集权限](https://cloud.tencent.com/document/product/614/50498) 文档。
-> 
+>
 
 ### 3. 启动 LogListener
 - loglistener2.8.3以上并且操作系统具有systemd
-
 ```plaintext
 systemctl start loglistenerd
 ```
 - loglistener2.8.3以下或者loglistener2.8.3以上但是操作系统没有systemd
-
 ```plaintext
 /etc/init.d/loglistenerd start
 ```
@@ -111,13 +106,10 @@ systemctl start loglistenerd
 ```plaintext
 /etc/init.d/loglistenerd -v
 ```
-
 ### 2. 查看 LogListener 帮助文档
-
 ```plaintext
 /etc/init.d/loglistenerd -h
 ```
-
 ### 3. LogListener 进程管理
 - loglistener2.8.3以上并且操作系统具有systemd
 ```plaintext
@@ -134,7 +126,6 @@ systemctl (start|restart|stop)  loglistenerd # 启动、重启、停止
 ```
 LogListener 正常情况会运行两个进程：
 ![](https://main.qcloudimg.com/raw/e28d0d88d14a65567ce46794979dfc94.png)
-
 ### 5. 检查 LogListener 心跳及配置
 
 ```plaintext
@@ -142,10 +133,9 @@ LogListener 正常情况会运行两个进程：
 ```
 ![](https://main.qcloudimg.com/raw/82430a9cb1aa364d2abfbc47ebae5ef5.png)
 
-
 ## 卸载 LogListener
 
-以管理员权限执行 `loglistener/tools` 目录下的卸载命令：
+以安装路径`/usr/local/`为例，在`/usr/local/loglistener/tools`路径下，以管理员权限执行卸载命令：
 
 ```plaintext
 ./loglistener.sh uninstall
@@ -173,8 +163,6 @@ cp -r /tmp/loglistener-backup/data loglistener-<version>/
 cp -r /tmp/loglistener-backup/data loglistener-2.8.2/
 ```
 6. 使用启动命令启动运行新版本 LogListener。
-
-
 
 #### 不复用断点文件（可能会重复采集日志）：
 

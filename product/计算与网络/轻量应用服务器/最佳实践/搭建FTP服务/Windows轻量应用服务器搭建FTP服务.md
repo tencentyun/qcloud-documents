@@ -143,3 +143,4 @@ ftp://轻量应用服务器公网IP:21
 本文以创建个人存储类型的 SSL 证书为例。
 ![](https://main.qcloudimg.com/raw/c1633f5e0adda9eed1583130c6e5d21e.png)
 5. 单击**确定**即可成功创建。
+

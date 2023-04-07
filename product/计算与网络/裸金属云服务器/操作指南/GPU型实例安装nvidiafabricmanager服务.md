@@ -44,3 +44,4 @@ systemctl status nvidia-fabricmanager
 ```
 若输出信息如下，则表示服务安装成功。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3575a97948b57964dff2b922d15756a8.png)
+

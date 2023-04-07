@@ -8,7 +8,7 @@ VPN 通道创建后，您可以修改通道基本信息中的名称、预共享�
 2. 在左侧目录中单击 **VPN 连接** > **VPN 通道**，进入管理页。
 3. 在“VPN 通道”管理页面，单击需要修改的 VPN 通道实例 ID，进入详情页。
 4. 在“基本信息”页面，单击图中的编辑图标，可修改 VPN 通道名称、预共享密码、标签信息、以及 SPD 策略规则，修改后单击**保存**即可。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/7d73b1761518e3bec0063bd643c48c71.png" width="70%"> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/34b1ab3fd067c1ea575d77cea67c5d11.png" width="70%"> 
 	其中，通道名称和预共享密钥也可以在 VPN 通道列表界面单击编辑图标直接修改，如下图所示。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4237570474dd592fcc684b4118294f0d.png)
 5. 单击**高级配置**选项卡，可在高级配置中修改 IKE 配置 和 IPsec 配置，修改后单击**保存**即可。

@@ -14,7 +14,7 @@
 
 ### Kubernetes 的部署
 
-详细的 Kubernetes 部署可参考 [Kubernetes 的官方文档](https://kubernetes.io/zh/docs/setup/#production-environment)。
+详细的 Kubernetes 部署可参见 [Kubernetes 的官方文档](https://kubernetes.io/zh/docs/setup/#production-environment)。
 
 ### 使用 GooseFS 加速 Spark 数据访问
 
@@ -25,16 +25,16 @@
 
 #### 基于 Fluid 部署运行 GooseFS on Kubernetes
 
-Fluid 是 CNCF 基金会下的一个开源 Kubernetes 原生的分布式数据集编排和加速引擎，主要服务于云原生场景下的数据密集型应用，例如大数据应用、AI 应用等，详细介绍可参考 [fluid](https://github.com/fluid-cloudnative/fluid)。
+Fluid 是 CNCF 基金会下的一个开源 Kubernetes 原生的分布式数据集编排和加速引擎，主要服务于云原生场景下的数据密集型应用，例如大数据应用、AI 应用等，详细介绍可参见 [fluid](https://github.com/fluid-cloudnative/fluid)。
 
-Fluid 也在 0.6.0 版本中正式集成了 GooseFS 的 Runtime（详见 [更新日志](https://github.com/fluid-cloudnative/fluid/blob/master/CHANGELOG.md)），因此基于 Fluid 部署 GooseFS 加速 Spark 应用详情可参考 [腾讯云 GooseFS 官网文档](https://cloud.tencent.com/document/product/1424/68316)，这里也推荐 Fluid-0.7.0 以上版本部署运行 GooseFS。
+Fluid 也在 0.6.0 版本中正式集成了 GooseFS 的 Runtime（详见 [更新日志](https://github.com/fluid-cloudnative/fluid/blob/master/CHANGELOG.md)），因此基于 Fluid 部署 GooseFS 加速 Spark 应用详情可参见 [腾讯云 GooseFS 官网文档](https://cloud.tencent.com/document/product/1424/68316)，这里也推荐 Fluid-0.7.0 以上版本部署运行 GooseFS。
 
 #### 在 Kubernetes 中运行 Spark on GooseFS
 
 #### 前置条件
 
-1. Spark on Kubernetes 采用的是 Spark 官网推荐 Kubernetes Native 部署运行架构，详细的部署运行方法可参考 [Spark 的官网文档](https://spark.apache.org/docs/2.4.8/running-on-kubernetes.html)。
-2. 已部署 GooseFS 集群。GooseFS 的集群部署可参考 [使用自建集群部署](https://cloud.tencent.com/document/product/1424/68299)。
+1. Spark on Kubernetes 采用的是 Spark 官网推荐 Kubernetes Native 部署运行架构，详细的部署运行方法可参见 [Spark 的官网文档](https://spark.apache.org/docs/2.4.8/running-on-kubernetes.html)。
+2. 已部署 GooseFS 集群。GooseFS 的集群部署可参见 [使用自建集群部署](https://cloud.tencent.com/document/product/1424/68299)。
 >! 部署 GooseFS Worker 的时候，需要配置 goosefs.worker.hostname=$(hostname -i)，否则 Spark pod 中的 client 会无法解析 GooseFS 的 Worker 地址。
 >
 
@@ -61,7 +61,12 @@ $ docker image ls
 首先，需要保证 GooseFS 集群已经启动运行，并且容器能够访问到 GooseFS Master/Worker 的 IP 和端口，然后按照以下步骤进行测试验证：
 
 1. 在 GooseFS 中创建一个用于测试的 namespace，例如这里创建一个 /spark-cosntest 的namespace，并放入测试数据文件。
+>!
+>- 建议用户尽量避免在配置中使用永久密钥，采取配置子账号密钥或者临时密钥的方式有助于提升业务安全性。为子账号授权时建议按需授权子账号可执行的操作和资源，避免发生预期外的数据泄露。
+>- 如果您一定要使用永久密钥，建议对永久密钥的权限范围进行限制，可通过限制永久密钥的可执行操作、资源范围和条件（访问 IP 等），提升使用安全性。
+>
 ```shell
+# 建议使用子账号密钥或者临时密钥的方式完成配置，提升配置安全性。为子账号授权时建议按需授权子账号可执行的操作和资源
 $ goosefs ns create spark-cosntest cosn://goosefs-test-125000000/ --secret fs.cosn.userinfo.secretId=AKIDXXXXXXXXX --secret fs.cosn.userinfo.secretKey=XXXXXXXXXX --attribute fs.cosn.bucket.region=ap-xxxx
 # 放入一个测试数据文件
 $ goosefs fs copyFromLocal LICENSE /spark-cosntest

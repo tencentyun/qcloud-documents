@@ -12,7 +12,7 @@ Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kub
 ## 前提条件
 
 
-- 已创建 [TKE](https://cloud.tencent.com/document/product/457/32189) 或 [EKS](https://cloud.tencent.com/document/product/457/39813) 集群。  
+- 已创建 [TKE 标准集群](https://cloud.tencent.com/document/product/457/32189) 或 [TKE Serverless 集群](https://cloud.tencent.com/document/product/457/39813)。  
 - 已在需要管理多集群的设备上安装 [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) 命令行工具。  
 
 
@@ -25,32 +25,14 @@ Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kub
 
 ### 获取集群访问凭证
 
-创建 TKE 或 TKE Serverless 集群后，请按照以下 [TKE](#tke) 或 [EKS](#eks) 获取集群访问凭证步骤获取访问凭证：
+创建集群后，请按照以下步骤获取集群访问凭证：
 
 
-[](id:tke)
-
-#### TKE 集群获取集群访问凭证
-
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。  
-2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。  
-3. 在左侧菜单栏中选择**基本信息**，进入“基本信息”页面。  
-4. 在“基本信息”页面找到**集群APIServer信息**配置项，开启**外网访问**和**内网访问**。  
-![](https://main.qcloudimg.com/raw/eaefe0e780bf0ef303619a6f054f583a.jpg)
-5. 单击右侧的**下载**，下载 Kubeconfig。  
-
-
-[](id:eks)
-
-#### TKE Serverless 集群获取集群访问凭证
-
-1. 登录容器服务控制台，选择左侧导航栏中的 **[ Serverless 集群](https://console.cloud.tencent.com/tke2/ecluster)**。  
-2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。  
-3. 在左侧菜单栏中选择**基本信息**，进入“基本信息”页面。  
-4. 在“基本信息”页面找到**集群APIServer信息**配置项，开启**外网访问**和**内网访问**。  
-![](https://main.qcloudimg.com/raw/f8884ee3527e3eaf63ad3e114d8a431b.jpg)
-5. 单击**下载**，下载 Kubeconfig。  
-
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中的**集群**。 
+2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的基本信息页面。  
+3. 在“基本信息”页面找到**集群APIServer信息**配置项，开启**外网访问**和**内网访问**。
+4. 单击 Kubeconfig 右侧的**下载**即可。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/27fbabe00c5af3d14478d980d5c0ef8a.png)
 
 
 

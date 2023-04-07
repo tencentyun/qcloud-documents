@@ -50,7 +50,7 @@
 >- 如果想要给云服务器的其他弹性网卡也分配 IPv6 地址，请参见 [申请和释放 IPv6
 ](https://cloud.tencent.com/document/product/576/37972) 进行操作。
 >
-5. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见  [Linux 云服务器配置 IPv6 ](https://cloud.tencent.com/document/product/1142/47666) 和  [Windows 云服务器配置 IPv6](https://cloud.tencent.com/document/product/1142/47667)。
+5. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见  [Linux 云服务器配置 IPv6 ](https://cloud.tencent.com/document/product/215/47556) 和  [Windows 云服务器配置 IPv6](https://cloud.tencent.com/document/product/215/47558)。
 
 ### 步骤四：为云服务器的 IPv6 地址开通公网[](id:step4)
 默认云服务器的 IPv6 地址仅具有私网通信能力，若您想要通过该 IPv6 地址访问公网或被公网访问，则需通过弹性公网 IPv6 为该 IPv6 地址开通公网访问能力。
@@ -63,20 +63,20 @@
 >- 当运营商类型为 BGP 时，弹性公网 IPv6 地址即为云服务器获取到的 IPv6 地址，所以请确保云服务器已经获取到 IPv6 地址。
 >- 单次操作可支持最多100个 IPv6 地址同时开通公网，如果超过100个 IPv6 地址需要开通公网，请分多次操作。
 >
-![](https://main.qcloudimg.com/raw/0309bcccea7c2fb6abaecdcf4420ec60.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/91d4544fe00f8ef53e4c1ab931381e87.png)
 
 ### 步骤五：配置 IPv6 的安全组规则
 >?
->- 出入方向的安全组规则支持配置来源为单个 IPv6 地址或者 IPv6 CIDR，其中`::/0`代表所有的 IPv6 源地址。
+>- 出入站方向的安全组规则支持配置来源为单个 IPv6 地址或者 IPv6 CIDR，其中`::/0`代表所有的 IPv6 源地址。
 >- 如果想要了解更多安全组的信息，请参见 [安全组](https://cloud.tencent.com/document/product/215/37888)、 [实例端口验通](https://cloud.tencent.com/document/product/215/38836)。
 >
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下，选择**安全** > **安全组**，单击云服务器绑定的安全组 ID，进入详情页。
 3. 在详情页添加入站规则与出站规则：
- - 选择**入站规则** > **添加规则**，添加 IPv6 的入方向安全组规则，单击**完成**即可。
-![](https://main.qcloudimg.com/raw/73ff04af93a1f13eef92d4f74ac30fc2.png)
- - 选择**出站规则** > **添加规则**，添加 IPv6 的出方向安全组规则，单击**完成**即可。
-![](https://main.qcloudimg.com/raw/c0d255728fa6b48292f425c5ffb6559f.png)
+ - 选择**入站规则** > **添加规则**，添加 IPv6 的入站方向安全组规则，单击**完成**即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/c1686d95b8fd099a0a0b5d3b82bb7fea.png)
+ - 选择**出站规则** > **添加规则**，添加 IPv6 的出站方向安全组规则，单击**完成**即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/a515d908d6754aff4d01a7e2c0cf1f56.png)
 
 ### 步骤六：测试 IPv6 的连通性
 下面分别介绍 Linux 云服务器和 Windows 云服务器如何测试 IPv6 的连通性。

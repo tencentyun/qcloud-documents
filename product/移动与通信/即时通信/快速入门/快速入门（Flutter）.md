@@ -18,8 +18,8 @@
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
 | [Web](#web) | 支持，4.1.1+2版本起 | 支持，0.1.5版本起 |
-| [macOS](#pc) | 支持，4.1.9版本起 | 即将上线 |
-| [Windows](#pc) | 支持，4.1.9版本起 | 即将上线 |
+| [macOS](#pc) | 支持，4.1.9版本起 | 支持，2.0.0 版本起 |
+| [Windows](#pc) | 支持，4.1.9版本起 | 支持，2.0.0 版本起 |
 | [混合开发](https://cloud.tencent.com/document/product/269/83153) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 1.0.0版本起支持 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [拓展更多平台](#more)。
@@ -43,7 +43,7 @@
 
 ## 前序工作
 
-1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 参照 [创建并升级应用](https://cloud.tencent.com/document/product/269/32577) 创建应用，并记录好 `SDKAppID`。
 3. 在 [IM 控制台](https://console.cloud.tencent.com/im) 选择您的应用，在左侧导航栏依次点击 **辅助工具**->**UserSig 生成&校验** ，创建两个 UserID 及其对应的 UserSig，复制`UserID`、`签名（Key）`、`UserSig`这三个，后续登录时会用到。
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
@@ -106,7 +106,7 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 flutter pub get
 ```
 3. 配置环境变量。
-在右上角运行按钮旁，鼠标hover `main.dart`，配置 `Edit Configurations`。
+在右上角运行按钮旁，鼠标单击 `main.dart`，配置 `Edit Configurations`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2db56849e86dab8f6f0ccb4d3374fce.png)
 在弹出窗口中，配置 `Additional run args`，输入环境变量（SDKAPPID等信息）。如：
 ```shell
@@ -129,7 +129,7 @@ flutter pub get
 1. 在 Xcode 中打开 `im-flutter-uikit/ios`目录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/16b555ebe0c2caa77f13ac3b42b20a24.png)
 2. 连接 iPhone 真机，单击 **Build And Run**，iOS 工程等待编译完成，会有新窗口弹出 Xcode 工程。
-3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者帐号），让项目可以在 iPhone 真机上运行。
+3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者账号），让项目可以在 iPhone 真机上运行。
 4. 启动项目，在真机上进行 Demo 的调试。
 ![](https://qcloudimg.tencent-cloud.cn/raw/911935cf419e4298edb45cd93bf10852.png)
 :::
@@ -406,6 +406,8 @@ class UserProfile extends StatelessWidget {
 ```
 
 此时，您的应用已经可以完成消息收发，管理好友关系，展示用户详情及展示会话列表。
+
+
 
 #### 更多能力
 
@@ -747,6 +749,14 @@ flutter pub add tencent_im_sdk_plugin_desktop
 <key>com.apple.security.app-sandbox</key>
 <false/>
 ```
+
+## 可选操作：开通内容审核功能
+在消息发送、资料修改场景中，很有可能会扩散不合适的内容，特别是与敏感事件/人物相关、黄色不良内容等令人反感的内容，不仅严重损害了用户们的身心健康，更很有可能违法并导致业务被监管部门查封。
+
+即时通信 IM 支持内容审核（反垃圾信息）功能，可针对不安全、不适宜的内容进行自动识别、处理，为您的产品体验和业务安全保驾护航。可以通过以下两种内容审核方式来实现：
+- [本地审核功能](https://cloud.tencent.com/document/product/269/83795#bdsh)：在客户端本地检测在单聊、群聊、资料场景中由即时通信 SDK 发送的文本内容，支持对已配置的敏感词进行拦截或者替换处理。此功能通过在 IM 控制台开启服务并配置词库的方式实现。
+- [云端审核功能](https://cloud.tencent.com/document/product/269/83795#ydsh)：在服务端检测由单聊、群聊、资料场景中产生的文本、图片、音频、视频内容，支持针对不同场景的不同内容分别配置审核策略，并对识别出的不安全内容进行拦截。此功能已提供默认预设拦截词库和审核场景，只需在 IM 控制台打开功能开关，即可直接使用。
+
 
 ## 常见问题
 

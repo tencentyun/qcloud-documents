@@ -2,8 +2,8 @@
 
 1. 注册腾讯云账号，单击进入 [文字识别控制台](https://console.cloud.tencent.com/ocr/general)，即可开通相应服务。
 2. 在 [账号中心](https://console.cloud.tencent.com/cam/capi) 获取 API 密钥。
-3. 从 OCR SDK 下载链接中下载 SDK 到本地准备集成。
-
+3. 前往文字识别客户端 [SDK 接入页面](https://console.cloud.tencent.com/ocr/download) 下载对应 SDK。
+![](https://qcloudimg.tencent-cloud.cn/raw/5670370b183dcf34b9751f7437c2618c.png)
 
 
 ## Android 端 OCR SDK 接入流程

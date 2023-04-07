@@ -8,7 +8,7 @@
 
 ```sh
 npm hexo init hexo-hello-world
-```
+``` 
 
 ## 步骤2：发布项目
 

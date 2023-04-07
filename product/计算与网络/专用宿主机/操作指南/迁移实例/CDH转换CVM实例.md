@@ -25,3 +25,4 @@
  ![](https://main.qcloudimg.com/raw/ad542b37c7eb33586b8cd2c71145e869.png)
  3. 在“关机提示”中，确认关机提示并单击**开始调整**即可。
  实例转换完成后将自启动，状态为“运行中”。您可前往 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index) 页面查看。
+

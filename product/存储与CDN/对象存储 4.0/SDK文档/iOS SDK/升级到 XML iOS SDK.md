@@ -29,7 +29,7 @@ pod 'QCloudCOSXML'
 将 **QCloudCOSXML.framework, QCloudCore.framework 和 libmtasdk.a** 拖入到工程中，如下图所示：
 ![](https://main.qcloudimg.com/raw/14c8f5773ea19bc681b7f862dd6384fb.png)  
 
-	并添加以下依赖库：
+>!	并添加以下依赖库：
 > - CoreTelephony
 > - Foundation
 > - SystemConfiguration
@@ -132,7 +132,7 @@ XML SDK 的存储桶名称和可用区域简称与 JSON SDK 的不同，需要�
 
 
 **存储桶 Bucket**
-XML SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如`examplebucket-1250000000`，其中`examplebucket`为用户自定义字符串，`1250000000`为 APPID。
+XML SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `examplebucket-1250000000`，其中 `examplebucket` 为用户自定义字符串，`1250000000` 为 APPID。
 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可通过在 [账号信息](https://console.cloud.tencent.com/developer) 控制台查看 APPID。
 
@@ -152,7 +152,7 @@ XML SDK 的存储桶可用区域简称发生了变化，下表列出了不同区
 | 广州（华南）   | ap-guangzhou | gz |
 | 成都（西南）   | ap-chengdu   | cd |
 | 重庆       | ap-chongqing | 无 |
-| 香港       | ap-hongkong  | hk |
+| 中国香港       | ap-hongkong  | hk |
 | 新加坡      | ap-singapore | sgp |
 | 多伦多      | na-toronto   | ca |
 | 法兰克福     | eu-frankfurt | ger |
@@ -161,9 +161,8 @@ XML SDK 的存储桶可用区域简称发生了变化，下表列出了不同区
 | 硅谷       | na-siliconvalley     | 无 |
 | 弗吉尼亚       | na-ashburn     | 无 |
 | 曼谷       | ap-bangkok     | 无 |
-| 莫斯科       | eu-moscow     | 无 |
 
-在初始化时，请将存储桶所在区域简称设置到 `QCloudServiceConfiguration`的 `regionName`中。
+在初始化时，请将存储桶所在区域简称设置到 `QCloudServiceConfiguration` 的 `regionName` 中。
 
 **5. 更改 API**
 
@@ -173,9 +172,9 @@ API 变化有以下三点：
 
 **（1）没有单独的目录接口**
 
-在 XML SDK 中，不再提供单独的目录接口。对象存储中本身没有文件夹和目录的概念，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身没有文件夹和目录的概念，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了**文件夹**或**「目录」**的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
 
-例如：上传对象 project/doc/a.txt ，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
+例如：上传对象 project/doc/a.txt ，分隔符`/`会模拟**文件夹**的展示方式，于是可以看到控制台上出现**文件夹**project 和 doc，其中 doc 是 project 下一级**文件夹**，并包含 a.txt 文件。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。
 
@@ -184,12 +183,12 @@ API 变化有以下三点：
 
 **（2）QCloudCOSTransferMangerService**
 
-在 XML SDK 中，我们封装了可以智能判断是简单上传（复制）还是分块上传（复制）的操作，命名为 `QCloudCOSTransferMangerService`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService`的主要特性有：
+在 XML SDK 中，我们封装了可以智能判断是简单上传（复制）还是分块上传（复制）的操作，命名为 `QCloudCOSTransferMangerService`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`QCloudCOSTransferMangerService` 的主要特性有：
 
 * 支持断点上传。
 * 支持根据文件大小智能选择简单上传（复制）还是分块上传（复制）。
 
-使用 `QCloudCOSTransferMangerService`上传的示例代码：
+使用 `QCloudCOSTransferMangerService` 上传的示例代码：
 
 [//]: # (.cssg-snippet-objc-transfer-upload-object)
 ```objective-c

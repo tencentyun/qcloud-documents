@@ -58,10 +58,10 @@ iOS、Android 上的应用可以通过集成腾讯云视立方·直播 SDK 来�
 ### Demo 体验
 
 - **Web 端直播推流**：可通过 **云直播控制台**>[Web 推流工具](https://console.cloud.tencent.com/live/tools/webpush) 进行测试 Web 端推流功能。
-<img src="https://main.qcloudimg.com/raw/a47e0c7d8b40f94c13339265034b188a.png" width=600>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d8b03e9885933ada99c73a9295cd823e.png" width=80%>
 - **Web 端直播拉流**：可通过 [TCPlayer](https://tcplayer.vcube.tencent.com/) 工具进行播放体验。
 >?
->- Web 端直播推流和拉流均使用标准 WebRTC 协议，Web 端推流时不包含 B帧 ，且音频编码为 OPUS 音频格式，所以不会产生音频转码及去 B 帧转码费用。
+>- Web 端直播推流和拉流均使用标准 WebRTC 协议，Web 端推流时不包含 B 帧 ，且音频编码为 OPUS 音频格式，所以不会产生音频转码及去 B 帧转码费用。
 >- WebRTC Live Demo 支持多清晰度功能，可在云直播控制台 **功能配置** > [**直播转码**](https://console.cloud.tencent.com/live/config/transcode) 配置高清-HD、标清-SD 的转码模板，将带有转码模板的 WebRTC 流地址填入 Demo 中对应的栏目后测试播放（如不需要测试此功能则只需要在 Demo 中填入一条 WebRTC 原始流即可）。
 >- 直播转码操作指引及转码计费内容，请参见文档 [直播转码](https://cloud.tencent.com/document/product/267/20385)。
 >
@@ -76,31 +76,38 @@ WebRTC 协议推流主要用于视频云的快直播（超低延时直播）推�
 - WebRTC 协议推流目前针对 OBS 只有 Windows 端的插件，想要实现在 mac 上进行 WebRTC 推流，可以使用 [Web接入](https://cloud.tencent.com/document/product/267/59017#web-.E6.8E.A5.E5.85.A5)。
 
 [](id:set)
+
 ### 配置 OBS 插件
 1. **配置插件数据**。
-	1. 下载 [OBS 插件](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TOBSWebRTC/Release/tencent_webrtc_plugin_20220509.zip)，把 data 文件里面的两个 `services.json` 和 `package.json` 文件，挪动到对应的 **data > obs-plugins > rtmp-services** 目录进行覆盖。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\data\obs-plugins\rtmp-services`，请根据您的实际情况进行配置。）
-![](https://main.qcloudimg.com/raw/03859054448cb140d31f2a57a60d82aa.png)  
+	1. 下载 [OBS 插件](https://monitor-1258344699.cos.ap-guangzhou.myqcloud.com/tencent_webrtc_plugin_20230214.zip)，把 data 文件里面的两个 `services.json` 和 `package.json` 文件，挪动到对应的 **data > obs-plugins > rtmp-services** 目录进行覆盖。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\obs-studio\data\obs-plugins\rtmp-services`，请根据您的实际情况进行配置。）
+	![](https://qcloudimg.tencent-cloud.cn/raw/db94b2882605c4c5d7b53aa5e1b7b56f.png)  
 	2. 将上述两个 JSON 文件复制至 `C:\Users\<计算机名>\AppData\Roaming\obs-studio\plugin_config\rtmp-services` 目录下进行覆盖。（`<计算机名>`根据您的实际情况填写即可）。
 2. **配置插件动态库**。
-将 `obs-plugins\64bit` 中的 dll 文件，挪动到对应的 **obs-studio** > **obs-plugins** > **64bit** 目录下。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\obs-plugins\64bit`，请根据您的实际情况进行配置。）<br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0fbf5009fcbbd2e9642af859ee2ccca6.png" width=700px>
+将 `obs-plugins\64bit` 中的 dll 文件，挪动到对应的 **obs-studio** > **obs-plugins** > **64bit** 目录下。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\obs-studio\obs-plugins\64bit`，请根据您的实际情况进行配置。）<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7176b99b3a7a470e471ff5a1a54ca6d3.png" width=700px>
 
 [](id:push)
+
 ### 配置推流链接
 [](id:push)
 1. **生成 WebRTC 推流地址**。
   1. 登录腾讯云直播控制台，在 **直播工具箱** > **[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)** 生成推流地址，具体操作请参见 [地址生成器](https://cloud.tencent.com/document/product/267/35257)。
-  2. 把生成的 `rtmp` 前缀修改成 `webrtc`，具体使用说明请参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720)。
-    ![](https://main.qcloudimg.com/raw/34924378812d1a36f04cfe1a2180e7a0.png)    
+![](https://qcloudimg.tencent-cloud.cn/raw/81f265ccb2537c10e4f62fa04845d07e.png)
+
 2. **配置 OBS 推流服务**。[](id:set_obs)
   1. 打开 OBS，您可通过底部工具栏的 **控件** > **设置** 按钮进入设置界面。
-  2. 单击 **推流** 进入流设置页签，选择服务类型为 `Tenent webrtc`，服务器为 `Default`，串流密钥中输入之前生成的 [WebRTC 推流地址](#push)，并在后面拼接上 `&stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream`。
+  2. 单击 **推流** 进入流设置页签，选择服务类型为 `Tenent webrtc`，服务器为 `Default`，串流密钥中输入之前生成的 [WebRTC 推流地址](#push)。
+  3. 当前 OBS 插件支持 OBS 29版本，如需推流，单击 **直播** 进入流设置页签，选择服务类型为 `Tenent webrtc`，服务器为 `Default`，推流码中输入之前生成的 [WebRTC 推流地址](#push)即可。
+
 **串流密钥示例：**
 ```
-webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx&stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream 
+webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx
 ```
 如下图：
-![](https://main.qcloudimg.com/raw/5c33acc958da82c01127ba2d4575ce1e.png)     
+![](https://qcloudimg.tencent-cloud.cn/raw/6f49315f5ff251ffdd4939f4d568a837.png)     
+OBS 29版本如下图：
+![](https://qcloudimg.tencent-cloud.cn/raw/7487fe54510eb744063ae6497d8f130f.png) 
+
 
 [](id:play)
 ### 快直播拉流播放

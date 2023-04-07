@@ -1,5 +1,19 @@
 基于 Spring Cloud Hoxton SR9 版本 SDK，支持 spring boot 2.3.1。
 
+
+## 1.40.1-Hoxton-Higher-RELEASE（2022-10-21）
+### 新特性
+- 支持微服务网关可扩展性。支持使用 TSF 网关 SDK 的同时，自定义网关路由策略、支持 websocket、支持跨域等原生网关能力。
+- Oauth 插件支持第三方鉴权地址为微服务 API 的能力。
+- 支持原生网关使用熔断治理的能力。
+- 支持服务监听触发回调。
+- 支持查看下发配置。
+
+### Bug 修复
+- postgresql jdbc driver 版本升级至 42.3.7
+- 修复出现组件自身的调用问题
+- 修复指标avg合并计算错误
+
 ## 1.29.13-Hoxton-Higher-RELEASE（2022-11-02）
 
 ### Bug 修复

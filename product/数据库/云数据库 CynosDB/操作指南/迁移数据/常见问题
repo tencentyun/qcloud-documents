@@ -1,0 +1,83 @@
+本文为您介绍一键迁移功能相关的常见问题。
+## 常见问题
+#### 1、一键迁移后，迁移源端云数据库 MySQL 支持的部分高级功能参数在迁移目标端 TDSQL-C MySQL 版上也支持吗？
+暂不全部支持，TDSQL-C MySQL 版将逐步进行适配。迁移后，TDSQL-C MySQL 版具体是否存在云数据库 MySQL 支持的高级功能参数，请参见下表。
+
+<dx-tabs>
+::: MySQL 5.7 版本
+| MySQL 侧参数名 | MySQL 侧参数值 | TDSQL-C MySQL 侧参数是否存在 |
+|---------|---------|---------|
+| cdb_recycle_bin_enabled | OFF | 否 |
+| information_schema_stats_expiry | 86400 | 否 |
+| binlog_row_event_max_size | 8192 | 否 |
+| innodb_backquery_history_limit | 8000000 | 否 |
+| innodb_ddl_threads | 4 | 否 |
+| innodb_parallel_ddl | OFF | 否 |
+| innodb_adaptive_hash_index | OFF | 否 |
+| cdb_plan_cache | OFF | 否 | 
+| innodb_table_drop_mode | sync_drop | 否 |
+| cdb_recycle_bin_retention | 604800 | 否 |
+| slave_net_timeout | 120 | 否 |
+| innodb_backquery_enable | OFF | 否 |
+| innodb_fast_ddl | OFF | 否 |
+| max_length_for_sort_data | 1024 | 否 |
+| slave_parallel_type | LOGICAL_CLOCK | 否 |
+| cdb_optimize_large_trans_binlog | OFF | 否 |
+| innodb_fast_ahi_cleanup_for_drop_table | OFF | 否 |
+| txsql_parallel_exchange_buffer_size | 1048576 | 否 |
+| innodb_temp_data_file_path | ibtmp1:12M:autoextend | 否 |
+| slave_rows_search_algorithms | TABLE_SCAN,INDEX_SCAN,HASH_SCAN | 否 |
+| cdb_recycle_scheduler_interval | 0 | 否 |
+| innodb_ddl_buffer_size | 10485760 | 否 |
+| cdb_kill_idle_trans_timeout | 0 | 否 |
+| collation_server | utf8_tolower_ci | 是 |
+| delay_key_write | ON | 否 |
+| innodb_async_truncate_size | 128 | 否 |
+| cdb_more_gtid_feature_supported | OFF | 否 |
+| cdb_opt_outline_enabled | OFF | 否 |
+| innodb_txsql_parallel_partitions_per_worker | 13 | 否 |
+| cdb_kill_user_extra | root@% | 否 |
+| slave_parallel_workers | 0 | 否 |
+| innodb_backquery_window | 900 | 否 |
+:::
+::: MySQL 8.0 版本
+| MySQL 侧参数名 | MySQL 侧参数值 | TDSQL-C MySQL 侧参数是否存在 |
+|---------|---------|---------|
+| cdb_recycle_bin_enabled | OFF | 否 |
+| information_schema_stats_expiry | 86400 | 否 |
+| binlog_row_event_max_size | 8192 | 否 |
+| innodb_backquery_history_limit | 8000000 | 否 |
+| innodb_ddl_threads | 4 | 否 |
+| innodb_parallel_ddl | OFF | 否 |
+| innodb_adaptive_hash_index | OFF | 否 |
+| cdb_plan_cache | OFF | 否 | 
+| innodb_table_drop_mode | sync_drop | 否 |
+| cdb_recycle_bin_retention | 604800 | 否 |
+| slave_net_timeout | 120 | 否 |
+| innodb_backquery_enable | OFF | 否 |
+| innodb_fast_ddl | OFF | 否 |
+| max_length_for_sort_data | 1024 | 否 |
+| slave_parallel_type | LOGICAL_CLOCK | 否 |
+| cdb_optimize_large_trans_binlog | OFF | 否 |
+| innodb_fast_ahi_cleanup_for_drop_table | OFF | 否 |
+| txsql_parallel_exchange_buffer_size | 1048576 | 否 |
+| innodb_temp_data_file_path | ibtmp1:12M:autoextend | 否 |
+| slave_rows_search_algorithms | TABLE_SCAN,INDEX_SCAN,HASH_SCAN | 否 |
+| cdb_recycle_scheduler_interval | 0 | 否 |
+| innodb_ddl_buffer_size | 10485760 | 否 |
+| cdb_kill_idle_trans_timeout | 0 | 否 |
+| collation_server | utf8_tolower_ci | 是 |
+| delay_key_write | ON | 否 |
+| innodb_async_truncate_size | 128 | 否 |
+| cdb_more_gtid_feature_supported | OFF | 否 |
+| cdb_opt_outline_enabled | OFF | 否 |
+| innodb_txsql_parallel_partitions_per_worker | 13 | 否 |
+| cdb_kill_user_extra | root@% | 否 |
+| slave_parallel_workers | 0 | 否 |
+| innodb_backquery_window | 900 | 否 |
+:::
+</dx-tabs>
+
+
+#### 2、一键迁移后，迁移源端云数据库 MySQL IOPS 监控项在迁移目标端 TDSQL-C MySQL 版上支持吗？
+暂不支持，TDSQL-C MySQL 版将逐步进行适配。

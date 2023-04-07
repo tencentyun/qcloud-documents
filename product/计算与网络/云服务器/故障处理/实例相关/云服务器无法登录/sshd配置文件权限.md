@@ -46,4 +46,3 @@ sshd -t
 ```
 chmod 600 /etc/ssh/ssh_host_rsa_key
 ```
-

@@ -6,9 +6,9 @@
 
 ## 操作步骤
  [](id:step1)
-### 步骤1：注册 Apple 开发人员帐户并请求部署包
+### 步骤1：注册 Apple 开发人员账号并请求部署包
 1. 进入 [Apple 账号注册网站](https://developer.apple.com/support/enrollment/) 进行账号注册。
-2. 单击 [FairPlay Streaming](https://developer.apple.com/streaming/fps/) 网站底部的“[Request FPS Deployment Package](https://developer.apple.com/contact/fps/)”，并使用您的 Apple 开发者帐户登录。
+2. 单击 [FairPlay Streaming](https://developer.apple.com/streaming/fps/) 网站底部的“[Request FPS Deployment Package](https://developer.apple.com/contact/fps/)”，并使用您的 Apple 开发者账号登录。
 3. 如果您根据输入表单申请部署包，在 Apple 确认后，您将收到一个包含 FPS 凭证创建指南文档的包。
 
 >! 在申请过程中，您将会被询问是否已完成密钥服务器模块（KSM）的实现和测试，对此可以回答：

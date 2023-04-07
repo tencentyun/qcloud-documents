@@ -1,7 +1,7 @@
 `@cloudbase/js-sdk` 能让您可以在 Web 端（例如 PC Web 页面、微信公众平台 H5 等）使用 JavaScript 访问 Cloudbase 服务和资源。
 
 ## 安装
-
+ 
 ### 方式一：通过包管理器引入
 
 ```bash

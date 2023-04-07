@@ -1,3 +1,4 @@
+
 ### 是否兼容社区版 MySQL？
 TDSQL-C MySQL 版可以100%兼容社区版 MySQL 5.7、8.0。
 

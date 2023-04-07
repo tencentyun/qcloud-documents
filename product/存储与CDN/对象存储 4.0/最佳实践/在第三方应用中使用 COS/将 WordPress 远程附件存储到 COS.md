@@ -32,7 +32,7 @@ COS 具有高扩展性、低成本、可靠和安全等特点，将媒体库附�
 
 这里介绍通过镜像部署 WordPress，镜像部署简便快捷。操作步骤如下：
 
-1. 通过镜像拉起 WordPress。
+1. 通过镜像部署 WordPress。
    1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的**新建**。
    2. 根据页面提示选择机型，并在**实例配置 > 镜像**中单击**镜像市场**，选择**从镜像市场选择**。
    3. 在“镜像市场”弹窗中，选择**基础软件**，输入 **wordpress** 进行搜索。
@@ -151,7 +151,7 @@ rm tencent-cloud-cos.zip -f
 </tr>
 <tr>
 <td align="left">文件审核</td>
-<td align="left">开启文件审核，可对图片、视频、音频、文本、文档、网页等多媒体的内容安全智能审核服务，可帮助用户有效识别色情低俗、违法违规、恶心反感等违禁内容，规避运营风险，详情可参见 <a href="https://cloud.tencent.com/document/product/436/45435">内容审核概述</a></td>
+<td align="left">开启文件审核，可对图片、视频、音频、文本、文档、网页等多媒体内容进行安全智能审核服务，可帮助用户有效识别色情低俗、违法违规、恶心反感等违禁内容，规避运营风险，详情可参见 <a href="https://cloud.tencent.com/document/product/436/45435">内容审核概述</a></td>
 </tr>
 <tr>
 <td align="left">文档预览</td>

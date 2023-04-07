@@ -49,8 +49,8 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的�
 ![](https://qcloudimg.tencent-cloud.cn/raw/b66da9824787768c8851fc8fd229364b.png)
 API 名称、描述支持自定义。分组可选择默认分组、新建分组。
 - 请求方法支持：GET、POST、PATCH、PUT、DELETE、HEAD。
-- 鉴权策略支持：NoAuth、BasicAuth、OAuth2.0、HMAC。
-- 后弹服务类型支持：集成流、第三方服务、数据库、Mock。集成流、第三方服务、Mock 的请求参数可自行添加，最多添加30条。
+- 鉴权方式支持：NoAuth、BasicAuth、OAuth2.0、HMAC。
+- 后端服务类型支持：集成流、第三方服务、数据库、Mock。集成流、第三方服务、Mock 的请求参数可自行添加，最多添加30条。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c77ed08f54ff871e2b1703b0176f4bdc.png)
 - 数据库类型支持新建或选择 MySQL 类型的数据源。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eceac720481e715399bd36a566372857.png)
@@ -110,6 +110,7 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 - 上架：运行中的API服务，可通过**上架**功能共享给企业的其他员工使用。在 **API 服务** > **操作** > **更多** > **上架**路径提交上架申请，提交后的 API 服务会被企业管理员审核，审核通过后可展示在 API 目录中，支持被当前主账号下的所有子账号订阅。
 - 下架：上架后的 API 服务，若不想继续被其他员工订阅，则可通过下架来完成。在 **API 服务** > **操作** > **更多** > **下架**路径提交下架申请，提交申请后需联系系统管理员或该项目的项目管理员进行审核，审核通过后即可下架，API 下架后不能被订阅。下架后的 API 服务会移出 API 目录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b8db2e0df40fb88bc49d45a89d7351db.png)
+
 #### 查看发布历史
 发布后的 API 服务可以更改状态、环境等。在 **API 服务** > **操作** > **更多** > **查看发布历史**路径。此功能可查看到 API 服务发布后的历史情况（最多显示10条）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/197a3e6e81907e85ceb89c11e1e9169c.png)
@@ -146,20 +147,57 @@ API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架
 
  ![](https://qcloudimg.tencent-cloud.cn/raw/2fd53195b377dc997c427d9b2d063ed1.png)
 
+
 ## API 调用步骤
-### 从用户侧调用 API（以 postman 为例）
+### 从用户侧用不同鉴权方式调用 API（以 postman 为例）
 - API 服务无需验证的情况：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8f0989e13ad33d5180ae002220ded34.png)
 - API 服务需要 Basic Auth 的情况：
-![](https://qcloudimg.tencent-cloud.cn/raw/a6e7ec724140fff6bb9041094ec474fa.png)
-- API 服务需要 OAuth2.0的情况：
-  1. 在用户信息处获取 Client ID 和 Client Secret，在待访问的 API 服务页面获取 Access Token URL。
-![](https://qcloudimg.tencent-cloud.cn/raw/cecd4833d3f33ba7b9a01a0e9dfe9f0f.png)
-  2. 复制之后，在 postman 中创建一个新的请求，填写入上方的 Token 获取地址并使用 GET 方法（此处的鉴权方式应为 NoAuth）。随后选择 Params 标签页，输入 client 信息。输入方式：
-      - 第一列：key 为 client_id，value 为从上方复制的 Client ID 对应的内容。
-      - 第二列：key 为 client_sectet，value 为从上方复制的 Client Secret 对应的内容。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/58be51e42e4bbad725c51af79ce2a4ea.png)
- 3. 单击 **send**，从界面下方的 body 处复制 access_token 字段的值。此即为本次调用时需要用到的 token 信息。
- ![](https://qcloudimg.tencent-cloud.cn/raw/4ed7d90ac9851708cf177e34b2d8c505.png)
-  4. 重新打开一个请求界面，填入需要请求的 API 域名，并选择 Bearer Token 模式。在右侧的 Token 处输入前面获得的 Token，单击 **send**，即可看到访问结果。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/414baa58ca250f0535c4925536cb9ff9.png)
+  1. 复制 API 的调用地址（需先成功发布 API 服务）：
+![](https://qcloudimg.tencent-cloud.cn/raw/9bb1700868352347cfbff6b88bc4a7bd.png)
+  2. 进入 API 服务详情页面，新建或打开已有**调用凭证**，即可查看用于 Basic Auth 的AK/SK信息：
+<img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c954c391d8cfa6a9574fd7d4ce3c6217.png" /><br>
+  3. 打开 postman，将上述获取的 API 调用地址和用于 Basic Auth 的 AK/SK 信息分别填入：
+![](https://qcloudimg.tencent-cloud.cn/raw/e008d5181b9bf331a89cbf3a0a82d851.png)
+- API 服务需要 OAuth2.0 的情况：
+  1. 复制 API 的调用地址（需先成功发布 API 服务），方法同上，不再附图。
+  2. 进入 API 服务详情页面，新建或打开已有**调用凭证**，即可查看用于 OAuth2.0 的AK/SK信息：
+<img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e34861f87d6915fc9068b0e8fab432a9.png" />
+  3. 进入 API 服务详情页面，单击并复制对应 API 的 **Token 获取链接**。
+![](https://qcloudimg.tencent-cloud.cn/raw/e8954b2063a9749573d486668cecda77.png)
+  4. 在 postman 中创建一个新的请求，来获取 accsee_token。
+      1. 首先，在输入栏中输入第3步获取的 **Token 获取链接**，并选择 GET 请求方法。
+      2. 其次，选择 Params 标签页，分别输入第2步获得的用于 OAuth2.0 的 AK/SK 信息（格式见下图）。
+      3. 最后，单击 **send**，即可生成下图中的 access_token 内容，将其复制。
+
+ <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/626b4f966d101dcea127d5f3a1e3ecb7.png" /><br>
+  5. 在 postman 重新打开一个请求界面，填入第1步获取的 API 调用地址，Type 选择 OAuth2.0 模式。并在右侧填入第4步获取的 accsee_token，单击 **send**，即可看到访问结果（如果配置 API 时还设置了请求参数，这里也要按位置输入）。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/42574d10fdd12bd6092f75fc72876767.png" />
+- API 服务需要 HMAC Auth 的情况：
+ 1. 复制 API 的调用地址（需先成功发布 API 服务），方法同上，不再附图。
+ 2. 进入 API 服务详情页面，新建或打开已有**调用凭证**，即可查看用于 HMAC 的 AK/SK 信息：
+<img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/88237bff54654d53122ffe71f69a9d51.png" />
+ 3. 打开 postman，在输入框填入第1步获取的 API 调用地址。
+ 4. 将 postman 切换到 Pre-request Script 标签下，粘贴下方代码段（注意用第2步获取的 HMAC 的 Key 和 Secret，分别来替换代码段中的 hmac_key 和 hmac_secret 变量值）。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/44e914ad4e9e94e6402ba26b4c15dba3.png" />
+ ```
+var hmac_key = "2e4d0bbad47e3b5e3a0c";
+var hmac_secret = "815ba6d666d58ef1e79b";
+
+var time = new Date().toUTCString();
+console.log("time:" + time)
+var signed_headers_string = "";
+signing_string= pm.request.method + "\n" + pm.request.url.getPath() + "\n" + pm.request.url.getQueryString() + "\n" + hmac_key + "\n" + time + "\n" + signed_headers_string;
+console.log("signing_string:\n" + signing_string);
+
+var signatureBytes = CryptoJS.HmacSHA256(signing_string, hmac_secret);
+var requestSignatureBase64String = CryptoJS.enc.Base64.stringify(signatureBytes);
+console.log("requestSignatureBase64String:" + requestSignatureBase64String)
+
+//将下面变量记录下来，在请求的Header中进行引用
+pm.globals.set("sign", requestSignatureBase64String); //hmac签名
+pm.globals.set("hmac_key", hmac_key); //hmac key
+pm.globals.set("date", time); //请求时间
+```
+ 5. 将 postman 切换到 Headers 标签下，输入下图中的4个 KEY-VALUE 对。最后，单击 **send**，即可看到调用 API 的返回结果。<br>
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/623981d7d7761ea7e7c44e6d58264530.png" />

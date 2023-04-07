@@ -21,5 +21,5 @@ example.com {
 1. 在 **[集群管理](https://console.cloud.tencent.com/oceanus/cluster) > 集群信息**中可设置自定义 DNS。
 ![](https://qcloudimg.tencent-cloud.cn/raw/85f7eb127224817f59fd25bdd5207dc4.png)
 2. 在弹窗中设置 host 或域名，单击**确认**保存设置，保存后可以再次进行修改。
-![](https://qcloudimg.tencent-cloud.cn/raw/8f964ab7f19d3aa938a2f84e8d379938.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d30eba563c23380ab423c2565c71ebee.png)
 

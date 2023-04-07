@@ -65,5 +65,7 @@ API 暴露面主要分为两个大的部分：
 -持续动态梳理系统访问账号，多维度记录账号访问和操作行为，主动识别风险操作。
 </dx-steps>
 
-那么在异常暴露面发现的基石就是 API 的资产发现，API 的资产发现在 Web 应用防火墙中，可以通过 API 流量分析进行对流量内的 API 进行发现及管控。要进行暴露面监测，及时了解当前网站中包含的 API 及相关敏感资产信息及其资产标签与风险、活跃状态。
+那么在异常暴露面发现的基石就是 API 的资产发现，API 的资产发现在 Web 应用防火墙中，可以通过  [API 流量分析](https://console.cloud.tencent.com/guanjia/tea-apianalysis) 进行对流量内的 API 进行发现及管控。要进行暴露面监测，及时了解当前网站中包含的 API 及相关敏感资产信息及其资产标签与风险、活跃状态。
+>?API 流量分析功能当前处于公测中，支持 [提交工单](https://console.cloud.tencent.com/workorder/category?step=0&source=14) 或联系商务经理申请试用该功能，公测期间仅支持开启3个域名。
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/6423ba30cbe77c258bc37fddc827e8f8.png)

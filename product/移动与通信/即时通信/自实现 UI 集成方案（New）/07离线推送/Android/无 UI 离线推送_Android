@@ -9,7 +9,7 @@
 TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有源码指引链接可供参考。
 
 ### 步骤1：注册应用到厂商推送平台
-离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 AppID 和 AppKey 等参数。目前国内支持的手机厂商有：[小米](https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[荣耀](https://developer.hihonor.com/cn/doc/guides/100368)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，境外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
+离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 AppID 和 AppKey 等参数。目前国内支持的手机厂商有：[小米](https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[荣耀](https://developer.hihonor.com/cn/kitdoc?category=&kitId=11002)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，境外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
 
 ### 步骤2：IM 控制台配置
 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，添加各个厂商推送证书，并将您在步骤一中获取的各厂商的 AppId、AppKey、AppSecret 等参数配置给 IM 控制台的推送证书，其中 “单击后续动作” 参见步骤3。
@@ -896,16 +896,124 @@ private void handleOfflinePush() {
 		
 ```
 
->!
->- FCM 单击通知栏的消息会默认跳转至应用的默认 Launcher 界面，您可以在界面启动的 onResume() 方法中，通过调用 getIntent().getExtras() 获取透传的离线推送参数再自定义跳转。
+>!FCM 单击通知栏的消息会默认跳转至应用的默认 Launcher 界面，您可以在界面启动的 onResume() 方法中，通过调用 getIntent().getExtras() 获取透传的离线推送参数再自定义跳转。
  
 以上完成后，当您的应用退到后台或者进程被杀掉时，消息会进行离线推送通知栏展示，可单击通知栏跳转到设定的应用界面，完成实现离线推送功能。
 
+## 离线推送自定义推送铃音
+### 1. Android 8.0 以前系统设置，接口调用 [setAndroidSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a3ff923225d5a79802a02c47a07e07fc5) 和 [setIOSSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#acffd09150398b06c3d7eb42baee5aee1)。
+#### 步骤1：定制的铃音资源文件，Android 添加到工程 raw 目录下，iOS 链接进 Xcode 工程。
+#### 步骤2：发送消息指定使用自定义的铃音。
+```
+V2TIMOfflinePushInfo v2TIMOfflinePushInfo = new V2TIMOfflinePushInfo();
+v2TIMOfflinePushInfo.setAndroidSound("铃音名称");
+v2TIMOfflinePushInfo.setIOSSound("铃音名称.mp3");
+
+String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGroup ? null : userID, isGroup ? groupID : null,
+ V2TIMMessage.V2TIM_PRIORITY_DEFAULT, false, v2TIMOfflinePushInfo, new V2TIMSendCallback<V2TIMMessage>() {
+@Override
+ public void onProgress(int progress) {
+     TUIChatUtils.callbackOnProgress(callBack, progress);
+ }
+
+@Override
+ public void onError(int code, String desc) {
+    TUIChatUtils.callbackOnError(callBack, TAG, code, desc);
+ }
+
+@Override
+ public void onSuccess(V2TIMMessage v2TIMMessage) {
+
+ }
+});
+```
+
+>!
+>1. IMSDK  6.1.2155  及以上版本支持。
+>2. 接口支持华为、小米、FCM 和 APNS。
+
+
+### 2. Android 8.0 及以后系统设置需要通过 channel 实现。
+- **华为 & ANPS**
+华为、APNS 仍然调用 [setAndroidSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a3ff923225d5a79802a02c47a07e07fc5) 和 [setIOSSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#acffd09150398b06c3d7eb42baee5aee1) 来设置离线推送铃音提示。
+
+- **小米**
+#### 步骤1：登录厂商控制台 [创建 channel 并做好配置](https://dev.mi.com/console/doc/detail?pId=2422#_2)，其中铃音文件需要添加到您本地 Android Studio 工程的 raw 目录下。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/79a73f0b02d72833c59f50989882c890.png" style="zoom:100%;" /> 
+#### 步骤2：发送消息指定自定义铃音的 channel ID，详见 [setAndroidXiaoMiChannelID](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#ac769aec48cdbc9a57416c5a79504617a) 。
+```
+V2TIMOfflinePushInfo v2TIMOfflinePushInfo = new V2TIMOfflinePushInfo();
+v2TIMOfflinePushInfo.setAndroidXiaoMiChannelID("厂商申请的 channel ID");
+
+String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGroup ? null : userID, isGroup ? groupID : null,
+ V2TIMMessage.V2TIM_PRIORITY_DEFAULT, false, v2TIMOfflinePushInfo, new V2TIMSendCallback<V2TIMMessage>() {
+@Override
+ public void onProgress(int progress) {
+    TUIChatUtils.callbackOnProgress(callBack, progress);
+ }
+
+@Override
+ public void onError(int code, String desc) {
+    TUIChatUtils.callbackOnError(callBack, TAG, code, desc);
+ }
+
+@Override
+ public void onSuccess(V2TIMMessage v2TIMMessage) {
+
+ }
+});
+```
+- **FCM**
+#### 步骤1：创建需要自定义铃音的 channel。
+[TUIOfflinePush](https://github.com/TencentCloud/TIMSDK/tree/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush) 组件已经默认创建好带自定义铃音的 channel。铃音文件需要添加到您本地 Android Studio 工程的 raw 目录下，并指定铃音名称和 channel ID 的名称，详见 [PrivateConstants](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/native/java/com.tencent.qcloud.tim.tuiofflinepush/PrivateConstants.java)。
+```
+public class PrivateConstants {
+
+...
+
+// FCM 通道指定 channel ID
+public static String fcmPushChannelId = "fcm_push_channel";
+// FCM 上面指定通道的推送铃音名称，Android 工程里 raw 目录中的铃音文件名，不需要后缀名。
+public static String fcmPushChannelSoundName = "private_ring";
+
+...
+
+}
+```
+打开组件自定义铃音开关，详见 [TUIOfflinePushConfig](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/java/com/tencent/qcloud/tim/tuiofflinepush/TUIOfflinePushConfig.java) 。
+```
+TUIOfflinePushConfig.getInstance().setAndroidPrivateRing(true);
+```
+#### 步骤2：发送消息指定自定义铃音的 channel ID，详见 [setAndroidFCMChannelID](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a1e63514ec664a5f7bc8c6a5b09f0689e)。
+```
+V2TIMOfflinePushInfo v2TIMOfflinePushInfo = new V2TIMOfflinePushInfo();
+v2TIMOfflinePushInfo.setAndroidFCMChannelID(PrivateConstants.fcmPushChannelId);
+
+String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGroup ? null : userID, isGroup ? groupID : null,
+ V2TIMMessage.V2TIM_PRIORITY_DEFAULT, false, v2TIMOfflinePushInfo, new V2TIMSendCallback<V2TIMMessage>() {
+@Override
+ public void onProgress(int progress) {
+    TUIChatUtils.callbackOnProgress(callBack, progress);
+ }
+
+@Override
+ public void onError(int code, String desc) {
+    TUIChatUtils.callbackOnError(callBack, TAG, code, desc);
+ }
+
+@Override
+ public void onSuccess(V2TIMMessage v2TIMMessage) {
+
+ }
+});
+```
+
+>!
+> 1. IMSDK 7.0.3754 及以上版本支持。
+> 2. FCM 自定义铃声或者设置 channnel id 仅支持证书模式。
+> <img src="https://qcloudimg.tencent-cloud.cn/raw/3b889e4b7a4c75c3748f3ad01d876cf4.png" style="zoom:30%;" />
+
 ## 常见问题
-
-### 离线推送怎么自定义推送的声音？
-
-从 SDK 6.1.2155 版本开始，支持设置自定义铃音，支持机型有华为、小米、FCM 和 APNS。方法参见：V2TIMOfflinePushInfo 接口 [setAndroidSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a3ff923225d5a79802a02c47a07e07fc5) 和 [setIOSSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#acffd09150398b06c3d7eb42baee5aee1)。
 
 ### 收不到离线推送怎么排查？
 #### 1、OPPO 手机
@@ -947,10 +1055,14 @@ OPPO 手机收不到推送一般有以下几种情况：
 1、国内厂商都有消息分类机制，不同类型也会有不同的推送策略。如果想要推送及时可靠，需要按照厂商规则设置自己应用的推送类型为高优先级的系统消息类型或者重要消息类型。反之，离线推送消息会受厂商推送消息分类影响，与预期会有差异。
 2、另外，一些厂商对于应用每天的推送数量也是有限制的，可以在厂商控制台查看应用每日限制的推送数量。
 如果离线推送消息出现推送不及时或者偶尔收不到情况，需要考虑下这里：
-- 华为：将推送消息分为服务与通讯类和资讯营销类，推送效果和策略不同。另外，消息分类还和自分类权益有关：
+- 华为：华为推送从 EMUI 10.0版本开始将通知消息智能分成两个级别：**服务与通讯**和**资讯营销**。EMUI 10.0之前的版本没有对通知消息进行分类，只有一个级别，消息全部通过“默认通知”渠道展示，等价于 EMUI 10.0的服务与通讯。资讯营销类消息的每日推送数量自2023年01月05日起根据应用类型对推送数量进行上限管理，服务与通讯类消息每日推送数量不受限。另外，消息分类还和自分类权益有关：
   - 无自分类权益，推送消息厂商还会进行二次智能分类 。
-  - 有申请自分类权益，且推送消息携带 category 字段，消息会按照自定义的分类进行推送。
-具体请参见 [厂商描述](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835)。
+  - 有申请自分类权益，且推送消息携带 category 字段，消息会按照自定义的分类进行推送，详见 [setAndroidHuaWeiCategory](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#ad9dea3cb382c0c1a3c1a63738697fc1f)。
+具体请参见 [厂商描述1](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835) 或 [厂商描述2](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-restriction-description-0000001361648361?ha_source=hms5)。
+- 荣耀：荣耀手机推送和系统版本有关。
+  - 当前荣耀通道仅支持国内 Magic UI 4.0 及以上和海外 Magic UI 4.2 及以上荣耀设备使用。
+  - 低于上述版本的荣耀设备可以按照华为厂商接入推送。
+  具体请参见 [厂商描述](https://developer.hihonor.com/cn/kitdoc?category=&kitId=11002)。
 - vivo：将推送消息分为系统消息类和运营消息类，推送效果和策略不同。系统消息类型还会进行厂商的智能分类二次修正，若智能分类识别出不是系统消息，会自动修正为运营消息，如果误判可邮件申请反馈。另外，消息推送也受日推总数量限制，日推送量由应用在厂商订阅数统计决定。
 具体请参见 [厂商描述1](https://dev.vivo.com.cn/documentCenter/doc/359) 或 [厂商描述2](https://dev.vivo.com.cn/documentCenter/doc/156)。
 - OPPO：将推送消息分为私信消息类和公信消息类，推送效果和策略不同。其中私信消息是针对用户有一定关注度，且希望能及时接收的信息，私信通道权益需要邮件申请。公信通道推送数量有限制。

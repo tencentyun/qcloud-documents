@@ -140,7 +140,7 @@ cd mongodb-linux-x86_64-3.6.18/bin
 ./mongo -u mongouser -p --authenticationDatabase "admin" [mongodb的IP]/piggymetrics mongo-init.js
 :::
 </dx-codeblock>
- <dx-alert infotype="explain" title=" ">
+ <dx-alert infotype="explain" title="">
   mongodb 初始化脚本 **mongo-init.js** 中默认创建了一个 piggymetrics 库的用户 **guest**，可按您的需求进行修改。  
 </dx-alert>
 
@@ -287,7 +287,7 @@ PiggyMetrics 项目采用个人版镜像仓库（建议企业客户使用企业�
 ```sh
  docker login --username=[腾讯云账号 ID] ccr.ccs.tencentyun.com
 ```
- <dx-alert infotype="explain" title=" ">
+ <dx-alert infotype="explain" title="">
 
 - 腾讯云账号 ID 可在 [账号信息](https://console.cloud.tencent.com/developer) 页面获取。  
 - 若忘记**镜像仓库登录密码**，可前往容器服务镜像仓库个人版 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user) 中进行重置。  
@@ -307,7 +307,7 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 ![](https://main.qcloudimg.com/raw/466adcd0ebf9adf2c16421885a0c6567.png)
 3. 在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/self?rid=1) 中可以查看上传的所有镜像，下图展示的是上传到腾讯云镜像仓库中 PiggyMetrics 的 9 个镜像。  
 ![](https://main.qcloudimg.com/raw/bbe50d859ab272ddeffdcd339d43213b.png)
-<dx-alert infotype="explain" title=" ">
+<dx-alert infotype="explain" title="">
 默认镜像类型为“私有”，如需提供镜像给他人使用，可在**镜像信息**中将镜像类型设置为公有。如下图所示：
 ![](https://main.qcloudimg.com/raw/88b73306c07a4ea281cef52a77d3246c.png)
 </dx-alert>
@@ -321,7 +321,8 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 
 1. 实际部署前，需要新建一个 K8S 集群。有关集群的创建，请参见 [创建集群](https://cloud.tencent.com/document/product/457/54231) 文档。  
 >!在创建集群时，在“选择机型” 页面建议开启“置放群组功能”，该功能可将 CVM 打散到不同母机上，增加系统可靠性。如下图所示：
-![](https://main.qcloudimg.com/raw/6aba7922f3b7247cda8cb8e5b8959578.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/280987b0e84852532ebff6880d0e2833.png)
+>
 2. 创建完成后，在容器服务控制台的 [集群管理](https://console.cloud.tencent.com/tke2/cluster) 页面可以看到新建的集群信息。本文新建的集群名称为 piggyMetrics。如下图所示：
 ![](https://main.qcloudimg.com/raw/1157a6c99171ef8080c860eae636881a.png)
 3. 单击集群 PiggyMetrics-k8s-demo 进入“基本信息”页面，可以查看整个集群的配置信息。  
@@ -752,7 +753,7 @@ spec:
 
 #### 接入 TSW — 获取接入点信息
 
-1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏种的**服务观测** > **服务列表**。  
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/apm)，选择左侧导航栏中的**服务观测** > **服务列表**。  
 2. 单击**接入服务**，选择 Java 语言与 SkyWalking 的数据采集方式。接入方式下提供了如下接入信息：**接入点**和 **Token**。  
 ![](https://main.qcloudimg.com/raw/b6333d66cf38310a9fe2403bee7bbb4a.png)
 
@@ -794,4 +795,3 @@ Skywalking agent 也支持使用环境变量方式进行配置，PiggyMetrics �
 2.  在“分布式依赖拓扑”页面可查看完成的服务依赖情况，以及调用次数和平均延迟等信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/b10385d0e2721effa6a0652cd243ab6b.png)
 
-```

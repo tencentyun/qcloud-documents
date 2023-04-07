@@ -9,8 +9,7 @@
 ## 接口使用
 
 ### 域名
-
-```
+```html
 https://<环境ID>.ap-shanghai.tcb-api.tencentcloudapi.com
 ```
 
@@ -100,7 +99,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OpenApiClient {
-    // 获取 AccessToken
+    // 获取 token
     private String getToken(String envId, String secretId, String secretKey) {
         String host = "https://" + envId + ".ap-shanghai.tcb-api.tencentcloudapi.com";
         String url = host + "/auth/v1/token/clientCredential";
@@ -143,9 +142,10 @@ public class OpenApiClient {
     // GET: 获取数据源记录列表
     private void GET(String token, String envId, String envType, String datasourceName) {
         String host = "https://" + envId + ".ap-shanghai.tcb-api.tencentcloudapi.com";
-        String url = "weda/odata/v1/" + envType + "/" + datasourceName;
+        String url = host + "/weda/odata/v1/" + envType + "/" + datasourceName;
         HttpGet httpGet = new HttpGet(url);
-        httpGet.addHeader("Authrization", token);
+        httpGet.addHeader("Authorization", token);
+        httpGet.addHeader("Content-Type", "application/json");
         ResponseHandler<String> responseHandler = response -> {
             int status = response.getStatusLine().getStatusCode();
             if (status >= 200 && status < 300) {
@@ -166,12 +166,13 @@ public class OpenApiClient {
         }
     }
 
-    // GET
+    // GET: 获取数据源记录详情
     private void GET(String token, String envId, String envType, String datasourceName, String recordId) {
         String host = "https://" + envId + ".ap-shanghai.tcb-api.tencentcloudapi.com";
-        String url = "weda/odata/v1/" + envType + "/" + datasourceName + "/('" + recordId + "')";
+        String url = host + "/weda/odata/v1/" + envType + "/" + datasourceName + "('" + recordId + "')";
         HttpGet httpGet = new HttpGet(url);
-        httpGet.addHeader("Authrization", token);
+        httpGet.addHeader("Authorization", token);
+        httpGet.addHeader("Content-Type", "application/json");
         ResponseHandler<String> responseHandler = response -> {
             int status = response.getStatusLine().getStatusCode();
             if (status >= 200 && status < 300) {
@@ -192,14 +193,15 @@ public class OpenApiClient {
         }
     }
 
-    // POST
+    // POST: 创建记录
     private void POST(String token, String envId, String envType, String datasourceName, Map<String, Object> jsonBody) {
         StringEntity requestBody = new StringEntity(JSONObject.toJSONString(jsonBody), "UTF-8");
         String host = "https://" + envId + ".ap-shanghai.tcb-api.tencentcloudapi.com";
-        String url = "weda/odata/v1/" + envType + "/" + datasourceName;
+        String url = host + "/weda/odata/v1/" + envType + "/" + datasourceName;
         HttpPost httpPost = new HttpPost(url);
         httpPost.setEntity(requestBody);
-        httpPost.addHeader("Authrization", token);
+        httpPost.addHeader("Authorization", token);
+        httpPost.addHeader("Content-Type", "application/json");
         ResponseHandler<String> responseHandler = response -> {
             int status = response.getStatusLine().getStatusCode();
             if (status >= 200 && status < 300) {
@@ -220,20 +222,82 @@ public class OpenApiClient {
         }
     }
 
+    // PUT: 更新记录
+    private void PUT(String token, String envId, String envType, String datasourceName, String recordId, Map<String, Object> jsonBody) {
+        StringEntity requestBody = new StringEntity(JSONObject.toJSONString(jsonBody), "UTF-8");
+        String host = "https://" + envId + ".ap-shanghai.tcb-api.tencentcloudapi.com";
+        String url = host + "/weda/odata/v1/" + envType + "/" + datasourceName + "('" + recordId + "')";;
+        HttpPost httpPost = new HttpPost(url);
+        httpPost.setEntity(requestBody);
+        httpPost.addHeader("Authorization", token);
+        httpPost.addHeader("Content-Type", "application/json");
+        ResponseHandler<String> responseHandler = response -> {
+            int status = response.getStatusLine().getStatusCode();
+            if (status >= 200 && status < 300) {
+                HttpEntity entity = response.getEntity();
+                return entity != null ? EntityUtils.toString(entity) : null;
+            } else {
+                throw new ClientProtocolException("Unexpected response status: " + status + EntityUtils.toString(response.getEntity()));
+            }
+        };
+        try  {
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+            String responseBody = httpClient.execute(httpPost, responseHandler);
+            Map<String, Object> responseMap = JSONObject.parseObject(responseBody, Map.class);
+            // 打印 body
+            System.out.println(responseMap.toString());
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    // DELETE: 删除记录
+    private void DELETE(String token, String envId, String envType, String datasourceName, String recordId) {
+        String host = "https://" + envId + ".ap-shanghai.tcb-api.tencentcloudapi.com";
+        String url = host + "/weda/odata/v1/" + envType + "/" + datasourceName + "('" + recordId + "')";
+        HttpDelete httpDelete = new HttpDelete(url);
+        httpDelete.addHeader("Authorization", token);
+        httpDelete.addHeader("Content-Type", "application/json");
+        ResponseHandler<String> responseHandler = response -> {
+            int status = response.getStatusLine().getStatusCode();
+            if (status >= 200 && status < 300) {
+                HttpEntity entity = response.getEntity();
+                return entity != null ? EntityUtils.toString(entity) : null;
+            } else {
+                throw new ClientProtocolException("Unexpected response status: " + status + EntityUtils.toString(response.getEntity()));
+            }
+        };
+        try  {
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+            httpClient.execute(httpDelete, responseHandler);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
     public static void main(String[] args) {
-        com.tencent.weda.service.OpenApiClient openApiClient = new com.tencent.weda.service.OpenApiClient();
+        com.tencent.weda.OpenApiClient openApiClient = new com.tencent.weda.OpenApiClient();
+        // 真实环境 ID
         String envId = "lowcode-*";
         String secretId = "";
         String secretKey = "";
+        // 数据模型标识
         String datasourceName = "";
+        // 数据模型类型
         String envType = "pre";
         String token = openApiClient.getToken(envId, secretId, secretKey);
+        // 创建记录
         Map<String, Object> postBody = new HashMap<>();
         postBody.put("name", "zhangsan");
         postBody.put("age", 12);
+        //openApiClient.POST(token, envId, envType, datasourceName, postBody);
 
-        openApiClient.POST(token, envId, envType, datasourceName, postBody);
-        openApiClient.GET(token, envId, envType, datasourceName);
+        //查看记录
+        //openApiClient.GET(token, envId, envType, datasourceName);
+        //删除记录
+        //openApiClient.DELETE(token, envId, envType, datasourceName, "6TE4008HQC");
+        //查看
+        //openApiClient.GET(token, envId, envType, datasourceName, "6TE476HL4Y");
     }
 }
 ```
@@ -243,6 +307,7 @@ public class OpenApiClient {
 
 ## 快速体验：使用 Postman 调用开放接口
 1. 打开 Postman 工具，添加一个 GET 请求。进入 **Authorization** 页面完成相应配置。
+>!Access Token URL参数设置，需要在域名后添加 `/auth/v1/token/clientCredential`。示例：`https://lowcode-8g171waac4be77f6.ap-shanghai.tcb-api.tencentcloudapi.com/auth/v1/token/clientCredential`  
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3d826dc2e851bbdb91bdc114ccc03b07.png" />
 2. 进入 **headers** 页面，设置相应参数即可。
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/4936c09f61d694d4ba18875705e9199d.png" />

@@ -136,7 +136,7 @@
 <li>第7个字段表示 CLB 从收到 client key exchange 到发送 server finished 的时间。</li></ul></td><td>text</td></tr>
 <tr><td>ssl_cipher</td><td> SSL 加密套件。</td><td>text</td></tr>
 <tr><td>ssl_protocol</td><td> SSL 协议版本。</td><td>text</td></tr>
-<tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID，公网 CLB 的 vip_vpcid 为-1。</td><td>long</td></tr>
+<tr><td>vip_vpcid</td><td>负载均衡实例所属的私有网络 ID，公网 CLB 的取值为-1。</td><td>long</td></tr>
 <tr><td>request_method</td><td> 请求方式，支持 POST 和 GET 请求。</td><td>text</td></tr>
 <tr><td>uri</td><td> 资源标识符。</td><td>text</td></tr>
 <tr><td>server_protocol</td><td>CLB 的协议。</td><td>text</td></tr>

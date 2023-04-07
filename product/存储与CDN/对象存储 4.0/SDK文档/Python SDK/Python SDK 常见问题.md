@@ -13,3 +13,6 @@ COS XML Python SDK 操作成功会返回一个 dict 或者 None。若调用 SDK 
 - 服务端返回的错误：指服务端处理一些不符合要求的客户端请求所返回的错误。例如访问不存在的文件，没有文件的访问权限等。更多服务端返回的错误码详细信息，请参见 [API 错误码](https://cloud.tencent.com/document/product/436/7730)。
 - 客户端错误：主要指网络异常、文件读写 IO 异常、参数校验失败等。
 
+### 使用 COS Python SDK 上传对象时报错请求过期，抛出异常：`qcloud_cos.cos_exception.CosServiceError: {'code': 'AccessDenied', 'message': 'Request has expired'}`，该如何处理？
+
+由于签名过期导致，重新生成签名即可解决；若重新生成签名仍报相同的错误，可以再检查机器的本地时间是否为标准的北京时间。

@@ -2,7 +2,7 @@
 
 **文中使用的组件/应用及版本如下：**
 
-| 技术组件/     | 版本                          |
+| 技术组件     | 版本                          |
 |-----------|-----------------------------|
 | Nginx     | 1.22                        |
 | CLS 日志服务   | -                           |
@@ -106,7 +106,7 @@ CREATE TABLE `nginx_source`
   'format' = 'json',
   'json.fail-on-missing-field' = 'false', 
   'json.ignore-parse-errors' = 'true' ,
-  'properties.sasl.jaas.config' = 'org.apache.kafka.common.security.plain.PlainLoginModule required username="your username" password="your password";',--用户名是日志主题所属的日志集合ID，例如ca5cXXXX-dd2e-4ac0-af12-92d4b677d2c6，密码是用户的secretid#secrectkey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。
+  'properties.sasl.jaas.config' = 'org.apache.kafka.common.security.plain.PlainLoginModule required username="your username" password="your password";',--用户名是日志主题所属的日志集合ID，例如ca5cXXXX-dd2e-4ac0-af12-92d4b677d2c6，密码是用户的secretid#secrectkey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。建议使用子账号密钥为子账号授权时,遵循最小权限原则,即子账号的访问策略中的action、resource都配置为最小范围,可以满足操作即可.
   'properties.security.protocol' = 'SASL_PLAINTEXT',
   'properties.sasl.mechanism' = 'PLAIN'
 );
@@ -133,5 +133,5 @@ GROUP BY TUMBLE(ts, INTERVAL '1' MINUTE);
 ```
 2. 在 Flink 的任务监控页，我们可以看到任务的监控数据：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9e59652be03ac35c9e4510c2b5cc7de3.png)
-3. 进入 MySql 数据库，即可看到计算 PV、UV 的结果数据实时写入。
+3. 进入 MySql 数据库，即可看到计算 PV、UV 的结果数据实时写入：
 ![](https://qcloudimg.tencent-cloud.cn/raw/51cbfe4115a1130f03b24a823427b634.png)

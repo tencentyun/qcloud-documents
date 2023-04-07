@@ -6,8 +6,9 @@ COSFS 工具支持将对象存储（Cloud Object Storage，COS）存储桶挂载
 - MD5 数据校验功能。
 - 将本机数据上传至 COS，建议使用 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392) 或 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976)。
 
+
 ## 局限性
-**COSFS 基于 S3FS 构建，读取和写入操作都经过磁盘中转，仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，建议您使用 [腾讯云存储网关](https://cloud.tencent.com/product/csg) 访问 COS，腾讯云存储网关可以将 COS 存储桶，以网络文件系统挂载到多个服务器上，用户可以使用 POSIX 文件协议，通过挂载点读写 COS 上的对象。** 使用 COSFS 工具，需注意以下不适用的场景，例如：
+**COSFS 基于 S3FS 构建，读取和写入操作都经过磁盘中转，仅适合挂载后对文件进行简单的管理，不支持本地 POSIX 协议文件系统的一些功能用法；相比于 COSFS，更建议您使用 [GooseFS-Lite](https://cloud.tencent.com/document/product/1424/73687)工具访问 COS，GooseFS-Lite 是一个轻量级单机 COS Fuse 工具，具有更好的读写性能和稳定性；此外，您也可以选择使用 [腾讯云存储网关](https://cloud.tencent.com/product/csg)访问 COS，腾讯云存储网关可以将 COS 存储桶，以网络文件系统挂载到多个服务器上，用户可以使用 POSIX 文件协议，通过挂载点读写 COS 上的对象；** COSFS 的使用，需注意以下不适用的场景，例如：
 
 - 随机或者追加写文件会导致整个文件的下载以及重新上传，您可以使用与 Bucket 在同一个地域的 CVM 加速文件的上传下载。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
@@ -186,7 +187,7 @@ chmod 640 /etc/passwd-cosfs
 
 >? 您需要将 &lt;&gt; 的参数替换为您的信息。
 > - &lt;BucketName-APPID&gt;为存储桶名称格式，关于存储桶命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
-> - &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，建议使用子账号密钥，授权遵循 [最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险。子账号密钥获取可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
+> - &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，建议使用子账号密钥，授权遵循[最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险。子账号密钥获取可参考[子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
 > - 您也可以将密钥配置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，同时您需要将密钥文件的权限值设置为600。
 > 
 

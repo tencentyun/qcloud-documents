@@ -36,7 +36,7 @@ Authorization: Auth String
 ```
 
 >? 
-> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参阅 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参见 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参见 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
 > - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > 
 
@@ -110,7 +110,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Suffix | WebsiteConfiguration.IndexDocument | 指定索引文档的对象键后缀。例如指定为`index.html`，那么当访问到存储桶的根目录时，会自动返回 index.html 的内容，或者当访问到`article/`目录时，会自动返回 `article/index.html`的内容 | String | 是 |
+| Suffix | WebsiteConfiguration.IndexDocument | 指定索引文档的对象键后缀。例如指定为 `index.html`，那么当访问到存储桶的根目录时，会自动返回 index.html 的内容，或者当访问到 `article/` 目录时，会自动返回 `article/index.html` 的内容 | String | 是 |
 
 **Container 节点 RedirectAllRequestsTo 的内容：**
 
@@ -158,7 +158,7 @@ Authorization: Auth String
 | Protocol | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的目标协议，只能设置为 https | String | 否 |
 | ReplaceKeyWith | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键 | String | ReplaceKeyWith 与 ReplaceKeyPrefixWith 必选其一 |
 | ReplaceKeyPrefixWith | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分，仅可在 Condition 为 KeyPrefixEquals 时设置 | String | ReplaceKeyWith 与 ReplaceKeyPrefixWith 必选其一|
-| URLRedirect          | WebsiteConfigura tion.RoutingRules. RoutingRule.Redirect | 重定向规则中 URL 是否跟随替换内容做更改。枚举值：Enabled、Disabled。默认值为 Enabled  | String | 是      |
+| URLRedirect          | WebsiteConfigura tion.RoutingRules. RoutingRule.Redirect | 重定向规则中 URL 是否跟随替换内容做更改。枚举值：Enabled、Disabled。默认值为 Enabled  | String | 否      |
 
 
 ## 响应

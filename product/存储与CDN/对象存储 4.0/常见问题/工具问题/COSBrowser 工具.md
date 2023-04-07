@@ -1,6 +1,6 @@
 ### 什么是 COSBrowser 工具？
 
-COSBrowser 是腾讯云对象存储（Cloud Object Storage，COS）推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。目前 COSBrowser 提供桌面端（Windows、macOS、Linux）和移动端（Android、iOS），详细介绍请参见 [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366)。
+COSBrowser 是腾讯云对象存储（Cloud Object Storage，COS）推出的可视化界面工具，让您可以使用更简单的交互，轻松实现对 COS 资源的查看、传输和管理。目前 COSBrowser 支持 Windows、macOS、Linux、Android、iOS、网页版和 Uploader 插件，详细介绍请参见 [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366)。
 
 
 ### 如何下载 COSBrowser 工具?
@@ -9,31 +9,12 @@ COSBrowser 是腾讯云对象存储（Cloud Object Storage，COS）推出的可�
 
 ### 如何登录 COSBrowser？
 
-详细介绍可查看 [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103) 或 [移动端使用说明](https://cloud.tencent.com/document/product/436/38105) 文档。
+您可通过以下方式简单登录 COSBrowser，其他版本可参照操作。
 
-**桌面端登录**
+- 桌面端登录：COSBrowser 桌面端支持通过三种方式登录：永久密钥登录、腾讯云账号登录、共享链接登录。支持同一账号多设备多点登录。详细介绍可参见 [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103)。
+- 移动端登录：COSBrowser 移动端支持三种登录方式：微信快捷登录、邮箱登录、永久密钥登录。详情可参见移动端 [安装与登录](https://cloud.tencent.com/document/product/436/58543)。
+- 网页版登录：进入 [网页版登录地址](https://cosbrowser.cloud.tencent.com/web)，并输入密钥信息即可登录。
 
-COSBrowser 桌面端仅支持通过云 API 密钥进行登录使用。
-
-参数说明：
-
-1. API 密钥 **secretID** 和 **secretKey** ：通过访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取，成功登录后密钥将保存在历史密钥中，方便下次继续使用。
-![](https://main.qcloudimg.com/raw/86bb9584670fa11656b80e8d91c5267b.png)
-2. 存储桶/访问路径：使用主账号登录时可不填写，若使用子账号登录需填写已授权的路径。例如：`example-1250000000/test/`。
->!COSBrowser 不支持使用项目密钥进行登录。
-
-**移动端登录**
-COSBrowser 移动端支持以下三种登录方式：
-
-- **微信快捷登录**：通过微信创建或关联了指定微信的腾讯云账号，可以使用微信快捷登录方式快速登录 COSBrowser。
-- **邮箱登录**：通过邮箱创建或关联了指定邮箱的腾讯云账号，可以通过输入邮箱账号密码进行登录。
-- **永久密钥登录**：用户可使用云 API 密钥 SecretId 和 SecretKey（不支持项目密钥）进行登录，该密钥可在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取，登录后将永久保持该账号的登录状态。
-
->?
-- 若用户的腾讯云账号为 QQ 帐号所创建的，同样可使用微信快捷登录方式登录，只需在跳转的微信小程序界面选择 QQ 登录即可。
-- 子账号用户可以使用密钥或微信快捷登录方式登录，选择微信登录只需在跳转的微信小程序界面选择子账号即可。
-
-了解更多详情内容，可参考 [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366)。
 
 ### 子账号登录 COSBrowser，为什么不显示存储路径？
 
@@ -43,7 +24,7 @@ COSBrowser 移动端支持以下三种登录方式：
 
 ### COSBrowser 工具支持使用临时密钥登录吗？
 
-不支持临时密钥登录。
+不支持临时密钥登录。但您通过生成的授权码临时登录 COSBrowser，详情可参见 [生成授权码](https://cloud.tencent.com/document/product/436/38103#authorization)。
 
 ### COSBrowser 工具体验版如何进入？
 
@@ -58,7 +39,7 @@ COSBrowser 移动端支持以下三种登录方式：
 
 **应用体验限制：**
 
-体验版本仅提供了基本的数据管理能力，例如上传文件、下载文件、分享链接等。如需体验更多功能，请使用个人账号登录，可参阅 [COSBrowser 快速入门](https://cloud.tencent.com/document/product/436/40762) 文档进一步了解。
+体验版本仅提供了基本的数据管理能力，例如上传文件、下载文件、分享链接等。如需体验更多功能，请使用个人账号登录，可参见 [COSBrowser 快速入门](https://cloud.tencent.com/document/product/436/40762) 文档进一步了解。
 
 ### CentOS 图形界面双击无法启动 COSBrowser 客户端？
 
@@ -80,7 +61,7 @@ COSBrowser 移动端支持以下三种登录方式：
 - **Android 系统要求**：Android 4.4以上	
 - **iOS 系统要求**：iOS 11以上
 
-下载地址及更多详情可参考 [COSBrowser 下载地址 ](https://cloud.tencent.com/document/product/436/11366#.E4.B8.8B.E8.BD.BD.E5.9C.B0.E5.9D.80)。
+下载地址及更多详情可参见 [COSBrowser 下载地址 ](https://cloud.tencent.com/document/product/436/11366#.E4.B8.8B.E8.BD.BD.E5.9C.B0.E5.9D.80)。
 
 ### COSBrowser 文件同步功能
 

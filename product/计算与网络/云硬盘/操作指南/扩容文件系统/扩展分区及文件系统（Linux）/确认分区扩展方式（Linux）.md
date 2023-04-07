@@ -61,8 +61,3 @@ fdisk -l
      </tr> 
 </table>
 
-
-
-
-
-

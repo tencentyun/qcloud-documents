@@ -89,10 +89,9 @@ spec:
 
 ![img](https://main.qcloudimg.com/raw/402199fd8502b09387ec3879c873a4e2.jpg)
 该方案具备以下特点：
+相同服务在不同站点设置为不同的名字，以便将服务间的访问锁定在同一个站点内。如上图所示，集群内有 A、B 两个服务，在 site-1中分别命名为 Svr-A-1、Svc-B-1，在 site-2中分别命名为 Svr-A-2、Svc-B-2。  
 
-- 相同服务在不同站点设置为不同的名字，以便将服务间的访问锁定在同一个站点内。如上图所示，集群内有 A、B 两个服务，在 site-1中分别命名为 Svr-A-1、Svc-B-1，在 site-2中分别命名为 Svr-A-2、Svc-B-2。  
-
-> ! 服务在不同站点名字不同，因而服务之间不能简单地通过服务名 A 和 B 来调用，而是在 site-1中用 Svc-A-1、Svc-B-1，在 site-2中用 Svc-A-2、Svc-B-2。对于借助 Kubernetes DNS 实现微服务的业务极为不友好。  
+>! 服务在不同站点名字不同，因而服务之间不能简单地通过服务名 A 和 B 来调用，而是在 site-1中用 Svc-A-1、Svc-B-1，在 site-2中用 Svc-A-2、Svc-B-2。对于借助 Kubernetes DNS 实现微服务的业务极为不友好。  
 
 ### 方案痛点[](id:defect)
 - **Kubernetes 本身不具备针对该场景的方案**

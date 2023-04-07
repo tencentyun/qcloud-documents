@@ -904,6 +904,16 @@ EMR 支持资源级授权，您可以指定子账号拥有特定资源的接口�
 <td >CreateCluster</td>
 <td >创建集群</td>
 </tr>
+<tr>
+<td >RepairDisk</td>
+<td >客户坏盘在 CVM 侧完成换盘修复后，可使用该接口完成业务修复</td>
+</tr><tr>
+<td >CreateOutsideClient</td>
+<td >对于 EMR 集群外的机器提供组件包及部署脚本来支持体外机器对 EMR 访问及提交任务</td>
+</tr><tr>
+<td >ModifyCvmReplaceFlag</td>
+<td >修改 EMR 集群支持异常节点补偿开关属性</td>
+</tr>
 </tbody>
 </table>
 

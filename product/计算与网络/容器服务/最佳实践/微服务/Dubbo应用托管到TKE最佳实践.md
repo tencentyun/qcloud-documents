@@ -229,7 +229,7 @@ docker images
 
 QCBM 项目采用个人版镜像仓库（建议企业客户使用企业版镜像仓库）。  
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) 。  
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
 2. 选择**镜像仓库** > **个人版** > **命名空间**进入“命名空间”页面。  
 3. 单击**新建**，在弹出的新建命名窗口中新建命名空间 qcbm。QCBM 项目所有的镜像都存放于该命名空间下。如下图所示：
    ![](https://main.qcloudimg.com/raw/d41dc91e084a7b21f44078445360895d.png)
@@ -245,7 +245,7 @@ QCBM 项目采用个人版镜像仓库（建议企业客户使用企业版镜像
 ```sh
  docker login --username=[腾讯云账号 ID] ccr.ccs.tencentyun.com
 ```
- <dx-alert infotype="explain" title=" ">
+ <dx-alert infotype="explain" title="">
 - 腾讯云账号 ID 可在 [账号信息](https://console.cloud.tencent.com/developer) 页面获取。  
 - 若忘记**镜像仓库登录密码**，可前往容器服务镜像仓库个人版 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user) 中进行重置。  
   ![](https://main.qcloudimg.com/raw/4a5f86637fbef74e7ebb48431e743658.png)
@@ -262,7 +262,7 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 ![](https://main.qcloudimg.com/raw/466adcd0ebf9adf2c16421885a0c6567.png)
 3. 在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/self?rid=1) 中可以查看上传的所有镜像，下图展示的是上传到腾讯云镜像仓库中 QCBM 的5个镜像。  
    ![](https://main.qcloudimg.com/raw/05c412370fb69e675bfb9149b33063a6.png)
-<dx-alert infotype="explain" title=" ">
+<dx-alert infotype="explain" title="">
 默认镜像类型为“私有”，如需提供镜像给他人使用，可在**镜像信息**中将镜像类型设置为公有。如下图所示：
 ![](https://main.qcloudimg.com/raw/88b73306c07a4ea281cef52a77d3246c.png)
 </dx-alert>

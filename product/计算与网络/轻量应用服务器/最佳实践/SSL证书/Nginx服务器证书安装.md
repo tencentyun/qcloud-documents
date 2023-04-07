@@ -130,3 +130,4 @@ server {
 至此已成功设置 HTTPS 的自动跳转，您可使用 `http://cloud.tencent.com`（示例）自动跳转至 HTTPS 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/006c7e90aa5e5ca71bd6db6b270650c4.png)
 
+

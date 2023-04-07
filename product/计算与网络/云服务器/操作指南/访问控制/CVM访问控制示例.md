@@ -163,13 +163,14 @@
     ]
 }
 ```
+
 2. 找到创建的策略，在该策略行的 “操作” 列中，单击**关联用户/组**。
 3. 在弹出的 “关联用户/用户组” 窗口中，选择您需要授权的用户/组，单击**确定**。
 
 
 ### 授权子账号拥有 CVM 的所有权限但不包括支付权限
 
-假设，企业账号（CompanyExample，ownerUin 为12345678）下有一个子账号（Developer），该子账号需要对企业帐号的 CVM 服务拥有所有管理权限（例如创建、管理等全部操作），但不包括支付权限（可下单但无法支付）。
+假设，企业账号（CompanyExample，ownerUin 为12345678）下有一个子账号（Developer），该子账号需要对企业账号的 CVM 服务拥有所有管理权限（例如创建、管理等全部操作），但不包括支付权限（可下单但无法支付）。
 我们可通过以下两种方案进行实现：
 - **方案 A**
 企业账号 CompanyExample 直接将预设策略 QcloudCVMFullAccess 授权给子账号 Developer。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/598/10602)。
@@ -204,4 +205,3 @@
 如果您觉得预设策略不能满足您的要求，您可以通过创建自定义策略达到目的。
 具体操作步骤请参考 [策略](https://cloud.tencent.com/document/product/598/10601)。
 更多 CVM 相关的策略语法请参考 [授权策略语法](https://cloud.tencent.com/document/product/213/10313)。
-

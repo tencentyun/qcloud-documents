@@ -17,17 +17,16 @@
 
 
 ### 步骤2：配置 WAF
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航中，选择**域名列表**。
-2. 在域名列表页面，选择需要添加域名的实例，单击**添加域名**。
-![](https://qcloudimg.tencent-cloud.cn/raw/b4540907a1dce5d1a73ac1967a29c453.png)
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航中，选择**接入管理**。
+2. 在域名接入页面，单击**添加域名**。
+![](https://qcloudimg.tencent-cloud.cn/raw/12126e9b3bad0a7ea4af4fc6b59c8ea8.png)
 3. 在添加域名页面，配置相关参数，单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ed873dafff3e360f12edaa2ce772c994.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/199a82d8ee104da13e017b8be8d75e64.png)
 5. 完成配置后，此时域名接入状态为“未配置 CNAME 记录”。
-![](https://qcloudimg.tencent-cloud.cn/raw/ffdb677ca6308ae5f313f7666444ab19.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ec2c0b54b458d2c4dca57f66f45d9737.png)
 
 
 ### 步骤3：修改 CNAME 记录
 1. 在 DNS 提供商中修改 CNAME 记录，将自定义域名指向 WAF 的 CNAME 域名。
-2. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，选择**域名列表**，进入域名列表页面，即可看到正常防护的界面。
-![](https://qcloudimg.tencent-cloud.cn/raw/04f0b5f1379ef012b8a709cc45a33af6.png)
-
+2. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，选择**接入管理**，进入域名接入页面，即可看到正常防护的界面。
+![](https://qcloudimg.tencent-cloud.cn/raw/81517b46e9a9591e808f5cb67fefb90b.png)

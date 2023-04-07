@@ -81,3 +81,4 @@ Discuz! Q 应用镜像集成了宝塔 Linux 面板，可通过宝塔面板直接
 您可通过以下方式，为您的实例安装 SSL 证书：
 - 方式1：Discuz! Q 实例创建完成后，使用实例中内置的宝塔 Linux 面板安装 SSL 证书。详情可参考宝塔 Linux 面板官方文档。
 - 方式2：可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Discuz! Q 实例安装 SSL 证书并开启 HTTPS 访问。
+

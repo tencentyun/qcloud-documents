@@ -281,8 +281,10 @@ import hashlib, hmac, json, os, sys, time
 from datetime import datetime
 
 # 密钥参数
-secret_id = "`AKIDz8krbsJ5yK**********mLPx3EXAMPLE`"
-secret_key = "`Gu5t9xGARN**********QYCN3EXAMPLE`"
+# 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5yK**********mLPx3EXAMPLE
+secret_id = os.environ.get("TENCENTCLOUD_SECRET_ID")
+# 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGARN**********QYCN3EXAMPLE
+secret_key = os.environ.get("TENCENTCLOUD_SECRET_KEY")
 
 service = "cvm"
 host = "cvm.tencentcloudapi.com"
@@ -499,11 +501,14 @@ import base64
 import hashlib
 import hmac
 import time
+import os
 
 import requests
 
-secret_id = "AKIDz8k*********LPx3EXAMPLE"
-secret_key = "Gu5t9xGA*********YCN3EXAMPLE"
+# 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5yK**********mLPx3EXAMPLE
+secret_id = os.environ.get("TENCENTCLOUD_SECRET_ID")
+# 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGARN**********QYCN3EXAMPLE
+secret_key = os.environ.get("TENCENTCLOUD_SECRET_KEY")
 
 def get_string_to_sign(method, endpoint, params):
     s = method + endpoint + "/?"

@@ -11,10 +11,10 @@ https://api.meeting.qq.com/v1/users/{userid}
 
 | 参数名称   | 必选 | 参数类型 | 参数描述                                                     |
 | ---------- | ---- | -------- | ------------------------------------------------------------ |
-| email      | 否   | String   | 邮箱地址，同企业内须保证唯一。                                              |
+| email      | 否   | String   | 邮箱地址，已激活的用户邮箱不可修改。                                              |
 | area      | 否  | String   | 地区编码（默认值为86）。 |
 | username   | 否   | String   | 新的用户昵称。                                                 |
-| phone      | 否   | String   | 手机号码。                                                     |
+| phone      | 否   | String   | 手机号码，已激活的用户手机号码不可修改。                                                     |
 | userid     | 否   | String   | 调用方用于标示用户的唯一 ID。<br>企业唯一用户标识说明：企业调用创建用户接口时传递的 userid 参数。 |
 | avatar_url | 否   | String   | 头像地址。                                                     |
 | staff_id        | 否   | String     | 员工工号。                                                     |

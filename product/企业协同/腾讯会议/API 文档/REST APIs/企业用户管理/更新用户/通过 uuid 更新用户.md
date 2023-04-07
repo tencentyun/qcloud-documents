@@ -14,9 +14,9 @@ https://api.meeting.qq.com/v1/users?uuid={uuid}
 
 | 参数名称   | 必选 | 参数类型 | 参数描述                                                     |
 | ---------- | ---- | -------- | ------------------------------------------------------------ |
-| email      | 否   | String   | 邮箱地址，同企业内须保证唯一。                                                |
+| email      | 否   | String   | 邮箱地址，已激活的用户邮箱不可修改。                                                |
 | username   | 否   | String   | 新的用户昵称。                                                 |
-| phone      | 否   | String   | 手机号码。                                                     |
+| phone      | 否   | String   | 手机号码，已激活的用户手机号码不可修改。                                                     |
 | avatar_url | 否   | String   | 头像地址。                                                     |
 | staff_id        | 否   | String     | 员工工号。                                                     |
 | job_title       | 否   | String     | 员工职位，长度范围为[0,96]个字符。                                    |

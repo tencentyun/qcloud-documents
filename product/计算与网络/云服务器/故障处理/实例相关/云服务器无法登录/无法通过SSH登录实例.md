@@ -3,16 +3,106 @@
 - 文中涉及的相关文件操作，请务必谨慎执行。如有必要，可通过创建快照等方式进行数据备份。
 </dx-alert>
 
-
-
 ## 现象描述
 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 时，提示无法连接或者连接失败，导致无法正常登录 Linux 实例。
- 
-## 问题定位及处理[](id:ProcessingSteps)
+
+## 可能原因
+<table>
+<thead>
+  <tr>
+    <th>可能原因</th>
+    <th>处理措施</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>SSH 登录报错 User root not allowed because not listed in AllowUsers</td>
+    <td ><a href="#F1">排查 SSH 登录报错 User root not allowed because not listed in AllowUsers</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录报错 Disconnected:No supported authentication methods available</td>
+    <td><a href="#F2">排查 SSH 登录报错 Disconnected:No supported authentication methods available</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录报错 ssh_exchange_identification: read: Connection reset by peer</td>
+    <td><a href="#F3">排查 SSH 登录报错 ssh_exchange_identification: read: Connection reset by peer</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录报错 Permission denied, please try again</td>
+    <td><a href="#F4">排查 SSH 登录报错 Permission denied, please try again</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录时报错 Too many authentication failures for root</td>
+    <td><a href="#F5">排查 SSH 登录时报错 Too many authentication failures for root</a></td>
+  </tr>
+  <tr>
+    <td>SSH 启动时报错 error while loading shared libraries</td>
+    <td><a href="#F6">排查 SSH 启动时报错 error while loading shared libraries</a></td>
+  </tr>
+  <tr>
+    <td>SSH 服务启动时报错 fatal: Cannot bind any address</td>
+    <td><a href="#F7">排查 SSH 服务启动时报错 fatal: Cannot bind any address</a></td>
+  </tr>
+  <tr>
+    <td>SSH 服务启动时报错 Bad configuration options</td>
+    <td><a href="#F8">排查 SSH 服务启动时报错 Bad configuration options</a></td>
+  </tr>
+  <tr>
+    <td>SSH 启用 UseDNS 导致 SSH 登录或数据传输速度变慢</td>
+    <td><a href="#F9">排查 SSH 启用 UseDNS 导致 SSH 登录或数据传输速度变慢</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录报错 No supported key exchange algorithms</td>
+    <td><a href="#F10">排查 SSH 登录报错 No supported key exchange algorithms</a></td>
+  </tr>
+  <tr>
+    <td>SSH 服务启动时报错 must be owned by root and not group or word-writable</td>
+    <td><a href="#F11">排查 SSH 服务启动时报错 must be owned by root and not group or word-writable</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录时报错 Host key verification failed</td>
+    <td><a href="#F12">排查 SSH 登录时报错 Host key verification failed</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录报错 pam_listfile(sshd:auth): Refused user root for service sshd</td>
+    <td><a href="#F13">排查 SSH 登录报错 pam_listfile(sshd:auth): Refused user root for service sshd</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录时报错 requirement "uid >= 1000" not met by user "root"</td>
+    <td><a href="#F14">排查 SSH 登录时报错 requirement "uid >= 1000" not met by user "root"</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录时报错 Maximum amount of failed attempts was reached</td>
+    <td><a href="#F15">排查 SSH 登录时报错 Maximum amount of failed attempts was reached</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录时报错 login: Module is unknown</td>
+    <td><a href="#F16">排查 SSH 登录时报错 login: Module is unknown</a></td>
+  </tr>
+  <tr>
+    <td>病毒引起 SSH 服务运行异常报错 fatal: mm_request_send: write: Broken pipe</td>
+    <td><a href="#F17">排查 病毒引起 SSH 服务运行异常报错 fatal: mm_request_send: write: Broken pipe</a></td>
+  </tr>
+  <tr>
+    <td>SSH 服务启动时报错 main process exited, code=exited</td>
+    <td><a href="#F18">排查 SSH 服务启动时报错 main process exited, code=exited</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录时报错 pam_limits(sshd:session)：could not sent limit for ‘nofile’</td>
+    <td><a href="#F19">排查 SSH 登录时报错 pam_limits(sshd:session)：could not sent limit for ‘nofile’</a></td>
+  </tr>
+  <tr>
+    <td>SSH 登录报错 pam_unix(sshdsession) session closed for user</td>
+    <td><a href="#F20">排查 SSH 登录报错 pam_unix(sshdsession) session closed for user</a></td>
+  </tr>
+</tbody>
+</table>
+
+## 故障处理[](id:ProcessingSteps)
 当使用 SSH 登录 Linux 实例失败，并返回报错信息时，您可记录报错信息，并匹配以下常见的报错信息，快速定位问题并参考步骤进行解决。
  
 <dx-accordion>
-::: SSH 登录报错 User root not allowed because not listed in AllowUsers
+::: 排查 SSH 登录报错 User root not allowed because not listed in AllowUsers[](id:F1)
 
 #### 现象描述[](id:userNotListAllowUsers)
 使用 SSH 登录 Linux 实例时，无法正常登录。客户端或服务端的 secure 日志中出现类似如下信息：
@@ -68,7 +158,7 @@ service sshd restart
 
 
 ::: 
-::: SSH 登录报错 Disconnected:No supported authentication methods available
+::: 排查 SSH 登录报错 Disconnected:No supported authentication methods available[](id:F2)
 
 #### 现象描述[](id:noSupportesAuthentication)
 使用 SSH 登录时，出现如下报错信息：
@@ -107,7 +197,7 @@ service sshd restart
 重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
-::: SSH 登录报错 ssh_exchange_identification: read: Connection reset by peer
+::: 排查 SSH 登录报错 ssh_exchange_identification: read: Connection reset by peer[](id:F3)
 
 #### 现象描述[](id:connectionResetByPeer)
 使用 SSH 登录时，出现报错信息 “ssh_exchange_identification: read: Connection reset by peer”。或出现以下报错信息：
@@ -190,7 +280,7 @@ service sshd restart
  
 若至此您仍未解决 SSH 登录问题，则可能是由于系统内核出现异常或其他潜在原因导致，请通过 [在线支持](https://cloud.tencent.com/act/event/Online_service?from=doc_213) 联系我们进一步处理问题。
 :::
-::: SSH 登录报错 Permission denied, please try again
+::: 排查 SSH 登录报错 Permission denied, please try again[](id:F4)
 
 #### 现象描述[](id:permissionDenied)
 root 用户使用 SSH 登录 Linux 实例时，出现报错信息 “Permission denied, please try again”。
@@ -251,7 +341,7 @@ service sshd restart
 ```
 重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 :::
-::: SSH 登录时报错 Too many authentication failures for root
+::: 排查 SSH 登录时报错 Too many authentication failures for root[](id:F5)
 
 #### 现象描述[](id:tooManyFailures)
 使用 SSH 登录时，登录时多次输入密码后返回报错信息 “Too many authentication failures for root”，并且连接中断。
@@ -291,7 +381,7 @@ service sshd restart
 重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
-::: SSH 启动时报错 error while loading shared libraries
+::: 排查 SSH 启动时报错 error while loading shared libraries[](id:F6)
 
 #### 现象描述[](id:errorLibraries)
 Linux 实例启动 SSH 服务，在 secure 日志文件中，或直接返回类似如下错误信息：
@@ -401,7 +491,7 @@ service sshd start
 </dx-alert>
 
 :::
-::: SSH 服务启动时报错 fatal: Cannot bind any address
+::: 排查 SSH 服务启动时报错 fatal: Cannot bind any address[](id:F7)
 #### 现象描述[](id:cannotBindAddress)
 Linux 实例启动 SSH 服务时，直接返回或在 secure 日志文件中出现类似如下错误信息：
 ```
@@ -447,7 +537,7 @@ service sshd restart
 ```重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
-::: SSH 服务启动时报错 Bad configuration options
+::: 排查 SSH 服务启动时报错 Bad configuration options[](id:F8)
 
 #### 现象描述[](id:badConfigureOptions)
 Linux 实例启动 SSH 服务时，直接返回或在 secure 日志文件中出现类似如下错误信息：
@@ -524,7 +614,7 @@ service sshd start
 
 
 :::
-::: SSH 启用 UseDNS 导致 SSH 登录或数据传输速度变慢
+::: 排查 SSH 启用 UseDNS 导致 SSH 登录或数据传输速度变慢[](id:F9)
 #### 现象描述[](id:useDNSSlow)
 Linux 实例通过外网使用 SSH 登录或进行数据传输时，速度很慢。在切换为内网后，登录及数据传输速度仍然很慢。
 
@@ -556,7 +646,7 @@ service sshd restart
 ```重启 SSH 服务后，即可使用 SSH 登录。详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
-::: SSH 登录报错 No supported key exchange algorithms
+::: 排查 SSH 登录报错 No supported key exchange algorithms[](id:F10)
 
 #### 现象描述[](id:noSupportedkey)
 使用 SSH 登录 Linux 实例时，无法正常登录。客户端或服务端的 secure 日志中可能出现类似如下错误信息：：
@@ -670,7 +760,7 @@ total 156
 
 
 :::
-::: SSH 服务启动时报错 must be owned by root and not group or word-writable
+::: 排查 SSH 服务启动时报错 must be owned by root and not group or word-writable[](id:F11)
 #### 现象描述[](id:mustBeOwnerByRoot)
 Linux 实例启动 SSH 服务时，返回 “must be owned by root and not group or word-writable” 错误信息。
 
@@ -738,7 +828,7 @@ systemctl restart sshd.service
 
 
 :::
-::: SSH 登录时报错 Host key verification failed
+::: 排查 SSH 登录时报错 Host key verification failed[](id:F12)
 #### 现象描述[](id:hostKeyVerification)
 使用 SSH 登录 Linux 实例时，无法正常登录，且出现以下报错信息：
 ```
@@ -810,7 +900,7 @@ dsaprgpck2wa22mvi332ueddw...
 5. 参考 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)，重新连接 Linux 实例，确认保存新的公钥指纹后，即可成功登录。
 
 :::
-::: SSH 登录报错 pam_listfile(sshd:auth): Refused user root for service sshd
+::: 排查 SSH 登录报错 pam_listfile(sshd:auth): Refused user root for service sshd[](id:F13)
 
 #### 现象描述[](id:canNotLogIn)
 使用 SSH 登录 Linux 实例时，即使输入正确密码，仍无法登录实例。该问题出现时，通过控制台或 SSH 两种登录方式可能均登录失败，或仅其中一种可登录成功。secure 日志出现类似如下错误信息：
@@ -878,7 +968,7 @@ auth required pam_listfile.so item=user sense=allow file=/etc/ssh/whitelist oner
 
 
 :::
-::: SSH 登录时报错 requirement "uid >= 1000" not met by user "root"
+::: 排查 SSH 登录时报错 requirement "uid >= 1000" not met by user "root"[](id:F14)
 
 #### 现象描述[](id:requirementUidNotMet)
 使用 SSH 登录 Linux 实例时，输入正确的用户及密码也无法登录成功。该问题出现时，通过控制台或 SSH 两种登录方式可能均登录失败，或仅其中一种可登录成功。secure 日志出现类似如下错误信息：
@@ -934,7 +1024,7 @@ auth        required      pam_succeed_if.so uid <= 1000    # 修改策略
 5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
-::: SSH 登录时报错 Maximum amount of failed attempts was reached 
+::: 排查 SSH 登录时报错 Maximum amount of failed attempts was reached [](id:F15)
 #### 现象描述[](id:maximumAmountFailed)
 使用 SSH 登录 Linux 实例时，出现 “Maximum amount of failed attempts was reached” 报错信息。
 
@@ -1010,7 +1100,7 @@ authconfig --disableldap --update #更新PAM安全认证记录
 5. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
-::: SSH 登录时报错 login: Module is unknown
+::: 排查 SSH 登录时报错 login: Module is unknown[](id:F16)
 
 #### 现象描述[](id:moduleIsUnknown)
 使用 SSH 登录 Linux 实例时，无法登录成功，且 secure 日志中出现类似如下报错信息：
@@ -1076,7 +1166,7 @@ session     required     /lib64/security/pam_limits.so
 4. 使用 SSH 登录实例，详情请参见 <a href="https://cloud.tencent.com/document/product/213/35700">使用 SSH 登录 Linux 实例</a>。
 
 :::
-::: 病毒引起 SSH 服务运行异常报错 fatal: mm_request_send: write: Broken pipe
+::: 排查 病毒引起 SSH 服务运行异常报错 fatal: mm_request_send: write: Broken pipe[](id:F17)
 
 #### 现象描述[](id:writeBrokenPipe)
 病毒引发 SSH 服务运行异常，系统提示 “fatal: mm_request_send: write: Broken pipe” 报错信息。
@@ -1135,7 +1225,7 @@ systemctl restart sshd.service
 
 
 :::
-::: SSH 服务启动时报错 main process exited, code=exited
+::: 排查 SSH 服务启动时报错 main process exited, code=exited[](id:F18)
 
 #### 现象描述[](id:mainProcessExited)
 
@@ -1191,7 +1281,7 @@ service sshd restart
 
 
 :::
-::: SSH 登录时报错 pam_limits(sshd:session)：could not sent limit for ‘nofile’
+::: 排查 SSH 登录时报错 pam_limits(sshd:session)：could not sent limit for ‘nofile’[](id:F19)
 
 #### 现象描述[](id:pamLimits)
 使用 SSH 登录 Linux 实例后，返回如下错误信息：
@@ -1257,7 +1347,7 @@ cat /etc/security/limits.d/20-nproc.conf
 4. 修改完成后，重启实例即可。
 
 :::
-::: SSH 登录报错 pam_unix(sshdsession) session closed for user
+::: 排查 SSH 登录报错 pam_unix(sshdsession) session closed for user[](id:F20)
 
 #### 现象描述[](id:sessionClosedForUser)
 使用 SSH 登录 Linux 实例时，输入正确的用户及密码无法登录成功。直接返回或在 secure 日志出现类似如下错误信息：
@@ -1299,9 +1389,5 @@ vim /etc/passwd
 
 <br>
 若您的问题仍未解决，请通过 <a href="https://cloud.tencent.com/act/event/Online_service?from=doc_213">在线支持</a> 联系我们寻求帮助。
-
-
-
-
 
 

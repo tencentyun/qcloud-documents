@@ -50,4 +50,3 @@ VirtIO 网卡驱动下载地址如下，请对应实际网络环境进行下载�
 ![](https://qcloudimg.tencent-cloud.cn/raw/f7a819e642167b4c87a911fe1b670ea0.png)
 4. 在 “Tencent VirtIO Ethernet Adapter 属性”窗口中，选择**驱动程序**页签，即可查看当前驱动程序版本。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/3ed38facb59230b4fcea0bac54c37b1d.png)
-

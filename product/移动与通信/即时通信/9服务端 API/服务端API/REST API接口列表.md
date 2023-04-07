@@ -72,6 +72,12 @@
 | -------- | ------------------------------------------------------------ |
 | 拉取会话列表 |[v4/recentcontact/get_list](https://cloud.tencent.com/document/product/269/62118)|
 | 删除单个会话 |[v4/recentcontact/delete](https://cloud.tencent.com/document/product/269/62119)|
+| 创建会话分组数据 |[v4/recentcontact/create_contact_group](https://cloud.tencent.com/document/product/269/85791)|
+| 删除会话分组数据 |[v4/recentcontact/del_contact_group](https://cloud.tencent.com/document/product/269/85795)|
+| 更新会话分组数据 |[v4/recentcontact/update_contact_group](https://cloud.tencent.com/document/product/269/85793)|
+| 搜索会话分组标记数据 |[v4/recentcontact/search_contact_group](https://cloud.tencent.com/document/product/269/85796)|
+| 创建或更新会话标记数据 |[v4/recentcontact/mark_contact](https://cloud.tencent.com/document/product/269/85792)|
+| 拉取会话分组标记数据 |[v4/recentcontact/get_contact_group](https://cloud.tencent.com/document/product/269/85794)|
 
 ## 群组管理
 
@@ -110,6 +116,11 @@
 |重置群自定义属性|[v4/group_open_http_svc/set_group_attr](https://cloud.tencent.com/document/product/269/67011)|
 |修改群聊历史消息|[v4/openim/modify_group_msg](https://cloud.tencent.com/document/product/269/74741)|
 |直播群广播消息|[v4/group_open_http_svc/send_broadcast_msg](https://cloud.tencent.com/document/product/269/77402)|
+|获取群计数器|[v4/group_open_http_svc/get_group_counter](https://cloud.tencent.com/document/product/269/85953)|
+|更新群计数器|[v4/group_open_http_svc/update_group_counter](https://cloud.tencent.com/document/product/269/85952)|
+|删除群计数器|[v4/group_open_http_svc/delete_group_counter](https://cloud.tencent.com/document/product/269/85954)|
+
+
 
 ## 全局禁言管理
 | 功能说明 |接口 |

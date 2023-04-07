@@ -1,5 +1,13 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.40.0-Greenwich-RELEASE（2022-10-13）
+### 新特性
+- 支持微服务网关可扩展性。支持使用 TSF 网关 SDK 的同时，自定义网关路由策略、支持 websocket、支持跨域等原生网关能力。
+- Oauth 插件支持第三方鉴权地址为微服务 API 的能力。
+- 支持原生网关使用熔断治理的能力。
+- 支持服务监听触发回调。
+- 支持查看下发配置。
+
 ## 1.29.8-Greenwich-RELEASE（2022-11-15） 
 ### Bug 修复
 - 修复 scg 调用在 filter 中增加 restTemplate 或 feign 以后，scg 最终调用目标下游服务的熔断功能失效的问题。
@@ -92,6 +100,21 @@
 - spring-cloud-tsf-swagger：修复 IgnoreGatewayApi 注解导致的潜在空指针异常。
 - spring-cloud-tsf-consul-discovery：修复被调方实例不存在时不断打印异常日志的问题。
 - 修复 Feign 在指定 URL 的模式下无法请求的问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.23.19-Greenwich-RELEASE（2022-10-25）
+
+### Bug 修复
+- 修复潜在的重复bean问题
+- 修复 consul actuator 因为不兼容而导致down
+- 修复springcloud gateway漏洞
+- sleuth: 修复sdk调用链数据输出log4j组件重复初始化导致写入多个文件的问题
+- sleuth: 修复 invocation AggregatedStat 数据合并的问题
+- sleuth: 修复潜在的监控数据http method异常的问题
+- sleuth: fix rocketmq NPE
+- 升级 gson 到 2.8.9
 
 ### 版本建议
 支持向后兼容，建议全量升级。

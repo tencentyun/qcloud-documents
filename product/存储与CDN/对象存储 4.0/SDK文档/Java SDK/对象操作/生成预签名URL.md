@@ -295,7 +295,7 @@ COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 String bucketName = "examplebucket-1250000000";
 // 对象键(Key)是对象在存储桶中的唯一标识。详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324)
 String key = "exampleobject";
-//若key不是以“/”开头，则需要在key的开头加上“/”，否则直接resource_path=key
+//若 key不是以“/”开头，则需要在 key 的开头加上“/”，否则直接 resource_path=key
 String resource_path="/" + key;
 
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
@@ -337,18 +337,18 @@ public static void GenerateSimplePresignedDownloadUrl() {
     		String secretId = System.getenv("secretId");//用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
     		String secretKey = System.getenv("secretKey");//用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
     		COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
-        // 2 设置bucket的区域
+        // 2 设置 bucket的区域
   			// COS_REGION 参数：配置成存储桶 bucket 的实际地域，例如 ap-beijing，更多 COS 地域的简称请参见 https://cloud.tencent.com/document/product/436/6224
         ClientConfig clientConfig = new ClientConfig(new Region("COS_REGION"));
-        // 3 生成cos客户端
+        // 3 生成 cos 客户端
         COSClient cosclient = new COSClient(cred, clientConfig);
-        // bucket名需包含appid
+        // bucket 名需包含 appid
         String bucketName = "examplebucket-1250000000";
         
         String key = "exampleobject";
         GeneratePresignedUrlRequest req =
                 new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
-        // 设置签名过期时间(可选), 若未进行设置则默认使用ClientConfig中的签名过期时间(1小时)
+        // 设置签名过期时间(可选), 若未进行设置则默认使用 ClientConfig 中的签名过期时间(1小时)
         // 这里设置签名在半个小时后过期
         Date expirationDate = new Date(System.currentTimeMillis() + 30 * 60 * 1000);
         req.setExpiration(expirationDate);

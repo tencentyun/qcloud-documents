@@ -3,7 +3,7 @@
 
 ## 访问方式说明
 如果您在腾讯云内部署了服务用于访问 COS，不同地域访问方式有以下区别：
-- **同地域访问**：同地域范围内的访问将会自动被指向到内网地址，即自动使用内网连接，产生的内网流量不计费。因此选购腾讯云不同产品时，建议尽量选择相同地域，减少您的费用。
+- **同地域访问**：同地域范围内的源站域名访问将会自动被指向到内网地址，即自动使用内网连接，产生的内网流量不计费。因此选购腾讯云不同产品时，建议尽量选择相同地域，减少您的费用。
 - **跨地域访问**：暂不支持内网访问，默认将会解析到外网地址。
 
 <dx-alert infotype="notice" title="">
@@ -35,3 +35,4 @@ nslookup examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 - [将 COS 作为本地磁盘挂载到 Windows 服务器](https://cloud.tencent.com/document/product/436/55241)
 - [将 WordPress 远程附件存储到 COS](https://cloud.tencent.com/document/product/436/41153)
 - [将 Discuz! 论坛远程附件存储到 COS](https://cloud.tencent.com/document/product/436/40605)
+

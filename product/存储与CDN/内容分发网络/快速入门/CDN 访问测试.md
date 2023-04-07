@@ -31,7 +31,7 @@ Mac系统：进入终端（命令窗口）里，输入 sudo vi/etc/hosts ，�
 2. 若返回4xx、5xx等异常状态码，可以绑定源站进行测试，若与源站一致，请检查源站；若与源站不一致，请检查 CDN 回源配置是否正确，如源站IP，回源协议、回源HOST等。
 3. 首次访问可能会因为节点没有缓存导致响应慢，您可以预热后再进行访问测试。
 	-  预热方法：登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧目录的刷新预热，进入后可按需提交 URL 预热任务：
-	-  判断是否缓存命中的方法：有返回以上任意一个，即代表缓存命中，否则代表缓存未命中。
+	-  判断是否缓存命中的方法：有返回以下任意一个，即代表缓存命中，否则代表缓存未命中。
 X-Cache-Lookup: Hit From MemCache
 X-Cache-Lookup: Hit From Disktank
 X-Cache-Lookup: Cache Hit

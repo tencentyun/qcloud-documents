@@ -7,9 +7,6 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 - 通过 [手工下载 cloud-init 源码包方式](#ManualDown) 
 - 通过 [使用软件源上的 cloud-init 包方式](#SoftSources)
 
-## 注意事项
-在导入 Linux 系统镜像前，请确保您的镜像内部已正确安装了 cloud-init 服务。
-
 ## 前提条件
 安装 cloud-init 的服务器可正常访问外网。
 
@@ -233,7 +230,8 @@ python3 setup.py build
 ```shellsession
 python3 setup.py install --init-system systemd
 ``` <dx-alert infotype="notice" title="">
---init-system 的可选参数有：(systemd, sysvinit,  sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart)  [default: None]。请根据当前操作系统使用的自启动服务管理方式，进行选择。若选择错误，cloud-init 服务会无法开机自启动。本文以 systemd 自启动服务管理为例。
+- --init-system 的可选参数有：(systemd, sysvinit, sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart) [default: None]。请根据当前操作系统使用的自启动服务管理方式，进行选择。若选择错误，cloud-init 服务会无法开机自启动。
+- centos6 及以下系统请选择 sysvinit，centos7 及以上系统请选择 systemd。本文以 systemd 自启动服务管理为例。
 </dx-alert>
 
 

@@ -41,3 +41,4 @@ xfs_growfs /dev/vdc
 ```shellsession
 df -h
 ```
+

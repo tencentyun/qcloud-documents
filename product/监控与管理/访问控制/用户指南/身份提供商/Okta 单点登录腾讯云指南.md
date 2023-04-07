@@ -12,12 +12,12 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
    ![](https://main.qcloudimg.com/raw/29d6e0d2803dfe96284d9745571df382.png)
 2. 在 Okta 主页，单击右上角**管理员**，进入管理员界面<span id="stepadmin"></span>。
 3. 在管理员页面，选择 Applications，进入应用管理页面<span id="stepapp"></span>。如下图所示：
-   ![](https://main.qcloudimg.com/raw/5d55782d704ed50fac661603a30aa0d3.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/d8b72cc035c7e5adc3518cca657d84d8.png)
 4. 在应用管理页面，单击 **Add Application**。进入添加应用页面。
-5. 在添加应用页面，单击 **Create New APP**。如下图所示：
-   ![](https://main.qcloudimg.com/raw/c79f6042d72f01434555222f9e6079fd.png)
+5. 在添加应用页面，单击 **Create APP Integration**。如下图所示：
+ ![](https://qcloudimg.tencent-cloud.cn/raw/93ec77ac4f3d3ac46af03baf3c8558dc.png)
 6. 在弹出的创建应用程序/Create a New Application Integration 窗口，选择 Platform 及 Sign on method，其中 Sign on method 设置为 SAML 2.0，单击 **Create**，如下图所示：
-   ![](https://main.qcloudimg.com/raw/8126a0a697e4014e64138d7e8b0e5cab.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/311bd2e53ab68f5b62e0a27c3e138b9c.png)
 7. 在通用设置/General Settings 页面，补充 App name、App logo（可选）、App visibility（可选）信息，单击 **Next**，此应用程序可以用于和腾讯云进行集成，实现 Okta 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源。
 
 
@@ -32,7 +32,7 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 1. 前往 [应用管理页面](#stepapp) ，单击您创建的应用程序名称。
 2. 在通用/GENERAL 页面，单击 SAML Settings 栏下的 **Edit**，确认当前 App name、App logo（可选）、App visibility（可选）信息，单击 **Next**，进入配置 SAML/Configure SAML 页面。
 3. <span id="step3"></span>在配置 SAML/Configure SAML 页面将 GENERAL 下 Single sign on URL 和 Audience URL(SP Entity ID)补充为以下信息，如下图所示：
-   ![](https://main.qcloudimg.com/raw/43a621945ad09042a40986abaea67962.png)
+  ![](https://qcloudimg.tencent-cloud.cn/raw/6527698517e07440c1d599fed345eab3.png)
    您可以根据您的腾讯云账号所在站点进行配置：
 
 | 所在站点 | Single sign on URL                        | Audience URL(SP Entity ID) |
@@ -43,8 +43,9 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 >?Single sign on URL 为跳转的腾讯云页面，如您需要指定其他页面，可使用`https://cloud.tencent.com/login/saml?s_url=xxxx` 形式指定，其中 xxxx 为需要指定的地址，需要做 urlencode。
 
 4. 在配置 SAML/Configure SAML 页面将 GENERAL 下 ATTRIBUTE STATEMENTS 补充为以下信息。如下图所示：
-   ![](https://main.qcloudimg.com/raw/7114ab440ba1a593111296871fc807f9.png)
-   | Name | Name format | Value |
+![](https://qcloudimg.tencent-cloud.cn/raw/ddf05277222f80d46bc8b9c22fbe8f50.png)
+   
+| Name | Name format | Value |
    |---------|---------|---------|
    | https://cloud.tencent.com/SAML/Attributes/Role | Unspecified| qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}
    | https://cloud.tencent.com/SAML/Attributes/RoleSessionName | Unspecified| okta |
@@ -57,7 +58,7 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 
 5. 单击 **Next**，进入反馈/Feedback 页面，选择以下信息之后单击 **Finish**，完成配置 CAM 操作。如下图所示：
-   ![](https://main.qcloudimg.com/raw/a360cd597c75039a234b16608ca69e6c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/59c661500ebbe833877af3f3a9a6b547.png)
 
 ### 为 Okta 应用程序配置 SAML 集成
 
@@ -65,9 +66,9 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 
 1. 登录进入 [管理员界面](#stepadmin)，选择 Applications，进入应用管理页面。
 2. 在应用管理页面，单击您创建的应用程序名称，进入应用详情页，单击 **Sign On**。如下图所示：
-   ![](https://main.qcloudimg.com/raw/3f43a5c67075b28f2ef649e93bfb9b8a.png)
-3. 在 Sign On 页面，单击 **Identity Provider metadata**查看身份提供商元数据。如下图所示：
-   ![](https://main.qcloudimg.com/raw/14e34ce4819d848c056fefa145b11060.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/74e97d5ed943759c59aef4dc6b90ab82.png)
+3. 在 Sign On 页面，单击右下角 **View SAML setup instructions**查看身份提供商元数据。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/faf1a130619cc2dc63cd8c6bb8d046c9.png)
 4. 获取身份提供商元数据之后可在查看页面右键保存至本地。
 5. 在腾讯云创建 SAML 身份提供商及角色，详细操作请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 
@@ -77,12 +78,11 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 >?您可以通过本步骤分配用户访问权限，向 Okta 用户分配腾讯云的 SSO 访问权限。
 
 1. 登录进入 [管理员界面](#stepadmin)，单击 Directory 下的 **people**，进入用户管理页面。如下图所示：
-   ![](https://main.qcloudimg.com/raw/28eb0bceaebf2de3f073a72ed5bdd6c8.jpg)
-2. 在用户管理页面，单击左上角的 **Everyone**，找到您需要授权的用户。如下图所示：
-   ![](https://main.qcloudimg.com/raw/cc2022608165d39e0eeb3de495c5b07a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8422a71b9b56120f082d9717a23d6d7e.png)
+2. 在用户管理页面，找到您需要授权的用户。
 3. 单击用户名称，进入用户详情页，单击左上角 **Assign Applications**。如下图所示：
-   ![](https://main.qcloudimg.com/raw/7ed74fd59d8d757dabcc2c82a7983582.png)
-4. 在弹出的设置窗口中，单击 **Done**，完成配置 Okta 用户操作。如下图所示：
-   ![](https://main.qcloudimg.com/raw/2d80e92964f5e7be9849c82ad4017ea7.jpg)
+  ![](https://qcloudimg.tencent-cloud.cn/raw/45daae34cac839cee1c59cc0b1f057f3.png)
+4. 在弹出的设置窗口中，单击 **Assign**，设置User Name 后，单击**Save and Go Back>Done**，完成配置 Okta 用户操作。如下图所示：
+  ![](https://qcloudimg.tencent-cloud.cn/raw/55deef32ec54b42d41dc4b65e84cfdb9.png)
 5. 前往 [应用管理页面](#stepapp) ，单击您创建的应用程序名称，进入应用详情页。
 6. 在应用详情页，选择 GENERAL，复制 App Embed Link 栏下的 EMBED LINK，登录腾讯云控制台。

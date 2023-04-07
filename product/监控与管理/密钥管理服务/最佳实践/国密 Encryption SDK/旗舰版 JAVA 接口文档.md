@@ -372,7 +372,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-
+import java.lang.*;
 
 /**
  * @ClassName : TestSdk
@@ -382,8 +382,8 @@ import java.util.Map;
  */
 public class DemoSdkTest {
 
-    public  static String secretId = "replace-with-real-secretId";
-    public static String secretKey = "replace-with-real-secretKey";
+    public  static String secretId = System.getenv("secret_id");
+    public static String secretKey = System.getenv("secret_key");
     public static String keyID1_guangzhou="replace-with-realkeyid";
     public static String keyID2_shanghai="replace-with-realkeyid";
 
@@ -582,5 +582,4 @@ public class DemoSdkTest {
         System.out.println("Sm2PemChangeToPubkey " + DatatypeConverter.printHexBinary(pk));
     }
 }
-
 ```

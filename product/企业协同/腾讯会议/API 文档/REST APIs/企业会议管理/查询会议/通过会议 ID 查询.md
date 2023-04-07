@@ -1,6 +1,7 @@
 ## 接口描述
 - **描述**：通过会议 ID 查询会议详情。
  - 企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
+ - 支持企业管理员查询企业下会议。
  - 本接口的邀请参会成员限制调整至300人。
  - 当会议为周期性会议时，主持人密钥每场会议固定，但单场会议只能获取一次。支持查询周期性会议的主持人密钥。
  - 支持查询 MRA 当前所在会议信息。
@@ -61,10 +62,11 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
 |enable_enroll   | Boolean     | 是否激活报名。                                                     |
 |enable_host_key   | Boolean     | 是否开启主持人密钥。<br>true：开启<br>false：关闭                                                     |
-|host_key   | String     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
+|host_key   | String     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。   |
 |sync_to_wework  |Boolean    |会议是否同步至企业微信，该字段仅支持创建会议时设置，创建后无法修改。该配置仅支持与企业微信关联的企业。 <br>true：同步，默认同步<br>false：不同步| 
 |time_zone | String |	时区，可参见 [Oracle-TimeZone 标准](https://docs.oracle.com/middleware/1221/wcs/tag-ref/MISC/TimeZones.html)。 |
 |location | String |会议地点。最长支持18个汉字或36个英文字母。 |
+
 
 
 
@@ -100,8 +102,8 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | -------------- | -------- | ---------------------------------- |
 | sub_meeting_id | String   | 子会议 ID。                           |
 | status         | Integer  | 子会议状态。<br>0：默认存在<br> 1：已删除 |
-| start_time     | Integer  | 子会议开始时间（UTC 秒）。            |
-| end_time       | Integer  | 子会议结束时间（UTC 秒）。           |
+| start_time     | String  | 子会议开始时间（UTC 秒）。            |
+| end_time       | String  | 子会议结束时间（UTC 秒）。           |
 
 **周期性会议 period_meeting**
 
@@ -212,6 +214,7 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
   ]
 }
 ```
+
 #### 输出示例（周期性会议）
 ```plaintext
 {

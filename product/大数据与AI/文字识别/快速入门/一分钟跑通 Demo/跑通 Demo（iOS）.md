@@ -14,8 +14,8 @@
 
 - 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629) 。
 - 进入 [文字识别控制台](https://console.cloud.tencent.com/ocr/general)，即可开通相应服务，并在 [账号中心](https://console.cloud.tencent.com/cam/capi) 获取 API 密钥。
-- 并将 SDK 的 demo 文件下载到本地。
-
+- 前往文字识别客户端 [SDK 接入页面](https://console.cloud.tencent.com/ocr/download) 下载对应 SDK，并将 SDK 的 demo 文件下载到本地。
+![](https://qcloudimg.tencent-cloud.cn/raw/5670370b183dcf34b9751f7437c2618c.png)
 
 
 ### 操作步骤

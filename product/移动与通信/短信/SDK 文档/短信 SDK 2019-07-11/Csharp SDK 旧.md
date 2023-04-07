@@ -32,7 +32,7 @@ dotnet add package TencentCloudSDK --version 3.0.0
 2. 通过 Visual Studio 添加包。
 
 ### 通过源码包安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-dotnet) 或 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-dotnet/tencentcloud-sdk-dotnet.zip) 下载最新代码。
+1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-dotnet) 下载最新代码。
 2. 解压后安装到工作目录下。
 3. 使用 Visual Studio 2017 打开编译。
 

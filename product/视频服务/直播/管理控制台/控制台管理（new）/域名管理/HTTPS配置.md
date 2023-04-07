@@ -14,16 +14,17 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
 <table>
 <tr><th>当选择证书来源类型为</th><th>需要填写</th></tr>
 <tr>
-<td>自有证书</td>
+<td>上传新证书</td>
 <td><ul style="margin:0">
 <li>证书名称：可自定义，便于标识证书。</li>
 <li>证书内容：填写 Nginx 文件中的<code>.crt</code> 文件内容，具体请参见 <a href="#content">证书内容</a>。</li>
 <li>私钥内容：填写 Nginx 文件中的 <code>.key</code> 文件内容，具体请参见 <a href="#private_key">证书密钥</a>。</li><ul></td>
 </tr><tr>
-<td>腾讯云托管证书</td>
+<td>选择已有证书</td>
 <td>证书列表：选择在腾讯云 <a href="https://console.cloud.tencent.com/ssl">SSL 证书服务</a> 中已经上传的证书。</td>
 </tr></table>
-<img src="https://main.qcloudimg.com/raw/a5a0cc8789d2f8303c334c8ab3a24261.png"></img>
+
+![](https://qcloudimg.tencent-cloud.cn/raw/45711fea328e3185e707e78db8de21a1.png)
 
 #### 证书说明：
 [CA](https://cloud.tencent.com/document/product/400/18504#354) 提供的证书包括 Apache、IIS、Nginx 以及 Tomcat。**云直播的加密服务使用 Nginx，故配置需选择 Nginx 文件中的内容**。 
@@ -50,14 +51,6 @@ HTTPS 功能支持开启和关闭。关闭此服务后，云直播将不再为�
  
 >? 更多证书相关指引请参见 [SSL 证书操作指南](https://cloud.tencent.com/document/product/400/4141)。
 
-
 ## 常见问题
 - [直播 HTTPS 配置要填写什么格式的证书？](https://cloud.tencent.com/document/product/267/45252#que5)
 - [如何辨认证书是 PEM 格式还是 DER 格式？](https://cloud.tencent.com/document/product/267/45252#que6)
-
-
-
-
-
-
-

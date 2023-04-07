@@ -128,8 +128,110 @@
 <td >ExtraSleepTime</td>
 <td >ms/s</td>
 <td >GC 额外睡眠时间</td>
+</tr><tr>
+<td>alter  table 请求时间</td>
+<td>HIVE.HMS.API_ALTER_TABLE</td>
+<td>ms</td>
+<td>alter table 请求平均时间</td>
+</tr>
+<tr>
+<td>alter table with env context 请求时间</td>
+<td>HIVE.HMS.API_ALTER_TABLE_WITH_ENV_CONTEXT</td>
+<td>ms</td>
+<td>alter table with env context 请求平均时间</td>
+</tr>
+<tr>
+<td>create table 请求时间</td>
+<td>HIVE.HMS.API_CREATE_TABLE</td>
+<td>ms</td>
+<td>create table 请求平均时间</td>
+</tr>
+<tr>
+<td>create table with env context 请求时间</td>
+<td>HIVE.HMS.API_CREATE_TABLE_WITH_ENV_CONTEXT</td>
+<td>ms</td>
+<td>create table with env context 请求平均时间</td>
+</tr>
+<tr>
+<td>drop table 请求时间</td>
+<td>HIVE.HMS.API_DROP_TABLE</td>
+<td>ms</td>
+<td>drop table 平均请求时间</td>
+</tr>
+<tr>
+<td>drop table with env context 请求时间</td>
+<td>HIVE.HMS.API_DROP_TABLE_WITH_ENV_CONTEXT</td>
+<td>ms</td>
+<td>drop table with env context 平均请求时间</td>
+</tr>
+<tr>
+<td>get table 请求时间</td>
+<td>HIVE.HMS.API_GET_TABLE</td>
+<td>ms</td>
+<td>get table 平均请求时间</td>
+</tr>
+<tr>
+<td>get tables 请求时间</td>
+<td>HIVE.HMS.API_GET_TABLES</td>
+<td>ms</td>
+<td>get tables 平均请求时间</td>
+</tr>
+<tr>
+<td>get multi table 请求时间</td>
+<td>HIVE.HMS.API_GET_MULTI_TABLE</td>
+<td>ms</td>
+<td>get multi table 平均请求时间</td>
+</tr>
+<tr>
+<td>get table req 请求时间</td>
+<td>HIVE.HMS.API_GET_TABLE_REQ</td>
+<td>ms</td>
+<td>get table req 平均请求时间</td>
+</tr>
+<tr>
+<td>get database 请求时间</td>
+<td>HIVE.HMS.API_GET_DATABASE</td>
+<td>ms</td>
+<td>get database 平均请求时间</td>
+</tr>
+<tr>
+<td>get databases 请求时间</td>
+<td>HIVE.HMS.API_GET_DATABASES</td>
+<td>ms</td>
+<td>get databases 平均请求时间</td>
+</tr>
+<tr>
+<td>get all database 请求时间</td>
+<td>HIVE.HMS.API_GET_ALL_DATABASES</td>
+<td>ms</td>
+<td>get all databases 平均请求时间</td>
+</tr>
+<tr>
+<td>get all functions 请求时间</td>
+<td>HIVE.HMS.API_GET_ALL_FUNCTIONS</td>
+<td>ms</td>
+<td>get all functions 平均请求时间</td>
+</tr>
+<tr>
+<td>当前活跃 create table 请求数</td>
+<td>HIVE.HMS.ACTIVE_CALLS_API_CREATE_TABLE</td>
+<td>个</td>
+<td>当前活跃 create  table 请求数</td>
+</tr>
+<tr>
+<td>当前活跃 drop table 请求数</td>
+<td>HIVE.HMS.ACTIVE_CALLS_API_DROP_TABLE</td>
+<td>个</td>
+<td>当前活跃 drop  table 请求数</td>
+</tr>
+<tr>
+<td>当前活跃 alter table 请求数</td>
+<td>HIVE.HMS.ACTIVE_CALLS_API_ALTER_TABLE</td>
+<td>个</td>
+<td>当前活跃 alter  table 请求数</td>
 </tr>
 </table>
+
 
 ### HIVE-HiveServer2
 <table>
@@ -303,6 +405,123 @@
 <td> ExtraSleepTime </td>
 <td >ms/s</td>
 <td >GC 额外睡眠时间</td>
+</tr><tr>
+<td rowspan=5>API 请求数</td>
+<td rowspan=5>HIVE.H2.ACTIVE.CALLS.API</td>
+<td>Count</td>
+<td>当前 serializePlan 请求数</td>
+</tr>
+<tr>
+<td>Count</td>
+<td>当前 semanticAnalyze 请求数</td>
+</tr>
+<tr>
+<td>Count</td>
+<td>当前 runtask 请求数</td>
+</tr>
+<tr>
+<td>Count</td>
+<td>当前 releaseLocks 请求数</td>
+</tr>
+<tr>
+<td>Count</td>
+<td>当前 getSplits 数</td>
+</tr>
+<tr>
+<td>SQL 任务处于 PEDING 状态的时间</td>
+<td>HIVE.H2.SQL.OPERATION.PENDING</td>
+<td>ms</td>
+<td>SQL 任务处于 PEDING 状态的平均时间</td>
+</tr>
+<tr>
+<td>SQL 任务处于RUNNING 状态的时间</td>
+<td>HIVE.H2.SQL.OPERATION.RUNNING</td>
+<td>ms</td>
+<td>SQL 任务处于 RUNNING 状态的平均时间</td>
+</tr>
+<tr>
+<td>当前活跃用户数</td>
+<td>HIVE.H2.SQL.OPERATION</td>
+<td>Count</td>
+<td>当前活跃的用户数</td>
+</tr>
+<tr>
+<td>执行查询的时间</td>
+<td>HIVE.H2.EXECUTING.QUERIES</td>
+<td>ms</td>
+<td>执行查询的平均时间</td>
+</tr>
+<tr>
+<td>提交查询的时间</td>
+<td>HIVE.H2.SUBMITTED.QUERIES</td>
+<td>ms</td>
+<td>提交查询的时间</td>
+</tr>
+<tr>
+<td>提交的 Hive on MR 作业数</td>
+<td>HIVE.H2.MR.TASKS</td>
+<td>Count</td>
+<td>提交的 Hive on MR 作业数</td>
+</tr>
+<tr>
+<td>提交的 Hive on Spark 作业数</td>
+<td>HIVE.H2.SPARK.TASKS</td>
+<td>Count</td>
+<td>提交的 Hive on Tez 作业数</td>
+</tr>
+<tr>
+<td>提交的 Hive on Tez 作业数</td>
+<td>HIVE.H2.TEZ.TASKS</td>
+<td>Count</td>
+<td>提交的 Hive on Spark 作业数</td>
+</tr>
+<tr>
+<td>失败查询</td>
+<td>HIVE.H2.FAILED.QUERIES.RATE</td>
+<td>Count/min</td>
+<td>失败查询 OneMinuteRate</td>
+</tr>
+<tr>
+<td rowspan=7>工作线程数</td>
+<td rowspan=7>HIVE.H2.THREAD.COUNT</td>
+<td>个</td>
+<td>JVM  blocked 线程数</td>
+</tr>
+<tr>
+<td>个</td>
+<td>JVM  terminate 线程数</td>
+</tr>
+<tr>
+<td>个</td>
+<td>JVM  deadlock 线程数</td>
+</tr>
+<tr>
+<td>个</td>
+<td>JVM  new 线程数</td>
+</tr>
+<tr>
+<td>个</td>
+<td>JVM  runnable 线程数</td>
+</tr>
+<tr>
+<td>个</td>
+<td>JVM  timed_waiting 线程数</td>
+</tr>
+<tr>
+<td>个</td>
+<td>JVM  waiting 线程数</td>
+</tr>
+<tr>
+<td>会话数量</td>
+<td>HIVE.H2.OPEN.SESSIONS</td>
+<td>个</td>
+<td>打开的会话个数</td>
+</tr>
+<tr>
+<td>当前活跃的 session 个数</td>
+<td>HIVE.H2.ACTIVE.SESSIONS</td>
+<td>个</td>
+<td>活跃的会话个数</td>
 </tr>
 </table>
 

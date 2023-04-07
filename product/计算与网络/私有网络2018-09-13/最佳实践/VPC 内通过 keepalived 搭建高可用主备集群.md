@@ -9,7 +9,7 @@
 ![](//mc.qcloudimg.com/static/img/a5aa34fb87508284d9e7a07898085728/1.png)
 - 在传统的物理网络中，可以通过 keepalived 的 VRRP 协议协商主备状态，其原理是：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 迁移到主设备上。
 - 在腾讯云 VPC 中，支持部署 keepalived 来搭建主备高可用集群。与物理网络相比，主要区别是：
-   - 使用的 VIP 必须是从腾讯云申请的 [高可用虚拟 IP (HAVIP)](https://cloud.tencent.com/document/product/215/36691) 。
+   - 使用的 VIP 必须是从腾讯云申请的 [高可用虚拟 IP (HAVIP) 概述](https://cloud.tencent.com/document/product/215/36691) 。
    - VIP 有子网属性，只能在同一个子网下的机器间宣告绑定。
 
 ## 注意事项
@@ -45,9 +45,9 @@
 4. 在弹出的**申请高可用虚拟 IP** 对话框中输入名称，选择 HAVIP 所在的私有网络和子网等信息，单击**确定**即可。
 >?HAVIP 的 IP 地址可以自动分配，也可以手动填写。如果您选择手动填写，请确认填写内网 IP 在所属子网网段内，且不属于系统保留 IP。例如，所属子网网段为：10.0.0.0/24，则可填的内网 IP 范围 为：10.0.0.2 - 10.0.0.254。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/41cf780c146b5ef6429f3c37ff2aa04b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9435c1fb132500911efdc8a62d21dc11.png)
 申请成功的 HAVIP 如下图所示。
-![](https://qcloudimg.tencent-cloud.cn/raw/add23ca5be144f2cfd8994a99f236db0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b356efe469e28a4c76abb2405132c743.png)
 
 ### 步骤2：在主服务器和备服务器上安装 keepalived 软件（推荐1.2.24版本及以上）
 本文以 CentOS 7.6镜像类型服务器为例提供 keepalived 的安装方法。
@@ -188,11 +188,11 @@ HAVIP-01 和 HAVIP-02 在本例中将被配置成“等权重节点”，即 sta
        }
    }
    ```
-4. 按“esc”退出编辑状态，输入`:wq!`保存并退出。
+4. 按“esc”退出编辑状态，输入`:wq`保存并退出。
 5. 重启 keepalived 进程使配置生效。
- ```plaintext
+```plaintext
  systemctl start keepalived
- ```
+```
 6. 检查两台云服务器的主备状态，并确认 HAVIP 已经正确的绑定到主备服务器。
 >?此示例中 HAVIP-01 先启动 keepalived 服务，所以正常情况下，HAVIP-01 将被选择为主节点。
 >

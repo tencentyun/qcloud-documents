@@ -45,9 +45,11 @@ const CvmClient = tencentcloud.cvm.v20170312.Client
 
 const clientConfig = {
   // 腾讯云认证信息
+  // 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+  // 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
   credential: {
-    secretId: "secretId",
-    secretKey: "secretKey",
+    secretId: process.env.TENCENTCLOUD_SECRET_ID,
+    secretKey: process.env.TENCENTCLOUD_SECRET_KEY,
   },
   // 产品地域
   region: "ap-shanghai",
@@ -80,37 +82,9 @@ client.DescribeZones().then(
 ```js
 import * as tencentcloud from "tencentcloud-sdk-nodejs"
 
-// 导入对应产品模块的client models。
 const CvmClient = tencentcloud.cvm.v20170312.Client
 
-const clientConfig = {
-  // 腾讯云认证信息
-  credential: {
-    secretId: "secretId",
-    secretKey: "secretKey",
-  },
-  // 产品地域
-  region: "ap-shanghai",
-  // 可选配置实例
-  profile: {
-    signMethod: "HmacSHA256", // 签名方法
-    httpProfile: {
-      reqMethod: "POST", // 请求方法
-      reqTimeout: 30, // 请求超时时间，默认60s
-    },
-  },
-}
-// 实例化要请求产品(以cvm为例)的client对象
-const client = new CvmClient(clientConfig)
-// 通过client对象调用想要访问的接口，需要传入请求对象以及响应回调函数
-client.DescribeZones().then(
-  (data) => {
-    console.log(data)
-  },
-  (err) => {
-    console.error("error", err)
-  }
-)
+// ...
 ```
 
 实例化`Client` 的入参支持 `clientConfig` 数据结构和说明 详见 [ClientConfig](https://github.com/TencentCloud/tencentcloud-sdk-nodejs/blob/master/src/common/interface.ts)。

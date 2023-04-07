@@ -4,7 +4,7 @@
 ## 步骤1：确保安装 Node.js 和 npm
 
 如果本机没有安装 Node.js , 建议从 [Node.js 官网](https://nodejs.org/zh-cn/) 下载二进制文件直接安装，建议选择版本为 LTS。
-
+ 
 ## 步骤2：安装命令行工具
 
 确保 [步骤1](#step1) Node.js 和 npm 安装成功后，使用 npm 命令来安装最新  cloudbase/cli ，打开命令行终端，输入如下命令。如已经安装过，先卸载本地版本：

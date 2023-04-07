@@ -11,7 +11,7 @@ License 查询页展示小程序播放器插件 License、短视频 SDK License 
 - **状态**：分为已过期和可用。
 
 
-更多相关的插件信息请前往 [小程序播放器插件](https://cloud.tencent.com/document/product/266/36849) 或 [短视频 SDK](https://cloud.tencent.com/document/product/584) 进行查询。
+更多相关的插件信息请前往 [短视频 SDK](https://cloud.tencent.com/document/product/584) 进行查询。
 
 >!License 如已激活或已绑定将视作已使用，不支持退款。
 

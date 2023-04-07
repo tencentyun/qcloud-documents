@@ -38,8 +38,8 @@ MySQL [(none)]> SHOW VARIABLES LIKE 'CYNOS_VERSION';
 
 | 命令 | 示例 | 
 |---------|---------|
-| 创建数据库并指定字符集 | `create database db01 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;` |
-| 删除数据库 | `drop database db01;` |
+| 创建数据库并指定字符集 | `CREATE TABLE db01 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;` |
+| 删除数据库 | `DROP TABLE db01;` |
 
 ## 帐号相关
 
@@ -48,7 +48,7 @@ MySQL [(none)]> SHOW VARIABLES LIKE 'CYNOS_VERSION';
 | 创建帐号 | `CREATE USER 'username'@'host' IDENTIFIED BY 'password';` | 
 | 删除帐号 | `DROP USER 'username'@'host';` | 
 | 赋权 | `GRANT SELECT ON db01.* TO 'username'@'host';` | 
-| 查询数据库中的帐号 | `SELECT user,host,password FROM mysql.user_view;`<br>或<br>`show grants for xxx` | 
+| 查询数据库中的帐号 | `SELECT user,host,password FROM mysql.user_view;`<br>或<br>`show grants for xxx;` | 
 | 权限回收 | 收回全部权限：`REVOKE ALL PRIVILEGES,GRANT OPTION FROM 'username'@'host';`<br>收回指定权限：`REVOKE UPDATE ON *.* FROM 'username'@'host';` | 
 
 

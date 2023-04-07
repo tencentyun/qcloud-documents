@@ -32,7 +32,6 @@
 </tbody>
 </table>
 
-
 <b>自建 Hadoop/CDH 等环境</b>
 
 **软件依赖**
@@ -42,6 +41,7 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件8.1.5及以上版本，同时 cos
 **安装说明**
 
 在 Hadoop 环境下，安装以下插件：
+
 <table>
 <thead>
 <tr><th>jar 包文件名</th><th>说明</th><th>下载地址</th></tr>
@@ -212,6 +212,7 @@ nohup hadoop jar /data01/jars/cos-distcp-1.10-2.8.5.jar -libjars /data01/jars/ch
 ```
 
 运行完成后，会将HDFS和COS的差异数据移动到 `trash` 目录下，并且在 `/xxx/failed` 目录下生成移动文件清单。删除 `trash` 目录下的数据可以采用 `hadoop fs -rm URL` 或者`hadoop fs -rmr URL`。
+
 
 ## 增量迁移
 

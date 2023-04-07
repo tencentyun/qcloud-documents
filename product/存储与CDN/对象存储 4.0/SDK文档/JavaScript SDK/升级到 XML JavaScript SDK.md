@@ -64,7 +64,7 @@ XML  JavaScript SDK  的存储桶可用区域简称发生了变化，不同区�
 | 广州（华南）     | ap-guangzhou     | gz          |
 | 成都（西南）     | ap-chengdu       | cd          |
 | 重庆             | ap-chongqing     | 无          |
-| 香港             | ap-hongkong      | hk          |
+| 中国香港             | ap-hongkong      | hk          |
 | 新加坡           | ap-singapore     | sgp         |
 | 多伦多           | na-toronto       | ca          |
 | 法兰克福         | eu-frankfurt     | ger         |
@@ -73,7 +73,6 @@ XML  JavaScript SDK  的存储桶可用区域简称发生了变化，不同区�
 | 硅谷             | na-siliconvalley | 无          |
 | 弗吉尼亚         | na-ashburn       | 无          |
 | 曼谷             | ap-bangkok       | 无          |
-| 莫斯科           | eu-moscow        | 无          |
 
 您也可以参考 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档。
 
@@ -99,9 +98,9 @@ API 变化主要有以下变化：
 
 **（1）没有单独的目录接口**
 
-在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COSBrowser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COSBrowser 等图形化工具中模拟了**文件夹**或**目录**的展示方式，具体实现是通过创建一个键值为`project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
 
-例如：上传对象`project/doc/a.txt`，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
+例如：上传对象`project/doc/a.txt`，分隔符`/`会模拟**文件夹**的展示方式，于是可以看到控制台上出现**文件夹**project 和 doc，其中 doc 是 project 下一级**文件夹**，并包含 a.txt 文件。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以`/`结尾的0KB 文件。这样在您调用 GetBucket 接口时，就可以将该文件当做文件夹。
 

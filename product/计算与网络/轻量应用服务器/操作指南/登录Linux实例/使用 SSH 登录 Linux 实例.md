@@ -60,4 +60,3 @@ ssh -i <已下载的与实例关联的私钥文件的路径> <username>@<IP addr
 :::
 </dx-tabs>
 
-

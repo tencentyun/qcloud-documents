@@ -76,6 +76,7 @@ sudo make install
 #include <tencentcloud/cvm/v20170312/model/DescribeInstancesResponse.h>
 #include <tencentcloud/cvm/v20170312/model/Instance.h>
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -88,13 +89,14 @@ int main()
 {
     TencentCloud::InitAPI();
 
-    string secretId = "<your secret id>";
-    string secretKey = "<your secret key>";
-    Credential cred = Credential(secretId, secretKey);
-
-    DescribeInstancesRequest req = DescribeInstancesRequest();
+    // 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+    // 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中。
+    Credential cred = Credential(getenv("TENCENTCLOUD_SECRET_ID"),
+                                 getenv("TENCENTCLOUD_SECRET_KEY"));
 
     CvmClient cvm_client = CvmClient(cred, "ap-guangzhou");
+
+    DescribeInstancesRequest req = DescribeInstancesRequest();
 
     auto outcome = cvm_client.DescribeInstances(req);
     if (!outcome.IsSuccess())
@@ -134,6 +136,7 @@ int main()
 #include <tencentcloud/cvm/v20170312/model/DescribeInstancesResponse.h>
 #include <tencentcloud/cvm/v20170312/model/Instance.h>
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -147,10 +150,11 @@ int main()
     TencentCloud::InitAPI();
 
     // use the sdk
-    // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey,此处还需注意密钥对的保密
-    string secretId = "<your secret id>";
-    string secretKey = "<your secret key>";
-    Credential cred = Credential(secretId, secretKey);
+    // 实例化一个认证对象，入参需要传入腾讯云账户 SecretId 和 SecretKey, 切勿将密钥泄露给他人
+    // 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+    // 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中。
+    Credential cred = Credential(getenv("TENCENTCLOUD_SECRET_ID"),
+                                 getenv("TENCENTCLOUD_SECRET_KEY"));
 
     // 实例化一个http选项，可选的，没有特殊需求可以跳过。
     HttpProfile httpProfile = HttpProfile();

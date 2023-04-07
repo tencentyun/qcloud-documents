@@ -89,7 +89,7 @@ Component({
 }
 :::
 </dx-codeblock>
-6. 最后打开 `mydemo/src/configs/components` 下的 index.js 文件，对代码进行编辑，代码如下：
+6. 最后打开 `mydemo/src/configs` 下的 index.js 文件，对代码进行编辑，代码如下：
 <dx-codeblock>
 :::  js
 import Button from './components/button';

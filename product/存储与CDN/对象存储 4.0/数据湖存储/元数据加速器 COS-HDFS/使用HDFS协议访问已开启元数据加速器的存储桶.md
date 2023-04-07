@@ -11,11 +11,14 @@
 ## 创建存储桶并配置 HDFS 协议
 
 1. [创建 COS 存储桶](https://cloud.tencent.com/document/product/436/13309)，并且开启元数据加速器。如下图所示：
-![开启元数据加速能力](https://qcloudimg.tencent-cloud.cn/raw/6c9b608b84ae11de0ab30c280f042476.png)
-当存储桶创建完成后，进入存储桶的**文件列表**页面，您可在该页面进行文件上传和下载操作。
+  ![开启元数据加速能力](https://qcloudimg.tencent-cloud.cn/raw/6c9b608b84ae11de0ab30c280f042476.png)
+  当存储桶创建完成后，进入存储桶的**文件列表**页面，您可在该页面进行文件上传和下载操作。
 2. 在左侧菜单栏中，单击**性能配置 > 元数据加速能力**，可以看到元数据加速能力已开启。
-如果是第一次创建**需开启元数据加速**的存储桶，需要按照提示进行相应的**授权**操作，单击授权完成后，将自动开启 HDFS 协议，并且看到默认的存储桶挂载点信息。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/bfd53266983276e8755089134a5cb890.png)
+  如果是首次创建**开启元数据加速**的存储桶，需要按照提示进行相应的**授权**操作。
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/041c2013ead08d48a0799066a03e778d.png" style="zoom: 67%;" />
+  
+	单击授权完成后，将自动开启 HDFS 协议，并且看到默认的存储桶挂载点信息。如下图所示：
+  ![](https://qcloudimg.tencent-cloud.cn/raw/bfd53266983276e8755089134a5cb890.png)
 >?如果提示未找到对应的 HDFS 文件系统，请单击 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们获取帮助。
 >
 3. 在 HDFS 权限配置栏中，单击**新增权限配置**。

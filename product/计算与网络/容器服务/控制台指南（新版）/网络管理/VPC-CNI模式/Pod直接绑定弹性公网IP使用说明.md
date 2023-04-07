@@ -90,7 +90,6 @@ spec:
     metadata:
       annotations:
         tke.cloud.tencent.com/networks: "tke-route-eni"
-        tke.cloud.tencent.com/vpc-ip-claim-delete-policy: Never
         tke.cloud.tencent.com/eip-id-list: "eip-xxx1,eip-xxx2"
       creationTimestamp: null
       labels:
@@ -149,12 +148,23 @@ Pod 启用自动关联 EIP 特性后，网络组件会为该 Pod 在同 namespac
 
 下面介绍三种回收 EIP 的方法：过期回收、手动回收及级联回收。
 
-### 过期回收（默认支持）
+### 过期回收
 在 [创建集群](https://cloud.tencent.com/document/product/457/32189) 页面，容器网络插件选择 **VPC-CNI** 模式并且勾选**开启支持**固定 Pod IP 支持，如下图所示：
 ![](https://main.qcloudimg.com/raw/ad1290436fa0ff66d8bb17abd2bab161.png)
 在高级设置中设置 IP 回收策略，可以设置 Pod 销毁后多少秒回收保留的固定 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/a9adcfc9618452c4afd45dfdd27c050f.png)
 对于**存量集群**，也可支持变更：
+
+#### tke-eni-ipamd 组件版本 >= v3.5.0
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
+2. 在“集群管理”页面，选择需设置过期时间的集群 ID，进入集群详情页。
+3. 在集群详情页面，选择左侧**组件管理**。
+4. 在组件管理页面中，找到**eniipamd**组件，选择**更新配置**。
+![](https://qcloudimg.tencent-cloud.cn/raw/8ba9443b2e1da9800b429060adf89416.png)
+5. 在更新配置页面，填写固定IP回收策略里的过期时间，并点击完成。
+![](https://qcloudimg.tencent-cloud.cn/raw/99188dc9de98aa3e23613820665d4cb0.png)
+
+#### tke-eni-ipamd 组件版本 < v3.5.0 或组件管理中无 eniipamd 组件
 - 修改现存的 tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`。
 - 执行以下命令，在 `spec.template.spec.containers[0].args` 中加入/修改启动参数。
 ```yaml
@@ -173,6 +183,18 @@ kubectl delete eipc <podname> -n <namespace>
 目前的固定 EIP 与 Pod 强绑定，而与具体的 Workload 无关（例如 deployment、statefulset 等）。Pod 销毁后，固定 EIP 不确定何时回收。TKE 现已实现删除 Pod 所属的 Workload 后即刻删除固定 EIP。**要求 IPAMD 组件版本在 v3.3.9+（可通过镜像 tag 查看）**。
 
 以下步骤介绍如何开启级联回收：
+#### tke-eni-ipamd 组件版本 >= v3.5.0
+
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
+2. 在“集群管理”页面，选择需开启级联回收的集群 ID，进入集群详情页。
+3. 在集群详情页面，选择左侧**组件管理**。
+4. 在组件管理页面中，找到**eniipamd**组件，选择**更新配置**。
+![](https://qcloudimg.tencent-cloud.cn/raw/8ba9443b2e1da9800b429060adf89416.png)
+5. 在更新配置页面，勾选**级联回收**，并点击完成。
+![](https://qcloudimg.tencent-cloud.cn/raw/3c3d5b4a122eca09c20d776abd4c5038.png)
+
+#### tke-eni-ipamd 组件版本 < v3.5.0 或组件管理中无 eniipamd 组件
+
 1. 修改现存的 **tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`**。
 2. 执行以下命令，在 `spec.template.spec.containers[0].args` 中加入启动参数：
 ```yaml

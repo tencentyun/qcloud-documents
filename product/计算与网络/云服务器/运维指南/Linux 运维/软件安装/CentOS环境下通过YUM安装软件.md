@@ -46,4 +46,3 @@ rpm -q
 ```
 例如，您执行 `rpm -q php` 命令，查看 PHP 的版本信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/35e1ecee46bc55a5d2510dce59360ecc.png)
-

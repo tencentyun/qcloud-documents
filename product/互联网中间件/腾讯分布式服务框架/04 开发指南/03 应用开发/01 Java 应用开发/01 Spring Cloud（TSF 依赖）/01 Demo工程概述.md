@@ -10,6 +10,9 @@
 - release/<版本号>：对应 Spring Cloud Edgware 系列的 Demo
 - release/<版本号>-finchley：对应 Spring Cloud Finchley 系列的 Demo
 - release/<版本号>-greenwich：对应 Spring Cloud Greenwich 系列的 Demo
+- release/<版本号>-hoxton-higher：对应 Spring Cloud Hoxton Higher 系列的 Demo
+- release/<版本号>-springcloud2020：对应 Spring Cloud 2020 系列的 Demo
+- release/<版本号>-springcloud2021：对应 Spring Cloud 2021 系列的 Demo
 
 ![](https://main.qcloudimg.com/raw/3ceb421e4fc1ead076ff0686558ef865.png)
 

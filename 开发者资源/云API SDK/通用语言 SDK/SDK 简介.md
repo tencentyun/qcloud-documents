@@ -52,7 +52,6 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [智聆口语评测](https://cloud.tencent.com/document/api/884/19310) | Smart Oral  Evaluation，SOE                                  | soe          |
 | [短信](https://cloud.tencent.com/document/api/382/38764)     | Short Message  Service，SMS                                  | sms          |
 | [号码保护](https://cloud.tencent.com/document/api/610/40967) | Number Privacy  Protection，NPP                              | npp          |
-| [物联卡](https://cloud.tencent.com/document/api/636/33864)   | IoT Link                                                     | ic           |
 | [物联网通信](https://cloud.tencent.com/document/api/634/19469) | Internet of  Things Hub， IoT Hub                            | iotcloud     |
 | [TBaaS](https://cloud.tencent.com/document/api/663/19455)    | Tencent  Blockchain as a Service，TBaaS                      | tbaas        |
 | [云监控](https://cloud.tencent.com/document/api/248/30343)   | Cloud  Monitor，CM                                           | monitor      |

@@ -73,8 +73,8 @@ touch .env # 腾讯云的配置信息
 
 ```text
 # .env
-TENCENT_SECRET_ID=123
-TENCENT_SECRET_KEY=123
+TENCENT_SECRET_ID=********
+TENCENT_SECRET_KEY=********
 ```
 
 >?

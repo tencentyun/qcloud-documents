@@ -28,7 +28,7 @@ set GOPROXY=https://mirrors.tencent.com/go/
 ### 按需安装（推荐）
 >!
 >- 此安装方式仅支持使用 **Go Modules** 模式进行依赖管理，即环境变量 `GO111MODULE=auto`或者`GO111MODULE=on`, 并且在您的项目中执行了 `go mod init xxx`。
->- 如果您使用 GOPATH, 请参考 [全部安装](#InstallAll)。
+>- 为了支持 go mod，SDK 版本号从 v3.x 降到了 v1.x。并于2021.05.10移除了所有`v3.0.*`和`3.0.*`的tag，如需追溯以前的tag，请参考项目根目录下的 `commit2tag` 文件。
 
 v1.0.170 后可以按照产品下载，您只需下载基础包和对应的产品包（如 CVM）即可，不需要下载全部的产品，从而加快您构建镜像或者编译的速度：
 
@@ -42,18 +42,6 @@ go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
 go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm
 ```
 
-
-[](id:InstallAll)
-### 全部安装
-
-此模式支持 GOPATH 和 Go Modules。
-
-此方式会一次性下载腾讯云所有产品的包：
-```bash
-go get -v -u github.com/tencentcloud/tencentcloud-sdk-go
-```
-
->!为了支持 go mod，SDK 版本号从 v3.x 降到了 v1.x。并于2021.05.10移除了所有`v3.0.*`和`3.0.*`的tag，如需追溯以前的tag，请参考项目根目录下的 `commit2tag` 文件。
 
 
 ### 通过源码安装
@@ -75,6 +63,7 @@ package main
 
 import (
 	"fmt"
+    "os"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
@@ -83,7 +72,13 @@ import (
 )
 
 func main() {
-	credential := common.NewCredential("secretId", "secretKey")
+    // 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+    // 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+    // credential := common.NewCredential("SecretId", "SecretKey")
+    credential := common.NewCredential(
+        os.Getenv("TENCENTCLOUD_SECRET_ID"),
+        os.Getenv("TENCENTCLOUD_SECRET_KEY"),
+    )
 	client, _ := cvm.NewClient(credential, regions.Guangzhou, profile.NewClientProfile())
 
 	request := cvm.NewDescribeInstancesRequest()
@@ -106,6 +101,7 @@ package main
 
 import (
 	"fmt"
+    "os"
 
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
 	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
@@ -116,10 +112,14 @@ import (
 
 func main() {
         // 必要步骤：
-        // 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
-        // 您也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-        // 以免泄露密钥对危及您的财产安全。
-        credential := common.NewCredential("secretId", "secretKey")
+        // 实例化一个认证对象，入参需要传入腾讯云账户密钥对 SecretId，SecretKey。
+        // 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+        // 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+        // credential := common.NewCredential("SecretId", "SecretKey")
+        credential := common.NewCredential(
+            os.Getenv("TENCENTCLOUD_SECRET_ID"),
+            os.Getenv("TENCENTCLOUD_SECRET_KEY"),
+        )
 
         // 非必要步骤
         // 实例化一个客户端配置对象，可以指定超时时间等配置
@@ -552,7 +552,8 @@ import (
 )
 
 func main() {
-	credential := common.NewCredential("secretId", "secretKey")
+    // ...
+
 	prof := profile.NewClientProfile()
 	prof.RateLimitExceededMaxRetries = 3                               // 定义最大重试次数
 	prof.RateLimitExceededRetryDuration = profile.ExponentialBackoff   // 定义重试间隔时间

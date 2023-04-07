@@ -104,4 +104,3 @@ phpinfo();
 21. 在操作系统界面，打开浏览器并访问 `http://localhost/index.php`，查看环境配置是否成功。
 如果打开的页面如下显示，则表示配置成功：
 ![](https://main.qcloudimg.com/raw/ccd08fd9af6afe4ee2c3bf38f9e581b9.png)
-

@@ -277,6 +277,7 @@ import (
     "encoding/hex"
     "fmt"
     "time"
+    "os"
 )
 
 func sha256hex(s string) string {
@@ -291,8 +292,10 @@ func hmacsha256(s, key string) string {
 }
 
 func main() {
-    secretId := "AKIDz8krbsJ5**********mLPx3EXAMPLE"
-    secretKey := "Gu5t9xGAR***********EXAMPLE"
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5**********mLPx3EXAMPLE
+    secretId := os.Getenv("TENCENTCLOUD_SECRET_ID")
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGAR***********EXAMPLE
+    secretKey := os.Getenv("TENCENTCLOUD_SECRET_KEY")
     host := "cvm.tencentcloudapi.com"
     algorithm := "TC3-HMAC-SHA256"
     service := "cvm"
@@ -518,8 +521,11 @@ import (
 )
 
 func main() {
-    secretId := "AKIDz8krbsJ5**********mLPx3EXAMPLE"
-    secretKey := "Gu5t9xGAR***********EXAMPLE"
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5**********mLPx3EXAMPLE
+    secretId := os.Getenv("TENCENTCLOUD_SECRET_ID")
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGAR***********EXAMPLE
+    secretKey := os.Getenv("TENCENTCLOUD_SECRET_KEY")
+
     endpoint := "cvm.tencentcloudapi.com"
     params := map[string]string{
         "Nonce":         "11886",

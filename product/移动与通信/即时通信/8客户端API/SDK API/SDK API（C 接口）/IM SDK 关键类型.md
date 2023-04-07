@@ -78,6 +78,17 @@
 | kTIMConv_Group | 群组会话 |
 | kTIMConv_System | 系统会话 |
 
+### TIMConversationMarkType
+
+会话标记类型
+
+| 名称 | 含义 |
+|-----|-----|
+| kTIMConversationMarkTypeStar | 会话标星 |
+| kTIMConversationMarkTypeUnread | 会话标记未读(重要会话) |
+| kTIMConversationMarkTypeFold | 会话折叠 |
+| kTIMConversationMarkTypeHide | 会话隐藏 |
+
 ### TIMPlatform
 
 平台信息。
@@ -264,7 +275,7 @@ Android 离线推送模式。
 | kTIMAndroidOfflinePushConfigOPPOChannelID | string | 读写 | OPPO 的 ChannelID |
 
 >?ChannelID 的说明
-Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 oppo 要求必须填写，否则在8。0及以上的 OPPO 手机上会收不到离线推送消息。后续可能会增加 xiaomi_channel_id_，huawei_channel_id 等。
+- Android 8.0 系统以上通知栏消息增加了 channelid 的设置，目前 OPPO 要求必须填写，否则在 Android 8.0 及以上的 OPPO 手机上会收不到离线推送消息。后续可能会增加 xiaomi_channel_id_，huawei_channel_id 等。
 
 
 ### TIMOfflinePushFlag
@@ -417,7 +428,7 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMFaceElemIndex | int | 读写（必填） | 表情索引 |
 | kTIMFaceElemBuf | string | 读写（选填） | 其他额外数据，可由用户自定义填写。若要传输二进制，麻烦先转码成字符串。JSON 只支持字符串 |
 
->?IM SDK 并不提供表情包，如果开发者有表情包，可使用`kTIMFaceElemIndex`存储表情在表情包中的索引，由用户自定义。或者直接使用`kTIMFaceElemBuf`存储表情二进制信息（必须转换成 String，JSON 不支持二进制传输），由用户自定义，IM SDK 内部只做透传。
+>?IM SDK 并不提供表情包，如果开发者有表情包，可使用 `kTIMFaceElemIndex` 存储表情在表情包中的索引，由用户自定义。或者直接使用 `kTIMFaceElemBuf` 存储表情二进制信息（必须转换成 String，JSON 不支持二进制传输），由用户自定义，IM SDK 内部只做透传。
 
 
 ### LocationElem
@@ -939,7 +950,16 @@ UUID 类型。
 |-----|-----|-----|-----|
 | kTIMMsgSearchResultTotalCount | uint | 只读 | 如果您本次搜索【指定会话】，那么返回满足搜索条件的消息总数量；如果您本次搜索【全部会话】，那么返回满足搜索条件的消息所在的所有会话总数量。 |
 | kTIMMsgSearchResultItemConvType | uint | 只读 | 会话类型，如果设置 kTIMConv_Invalid，代表搜索全部会话。否则，代表搜索指定会话。 |
-| kTIMMsgSearchResultItemArray | array [MessageSearchResultItem](#messagesearchresultitem) | 只读 | 如果您本次搜索【指定会话】，那么返回结果列表只包含该会话结果；如果您本次搜索【全部会话】，那么对满足搜索条件的消息根据会话 ID 分组，分页返回分组结果；。 |
+| kTIMMsgSearchResultItemArray | array [MessageSearchResultItem](#messagesearchresultitem) | 只读 | 如果您本次搜索【指定会话】，那么返回结果列表只包含该会话结果；如果您本次搜索【全部会话】，那么对满足搜索条件的消息根据会话 ID 分组，分页返回分组结果。|
+
+### TIMGroupMessageReadMembersFilter
+
+群消息已读成员列表过滤。
+
+| 名称 | 含义 |
+|-----|-----|
+| TIM_GROUP_MESSAGE_READ_MEMBERS_FILTER_READ | 群消息已读成员列表 |
+| TIM_GROUP_MESSAGE_READ_MEMBERS_FILTER_UNREAD | 群消息未读成员列表 |
 
 ## 会话关键类型
 
@@ -994,6 +1014,26 @@ UUID 类型。
 | kTIMConvIsPinned | object [Draft](#draft) | 只读（选填） | 是否置顶 |
 | kTIMConvShowName | object [Draft](#draft) | 只读（选填） | 获取会话展示名称，其展示优先级如下：1、群组，群名称 C2C; 2、对方好友备注->对方昵称->对方的 userID |
 
+### TIMConversationListFilter
+
+获取会话列表高级接口的 filter。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMConversationListFilterConvType | uint [TIMConvType](#timconvtype) | 只写 | 会话类型 |
+| kTIMConversationListFilterConversationGroup | string | 只写 | 会话分组名称 |
+| kTIMConversationListFilterMarkType | uint [TIMConversationMarkType](#timconversationmarktype) | 只写 | 标记类型 |
+
+### TIMConversationListResult
+
+获取会话列表的结果。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| TIMConversationListResultConvList | array [ConvInfo](#convinfo) | 只读 | 会话列表 |
+| TIMConversationListResultNextSeq | uint64 | 只读 | 分页拉取的游标 |
+| TIMConversationListResultIsFinished | bool | 只读 | 分页拉取是否结束 |
+
 ### GetConversationListParam
 
 获取指定的会话列表。
@@ -1010,6 +1050,16 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMConvGetTotalUnreadMessageCountResultUnreadCount | int | 只读 | 会话未读数 |
+
+### TIMConversationOperationResult
+
+会话操作结果。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMConversationOperationResultConversationID | string | 只读 | 会话 ID |
+| kTIMConversationOperationResultResultCode | int | 只读 | 返回码 |
+| kTIMConversationOperationResultResultInfo | string | 只读 | 返回信息 |
 
 ## 群组关键类型
 
@@ -1230,6 +1280,36 @@ UUID 类型。
 | kTIMGetGroupInfoResultCode | int [错误码](https://cloud.tencent.com/document/product/269/1671) | 只读 | 获取群组详细信息的结果 |
 | kTIMGetGroupInfoResultDesc | string | 只读 | 获取群组详细失败的描述信息 |
 | kTIMGetGroupInfoResultInfo | object [GroupDetailInfo](#groupdetailinfo) | 只读 | 群组详细信息 |
+
+### TIMGroupTopicInfo
+
+话题信息。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMGroupTopicInfoTopicID | string | 读写 | 话题 ID |
+| kTIMGroupTopicInfoTopicName | string | 读写 | 话题名称 |
+| kTIMGroupTopicInfoIntroduction | string | 读写 | 话题介绍 |
+| kTIMGroupTopicInfoNotification | string | 读写 | 话题公告 |
+| kTIMGroupTopicInfoTopicFaceURL | string | 读写 | 话题头像 |
+| kTIMGroupTopicInfoIsAllMuted | bool |读写 | 话题全员禁言 |
+| kTIMGroupTopicInfoSelfMuteTime | uint32 | 读写 | 当前用户在话题中的禁言时间 |
+| kTIMGroupTopicInfoCustomString | string | 读写 | 话题自定义字段 |
+| kTIMGroupTopicInfoRecvOpt | uint [TIMReceiveMessageOpt](#timreceivemessageopt) | 只读 | 话题消息接收选项，修改话题消息接收选项请调用[TIMMsgSetGroupReceiveMessageOpt](https://cloud.tencent.com/document/product/269/33549#timmsgsetgroupreceivemessageopt) 接口 |
+| kTIMGroupTopicInfoDraftText | string | 读写 | 话题草稿 |
+| kTIMGroupTopicInfoUnreadCount | uint64 | 只读 | 话题消息未读数量 |
+| kTIMGroupTopicInfoLastMessage | object [Message](#message) | 只读 | 话题 lastMessage |
+| kTIMGroupTopicInfoGroupAtInfoArray | array [GroupAtInfo](#groupatinfo) | 只读 | 话题 at 信息列表 |
+| kTIMGroupTopicInfoModifyFlag | uint [TIMGroupModifyInfoFlag](#timgroupmodifyinfoflag) | 只写(必填) | 修改标识，可设置多个值按位或 |
+
+### TIMGroupCounter
+
+获取群组信息列表接口的返回。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMGroupCounterKey | string | 读写 | 群计数器的 key 值 |
+| kTIMGroupCounterValue | int64 | 读写 | 群计数器的 value 值 |
 
 ### TIMGroupModifyInfoFlag
 

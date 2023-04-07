@@ -264,8 +264,8 @@ nginx-v2
 3. 通过控制台或 kubectl 方式调节 v1 和 v2 版本的 Deployment 的副本，将 v1 版本调至 1 个副本，v2 版本调至 4 个副本：
  - **通过控制台修改**：
     1. 进入集群的**工作负载 > Deployment** 页，选择 v1 版本 Deployment 所在行右侧的**更多** > **编辑YAML**。  
-    2. 在 YAML 编辑页面，将 v1 版本的 `replicas` 修改为1并单击**完成**。  
-    3. 重复上述步骤，将 v2 版本的 `replicas` 修改为4并单击**完成**。  
+    2. 在 YAML 编辑页面，将 v1 版本的 `.spec.replicas` 修改为1并单击**完成**。  
+    3. 重复上述步骤，将 v2 版本的 `.spec.replicas` 修改为4并单击**完成**。  
  - **通过 kubectl 修改**：
 ``` bash
 kubectl scale deployment/nginx-v1 --replicas=1

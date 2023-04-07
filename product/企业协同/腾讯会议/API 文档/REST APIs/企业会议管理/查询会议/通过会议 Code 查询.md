@@ -1,6 +1,7 @@
 ## 接口描述
-- **描述**：用于会议 Code 查询会议详情。
+- **描述**：通过会议 ID 查询会议详情。
  - 企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
+ - 支持企业管理员查询企业下会议。
  - 本接口的邀请参会成员限制调整至300人。
  - 当会议为周期性会议时，主持人密钥每场会议固定，但单场会议只能获取一次。支持查询周期性会议的主持人密钥。
  - 支持查询 MRA 当前所在会议信息。
@@ -94,8 +95,8 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | ---------------- | -------- | ------------------------------------- |
 | sub_meeting_id   | String   | 子会议 ID。                             |
 | status           | Integer  | 子会议状态。<br> 0：默认（存在）<br> 1：已删除   |
-| start_time       | Integer  | 子会议开始时间（UTC 秒）。               |
-| end_time         | Integer  | 子会议结束时间（UTC 秒）。              |
+| start_time       | String  | 子会议开始时间（UTC 秒）。               |
+| end_time         | String  | 子会议结束时间（UTC 秒）。              |
 
 
 **周期性会议 period_meeting**
@@ -204,6 +205,7 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
   ]
 }
 ```
+
 #### 输出示例（周期性会议）
 ```plaintext
 {

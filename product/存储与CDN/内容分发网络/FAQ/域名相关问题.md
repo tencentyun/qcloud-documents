@@ -9,7 +9,7 @@
 3. 域名备案同步有一定的延迟，预计需1 - 2个小时，请您在备案完成后等待1 - 2个小时后再重试添加域名；
 4. 支持含下划线的域名或中文域名转 punycode 码接入，中文域名需先以中文形式备案。
 5.  支持接入`*.example.com`、`*.a.example.com`等形式的泛域名，接入泛域名后，暂不支持其子域名或二级泛域名在其他账号中接入；例如：接入泛域名为`*.example.com`，用户访问域名`a.example.com`匹配该泛域名，按照该泛域名配置加速；用户访问域名`example.com`不匹配该泛域名，不具有加速效果;
-6. 在同一账号下，允许接入多层嵌套域名，如：`*.example.com`、`*.path.example.com`、`a.path.example.com`在同一账号下允许同时接入，域名配置、流量统计可区分优先级进行统计，匹配越精准优先级越高，例如：`a.path.example.com`访问将匹配`a.path.example.com`的域名配置，`b.path.example.com`访问将匹配`*.path.example.com`的域名配置，`c.example.com`访问将匹配`*.path.com`的配置，流量统计同理。
+6. 在同一账号下，允许接入多层嵌套域名，如：`*.example.com`、`*.path.example.com`、`a.path.example.com`在同一账号下允许同时接入，域名配置、流量统计可区分优先级进行统计，匹配越精准优先级越高，例如：`a.path.example.com`访问将匹配`a.path.example.com`的域名配置，`b.path.example.com`访问将匹配`*.path.example.com`的域名配置，`c.example.com`访问将匹配`*.example.com`的配置，流量统计同理。
 7. 如果您当前需接入的泛域名已包含的子域名已在其他账号下接入，需在对应账号下删除对应的子域名后，方可在当前账号下接入，例如：A账号已接入域名`a.example.com`，B账号如需接入`*.example.com`，因为`*.example.com`已包含子域名`a.example.com`，需先删除A账号下的`a.example.com`后方可在B账号下接入`*.example.com`；
 
 [](id:q3)

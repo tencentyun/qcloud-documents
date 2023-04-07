@@ -11,45 +11,53 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
 
 <table>
    <tr>
-      <th width="0px" style="text-align:center">参数名称</td>
-      <th width="0px" style="text-align:center">是否必须</td>
-      <th width="0px"  style="text-align:center">备注</td>
+      <th width="20%" >参数名称</td>
+      <th width="20%" >参数类型</td>
+      <th width="20%" >是否必须</td>
+      <th width="40%" >参数描述</td>
    </tr>
    <tr>
       <td>operator_id</td>
+      <td>String</td>
       <td>是</td>
       <td>操作者 ID。operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。</td>
    </tr>
    <tr>
       <td>operator_id_type</td>
+      <td>Integer</td>
       <td>是</td>
       <td>操作者 ID 的类型： <br>
-			3：rooms 设备 rooms_id。<br>
-			5：会议室ID meeting_room_id。</td>
+			3：rooms 设备 rooms_id<br>
+			5：会议室 ID meeting_room_id</td>
    </tr>
    <tr>
       <td>instanceid</td>
+      <td>Integer</td>
       <td>是</td>
       <td>用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS
 			</td>
    </tr>
    <tr>
       <td>start_time</td>
+      <td>String</td>
       <td>否</td>
       <td>Unix 时间戳。查询起始时间，时间区间不超过90天。</td>
    </tr>
    <tr>
       <td>end_time</td>
+      <td>String</td>
       <td>否</td>
       <td>Unix 时间戳。查询结束时间，时间区间不超过90天。</td>
    </tr>
    <tr>
       <td>page</td>
+      <td>Integer</td>
       <td>否</td>
       <td>当前页，页码起始值为1，默认为1。</td>
    </tr>
    <tr>
       <td>page_size</td>
+      <td>Integer</td>
       <td>否</td>
       <td>分页大小，默认20条，最大20条。</td>
    </tr>

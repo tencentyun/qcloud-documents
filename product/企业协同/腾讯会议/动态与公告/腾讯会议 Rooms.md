@@ -6,6 +6,26 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.13.190</td>
+<td>
+1. Rooms 自定义布局支持轮询功能。<br>
+2. 自定义背景显示效果优化。<br>
+3. Rooms 支持设置摄像头预设位。<br>
+4. 优化了会议室管理的列表页。
+</td>
+<td><center>2023-03-03</td>	
+	</tr>
+<tr>
+<td><center>V3.12.180</td>
+<td>
+1. Rooms 支持顶部成员列表、右侧成员列表、上 L 型布局、下 L 型布局、回型布局。<br>
+2. Rooms 支持扫码获取云录制链接。<br>
+3. Rooms 支持混合云开启内部会议。<br>
+4. 优化了 Rooms 退出登录入口位置。
+</td>
+<td><center>2023-01-11</td>	
+	</tr>
+<tr>
 <td><center>V3.11.170</td>	
 <td>
 1. Rooms 支持勿扰模式。<br>
@@ -118,6 +138,26 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.13.190</td>
+<td>
+1. Rooms 自定义布局支持轮询功能。<br>
+2. 自定义背景显示效果优化。<br>
+3. Rooms 支持设置摄像头预设位。<br>
+4. 优化了会议室管理的列表页。
+</td>
+<td><center>2023-03-03</td>	
+	</tr>
+<tr>
+<td><center>V3.12.180</td>
+<td>
+1. Rooms 支持顶部成员列表、右侧成员列表、上 L 型布局、下 L 型布局、回型布局。<br>
+2. Rooms 支持扫码获取云录制链接。<br>
+3. Rooms 支持混合云开启内部会议。<br>
+4. 优化了 Rooms 退出登录入口位置。
+</td>
+<td><center>2023-01-11</td>	
+	</tr>
+<tr>
 <td><center>V3.11.170</td>	
 <td>Rooms 支持勿扰模式。</td>
 <td><center>2022-12-07</td>	
@@ -224,6 +264,25 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.13.190</td>
+<td>
+1. 自定义背景显示效果优化。<br>
+2. Rooms 支持设置摄像头预设位。<br>
+3. 优化了会议室管理的列表页。
+</td>
+<td><center>2023-03-03</td>	
+	</tr>
+<tr>
+<td><center>V3.12.180</td>
+<td>
+1. Rooms 支持顶部成员列表、右侧成员列表、上 L 型布局、下 L 型布局、回型布局。<br>
+2. Rooms 支持扫码获取云录制链接。<br>
+3. Rooms 支持混合云开启内部会议。<br>
+4. 优化了 Rooms 退出登录入口位置。
+</td>
+<td><center>2023-01-11</td>	
+	</tr>
+<tr>
 <td><center>V3.11.170</td>	
 <td>Rooms 支持勿扰模式。</td>
 <td><center>2022-12-07</td>		

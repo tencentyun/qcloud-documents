@@ -42,12 +42,18 @@ pip install --upgrade tencentcloud-sdk-python
 <dx-codeblock>
 ::: 简化版 python
 ```python
+import os
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from tencentcloud.cvm.v20170312 import cvm_client, models
 
 try:
-    cred = credential.Credential("secretId", "secretKey")
+    # 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+    # 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+    # cred = credential.Credential("secretId", "secretKey")
+    cred = credential.Credential(
+        os.environ.get("TENCENTCLOUD_SECRET_ID"),
+        os.environ.get("TENCENTCLOUD_SECRET_KEY"))
     client = cvm_client.CvmClient(cred, "ap-shanghai")
 
     req = models.DescribeInstancesRequest()
@@ -61,6 +67,7 @@ except TencentCloudSDKException as err:
 ::: 详细版 python
 ```python
 # -*- coding: utf-8 -*-
+import os
 import sys
 import logging
 
@@ -73,8 +80,13 @@ from tencentcloud.cvm.v20170312 import cvm_client, models
 from tencentcloud.common.profile.client_profile import ClientProfile
 from tencentcloud.common.profile.http_profile import HttpProfile
 try:
-    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey,此处还需注意密钥对的保密
-    cred = credential.Credential("SecretId", "SecretKey")
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey。
+    # 为了保护密钥安全，建议将密钥设置在环境变量中或者配置文件中，请参考本文凭证管理章节。
+    # 硬编码密钥到代码中有可能随代码泄露而暴露，有安全隐患，并不推荐。
+    # cred = credential.Credential("secretId", "secretKey")
+    cred = credential.Credential(
+        os.environ.get("TENCENTCLOUD_SECRET_ID"),
+        os.environ.get("TENCENTCLOUD_SECRET_KEY"))
 
     # 实例化一个http选项，可选的，没有特殊需求可以跳过。
     httpProfile = HttpProfile()

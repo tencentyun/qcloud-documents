@@ -23,7 +23,8 @@ chat-uikit-uniapp 界面效果如下图所示：
 - node（12.13.0 ≤ node 版本 ≤ 17.0.0, 推荐使用 Node.js 官方 LTS 版本 16.17.0）
 - npm（版本请与 node 版本匹配）
 
-> ! 如果您需要集成 vue2 TUIKit，请参见 [vue2 TUIKit 源码集成](https://github.com/TencentCloud/TIMSDK/tree/master/uni-app/TUIKit-vue2-js)。
+> ! 暂时不支持 vue2。
+
 
 ## TUIKit 源码集成
 通过以下步骤发送您的第一条消息。
@@ -34,7 +35,6 @@ chat-uikit-uniapp 界面效果如下图所示：
 
 > !请在项目 mianfest.json > 基础配置里边确认 Vue 版本选择。
 > ![](https://qcloudimg.tencent-cloud.cn/raw/456a65bd270b69ed6e8e9efe7c859ee4.png)
-
 HBuilder 不会默认创建 package.json 文件，因此您需要先创建 package.json 文件。请执行以下命令:
 ```shell
 npm init -y
@@ -47,7 +47,6 @@ npm init -y
 > - TUIKit 如果作为 tabbar 页面，推荐方案一，主包集成（主包体积 1M）
 > - 客户线上环境，如果不需要本地换算 userSig ，可删除 debug 文件（节省 150kb)
 > - 打包小程序端，**有体积限制需求**，**推荐方案二，分包集成**（分包可节约 170kb）
-
 #### 方案一：主包集成
 
 在 App.vue 页面引用 TUIKit 组件，为此您需要修改  App.vue 和 pages.json 文件。
@@ -84,7 +83,6 @@ const aegis = new Aegis({
 	reportApiSpeed: true, // 接口测速
 });
 uni.$aegis = aegis;
-
 const config = {
   userID: "", //User ID
   SDKAppID: 0, // Your SDKAppID
@@ -100,16 +98,9 @@ uni.$TUIKit = TIM.create({
 });
 uni.$TIM = TIM;
 // 注册文件上传插件
-// #ifdef MP-WEIXIN || H5
 uni.$TUIKit.registerPlugin({
   "tim-upload-plugin": TIMUploadPlugin,
 });
-// #endif
-// #ifdef APP-PLUS
-uni.$TUIKit.registerPlugin({
-  "cos-wx-sdk": TIMUploadPlugin,
-});
-// #endif
 export default {
   onLaunch: function () {
     this.bindTIMEvent();
@@ -140,7 +131,6 @@ export default {
         title: "SDK 未完成初始化",
       });
     },
-
     handleKickedOut(event) {
       uni.clearStorageSync();
       uni.showToast({
@@ -148,7 +138,6 @@ export default {
         icon: "none",
       });
     },
-
     kickedOutReason(type) {
       switch (type) {
         case uni.$TIM.TYPES.KICKED_OUT_MULT_ACCOUNT:
@@ -166,7 +155,6 @@ export default {
   },
 };
 </script>
-
 <style>
 /*每个页面公共css */
 </style>
@@ -237,7 +225,7 @@ export default {
 
 #### 方案二：分包集成 
 
-在 App.vue 页面引用 TUIKit 组件，为此您需要修改  App.vue 和 pages.json文件。
+在 App.vue 页面引用 TUIKit 组件，为此您需要修改  App.vue 和 pages.json 文件。
 <dx-tabs>
 :::  npm 下载
 为了方便您后续的拓展，建议您将 TUIKit 组件复制到自己工程的根目录下，在自己的项目目录下执行以下命令：
@@ -247,7 +235,6 @@ npm i @tencentcloud/chat-uikit-uniapp
 ```
 ```shell
 mkdir -p ./TUIKit && cp -r ./node_modules/@tencentcloud/chat-uikit-uniapp/ ./TUIKit && mv ./TUIKit/debug ./debug
-
 ```
 ```shell
 # windows
@@ -267,7 +254,6 @@ move .\TUIKit\debug .\debug
 在 App.vue 文件引用 TUIKit 组件
 ```javascript
 <script>
-<script>
 import { genTestUserSig, aegisID } from "./debug/index.js";
 import { TIM, TIMUploadPlugin, Aegis } from "./debug/tim.js";
 const aegis = new Aegis({
@@ -275,7 +261,6 @@ const aegis = new Aegis({
   reportApiSpeed: true, // 接口测速
 });
 uni.$aegis = aegis;
-
 const config = {
   userID: "", //User ID
   SDKAppID: 0, // Your SDKAppID
@@ -291,16 +276,9 @@ uni.$TUIKit = TIM.create({
 });
 uni.$TIM = TIM;
 // 注册文件上传插件
-// #ifdef MP-WEIXIN || H5
 uni.$TUIKit.registerPlugin({
   "tim-upload-plugin": TIMUploadPlugin,
 });
-// #endif
-// #ifdef APP-PLUS
-uni.$TUIKit.registerPlugin({
-  "cos-wx-sdk": TIMUploadPlugin,
-});
-// #endif
 export default {
   onLaunch: function () {
     this.bindTIMEvent();
@@ -334,7 +312,6 @@ export default {
         title: "SDK 未完成初始化",
       });
     },
-
     handleKickedOut(event) {
       uni.clearStorageSync();
       uni.showToast({
@@ -342,7 +319,6 @@ export default {
         icon: "none",
       });
     },
-
     kickedOutReason(type) {
       switch (type) {
         case uni.$TIM.TYPES.KICKED_OUT_MULT_ACCOUNT:
@@ -360,7 +336,6 @@ export default {
   },
 };
 </script>
-
 <style>
 /*每个页面公共css */
 </style>
@@ -438,29 +413,34 @@ export default {
 :::
 </dx-tabs>
 
-### 步骤4：获取 SDKAppID 、密钥与 userID
+### 步骤3：获取 SDKAppID 、密钥与 userID
 
 设置 App.vue 文件示例代码中的相关参数 SDKAppID、secretKey 以及 userID ，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。例如：
 ![image](https://user-images.githubusercontent.com/57951148/192587785-6577cc5e-acf9-423c-86d0-52c67234ab1f.png)
 userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 进行创建和获取，单击目标应用卡片，进入应用的账号管理页面，即可创建账号并获取 userID。例如：  
 ![create user](https://user-images.githubusercontent.com/57951148/192585588-c5300d12-6bb5-45a4-831b-f7d733573840.png)
 
-### 步骤5：运行效果
+### 步骤4：运行效果
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/06ccb31cb4dd0ae0d93a15794f63bb81.png)
 
-
 > ! 如果您需要 github 下载集成，请参见 [chat-uikit-uniapp github 源码](https://github.com/TencentCloud/chat-uikit-uniapp)。
+
+### 可选操作：开通内容审核功能
+在消息发送、资料修改场景中，很有可能会扩散不合适的内容，特别是与敏感事件/人物相关、黄色不良内容等令人反感的内容，不仅严重损害了用户们的身心健康，更很有可能违法并导致业务被监管部门查封。
+
+即时通信 IM 支持内容审核（反垃圾信息）功能，可针对不安全、不适宜的内容进行自动识别、处理，为您的产品体验和业务安全保驾护航。可以通过以下两种内容审核方式来实现：
+- [本地审核功能](https://cloud.tencent.com/document/product/269/83795#bdsh)：在客户端本地检测在单聊、群聊、资料场景中由即时通信 SDK 发送的文本内容，支持对已配置的敏感词进行拦截或者替换处理。此功能通过在 IM 控制台开启服务并配置词库的方式实现。
+- [云端审核功能](https://cloud.tencent.com/document/product/269/83795#ydsh)：在服务端检测由单聊、群聊、资料场景中产生的文本、图片、音频、视频内容，支持针对不同场景的不同内容分别配置审核策略，并对识别出的不安全内容进行拦截。此功能已提供默认预设拦截词库和审核场景，只需在 IM 控制台打开功能开关，即可直接使用。
 
 
 ## 更多高级特性
 
 ### 音视频通话 TUICallKit 插件
 > ?**TUIKit 中默认没有集成 TUICallKit 音视频组件**。如果您需要集成通话功能，可参考以下文档实现。
-> - 打包到 APP 请参考官网文档： [音视频通话（uniapp-客户端）](https://cloud.tencent.com/document/product/269/83858)
-> - 打包到小程序请参考官网文档：[音视频通话（uniapp-小程序）](https://cloud.tencent.com/document/product/269/83857)
+> - 打包到 APP 请参考官网文档： [音视频通话（uniapp-客户端）](https://cloud.tencent.com/document/product/269/83857)
+> - 打包到小程序请参考官网文档：[音视频通话（uniapp-小程序）](https://cloud.tencent.com/document/product/269/83858)
 > - 打包到 H5，不支持音视频通话。
-
 TUICallKit 主要负责语音、视频通话。
 #### 客户端通话示意图：
 <img width="1015" src="https://user-images.githubusercontent.com/37072197/207490936-0a98bc14-88e1-4650-a3db-01c6a6783b79.png"/>
@@ -472,7 +452,6 @@ TUICallKit 主要负责语音、视频通话。
 
 ### TUIOfflinePush 离线推送插件
 > ?**TUIKit 中默认没有集成 TUIOfflinePush 离线推送插件**。如果您需要在 APP 中集成离线推送能力，请参考官网文档 [uni-app 离线推送](https://cloud.tencent.com/document/product/269/79124) 实现。
-
 TUIOfflinePush 是腾讯云即时通信 IM Push 插件。目前离线推送支持 Android 和 iOS 平台，设备有：华为、小米、OPPO、vivo、魅族 和 苹果手机。
 效果如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/02e095b0f832c73caf5382495d7fc8d9.png" style="zoom:50%;"/>
@@ -491,15 +470,61 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 
 > !本文示例代码采用的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通功能调试**。 正确的 UserSig 签发方式请参见上文。
 
-#### 3. 运行在小程序端：选择运行时压缩代码
+#### 3. 如何上传图片、视频、语音消息等富媒体消息？
+请使用 [tim-upload-plugin](https://www.npmjs.com/package/tim-upload-plugin) 插件。
+>!请将 tim-upload-plugin 升级到 [1.1.0](https://www.npmjs.com/package/tim-upload-plugin) 版本，该版本支持了 iOS 和 安卓上传富媒体消息以及支持视频封面。
+>
+```javascript
+    // 发送图片、语音、视频等消息需要 tim-upload-plugin 上传插件
+	npm install tim-upload-plugin@latest --save
+	import TIMUploadPlugin from "tim-upload-plugin";
+	// 注册上传插件
+	uni.$TUIKit.registerPlugin({
+		"tim-upload-plugin": TIMUploadPlugin
+	});
+```
+
+#### 4. 如何实现非媒体文件消息上传？
+- uni-app [官方文档](https://uniapp.dcloud.net.cn/api/media/file.html) 提示 `chooseFile` 不支持 APP 选择非媒体文件。故客户根据自己的需求在 [插件市场](https://ext.dcloud.net.cn/search?q=%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9) 选择可用插件。
+- 可参考插件库可用插件：[iOS 上传文件插件](https://ext.dcloud.net.cn/plugin?id=1311) 、 [安卓上传文件插件](https://ext.dcloud.net.cn/plugin?id=5263) （非官方）完成文件选择 ,并格式化数据符合文件消息数据格式要求。
+- 可通过文件消息 [createFileMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFileMessage) API 实现文件上传功能。
+- file 参数如下表所示：
+ 
+| 参数      | 类型     | 含义               | 
+| ---------| -------  | ------------------ |
+| name   | String       | 文件名（必要）|
+| size        | Number     |文件大小 （必要，不能为0） |
+| type           |  String    | 文件类型 （必要）|
+| path           |  String     | 文件路径 （必要）|
+| lastModified |   String   | 修改时间 （非不要）|
+
+参考示例：
+```javascript
+    const fileData = {
+      files: [
+        {
+        name: '', // 文件名
+        size: 10, //本地文件大小
+        type: 'pdf', //文件类型
+        path: '', //本地文件路径
+        lastModified: '', // 修改时间
+        },
+      ],
+    };
+    tim.sendFileMessage(fileData).then((res) => {
+      console.log(res, "sendFileMessage");
+    });
+```
+
+#### 5. 运行在小程序端：选择运行时压缩代码
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ad80a950f32f702fb8ef20ddcc7308a9.png" width="600"/>
 
-#### 4. 运行在小程序端出现异常报错
+#### 6. 运行在小程序端出现异常报错
 
 可能和微信开发者工具版本有关，请使用最新的开发者工具，以及确认稳定的调试基础库版本。
 
-#### 5. 小程序如果需要上线或者部署正式环境怎么办？
+#### 7. 小程序如果需要上线或者部署正式环境怎么办？
 
 请在**微信公众平台** > **开发** > **开发管理** > **开发设置** > **服务器域名**中进行域名配置：
 
@@ -530,9 +555,9 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 
 | 域名  | 说明  | 是否必须 |
 | --- | --- | --- |
-| `https://cos.ap-shanghai.myqcloud.com` | 文件上传域名 | 必须  |
-| `https://cos.ap-shanghai.tencentcos.cn` | 文件上传域名 | 必须  |
-| `https://cos.ap-guangzhou.myqcloud.com` | 文件上传域名 | 必须  |
+| `https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须  |
+| `https://cos.ap-shanghai.tencentcos.cn` | 文件下载域名 | 必须  |
+| `https://cos.ap-guangzhou.myqcloud.com` | 文件下载域名 | 必须  |
 
 
 ## 参考文档
@@ -549,4 +574,3 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
 
 <img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-qq.png" width = "300"/>
- 

@@ -29,7 +29,7 @@ yum install libX11-devel
 ```
 4. 依次执行以下命令，编译安装 rdesktop。
 ```shellsession
-./configure 
+./configure --disable-credssp --disable-smartcard
 ```
 ```shellsession
 make

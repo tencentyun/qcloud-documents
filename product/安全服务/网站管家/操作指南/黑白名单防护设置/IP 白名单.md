@@ -2,10 +2,10 @@
 #### 手动添加
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-iplist)，在左侧导航栏中，单击**配置中心** > **黑白名单**，进入黑白名单页面。
 2. 在黑白名单页面，左上角选择需要防护的域名，单击 **IP 白名单**，进入 IP 白名单页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/08b2bbfdef868413cd314ab2b8a5cae0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/397f579c5fd5cc76a5da0fe6ccd0cbac.png)
 3. 在 IP 白名单页面，单击**添加地址**，进入添加白名单页面。
 4. 在添加白名单页面，配置相关参数，单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/d2161ecae375988075b58d90a563a14c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/717901380e8d427aaa0f037390ee31fe.png)
 **参数说明**
  - **IP 地址：**支持任意 IP 地址，例如10.0.0.10或 FF05::B5；支持 CIDR 格式地址，例如10.0.0.0/16或 FF05:B5::/60，使用换行符进行分隔，一次最多添加20个。
 >?
@@ -17,7 +17,7 @@
 #### 导入数据
 1. 在 [黑白名单页面](https://console.cloud.tencent.com/guanjia/tea-iplist)，左上角选择需要防护的域名，单击 **IP 白名单**，进入 IP 白名单页面。
 2. 在 IP 白名单页面，单击**导入数据** > **导入**，解析成功后，单击**确认导入**即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/9d968c6a6f0aa7760f2d85dcb3a2d436.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7ddc9b886eef182622bb791dedc59a5b.png)
 
 ## 编辑 IP 白名单
 1. 在 [黑白名单页面](https://console.cloud.tencent.com/guanjia/tea-iplist)，左上角选择需要防护的域名，单击 **IP 白名单**，进入 IP 白名单页面。
@@ -47,5 +47,3 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/107487ea139457e12f660c138bee1bfd.png)
 3. 筛选完所需 IP 后，单击**导出全部筛选结果**，即可导出所需的 IP 筛选结果。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eef9facdfca2f42b9a3a82d8a9648377.png)
-
-
