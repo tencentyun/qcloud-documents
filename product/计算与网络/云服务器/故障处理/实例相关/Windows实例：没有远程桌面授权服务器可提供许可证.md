@@ -45,7 +45,7 @@ Windows 使用远程桌面连接 Windows 实例时，提示**由于没有远程�
 4. 在弹出的登录窗口中，选择左上角的**发送远程命令**，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5b40dd211745d84016f6dbd3cf1acf6e.png)
 
-### 方案一：删除远程桌面会话主机角色[](id:step01)
+### 方案一：检查并删除远程桌面会话主机角色[](id:step01)
 <dx-alert infotype="explain" title="">
 如果您不想删除**远程桌面会话主机**角色，可跳过此方案一，前往 [微软官网](https://www.microsoft.com/zh-cn/) 购买与配置相应的证书授权。
 </dx-alert>
@@ -62,7 +62,7 @@ Windows 使用远程桌面连接 Windows 实例时，提示**由于没有远程�
 <img style="width:700px; max-width: inherit;" src="https://main.qcloudimg.com/raw/bb3b938d970a225884ec36e61e18b526.png" />
 7. 单击**删除**，待云服务器重新启动即可。
 
-### 方案二：微软购买 license[](id:step02)
+### 方案二：检查并在微软购买 license[](id:step02)
 
 Windows Server 默认允许2个用户同时登录，可满足大多数需求。如果您的确需要超过2个用户同时登录，那么就需要您联系微软或微软合作伙伴等正规渠道购买多用户登录 RDS 授权。具体您可拨打微软市场部热线：**400-820-3800** 拨通之后拨2拨4，进行咨询购买。
 
