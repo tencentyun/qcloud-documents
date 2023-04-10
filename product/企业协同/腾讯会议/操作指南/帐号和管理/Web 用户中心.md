@@ -16,7 +16,7 @@
 - **绑定微信：**显示绑定微信号及状态、支持更改绑定微信。
 - **邮箱：**显示当前绑定状态、支持更换邮箱（商业版、企业版用户暂不支持个人更换邮箱，如有需要请联系企业超级管理员）。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/9436cb0e2cd612c3d38807b753b73341.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c688b409c537ca1dd3b93ad5b469e558.png)
 
 - **账号注销：**单击**更多**显示账号注销、支持注销账号（商业版、企业版用户暂不支持自行注销账号，如有需要请联系企业超级管理员）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d8ff3c440759375b2f971f57c41312a4.png)
@@ -74,9 +74,9 @@
  - 会议号。
  - 操作：删除、导出参会成员、导出签到记录（均以 Excel 格式导出）。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/f9384f8d99c45196daa83dd5611e5654.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/cef39f0a826546619dd6175f4fa3091b.png)
 - 单击会议主题，可跳转至会议详情，会议详情中，可同步会议开始时间至日历，可查看会议文档。
-![](https://qcloudimg.tencent-cloud.cn/raw/565592acd16017ef904b3952f64a6ad1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a236258b87ac999c5d46a611b5c4302d.png)
 
 ### 实时会议
 - **会议搜索：**支持通过会议号、会议主题搜索会议。
@@ -85,23 +85,23 @@
  - 会议主题。
  - 会议号。
  - 人数。
- - **操作：**布局管理、会议背景，单击即可进行设置，会中同步生效。
+ - 操作：布局管理、会议背景。（单击即可进行设置，会中同步生效）
+
 >!仅支持商业版、企业版用户。
-- 点击会议主题，可跳转至会议详情，可导出参会成员、同步会议开始时间至日历，查看会议文档，查看报名内容。
-![](https://qcloudimg.tencent-cloud.cn/raw/33f7bca33023da3421691e0abf2a6c56.png)
+
+![](https://qcloudimg.tencent-cloud.cn/raw/5b9603e1bb34d6c5d7f44079ba076b3a.png)
 
 ## 会议文档
 - 可通过选择会议日期筛选。
-![](https://qcloudimg.tencent-cloud.cn/raw/651e9fd18df4a57c07475ac6c90d7459.png)
-- **列表展示参数：**
+- 列表展示参数：
  - 会议主题。
  - 文档数量。
  - 会议号。
  - 开始时间。
-- 单击会议主题即可查看会议文档详情。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/1f5009748f7f6c67d9fbf200593ea5d8.png)
-- 可查看文档名称、创建者、修改时间、文档权限（成员仅查看、成员可编辑）、操作。
+![](https://qcloudimg.tencent-cloud.cn/raw/5a506b380324207585081a440fbbaf72.png)
+- 单击会议主题即可查看会议文档详情。
+- 可查看文档名称、创建者、修改时间、文档权限（成员仅查看、成员可编辑）、删除。
 - 单击文档名称即可查看文档内容。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/2c7ac494ffe850c18a87cbe99df87a3b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/569620033e16e2dd184205d9e605cc6e.png)
