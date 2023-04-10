@@ -1,21 +1,12 @@
-## 导语
+## 简介
 
-AVIF 是一种基于 AV1 视频编码的新一代图像格式，压缩率高，画面细节好。移动端 APP 经常面临网络环境不稳定、需要帮用户节省流量等场景，那就使用 AVIF 图片吧。不过 AVIF 目前只在 iOS16、Android12 上得到原生支持，很多机型覆盖不到，怎么办？本文来教你一分钟集成 AVIF 解码器，兼容所有机型。
-
-## AVIF 简介
-
-AVIF 是一种基于 AV1 视频编码的新图像格式，相对于 JPEG ，WEBP 这类图片格式来说，它的压缩率更高，并且画面细节更好。而最关键的是，AV1 由谷歌发起的 AOM (开放媒体联盟)推动，在 VP9 的基础上继续演进，无专利授权费用（而且腾讯也是 AOM 的创始成员哦），关于更多的 AVIF 介绍，可以自行搜索，这里不再赘述。
-
-## APP 显示 AVIF 图片
-
-由于 AVIF 目前只在 iOS16、Android12 上得到原生支持，要想覆盖所有主流机型，单靠原生支持肯定是不够的。因此需要客户端开发时集成 AVIF 解码器自行解码，
-业内开源编解码库：[开源编解码库](https://github.com/AOMediaCodec/libavif)。
-腾讯自研编解码库：本文的数据万象 AVIF SDK 基于该编解码库。
-直接使用上述解码库，需要自行编译 Android 和 iOS 解码器产物，以及写一些 JNI 代码，如果您的 APP 使用 Glide、SDWebImage 等图片库，还得再按照图片库的要求进行封装集成。这些有不少的工作量，本文叫”一分钟让APP支持AVIF图片“显然是有更快的方法，那就是接入数据万象 AVIF SDK，上述这些事情我们已经帮您做好啦。
+AVIF 是一种基于 AV1 视频编码的新图像格式，相对于 JPEG ，WEBP 这类图片格式来说，它的压缩率更高，并且画面细节更好，而最关键的是，AV1 由谷歌发起的 AOM (开放媒体联盟)推动，在 VP9 的基础上继续演进，无专利授权费用。
+移动端 APP 经常面临网络环境不稳定、需要帮用户节省流量等场景，使用 AVIF 图片非常合适。
+本文将介绍如何使用数据万象图片 SDK 在 Android 和 iOS 开发中快速接入 AVIF 格式图片解码的功能。
 
 ## 数据万象 AVIF 图片 SDK
 
-### Android 一分钟集成
+### Android 集成
 
 #### 使用 Glide 图片库
 
@@ -108,7 +99,7 @@ SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view
 draweeView.setImageURI(uri);
 ```
 
-### iOS 一分钟集成
+### iOS 集成
 1. 安装 SDWebImage 和 AVIF SDK
 在您工程 Podfile 文件中添加模块：
 
@@ -234,5 +225,5 @@ subsamplingScaleImageView.setImage(ImageSource.resource(R.raw.avif));
 
 ## 总结
 
-总之就是数据万象 AVIF SDK 帮您封装了 AVIF 解码器、对 Android iOS 常用的图片库生态也做了封装，真正让您一分钟就能将 AVIF 图片显示到 APP 中。
-更加详细的使用说明，请参考：[数据万象 Android SDK](https://cloud.tencent.com/document/product/460/87905)、[数据万象 iOS SDK](https://cloud.tencent.com/document/product/460/88480)。
+数据万象 AVIF SDK 封装了 AVIF 解码器、对 Android iOS 常用的图片库生态也做了封装，能够快速的将 AVIF 图片显示到 APP 中。
+更加详细的使用说明，请参考：[数据万象图片 Android SDK](https://cloud.tencent.com/document/product/460/87905)、[数据万象图片 iOS SDK](https://cloud.tencent.com/document/product/460/88480)。
