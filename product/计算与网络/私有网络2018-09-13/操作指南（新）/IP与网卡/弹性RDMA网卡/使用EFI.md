@@ -81,11 +81,7 @@ EFI 功能正在邀测中，邀测支持 GPU 计算型 PNV4ne。如需使用，�
 
 5. 在实例内安装 EFI 驱动。
 
- i. 运行以下命令，下载驱动安装包。
-
- ```plaintext
-wget http://mirrors.tencentyun.com/install/cvm/efi/vrdma_bundle.tgz
- ```
+ i. 下载驱动安装包，请联系您的商务经理以获取最新版本。
 
  ii. 运行以下命令，解压安装包并进入文件目录。
 
