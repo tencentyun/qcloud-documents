@@ -20,6 +20,6 @@
 - **屏蔽实例故障：**可以通过 [弹性 IP](https://cloud.tencent.com/document/product/213/5733) 进行域名映射，保证在服务器不可用时能快速将服务 IP 重新指向另一台云服务器实例，从而屏蔽实例故障。
 
 ## 监控与告警
-- **监控和响应事件：**定期查看监控数据并设置好适当的告警。有关更多信息，请参阅 [云监控产品文档](https://cloud.tencent.com/document/product/248)。
+- **监控和响应事件：**定期查看监控数据并设置好适当的告警。有关更多信息，请参阅 [腾讯云可观测平台产品文档](https://cloud.tencent.com/document/product/248)。
 - **突发请求处理：**使用 [弹性伸缩](https://cloud.tencent.com/document/product/377) 能够保证服务峰值中的云服务器稳定，还能自动替换不健康的实例。
 
