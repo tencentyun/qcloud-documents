@@ -20,8 +20,8 @@
 
 [](id:components)
 ### 通过组件行为调用 
-进入应用编辑器，在组件行为可以调用 API 方法，具体可参见 [添加行为事件](https://cloud.tencent.com/document/product/1301/68456#components)。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/5b7f24c8675b619f097424eed02609c4.png" width="800px">
+进入应用编辑器，在组件行为可以调用 API 方法。
+![](https://qcloudimg.tencent-cloud.cn/raw/2fe8c60cd8ba2cb97bcfa9c3b1487b04.png)
 
 [](id:editor)
 ### 通过低代码编辑器调用 
