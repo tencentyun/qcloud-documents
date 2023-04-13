@@ -10,8 +10,7 @@
 ## 操作步骤
 [](id:step1)
 ### 步骤1：创建 saml 协议身份源 
-创建 saml 协议身份源。
-入口：**[微搭](https://console.cloud.tencent.com/lowcode/overview/index)** > **身份源管理** > **新建认证源**。
+登录 **[微搭低代码](https://console.cloud.tencent.com/lowcode/overview/index)** > **身份源管理** > **新建认证源**，创建 saml 协议身份源。
 1. 选择认证源协议为 saml。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/565b35bf750139e7d1f782843ab86833.png"  style = "width:80%"> 
 2. 在**微搭** > **身份源管理**上传 **samltest** 元数据。先单击下载 [**第三方元数据**](https://samltest.id/download/) 。
