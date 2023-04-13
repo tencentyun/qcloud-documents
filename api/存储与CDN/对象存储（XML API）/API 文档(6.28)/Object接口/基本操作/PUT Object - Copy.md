@@ -66,7 +66,7 @@ Authorization: Auth String
 
 | 名称                                  | 描述                                                         | 类型   | 是否必选 |
 | ------------------------------------- | ------------------------------------------------------------ | ------ | -------- |
-| x-cos-copy-source                     | 源对象的 URL，其中对象键需经过 URLEncode，可以通过 versionId 参数指定源对象的版本，例如：<br>`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg`<br>或`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg?versionId=MTg0NDUxNzYzMDc0NDMzNDExOTc` | string | 是       |
+| x-cos-copy-source                     | 源对象的 URL，其中对象键需经过 URLEncode，可以通过 versionId 参数指定源对象的版本，例如：<br>`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg`<br>或 `sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg?versionId=MTg0NDUxNzYzMDc0NDMzNDExOTc` | string | 是       |
 | x-cos-metadata-directive              | 是否复制源对象的元数据信息，枚举值：Copy，Replaced，默认为 Copy。<br><li>如果标记为 Copy，则复制源对象的元数据信息<li>如果标记为 Replaced，则按本次请求的请求头中的元数据信息作为目标对象的元数据信息<br>当目标对象和源对象为同一对象时，即用户试图修改元数据时，则标记必须为 Replaced | Enum   | 否       |
 | x-cos-copy-source-If-Modified-Since   | 当对象在指定时间后被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-copy-source-If-Unmodified-Since | 当对象在指定时间后未被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
@@ -74,7 +74,7 @@ Authorization: Auth String
 | x-cos-copy-source-If-None-Match       | 当对象的 ETag 与指定的值不一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-storage-class                   | 目标对象的存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE。默认值：STANDARD | Enum   | 否       |
 | x-cos-tagging                         | 对象的标签集合，最多可设置10个标签（例如，Key1=Value1&Key2=Value2）。 标签集合中的 Key 和 Value 必须先进行 URL 编码 | string | 否       |
-|  x-cos-tagging-directive  |  是否复制源对象的标签信息，枚举值：Copy，Replaced，默认为 Copy。<br><li>如果标记为 Copy，则复制源对象的标签信息。<br><li>如果标记为 Replaced，则按本次请求的请求头中的标签信息作为目标对象的标签信息<br>当目标对象和源对象为同一对象时，即用户试图修改对象标签时，则标记必须为 Replaced  |  Enum   | 否     |
+|  x-cos-tagging-directive  |  是否复制源对象的标签信息，枚举值：Copy，Replaced，默认为 Copy<br><li>如果标记为 Copy，则复制源对象的标签信息<br><li>如果标记为 Replaced，则按本次请求的请求头中的标签信息作为目标对象的标签信息<br>当目标对象和源对象为同一对象时，即用户试图修改对象标签时，则标记必须为 Replaced  |  Enum   | 否     |
 
 **目标对象元数据相关头部**
 
@@ -85,9 +85,9 @@ Authorization: Auth String
 | Cache-Control       | RFC 2616 中定义的缓存指令，将作为目标对象元数据保存          | string | 否       |
 | Content-Disposition | RFC 2616 中定义的文件名称，将作为目标对象元数据保存          | string | 否       |
 | Content-Encoding    | RFC 2616 中定义的编码格式，将作为目标对象元数据保存          | string | 否       |
-| Content-Type        | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述目标对象的内容类型，将作为目标对象元数据保存。<br>例如 `text/html` 或 `image/jpeg`。 | string | 是       |
+| Content-Type        | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述目标对象的内容类型，将作为目标对象元数据保存<br>例如 `text/html` 或 `image/jpeg` | string | 是       |
 | Expires             | RFC 2616 中定义的缓存失效时间，将作为目标对象元数据保存      | string | 否       |
-| x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为目标对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
+| x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为目标对象元数据保存，大小限制为2KB<br>例如 x-cos-meta-via: homepage，自定义元数据头部为 x-cos-meta-via，后缀为 via，自定义元数据信息为 homepage<br>**注意：用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-）** | string | 否       |
 
 **目标对象访问控制列表（ACL）相关头部**
 
@@ -95,7 +95,7 @@ Authorization: Auth String
 
 | 名称                     | 描述                                                         | 类型   | 是否必选 |
 | ------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| x-cos-acl                | 定义目标对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
+| x-cos-acl                | 定义目标对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限** | Enum   | 否       |
 | x-cos-grant-read         | 赋予被授权者读取目标对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-read-acp     | 赋予被授权者读取目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-write-acp    | 赋予被授权者写入目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
@@ -108,8 +108,8 @@ Authorization: Auth String
 | 名称                                                        | 描述                                                         | 类型   | 是否必选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
 | x-cos-copy-source-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256                            | string | 源对象使用 SSE-C 时，此头部是必选项                          |
-| x-cos-copy-source-server-side-encryption-customer-key       | 服务端加密密钥的 Base64 编码，例如<code>MDEyMzQ1Njc4OUFCQ<br>0RFRjAxMjM0NTY3ODlBQkNERUY=</code> | string | 源对象使用 SSE-C 时，此头部是必选项                          |
-| x-cos-copy-source-server-side-encryption-customer-key-MD5   | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码，<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 源对象使用 SSE-C 时，此头部是必选项                          |
+| x-cos-copy-source-server-side-encryption-customer-key       | 服务端加密密钥的 Base64 编码，例如 <code>MDEyMzQ1Njc4OUFCQ<br>0RFRjAxMjM0NTY3ODlBQkNERUY=</code> | string | 源对象使用 SSE-C 时，此头部是必选项                          |
+| x-cos-copy-source-server-side-encryption-customer-key-MD5   | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码，<br>例如 `U5L61r7jcwdNvT7frmUG8g==` | string | 源对象使用 SSE-C 时，此头部是必选项                          |
 
 **目标对象服务端加密（SSE）相关头部**
 
@@ -161,9 +161,9 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点           | 描述                                                         | 类型   |
 | ------------------ | ---------------- | ------------------------------------------------------------ | ------ |
-| ETag               | CopyObjectResult | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化。<br>例如`8e0b617ca298a564c3331da28dcb50df`，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
+| ETag               | CopyObjectResult | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化<br>例如 `8e0b617ca298a564c3331da28dcb50df`，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
 | CRC64              | CopyObjectResult | 对象的 CRC64 值，详情请参见 [CRC64 校验](https://cloud.tencent.com/document/product/436/40334) 文档 | number |
-| LastModified       | CopyObjectResult | 对象最后修改时间，为 ISO8601 格式，例如`2019-05-24T10:56:40Z` | date   |
+| LastModified       | CopyObjectResult | 对象最后修改时间，为 ISO8601 格式，例如 `2019-05-24T10:56:40Z` | date   |
 | VersionId          | CopyObjectResult | 对象的版本 ID，仅当目标存储桶启用了版本控制时才返回该元素    | string |
 
 #### 错误码
