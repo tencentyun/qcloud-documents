@@ -97,7 +97,7 @@ OBJECT_TOTAL_SIZE = OBJECT_PART_SIZE * 1 + 123      #对象的总大小
 object_body = '1' * OBJECT_TOTAL_SIZE       #对象内容
 
 #计算整个对象 crc64 校验值
-c64 = crcmod.mkCrcFun(0x142F0E1EBA9EA3693L, initCrc=0L, xorOut=0xffffffffffffffffL, rev=True)
+c64 = crcmod.mkCrcFun(0x142F0E1EBA9EA3693, initCrc=0L, xorOut=0xffffffffffffffff, rev=True)
 local_crc64 =str(c64(object_body))
 ```
 
