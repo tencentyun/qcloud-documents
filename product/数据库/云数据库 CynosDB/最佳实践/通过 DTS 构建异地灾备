@@ -103,7 +103,7 @@ TDSQL-C MySQL 同步至 TDSQL-C MySQL
 <td>冲突处理机制</td>
 <td><ul><li>冲突报错：在同步时发现表主键冲突，报错并暂停数据同步任务。<li>冲突忽略：在同步时发现表主键冲突，保留目标库主键记录。<li>冲突覆盖：在同步时发现表主键冲突，用源库主键记录覆盖目标库主键记录。</td></tr>
 <tr>
-<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。勾选“DDL自定义”，可以根据需要选择不同的DDL同步策略。详情请参考 <a href="https://cloud.tencent.com/document/product/571/63955">设置 SQL 过滤策略</a>。</td></tr>
+<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。勾选“ DDL 自定义”，可以根据需要选择不同的 DDL 同步策略。详情请参考 <a href="https://cloud.tencent.com/document/product/571/63955">设置 SQL 过滤策略</a>。</td></tr>
 <tr>
 <td rowspan=3>同步对象选项</td>
 <td>源实例库表对象</td><td>选择待同步的对象，支持基础库表、视图、存储过程和函数。<br>高级对象的同步是一次性动作，仅支持同步在任务启动前源库中已有的高级对象，在任务启动后，新增的高级对象不会同步到目标库中。更多详情，请参考 <a href="https://cloud.tencent.com/document/product/571/74612">同步高级对象</a>。</td></tr>
