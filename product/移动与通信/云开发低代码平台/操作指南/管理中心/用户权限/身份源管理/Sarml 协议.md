@@ -14,11 +14,9 @@
 入口：**[微搭](https://console.cloud.tencent.com/lowcode/overview/index)** > **身份源管理** > **新建认证源**。
 1. 选择认证源协议为 saml。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/565b35bf750139e7d1f782843ab86833.png"  style = "width:80%"> 
-2. 在**微搭** > **身份源管理**上传 **samltest** 元数据。
-先单击下载 [**第三方元数据**](https://samltest.id/download/) 。
- -  [**SAMLTest IdP only**](https://samltest.id/saml/idp) 。
+2. 在**微搭** > **身份源管理**上传 **samltest** 元数据。先单击下载 [**第三方元数据**](https://samltest.id/download/) 。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/97ccbf7c04b87abc1b79602076c9b494.png"  style = "width:80%"> 
-下载 idp 文档后上传到微搭。
+再下载  [**SAMLTest IdP only**](https://samltest.id/saml/idp)  文档后上传到微搭。
  <img src = "https://qcloudimg.tencent-cloud.cn/raw/153e461744a7941df6be06694dfda54e.png"  style = "width:80%"> 
 
 
@@ -64,7 +62,7 @@ https://lowcode-1gf52uyb34bc16a7.ap-shanghai.tcb-api.tencentcloudapi.com/auth/v1
 ### 步骤5（可选）：复制第三方用户的角色 ID，创建角色
 复制第三方用户的角色 ID，创建角色。
 1. 如果此处不设置，则默认按照登录设置里的统一角色访问应用。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/3dbd36f3a6cf427b9cea07b1fadb296a.png" style = "width:80%">  
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/f9008566bd6b8de3cf4294eb948163ec.png" style = "width:80%">  
 2. 如果对应用户想按照明确角色访问微搭应用，则需要定义微搭角色，复制第三方的角色 ID：
 <dx-codeblock>
 :::  html
