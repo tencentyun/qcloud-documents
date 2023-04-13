@@ -9,13 +9,11 @@
 </dx-steps>
 
 
-
-
 ## 操作步骤
 [](id:step1)
 ### 步骤1：创建自定义应用
 1. 进入腾讯云微搭低代码控制台 [**创建新应用**](https://console.cloud.tencent.com/lowcode/create/) 页面，选择**新建自定义应用**。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/981678b1288ab0eeba18b3af10e32afa.png"  style = "width:80%"> 
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/6afcf09434d98616d113470521c5e8b3.png"  style = "width:80%"> 
 2. [](id:step1_3)进入 [**腾讯云**](https://console.cloud.tencent.com/lowcode/app) 页面，进入到**应用开发 > 应用列表 > 应用设置 > 应用详情**，单击应用详情进入详情页获取**访问地址**。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/c731c03b05fb81e367c052ffa9ac656f.png"  style = "width:80%">  
 
