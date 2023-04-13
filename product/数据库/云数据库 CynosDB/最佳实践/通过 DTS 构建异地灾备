@@ -8,6 +8,8 @@ TDSQL-C MySQL 版支持通过 DTS 数据传输服务构建异地灾备流程，�
 ## 建立异地灾备流程
 **步骤一：购买集群**
 登录 [TDSQL-C MySQL 版购买页](https://buy.cloud.tencent.com/cynosdb?regionId=8) 分别在不同地域购买两套 TDSQL-C MySQL 版集群，其中一套集群为业务中心，另一套集群为灾备中心。
+>?关于数据同步的源集群和目标集群的版本等环境要求，以及数据同步的前提条件，您可参见 [TDSQL-C MySQL 同步至 TDSQL-C MySQL](https://cloud.tencent.com/document/product/571/59962)。
+>
 **步骤二：使用 DTS 数据传输服务搭建异地灾备流程。**
 1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/replication)，选择相应配置，单击**立即购买**。
 <table>
