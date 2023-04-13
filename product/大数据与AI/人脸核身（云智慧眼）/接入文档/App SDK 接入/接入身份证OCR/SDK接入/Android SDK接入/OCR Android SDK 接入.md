@@ -309,8 +309,12 @@ WbCloudOcrSdk.init() 里 Bundle data，除了必须要传的 InputData 对象之
   //设置 SDK 扫描识别身份证的时间上限，如果不设置则默认 20 秒；设置了则以设置为准
   //此处设置 SDK 的扫描识别时间的上限为 20 秒
    data.putLong(WbCloudOcrSDK.SCAN_TIME, 20000);
-
 ```
+#### 设置 SDK 返回切边图
+```
+WbCloudOcrConfig.getInstance().setRetCrop(retCrop);//设置是否返回切边图，true返回。默认false不返回
+```
+
 
 ## OCR Android 错误码
 ### 终端返回|错误码
