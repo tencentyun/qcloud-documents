@@ -40,7 +40,8 @@ export default async function({event, data}) {
 
 [](id:custom)
 ### 在自定义数据模型或自定义 API 中调用 
-在自定义数据模型和自定义 API 中通过**自定义代码**方式，可以调用其他 API，具体可参见 [自定义代码（云函数）](https://cloud.tencent.com/document/product/1301/68440#api)示例代码：
+在自定义数据模型和自定义 API 中通过**自定义代码**方式，可以调用其他 API，具体可参见 [自定义代码（云函数）](https://cloud.tencent.com/document/product/1301/68440#api)。
+示例代码：
 <dx-codeblock>
 :::  js
 module.exports = async function (params, context) {
