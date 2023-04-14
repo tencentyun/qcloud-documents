@@ -10,7 +10,7 @@
                    "resource": "qcs::cdb:gz::*", 
                    "effect": "allow"
                } 
-                              ]
+         ]
  }
  ```
  - action：表示被允许的操作。`cdb:*` 表示允许所有 CDB 操作。
