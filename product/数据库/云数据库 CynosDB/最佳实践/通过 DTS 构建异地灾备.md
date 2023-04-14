@@ -38,7 +38,7 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/103254daaa98763531a80ffc5f9edbf6.png"  style="zoom:80%;">
 <br>因源数据库部署形态和接入类型的交叉场景较多，各场景同步操作步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。
 <br>
-TDSQL-C MySQL 同步至 TDSQL-C MySQL
+以 TDSQL-C MySQL 同步至 TDSQL-C MySQL 为例
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
