@@ -3,34 +3,34 @@
 ### 通过 AndroidStudio 自动集成
 若您的工程通过远程拉取依赖集成，如版本不涉及下方具体版本说明的，请直接更换工程中添加的移动推送SDK 相关依赖版本号为最新版本即可。最新版本号可前往 [Android SDK 发布动态](https://cloud.tencent.com/document/product/548/44520) 查看获取。
 
-例如，当前使用的版本号为 1.3.3.3，最新版本号为 1.3.8.0，则将使用的推送 SDK 依赖版本号从 1.3.3.3 修改为 1.3.8.0：
+例如，当前使用的版本号为 1.3.3.3，最新版本号为 1.3.9.0，则将使用的推送 SDK 依赖版本号从 1.3.3.3 修改为 1.3.9.0：
 ```
 dependencies {
     //移动推送主包
-    implementation "com.tencent.tpns:tpns:1.3.8.0-release"
+    implementation "com.tencent.tpns:tpns:1.3.9.0-release"
 
     // 小米推送依赖包
-    implementation "com.tencent.tpns:xiaomi:1.3.8.0-release"
+    implementation "com.tencent.tpns:xiaomi:1.3.9.0-release"
 
     // 魅族推送依赖包
-    implementation "com.tencent.tpns:meizu:1.3.8.0-release"
+    implementation "com.tencent.tpns:meizu:1.3.9.0-release"
     
     // 华为推送依赖包
-    implementation "com.tencent.tpns:huawei:1.3.8.0-release"
+    implementation "com.tencent.tpns:huawei:1.3.9.0-release"
     // 华为推送 HMS Core Push 模块依赖包
     implementation 'com.huawei.hms:push:6.7.0.300'       
 
     // OPPO 推送依赖包
-    implementation "com.tencent.tpns:oppo:1.3.8.0-release"
+    implementation "com.tencent.tpns:oppo:1.3.9.0-release"
     // 自 SDK 1.3.2.0 起，需一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败
     implementation 'com.google.code.gson:gson:2.6.2'
     implementation 'commons-codec:commons-codec:1.15'
 
     // vivo 推送依赖包
-    implementation "com.tencent.tpns:vivo:1.3.8.0-release"
+    implementation "com.tencent.tpns:vivo:1.3.9.0-release"
 
     // 荣耀推送依赖包
-    implementation "com.tencent.tpns:honor:1.3.8.0-release"
+    implementation "com.tencent.tpns:honor:1.3.9.0-release"
 }
 ```
 
@@ -48,8 +48,17 @@ dependencies {
 ### 通过其他合集工具包集成
 若您的工程通过其他三方合集工具包集成（如 MSDK、GCloud 等），请优先参考合集工具包提供的升级指南。
 
+## 移动推送 Android SDK 1.3.9.0
+移动推送 1.3.9.0 升级了荣耀厂商推送依赖版本，目前使用的各厂商推送 SDK 原始版本如下：
+- 华为 : 6.7.0.300
+- 荣耀 : 7.0.41.301
+- 小米 : 5.1.0
+- 魅族 : 4.1.0
+- OPPO : 3.1.0
+- vivo :  3.0.0.4
+
 ## 移动推送 Android SDK 1.3.8.0
-移动推送 1.3.7.2 升级了荣耀厂商推送依赖版本，目前使用的各厂商推送 SDK 原始版本如下：
+移动推送 1.3.8.0 版本，目前使用的各厂商推送 SDK 原始版本如下：
 - 华为 : 6.7.0.300
 - 荣耀 : 6.0.3.102
 - 小米 : 5.1.0
