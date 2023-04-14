@@ -414,7 +414,7 @@ void init() throws Exception;
 }
 ```
 
-COSDistCp 内部集成了云监控的告警，在任务出现异常及存在文件拷贝失败的时候，执行告警：
+COSDistCp 内部集成了腾讯云可观测平台的告警，在任务出现异常及存在文件拷贝失败的时候，执行告警：
 
 ```plaintext
 export alarmSecretId=SECRET-ID
@@ -435,7 +435,7 @@ hadoop jar cos-distcp-1.4-2.8.5.jar \
 --completionCallbackClass=com.qcloud.cos.distcp.DefaultTaskCompletionCallback
 ```
 
-以上命令中 alarmPolicyId 为云监控告警策略，可进入云监控控制台进行创建和配置（告警管理 > 告警配置 > 自定义消息）。
+以上命令中 alarmPolicyId 为腾讯云可观测平台告警策略，可进入腾讯云可观测平台控制台进行创建和配置（告警管理 > 告警配置 > 自定义消息）。
 
 
 
