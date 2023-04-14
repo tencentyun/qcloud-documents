@@ -22,7 +22,7 @@ b. 涉及 PendingIntent 的打开目标为 SDK 内部静态广播，且已添加
 ### 如何关闭移动推送的保活功能？
 
 如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
->!仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本移动推送默认开启联合保活能力，且不可关闭。
+>!仅 1.1.6.0 至1.3.0.0版本支持关闭联合保活功能，1.1.6.0之前版本移动推送默认开启联合保活能力，且不可关闭，1.3.0.0 之后的版本不支持联合保活功能。
 
 ```java
 XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
