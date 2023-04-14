@@ -6,6 +6,15 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.14.200</td>
+<td>
+1. Rooms 演讲者布局小窗支持展开为悬浮列表。<br>
+2. Rooms 支持 Logitech Dock 为 Rooms 外设设备。<br>
+3. Rooms 支持4K本地投屏。
+</td>
+<td><center>2023-04-03</td>	
+	</tr>
+<tr>
 <td><center>V3.13.190</td>
 <td>
 1. Rooms 自定义布局支持轮询功能。<br>
@@ -138,6 +147,15 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.14.200</td>
+<td>
+1.Rooms 演讲者布局小窗支持展开为悬浮列表。<br>
+2.Rooms 支持 Logitech Dock 为 Rooms 外设设备。<br>
+3.Rooms 支持4K本地投屏。
+</td>
+<td><center>2023-04-03</td>	
+	</tr>
+<tr>
 <td><center>V3.13.190</td>
 <td>
 1. Rooms 自定义布局支持轮询功能。<br>
@@ -264,6 +282,15 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.14.200</td>
+<td>
+1.Rooms 演讲者布局小窗支持展开为悬浮列表。<br>
+2.Rooms 支持 Logitech Dock 为 Rooms 外设设备。<br>
+3.Rooms 支持4K本地投屏。
+</td>
+<td><center>2023-04-03</td>	
+	</tr>
+<tr>
 <td><center>V3.13.190</td>
 <td>
 1. 自定义背景显示效果优化。<br>
