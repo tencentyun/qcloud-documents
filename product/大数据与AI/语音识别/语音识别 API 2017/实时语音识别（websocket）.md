@@ -37,13 +37,15 @@
 
 | 字段名 | 类型 | 描述 |
 |---------|---------|---------|
-| slice_type | Integer | 识别结果类型：<li>0：一段话开始识别<li>1：一段话识别中，voice_text_str 为非稳态结果(该段识别结果还可能变化) <li>2：一段话识别结束，voice_text_str 为稳态结果(该段识别结果不再变化)<br>根据发送的音频情况，识别过程中可能返回的 slice_type 序列有：<br><li>0-1-2：一段话开始识别、识别中(可能有多次1返回)、识别结束<br><li>0-2：一段话开始识别、识别结束<br> <li>2：直接返回一段话完整的识别结果|
+| slice_type | Integer | 识别结果类型：<li>0：一段话开始识别<li>1：一段话识别中，voice_text_str 为非稳态结果(该段识别结果还可能变化)<li>2：一段话识别结束，voice_text_str 为稳态结果(该段识别结果不再变化)<br>根据发送的音频情况，识别过程中可能返回的 slice_type 序列有：<li>0-1-2：一段话开始识别、识别中(可能有多次1返回)、识别结束<li>0-2：一段话开始识别、识别结束<li>2：直接返回一段话完整的识别结果<br><strong>注意：</strong>如果需要0和2配对返回，需要设置filter_empty_result=0（slice_type=0时，识别结果可能为空，默认是不返回空识别结果的）。一般在外呼场景需要配对返回，通过slice_type=0来判断是否有人声出现。|
 | index | Integer | 当前一段话结果在整个音频流中的序号，从0开始逐句递增 |
 | start_time | Integer | 当前一段话结果在整个音频流中的起始时间 |
 | end_time | Integer | 当前一段话结果在整个音频流中的结束时间 |
 | voice_text_str | String | 当前一段话文本结果，编码为 UTF8 |
 | word_size | Integer | 当前一段话的词结果个数 |
 | word_list | Word Array | 当前一段话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容<br>start_time：Integer 类型，该词在整个音频流中的起始时间<br>end_time：Integer 类型，该词在整个音频流中的结束时间<br>stable_flag：Integer 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化 |
+
+
 
 ### 握手阶段
 #### 请求格式
@@ -74,6 +76,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | filter_dirty | 否 | Integer | 是否过滤脏词（目前支持中文普通话引擎）。默认为0。0：不过滤脏词；1：过滤脏词；2：将脏词替换为“ * ”   |
 | filter_modal | 否 | Integer | 是否过滤语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤  |
 | filter_punc | 否 | Integer | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号 |
+| filter_empty_result | 否 | Integer | 是否回调识别空结果，默认为1。0：回调空结果；1：不回调空结果;<br><strong>注意：</strong>如果需要slice_type=0和slice_type=2配对回调，需要设置filter_empty_result=0。一般在外呼场景需要配对返回，通过slice_type=0来判断是否有人声出现。 |
 | convert_num_mode | 否 | Integer | 是否进行阿拉伯数字智能转换（目前支持中文普通话引擎）。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字，3: 打开数学相关数字转换。默认值为1 |
 | word_info | 否 | Int | 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎 8k_en、8k_zh、8k_zh_finance、16k_zh、16k_en、16k_ca、16k_zh-TW、16k_ja、16k_wuu-SH，默认为0|
 | vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000，单位 ms，此参数建议不要随意调整，可能会影响识别效果，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型 |
