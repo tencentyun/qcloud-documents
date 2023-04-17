@@ -15,7 +15,7 @@
 3. 在实例详情页面，选择**弹性网卡**页签，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;"></img> 展开主网卡。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/92ee92bcff0162d3b565e6ee5c4a289e.png)
 4. 在主网卡的操作列，单击**修改主IP**。
-<img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/791bf4df14ae0a019206cd9fb1c8f632.png" />
+![](https://qcloudimg.tencent-cloud.cn/raw/6bdc53a709e19c710b683b0024f78155.png)
 5. 在弹出的 “修改主IP” 窗口中，输入新的 IP，单击**确定**，等待实例完成重启即可生效。
 <dx-alert infotype="notice" title="">
 只能填入属于当前子网 CIDR 的内网 IP。
