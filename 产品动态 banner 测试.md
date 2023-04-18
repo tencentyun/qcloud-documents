@@ -11,7 +11,7 @@
 	<td>云服务器标准型、大数据型及计算型实例上线新机型</td>	<td>云服务器上线标准网络优化型 S5se、大数据型 D3 及计算型 C5 新机型。</td>	<td><a href="https://cloud.tencent.com/document/product/213/11518">实例规格</a></td></tr>
 </table>
 
-## 2021年02月
+## 2021年0
 <table>
 	<tr><th style="width: 25%;">动态名称</th><th style="width: 50%;">动态描述</th><th style="width: 25%;">相关文档</th></tr>
 	<tr>
