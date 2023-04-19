@@ -49,6 +49,7 @@ coscmd probe -n 1 -s 20
 ```
 返回类似如下结果，分别得出平均速率（Average），最低速率（Min），最高速率（Max）。
 ![](https://main.qcloudimg.com/raw/2fcecb96df04acc6b0c32c120ccb3c39.png)
+>!请先安装 COSCMD 工具，安装完成后，通过命令行工具执行命令即可。详情可参见 [COSCMD 工具。](https://cloud.tencent.com/document/product/436/10976)
 5. 通过浏览器访问 [测速网](https://www.speedtest.cn/)，并结合 [步骤4](#step04) 检查客户端的网络带宽占用率是否达到上限。
  - 如果步骤4的速率低于客户端带宽速率，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
  - 如果步骤4的速率等于客户端带宽速率，且未达到运营商承诺的带宽，请联系运营商客服。

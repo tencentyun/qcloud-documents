@@ -23,49 +23,92 @@
 下面将为您介绍 OAuth 2.0的授权步骤，您可以使用 [Postman 模板调试](https://cloud.tencent.com/document/product/1095/83483)，按照步骤中描述的请求参数调用接口即可，具体如下：
 
 ### 步骤一：用户同意授权，获取 auth_code
-**接口描述**：用户同意授权。
-**接口请求方法**：GET
-**接口请求域名**：
-```Plaintext
+#### 场景1：在浏览器中使用第三方应用，可通过此方法打开用户授权新页面，获取 auth_code。
+**具体表现：**
+- PC 端浏览器：
+![](https://qcloudimg.tencent-cloud.cn/raw/79d5bd280eb134318a4c7b790763b5d9.png)
+- 移动端浏览器：<br>
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/dc931b7ea069878294f547bf651937ae.png" />
+
+**接口描述**
+- **描述：**用户同意授权。
+- **请求方法：**GET
+- **请求域名：**
+```html
 https://meeting.tencent.com/marketplace/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redirect_uri={redirect_uri}&state={state}
 ```
-**Header 参数：**不需要。
 
-#### 输入参数 
+**输入参数**
+Header 参数：不需要。
 
-| 参数名称     | 必选 | 参数类型 | 参数描述                                                     |
-| ------------ | ---- | -------- | ------------------------------------------------------------ |
-| corp_id      | 是   | String   | OAuth 应用的企业 ID。                                            |
-| sdk_id       | 是   | String   | OAuth 应用 ID。                                                  |
-| redirect_uri | 是   | String   | 授权后重定向的回调链接地址，请使用 urlEncode 对链接进行处理。 |
-| state        | 是   | String   | 重定向后会带上 state 参数，开发者可以填写 a-zA-Z0-9 的参数值，最多64字节。 |
+| 参数名称 | 必选 | 参数类型 |参数描述 |
+|---------|---------|---------|---------|
+|corp_id	|是	|String	OAuth |应用的企业 ID。|
+|sdk_id	|是	|String	OAuth |应用 ID。|
+|redirect_uri	|是|	String	|授权后重定向的回调链接地址，请使用 urlEncode 对链接进行处理。|
+|state	|是|	String|	重定向后会带上 state 参数，开发者可以填写 a-zA-Z0-9 的参数值，最多64字节。|
 
-#### 输出参数
+**输出参数**
 
-| 参数名称  | 参数类型 | 参数描述                                  |
-| --------- | -------- | ----------------------------------------- |
-| auth_code | String   | 授权码。                                    |
-| state     | String   | 入参的 state，接入方自行校验，防止 CSRF 攻击。 |
+|参数名称	|参数类型	|参数描述|
+|---------|---------|---------|
+|auth_code	|String	|授权码。|
+|state|	String	|入参的 state，接入方自行校验，防止 CSRF 攻击。|
 
-
-#### 示例
+**示例**
 **输入示例**
-```Plaintext
-// 接入方302重定向到授权URL，如：
-
-https://meeting.tencent.com/marketplace/authorize.html?corp_id=200000999&sdk_id=10066660661&redirect_uri=https%3a%2f%2fqq.com%2fcallback%3fa%3d1%26b%3d2&state=123456789
-
+接入方302重定向到授权 URL，例如：
+```plaintext
+https://meeting.tencent.com/marketplace/authorize.html?corp_id=200000999&sdk_id=10066660661&redirect_uri=https%3a%2f%2fqq.com%2fcallback%3fa%3d1%26b%3d2&state=123456789 
 ```
-
+  
 **输出示例**
-
-```Plaintext
-HTTP/1.1 302 Found
-Location: https://qq.com/callback?a=1&b=2&auth_code=98187ecd****4846ac555a658dcc1122&state=123456789
-Date: Wed, 02 Dec 2020 13:36:38 GMT
-Content-Length: 2
-Content-Type: text/plain; charset=utf-8
+```plaintext
+HTTP/1.1 302 Found Location: https://qq.com/callback?a=1&b=2&auth_code=98187ecd****4846ac555a658dcc1122&state=123456789 Date: Wed, 02 Dec 2020 13:36:38 GMT Content-Length: 2 Content-Type: text/plain; charset=utf-8
 ```
+
+
+#### 场景2：在腾讯会议会议客户端和 App 内，可通过 JS-API，在当前页面唤起用户授权弹框，获取 auth_code。
+**具体表现：**在当前页面唤起授权弹框，实现发起授权。
+- PC 客户端：
+![](https://qcloudimg.tencent-cloud.cn/raw/8d6c337d3f6c3d686b252e29e4b9af65.png)
+- 移动端 App：<br>
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/9d84c467278bb003425255dd0feb1911.png" />
+
+**接口描述**
+- **描述：**调用 permission.authorize，实现第三方应用获取免登授权码。
+- **支持的版本：**3.16.0
+- **是否需要鉴权：**否
+- **使用说明：**业务方在腾讯会议 App 或者客户端内需要获取用户的 authCode 以完成 Oauth 登录，当前用户尚未授权的情况下，也可通过此方法引导用户在当前页面弹框授权。
+
+**参数说明**
+授权请求入参如下，返回 Promise&lt;void&gt;。
+
+| 参数名称 | 参数类型 | 参数描述 |
+|---------|---------|---------|
+|success	|	function	|成功回调|
+|failure|	function	|失败回调|
+|timeout	| number	|超时时间，默认为5s|
+
+**代码示例**
+```plaintext
+permission.authorize({
+  success: ({ authCode }) => { console.log(authCode) },
+  // bizCode: 授权业务场景状态码，主要场景有以下几类：
+  // 授权成功【0】：AuthorizeBizCode.SUCCEEDED
+  // 申请授权成功【1】：AuthorizeBizCode.APPLY_SUCCEED 
+  // 用户选择关闭授权弹框【2】 AuthorizeBizCode.CLOSED
+  // 用户选择拒绝授权【3】 AuthorizeBizCode.REJECTED
+  // 其他异常【4】，请根据bizMessage获知原因 AuthorizeBizCode.UN_KNOW
+  fail: ({ bizCode, bizMessage }) => { 
+     console.log(bizCode, bizMessage)
+  },
+}).catch(err => {
+   console.error('authorize error', err);
+ });
+```
+
+
 
 
 ### 步骤二：通过 auth_code 换取授权 access_token

@@ -1,35 +1,38 @@
-本方案结合腾讯云 Ckafka、流计算 Oceanus、腾讯云数据库 Elasticsearch、腾讯云 Prometheus 等，通过 Filebeat 实时监控系统日志和应用日志，将监控数据传输到腾讯云 Ckafka，再将 Kafka 中数据接入流计算 Oceanus，经过简单的业务逻辑处理输出到云数据库 Elasticsearch，利用云 Promethus 监控系统指标，利用云 Grafana 实现对 Oceanus 作业的个性化业务数据监控。 
+本方案结合腾讯云 Ckafka、流计算 Oceanus、腾讯云数据库 Elasticsearch、腾讯云可观测平台等，通过 Filebeat 实时监控系统日志和应用日志，将监控数据传输到腾讯云 Ckafka，再将 Kafka 中数据接入流计算 Oceanus，经过简单的业务逻辑处理输出到云数据库 Elasticsearch，利用云 Promethus 监控系统指标，利用云 Grafana 实现对 Oceanus 作业的个性化业务数据监控。 
 ![](https://main.qcloudimg.com/raw/ca2f709f5a38530886d2e1cd81460f88.png)
-## 方案架构  
-
+## 方案架构
 ![](https://main.qcloudimg.com/raw/9e979491e1f4a15333ac90bb27029c19.png)
 
 ## 前置准备
 在使用前，请确保已购买并创建相应的大数据组件。
 
 ### 创建私有网络 VPC  
-私有网络是一块您在腾讯云上自定义的逻辑隔离网络空间，在构建 Ckafka、Oceanus、Elasticsearch 集群等服务时选择的网络必须保持一致，网络才能互通。需要使用对等连接、NAT 网关等方式打通网络。具体创建步骤可参考 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
+私有网络是一块您在腾讯云上自定义的逻辑隔离网络空间。需要使用对等连接、NAT 网关等方式打通网络。具体创建步骤可参考 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
+>! 在构建 Ckafka、Oceanus、Elasticsearch 集群等服务时选择的网络必须保持一致，网络才能互通。
 
 ### 创建 Ckafka 实例  
-**私有网络和子网选择之前创建的网络和子网**。Kafka 建议选择最新的2.4.1版本，和 Filebeat 采集工具兼容性较好。购买完成后，再创建 Kafka topic（`topic-app-info`）。
-![](https://main.qcloudimg.com/raw/87fd37c2028d7cf250bedc56176a2823.png)
+进入 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka/index?rid=1)，在实例列表中单击**新建**，创建 Ckafka 实例详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/53207)。购买完成后，再创建 Kafka topic（`topic-app-info`），详细操作请参见 [创建 Topic](https://cloud.tencent.com/document/product/597/73566)。
+>? 
+>- **私有网络和子网选择上一步创建的网络和子网**。
+>- Kafka 建议选择最新的版本，和 Filebeat 采集工具兼容性较好。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/aea2e35f3a7c7873987cfd632bea18a9.png)
 
 ### 创建 Oceanus 集群  
 流计算 Oceanus 服务兼容原生的 Flink 任务。在 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus/job) 中**集群管理 > 新建集群**创建集群，选择地域、可用区、VPC、日志、存储、设置初始密码等。**VPC 及子网选择刚创建好的网络**，具体创建步骤可参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。创建完后 Flink 的集群如下：  
 ![](https://main.qcloudimg.com/raw/eff6eb6c2e2fe90516c22c55fbc4ef91.png)
 
 ### 创建 Elasticsearch 实例
-进入 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，单击**新建**，**需选择之前创建好的私有网络和子网**，并设置账户和密码，具体操作可参考 [创建集群](https://cloud.tencent.com/document/product/845/19536)。
-![](https://main.qcloudimg.com/raw/ea6da7dd1c272f12d04e8e4bf3d80e7a.png)
+进入 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，单击**新建集群**，**需选择之前创建好的私有网络和子网**，并设置账户和密码，具体操作可参考 [创建集群](https://cloud.tencent.com/document/product/845/19536)。
+![](https://qcloudimg.tencent-cloud.cn/raw/3f4f3cdd1ec6c33e3499dddbf897cc17.png)
 
-### 创建云监控 Prometheus 实例
+### 创建腾讯云可观测平台服务
 为了展示自定义系统指标，需购买 Promethus 服务。若只需要自定业务指标，可以省略此步骤。
-
-进入腾讯云监控页面，单击左侧 [Prometheus 监控](https://console.cloud.tencent.com/monitor/prometheus)，单击**新建**，**选择之前的私有网络和子网**，并设置实例名称和 Grafana 密码，具体操作可参考 [创建实例](https://cloud.tencent.com/document/product/1416/55982)。
-![](https://main.qcloudimg.com/raw/097011cc05edc7e12393196a36863256.png)
+进入腾讯云可观测平台页面，单击左侧 [Prometheus 监控](https://console.cloud.tencent.com/monitor/prometheus)，单击**新建**，**选择之前的私有网络和子网**，并设置实例名称和 Grafana 密码，具体操作可参考 [创建实例](https://cloud.tencent.com/document/product/1416/55982)。
+![](https://qcloudimg.tencent-cloud.cn/raw/d3e2a7a16627cf47df878380c7470241.png)
 
 ### 创建独立 Grafana 资源
-独立的 Grafana 在灰度发布中，需在 [Grafana 管理页面](https://console.cloud.tencent.com/monitor/grafana) 进行单独购买实现业务监控指标的展示。购买时仍需选择与其他资源同一 VPC 网络。
+在 [Grafana 管理页面](https://console.cloud.tencent.com/monitor/grafana) 进行单独购买实现业务监控指标的展示。单击**新建**进入 Grafana 可视化服务购买页，详情请参见 [创建实例](https://cloud.tencent.com/document/product/1437/62194)，**购买时仍需选择与其他资源同一 VPC 网络**。
 
 ### 安装配置 Filebeat  
 Filebeat 是一款轻量级日志数据采集的工具，通过监控指定位置的文件收集信息。在该 VPC 下给需要监控主机信息和应用信息的 CVM 上安装 Filebeat。
@@ -206,11 +209,10 @@ curl -XGET -u username:password http://xx.xx.xx.xx:xxxx/oceanus_test2/_search -H
 
 ### 系统指标监控  
 本章节主要实现系统信息监控，对 Flink 作业运行状况进行监控告警。
-
-Prometheus 是一个非常灵活的时序数据库，通常用于监控数据的存储、计算和告警。流计算 Oceanus 建议用户使用腾讯云监控提供的 Prometheus 服务，以免去部署、运维开销；同时它还支持腾讯云的通知模板，可以通过短信、电话、邮件、企业微信机器人等方式，将告警信息轻松触达不同的接收方。
+Prometheus 是一个非常灵活的时序数据库，通常用于监控数据的存储、计算和告警。流计算 Oceanus 建议用户使用腾讯云可观测平台提供的 Prometheus 服务，以免去部署、运维开销；同时它还支持腾讯云的通知模板，可以通过短信、电话、邮件、企业微信机器人等方式，将告警信息轻松触达不同的接收方。
 
 #### 监控配置（Oceanus 作业监控）
-除了 Oceanus 控制台自带的监控信息，还可以配置目前已经支持了任务级细粒度监控、作业级监控和集群 Flink 作业列表监控。
+除了 [Oceanus 控制台]() 自带的监控信息，还可以配置目前已经支持了任务级细粒度监控、作业级监控和集群 Flink 作业列表监控。
 
 1. Oceanus 作业详情页面，单击**作业参数**，在**高级参数**处添加如下配置：
 ```shell
@@ -228,7 +230,7 @@ metrics.reporter.promgateway.interval: 10 SECONDS
 ![](https://main.qcloudimg.com/raw/0f20d8f88d59caf8a29e03e1dc24b81a.png)
 
 #### 告警配置
-1. 进入腾讯云监控界面，单击 **Prometheus 监控**，点击已购买的实例进入服务管理页面，然后选择**告警策略 > 新建**，配置相关信息。具体操作参考 [接入 Prometheus 自定义监控](https://cloud.tencent.com/document/product/849/55239)。
+1. 进入腾讯云可观测平台界面，单击 **Prometheus 监控**，点击已购买的实例进入服务管理页面，然后选择**告警策略 > 新建**，配置相关信息。具体操作参考 [接入 Prometheus 自定义监控](https://cloud.tencent.com/document/product/849/55239)。
 ![](https://main.qcloudimg.com/raw/087bcaae5b0399b72df65f2dc0cfa4b2.png)
 2. 设置告警通知。选择**选择模板**或**新建**，设置通知模板。
 ![](https://main.qcloudimg.com/raw/7b45ce11c3cc10f8887c5b0b6fd3ac73.png)
@@ -237,7 +239,8 @@ metrics.reporter.promgateway.interval: 10 SECONDS
 
 ### 业务指标监控  
 通过 Filebeat 采集到应用业务数据，经过 Oceanus 服务的加工处理已经被存入 ES，可以通过 ES + Grafana 来实现业务数据的监控。
-1. Grafana 配置 ES 数据源。进入灰度发布中的 [Grafana 控制台](https://console.cloud.tencent.com/monitor/grafana)，进入刚创建的 Grafana 服务，找到外网地址并打开。Grafana 账号为 admin，登录后选择 **Configuration > Add Source**，搜索`elasticsearch`，填写相关 ES 实例信息，添加数据源。![](https://main.qcloudimg.com/raw/7257558c62455946a90e54bc2733f397.png)
+1. Grafana 配置 ES 数据源。进入灰度发布中的 [Grafana 控制台](https://console.cloud.tencent.com/monitor/grafana)，进入刚创建的 Grafana 服务，找到外网地址并打开。Grafana 账号为 admin，登录后选择 **Configuration > Add Source**，搜索`elasticsearch`，填写相关 ES 实例信息，添加数据源。
+![](https://main.qcloudimg.com/raw/7257558c62455946a90e54bc2733f397.png)
 2. 选择左侧 **Dashboards > Manage**，单击右上角 **New Dashboard**，新建面板。![](https://main.qcloudimg.com/raw/fbfc5bde957f3a323f9c96d794303bfe.png)
 展现效果如下：
  - `总数据量写入实时监控`：对写入数据源的总数据量进行监控。 
@@ -246,9 +249,9 @@ metrics.reporter.promgateway.interval: 10 SECONDS
  - `num字段最大值监控`：对 num 字段的最大值进行监控。
 ![](https://main.qcloudimg.com/raw/fd657fee538252f026d148272d3ada78.png)
 
->?此处只做示例，无实际业务。
+>? 此处仅作为示例，无实际业务。
 
 ## 总结
 本方案中对系统监控指标和业务监控指标2种方式都进行尝试。若只需要对业务指标进行监控，可省略 Promethus 相关操作。此外，需要注意的是：
 1. Ckafka 的版本和开源版本 Kafka 并没有严格对应，方案中 Ckafka2.4.1 和开源 Filebeat-1.14.1 版本能够调试成功。
-2. 云监控中的 Promethus 服务已经嵌入了 Grafana 监控服务。但不支持自定义数据源，该嵌入的 Grafana 只能接入 Promethus，需使用独立灰度发布的 Grafana 才能完成 ES 数据接入 Grafana。
+2. 腾讯云可观测平台中的 Promethus 服务已经嵌入了 Grafana 监控服务。但不支持自定义数据源，该嵌入的 Grafana 只能接入 Promethus，需使用独立灰度发布的 Grafana 才能完成 ES 数据接入 Grafana。

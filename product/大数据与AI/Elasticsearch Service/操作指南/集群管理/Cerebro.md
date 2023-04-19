@@ -2,7 +2,7 @@
 
 ## 背景信息
 
-Cerebro 是开源的 Elasticsearch 可视化管理工具，支持您通过 Cerebro 对腾讯云 Elasticsearch 集群进行web可视化管理，如监控实时的索引分片负载、执行 res t请求、修改 Elasticsearch 配置等。
+Cerebro 是开源的 Elasticsearch 可视化管理工具，支持您通过 Cerebro 对腾讯云 Elasticsearch 集群进行 Web 可视化管理，如监控实时的索引分片负载、执行 request 请求、修改 Elasticsearch 配置等。
 
 ## 操作步骤
 

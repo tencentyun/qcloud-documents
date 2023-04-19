@@ -394,7 +394,7 @@ network:
       match:
             macaddress: 52:54:00:c3:4a:0e  //MAC地址
       set-name: eth0                      //网卡名
-      gateway6:2402:4e00:1018:9a01::1   //设置IPv6网关地址
+      gateway6: 2402:4e00:1018:9a01::1   //设置IPv6网关地址
 ```
  4. 执行如下命令，使配置生效。
 ```plaintext

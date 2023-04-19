@@ -24,8 +24,8 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.9.3 及以上版本。
 
 #### 获取 COSDistCp jar 包
 
-- Hadoop 2.x 用户可下载 [cos-distcp-1.12-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.12-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.12-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
-- Hadoop 3.x 用户可下载 [cos-distcp-1.12-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.12-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.12-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
+- Hadoop 2.x 用户可下载 [cos-distcp-1.13-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.13-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.13-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
+- Hadoop 3.x 用户可下载 [cos-distcp-1.13-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.13-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.13-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
 
 #### 安装说明
 
@@ -414,7 +414,7 @@ void init() throws Exception;
 }
 ```
 
-COSDistCp 内部集成了云监控的告警，在任务出现异常及存在文件拷贝失败的时候，执行告警：
+COSDistCp 内部集成了腾讯云可观测平台的告警，在任务出现异常及存在文件拷贝失败的时候，执行告警：
 
 ```plaintext
 export alarmSecretId=SECRET-ID
@@ -435,7 +435,7 @@ hadoop jar cos-distcp-1.4-2.8.5.jar \
 --completionCallbackClass=com.qcloud.cos.distcp.DefaultTaskCompletionCallback
 ```
 
-以上命令中 alarmPolicyId 为云监控告警策略，可进入云监控控制台进行创建和配置（告警管理 > 告警配置 > 自定义消息）。
+以上命令中 alarmPolicyId 为腾讯云可观测平台告警策略，可进入腾讯云可观测平台控制台进行创建和配置（告警管理 > 告警配置 > 自定义消息）。
 
 
 

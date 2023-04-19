@@ -8,10 +8,10 @@
 2. 在集群详情页中单击**集群服务**，然后选择 **Kudu组件右上角操作 >数据表分析**，即可进行相关 Kudu 数据表负载查询。
 
 ## 数据表列表		
-Kudu 数据表列表可查看表级请求 QPS、写入 QPS、OnDataDiskSize 存储量信息，通过列 title 的排序按钮可定位集群 Top 数据表。
+Kudu 数据表列表可查看表级请求 QPS、写入 QPS、OnDiskDataSize 存储量信息，通过列 title 的排序按钮可定位集群 Top 数据表。
 ![](https://qcloudimg.tencent-cloud.cn/raw/db7e8039c2accda1cfd34964458971a8.png)
 ### 查看表详情
-单击对应表名，即可弹出表详情。详情页可按整个表、节点维度展示所选择表的请求量（包括读和写）、store 大小（包括 OnDataDiskSize）两个指标数据，选择右上角的节点筛选器可切换节点查看。
+单击对应表名，即可弹出表详情。详情页可按整个表、节点维度展示所选择表的请求量（包括读和写）、store 大小（包括 OnDiskDataSize）两个指标数据，选择右上角的节点筛选器可切换节点查看。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c1852a64ed3694fb6a6b9401862c3a52.png)
 ### Tablets 操作
 单击 **Tablets 操作**，即可查看表所包含的各个 Tablet 的读写请求量，定位表内 Tablet 热点情况。
@@ -22,7 +22,7 @@ Kudu 数据表列表可查看表级请求 QPS、写入 QPS、OnDataDiskSize 存�
 ### TabletServers 操作
 单击 **TabletServers 操作**，即可查看表所分布的各个 TabletServer 的请求延迟及存储数据等信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6f588f01e03fdcb4b0f1cf520c710b0f.png)
-### Tablet 分析
+## Tablet 分析
 Tablet 分析可检索所属表或筛选所属 TabletServer，通过平均请求 QPS、平均读写 QPS 信息定位集群热点请求分布。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1f33a0121eb792b75378f185f7c63a7d.png)
 单击列 title 平均读取 QPS、平均写入 QPS 的视图按钮，可查看当前页 Tablet 记录指标的历史趋势，观测突变请求信息，支持时间区间选择。

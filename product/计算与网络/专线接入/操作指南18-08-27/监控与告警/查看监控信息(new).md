@@ -11,16 +11,16 @@
       - 网络入带宽：物理专线的平均每秒入流量。
       - 端口丢包：端口每分钟丢包的个数。
       - 端口错包：端口每分钟错包的个数。
- ![](https://main.qcloudimg.com/raw/7309063e57b0df6654c308f36a2fa57d.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/25a2b863dd17cf795571583149946bc4.png)
 3. 查看专用通道网络监控数据。
- 1. 在左侧导航栏单击**专用通道**。
+ 1. 在左侧导航栏单击**独享专用通道**。
  2. 在专用通道列表页面，单击单击目标专用“监控”列的<img width="3%" src="https://main.qcloudimg.com/raw/52d8549cc2412c6527f332a3b88be44d.png"  >。
  3. 在监控详情页面，可查看网络出带宽、网络入带宽、出包量、入包量数据，并通过单击**近24小时**、**近7天**或自定义日期，调整监控数据的时间轴。
       - 网络出带宽：专用通道的平均每秒出流量。
       - 网络入带宽：专用通道的平均每秒入流量。
       - 出包量：专用通道出方向的流量累计值。
       - 入包量：专用通道入方向的流量累计值。
- ![](https://main.qcloudimg.com/raw/d3ef8637a5edd4597cbaf13da224477a.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/5ee8eee4346b8d8da68446eff0ef9da3.png)
 4. 查看专线网关监控数据。
  1. 在左侧导航栏单击**专线网关**。
  2. 在专线网关页面，单击目标专线网关右侧”监控“列的<img width="3%" src="https://main.qcloudimg.com/raw/52d8549cc2412c6527f332a3b88be44d.png" >。
@@ -33,4 +33,4 @@
     - 入流量：专用通道入方向的流量累计值。
     - 出方向丢包量：专用通道出方向的丢包累计值。
     - 入方向丢包量：专用通道出入向的丢包累计值。
-![](https://qcloudimg.tencent-cloud.cn/raw/ebf48b3c4e4ea3264b2479df3650a46f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/733dd37e6f83c9387e42663930d3adbb.png)

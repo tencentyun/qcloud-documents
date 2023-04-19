@@ -101,7 +101,7 @@ tf.Session(config=config)
 ```
 
 #### 运行 TensorFlow\* 深度学习模型的推理
-可参考 [Image Recognition with ResNet50, ResNet101 and InceptionV3](https://github.com/IntelAI/models/blob/master/docs/image_recognition/tensorflow/Tutorial.md) 运行其他机器学习/深度学习模型推理。本文以 benchmark 为例，介绍如何运行 ResNet50 的 inference benchmark。详情请参见 [ResNet50 (v1.5)](https://github.com/IntelAI/models/blob/master/benchmarks/image_recognition/tensorflow/resnet50v1_5/README.md)。
+可参考 [Image Recognition with ResNet50, ResNet101 and InceptionV3](https://github.com/IntelAI/models/blob/master/docs/image_recognition/tensorflow/Tutorial.md) 运行其他机器学习/深度学习模型推理。本文以 benchmark 为例，介绍如何运行 ResNet50 的 inference benchmark。详情请参见 [ResNet50 (v1.5)](https://github.com/IntelAI/models/blob/master/benchmarks/image_recognition/tensorflow/resnet50v1_5/inference/README.md)。
 
 #### 运行 TensorFlow\* 深度学习模型的训练
 本文介绍如何运行 ResNet50 的 training benchmark，详情请参见 [FP32 Training Instructions](https://github.com/IntelAI/models/blob/master/benchmarks/image_recognition/tensorflow/resnet50v1_5/README.md#fp32-training-instructions)。

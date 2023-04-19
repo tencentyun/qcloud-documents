@@ -8,7 +8,7 @@ COSFS 工具支持将对象存储（Cloud Object Storage，COS）存储桶挂载
 
 
 ## 局限性
-**COSFS 基于 S3FS 构建，读取和写入操作都经过磁盘中转，仅适合挂载后对文件进行简单的管理，不支持本地 POSIX 协议文件系统的一些功能用法；相比于 COSFS，更建议您使用 [GooseFS-Lite](https://cloud.tencent.com/document/product/1424/73687)工具访问 COS，GooseFS-Lite 是一个轻量级单机 COS Fuse 工具，具有更好的读写性能和稳定性；此外，您也可以选择使用 [腾讯云存储网关](https://cloud.tencent.com/product/csg)访问 COS，腾讯云存储网关可以将 COS 存储桶，以网络文件系统挂载到多个服务器上，用户可以使用 POSIX 文件协议，通过挂载点读写 COS 上的对象；** COSFS 的使用，需注意以下不适用的场景，例如：
+COSFS 基于 S3FS 构建，读取和写入操作都经过磁盘中转，仅适合挂载后对文件进行简单的管理，不支持本地 POSIX 协议文件系统的一些功能用法。COSFS 的使用，需注意以下不适用的场景，例如：
 
 - 随机或者追加写文件会导致整个文件的下载以及重新上传，您可以使用与 Bucket 在同一个地域的 CVM 加速文件的上传下载。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
@@ -16,6 +16,12 @@ COSFS 工具支持将对象存储（Cloud Object Storage，COS）存储桶挂载
 - 元数据操作，例如 list directory，性能较差，因为需要远程访问 COS 服务器。
 - 不支持 hard link，不适合高并发读/写的场景。
 - 不可以同时在一个挂载点上挂载、和卸载文件。您可以先使用 cd 命令切换到其他目录，再对挂载点进行挂载、卸载操作。
+- 服务器的定期扫盘任务，可能导致 COSFS 占用较高的 CPU，发起大量 Head、List 请求，产生较多请求费用，详情请参见 [常见问题](#faq)。
+
+相比于 COSFS，更建议您使用以下工具：
+- [GooseFS-Lite 工具](https://cloud.tencent.com/document/product/1424/73687) 访问 COS，GooseFS-Lite 是一个轻量级单机 COS Fuse 工具，具有更好的读写性能和稳定性。
+- [腾讯云存储网关](https://cloud.tencent.com/product/csg)：您也可以选择使用腾讯云存储网关访问 COS，腾讯云存储网关可以将 COS 存储桶，以网络文件系统挂载到多个服务器上，用户可以使用 POSIX 文件协议，通过挂载点读写 COS 上的对象。
+- 使用 Winfsp + Git + Rclone 工具，将 COS 挂载为本地磁盘，详情请参见 [将 COS 作为本地磁盘挂载到 Windows 服务器](https://cloud.tencent.com/document/product/436/55241)。
 
 ## 使用环境
 支持主流的 Ubuntu、CentOS、SUSE、macOS 系统。
@@ -187,7 +193,7 @@ chmod 640 /etc/passwd-cosfs
 
 >? 您需要将 &lt;&gt; 的参数替换为您的信息。
 > - &lt;BucketName-APPID&gt;为存储桶名称格式，关于存储桶命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
-> - &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，建议使用子账号密钥，授权遵循[最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险。子账号密钥获取可参考[子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
+> - &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，建议使用子账号密钥，授权遵循 [最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险。子账号密钥获取可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
 > - 您也可以将密钥配置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，同时您需要将密钥文件的权限值设置为600。
 > 
 
@@ -271,5 +277,13 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 COSFS 工具为提升性能，默认使用系统盘存放上传、下载的临时缓存，文件关闭后会释放空间。在并发打开的文件数较多或者读写大文件的时候，COSFS 工具会尽量多的使用硬盘来提高性能，默认只保留 100MB 硬盘可用空间给其他程序使用，可以通过选项 oensure_diskfree=[size] 设置 COSFS 工具保留可用硬盘空间的大小，单位为 MB。例如`-oensure_diskfree=1024`，COSFS 工具会保留1024MB剩余空间。
 
 
+<span id="faq"></span>
 ## 常见问题
-如果您在使用 COSFS 工具过程中有相关的疑问，请参见 [COSFS 工具类常见问题](https://cloud.tencent.com/document/product/436/30743)。
+
+下面提供了一些常见问题，如果您在使用 COSFS 工具过程中有其他疑问，请参见 [COSFS 工具类常见问题](https://cloud.tencent.com/document/product/436/30743)。
+
+- [COSFS 每天在某个时间段里 CPU 使用率较高](https://cloud.tencent.com/document/product/436/30743#.E5.AE.89.E8.A3.85-cosfs-rpm-.E5.8C.85.E6.97.B6.EF.BC.8C.E6.8F.90.E7.A4.BA-conflicts-with-file-from-package-fuse-libs-*.EF.BC.8C.E6.80.8E.E4.B9.88.E5.8A.9E.EF.BC.9F)
+- [COSFS 向 COS 发出大量 Head、List 请求，产生大量请求次数费用](https://cloud.tencent.com/document/product/436/30743#.E5.AE.89.E8.A3.85-cosfs-rpm-.E5.8C.85.E6.97.B6.EF.BC.8C.E6.8F.90.E7.A4.BA-conflicts-with-file-from-package-fuse-libs-*.EF.BC.8C.E6.80.8E.E4.B9.88.E5.8A.9E.EF.BC.9F)
+- [在 COSFS 的目录中执行 ls 命令，执行时间很久](https://cloud.tencent.com/document/product/436/30743#.E5.9C.A8-cosfs-.E7.9A.84.E7.9B.AE.E5.BD.95.E4.B8.AD.E6.89.A7.E8.A1.8C-ls-.E5.91.BD.E4.BB.A4.EF.BC.8C.E4.B8.BA.E4.BB.80.E4.B9.88.E5.91.BD.E4.BB.A4.E8.BF.94.E5.9B.9E.E9.9C.80.E8.A6.81.E5.BE.88.E4.B9.85.E7.9A.84.E6.97.B6.E9.97.B4.EF.BC.9F)
+
+

@@ -158,5 +158,5 @@ demo下 载地址：`https://share.weiyun.com/1gzWlyKj`（密码请联系对接�
 ![](https://qcloudimg.tencent-cloud.cn/raw/b6c46471472e8deeedfd2d0adf3db5f1.png)
 	- 在 uni-app 页面中调用插件方法，实现 H5 刷脸功能。
 ![](https://qcloudimg.tencent-cloud.cn/raw/613f894bab9af90184ce96e7aa2b4bc1.png)
-
+>! 调用 destroyH5Activity() 可主动关闭插件。
 
