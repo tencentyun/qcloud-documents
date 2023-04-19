@@ -1,3 +1,43 @@
+## 2023年04月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+<tr>
+ <td>SDK 1.3.9.5 版本发布 </td>
+ <td>  
+  <li>修复：修复已知问题</li>
+  <li>新增：新增实时活动接口。</li>
+ </td>
+ <td>2023-04-14</td>
+ <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+ </tr>
+</table>
+
+## 2023年02月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+<tr>
+ <td>SDK 1.3.9.4 版本发布 </td>
+ <td>  
+  <li>修复：修复已知问题</li>
+  <li>新增：新增采集字段自定义接口。</li>
+ </td>
+ <td>2023-02-27</td>
+ <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+ </tr>
+</table>
+
 ## 2022年12月
 
 <table>
