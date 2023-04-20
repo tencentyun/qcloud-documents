@@ -1,156 +1,359 @@
-EMR 支持6种集群类型及相应的应用场景，并定义了5种节点类型，不同集群类型及应用场景支持的节点类型及部署节点数、部署服务不同；可根据业务选择不同的集群类型及应用场景创建集群。
->? ClickHouse、Doris、Kafka 集群类型未默认开放，如需要可 [联系工单](https://console.cloud.tencent.com/workorder/category) 开通。
+Elasticsearch 提供了功能全面的 RESTful API 与集群交互，详情请参见 Elasticsearch 官方的 [API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html)。
 
-## 集群类型说明
-### Hadoop 集群
-<table>
-<thead>
-<tr>
-<th width=10%>应用场景</th>
-<th width=20%>描述</th>
-<th width=60%>节点部署说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td >默认场景</td>
-<td >基于开源 Hadoop 及其周边生态组件，提供了海量数据存储、离线/实时数据分析、流式数据计算、机器学习等场景的大数据解决方案。</td>
-<td><ul style="margin:0"><li/><b>Master 节点：</b>为管理节点，保证集群的调度正常进行；主要部署 NameNode、ResourceManager、HMaster 等进程；非 HA 模式下数量为1，HA 模式下数量为2。
-<br><b>注意：部署组件中含 Kudu 时，集群仅支持 HA 模式，Master 节点数量为3。</b>
-<li/><b>Core 节点：</b>为计算及存储节点，您在 HDFS 中的数据全部存储于 Core 节点中，因此为了保证数据安全，扩容 Core 节点后不允许缩容；主要部署 DataNode、NodeManager、RegionServer 等进程。非 HA 模式下数量≥2，HA 模式下数量≥3。
-<li/><b>Task 节点：</b>为纯计算节点，不存储数据，被计算的数据来自 Core 节点及 COS 中，因此 Task 节点往往被作为弹性节点，可随时扩容和缩容；主要部署 NodeManager、PrestoWork 等进程；可随时更改 Task 节点数，实现集群弹性伸缩，最小值为0。 
-<li/><b>Common 节点：</b>为 HA 集群 Master 节点提供数据共享同步以及高可用容错服务；主要部署分布式协调器组件，如 ZooKeeper、JournalNode 等节点。非HA模式数量为0，HA 模式下数量≥3。
-<li/><b>Router 节点：</b>用以分担 Master 节点的负载或者作为集群的任务提交机，可以随时扩容和缩容；主要部署 Hadoop 软件包，可选择部署 Hive、Hue、Spark 等软件和进程；可随时更改 Router 节点数，最小值为0。</ul></td>
-</tr><tr>
-<td >ZooKeeper</td>
-<td >适用于大规模集群建立分布式、高可用性的协调服务。</td>
-<td><ul style="margin:0"><li/><b>Common 节点：</b>主要部署分布式协调器组件 ZooKeeper，部署节点个数必须是单数，最少3个 Common 节点，仅支持高可用（HA）。</ul></td>
-</tr><tr>
-<td >HBase</td>
-<td >适用于存储海量非结构化数据或半结构化数据，提供高可靠性、高性能、面向列和可伸缩的，实时数据读写的分布式存储系统。</td>
-<td><ul style="margin:0"><li/><b>Master 节点：</b>为管理节点，保证集群的调度正常进行；主要部署 NameNode、ResourceManager、HMaster 等进程；非 HA 模式下数量为1，HA 模式下数量为2。
-<li/><b>Core 节点：</b>为计算及存储节点，您在 HDFS 中的数据全部存储于 Core 节点中，因此为了保证数据安全，扩容 Core 节点后不允许缩容；主要部署 DataNode、NodeManager、RegionServer 等进程。非 HA 模式下数量≥2，HA 模式下数量≥3。
-<li/><b>Task 节点：</b>为纯计算节点，不存储数据，被计算的数据来自 Core 节点及 COS 中，因此 Task 节点往往被作为弹性节点，可随时扩容和缩容；主要部署 NodeManager等进程；可随时更改 Task 节点数，实现集群弹性伸缩，最小值为0。
-<li/><b>Common 节点：</b>为 HA 集群 Master 节点提供数据共享同步以及高可用容错服务；主要部署分布式协调器组件，如 ZooKeeper、JournalNode 等节点。非 HA 模式数量为0，HA 模式下数量≥3。
-<li/><b>Router 节点：</b>用以分担 Master 节点的负载或者作为集群的任务提交机，可以随时扩容和缩容；可随时更改 Router 节点数，最小值为0。
-</ul></td>
-</tr><tr>
-<td >Presto</td>
-<td >提供开源的分布式 SQL 查询引擎，适用于交互式分析查询，支持对海量数据进行快速查询分析。</td>
-<td><ul style="margin:0"><li/><b>Master 节点：</b>为管理节点，保证集群的调度正常进行；主要部署 NameNode、ResourceManager等进程；非 HA 模式下数量为1，HA 模式下数量为2。
-<li/><b>Core 节点：</b>为计算及存储节点，您在 HDFS 中的数据全部存储于 Core 节点中，因此为了保证数据安全，扩容 Core 节点后不允许缩容；主要部署 DataNode、NodeManager等进程。非 HA 模式下数量≥2，HA 模式下数量≥3。
-<li/><b>Task 节点：</b>为纯计算节点，不存储数据，被计算的数据来自 Core 节点及 COS 中，因此 Task 节点往往被作为弹性节点，可随时扩容和缩容；主要部署 NodeManager、PrestoWork 等进程；可随时更改 Task 节点数，实现集群弹性伸缩，最小值为0。
-<li/><b>Common 节点：</b>为 HA 集群 Master 节点提供数据共享同步以及高可用容错服务；主要部署分布式协调器组件，如 ZooKeeper、JournalNode 等节点。非 HA 模式数量为0，HA 模式下数量≥3。
-<li/><b>Router 节点：</b>用以分担 Master 节点的负载或者作为集群的任务提交机，可以随时扩容和缩容；可随时更改 Router 节点数，最小值为0。
-</ul></td>
-</tr><tr>
-<td >Kudu</td>
-<td >提供分布式可扩展性的列式存储管理器，支持随机读写和 OLAP 分析对更新较快的数据进行处理。</td>
-<td><ul style="margin:0"><li/><b>Master 节点：</b>为管理节点，保证集群的调度正常进行；主要部署 NameNode、ResourceManager等进程；非 HA 模式下数量为1，HA 模式下数量为2。
-<li/><b>Core 节点：</b>为计算及存储节点，您在 HDFS 中的数据全部存储于 Core 节点中，因此为了保证数据安全，扩容 Core 节点后不允许缩容；非 HA 模式下数量≥2，HA 模式下数量≥3。
-<li/><b>Task 节点：</b>为纯计算节点，不存储数据，被计算的数据来自 Core 节点及 COS 中，因此 Task 节点往往被作为弹性节点，可随时扩容和缩容；可随时更改 Task 节点数，实现集群弹性伸缩，最小值为0。
-<li/><b>Common 节点：</b>为 HA 集群 Master 节点提供数据共享同步以及高可用容错服务；主要部署分布式协调器组件，如 ZooKeeper、JournalNode 等节点，非HA模式数量为0，HA模式下数量≥3。
-<li/><b>Router 节点：</b>用以分担 Master 节点的负载或者作为集群的任务提交机，可以随时扩容和缩容；可随时更改 Router 节点数，最小值为0。
-</ul></td>
-</tr>
-</tbody>
-</table>
+腾讯云 ES 构建在用户 VPC 内，用户可以通过位于同一 VPC 下的 CVM 作为客户端访问 ES 集群。可通过**内网访问**和**外网访问**两种方式访问 ES 集群，**外网访问存在安全风险**，需谨慎开启。
 
-### Druid 集群
-<table>
-<thead>
-<tr>
-<th width=10%>应用场景</th>
-<th width=20%>描述</th>
-<th width=60%>节点部署说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td >默认场景</td>
-<td >支持高性能实时分析，提供了大数据查询毫秒级延迟，支持多种数据摄入方式，适用于大数据实时查询场景。</td>
-<td><ul style="margin:0"><li/><b>Master 节点：</b>为管理节点，保证集群的调度正常进行；主要部署 NameNode、ResourceManager等进程；非 HA 模式下数量为1，HA 模式下数量为2。
-<li/><b>Core 节点：</b>为计算及存储节点，您在 HDFS 中的数据全部存储于 Core 节点中，因此为了保证数据安全，扩容 Core 节点后不允许缩容；主要部署 DataNode、NodeManager等进程，非 HA 模式下数量≥2，HA 模式下数量≥3。
-<li/><b>Task 节点：</b> 为纯计算节点，不存储数据，被计算的数据来自 Core 节点及 COS 中，因此 Task 节点往往被作为弹性节点，可随时扩容和缩容；主要部署 NodeManager等进程；可随时更改 Task 节点数，实现集群弹性伸缩，最小值为0。
-<li/><b>Common 节点：</b>为 HA 集群 Master 节点提供数据共享同步以及高可用容错服务；主要部署分布式协调器组件，如 ZooKeeper、JournalNode 等节点，非 HA 模式数量为0，HA 模式下数量≥3。
-<li/><b>Router 节点：</b>用以分担 Master 节点的负载或者作为集群的任务提交机，可以随时扩容和缩容；可随时更改 Router 节点数，最小值为0。
-</ul></td>
-</tr>
-</tbody>
-</table>
+>?
+> - 外网访问仅用于开发调试，因系统会限制调用频次，所以不能用于生产环境。
+> - 当前 ES 公网访问不计费，带宽10M。
 
-### ClickHouse 集群
-<table>
-<thead>
-<tr>
-<th width=10%>应用场景</th>
-<th width=20%>描述</th>
-<th width=60%>节点部署说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td >默认场景</td>
-<td >提供列式数据库管理系统，适用于大宽表实时分析、实时 BI 报表分析、用户行为分析等高性能数仓分析业务场景。</td>
-<td><ul style="margin:0"><li/><b>Core 节点：</b>为计算及存储节点；主要部署 ClickHouseServer 进程。
-<li/><b>Common 节点：</b>为 HA 集群 Master 节点提供数据共享同步以及高可用容错服务；主要部署分布式协调器组件 ZooKeeper 节点，非 HA 模式数量为0，HA 模式下数量≥3。
-</ul></td>
-</tr>
-</tbody>
-</table>
+## 查看内外网访问地址
+在 [集群列表页](https://console.cloud.tencent.com/es)，单击集群 **ID/名称**进入详情页：
+- 对于内网地址，在基础配置中可直接查看。
+- 对于外网地址，出于安全考虑默认是关闭的。对于已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868) 的集群，支持开启公网地址。开启公网访问可能会为集群引入安全风险，同时也将允许通过 API 直接访问、操作甚至删除在 ElasticSearch 集群中的数据，请谨慎开启。
+![](https://qcloudimg.tencent-cloud.cn/raw/b643c9ad6cd0439eda7ac53679bff4c4.png)
 
-### Doris 集群
-<table>
-<thead>
-<tr>
-<th width=10%>应用场景</th>
-<th width=20%>描述</th>
-<th width=60%>节点部署说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td >默认场景</td>
-<td >提供 MPP 分析型数据库产品，对于 PB 数量级、结构化数据可以做到亚秒级查询响应，使用上兼容 MySQL 协议，语法是标准的 SQL。适用于固定历史报表分析、实时数据分析、交互式数据分析等场景。</td>
-<td><ul style="margin:0"><li/><b>Master 节点：</b>为 Frontend 模块，同时提供 Web UI 的功能；部署 FE Follower、Broker 等进程，非 HA 模式下数量≥1，HA 模式下数量≥3。
-<li/><b>Core 节点：</b>为 Backend 模块，主要提供数据存储功能；部署 BE、Broker 等进程，部署数量≥3。
-<li/><b>Router 节点：</b>部署 Frontend 模块，实现读写高可用；可选择部署 FE Observer、Broker 等进程，可扩容增加 Router 节点，不支持缩容。
-</ul></td>
-</tr>
-</tbody>
-</table>
+## 测试访问
+可通过 curl 的方式测试访问集群，不支持通过 ping 的方式测试连通性。
 
-### Kafka 集群
-<table>
-<thead>
-<tr>
-<th width=10%>应用场景</th>
-<th width=20%>描述</th>
-<th width=60%>节点部署说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td >默认场景</td>
-<td >提供一个分布式、分区的、多副本的、多订阅者，基于 ZooKeeper 协调的消息处理系统，主要适用于异步处理，消息通讯以及流式数据接收和分发场景。</td>
-<td><ul style="margin:0"><li/><b>Core 节点：</b>为 Backend 模块，主要提供数据存储功能；部署 BE、Broker 等进程非 HA 模式下数量≥1，HA 模式下数量≥2。
-<li/><b>Common 节点：</b>为 HA 集群 Core 节点提供数据共享同步以及高可用容错服务，非 HA 模式数量为0，HA 模式下数量≥3。</ul></td>
-</tr>
-</tbody>
-</table>
+### 测试服务是否可访问
+>?对于已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868) 的集群，登录时需要用户名和密码认证，具体规则为`curl action -u user:password host ...`，需要将 user、password 替换为自己实际的用户名和密码，将 host 替换为自己的 IP。
 
-### StarRocks 集群
-<table>
-<thead>
-<tr>
-<th width=10%>应用场景</th>
-<th width=20%>描述</th>
-<th width=60%>节点部署说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td >默认场景</td>
-<td >StarRocks 采用了全面向量化技术，支持极速统一的OLAP分析数据库，适用多维分析，实时分析，高并发等场景等多种数据分析场景。</td>
-<td><ul style="margin:0"><li/><b>Master 节点：</b>为 Frontend 模块，同时提供 Web UI 的功能；部署 FE Follower、Broker 等进程，非 HA 模式下数量≥1，HA 模式下数量≥3。
-<li/><b>Core 节点：</b>为 Backend 模块，主要提供数据存储功能；部署 BE、Broker 等进程，部署数量≥3。
-<li/><b>Task 节点：</b> 为纯计算节点，不存储数据，被计算的数据来自 Core 节点及 COS 中，因此 Task 节点往往被作为弹性节点，可随时扩容和缩容；主要部署Compute Node进程；可随时更改 Task 节点数，实现集群弹性伸缩，最小值为0。
-<li/><b>Router 节点：</b>部署 Frontend 模块，实现读写高可用；可选择部署 FE Observer、Broker 等进程，可扩容增加 Router 节点，不支持缩容。
-</ul></td>
-</tr>
-</tbody>
-</table>
+下面将以内网地址访问来演示各访问操作。输入命令：
+```
+curl -XGET http://10.0.17.2:9200
+若开启了ES集群用户登录认证，请注意输入用户名密码
+curl -XGET -u user:password http://10.0.17.2:9200
+```
+返回如下，表示集群访问正常，具体参数的值会根据集群的版本有所不同：
+```
+{
+"name": "15589826570000*****",
+"cluster_name": "es-******",
+"cluster_uuid": "NGIm1M_zRw-L3o_gH****",
+"version": {
+  "number": "6.4.3",
+  "build_flavor": "default",
+  "build_type": "zip",
+  "build_hash": "fe40335",
+  "build_date": "2019-05-17T14:22:47.286024Z",
+  "build_snapshot": false,
+  "lucene_version": "7.4.0",
+  "minimum_wire_compatibility_version": "5.6.0",
+  "minimum_index_compatibility_version": "5.0.0"
+},
+"tagline": "You Know, for Search"
+}
+```
+
+## 创建文档
+### 创建单个文档
+- 若集群未开启用户登录认证， 输入命令行：
+```
+curl -XPUT http://10.0.0.2:9200/china/_doc/beijing -H 'Content-Type: application/json' -d'
+  {
+  "name":"北京市",
+  "province":"北京市",
+  "lat":39.9031324643,
+  "lon":116.4010433787,
+  "x":6763,
+  "level.range":4,
+  "level.level":1,
+  "level.name":"一线城市",
+  "y":6381,
+  "cityNo":1
+  }
+  '
+```
+- 若集群已开启用户登录认证，需要将下文中的 user、password 替换为自己集群实际的用户名和密码。输入命令行：
+```
+curl -XPUT -u user:password http://10.0.0.2:9200/china/_doc/beijing -H 'Content-Type: application/json' -d'
+  {
+  "name":"北京市",
+  "province":"北京市",
+  "lat":39.9031324643,
+  "lon":116.4010433787,
+  "x":6763,
+  "level.range":4,
+  "level.level":1,
+  "level.name":"一线城市",
+  "y":6381,
+  "cityNo":1
+  }
+  '
+```
+  响应如下：
+```
+{
+  "_index":"china",
+  "_type":"_doc",
+  "_id":"beijing",
+  "_version":1,
+  "result":"created",
+  "_shards":{
+      "total":2,
+      "successful":1,
+      "failed":0
+  },
+  "created":true
+  }
+```
+
+
+### 创建多个文档
+
+输入命令行：
+```
+curl -XPOST http://10.0.0.2:9200/_bulk -H 'Content-Type: application/json' -d'
+{ "index" : { "_index": "china", "_type" : "_doc", "_id" : "beijing" } }
+{"name":"北京市","province":"北京市","lat":39.9031324643,"lon":116.4010433787,"x":6763,"level.range":4,"level.level":1,"level.name":"一线城市","y":6381,"cityNo":1}
+{ "index" : { "_index": "china", "_type" : "_doc", "_id" : "shanghai" } }
+{"name":"上海市","province":"上海市","lat":31.2319526784,"lon":121.469443249,"x":7779,"level.range":4,"level.level":1,"level.name":"一线城市","y":4409,"cityNo":2}
+{ "index" : { "_index": "china", "_type" : "_doc", "_id" : "guangzhou" } }
+{"name":"广州市","province":"广东省越秀区吉祥路79号","lat":23.1317146641,"lon":113.2595185241,"x":6173,"level.range":4,"level.level":1,"level.name":"一线城市","y":2560,"cityNo":3}
+{ "index" : { "_index": "china", "_type" : "_doc", "_id" : "shenzhen" } }
+{"name":"深圳市","province":"广东省福田区新园路37号","lat":22.5455465546,"lon":114.0527779134,"x":6336,"level.range":4,"level.level":1,"level.name":"一线城市","y":2429,"cityNo":4}
+{ "index" : { "_index": "china", "_type" : "_doc", "_id" : "chengdu" } }
+{"name":"成都市","province":"四川省锦江区红星路4段-88号-附1号","lat":30.6522796787,"lon":104.0725574128,"x":4387,"level.level":2,"level.range":19,"level.name":"新一线城市","y":4304,"cityNo":5}
+{ "index" : { "_index": "china", "_type" : "_doc", "_id" : "hangzhou" } }
+{"name":"杭州市","province":"浙江省拱墅区环城北路316号","lat":30.2753694112,"lon":120.1509063337,"x":7530,"level.level":2,"level.range":19,"level.name":"新一线城市","y":4182,"cityNo":6}
+'
+```
+响应如下：
+```
+"took":9,"errors":false,"items":[{"index":{"_index":"china","_type":"_doc","_id":"beijing","_version":4,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"_doc","_id":"shanghai","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"_doc","_id":"guangzhou","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"created":true,"status":201}},{"index":{"_index":"china","_type":"_doc","_id":"shenzhen","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"created":true,"status":201}},{"index":{"_index":"china","_type":"_doc","_id":"chengdu","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"_doc","_id":"hangzhou","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}}]
+```
+
+## 更新文档
+重复上文创建单个文档的输入代码，即可更新指定 ID `beijing`的文档。 响应如下：
+```
+{"_index":"china","_type":"_doc","_id":"beijing","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false}
+```
+
+## 查询文档
+### 查询指定 ID
+输入命令行：
+```
+curl -XGET 'http://10.0.0.2:9200/china/_doc/beijing?pretty' -H 'Content-Type: application/json' 
+```
+响应如下：
+```
+{
+"_index" : "china",
+"_type" : "_doc",
+"_id" : "beijing",
+"_version" : 4,
+"found" : true,
+"_source" : {
+  "name" : "北京市",
+  "province" : "北京市",
+  "lat" : 39.9031324643,
+  "lon" : 116.4010433787,
+  "x" : 6763,
+  "level.range" : 4,
+  "level.level" : 1,
+  "level.name" : "一线城市",
+  "y" : 6381,
+  "cityNo" : 1
+}
+}
+```
+
+### 查询某个索引
+输入命令行：
+```
+curl -XGET 'http://10.0.0.2:9200/china/_search?pretty' -H 'Content-Type: application/json' 
+```
+响应如下：
+```
+{
+"took" : 0,
+"timed_out" : false,
+"_shards" : {
+  "total" : 5,
+  "successful" : 5,
+  "skipped" : 0,
+  "failed" : 0
+},
+"hits" : {
+  "total" : 6,
+  "max_score" : 1.0,
+  "hits" : [
+    {
+      "_index" : "china",
+      "_type" : "_doc",
+      "_id" : "guangzhou",
+      "_score" : 1.0,
+      "_source" : {
+        "name" : "广州市",
+        "province" : "广东省越秀区吉祥路79号",
+        "lat" : 23.1317146641,
+        "lon" : 113.2595185241,
+        "x" : 6173,
+        "level.range" : 4,
+        "level.level" : 1,
+        "level.name" : "一线城市",
+        "y" : 2560,
+        "cityNo" : 3
+      }
+    }]
+  },
+  ......
+}   
+```
+
+### 复杂查询
+模拟 SQL：
+```
+select * from china where level.level=2
+curl -XGET http://10.0.0.2:9200/china/_search?pretty -H 'Content-Type: application/json' -d'
+{
+  "query" : {
+      "constant_score" : { 
+          "filter" : {
+              "term" : { 
+                  "level.level" : 2
+              }
+          }
+      }
+  }
+}'
+```
+响应如下：
+```
+{
+"took" : 2,
+"timed_out" : false,
+"_shards" : {
+  "total" : 5,
+  "successful" : 5,
+  "skipped" : 0,
+  "failed" : 0
+},
+"hits" : {
+  "total" : 2,
+  "max_score" : 1.0,
+  "hits" : [
+    {
+      "_index" : "china",
+      "_type" : "_doc",
+      "_id" : "chengdu",
+      "_score" : 1.0,
+      "_source" : {
+        "name" : "成都市",
+        "province" : "四川省锦江区红星路4段-88号-附1号",
+        "lat" : 30.6522796787,
+        "lon" : 104.0725574128,
+        "x" : 4387,
+        "level.level" : 2,
+        "level.range" : 19,
+        "level.name" : "新一线城市",
+        "y" : 4304,
+        "cityNo" : 5
+      }
+    },
+    {
+      "_index" : "china",
+      "_type" : "_doc",
+      "_id" : "hangzhou",
+      "_score" : 1.0,
+      "_source" : {
+        "name" : "杭州市",
+        "province" : "浙江省拱墅区环城北路316号",
+        "lat" : 30.2753694112,
+        "lon" : 120.1509063337,
+        "x" : 7530,
+        "level.level" : 2,
+        "level.range" : 19,
+        "level.name" : "新一线城市",
+        "y" : 4182,
+        "cityNo" : 6
+      }
+    }
+  ]
+}
+}
+```
+
+### 聚合查询
+模拟 SQL：
+```
+select level.level, count(1) from city group by level.level
+curl -XGET http://10.0.0.2:9200/china/_search?pretty -H 'Content-Type: application/json' -d'
+{
+  "size" : 0,
+  "aggs" : { 
+      "city_level" : { 
+          "terms" : { 
+            "field" : "level.level"
+          }
+      }
+  }
+}'
+```
+响应如下：
+```
+{
+"took" : 10,
+"timed_out" : false,
+"_shards" : {
+  "total" : 5,
+  "successful" : 5,
+  "skipped" : 0,
+  "failed" : 0
+},
+"hits" : {
+  "total" : 7,
+  "max_score" : 0.0,
+  "hits" : [ ]
+},
+"aggregations" : {
+  "city_level" : {
+    "doc_count_error_upper_bound" : 0,
+    "sum_other_doc_count" : 0,
+    "buckets" : [
+      {
+        "key" : 1,
+        "doc_count" : 4
+      },
+      {
+        "key" : 2,
+        "doc_count" : 3
+      }
+    ]
+  }
+}
+}
+```
+
+## 删除文档
+### 删除单个文档
+输入命令行：
+```
+curl -XDELETE 'http://10.0.0.2:9200/china/_doc/beijing?pretty' -H 'Content-Type: application/json' 
+```
+响应如下：
+```
+{
+"found" : true,
+"_index" : "china",
+"_type" : "_doc",
+"_id" : "beijing",
+"_version" : 5,
+"result" : "deleted",
+"_shards" : {
+  "total" : 2,
+  "successful" : 2,
+  "failed" : 0
+}
+}
+```
+
+### 删除类型
+```
+curl -XDELETE 'http://10.0.0.2:9200/china/_doc?pretty' -H 'Content-Type: application/json' 
+```
+
+### 删除索引
+```
+curl -XDELETE 'http://10.0.0.2:9200/china?pretty' -H 'Content-Type: application'
+```
