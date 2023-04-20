@@ -32,7 +32,6 @@ Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集�
 PUT china
 {
   "mappings": {
-    "city": {
       "properties":{
         "name":{ "type": "keyword"  }, 
         "province":{ "type": "keyword"  }, 
@@ -48,7 +47,6 @@ PUT china
         "y":{ "type": "integer" },
         "cityNo":{ "type": "integer" } 
       }
-    }
   }
 }
 ```
@@ -56,7 +54,7 @@ PUT china
 #### 添加单个文档
 ![](https://main.qcloudimg.com/raw/420f7aeec79fde39e3233e7b0e75594d.png)
 ```
-PUT china/city/wuhan 
+PUT china/_doc/wuhan 
 {"name":"武汉市","province":"湖北省江岸区沿江大道188号","location":{"lat":30.5952548577,"lon":114.2999398195},"x":6384,"level":{"level":2,"range":19,"name":"新一线城市"},"y":4231,"cityNo":7}
 ```
 
