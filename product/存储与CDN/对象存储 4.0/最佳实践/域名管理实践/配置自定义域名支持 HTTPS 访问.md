@@ -19,7 +19,7 @@
 
 ### 关闭 CDN 加速
 
-本章节主要以示例的形式介绍在对象存储（Cloud Object Storage，COS）中通过反向代理配置自定义域名（关闭 CDN 加速）支持 HTTPS 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://example.com`访问所属地域为广州、名称为 testhttps-1250000000 的存储桶，具体操作步骤如下：
+本章节主要以示例的形式介绍在对象存储（Cloud Object Storage，COS）中通过反向代理配置自定义域名（关闭 CDN 加速）支持 HTTPS 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名 `https://example.com` 访问所属地域为广州、名称为 testhttps-1250000000 的存储桶，具体操作步骤如下：
 
 #### 步骤1：绑定自定义域名
 
@@ -29,11 +29,11 @@ COS 国内公有云地域、新加坡地域已支持托管自定义源站域名�
 
 <span id="1"></span>
 - 方式一：通过 COS 控制台绑定自定义源站域名
-将存储桶 testhttps-1250000000 绑定到域名`https://example.com`，关闭 CDN 加速，详细操作指引请参见 [开启自定义源站域名](https://cloud.tencent.com/document/product/436/36638) 文档。
+将存储桶 testhttps-1250000000 绑定到域名 `https://example.com`，关闭 CDN 加速，详细操作指引请参见 [开启自定义源站域名](https://cloud.tencent.com/document/product/436/36638) 文档。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b4adae8bfba22bf8d14bc282b628128d.png)
 <span id="2"></span>
 - 方式二：为域名配置反向代理
-在服务器上为域名`https://example.com`配置反向代理。具体配置参考如下（以下 Nginx 配置仅供参考）：
+在服务器上为域名 `https://example.com` 配置反向代理。具体配置参考如下（以下 Nginx 配置仅供参考）：
 ```shell
 server {
     listen        443;
@@ -51,7 +51,7 @@ server {
     }
 }
 ```
-其中`server.crt;`、`server.key`是您的自有（自定义）域名的 HTTPS 证书。若您的域名还没有 HTTPS 证书 ，请前往 [腾讯云 SSL 证书](https://cloud.tencent.com/product/ssl) 页面进行申请。
+其中 `server.crt;`、`server.key` 是您的自有（自定义）域名的 HTTPS 证书。若您的域名还没有 HTTPS 证书 ，请前往 [腾讯云 SSL 证书](https://cloud.tencent.com/product/ssl) 页面进行申请。
 若暂时没有证书，可以删除以下配置信息，但访问时会出现告警，单击继续即可访问：
 ```shell
 ssl on;
@@ -78,7 +78,7 @@ proxy_set_header Host $http_host;
 ```bash
 proxy_set_header   Referer www.test.com;
 ```
- 3. 设置完成后，直接打开文件将提示报错`errorcode：-46616`。错误提示：未命中 referer 白名单，但是通过代理访问自定义域名，可以正常打开网页。
+ 3. 设置完成后，直接打开文件将提示报错 `errorcode：-46616`。错误提示：未命中 referer 白名单，但是通过代理访问自定义域名，可以正常打开网页。
 ```json
 {
 	errorcode: -46616,
