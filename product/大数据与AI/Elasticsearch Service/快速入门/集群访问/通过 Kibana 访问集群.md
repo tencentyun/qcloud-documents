@@ -27,7 +27,6 @@ Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集�
 ### 添加索引
 #### 定义索引的 mapping
 索引名称为 china，类型名称为 city，以及详细的字段及类型信息。其中字段 location 的类型是 geo_point，可以表示地理位置信息；level 是对象类型，包含二级字段信息。关于字段类型说明，可查看官方文档 [Field Datatypes](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/mapping-types.html)。
-![](https://main.qcloudimg.com/raw/4ccd6c4f2c5eef0cdc9d25a0819ffcfc.png)
 ```
 PUT china
 {
@@ -52,7 +51,6 @@ PUT china
 ```
 
 #### 添加单个文档
-![](https://main.qcloudimg.com/raw/420f7aeec79fde39e3233e7b0e75594d.png)
 ```
 PUT china/_doc/wuhan 
 {"name":"武汉市","province":"湖北省江岸区沿江大道188号","location":{"lat":30.5952548577,"lon":114.2999398195},"x":6384,"level":{"level":2,"range":19,"name":"新一线城市"},"y":4231,"cityNo":7}
