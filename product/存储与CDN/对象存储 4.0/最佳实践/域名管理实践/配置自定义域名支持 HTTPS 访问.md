@@ -71,18 +71,18 @@ ssl_certificate_key /usr/local/nginx/conf/server.key;
 ```bash
 proxy_set_header Host $http_host;
 ```
-- **配置 refer 防盗链**
-若存储桶（Bucket）是公有的，会有被盗链的风险。用户可以通过防盗链设置，开启 Referer 白名单，防止被恶意盗链。具体操作步骤如下：
+- **配置防盗链**
+若存储桶（Bucket）是公有的，会有被盗链的风险。用户可以通过设置防盗链，开启 Referer 白名单，防止被恶意盗链。具体操作步骤如下：
  1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)， 开启防盗链设置功能，选择白名单。详细操作指引请参见 [设置防盗链](https://cloud.tencent.com/document/product/436/13319)。
  2. 在 Nginx 配置文件中，增加一行信息并重启 Nginx，刷新浏览器缓存。
 ```bash
 proxy_set_header   Referer www.test.com;
 ```
- 3. 设置完成后，直接打开文件将提示报错`errorcode：-46616`。错误提示：未命中 refer 白名单，但是通过代理访问自定义域名，可以正常打开网页。
+ 3. 设置完成后，直接打开文件将提示报错`errorcode：-46616`。错误提示：未命中 referer 白名单，但是通过代理访问自定义域名，可以正常打开网页。
 ```json
 {
 	errorcode: -46616,
-	errormsg: "not hit white refer, retcode:-46616"
+	errormsg: "not hit white referer, retcode:-46616"
 }
 ```
 
