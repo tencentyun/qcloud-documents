@@ -5,14 +5,14 @@ Flutter 是谷歌的移动 UI 框架，可以快速在 iOS、Android、Web 等�
 1. 新建一个 Flutter 预置环境工作空间, 该模板已默认安装 Flutter 3.0.1。
 ![](https://qcloudimg.tencent-cloud.cn/raw/862cd9f39b480b1bc2052c78aefef5e8.png)
 2. 模板会自动下载依赖包、编译代码和启动项目。
-这个过程第一次可能会持续5到10分钟，请耐心等候。看到这些红色的文字 **To hot restart changes while running，press "r" or "R"**。说明项目编译好了。
+这个过程第一次可能会持续5到10分钟，请耐心等候。看到这些红色的文字 `To hot restart changes while running，press "r" or "R".` 说明项目编译好了。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3023e5f88cf80c9fe4e381d8db9a9474.png)
 3. 打开端口面板实时预览。单击最右边的按钮弹出预览页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4ec825bcf81438acf6b3b1cad82884fe.png)
-4. 修改代码重新编译
+4. 修改代码重新编译。
 单击终端， 按 r 键即可重新编译， 再按预览页面的刷新按钮即可看到实时修改后的效果。
 
-### 说明
+### 注意事项
 - 目前 Flutter Web 应用不支持热更新，需要手动刷新页面。
 - 要项目编译完成才能代码预览页面， 否则会一直卡在 Loading 界面。
 - 一直卡在 Loading 界面可尝试刷新预览界面。
