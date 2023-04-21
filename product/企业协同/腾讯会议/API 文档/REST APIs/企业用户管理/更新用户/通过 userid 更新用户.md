@@ -20,7 +20,7 @@ https://api.meeting.qq.com/v1/users/{userid}
 | staff_id        | 否   | String     | 员工工号。                                                     |
 | job_title       | 否   | String     | 员工职位，长度范围为[0,96]个字符。                                     |
 | entry_time      | 否   | Integer    | 入职时间。                                                     |
-| department_list | 否   | String 数组 | 员工部门，暂只支持为用户分配1个部门。  |    
+| department_list | 否   | String 数组 | 员工部门 ID，暂只支持为用户分配1个部门。  |    
 
 
 ## 输出参数
