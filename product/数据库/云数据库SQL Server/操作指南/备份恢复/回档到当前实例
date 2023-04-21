@@ -13,7 +13,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/bd11d3396c77770914e8d709bccaf93f.png)
 3. 选择**备份管理**，在备份管理页右上角单击**回档**或在数据备份列表操作列单击**回档**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3fca5bf7233fdea9dfea85698df1c5e.png)
-4. 在弹出的回档设置界面，根据选择的回档方式，完成相应配置后，单击**确定**。
+4. 在弹出的回档设置界面，根据选择的回档方式，完成相应配置后，单击**保存**。
 **场景一：按时间点回档**
 ![](https://qcloudimg.tencent-cloud.cn/raw/a4ecbeb9f98489203137eaf16ffaac82.png)
 <table>
