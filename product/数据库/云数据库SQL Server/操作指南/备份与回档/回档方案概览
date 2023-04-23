@@ -5,9 +5,9 @@
 <tbody>
 <tr>
 <td rowspan="3">回档<br>（云上数据库的恢复）</td>
-<td colspan = "2">回档到当前实例<br>（支持按时间点或备份集回档到当前实例）</td><td><a href="" target="_blank">回档到当前实例</a></td></tr>
-<td rowspan="2">回档到已有实例</td><td>同地域回档<br>（支持按时间点或备份集回档到同地域的其他实例）</td><td><a href="" target="_blank">回档到已有实例-同地域回档</a></td></tr>
-<td>跨地域回档<br>（支持按时间点或备份集回档到跨地域的其他实例）</td><td><a href="" target="_blank">回档到已有实例-跨地域回档</a></td></tr>
+<td colspan = "2">回档到当前实例<br>（支持按时间点或备份集回档到当前实例）</td><td><a href="https://cloud.tencent.com/document/product/238/90426" target="_blank">回档到当前实例</a></td></tr>
+<td rowspan="2">回档到已有实例</td><td>同地域回档<br>（支持按时间点或备份集回档到同地域的其他实例）</td><td><a href="https://cloud.tencent.com/document/product/238/90427" target="_blank">回档到已有实例-同地域回档</a></td></tr>
+<td>跨地域回档<br>（支持按时间点或备份集回档到跨地域的其他实例）</td><td><a href="https://cloud.tencent.com/document/product/238/90428" target="_blank">回档到已有实例-跨地域回档</a></td></tr>
 
 <tr>
 <td>恢复<br>（云下数据库恢复上云）</td><td colspan = "2">迁移/恢复至已有实例</td>
