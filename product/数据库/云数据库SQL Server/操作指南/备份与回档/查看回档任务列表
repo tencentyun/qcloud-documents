@@ -3,11 +3,11 @@
 ## 查看回档任务列表
 
 1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)。
-2. 在上方选择地域，找到所需实例，单击实例 ID 或**操作**列的**管理**，进入实例管理页。
+2. 在上方选择**地域**，找到所需实例，单击实例 ID 或**操作**列的**管理**，进入实例管理页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bd11d3396c77770914e8d709bccaf93f.png)
 3. 选择**备份管理**，在备份管理页选择**回档任务列表**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2582905a5afc37404860cb3b110167bd.png)
-4. 您可查看到的字段信息如下。
+4. 您可查看到的字段信息如下：
 
 | 字段 | 说明 | 
 |---------|---------|
