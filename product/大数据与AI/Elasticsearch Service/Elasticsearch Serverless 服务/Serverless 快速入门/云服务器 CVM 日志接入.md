@@ -9,16 +9,15 @@
 3. 在左侧导航栏 Serverless 模式下选择**日志分析**。
 
 ### 创建项目空间
-1. 单击**项目空间管理**。
-2. 单击**新建空间**。
-3. 输入项目空间名称，支持1-20个中文、英文、数字、下划线或分隔符"-"。
-4. 单击**确认**，校验无误即可成功创建项目空间。
+1. 单击**项目空间管理 > 新建空间**。
+2. 输入项目空间名称，支持1-20个中文、英文、数字、下划线或分隔符"-"。
+3. 单击**确认**，校验无误即可成功创建项目空间。
 ![](https://qcloudimg.tencent-cloud.cn/raw/98bc81f73bb05544aaaac1b1b2d63f3d.png)
 
->? 在 Elasticsearch Serverless 日志分析中，您可仅[创建索引](https://cloud.tencent.com/document/product/845/90392)，后续通过 API 进行数据写入或者在对应索引的“数据接入”Tab 页进行 CVM 或 TKE 等数据源接入。您也可在创建索引时同时进行数据接入，完成一站式的 CVM 日志接入、TKE 日志接入。以下为您介绍一站式的 TKE 日志接入操作。
+>? 在 Elasticsearch Serverless 日志分析中，您可仅[创建索引](https://cloud.tencent.com/document/product/845/90392)，后续通过 API 进行数据写入或者在对应索引的“数据接入”Tab 页进行 CVM 或 TKE 等数据源接入。您也可在创建索引时同时进行数据接入，完成一站式的 CVM 日志接入、TKE 日志接入。以下为您介绍一站式的 CVM 日志接入操作。
 
 ### CVM 日志接入
-在 Serverless 日志分析首页选择**云服务器CVM**，进入 CVM 日志接入页面。
+在 Serverless 日志分析首页选择**云服务器 CVM**，进入 CVM 日志接入页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3e71fa9677f38318af4f0287346e360d.png)
 
 #### 数据接入
