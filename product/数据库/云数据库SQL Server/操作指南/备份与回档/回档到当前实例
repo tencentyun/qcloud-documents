@@ -9,7 +9,7 @@
 
 ## 操作步骤
 1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)。
-2. 在上方选择地域，找到所需实例，单击实例 ID 或**操作**列的**管理**，进入实例管理页。
+2. 在上方选择**地域**，找到所需实例，单击实例 ID 或**操作**列的**管理**，进入实例管理页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bd11d3396c77770914e8d709bccaf93f.png)
 3. 选择**备份管理**，在备份管理页右上角单击**回档**或在数据备份列表操作列单击**回档**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3fca5bf7233fdea9dfea85698df1c5e.png)
@@ -42,5 +42,5 @@
 </tbody></table>	
 
 5. 确认回档时间或备份集及需回档的数据库后，在弹窗下单击**确定**。
-6. 在回档任务列表，任务状态变成**运行中**，可在备份管理页右上角单击任务图标查看回档进度。
+6. 在**回档任务列表**，任务状态变成**运行中**，可在备份管理页右上角单击任务图标查看回档进度。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f8ee1c0513f7f21b902b942da0792289.png)
