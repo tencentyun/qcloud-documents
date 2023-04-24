@@ -12,7 +12,7 @@
 <tbody>
   <tr>
     <td>解决硬盘空间处于已满状态</td>
-    <td ><a href="#diskSpaceFull">检查并解决硬盘空间是否处于已满问题</a></td>
+    <td ><a href="#diskSpaceFull">检查并解决硬盘空间是否已满问题</a></td>
   </tr>
   <tr>
     <td>解决文件系统 inode 满问题</td>
@@ -27,7 +27,7 @@
 
 ## 故障处理[](id:ProcessingSteps)
 通过腾讯云的 VNC 登录进入服务器内部进行检查。
-### 检查并解决硬盘空间是否处于已满问题[](id:diskSpaceFull)
+### 检查并解决硬盘空间是否已满问题[](id:diskSpaceFull)
 
 1. 登录云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. [](id:Step2)执行以下命令，查看硬盘使用率。
