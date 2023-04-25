@@ -1,0 +1,15 @@
+本文介绍云数据库 SQL Server 的数据恢复方案概览。
+
+<table>
+<thead><tr><th>场景</th><th colspan = "2" style="text-align:center" width="">功能</th><th>相关操作</th></tr></thead>
+<tbody>
+<tr>
+<td rowspan="3">回档<br>（云上数据库的恢复）</td>
+<td colspan = "2">回档到当前实例<br>（支持按时间点或备份集回档到当前实例）</td><td><a href="https://cloud.tencent.com/document/product/238/90426" target="_blank">回档到当前实例</a></td></tr>
+<td rowspan="2">回档到已有实例</td><td>同地域回档<br>（支持按时间点或备份集回档到同地域的其他实例）</td><td><a href="https://cloud.tencent.com/document/product/238/90427" target="_blank">回档到已有实例-同地域回档</a></td></tr>
+<td>跨地域回档<br>（支持按时间点或备份集回档到跨地域的其他实例）</td><td><a href="https://cloud.tencent.com/document/product/238/90428" target="_blank">回档到已有实例-跨地域回档</a></td></tr>
+
+<tr>
+<td>恢复<br>（云下数据库恢复上云）</td><td colspan = "2">迁移/恢复至已有实例</td>
+<td><li><a href="https://cloud.tencent.com/document/product/238/50267" target="_blank">冷备迁移（通过备份文件从其他云厂商或自建 SQL Server 迁移数据至腾讯云数据库 SQL Server）</a></li><li><a href="https://cloud.tencent.com/document/product/238/50268" target="_blank">使用 DTS 迁移数据（使用 DTS 从其他云厂商或自建 SQL Server 迁移数据至腾讯云数据库 SQL Server）</a></li><li><a href="https://cloud.tencent.com/document/product/238/85807" target="_blank">使用 DTS 跨账号迁移数据（使用 DTS 进行腾讯云数据库 SQL Server 间的跨账号迁移）</a></li></td>
+</tr>

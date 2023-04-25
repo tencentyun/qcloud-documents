@@ -5,7 +5,7 @@
 + [Ubuntu 云服务器配置弹性网卡](#ubuntu)
 
 
-## CentOS 云服务器 配置弹性网卡[](id:centos)
+## CentOS 云服务器配置弹性网卡[](id:centos)
 
 ### 方式一：工具配置
 >!

@@ -10,7 +10,6 @@ Mac 系统内 SSH 配置文件问题。
 
 ## 处理步骤
 1.	打开 Mac 系统的终端，输入命令：vi /etc/ssh/ssh_config。
-2.	将 SendEnv LANG 处的配置修改为 SendEnv LANG LC_ALL=en_US.UFT-8。
-![](https://qcloudimg.tencent-cloud.cn/raw/cfa8f5d2f6090ad68d5e971facf2fdc0.png)
+2.	将 SendEnv LANG 处的配置修改为 SendEnv LANG LC_ALL。
+![](https://qcloudimg.tencent-cloud.cn/raw/f2a82ed1907d9fdc0d11248ebf409664.png)
 3.	关闭 iTerm 客户端，重新使用堡垒机访问目标设备，确认乱码问题是否解决。
-

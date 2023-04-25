@@ -22,6 +22,8 @@
 ## 前提条件
 
 参见 [SDK 文档](https://cloud.tencent.com/document/product/406/35818) 部署好 CMQ 队列的生产端和消费端服务，并且运行正常。以下迁移步骤以 TCP SDK 为例。
+>?基础网络产品已下线，请您先将客户端迁移到 VPC网络环境下再进行迁移工作，详情参考基础 [网络下线通知](https://cloud.tencent.com/document/product/215/63349)。
+
 
 ## 操作步骤
 

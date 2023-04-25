@@ -82,7 +82,8 @@ app.listen(3000);
 :::
 ::: Java
 ```java
-import com.alibaba.fastjson.JSONObject;
+package com.example.odata;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -94,6 +95,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.util.Base64Utils;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -110,8 +113,15 @@ public class OpenApiClient {
         httpPost.addHeader("Content-Type","application/json");
         Map<String, String> body = new HashMap<>();
         body.put("grant_type","client_credentials");
-        StringEntity requestBody = new StringEntity(JSONObject.toJSONString(body), "UTF-8");
-        httpPost.setEntity(requestBody);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String bodyStr = mapper.writeValueAsString(body);
+            StringEntity requestBody = new StringEntity(bodyStr, "UTF-8");
+            httpPost.setEntity(requestBody);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return "";
+        }
         ResponseHandler<String> responseHandler = response -> {
             int status = response.getStatusLine().getStatusCode();
             if (status >= 200 && status < 300) {
@@ -124,7 +134,7 @@ public class OpenApiClient {
         try  {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             String responseBody = httpClient.execute(httpPost, responseHandler);
-            Map<String, Object> responseMap = JSONObject.parseObject(responseBody, Map.class);
+            Map<String, Object> responseMap = mapper.readValue(responseBody, Map.class);
             /*
             {
               "token_type": "Bearer",
@@ -158,7 +168,8 @@ public class OpenApiClient {
         try  {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             String responseBody = httpClient.execute(httpGet, responseHandler);
-            Map<String, Object> responseMap = JSONObject.parseObject(responseBody, Map.class);
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Object> responseMap = mapper.readValue(responseBody, Map.class);
             // 打印 body
             System.out.println(responseMap.toString());
         } catch (Exception e) {
@@ -185,7 +196,8 @@ public class OpenApiClient {
         try  {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             String responseBody = httpClient.execute(httpGet, responseHandler);
-            Map<String, Object> responseMap = JSONObject.parseObject(responseBody, Map.class);
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Object> responseMap = mapper.readValue(responseBody, Map.class);
             // 打印 body
             System.out.println(responseMap.toString());
         } catch (Exception e) {
@@ -195,11 +207,18 @@ public class OpenApiClient {
 
     // POST: 创建记录
     private void POST(String token, String envId, String envType, String datasourceName, Map<String, Object> jsonBody) {
-        StringEntity requestBody = new StringEntity(JSONObject.toJSONString(jsonBody), "UTF-8");
         String host = "https://" + envId + ".ap-shanghai.tcb-api.tencentcloudapi.com";
         String url = host + "/weda/odata/v1/" + envType + "/" + datasourceName;
         HttpPost httpPost = new HttpPost(url);
-        httpPost.setEntity(requestBody);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String bodyStr = mapper.writeValueAsString(jsonBody);
+            StringEntity requestBody = new StringEntity(bodyStr, "UTF-8");
+            httpPost.setEntity(requestBody);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return;
+        }
         httpPost.addHeader("Authorization", token);
         httpPost.addHeader("Content-Type", "application/json");
         ResponseHandler<String> responseHandler = response -> {
@@ -214,9 +233,9 @@ public class OpenApiClient {
         try  {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             String responseBody = httpClient.execute(httpPost, responseHandler);
-            Map<String, Object> responseMap = JSONObject.parseObject(responseBody, Map.class);
+            Map<String, Object> responseMap = mapper.readValue(responseBody, Map.class);
             // 打印 body
-            System.out.println(responseMap.toString());
+            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + responseMap.toString());
         } catch (Exception e) {
             System.out.println(e.toString());
         }
@@ -224,11 +243,18 @@ public class OpenApiClient {
 
     // PUT: 更新记录
     private void PUT(String token, String envId, String envType, String datasourceName, String recordId, Map<String, Object> jsonBody) {
-        StringEntity requestBody = new StringEntity(JSONObject.toJSONString(jsonBody), "UTF-8");
         String host = "https://" + envId + ".ap-shanghai.tcb-api.tencentcloudapi.com";
         String url = host + "/weda/odata/v1/" + envType + "/" + datasourceName + "('" + recordId + "')";;
         HttpPost httpPost = new HttpPost(url);
-        httpPost.setEntity(requestBody);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String bodyStr = mapper.writeValueAsString(jsonBody);
+            StringEntity requestBody = new StringEntity(bodyStr, "UTF-8");
+            httpPost.setEntity(requestBody);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return;
+        }
         httpPost.addHeader("Authorization", token);
         httpPost.addHeader("Content-Type", "application/json");
         ResponseHandler<String> responseHandler = response -> {
@@ -243,7 +269,7 @@ public class OpenApiClient {
         try  {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             String responseBody = httpClient.execute(httpPost, responseHandler);
-            Map<String, Object> responseMap = JSONObject.parseObject(responseBody, Map.class);
+            Map<String, Object> responseMap = mapper.readValue(responseBody, Map.class);
             // 打印 body
             System.out.println(responseMap.toString());
         } catch (Exception e) {
@@ -276,9 +302,9 @@ public class OpenApiClient {
     }
 
     public static void main(String[] args) {
-        com.tencent.weda.OpenApiClient openApiClient = new com.tencent.weda.OpenApiClient();
+        OpenApiClient openApiClient = new OpenApiClient();
         // 真实环境 ID
-        String envId = "lowcode-*";
+        String envId = "";
         String secretId = "";
         String secretKey = "";
         // 数据模型标识
@@ -286,18 +312,24 @@ public class OpenApiClient {
         // 数据模型类型
         String envType = "pre";
         String token = openApiClient.getToken(envId, secretId, secretKey);
+
         // 创建记录
         Map<String, Object> postBody = new HashMap<>();
         postBody.put("name", "zhangsan");
         postBody.put("age", 12);
-        //openApiClient.POST(token, envId, envType, datasourceName, postBody);
+
+        /*
+        // 创建记录
+        openApiClient.POST(token, envId, envType, datasourceName, postBody);
+
+        //删除记录
+        openApiClient.DELETE(token, envId, envType, datasourceName, "");
+        //查看
+        openApiClient.GET(token, envId, envType, datasourceName, "");
 
         //查看记录
-        //openApiClient.GET(token, envId, envType, datasourceName);
-        //删除记录
-        //openApiClient.DELETE(token, envId, envType, datasourceName, "6TE4008HQC");
-        //查看
-        //openApiClient.GET(token, envId, envType, datasourceName, "6TE476HL4Y");
+        openApiClient.GET(token, envId, envType, datasourceName);
+        */
     }
 }
 ```
@@ -307,7 +339,7 @@ public class OpenApiClient {
 
 ## 快速体验：使用 Postman 调用开放接口
 1. 打开 Postman 工具，添加一个 GET 请求。进入 **Authorization** 页面完成相应配置。
->!Access Token URL参数设置，需要在域名后添加 `/auth/v1/token/clientCredential`。示例：`https://lowcode-8g171waac4be77f6.ap-shanghai.tcb-api.tencentcloudapi.com/auth/v1/token/clientCredential`  
+>!Access Token URL 参数设置，需要在域名后添加 `/auth/v1/token/clientCredential`。示例：`https://lowcode-8g171waac4be77f6.ap-shanghai.tcb-api.tencentcloudapi.com/auth/v1/token/clientCredential`。
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3d826dc2e851bbdb91bdc114ccc03b07.png" />
 2. 进入 **headers** 页面，设置相应参数即可。
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/4936c09f61d694d4ba18875705e9199d.png" />
