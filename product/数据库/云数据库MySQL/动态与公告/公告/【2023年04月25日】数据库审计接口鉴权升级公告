@@ -8,10 +8,10 @@
 <table>
 <thead><tr><th>接口名称</th><th>接口描述</th><th>授权粒度</th></tr></thead>
 <tbody>
-<td>CreateAuditRuleTemplate</td><td>创建规则模版</td><td>操作级</td></tr>
-<td>ModifyAuditRuleTemplates</td><td>修改规则模版</td><td>操作级</td></tr>
-<td>DescribeAuditRuleTemplates</td><td>查询规则模版</td><td>操作级</td></tr>
-<td>DeleteAuditRuleTemplates</td><td>删除规则模版</td><td>操作级</td></tr>
+<td>CreateAuditRuleTemplate</td><td>创建规则模板</td><td>操作级</td></tr>
+<td>ModifyAuditRuleTemplates</td><td>修改规则模板</td><td>操作级</td></tr>
+<td>DescribeAuditRuleTemplates</td><td>查询规则模板</td><td>操作级</td></tr>
+<td>DeleteAuditRuleTemplates</td><td>删除规则模板</td><td>操作级</td></tr>
 <td>OpenAuditService</td><td>开通审计服务</td><td>资源级</td></tr>
 <td>ModifyAuditService</td><td>修改审计服务</td><td>资源级</td></tr>
 <td>CloseAuditService</td><td>关闭审计服务</td><td>资源级</td></tr>
