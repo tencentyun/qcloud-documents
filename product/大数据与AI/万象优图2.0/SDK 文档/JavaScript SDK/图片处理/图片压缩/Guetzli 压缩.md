@@ -84,7 +84,7 @@ describeImageGuetzli();
 
 #### 功能说明
 
-用于删除某一特定样式。
+用于关闭 Guetzli 压缩功能。
 
 #### 示例代码
 

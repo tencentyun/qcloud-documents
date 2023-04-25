@@ -144,4 +144,4 @@ getDocHtmlPreviewUrl();
 
 #### 返回结果说明
 
-详情请参见 [获取在线文档预览地址](https://cloud.tencent.com/document/product/460/59410#3.-.E8.8E.B7.E5.8F.96.E5.9C.A8.E7.BA.BF.E6.96.87.E6.A1.A3.E9.A2.84.E8.A7.88.E5.9C.B0.E5.9D.80)
+详情请参见 [获取在线文档预览地址](https://cloud.tencent.com/document/product/460/59410#3.-.E8.8E.B7.E5.8F.96.E5.9C.A8.E7.BA.BF.E6.96.87.E6.A1.A3.E9.A2.84.E8.A7.88.E5.9C.B0.E5.9D.80)。
