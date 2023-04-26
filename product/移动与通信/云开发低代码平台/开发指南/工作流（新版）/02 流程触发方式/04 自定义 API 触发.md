@@ -1,17 +1,16 @@
-
 ## 功能简介
 自定义 API 的自定义代码可以触发流程实例。
 
 
 ## 场景示例
 1. 配置流程：流程开始节点支持配置变量：
->!如果仅在“方法测试”、应用编辑器的实时预览或者应用的预览环境触发流程，保存流程即可，不需要发布；如果要在应用的正式环境触发流程，需要发布流程。
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/75ed865affaac3853107b400495b5d03.png" style = "width:80%"> 
- >
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/75c3e4a1967101fe208f29d5eff6380a.png" style = "width:80%"> 
-2. **配置自定义 API **。
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/6b7f88cce08d7895dce76d3e7b592993.png" style = "width:80%"> 
-**参考下面的代码配置APs和工作流相关信息即可触发流程，可以通过方法测试验证，验证后通过“出参映射”可以快速配置 API 的出参。**
+>!如果仅在**方法测试**、应用编辑器的实时预览或者应用的预览环境触发流程，保存流程即可，不需要发布；如果要在应用的正式环境触发流程，需要发布流程。
+![](https://qcloudimg.tencent-cloud.cn/raw/75ed865affaac3853107b400495b5d03.png)
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/8f8812446d5af32ef4982ab390835004.png)
+2. **配置自定义 API**。
+![](https://qcloudimg.tencent-cloud.cn/raw/6b7f88cce08d7895dce76d3e7b592993.png)
+**参考下面的代码配置 APIs 和工作流相关信息即可触发流程，可以通过方法测试验证，验证后通过“出参映射”可以快速配置 API 的出参。**
 <dx-codeblock>
 :::  js
 /**
@@ -58,31 +57,30 @@ module.exports = async function (params, context) {
 };
 :::
 </dx-codeblock>
-其中：
-- ConnectorName：触发的APIs标识；
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/ae17cf5f8b161a03f2100c8a674cf3dc.png" style = "width:80%"> 
-- FunctionName：触发的方法标识；
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/aaa49c25f8ac248657ded743313627c5.png" style = "width:80%"> 
-- ProcessKey：流程的唯一标识；
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/231a762f47775a062f1e5891e7a5718e.png" style = "width:80%"> 
-- StartParams中：
-  - name:开始节点变量名称；
-  - paramCode:开始节点变量标识（获取方式参考以下截图示例，对照接口出参中rightId字段内容）
-  - fieldType：开始节点变量类型
-  - fieldValueMap:{_id: 数据模型记录ID，数据模型字段key-value}
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/c5cbf2859477601485fa98cba3fbb140.png" style = "width:80%"> 
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/69f12866306f62ee952f83bb90a5dc82.png" style = "width:80%"> 
-3. **应用中使用自定义 API **
+
+ 其中：
+ - ConnectorName：触发的 APIs 标识。
+![](https://qcloudimg.tencent-cloud.cn/raw/835f9ab332eddae6d7febfdf96ca8773.png)
+ - FunctionName：触发的方法标识。
+![](https://qcloudimg.tencent-cloud.cn/raw/aaa49c25f8ac248657ded743313627c5.png)
+ - ProcessKey：流程的唯一标识。
+![](https://qcloudimg.tencent-cloud.cn/raw/54af169e7545f12b9a4ca11df5f9bda0.png)
+ - StartParams中：
+   - name：开始节点变量名称。
+   - paramCode：开始节点变量标识（获取方式参考以下截图示例，对照接口出参中 rightId 字段内容）。
+   - fieldType：开始节点变量类型。
+   - fieldValueMap：{\_id：数据模型记录 ID，数据模型字段 key-value}。
+![](https://qcloudimg.tencent-cloud.cn/raw/c5cbf2859477601485fa98cba3fbb140.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d61e6c3dab9081a456eb0dee54dd6e6a.png)
+3. **应用中使用自定义 API**。
 自定义 API 发布后，在应用编辑器中可以配置表单容器。
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/b7fea5012d29de3a8c5effc4c38abfbb.png" style = "width:80%"> 
+![](https://qcloudimg.tencent-cloud.cn/raw/55af31467226022722524cf1d6d20ec9.png)
  选择配置好的 API 方法，单击**提交**即可触发流程。
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/40a0318866c4db98b2ed7fc157313235.png" style = "width:80%">  
-如果需要在自定义应用中使用，需要先配置登录组件，确认应用登录授权信息
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/20170ab808bcbedaefe176c7ee5c441f.png" style = "width:80%"> 
- <img src = "https://qcloudimg.tencent-cloud.cn/raw/ad804ed3c0e9715903ce1dc1b0d0845d.png" style = "width:80%"> 
+![](https://qcloudimg.tencent-cloud.cn/raw/40a0318866c4db98b2ed7fc157313235.png)
+如果需要在自定义应用中使用，需要先配置登录组件，确认应用登录授权信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/20170ab808bcbedaefe176c7ee5c441f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ad804ed3c0e9715903ce1dc1b0d0845d.png)
 可通过单击应用编辑器右上角**发布成功** > **访问连接**进行访问。
-
-
 > !如果不配登录组件，只能在自定义代码中指定用户触发，即传入 ExtraUserInfo 参数的 UserId 和 Source（如上文示例所示）。如果已经配置了登录组件则不需要配置该入参。
 
 
