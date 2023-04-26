@@ -185,13 +185,13 @@
 <tr>
 <td>读取其他 Brokers 流量</td>
 <td>OneMinuteRate</td>
-<td>bytes</td>
+<td>bytes/s</td>
 <td>一分钟读取其他 brokers 速率</td>
 </tr>
 <tr>
 <td>读到其他 Brokers 流量</td>
 <td>OneMinuteRate</td>
-<td>bytes</td>
+<td>bytes/s</td>
 <td>一分钟读到其他 brokers 速率</td>
 </tr>
 <tr>
@@ -291,13 +291,13 @@
 <tr>
 <td>ISR 扩展速率</td>
 <td>OneMinuteRate</td>
-<td>count</td>
+<td>count/s</td>
 <td>一分钟 ISR 扩展速率</td>
 </tr>
 <tr>
 <td>ISR 收缩速率</td>
 <td>OneMinuteRate</td>
-<td>count</td>
+<td>count/s</td>
 <td>一分钟 ISR 收缩速率</td>
 </tr>
 <tr>
@@ -329,11 +329,11 @@
 <td rowspan=3>FetchConsumer 请求延时</td>
 <td>99thPercentile</td>
 <td rowspan=3>ms</td>
-<td>FetchConsumer 请求时间_75thPercentile</td>
+<td>FetchConsumer 请求时间_99thPercentile</td>
 </tr>
 <tr>
 <td>999thPercentile</td>
-<td>FetchConsumer 请求时间_75thPercentile</td>
+<td>FetchConsumer 请求时间_999thPercentile</td>
 </tr>
 <tr>
 <td>Mean</td>
@@ -343,11 +343,11 @@
 <td rowspan=3>FetchFollower 请求延时</td>
 <td>99thPercentile</td>
 <td rowspan=3>ms</td>
-<td>FetchFollower 请求时间_75thPercentile</td>
+<td>FetchFollower 请求时间_99thPercentile</td>
 </tr>
 <tr>
 <td>999thPercentile</td>
-<td>FetchFollower 请求时间_75thPercentile</td>
+<td>FetchFollower 请求时间_999thPercentile</td>
 </tr>
 <tr>
 <td>Mean</td>
@@ -357,11 +357,11 @@
 <td rowspan=3>Produce 请求延时</td>
 <td>99thPercentile</td>
 <td rowspan=3>ms</td> 
-<td>Produce 请求时间_75thPercentile</td>
+<td>Produce 请求时间_99thPercentile</td>
 </tr>
 <tr>
 <td>999thPercentile</td>
-<td>Produce 请求时间_75thPercentile</td>
+<td>Produce 请求时间_999thPercentile</td>
 </tr>
 <tr>
 <td>Mean</td>
