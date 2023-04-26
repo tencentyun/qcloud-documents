@@ -17,6 +17,7 @@ Authorization: Auth String
 >?
 > - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> - 目前 LOGO 识别仅支持主流电商平台的 LOGO 识别，如果其他 LOGO 识别需求，请提交工单咨询。
 > 
 
 ## 请求内容
