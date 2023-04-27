@@ -18,7 +18,7 @@
 - 私网 NAT 网关需要开通白名单使用，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
 - 您已经 [申请物理专线](https://cloud.tencent.com/document/product/216/48586)。
 
-## 操作步骤
+### 操作步骤
 1. [](id:step1)创建 CCN 资源，将 VPC 关联到新建的 CCN 上，同时该 CCN 实例需开启多路由表功能。
 1.1 新建云联网实例，并绑定用户原始业务VPC，详情请参见 [新建云联网实例](https://cloud.tencent.com/document/product/877/18752)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/954245107aa863a6cd5911d476ecb9df.png)
