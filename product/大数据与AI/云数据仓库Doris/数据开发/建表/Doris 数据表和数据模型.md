@@ -413,7 +413,7 @@ DISTRIBUTED BY HASH(siteid) BUCKETS 10;
 
 #### Unique 模型
 Unique 模型针对需要唯一主键约束的场景，Unique key 相同时，新记录覆盖旧记录，可以保证主键唯一性约束。适用于有更新需求的分析业务。目前 Unique key  实现上和 Aggregate key 的 REPLACE 聚合方法一样，二者本质上相同。但是无法利用 ROLLUP 等预聚合带来的查询优势（因为本质是 REPLACE，没有 SUM 这种聚合方式）。
->! Unique 模型仅支持整行更新，如果用户既需要唯一主键约束，又需要仅更新部分列（例如将多张源表的列合并后导入到一张 doris 表的情形），则可以考虑使用 Aggregate 模型，同时将非主键列的聚合类型设置为 REPLACE_IF_NOT_NULL。具体的用法可以参考 SQL 手册。
+>! Unique 模型仅支持整行更新，如果用户既需要唯一主键约束，又需要仅更新部分列（例如将多张源表的列合并后导入到一张 doris 表的情形），则可以考虑使用 Aggregate 模型，同时将非主键列的聚合类型设置为 REPLACE_IF_NOT_NULL。具体的用法可以参考 [SQL 手册](https://doris.apache.org/zh-CN/docs/dev/data-table/data-model)。
 >
 ```sql
 CREATE TABLE sales_order

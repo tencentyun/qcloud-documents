@@ -19,7 +19,7 @@ VPN API 接口全量化支持 CAM 鉴权后，您的 VPN 业务更加安全可�
 | [DescribeVpnGatewaySslServers](https://cloud.tencent.com/document/api/215/70285)            | 查询 SSL-VPN SERVER 列表                      |
 | [DisableVpnGatewaySslClientCert](https://cloud.tencent.com/document/api/215/70284)          | 禁用 SSL-VPN-CLIENT 证书                       |
 | [DownloadVpnGatewaySslClientCert](https://cloud.tencent.com/document/api/215/70283)         | 下载 SSL-VPN-CLIENT 客户端证书                 |
-| GenerateVpnConnectionDefaultHealthCheckIp | 获取一对 VPN 通道健康检查地址                |
+| [GenerateVpnConnectionDefaultHealthCheckIp](https://cloud.tencent.com/document/api/215/90654) | 获取一对 VPN 通道健康检查地址                |
 
 感谢您一如既往的支持！
 此致！
