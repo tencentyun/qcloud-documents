@@ -39,17 +39,18 @@
 2.4 编辑 NAT 规则：在第三步创建的NAT实例中添加本端四层SNAT规则（以本端四层规则为例）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b3ce400e5273d32b48c9f598964f3295.png)
 3. [](id:step3)创建云联网型专线网关，并将该专线网关关联到云联网多路由表中。
-3.1 登录[专线网关控制台](https://console.cloud.tencent.com/vpc/dcgw?rid=1)，选择地域和私有网络后，单击**新建**。创建云联网型专线网关，并且关联 [第1步](#step1) 创建的云联网实例。
+3.1 登录 [专线网关控制台](https://console.cloud.tencent.com/vpc/dcgw?rid=1)，选择地域和私有网络后，单击**新建**。创建云联网型专线网关，并且关联 [第1步](#step1) 创建的云联网实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0e20170dd59d8f1e763cfab694542223.png)
 3.2 将专线网关加入云联网路由表2中，绑定 VPC 实例，同时设置路由接收策略。
 ![](https://qcloudimg.tencent-cloud.cn/raw/063920cddc8bd96738a4d22c8bd1d589.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/8c9d7aa450b6e4756be540401200a791.png)
 3.3 专线网关发布 IDC 网段，如果采用自定义方式发布则需要手动新增 IDC 网段。如果需要采用自动传递方式，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
+![](https://qcloudimg.tencent-cloud.cn/raw/c7c8ec096a180c85354d1bcee4206f42.png)
 4. [](id:step4)配置本端/对端 VPC 路由，并发布到云联网上。
 4.1 本端 VPC 默认路由表增加路由条目如下。目的是 IDC 网段，下一跳为私网 NAT 网关。并且发布到云联网。
 ![](https://qcloudimg.tencent-cloud.cn/raw/abe3b31eae900b8034beb103b9091b4b.png)
 4.2 对端 VPC 默认路由表添加条目如下。目的是 NAT IP 网段，下一跳为私网 NAT 网关。并且发布到云联网。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0d3576689af1453d360f5cac542c1c07.png)
 5. [](id:step5)专线资源创建，可参见：
-- [申请接入物理专线](https://cloud.tencent.com/document/product/216/48586)。
-- [独享专用通道](https://cloud.tencent.com/document/product/216/74769)。
+ - [申请接入物理专线](https://cloud.tencent.com/document/product/216/48586)。
+ - [独享专用通道](https://cloud.tencent.com/document/product/216/74769)。
