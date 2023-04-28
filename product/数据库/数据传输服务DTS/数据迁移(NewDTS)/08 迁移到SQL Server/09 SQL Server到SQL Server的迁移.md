@@ -177,6 +177,14 @@
 | 18 | 检查数据传输服务器是否能连通目标数据库。 | 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=10&level2_id=99&source=14&data_title=%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93SQLServer&step=1)，获取解决方案。 |
 
 [](id:JYZRWSB)
+
+## 迁移中的迁移步骤流程
+1. 禁止备份作业。
+2. 备份数据库。
+3. 传输备份文件。
+4. 恢复数据库。
+5. 部署实时同步。
+
 ## 迁移中任务失败错误详情及解决方案
 在上述操作 [步骤6](https://cloud.tencent.com/document/product/238/50268#BZ6)，迁移任务正式启动后，如出现任务失败，可单击**错误信息**了解导致任务失败的原因，单击**错误详情**了解处理建议。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d152307ba7a36db531da61ec036a3bad.png)
