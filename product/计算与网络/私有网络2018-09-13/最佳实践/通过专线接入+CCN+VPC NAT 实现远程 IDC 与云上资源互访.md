@@ -22,7 +22,7 @@
 1. [](id:step1)创建 CCN 资源，将 VPC 关联到新建的 CCN 上，同时该 CCN 实例需开启多路由表功能。
 1.1 登录 [云联网控制台](https://console.cloud.tencent.com/vpc/ccn)，单击**新建**，并关联用户原始业务 VPC，详情可参见 [新建云联网实例](https://cloud.tencent.com/document/product/877/18752)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/954245107aa863a6cd5911d476ecb9df.png)
-1.2 在云联网实例页面，单击上述步骤中创建好的云联网 ID ，在云联网实例详情页，单击**路由表**页签，创建两个路由表。
+1.2 在云联网实例页面，单击上述步骤中创建好的**云联网 ID** ，在云联网实例详情页，单击**路由表**页签，创建两个路由表。
 >?开启多路由表功能（需提前加入云联网多路由表白名单，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通）。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/f594f54fa368c95dd78c106377794963.png)
@@ -40,16 +40,18 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/005d0aae3c0a2b8705da78592d9cc756.png)
 2.2 完成创建后，展示如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e0d7e0ed36b0bd98bd851e365ced2b10.png)
-2.2 在 [云联网控制台](https://console.cloud.tencent.com/vpc/ccn) > [步骤1](#step1)中新建的 CCN 实例 > **路由表**页签，单击将 NAT 实例的本端 VPC 绑定到 [第1步](#step1) 创建的云联网实例的路由表1中，同时云联网路由表1中设置路由接受策略，详细绑定步骤可参见 [步骤1.3](#step1-3)。
+2.2 在 [云联网控制台](https://console.cloud.tencent.com/vpc/ccn) > [步骤1](#step1)中新建的 CCN 实例 > **路由表**页签，单击将 NAT 实例的本端 VPC 绑定到 [第1步](#step1) 创建的云联网实例的路由表1中。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f11b4450fca8d4688c158a328135ba94.png)
+2.3 同时在云联网路由表1中设置路由接受策略，详细绑定步骤可参见 [步骤1.3](#step1-3)
 ![](https://qcloudimg.tencent-cloud.cn/raw/f28d7d75d397ef90cc517a2f7bd4c354.png)
-2.3 将 NAT 实例的对端 VPC 绑定到 [第1步](#step1) 创建的云联网实例的路由表2中，同时云联网路由表2中设置路由接受策略，详细绑定步骤可参见 [步骤1.3](#step1-3)。
+2.4 将 NAT 实例的对端 VPC 绑定到 [第1步](#step1) 创建的云联网实例的路由表2中。
 ![](https://qcloudimg.tencent-cloud.cn/raw/aee5e86c5aaa7411790b8dd9fae6b927.png)
+2.5 同时在云联网路由表2中设置路由接受策略，详细绑定步骤可参见 [步骤1.3](#step1-3)
 ![](https://qcloudimg.tencent-cloud.cn/raw/1170a7cacb9f43f47ee34b538e22627e.png)
-2.4 在新建的 [私网 NAT 网关](https://console.cloud.tencent.com/vpc/intranat?rid=1) 实例详情页，单击 [步骤2](#step2) 新建的私网 NAT 实例 ID，在私网 NAT 实例详情页，单击 **SNAT**。在 **SNAT** 页签中，单击**新建**。在新建的 NAT 实例中添加本端四层 SNAT 规则（以本端四层规则为例）。
+2.6 在新建的 [私网 NAT 网关](https://console.cloud.tencent.com/vpc/intranat?rid=1) 实例详情页，单击 [步骤2](#step2) 新建的私网 NAT 实例 ID，在私网 NAT 实例详情页，单击 **SNAT**。在 **SNAT** 页签中，单击**新建**。在新建的 NAT 实例中添加本端四层 SNAT 规则（以本端四层规则为例）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b3ce400e5273d32b48c9f598964f3295.png)
 3. [](id:step3)创建云联网型专线网关，并将该专线网关关联到云联网多路由表中。
-3.1 登录 [专线网关控制台](https://console.cloud.tencent.com/vpc/dcgw?rid=1)，选择地域和私有网络后，单击**新建**。创建云联网型专线网关，并且关联 [第1步](#step1) 创建的云联网实例。
+3.1 登录 [专线网关控制台](https://console.cloud.tencent.com/vpc/dcgw?rid=1)，选择地域和私有网络后，单击**新建**。输入专线网关名称、可用区、并且关联 [第1步](#step1) 创建的云联网实例后，单击确定，完成创建云联网型专线网关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0e20170dd59d8f1e763cfab694542223.png)
 3.2 在 [云联网控制台](https://console.cloud.tencent.com/vpc/ccn) > [步骤1](#step1) 中新建的 CCN 实例 > **路由表**页签，将专线网关加入云联网路由表2中，绑定专线网关实例，同时设置路由接收策略。详细操作可参考 [步骤1.3](#step1-3)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/946231dc48e099aef0874f41b5d7ae26.png)
