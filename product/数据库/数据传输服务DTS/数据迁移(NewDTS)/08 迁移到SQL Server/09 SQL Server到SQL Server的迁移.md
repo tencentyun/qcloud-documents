@@ -165,15 +165,15 @@
 | 6 | 迁移的数据库名称中包含敏感字符。 | 请更换源实例中迁移的数据库或者请将源实例中迁移的数据库进行重命名，去掉非法字符后再进行迁移。 |
 | 7 | 等待网络检查。 | 请等待网络检查，无需操作处理。 |
 | 8 | 网络检查失败。 | 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=10&level2_id=99&source=14&data_title=%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93SQLServer&step=1)，获取解决方案。 |
-| 9 | 检查数据传输服务器是否能连通源数据库。 | 1. 请检查源实例的 SQL 服务启动账号是否是使用内置账户 Local System 启动的，需要将启动配置中的“登录身份”选择内置账户并修改为 Local System 账户启动。<br>2. 请检查源实例是否开启了 xp_cmdshell，需要将 xp_cmdshell 开启。<br>3. 请检查迁移账号需要有 sysadmin 权限。 |
-| 10 | 迁移账号权限不足，无法完成迁移。 | 1. 请检查源实例的 SQL 服务启动账号是否是使用内置账户 Local System 启动的，需要将启动配置中的“登录身份”选择内置账户并修改为 Local System 账户启动。<br>2. 请检查源实例是否开启了 xp_cmdshell，需要将 xp_cmdshell 开启。<br>3. 请检查迁移账号需要有 sysadmin 权限。 |
+| 9 | 检查数据传输服务器是否能连通源数据库。 | 1. 请检查源实例的 SQL 服务启动账号是否是使用内置账户 Local System 启动的，需要将启动配置中的“登录身份”选择“内置账户”并修改为 Local System 账户启动。<br>2. 请检查源实例是否开启了 xp_cmdshell，需要将 xp_cmdshell 开启。<br>3. 请检查迁移账号需要有 sysadmin 权限。 |
+| 10 | 迁移账号权限不足，无法完成迁移。 | 1. 请检查源实例的 SQL 服务启动账号是否是使用内置账户 Local System 启动的，需要将启动配置中的“登录身份”选择“内置账户”并修改为 Local System 账户启动。<br>2. 请检查源实例是否开启了 xp_cmdshell，需要将 xp_cmdshell 开启。<br>3. 请检查迁移账号需要有 sysadmin 权限。 |
 | 11 | 检查目的服务器硬盘空间是否足够。 | 请检查目标实例购买的磁盘空间大小，建议目标实例的磁盘空间不小于源实例的磁盘空间，尽量为源实例磁盘空间大小的1.5倍，可通过控制台的 [调整实例规格](https://cloud.tencent.com/document/product/238/67863) 功能扩容目标实例的磁盘空间大小。 |
 | 12 | 检查字符集是否一致。 | 请检查字符集是否一致，如不一致，请将源数据库和目的数据库的字符集调整为一致。 |
 | 13 | 检查数据库版本号是否一致。 | 请检查源实例及目标实例的数据库版本，高版本实例不能向低版本实例迁移，例如：源实例2012版本不能迁移到目标实例2008版本。目标实例的版本必须要大于或等于源实例的版本才可进行迁移，可以通过控制台的 [调整实例版本](https://cloud.tencent.com/document/product/238/67862) 功能升级目标实例的版本。 |
 | 14 | 检查目标实例权限是否存在。 | 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=10&level2_id=99&source=14&data_title=%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93SQLServer&step=1)，获取解决方案。 |
 | 15 | 检查源数据库是否存在。 | 在源实例中未找到待迁移的数据库，请确定待迁移的数据库在源实例是否存在。 |
 | 16 | 检查目标数据库是否存在。 | 迁移的数据库在目标实例已经存在，请把目标实例上和迁移数据库重名的数据库删除或重命名后再进行重试。 |
-| 17 | 连不上源服务器，请检查账号密码是否正确。 | 1. 请检查源实例的 SQL 服务启动账号是否是使用内置账户 Local System 启动的，需要将启动配置中的“登录身份”选择内置账户并修改为 Local System 账户启动。<br>2. 请检查源实例是否开启了 xp_cmdshell，需要将 xp_cmdshell 开启。<br>3. 请检查迁移账号需要有 sysadmin 权限。 |
+| 17 | 连不上源服务器，请检查账号密码是否正确。 | 1. 请检查源实例的 SQL 服务启动账号是否是使用内置账户 Local System 启动的，需要将启动配置中的“登录身份”选择“内置账户”并修改为 Local System 账户启动。<br>2. 请检查源实例是否开启了 xp_cmdshell，需要将 xp_cmdshell 开启。<br>3. 请检查迁移账号需要有 sysadmin 权限。 |
 | 18 | 检查数据传输服务器是否能连通目标数据库。 | 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=10&level2_id=99&source=14&data_title=%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93SQLServer&step=1)，获取解决方案。 |
 
 [](id:JYZRWSB)
@@ -194,7 +194,7 @@
 |---------|---------|---------|
 | 1 | 任务失败！请提交工单，获取解决方案。 | 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=10&level2_id=99&source=14&data_title=%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93SQLServer&step=1)，获取解决方案。 |
 | 2 | 在源实例中未找到待迁移的数据库。 | 在源实例中未找到待迁移的数据库，请确认待迁移的数据库在源实例是否存在。 |
-| 3 | 源实例无法执行迁移初始化操作。 | 源实例无法执行迁移初始化操作：<br>1. 请检查源实例的 SQL 服务启动账号是否是使用内置账户 Local System 启动的，需要将启动配置中的“登录身份”选择内置账户”并修改为 Local System 账户启动。<br>2. 请检查源实例是否开启了 xp_cmdshell，需要将 xp_cmdshell 开启。<br>3. 请检查迁移账号需要有 sysadmin 权限。 |
+| 3 | 源实例无法执行迁移初始化操作。 | 源实例无法执行迁移初始化操作：<br>1. 请检查源实例的 SQL 服务启动账号是否是使用内置账户 Local System 启动的，需要将启动配置中的“登录身份”选择“内置账户”并修改为 Local System 账户启动。<br>2. 请检查源实例是否开启了 xp_cmdshell，需要将 xp_cmdshell 开启。<br>3. 请检查迁移账号需要有 sysadmin 权限。 |
 | 4 | 高版本实例不能向低版本实例迁移。 | 高版本实例不能向低版本实例迁移，例如：源实例2012版本不能迁移到目标实例2008版本。目标实例的版本必须要大于或等于源实例的版本才可进行迁移，可以通过控制台的 [调整实例版本](https://cloud.tencent.com/document/product/238/67862) 功能升级目标实例的版本。 |
 | 5 | 源实例的备份作业无法禁止。 | 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=10&level2_id=99&source=14&data_title=%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93SQLServer&step=1)，获取解决方案。 |
 | 6 | 源库创建全量备份文件失败。 | 源库创建全量备份文件失败：<br>1. 请在源实例的 cmd 终端执行 net share，查看名字是 bakcup 的共享文件夹是否存在。<br>2. 请检查源实例共享文件夹里的备份文件是否生成。<br>3. 请检查源实例磁盘空间是否不足以创建备份。 |
