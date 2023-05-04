@@ -6,11 +6,11 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/d656aae3f47cfe86baea39f22f43ff10.png)
 
 ## 操作流程
-1. [创建支持多路由表的云联网实例，云联网实例绑定 VPC](#step1)。
-2. [创建云联网型私网 NAT 实例，NAT 实例中完成规则设置](#step2)。
-3. [创建云联网型专线网关，与云联网实例关联](#step3)。
-4. [配置本端/对端 VPC 路由，并发布到云联网上](#step4)。
-5. [专线资源：端口资源建设、专用通道创建](#step5)。
+1. [创建支持多路由表的云联网实例，云联网实例绑定 VPC](#step1)
+2. [创建云联网型私网 NAT 实例，NAT 实例中完成规则设置](#step2)
+3. [创建云联网型专线网关，与云联网实例关联](#step3)
+4. [配置本端/对端 VPC 路由，并发布到云联网上](#step4)
+5. [专线资源：端口资源建设、专用通道创建](#step5)
 
 ## 实操指引
 ### 前提条件
@@ -69,4 +69,4 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0d3576689af1453d360f5cac542c1c07.png)
 5. [](id:step5)专线资源创建，可参见：
  1. [申请接入物理专线](https://cloud.tencent.com/document/product/216/48586)
- 2. 创建 [独享专用通道](https://cloud.tencent.com/document/product/216/74769) 时，绑定 [步骤3](#step3) 中创建的云联网型专线网关。
+ 2. 创建 [独享专用通道](https://cloud.tencent.com/document/product/216/74769) 时，绑定 [步骤3](#step3) 中创建的 CCN 型专线网关。
