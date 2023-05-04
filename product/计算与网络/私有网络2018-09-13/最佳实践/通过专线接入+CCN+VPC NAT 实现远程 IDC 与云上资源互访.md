@@ -69,4 +69,4 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0d3576689af1453d360f5cac542c1c07.png)
 5. [](id:step5)专线资源创建，可参见：
  1. [申请接入物理专线](https://cloud.tencent.com/document/product/216/48586)
- 2. [独享专用通道](https://cloud.tencent.com/document/product/216/74769)
+ 2. 创建 [独享专用通道](https://cloud.tencent.com/document/product/216/74769) 时，绑定 [步骤3](#step3) 中创建的云联网型专线网关。
