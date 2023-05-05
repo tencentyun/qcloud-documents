@@ -249,6 +249,7 @@ python3 setup.py install --init-system systemd
 1. 根据不同操作系统，下载 cloud.cfg。
   - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
   - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
+  - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/sles/cloud.cfg) OpenSUSE / SUSE 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 
