@@ -10,7 +10,6 @@
 ### 是否提供 SDK ？
 用户可通过 [SDK 中心](https://cloud.tencent.com/document/sdk)使用对应的资源。
 
-
 ### 小程序如何使用该服务审核用户上传的图片？
 小程序支持 API 接入，具体接入流程需由客户自己开发。接口说明请参考 [API文档](https://cloud.tencent.com/document/product/1125/53273)。
 
