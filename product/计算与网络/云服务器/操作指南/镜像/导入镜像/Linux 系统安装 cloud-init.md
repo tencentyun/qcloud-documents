@@ -223,6 +223,10 @@ yum install cloud-utils-growpart -y
 ```shellsession
 apt-get install cloud-guest-utils -y
 ```
+  - OpenSUSE / SUSE 系列，执行以下命令：
+```shellsession
+zypper install -y growpart
+```
 6. 执行以下命令，安装 cloud-init。
 ```shellsession
 python3 setup.py build
