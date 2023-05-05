@@ -258,6 +258,18 @@
 <td>疑似检测到系统劫持，该标签仅支持 Android</td>   
 </tr>
 <tr>      
+<td>301</td>
+<td>疑似主流模拟器，该标签仅支持 Android</td>   
+</tr>
+<tr>      
+<td>302</td>
+<td>疑似云模拟器，该标签仅支持 Android</td>   
+</tr>
+<tr>      
+<td>303</td>
+<td>疑似开发板模拟器，该标签仅支持 Android</td>   
+</tr>
+<tr>      
 <td>1001、502</td>
 <td>疑似设备参数篡改，该标签支持 Android 和 iOS 系统</td>   
 </tr>
@@ -268,5 +280,9 @@
 <tr>      
 <td>5009 </td>
 <td>疑似 iOS 多开，该标签仅支持 iOS</td>   
+</tr>
+<tr>      
+<td>5021 </td>
+<td>疑似黑名单设备，该标签仅支持 iOS</td>   
 </tr>
 </table>

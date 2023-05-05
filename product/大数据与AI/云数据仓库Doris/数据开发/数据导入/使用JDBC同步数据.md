@@ -4,7 +4,7 @@ INSERT 语句的使用方式和 MySQL 等数据库中 INSERT 语句的使用方�
 * INSERT INTO table SELECT ...
 * INSERT INTO table VALUES(...)
 ```
-这里我们仅介绍第二种方式。关于 INSERT 命令的详细说明，请参阅 `INSERT`命令文档。
+这里我们仅介绍第二种方式。关于 INSERT 命令的详细说明，请参阅 [INSERT](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Manipulation/INSERT?_highlight=insert) 命令文档。
 
 ## 单次写入
 单次写入是指用户直接执行一个 INSERT 命令。示例如下：
@@ -109,4 +109,4 @@ INSERT INTO example_tbl VALUES
 3. 导入原子性
 和其他到导入方式一样，INSERT 操作本身也支持原子性。每一个 INSERT 操作都是一个导入事务，能够保证一个 INSERT 中的所有数据原子性的写入。
 前面提到，我们建议在使用 INSERT 导入数据时，采用 ”批“ 的方式进行导入，而不是单条插入。
-同时，我们可以为每次 INSERT 操作设置一个 Label。通过 `Label 机制` 可以保证操作的幂等性和原子性，最终做到数据的不丢不重。关于 INSERT 中 Label 的具体用法，可以参阅 `INSERT` 文档。
+同时，我们可以为每次 INSERT 操作设置一个 Label。通过 [Label 机制](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-scenes/load-atomicity?_highlight=label&_highlight=%E6%9C%BA%E5%88%B6#label-%E6%9C%BA%E5%88%B6) 可以保证操作的幂等性和原子性，最终做到数据的不丢不重。关于 INSERT 中 Label 的具体用法，可以参阅 [INSERT](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Manipulation/INSERT) 文档。

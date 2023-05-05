@@ -48,7 +48,7 @@ gem build logstash-output-doris.gemspec
 `label_prefix` | 导入标识前缀，最终生成的标识为 *{label\_prefix}\_{db}\_{table}\_{time_stamp}*
 
 
-导入相关配置参考：`Stream Load 手册`
+导入相关配置参考 [Stream Load 手册](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/stream-load-manual?_highlight=stream&_highlight=load)。
 
 配置 | 说明
 --- | ---
