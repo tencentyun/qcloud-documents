@@ -61,8 +61,5 @@
  
 ## 步骤四：登录使用金蝶K/3 WISE
 全部设置完成后，云服务器 CVM 和云数据库 SQL Server 之间就能够支持分布式事务，您也可以正常登录并使用金蝶K/3 WISE。
-
-若在登入时遇到如下报错信息：
-`中间层创建事务失败，请联系系统管理员，高级显示：错误代码:5(5H)`
-请参考 [金蝶官方文档](https://club.kingdee.com/club/newclub/helpDetail?product_id=3&id=366259) 进行处理。 
+![](https://qcloudimg.tencent-cloud.cn/raw/f0ca655cd2edf451dc17ac875358af06.png)
 
