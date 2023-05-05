@@ -407,7 +407,7 @@ network:
    eth0:
       dhcp4: true                         //开启dhcp
       match:
-								macaddress: 52:54:00:c3:4a:0e  //MAC地址
+			macaddress: 52:54:00:c3:4a:0e  //MAC地址
       set-name: eth0                      //网卡名
       routes:
         - to: default
