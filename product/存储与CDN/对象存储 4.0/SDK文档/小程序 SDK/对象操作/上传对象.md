@@ -800,7 +800,7 @@ wx.chooseMessageFile({
    count: 10,
    type: 'all',
    success: function(res) {
-       uploadFiles(res.tempFiles[0]);
+       uploadFile(res.tempFiles[0]);
    }
 });
 ```

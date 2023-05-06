@@ -33,7 +33,7 @@
      <tr>
         <td >/{index}/_mapping</td>
         <td >"GET"</td>
-        <td >详情参考 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.htmll">Get mapping API</a></td>
+        <td >详情参考 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-get-mapping.html">Get mapping API</a></td>
     </tr>
      <tr>
         <td >/{index}/_msearch</td>
