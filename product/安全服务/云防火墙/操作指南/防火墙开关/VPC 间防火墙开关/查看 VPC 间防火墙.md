@@ -17,11 +17,6 @@ VPC 间防火墙状态监控支持统计防火墙整体带宽和各个实例的�
 4. 在监控面板中， 单击**查看监控指标**呼出云监控的侧边栏，查看防火墙实例的全部监控指标数据，包括并发连接数、内网入包量、内网出包量、内网出带宽、内网入带宽。您也可以前往云监控控制台查看详细指标或配置相关告警。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bae436bb10b9fef754f69f8470adafb1.jpg)
 
-VPC 间防火墙创建完成后，您可以单独对 VPC 间防火墙实例进行管理。
-
-1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/switch/vpc)，在左侧导航栏中，选择**防火墙开关** > **VPC 间开关**。
-2. 在 VPC 间开关页面，单击**防火墙实例**，进入到防火墙实例页面。
-
 ## 查看规格信息
 在 [防火墙开关页面](https://console.cloud.tencent.com/cfw/switch/vpc/vpc?tab=switch) 的规格信息模块中，可以查看规格信息，包括接入网络实例和 VPC 间防火墙实例。单击规则信息右上角的**升级扩容**，可以跳转到扩容界面。当前版本企业版用户最多可创建1个 VPC 间防火墙，旗舰版用户最多可以创建3个 VPC 间防火墙。
 ![](https://qcloudimg.tencent-cloud.cn/raw/061da6dc4df9faad178ec642c77e0f67.jpg)
