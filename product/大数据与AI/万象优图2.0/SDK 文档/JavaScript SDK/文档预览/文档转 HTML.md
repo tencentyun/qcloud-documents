@@ -4,7 +4,7 @@
 
 | API  |	说明  |
 |----|-----|
-| [文档转 HTML](https://cloud.tencent.com/document/product/436/54059)  | 文档转 HTML 功能支持对多种文档类型的文件生成 HTML 格式预览，满足 PC、App 等多个用户端的文档在线浏览需求，适用于在线教育、企业 OA、在线知识库、网盘文档预览等业务场景。 | 
+| [文档转 HTML](https://cloud.tencent.com/document/product/460/52518)  | 文档转 HTML 功能支持对多种文档类型的文件生成 HTML 格式预览，满足 PC、App 等多个用户端的文档在线浏览需求，适用于在线教育、企业 OA、在线知识库、网盘文档预览等业务场景。 | 
 
 
 ## 文档转 HTML
