@@ -1,12 +1,12 @@
 ## 操作场景
  
-本文针对腾讯内部自研上云用户接入微服务引擎托管的 PolarisMesh 治理中心。
+本文针对使用 L5 用户接入微服务引擎托管的 PolarisMesh 治理中心。
 
 ### L5agent 使用北极星
 
 #### L5 的SID在北极星中如何创建
  
-由于 l5api 仅支持访问 L5 SID，因此访问非 L5 SID 格式的服务名，需要创建 CL5 SID 格式的服务别名指向该服务，这里请直接从内部北极星将服务对应的L5别名SID信息直接复制，然后在公有云北极星中创建响应的服务别名。
+由于 l5api 仅支持访问 L5 SID，因此访问非 L5 SID 格式的服务名，需要创建 CL5 SID 格式的服务别名指向该服务。
 
 - 复制 SID 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/81d75a94d0f82138bd91de6c19c34057.png)
@@ -35,9 +35,6 @@ ModID 数值右移6位，如果结果 >= 3000001，则需要计算 ModID & 63 �
 	6: "default",
 }
 ```
-
-## 微服务引擎操作场景
-本文主要面向腾讯内部自研上云用户如何迁移至微服务引擎托管的 PolarisMesh 治理中心。
 
 ## 前提条件
 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
