@@ -32,7 +32,7 @@
 	- Authorization callback URL：微搭会提供回调地址，在 [步骤3.4](#step3_4) 的**认证源基础配置**里复制回调 URL，粘贴至上方输入框。
 
  <dx-alert infotype="notice" title="">
-GitHub 里创建 OAuth 应用保存，需要完成 [步骤3.3](#step3_3) 的**认证源基础配置**才能完成。
+GitHub 里创建 OAuth 应用保存，需要完成 [步骤3.4](#step3_4) 的**认证源基础配置**才能完成。
 </dx-alert>
 
 
@@ -79,7 +79,7 @@ GitHub 里创建 OAuth 应用保存，需要完成 [步骤3.3](#step3_3) 的**�
 
 [](id:step5)
 ### 步骤5：登录应用
-1. 通过 [步骤1.3](#step1_3) 中的**访问链接**进入应用登录界面。
+1. 通过 [步骤1.2](#step1_2) 中的**访问链接**进入应用登录界面。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/9abd2e3baf8ccd48f6ec603910f5b779.png" style = "width:40%"> 
 2. 填写好 GitHub 账号和密码进行登录认证。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/003ff426317461f4e7a66122270c91dd.jpg" style = "width:80%">  
