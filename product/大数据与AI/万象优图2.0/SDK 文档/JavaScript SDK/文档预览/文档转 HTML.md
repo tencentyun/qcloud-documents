@@ -1,11 +1,10 @@
 ## 简介
 
-本文档提供关于文档预览相关请求的 API 概览以及 SDK 示例代码。
+本文档提供关于文档预览同步请求的 API 概览以及 SDK 示例代码。
 
 | API  |	说明  |
 |----|-----|
 | [文档转 HTML](https://cloud.tencent.com/document/product/460/52518)  | 文档转 HTML 功能支持对多种文档类型的文件生成 HTML 格式预览，满足 PC、App 等多个用户端的文档在线浏览需求，适用于在线教育、企业 OA、在线知识库、网盘文档预览等业务场景。 | 
-| [获取在线文档预览地址](https://cloud.tencent.com/document/product/460/59410#3.-.E8.8E.B7.E5.8F.96.E5.9C.A8.E7.BA.BF.E6.96.87.E6.A1.A3.E9.A2.84.E8.A7.88.E5.9C.B0.E5.9D.80) | 通过直接请求获取获取在线文档预览地址 |
 
 
 ## 文档转 HTML
@@ -76,72 +75,3 @@ function(err, data) { ... }
 | data   | 请求成功时返回的对象，如果请求发生错误，则为空               | Object |
 | - RequestId | 请求的唯一 ID                                                | String |
 | - Url  | 文档预览的 Url                                               | String |
-
-
-## 获取在线文档预览地址
-
-#### 功能说明
-
-通过直接请求的方式获取在线文档预览地址。
-
-#### 示例代码
-
-```javascript
-// 获取在线文档预览地址
-function getDocHtmlPreviewUrl() {
-    var config = {
-        // 需要替换成您自己的存储桶信息
-        Bucket: 'examplebucket-1250000000', /* 存储桶，必须 */
-        Region: 'COS_REGION', /* 存储桶所在地域，必须字段 */
-    };
-    var key = 'test.pdf';
-    var host = config.Bucket + '.cos.' + config.Region + '.myqcloud.com/' + key;
-    var url = 'https://' + host;
-    cos.request({
-            Method: 'GET',
-            Key: key,
-            Url: url,
-            RawBody: true,
-            Query: {
-                'ci-process': 'doc-preview', /* 必须，预览固定参数，值为 doc-preview	*/
-                'dstType': 'html', /* 必须，预览类型，如需预览生成类型为 html 则填入 html	*/
-                'weboffice_url': 1, /* 非必须，是否获取预览链接。填入值为1会返回预览链接和Token信息；填入值为2只返回Token信息；不传会直接预览	*/
-            },
-        },
-        function(err, data){
-            // 从响应数据中解析出在线文档预览地址
-            let body = {};
-            if (data && data.Body) {
-                body = JSON.parse(data.Body) || {};
-            }
-            if(body && body.PreviewUrl) {
-                data.PreviewUrl = body.PreviewUrl;
-            }
-            logger.log(err || data);
-        });
-}
-getDocHtmlPreviewUrl();
-```
-
-#### 参数说明
-
-请求参数描述如下：
-
-| 参数名称           | 描述                                                                                                                | 是否必选 |
-|:---------------|:------------------------------------------------------------------------------------------------------------------|:-----|
-| ci-process     | 预览固定参数，值为 doc-preview                                                                                             | 是    |
-| dstType        | 预览类型，如需预览生成类型为 html 则填入 html                                                                                      | 是    |
-| weboffice_url  | 是否获取预览链接。填入值为1会返回预览链接和Token信息；填入值为2只返回Token信息；不传会直接预览                                                             | 否    |
-| tokenuid       | 是否获取token。根据传入的tokenuid、文件信息等生成Token，返回Token和有效期；如果不传则不会返回Token信息                                                 | 否    |
-| sign           | 对象下载签名，如果预览的对象为私有读时，需要传入签名，详情请参见 [请求签名](https://cloud.tencent.com/document/product/460/6968) 文档。注意：需要进行 urlencode | 否    |
-| copyable       | 是否可复制。默认为可复制，填入值为1；不可复制，填入值为0                                                                                     | 否    |
-| htmlwaterword  | 水印文字，需要经过 URL 安全 的 Base64 编码，默认为空                                                                                 | 否    |
-| htmlfillstyle  | 水印 RGBA（颜色和透明度），需要经过 URL 安全 的 Base64 编码，默认为：rgba(192,192,192,0.6)                                                 | 否    |
-| htmlfront      | 水印文字样式，需要经过 URL 安全 的 Base64 编码，默认为：bold 20px Serif                                                                | 否    |
-| htmlrotate     | 旋转角度，0 - 360，默认315度                                                                                               | 否    |
-| htmlhorizontal | 水印文字水平间距，单位 px，默认为50                                                                                              | 否    |
-| htmlvertical   | 水印文字垂直间距，单位 px，默认为100                                                                                             | 否    |
-
-#### 返回结果说明
-
-详情请参见 [获取在线文档预览地址](https://cloud.tencent.com/document/product/460/59410#3.-.E8.8E.B7.E5.8F.96.E5.9C.A8.E7.BA.BF.E6.96.87.E6.A1.A3.E9.A2.84.E8.A7.88.E5.9C.B0.E5.9D.80)。
