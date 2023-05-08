@@ -249,7 +249,7 @@ vim /etc/network/interfaces.d/50-cloud-init.cfg   # 编辑eth0网卡配置
 ```	 
 		e. 在 eth0 网口的网络配置下面增加策略路由的配置，示例如下：
 ```plaintext
-up ip route add default dev eth1 via 172.21.48.1 table 10   #172.21.48.1要分别替换成主网卡所属子网的网关
+up ip route add default dev eth0 via 172.21.48.1 table 10   #172.21.48.1要分别替换成主网卡所属子网的网关
 up ip rule add from 172.21.48.11 table 10                  #172.21.48.11替换成主网卡上的 IP，请根据实际情况填写
 ```
 		f. 按“ESC”，并输入“:wq!”保存并退出。
