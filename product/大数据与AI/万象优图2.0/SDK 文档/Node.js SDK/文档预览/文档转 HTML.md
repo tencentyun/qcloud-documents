@@ -52,7 +52,7 @@ getDocHtmlUrl();
 | 名称        | 参数说明                                                         | 类型   | 是否必选 |
 | ----------- | ------------------------------------------------------------ | ------ | -------- |
 | dstType   | 转换输出目标文件类型，文档 HTML 预览固定为 html（需为小写字母）  | String  | 是       |  
-| srcType | 指定目标文件类型，支持的文件类型请见 [文档转 HTML](https://cloud.tencent.com/document/product/436/54059) 文档   | String | 否 |
+| srcType | 指定目标文件类型，支持的文件类型请见 [文档转 HTML](https://cloud.tencent.com/document/product/460/52518) 文档   | String | 否 |
 | sign          | 对象下载签名，如果预览的对象为私有读时，需要传入签名，详情请参见 [请求签名](https://cloud.tencent.com/document/product/460/6968) 文档</br>注意：需要进行 urlencode  | String | 否      | 
 | copyable          | 是否可复制。默认为可复制，填入值为1；不可复制，填入值为0     | String   | 否      | 
 | htmlParams          | 自定义配置参数，json结构，需要经过 [URL 安全](https://cloud.tencent.com/document/product/460/32832#.E4.BB.80.E4.B9.88.E6.98.AF-url-.E5.AE.89.E5.85.A8.E7.9A.84-base64-.E7.BC.96.E7.A0.81.EF.BC.9F) 的 Base64 编码，默认配置为：{ commonOptions: { isShowTopArea: true, isShowHeader: true } }，支持的配置参考 [自定义配置项说明](https://cloud.tencent.com/document/product/436/59408#.E8.87.AA.E5.AE.9A.E4.B9.89.E9.85.8D.E7.BD.AE.E9.80.89.E9.A1.B9)    | String   | 否   |
