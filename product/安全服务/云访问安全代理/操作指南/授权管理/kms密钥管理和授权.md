@@ -1,4 +1,6 @@
+[角色授权](https://cloud.tencent.com/document/product/1303/90838) [账号授权](https://cloud.tencent.com/document/product/1303/48429)
 本文档将指导您如何开通密钥管理系统（KMS）服务
+
 ## 背景信息
 云访问安全代理（CASB）可选择基于 [密钥管理系统（KMS）](https://cloud.tencent.com/product/kms)进行密钥加密存储，如果用户选择KMS进行密钥管理则需要在创建密钥前，完成 KMS 服务开通和 KMS 对 CASB 服务的角色授权操作。
 
@@ -12,4 +14,3 @@
 1. 登录 [云访问安全代理控制台](https://console.cloud.tencent.com/casb)，在控制台上方指引中，单击[**密钥管理系统 KMS**](https://buy.cloud.tencent.com/kms)，前往 KMS 购买页。
 ![](https://main.qcloudimg.com/raw/ff3252134f3e4da6728af0b3470b7489.png)
 2. 在密钥管理系统开通页面，单击**立即开通**，成功开通密钥管理系统服务。
-
