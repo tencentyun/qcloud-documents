@@ -1,16 +1,19 @@
+如果您需要将自有 HDFS 的原始数据迁移至腾讯云 EMR，可以通过两种方式进行数据迁移，第一种是通过腾讯云对象存储（COS）进行数据中转迁移，第二种是通过 Hadoop 自带文件迁移工具 DistCp 进行数据迁移。本文主要介绍通过腾讯云对象存储（COS）进行数据中转迁移。
+>! 如果您的原始数据不是 HDFS 数据而是其他形式的文件数据，可以通过 COS 的控制台或者 COS 提供的 API 来把数据传入到 COS，然后在 EMR 集群中进行分析，COS 传输数据请查看资料。
+
 ### 原始数据非 HDFS 数据
 如果您的原始数据不是 HDFS 数据而是其他形式的文件数据，可以通过 COS 的 web 控制台或者 COS 提供的 API 来把数据传入到 COS，然后在 EMR 集群中进行分析，COS 传输数据请查看资料。
 
 ### 原始数据在 HDFS 的数据迁移
-1. 获取 COS 迁移工具
+1. 获取 COS 迁移工具。
 [获取迁移工具](https://github.com/tencentyun/hdfs_to_cos_tools)，更多迁移工具请参考 [工具概览](https://cloud.tencent.com/document/product/436/6242)。
-2. 工具配置
+2. 工具配置。
 配置文件统一放在工具目录里的 conf 目录，将需要同步的 HDFS 集群的 core-site.xml 拷贝到 conf 中，其中包含了 NameNode 的配置信息，编辑配置文件 cos_info.conf，包括 appid、bucket、region 以及密钥信息。
-3. 命令参数说明
 >! 
 >- 建议用户使用子账号密钥，遵循 [最小权限原则说明](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
 >- 如果您一定要使用永久密钥，建议遵循 [最小权限原则说明](https://cloud.tencent.com/document/product/436/38618) 对永久密钥的权限范围进行限制。
 >
+命令参数说明：
 ```swift
 -ak <ak>                                the cos secret id //用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考：https://cloud.tencent.com/document/product/598/37140
 -appid,--appid <appid>                  the cos appid
@@ -24,8 +27,7 @@
 -sk <sk>                                the cos secret key //用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考：https://cloud.tencent.com/document/product/598/37140
 -skip_if_len_match,--skip_if_len_match  skip upload if hadoop file length match cos
 ```
-
-4. 执行迁移 
+3. 执行迁移：
 ```shell
 # 所有操作都要在工具目录下。如果同时设置了配置文件和命令行参数，以命令行参数为准
 ./hdfs_to_cos_cmd -h
@@ -41,7 +43,7 @@
       -hdfs_path /data/data -region cn-south -hdfs_conf_file
 /home/hadoop/hadoop-2.8.1/etc/hadoop/core-site.xml
 ```
-5. 验证运行命令后，输出如下日志
+4. 验证运行命令后，输出如下日志:：
 ```swift
 [Folder Operation Result : [ 53(sum)/ 53(ok) / 0(fail)]]
 [File Operation Result: [22(sum)/ 22(ok) / 0(fail) / 0(skip)]]
@@ -52,7 +54,7 @@
  - fail 表示迁移失败的文件数。
  - skip 表示在添加 skip_if_len_match 参数后，由于上传文件和同名文件具有相同长度的文件，则跳过的数量。
 
-您也可以登录 COS 控制台查看数据是否已经正确迁移过来。
+您也可以登录 COS 控制台查看数据是否已经正确迁移过来。对象存储使用指引请参见 [快速入门](https://cloud.tencent.com/document/product/436/38484)。
 
 ### 常见问题  
 - 请确保填写的配置信息，包括 appID、密钥信息、bucket 和 region 信息正确，以及机器的时间和北京时间一致（如相差1分钟左右是正常的），如果相差较大，请设置机器时间。  
