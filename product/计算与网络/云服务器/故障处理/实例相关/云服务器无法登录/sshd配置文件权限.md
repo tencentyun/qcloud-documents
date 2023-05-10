@@ -21,7 +21,6 @@
   </tr>
 </tbody>
 </table>
-sshd 配置文件权限被修改，可能导致无法使用 SSH 登录。例如 `/var/empty/sshd` 及 `/etc/ssh/ssh_host_rsa_key` 配置文件权限被修改。
 
 ## 故障处理
 
