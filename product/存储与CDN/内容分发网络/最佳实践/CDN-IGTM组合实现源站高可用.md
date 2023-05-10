@@ -82,7 +82,7 @@
 
 1. 登录 [CDN控制台](https://console.cloud.tencent.com/cdn/domains)，选择**域名管理**， 单击 **添加域名** 按钮。填写加速域名，并选择多活源站域名。
    ![Pasted image 20230505205616.png](https://qcloudimg.tencent-cloud.cn/raw/f9621d65c3458d42fc816e29898da0f4.png)
-2. 加速域名添加完毕后，刚开始状态会显示“未生效”，此时需要配置 CNAME 记录，操做如下。
+2. 加速域名添加完毕后，刚开始状态会显示“未生效”，此时需要配置 CNAME 记录，操作如下。
    ![Pasted image 20230505210328.png](https://qcloudimg.tencent-cloud.cn/raw/8a144eebf17dcacff188638615085d72.png)
 
 
