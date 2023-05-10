@@ -2,7 +2,7 @@
 
 KMS 白盒密钥用于保护端上的敏感根密钥信息，例如 API SecretKey、用户内部系统使用的鉴权密钥或 token、其它本地敏感根密钥信息等，**实现全链路无敏感密钥信息明文**。将算法与密钥进行混淆融合，以查找表的形式有效保护密钥信息，在不暴露任何密钥的情况下实现加密与解密，并通过设备绑定的方式进一步确保密钥的安全。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/7501c5e2dbf5ff938b7c354d713731be.png)
+![](https://main.qcloudimg.com/raw/707777b13a8513432bed163dad6c0823.png)
 
 
 本文为您介绍使用密钥管理系统（Key Management Service，KMS）白盒密钥对 COS 产品 SecretKey 加解密的操作示例，通过白盒密钥对 SecretKey 进行保护和安全使用，详情步骤请参见：
