@@ -57,6 +57,75 @@ dependencies {
 - OPPO : 3.1.0
 - vivo :  3.0.0.4
 
+厂商推送依赖的升级伴随部分配置改动，请参见以下内容进行变更。
+
+### 通过 Eclipse 集成
+如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
+#### 荣耀推送
+在 AndroidManifest.xml 文件移除以下节点：
+```
+    <permission
+        android:name="${applicationId}.hihonor.permission.PROCESS_PUSH_MSG"
+        android:protectionLevel="signatureOrSystem" />
+		
+		<queries>
+        <intent>
+            <action android:name="com.hihonor.push.action.BIND_PUSH_SERVICE" />
+        </intent>
+    </queries>
+		
+		<application>
+        <receiver
+            android:name="com.hihonor.push.sdk.PushReceiver"
+            android:exported="true"
+            android:permission="${applicationId}.hihonor.permission.PROCESS_PUSH_MSG">
+            <intent-filter>
+                <action android:name="com.hihonor.push.action.REGISTRATION" />
+                <action android:name="com.hihonor.push.action.RECEIVE" />
+            </intent-filter>
+        </receiver>
+				
+				<provider
+            android:name="com.hihonor.push.sdk.init.AutoInitProvider"
+            android:authorities="${applicationId}.hihonor.autoinitprovider"
+            android:exported="false"
+            android:initOrder="500" />
+    </application>
+```
+
+修改 meta-data 节点 com.hihonor.push.sdk_version 的值：
+```
+		<meta-data
+				android:name="com.hihonor.push.sdk_version"
+				android:value="7.0.41.301" />
+```
+
+修改后的配置如下：
+```
+    <uses-permission android:name="com.hihonor.push.permission.READ_PUSH_NOTIFICATION_INFO" />
+
+    <application>
+
+        <!-- 自定义荣耀推送回调 service -->
+        <service
+            android:name="com.tencent.android.tpush.honor.HonorMessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.hihonor.push.action.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.hihonor.push.sdk_version"
+            android:value="7.0.41.301" />
+
+        <!-- 荣耀推送 appId -->
+        <meta-data
+            android:name="com.hihonor.push.app_id"
+            android:value="${HONOR_APPID}" />
+    </application>
+```
+
 ## 移动推送 Android SDK 1.3.8.0
 移动推送 1.3.8.0 版本，目前使用的各厂商推送 SDK 原始版本如下：
 - 华为 : 6.7.0.300
