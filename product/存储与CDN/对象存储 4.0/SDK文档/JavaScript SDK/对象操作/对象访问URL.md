@@ -24,10 +24,10 @@
 ```js
 cos.getObjectUrl(
   {
-    Bucket: 'examplebucket-1250000000' /* 填入您自己的存储桶，必须字段 */,
-    Region: 'COS_REGION' /* 存储桶所在地域，例如 ap-beijing，必须字段 */,
-    Key: '头像.jpg' /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），支持中文，必须字段 */,
-    Sign: true /* 获取带签名的对象 URL */,
+    Bucket: 'examplebucket-1250000000', // 填入您自己的存储桶，必须字段
+    Region: 'COS_REGION', // 存储桶所在地域，例如 ap-beijing，必须字段
+    Key: '头像.jpg', // 存储在桶里的对象键（例如1.jpg，a/b/test.txt），支持中文，必须字段
+    Sign: true, // 获取带签名的对象 URL
   },
   function (err, data) {
     if (err) return console.log(err);
