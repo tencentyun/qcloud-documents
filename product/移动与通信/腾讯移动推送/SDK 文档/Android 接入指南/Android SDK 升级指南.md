@@ -37,25 +37,25 @@ dependencies {
 
 ### 通过 Eclipse 集成
 若您的工程通过手动引入 jar 文件集成，如版本不涉及下方具体版本说明的，请参考以下步骤进行变更：
-1. 前往 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 获取最新版本 SDK 压缩包；
+1. 前往 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 获取最新版本 SDK 压缩包。
 2. 使用 SDK 压缩包目录 libs 下的各 `tpns-*.jar` 文件替换工程内原本的各 `tpns-*.jar` 文件。
 
 >! 
-> - 如您当前使用的版本和最新版本跨度较大，请务必参考下方涉及版本的变更内容进行配置修改。
-> - 如无特殊情况，建议您对来自移动推送 SDK 的各厂商推送 SDK 依赖包也同步进行升级替换。
+>- 如您当前使用的版本和最新版本跨度较大，请务必参考下方涉及版本的变更内容进行配置修改。
+>- 如无特殊情况，建议您对来自移动推送 SDK 的各厂商推送 SDK 依赖包也同步进行升级替换。
 
 
 ### 通过其他合集工具包集成
-若您的工程通过其他三方合集工具包集成（如 MSDK、GCloud 等），请优先参考合集工具包提供的升级指南。
+若您的工程通过其他三方合集工具包集成（例如 MSDK、GCloud 等），请优先参考合集工具包提供的升级指南。
 
 ## 移动推送 Android SDK 1.3.9.0
 移动推送 1.3.9.0 升级了荣耀厂商推送依赖版本，目前使用的各厂商推送 SDK 原始版本如下：
-- 华为 : 6.7.0.300
-- 荣耀 : 7.0.41.301
-- 小米 : 5.1.0
-- 魅族 : 4.1.0
-- OPPO : 3.1.0
-- vivo :  3.0.0.4
+- 华为：6.7.0.300
+- 荣耀：7.0.41.301
+- 小米：5.1.0
+- 魅族：4.1.0
+- OPPO：3.1.0
+- vivo：3.0.0.4
 
 厂商推送依赖的升级伴随部分配置改动，请参见以下内容进行变更。
 
@@ -127,37 +127,37 @@ dependencies {
 
 ## 移动推送 Android SDK 1.3.8.0
 移动推送 1.3.8.0 版本，目前使用的各厂商推送 SDK 原始版本如下：
-- 华为 : 6.7.0.300
-- 荣耀 : 6.0.3.102
-- 小米 : 5.1.0
-- 魅族 : 4.1.0
-- OPPO : 3.1.0
-- vivo :  3.0.0.4
+- 华为：6.7.0.300
+- 荣耀：6.0.3.102
+- 小米：5.1.0
+- 魅族：4.1.0
+- OPPO：3.1.0
+- vivo：3.0.0.4
 
 ## 移动推送 Android SDK 1.3.7.2
 移动推送 1.3.7.2 升级了华为、小米 厂商推送依赖版本，目前使用的各厂商推送 SDK 原始版本如下：
-- 华为 : 6.7.0.300
-- 小米 : 5.1.0
-- 魅族 : 4.1.0
-- OPPO : 3.1.0
-- vivo :  3.0.0.4
+- 华为：6.7.0.300
+- 小米：5.1.0
+- 魅族：4.1.0
+- OPPO：3.1.0
+- vivo：3.0.0.4
 
 
 ## 移动推送 Android SDK 1.3.6.1
 移动推送 1.3.6.1 升级了华为、小米、OPPO 厂商推送依赖版本，目前使用的各厂商推送 SDK 原始版本如下：
-- 华为 : 6.5.0.300
-- 小米 : 5.0.8
-- 魅族 : 4.1.0
-- OPPO : 3.1.0
-- vivo :  3.0.0.4
+- 华为：6.5.0.300
+- 小米：5.0.8
+- 魅族：4.1.0
+- OPPO：3.1.0
+- vivo：3.0.0.4
 
 ## 移动推送 Android SDK 1.3.2.0
 移动推送 1.3.2.0 升级了各厂商推送依赖版本，版本详情如下：
-- 华为 : 6.3.0.302
-- 小米 : 4.9.1
-- 魅族 : 4.1.0
-- OPPO : 3.0.0
-- vivo :  3.0.0.4
+- 华为：6.3.0.302
+- 小米：4.9.1
+- 魅族：4.1.0
+- OPPO：3.0.0
+- vivo：3.0.0.4
 
 厂商推送依赖的升级伴随部分配置改动，请参见以下内容进行变更。
 
@@ -195,7 +195,6 @@ public class R {
     }
 }
 ```
-
 2. 请在 AndroidManifest 文件新增以下权限：
 ```xml
 <uses-permission android:name="com.meizu.flyme.permission.PUSH" />
@@ -222,8 +221,7 @@ class R {
     }
 }
 ```
-
-2. 请将移动推送 SDK 压缩包 OPPO 厂商依赖目录的 jar 文件 commons-codec-1.15.jar、gson-2.6.2-sources.jar 新增复制到工程 app 模块 libs 目录下并引入工程，否则可能导致 OPPO 推送注册失败：
+2. 请将移动推送 SDK 压缩包 OPPO 厂商依赖目录的 jar 文件 commons-codec-1.15.jar、gson-2.6.2-sources.jar 新增复制到工程 App 模块 libs 目录下并引入工程，否则可能导致 OPPO 推送注册失败：
 ```groovy
 implementation files('libs/gson-2.6.2-sources.jar')
 implementation files('libs/commons-codec-1.15.jar')
@@ -281,7 +279,6 @@ implementation files('libs/commons-codec-1.15.jar')
         </intent-filter>
     </activity>
 ```
-
 2. 请在应用的 AndroidManifest 文件 application 标签内修改以下节点内容，否则可能存在自启动合规风险。
 ```xml
     <!-- 手动集成时该receiver的intent-filter只保留下面3个action -->
@@ -315,7 +312,7 @@ implementation files('libs/commons-codec-1.15.jar')
 
 ## 移动推送 Android SDK 1.2.5.0
 
-###  1. 配置工程依赖环境（可选）
+###  配置工程依赖环境（可选）
 
 如果您在使用 SDK 依赖时遇到依赖拉取不到的情况，可以考虑在项目工程根目录 build.gradle 文件 allprojects.repositories 位置添加谷歌官方推荐镜像源 MavenCentral 和腾讯云镜像源。代码示例如下：
 ```
@@ -331,7 +328,7 @@ allprojects {
 }
 ```
 
-### 2. 新增配置（必需）
+### 新增配置（必需）
 新增的标签查询接口，需要注意在继承 `XGPushBaseReceiver` 的实现类中增加实现方法 `onQueryTagsResult`。代码示例如下：
 ``` 
 public class MessageReceiver extends XGPushBaseReceiver {
@@ -353,9 +350,10 @@ public class MessageReceiver extends XGPushBaseReceiver {
 ## 移动推送Android SDK 1.2.0.2
 ### 通过 Eclipse 集成
 如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
+
 #### 移动推送主包
-1. 替换 SDK 压缩包目录 libs 下的各 tpns-.jar 文件；
-2. 替换 SDK 压缩包目录 Other-Platform-SO 下的各平台 so 文件；
+1. 替换 SDK 压缩包目录 libs 下的各 tpns-.jar 文件。
+2. 替换 SDK 压缩包目录 Other-Platform-SO 下的各平台 so 文件。
 3. 请在 AndroidManifest 文件 application 标签内移除以下节点：
 ```xml
     <activity
@@ -422,7 +420,7 @@ class R {
     }
 }
 ```
-2.  请在 AndroidManifest 文件 application 标签内移除以下节点：
+2. 请在 AndroidManifest 文件 application 标签内移除以下节点：
 ```xml
 <service
    android:name="com.heytap.mcssdk.PushService"
@@ -457,7 +455,7 @@ class R {
    </intent-filter>
 </service>
 ```
-4. 在 proguard 混淆配置添加如下内容：
+3. 在 proguard 混淆配置添加如下内容：
 ```
 -keep public class * extends android.app.Service
 -keep class com.heytap.mcssdk.** {*;}
