@@ -61,6 +61,7 @@ dependencies {
 
 ### 通过 Eclipse 集成
 如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
+
 #### 荣耀推送
 在 AndroidManifest.xml 文件移除以下节点：
 ```
@@ -92,14 +93,12 @@ dependencies {
             android:initOrder="500" />
     </application>
 ```
-
 修改 meta-data 节点 com.hihonor.push.sdk_version 的值：
 ```
 		<meta-data
 				android:name="com.hihonor.push.sdk_version"
 				android:value="7.0.41.301" />
 ```
-
 修改后的配置如下：
 ```
     <uses-permission android:name="com.hihonor.push.permission.READ_PUSH_NOTIFICATION_INFO" />
