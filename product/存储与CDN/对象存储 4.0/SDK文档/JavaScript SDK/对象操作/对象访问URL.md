@@ -19,7 +19,7 @@
 
 获取在浏览器默认下载的 URL：
 
-[//]: # '.cssg-snippet-get-presign-download-url'
+[//]: # (.cssg-snippet-get-presign-download-url)
 
 ```js
 cos.getObjectUrl(
