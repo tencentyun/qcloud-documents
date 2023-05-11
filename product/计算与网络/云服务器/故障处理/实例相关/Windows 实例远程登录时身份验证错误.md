@@ -25,12 +25,8 @@
 </thead>
 <tbody>
   <tr>
-    <td>通过 VNC 登录云服务器</td>
-    <td ><a href="#eax">检查并通过 VNC 登录云服务器</a></td>
-  </tr>
-  <tr>
-    <td>服务器端安装安全未进行更新</td>
-    <td><a href="#step4">检查服务端安装安全进行更新（推荐）</a></td>
+    <td>服务器端未安装安全更新</td>
+    <td><a href="#step4">检查服务端安装安全更新（推荐）</a></td>
   </tr>
   <tr>
     <td>本地组策略未配置</td>
@@ -46,24 +42,24 @@
 ## 故障处理
 
 <dx-alert infotype="explain" title="">
-若仅对客户端本地进行升级操作，请直接执行 [方案一：检查服务端安装安全进行更新（推荐）](#step4)。
+若仅对服务端本地进行升级操作，请直接执行 [方案一：检查服务端安装安全更新（推荐）](#step4)。
 </dx-alert>
 
 
-### 检查并通过 VNC 登录云服务器[](id:eax)
+### 通过 VNC 登录云服务器[](id:eax)
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例的管理页面，找到目标云服务器实例，单击**登录**。如下图所示：
-<img style="width:990px; max-width: inherit;" src="https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png" />
+<img style="width:850px; max-width: inherit;" src="https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png" />
 3. 在弹出的**标准登录 | Windows 实例**窗口中，选择 **VNC登录**。
 4. 在弹出的登录窗口中，选择左上角的**发送远程命令**，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e8f69663bfe6e51c8f71b08aa1feae47.png)
 5. 输入登录密码，按 **Enter**，即可登录到 Windows 云服务器。
 
 
-### 方案一：检查服务端安装安全进行更新（推荐）[](id:step4)
+### 方案一：检查服务端安装安全更新（推荐）[](id:step4)
 
-安装安全更新，可更新未修补的客户端/服务器端。不同系统对应的更新情况可参见 [CVE-2018-0886 | CredSSP 远程执行代码漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2018-0886)。本方案以 Windows Server 2016 为例。
+安装安全更新，可更新未修补的服务器端。不同系统对应的更新情况可参见 [CVE-2018-0886 | CredSSP 远程执行代码漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2018-0886)。本方案以 Windows Server 2016 为例。
 其他操作系统可参见以下操作进入 **Windows 更新**：
 - Windows Server 2012：<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width: 22px;"></img> > **控制面板** > **系统和安全** > **Windows 更新**
 - Windows Server 2008：**开始** > **控制面板** > **系统和安全** > **Windows Update**

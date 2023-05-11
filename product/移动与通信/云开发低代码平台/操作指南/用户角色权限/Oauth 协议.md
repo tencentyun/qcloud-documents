@@ -14,7 +14,7 @@
 ### 步骤1：创建自定义应用
 1. 进入腾讯云微搭低代码控制台 [**创建新应用**](https://console.cloud.tencent.com/lowcode/create/) 页面，选择**新建自定义应用**。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/6afcf09434d98616d113470521c5e8b3.png"  style = "width:80%"> 
-2. [](id:step1_3)进入 [**腾讯云**](https://console.cloud.tencent.com/lowcode/app) 页面，进入到**应用开发 > 应用列表 > 应用设置 > 应用详情**，单击应用详情进入详情页获取**访问地址**。
+2. [](id:step1_2)进入 [**腾讯云**](https://console.cloud.tencent.com/lowcode/app) 页面，进入到**应用开发 > 应用列表 > 应用设置 > 应用详情**，单击应用详情进入详情页获取**访问地址**。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/c731c03b05fb81e367c052ffa9ac656f.png"  style = "width:80%">  
 
 
@@ -28,11 +28,11 @@
 2. [](id:step2_2)填写相应基础信息后单击 **Register application**。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/66ff0dc7563b24be3622f5cf54ef448b.png"  style = "width:50%">  
 	- Application name：可以填写中英文。
-	- Homepage URL：可在 [步骤1.3](#step1_3) 中的应用详情里获取。
+	- Homepage URL：可在 [步骤1.2](#step1_2) 中的应用详情里获取。
 	- Authorization callback URL：微搭会提供回调地址，在 [步骤3.4](#step3_4) 的**认证源基础配置**里复制回调 URL，粘贴至上方输入框。
 
  <dx-alert infotype="notice" title="">
-GitHub 里创建 OAuth 应用保存，需要完成 [步骤3.3](#step3_3) 的**认证源基础配置**才能完成。
+GitHub 里创建 OAuth 应用保存，需要完成 [步骤3.4](#step3_4) 的**认证源基础配置**才能完成。
 </dx-alert>
 
 
@@ -79,7 +79,7 @@ GitHub 里创建 OAuth 应用保存，需要完成 [步骤3.3](#step3_3) 的**�
 
 [](id:step5)
 ### 步骤5：登录应用
-1. 通过 [步骤1.3](#step1_3) 中的**访问链接**进入应用登录界面。
+1. 通过 [步骤1.2](#step1_2) 中的**访问链接**进入应用登录界面。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/9abd2e3baf8ccd48f6ec603910f5b779.png" style = "width:40%"> 
 2. 填写好 GitHub 账号和密码进行登录认证。
 <img src = "https://qcloudimg.tencent-cloud.cn/raw/003ff426317461f4e7a66122270c91dd.jpg" style = "width:80%">  

@@ -1,13 +1,28 @@
 ## 现象描述
 操作系统为 CentOS 6.x 的云服务器进行重启或者执行命令 `service network restart` 后，云服务器出现无法解析域名的情况。同时，查看 `/etc/resolv.conf` 配置文件时，发现 DNS 信息被清空。
 
-## 可能原因
-在 CentOS 6.x 操作系统中，因为 grep 版本的不同，initscripts 的版本低于 9.03.49-1 存在缺陷。
-
 ## 解决思路
 升级 initscripts 到最新的版本，并重新生成 DNS 信息。
 
-## 处理步骤
+## 可能原因
+<table>
+<thead>
+  <tr>
+    <th>可能原因</th>
+    <th>处理措施</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>在 CentOS 6.x 操作系统中，因为 grep 版本的不同，initscripts 的版本低于 9.03.49-1 存在缺陷。</td>
+    <td ><a href="#eax">检查并排查因 grep 版本的不同，initscripts 的版本低于 9.03.49-1 存在缺陷</a></td>
+  </tr>
+</tbody>
+</table>
+
+
+## 故障处理
+### 检查并排查因 grep 版本的不同，initscripts 的版本低于 9.03.49-1 存在缺陷[](id:eax)
 1. 登录云服务器。
 2. 执行以下命令，查看 initscripts 的版本，确认 initscripts 是否存在因版本低于 9.03.49-1 而存在缺陷的问题。
 ```shellsession
