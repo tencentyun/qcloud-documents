@@ -41,7 +41,7 @@
 ### 检查服务器内实例是否配置公网 IP[](id:isConfigurePublicIP)
 
 <dx-alert infotype="explain" title="">
-实例必须具备公网 IP 才能与 Internet 上的其他计算机相互访问。若实例没有公网 IP，内网 IP 外部则无法直接 ping 通实例。
+实例必须具备公网 IP 才能与 Internet 上的其他计算机相互访问。若实例没有公网 IP，外部则无法直接 ping 通实例。
 </dx-alert>
 
 1. 通过登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 检查服务器是否设置公网 IP。
