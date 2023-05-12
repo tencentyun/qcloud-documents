@@ -12,7 +12,7 @@
 >
 > - 如何使生成的对象 URL 在浏览器中打开是预览，而不是下载：在获取的 url 后拼接参数 response-content-disposition=inline。
 > - 如何使生成的对象 URL 在浏览器中打开是下载，而不是预览：在获取的 url 后拼接参数 response-content-disposition=attachment。
-> - 下载时如何重命名文件：在获取的 URL 后拼接参数 filename=这里填自定义的文件名。
+> - 下载时如何重命名文件：在获取的 URL 后拼接参数 filename，比如 response-content-disposition=attachment;filename=自定义文件名。
 > - 若使用临时密钥生成预签名 URL，请确保申请临时密钥的 action 添加了 `"name/cos:GetObject"` 权限。
 
 #### 使用示例
@@ -24,10 +24,10 @@
 ```js
 cos.getObjectUrl(
   {
-    Bucket: 'examplebucket-1250000000', /* 填入您自己的存储桶，必须字段 */
-    Region: 'COS_REGION', /* 存储桶所在地域，例如 ap-beijing，必须字段 */
-    Key: '头像.jpg', /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），支持中文，必须字段 */
-    Sign: true, /* 获取带签名的对象 URL */
+    Bucket: 'examplebucket-1250000000', // 填入您自己的存储桶，必须字段
+    Region: 'COS_REGION', // 存储桶所在地域，例如 ap-beijing，必须字段
+    Key: '头像.jpg', // 存储在桶里的对象键（例如1.jpg，a/b/test.txt），支持中文，必须字段
+    Sign: true, // 获取带签名的对象 URL
   },
   function (err, data) {
     if (err) return console.log(err);
@@ -37,7 +37,7 @@ cos.getObjectUrl(
     var downloadUrl =
       data.Url +
       (data.Url.indexOf('?') > -1 ? '&' : '?') +
-      'response-content-disposition=attachment'; // 补充强制下载的参数
+      'response-content-disposition=attachment;filename=图片.jpg'; // 补充强制下载的参数并重命名下载后的文件
   }
 );
 ```
@@ -50,7 +50,7 @@ cos.getObjectUrl(
 | Region   | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)                             | String  | 是       |
 | Key      | 对象键（Object 的名称），对象在存储桶中的唯一标识，详情请参见 [对象概述](https://cloud.tencent.com/document/product/436/13324) | String  | 是       |
 | Sign     | 是否返回带有签名的 Url，默认为 true，当对象为私有读时，获取到不带签名的 url 依然没有权限访问                                   | Boolean | 否       |
-| Protocol | 可选填为 `http:` 或 `https:`，默认为 `http:`（带冒号）                                                                             | String  | 否       |
+| Protocol | 可选填为 `http:` 或 `https:`，默认为 `http:`（带冒号）                                                                         | String  | 否       |
 | Domain   | 存储桶访问域名，默认为 {BucketName-APPID}.cos.{Region}.myqcloud.com                                                            | String  | 否       |
 | Method   | 操作方法，例如 GET，POST，DELETE，HEAD 等 HTTP 方法，默认为 GET                                                                | String  | 否       |
 | Query    | 签名中要签入的请求参数，{key: 'val'} 的格式                                                                                    | Object  | 否       |
