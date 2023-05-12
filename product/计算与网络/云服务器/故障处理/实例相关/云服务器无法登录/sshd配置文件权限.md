@@ -1,5 +1,5 @@
 ## 现象描述
-使用 SSH 登录 Linux 实例时，出现 “ssh_exchange_identification: Connection closed by remote host” 或 “no hostkey alg”。
+使用 SSH 登录 Linux 实例时，报错 **ssh_exchange_identification: Connection closed by remote host** 或 **no hostkey alg**。
 
 
 ## 可能原因
