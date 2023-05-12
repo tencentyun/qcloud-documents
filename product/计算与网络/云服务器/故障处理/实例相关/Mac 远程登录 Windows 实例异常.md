@@ -1,6 +1,5 @@
-本文介绍您的 Mac 通过 Microsoft Remote Desktop 远程连接登录 Windows 时遇到的常见故障现象以及解决方法。
-
-## 故障现象
+您的 Mac 通过 Microsoft Remote Desktop 远程连接登录 Windows 时遇到的常见故障现象如下。
+## 现象现象
 
 - Mac 通过 Microsoft Remote Desktop 远程连接登录 Windows 时，提示 **The certificate couldn't be verified back to a root certificate**。
 <img style="width:950px; max-width: inherit;" src="https://main.qcloudimg.com/raw/070b9c862d6928988768b266461bc816.png" data-nonescope="true" />
@@ -16,11 +15,6 @@
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td>通过 VNC 方式登录云服务器</td>
-    <td ><a href="#diskSpaceFull">检查并通过 VNC 方式登录云服务器</a></td>
-  </tr>
-  <tr>
     <td>系统未修改实例本地组策略</td>
     <td><a href="#inodeFull"> 检查系统是否修改实例本地组策略</a></td>
   </tr>
@@ -34,14 +28,8 @@
 </dx-alert>
 
 
-### 检查并通过 VNC 方式登录云服务器[](id:diskSpaceFull)
-
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在实例的管理页面，找到目标云服务器实例，单击**登录**。如下图所示：
-![登录](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
-3. 在弹出的**登录 Windows 实例**窗口中，选择**其它方式（VNC）**，单击**立即登录**，登录云服务器。
-4. 在弹出的登录窗口中，选择左上角的**发送远程命令**，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
-![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
+### 通过 VNC 方式登录云服务器[](id:diskSpaceFull)
+VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接云服务器的方式。在没有安装或者无法使用远程登录客户端，以及通过其他方式均无法登录的情况下，用户可以通过 VNC 登录连接到云服务器，观察云服务器状态，并且可通过云服务器账户进行基本的云服务器管理操作。具体操作请参见：[使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 
 ### 检查系统是否修改实例本地组策略[](id:inodeFull)
 
