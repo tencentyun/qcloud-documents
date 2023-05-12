@@ -28,10 +28,10 @@ Linux 云服务器在内存使用率未占满的情况下触发了 OOM（Out Of 
 
 ## 故障处理[](id:ProcessingSteps)
 ### 检查内存使用率是否过高[](id:eax)
-1. 参考 [内存使用率过高问题处理](https://cloud.tencent.com/document/product/213/54644#ProcessingSteps) ，查看实例是否内存使用率过高。若实例内存使用率正常，请 [检查进程数是否超限](#step4)。
+1. 参见 [内存使用率过高问题处理](https://cloud.tencent.com/document/product/213/54644#ProcessingSteps) ，查看实例是否内存使用率过高。若实例内存使用率正常，请 [检查进程数是否超限](#step4)。
 
 ### 检查进程数是否超限[](id:step4)
-1. 参考 [日志报错 fork：Cannot allocate memory](https://cloud.tencent.com/document/product/213/54645)，核实进程数是否超限。若总进程数未超限，则执行下一步。
+1. 参见 [日志报错 fork：Cannot allocate memory](https://cloud.tencent.com/document/product/213/54645)，核实进程数是否超限。若总进程数未超限，则执行下一步。
 2. 登录云服务器，执行以下命令查看 `min_free_kbytes` 值。
 ```bash
 sysctl -a | grep min_free
