@@ -57,9 +57,9 @@
 5. 输入登录密码，按 **Enter**，即可登录到 Windows 云服务器。
 
 
-### 方案一：检查服务端安装安全更新（推荐）[](id:step4)
+### 方案一：检查客户端/服务端安装安全更新（推荐）[](id:step4)
 
-安装安全更新，可更新未修补的服务器端。不同系统对应的更新情况可参见 [CVE-2018-0886 | CredSSP 远程执行代码漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2018-0886)。本方案以 Windows Server 2016 为例。
+安装安全更新，可更新未修补的客户端/服务器端。不同系统对应的更新情况可参见 [CVE-2018-0886 | CredSSP 远程执行代码漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2018-0886)。本方案以 Windows Server 2016 为例。
 其他操作系统可参见以下操作进入 **Windows 更新**：
 - Windows Server 2012：<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width: 22px;"></img> > **控制面板** > **系统和安全** > **Windows 更新**
 - Windows Server 2008：**开始** > **控制面板** > **系统和安全** > **Windows Update**
@@ -78,7 +78,7 @@
 
 ### 方案二：检查并修改本地组策略配置[](id:step02)
 
-在已安装安全更新的机器中，将**加密数据库修正**策略设置为**易受攻击**。本方案以 Windows Server 2016 为例，其操作步骤如下：
+在已安装安全更新的机器中，将**加密 Oracle 数据库修正**策略设置为**易受攻击**。本方案以 Windows Server 2016 为例，其操作步骤如下：
 
 
 <dx-alert infotype="notice" title="">
@@ -90,7 +90,7 @@ Windows 10 家庭版操作系统中，若没有组策略编辑器，可通过修
 <dx-alert infotype="explain" title="">
 您也可使用 **Win+R** 快捷键打开运行界面。
 </dx-alert>
-3. 在左侧导航树中，选择**计算机配置** > **管理模板** > **系统** > **凭据分配**，双击**加密 数据库 修正**。如下图所示：
+3. 在左侧导航树中，选择**计算机配置** > **管理模板** > **系统** > **凭据分配**，双击**加密 Oracle 数据库修正**。如下图所示：
 ![加密数据库修正](https://main.qcloudimg.com/raw/ae699fa2e997b10eab3477b6c9baf544.png)
 3. 在打开的**加密 数据库 修正**窗口中，选择**已启用**，并将**保护级别**设置为**易受攻击**。如下图所示：
 ![易受攻击](https://main.qcloudimg.com/raw/65135ad1ea484655953de40fa0882d06.png)
@@ -109,7 +109,7 @@ Windows 10 家庭版操作系统中，若没有组策略编辑器，可通过修
 </dx-alert>
 <img src="https://main.qcloudimg.com/raw/fa4c9fecefb5fc42b9055f7e6d7d36d7.png"/>
 4. 右键单击 **Parameters**，选择**新建** > **DWORD(32位)值**，并将文件名称命名为 **AllowEncryptionOracle**。
-5. 双击新建的 **AllowEncryptionOracle** 文件，将 **数值数据** 设置为**2**，单击**确定**。如下图所示：
+5. 双击新建的 **AllowEncryptionOracle** 文件，将**数值数据**设置为**2**，单击**确定**。如下图所示：
 ![AllowEncryptionOracle](https://main.qcloudimg.com/raw/2355ea7ef57d01075da6d54987b6f498.png)
 6. 重启实例。
 
