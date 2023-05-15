@@ -39,7 +39,7 @@
 例如，将本地硬盘（F）中的 A 文件复制到 Windows 云服务器的 C: 盘中。
 
 <dx-alert infotype="explain" title="">
-您也可以通过 **Ctrl+C** 和 **Ctrl+V**，在本地 Windows 电脑和 Windows 云服务器之间相互复制文件，传输文件不能超过4G。
+您也可以通过 **Ctrl+C** 和 **Ctrl+V**，在本地 Windows 电脑和 Windows 云服务器之间相互复制文件，传输文件不能超过4GB。
 </dx-alert>
 
 
