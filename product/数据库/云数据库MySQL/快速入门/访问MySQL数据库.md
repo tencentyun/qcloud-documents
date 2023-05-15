@@ -102,7 +102,7 @@ mysql -h hostname -P port -u username -p
 2. 在实例详情页下的**外网地址**处，单击**开启**。
 >?若有外网地址和外网端口信息，说明已开启外网地址。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/3e53616ba958f931a84470745bd0a585.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2a62b529180f4d41f1b2c0c4427a64f4.png)
 3. 在弹出的对话框，单击**确定**。
 >?
 >- 开启成功后，即可在基本信息中查看到外网地址。

@@ -10,7 +10,7 @@
 
 | 内容 | 说明 |
 |---------|---------|
-| 语言种类 | 支持中文普通话、粤语、英语、韩语、日语、泰语、印度尼西亚语、越南语、马来语、菲律宾语、上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话。可通过接口参数 engine_model_type 设置对应语言类型|
+| 语言种类 | 支持中文普通话、粤语、英语、韩语、日语、泰语、印度尼西亚语、越南语、马来语、菲律宾语、葡萄牙语、土耳其语、上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话。可通过接口参数 engine_model_type 设置对应语言类型|
 | 支持行业 | 通用、金融、游戏、教育、医疗 |
 | 音频属性 | 采样率：16000Hz或8000Hz<br>采样精度：16bits<br>声道：单声道（mono） |
 | 音频格式 | pcm、wav、opus、speex、silk、mp3、m4a、aac |
@@ -66,7 +66,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | timestamp | 是 | Integer | 当前 UNIX 时间戳，单位为秒。如果与当前时间相差过大，会引起签名过期错误 |
 | expired | 是 | Integer | 签名的有效期截止时间 UNIX 时间戳，单位为秒。expired 必须大于 timestamp 且 expired - timestamp 小于90天 |
 | nonce | 是 | Integer | 随机正整数。用户需自行生成，最长10位 |
-| engine_model_type | 是 | String | 引擎模型类型<br>电话场景：<li>8k_zh：中文电话通用；<li>8k_zh_finance：中文电话金融；<li>8k_en：英文电话通用；<br><br>非电话场景：<li>16k_zh：中文通用；<li>16k_zh-PY：中英粤；<li>16k_zh-TW：中文繁体；<li>16k_zh_edu：中文教育；<li>16k_zh_medical：中文医疗；<li>16k_zh_court：中文法庭；<li>16k_en：英文通用；<li>16k_en_game：英文游戏；<li>16k_en_edu：英文教育；<li>16k_ko：韩语；<li>16k_ja：日语；<li>16k_th：泰语；<li>16k_id：印度尼西亚语；<li>16k_vi:   越南语；<li>16k_ms: 马来语；<li>16k_fil:    菲律宾语;<li>16k_ca：粤语；<li>16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）； |
+| engine_model_type | 是 | String | 引擎模型类型<br>电话场景：<li>8k_zh：中文电话通用；<li>8k_zh_finance：中文电话金融；<li>8k_en：英文电话通用；<br><br>非电话场景：<li>16k_zh：中文通用；<li>16k_zh-PY：中英粤；<li>16k_zh-TW：中文繁体；<li>16k_zh_edu：中文教育；<li>16k_zh_medical：中文医疗；<li>16k_zh_court：中文法庭；<li>16k_en：英文通用；<li>16k_en_game：英文游戏；<li>16k_en_edu：英文教育；<li>16k_ko：韩语；<li>16k_ja：日语；<li>16k_th：泰语；<li>16k_id：印度尼西亚语；<li>16k_vi:   越南语；<li>16k_ms: 马来语；<li>16k_fil: 菲律宾语；<li>16k_pt：葡萄牙语；<li>16k_tr：土耳其语；<li>16k_ca：粤语；<li>16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）； |
 | voice_id | 是 | String | 音频流识别全局唯一标识，一个 websocket 连接对应一个，用户自己生成（推荐使用 uuid），最长128位。 |
 | voice_format | 否 | Int | 语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；10：opus（[opus 格式音频流封装说明](#jump)）；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac|
 | needvad | 否 | Integer | 0：关闭 vad，1：开启 vad<br>如果语音分片长度超过60秒，用户需开启 vad（人声检测切分功能） |
@@ -82,6 +82,10 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000，单位 ms，此参数建议不要随意调整，可能会影响识别效果，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型 |
 |noise_threshold	|否	|Float|	噪音参数阈值，默认为0，取值范围：[-1,1]，对于一些音频片段，取值越大，判定为噪音情况越大。取值越小，判定为人声情况越大。<br>**慎用：可能影响识别效果**|
 | signature | 是 | String | 接口签名参数|
+| hotword_list | 否 | String | 临时热词表，该参数用于提升热词识别准确率。<ul><li>单个热词规则："热词\|权重"，不超过30个字符（最多10个汉字），权重1-10；</li><li>临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云\|10,语音识别\|5,ASR\|10"；</li><li>参数 hotword_list 与 hotword_id 区别：</li><ul><li>hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；</li><li>hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；</li></ul></ul>注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。|
+
+
+
 
 **signature 签名生成** [](id:sign)
 1. 对除 signature 之外的所有参数按字典序进行排序，拼接请求 URL 作为签名原文，这里以 `Appid=125922***`，`SecretId=*****Qq1zhZMN8dv0******` 为例拼接签名原文，则拼接的签名原文为：

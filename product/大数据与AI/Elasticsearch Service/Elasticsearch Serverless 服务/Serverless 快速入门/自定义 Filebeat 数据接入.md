@@ -40,7 +40,7 @@
 
 ## 自建 Filebeat 数据采集
 **版本说明**
-仅支持7.14.2和7.10.2版本的 Filebeat 版本。
+仅支持7.10.2或者7.14.2的 Filebeat 版本。
 <table >
 <tr>
 <th width>类别</th>
