@@ -12,7 +12,7 @@
 >
 > - 如何使生成的对象 URL 在浏览器中打开是预览，而不是下载：在获取的 URL 后拼接参数 response-content-disposition=inline。
 > - 如何使生成的对象 URL 在浏览器中打开是下载，而不是预览：在获取的 URL 后拼接参数 response-content-disposition=attachment。
-> - 下载时如何重命名文件：在获取的 URL 后拼接参数 filename，比如 response-content-disposition=attachment;filename=自定义文件名。
+> - 下载时如何重命名文件：在获取的 URL 后拼接参数 filename，例如 response-content-disposition=attachment;filename=自定义文件名。
 > - 若使用临时密钥生成预签名 URL，请确保申请临时密钥的 action 添加了 `"name/cos:GetObject"` 权限。
 
 #### 使用示例
