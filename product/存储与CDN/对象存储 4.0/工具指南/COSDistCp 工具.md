@@ -31,11 +31,14 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.9.3 及以上版本。
 
 在 Hadoop 环境下，安装 [Hadoop-COS](https://cloud.tencent.com/document/product/436/6884#.E4.B8.8B.E8.BD.BD.E4.B8.8E.E5.AE.89.E8.A3.85) 后，即可直接运行 COSDistCp 工具。
 
-对于环境中未安装和配置 Hadoop-COS 插件的用户，根据 Hadoop 版本，下载对应版本的 COSDistCp jar、Hadoop-COS jar 和 cos_api-bundle jar 包后(相关 jar 包下载地址见上文)，指定 Hadoop-COS 相关参数执行拷贝任务，其中 jar 包地址需填本地 jar 所在地址：
+对于环境中未安装和配置 Hadoop-COS 插件的用户，根据 Hadoop 版本，下载对应版本的 COSDistCp jar、Hadoop-COS jar 和 cos_api-bundle jar 包后(相关 jar 包下载地址见上文)，指定 Hadoop-COS 相关参数执行拷贝任务，其中 jar 包地址需填本地 jar 所在地址。
+
+>! Hadoop-COS jar 和 cos_api-bundle jar 两个 jar 包必须放置在运行命令 `hadoop classpath` 指定的其中一个路径下，如/usr/local/services/hadoop/share/hadoop/tools/lib/。
+
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar \
--libjars cos_api-bundle-${version}.jar,hadoop-cos-${version}.jar \
+-libjars /usr/local/services/hadoop/share/hadoop/tools/lib/cos_api-bundle-${version}.jar,/usr/local/services/hadoop/share/hadoop/tools/lib/hadoop-cos-${version}.jar \
 -Dfs.cosn.credentials.provider=org.apache.hadoop.fs.auth.SimpleCredentialProvider \
 -Dfs.cosn.userinfo.secretId=COS_SECRETID \
 -Dfs.cosn.userinfo.secretKey=COS_SECRETKEY \
