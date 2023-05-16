@@ -9,7 +9,13 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
+<td>1.3.7</td>
+<td><li>MySQL 5.7 20211030及以上</li><li>MySQL 8.0 20211202及以上</li></td>
+<td><strong>问题修复</strong><li>修复了某些情况 select for update 语句路由错误的问题。</li><li>更改了 select @@read_only 语句路由，现在 select @@read_only 会被路由到主库，避免某些框架使用 read_only 标记，错误判断数据库代理不可写的问题。</li><li>修复了部分场景下数据库实例 HA 引起数据库代理节点异常的问题。</li></td>
+</tr>
+<tr>
 <td>1.3.4</td>
 <td><li>MySQL 5.7 20211030及以上</li><li>MySQL 8.0 20211202及以上</li></td>
 <td><strong>问题修复</strong><br>修复了 show processlist 返回数据不全的问题。</td>
