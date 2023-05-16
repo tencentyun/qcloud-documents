@@ -1,9 +1,53 @@
 ## 使用说明
-腾讯会议提供的JSAPI有很多是需要进行鉴权才能调用的，需要wemeet.permission.config或者wemeet.permission.agentConfig先进行鉴权，然后再调用。
+腾讯会议提供的 JSAPI 有很多是需要进行鉴权才能调用的，需要 wemeet.permission.config 或者 wemeet.permission.agentConfig 先进行鉴权，然后再调用。
 
 ## 鉴权步骤
 
-### 步骤一：通过 auth_code（免登码）换取账号 access_token
+### 步骤一：获取第三方应用 auth code（免登码）
+调用 permission.authorize，实现第三方应用获取免登授权码。
+- **支持的版本：**3.16.0
+- **是否需要鉴权：**否
+
+#### 功能描述
+- 使用场景：业务方在需要获取用户的 authCode 以完成 Oauth 登录，当前用户尚未授权的情况下，也可通过此方法引导用户在当前页面弹框授权。
+- 具体表现：在当前页面唤起授权弹框，实现发起授权。
+ - PC 端：
+![](https://qcloudimg.tencent-cloud.cn/raw/38842ac33a75a03c0662f9cc78cc0ba9.png)
+ - 移动端：<br>
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c1c14d1dee686f1d5553a1b695ef57fe.png" />
+
+#### 参数说明
+授权请求入参如下，返回 Promise&lt;void&gt;。
+
+
+| 参数名称 | 参数类型 |参数描述  |
+|---------|---------|---------|
+|success	|	function	|成功回调|
+|failure|	function	|失败回调|
+|timeout	| number	|超时时间，默认为5s|
+
+
+#### 代码示例
+```plaintext
+permission.authorize({
+  success: ({ authCode }) => { console.log(authCode) },
+  // bizCode: 授权业务场景状态码，主要场景有以下几类：
+  // 授权成功【0】：AuthorizeBizCode.SUCCEEDED
+  // 申请授权成功【1】：AuthorizeBizCode.APPLY_SUCCEED 
+  // 用户选择关闭授权弹框【2】 AuthorizeBizCode.CLOSED
+  // 用户选择拒绝授权【3】 AuthorizeBizCode.REJECTED
+  // 其他异常【4】，请根据bizMessage获知原因 AuthorizeBizCode.UN_KNOW
+  fail: ({ bizCode, bizMessage }) => { 
+     console.log(bizCode, bizMessage)
+  },
+}).catch(err => {
+   console.error('authorize error', err);
+ });
+```
+
+
+
+### 步骤二：通过 auth_code（免登码）换取账号 access_token
 - **接口描述：**
  - 通过 auth_code（免登码）换取账号 access_token。
  - 切记 access_token 只可以存储在应用后台，不要暴露到前端页面，否则会有安全风险。
@@ -111,7 +155,7 @@ https://meeting.tencent.com/wemeet- webapi/v2/oauth2/oauth/access_token
 ```
 
 
-### 步骤二：获取 jsapi_ticket
+### 步骤三：获取 jsapi_ticket
 - **接口描述：**
  - 根据 openid，accessToken 获取 jsticket。
  - jsapi_ticket 是一次性的，不可重复使用。
@@ -160,7 +204,7 @@ https://api.meeting.qq.com/v1/jsapi/ticket
 ```
 
 
-### 步骤三：获取签名参数
+### 步骤四：获取签名参数
 在前端进行鉴权之前，需要获取以下签名所需的参数：
 
 | **参数** | **字段类型** | **描述** |
@@ -172,10 +216,10 @@ https://api.meeting.qq.com/v1/jsapi/ticket
 | url | string | **当前需要初始化 JS_SDK 的页面地址，需在腾讯会议客户端内打开该地址** 。地址的 **域名** 必须是在会议平台备案的 **可信域名** 。（例如：`https://meeting.tencent.com/`，注意最后的符号；）（推荐从 header 的 refer 里面去获取，或者通过 location.href 去获取，不要写死） |
 | ticket | string | 步骤二中的获取到的 JS_SDK Ticket |
 
-### 步骤四：计算签名
+### 步骤五：计算签名
 接入方服务端生成 JS_SDK Config 给到自己的前端。
 
-计算签名的示例代码（包含 go/java/python）可参见：[前端 JS-API 签名示例代码](https://cloud.tencent.com/document/product/1095/83774)；如遇问题，可通过 [JS-API 签名工具](https://meeting.tencent.com/marketplace/tools/jsapi-sigin) 进行自检。
+计算签名的示例代码（包含 go、java、python）可参见：[前端 JS-API 签名示例代码](https://cloud.tencent.com/document/product/1095/83774)；如遇问题，可通过 [JS-API 签名工具](https://meeting.tencent.com/marketplace/tools/jsapi-sigin) 进行自检。
 
 JS_SDK Config 包含的字段：
 <table>
@@ -265,14 +309,15 @@ JS_SDK Config 包含的字段：
 - 签名方法
 sha256
 
-### 步骤五：引入使用的 JS
+### 步骤六：引入使用的 JS
 引入方法请参见：[引用方法](https://cloud.tencent.com/document/product/1095/83770)。
 
-### 步骤六：JSAPI 鉴权
-注意 wemeet.permission.agentConfig 中所有的参数必须直接来自服务端，不能直接在前端定义。
+### 步骤七：JSAPI 鉴权
+>!wemeet.permission.agentConfig 中所有的参数必须直接来自服务端，不能直接在前端定义。
+
 调用 permission.agentConfig，实现第三方应用 JSAPI 鉴权。
-- 支持的版本：2.17.0
-- 是否需要鉴权：否
+- **支持的版本：**2.17.0
+- **是否需要鉴权：**否
 
 #### 参数说明
 授权请求入参：
@@ -329,5 +374,5 @@ wemeet.permission.agentConfig({
 
 ```
 
-### 步骤七：调用 JSAPI
-步骤六鉴权通过以后就可以调用 JSAPI 了。
+### 步骤八：调用 JSAPI
+步骤七鉴权通过以后就可以调用 JSAPI 了。

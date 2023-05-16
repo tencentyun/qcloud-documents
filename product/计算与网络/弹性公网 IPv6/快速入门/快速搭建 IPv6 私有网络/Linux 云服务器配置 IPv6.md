@@ -83,7 +83,7 @@ CentOS 8.0/CentOS 8.2/CentOS 8.4支持自动获取，IPv6 信息将自动下发�
 - **手动配置**：需要您对 Linux 命令有一定的熟练掌握程度。本文列举了几种常用镜像的手动配置方法供您参考，如果您有其他镜像类型的手动配置需求，请 <a href="https://console.cloud.tencent.com/workorder/category?step=0" target="_blank">提交工单</a> 申请。
 	- [CentOS 7.3/CentOS 7.5/ CentOS 7.6 配置 IPv6](#CentOS7.3)
 	- [CentOS 6.8 配置 IPv6](#CentOS6.8)
-	-  [Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20 配置 IPv6](#Ubuntu18)
+	-  [Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20/Ubuntu 22 配置 IPv6](#Ubuntu18)
 	- [Debian 8.2 配置 IPv6](#Debian8.2)
 	- [OpenSUSE 42 配置 IPv6](#Opensuse)
 	- [SUSE 10 配置IPv6](#suse)
@@ -313,7 +313,7 @@ ifconfig
 
 
 
-### Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20 配置 IPv6[](id:Ubuntu18)
+### Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20/Ubuntu 22 配置 IPv6[](id:Ubuntu18)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext
@@ -373,7 +373,7 @@ netmask <子网前缀长度>
 gateway <IPv6网关>
 ```
  2. 重启网络服务：运行`service network restart` 或 `systemctl restart networking`。
-6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18 和 Ubuntu 20，请执行如下操作配置 IPv6。
+6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18、Ubuntu 20 和 Ubuntu 22，请执行如下操作配置 IPv6。
  1. 获取 IPv6 网关地址[](id:step001)。
     1. 登录[ 云控制台]()，查看云服务器所在子网的 IPv6 CIDR 信息。
   ![](https://qcloudimg.tencent-cloud.cn/raw/21d54065f295b7f87b0374d5e2e7cdc0.png)
@@ -382,8 +382,23 @@ gateway <IPv6网关>
 ```plaintext
 vi /etc/netplan/50-cloud-init.yaml
 ```
- 3. 根据[ 步骤1 ](#step001)获得的 IPv6 网关地址，添加 IPv6 网关配置。
+ 3. 根据[ 步骤i ](#step001)获得的 IPv6 网关地址，添加 IPv6 网关配置：
+    - 如果镜像类型为 Ubuntu 18 、Ubuntu 20，则执行如下操作。
 >!只添加 gateway6。
+>
+```plaintext
+network:
+ version: 2
+ ethernets:
+   eth0:
+      dhcp4: true                         //开启 dhcp
+      match:
+            macaddress: 52:54:00:c3:4a:0e  //MAC 地址
+      set-name: eth0                      //网卡名
+      gateway6: 2402:4e00:1018:9a01::1   //设置IPv6网关地址
+```
+    - 如果镜像类型为 Ubuntu 22，则执行如下操作。
+>!只添加 routes。
 >
 ```plaintext
 network:
@@ -392,9 +407,11 @@ network:
    eth0:
       dhcp4: true                         //开启dhcp
       match:
-            macaddress: 52:54:00:c3:4a:0e  //MAC地址
+			macaddress: 52:54:00:c3:4a:0e  //MAC地址
       set-name: eth0                      //网卡名
-      gateway6: 2402:4e00:1018:9a01::1   //设置IPv6网关地址
+      routes:
+        - to: default
+        via: "2402:4e00:1018:9a01::1"  //设置IPv6网关地址
 ```
  4. 执行如下命令，使配置生效。
 ```plaintext

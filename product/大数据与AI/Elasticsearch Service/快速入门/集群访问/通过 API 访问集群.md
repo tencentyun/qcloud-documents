@@ -203,8 +203,9 @@ curl -XGET 'http://10.0.0.2:9200/china/_search?pretty' -H 'Content-Type: applica
 
 ### 复杂查询
 模拟 SQL：
-```
+```sql
 select * from china where level.level=2
+/* 如下就是内网curl 的方式来实现上面的sql查询 */
 curl -XGET http://10.0.0.2:9200/china/_search?pretty -H 'Content-Type: application/json' -d'
 {
   "query" : {
@@ -276,8 +277,9 @@ curl -XGET http://10.0.0.2:9200/china/_search?pretty -H 'Content-Type: applicati
 
 ### 聚合查询
 模拟 SQL：
-```
+```sql
 select level.level, count(1) from city group by level.level
+/* 如下就是内网curl 的方式来实现上面的sql查询 */
 curl -XGET http://10.0.0.2:9200/china/_search?pretty -H 'Content-Type: application/json' -d'
 {
   "size" : 0,

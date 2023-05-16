@@ -1,5 +1,37 @@
-本文为您介绍使用密钥管理系统（Key Management Service，KMS）白盒密钥对 COS 产品 SecretKey 加解密的操作示例，通过白盒密钥对 SecretKey 进行保护和安全使用，详情步骤如下：
+## KMS 白盒密钥简介
 
+KMS 白盒密钥用于保护端上的敏感根密钥信息，例如 API SecretKey、用户内部系统使用的鉴权密钥或 token、其它本地敏感根密钥信息等，**实现全链路无敏感密钥信息明文**。将算法与密钥进行混淆融合，以查找表的形式有效保护密钥信息，在不暴露任何密钥的情况下实现加密与解密，并通过设备绑定的方式进一步确保密钥的安全。
+
+![](https://main.qcloudimg.com/raw/707777b13a8513432bed163dad6c0823.png)
+
+
+本文为您介绍使用密钥管理系统（Key Management Service，KMS）白盒密钥对 COS 产品 SecretKey 加解密的操作示例，通过白盒密钥对 SecretKey 进行保护和安全使用，详情步骤请参见：
+
+- [密钥的管理和分发](#SecretKey)
+- [通过对象存储 SDK 工具访问 COS](#SDK)
+
+## 使用 KMS 白盒密钥优势
+
+**高安全性**
+
+基于高强度混淆加固算法及多重安全防护技术，杜绝 API SecretKey 的明文暴露在源代码中。
+
+**动态白盒**
+
+支持在白盒库不变的情况下实现灵活的密钥的动态轮换。
+
+**设备绑定**
+
+绑定设备指纹信息，实现对解密密钥的加固保护。
+
+**算法支持**
+
+支持国际算法 AES、国密算法 SM4 算法，满足合规要求。
+
+
+
+
+[](id:SecretKey)
 ## 密钥的管理和分发
 
 ### 步骤1：创建白盒密钥
@@ -35,16 +67,16 @@ echo lY9Ynrabcdj05YH1234LE37xxxx | openssl base64
 2. 在弹出的对话框，将步骤3中获取的编码内容填充至明文（base64）文本框中，单击**白盒加密**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/16316d9352ec2091ef6b18e38b80fe03.png)
 
-加密成功之后，会返回随机生成的初始化向量（简称 IV） 和加密后的密文，单击**下载IV**和**下载密文** ，即可完成内容的下载。
+加密成功后，会返回随机生成的初始化向量（简称 IV）和加密后的密文，单击**下载IV**和**下载密文**，即可完成内容的下载。
 
->?其中初始化向量（简称 IV） 和加密后的密文均已进行 base64 编码。
+>?其中初始化向量（简称 IV）和加密后的密文均已进行 base64 编码。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/05a4fecbcf0dcfa5aacc81ebfb7b36aa.png)
 
 3. （可选步骤）白盒密钥支持将解密密钥与解密运行的物理环境进行绑定。操作方式为：
 
  - 在白盒密钥控制台中下载对应环境的指纹采集工具，并在指定的环境中运行指纹采集工具，获得该环境的指纹字符串。
- - 在白盒密钥控制台中，选择指定的白盒密钥，点击“新增设备指纹”，输入对应环境的指纹字符串，将该指纹与该密钥进行绑定。
+ - 在白盒密钥控制台中，选择指定的白盒密钥，单击“新增设备指纹”，输入对应环境的指纹字符串，将该指纹与该密钥进行绑定。
  - 指纹环境变量被绑定到该密钥后，解密密钥会被更新，后续使用该白盒密钥加密的数据只能使用更新后的解密密钥在已绑定的物理环境中进行解密。
 
 下载指纹采集工具：
@@ -55,12 +87,12 @@ echo lY9Ynrabcdj05YH1234LE37xxxx | openssl base64
 ### 步骤5：下载解密密钥
 
 1. 登录 [密钥管理系统（合规）控制台](https://console.cloud.tencent.com/kms2/whitebox)，在白盒密钥列表，单击“白盒密钥ID/名称”，进入密钥基本信息页面。
-2. 在密钥基本信息页面，单击**下载解密密钥**，并命名为     decrypt_key_sm4.bin。
+2. 在密钥基本信息页面，单击**下载解密密钥**，并命名为 decrypt_key_sm4.bin。
    ![](https://qcloudimg.tencent-cloud.cn/raw/75d216b49f6688f62d549cd3c63863a7.jpg)
 
 ### 步骤6：下载解密 SDK 文件
 
-1. 登录 [密钥管理系统（合规）控制台](https://console.cloud.tencent.com/kms2/whitebox)，在白盒密钥列表，单击右侧的**下载解密SDK文件**。
+1. 登录 [密钥管理系统（合规）控制台](https://console.cloud.tencent.com/kms2/whitebox)，在白盒密钥列表，单击右侧的**下载解密 SDK 文件**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/e694189a75ffc0d58cef53be05244944.png)
 2. 在弹出的对话框，根据各业务系统自身的编程语言，选择下载相应编程语言的解密 SDK，并将解密 SDK 集成到业务系统中。
    ![](https://qcloudimg.tencent-cloud.cn/raw/3ca227dbe816170a97b4d687e9e9c7b7.png)
@@ -71,6 +103,9 @@ echo lY9Ynrabcdj05YH1234LE37xxxx | openssl base64
 
 >!下载的解密密钥是一个二进制 bin 文件，需要将该文件和可执行文件（已经集成了解密 SDK）放在相同的服务器上，文件路径将作为解密 SDK 的解密参数。
 
+
+
+[](id:SDK)
 ## 通过对象存储 SDK 工具访问 COS
 
 ### 步骤1：通过永久密钥初始化身份信息
@@ -78,21 +113,25 @@ echo lY9Ynrabcdj05YH1234LE37xxxx | openssl base64
 安装对象存储 SDK 工具后，在客户端代码中引入下载的白盒 SDK，并按照如下步骤获取解密后的 Secret Key：
 
 1. 在代码中引入预先下载的白盒 SDK。
-
-2. 调用白盒密钥解密 SDK 的解密函数对加密后的 Secret Key 进行解密。传入参数：decrypt_key_bin_dir（步骤7中解密密钥存放的目录）、decrypt_key_sm4.bin（步骤5中下载的解密密钥，其对应的文件名）、InitializationVector（步骤4中下载的 IV）、CipherText（步骤4中用白盒加密后的 SecretKey 密文）和 algorithmType，从而获得解密后的明文（其中 algorithmType 是生成密钥时使用的算法类型，取值为0或1。0表示 AES_256，1表示 SM4）。
-
+2. 调用白盒密钥解密 SDK 的解密函数对加密后的 Secret Key 进行解密。传入如下参数，从而获得解密后的明文。
+ - decrypt_key_bin_dir：步骤7中解密密钥存放的目录。
+ - decrypt_key_sm4.bin：步骤5中下载的解密密钥，其对应的文件名。
+ - InitializationVector：步骤4中下载的 IV。
+ - CipherText：步骤4中用白盒加密后的 SecretKey 密文。
+ - algorithmType：是生成密钥时使用的算法类型，取值为0或1。0表示 AES_256，1表示 SM4。
 3. 使用解密后的 Secret Key 以及 Secret ID（若 Secret ID 也被加密，则同样需要解密）对 COS SDK 进行初始化。后续针对 COS 的服务调用可参考 COS SDK 的相关文档。
 
-白盒密钥解密 SDK 基于 C 语言实现，并提供了基于其他高级语言的适配，如 Golang，Python，Java 等。具体使用方法可参考指定语言的解密 SDK 中的代码示例。
+白盒密钥解密 SDK 基于 C 语言实现，并提供了基于其他高级语言的适配，例如 Golang、Python、Java 等。具体使用方法可参考指定语言的解密 SDK 中的代码示例。
 
 Golang 示例代码如下（基于 CGO）：
+
+由于白盒解密 SDK 底层功能由 C lib 库实现，因此示例代码采用 CGO 注解的方式将解密 SDK 头文件目录`#cgo CFLAGS: -I${header_file_dir_path}`以及 lib 库文件`#cgo LDFlags: -L${lib_dir_path} -l${library_name}`引入到代码中。头文件目录以及 lib 库通常位于所下载的白盒解密 SDK 的根目录下，应用集成时可根据项目结构自主调整。
+
 
 ```
 /*
 #cgo CFLAGS: -I${SRCDIR}/include
-#cgo darwin LDFLAGS: ${SRCDIR}/lib/darwin/libydwbcrypto_a.a
-#cgo linux LDFLAGS: ${SRCDIR}/lib/linux/libydwbcrypto_a.a
-#cgo windows LDFLAGS: -L${SRCDIR}/lib/windows/lib_dll/ -lydwbcrypto
+#cgo LDFLAGS: -L${SRCDIR}/lib -lydwbcrypto
 
 #include <stdio.h>
 #include <string.h>
@@ -100,12 +139,12 @@ Golang 示例代码如下（基于 CGO）：
 #include "wrp.h"
 
 static int clt_load_key(WRP_KEY_CTX *key_ctx, char *decrypt_key_path, const char *file_name,
-		uint32_t mode, uint32_t algoType) {
-	printf("begin to load key in dir: %s\n", decrypt_key_path);
+        uint32_t mode, uint32_t algoType) {
+    printf("begin to load key in dir: %s\n", decrypt_key_path);
     printf("begin to load key: %s\n", file_name);
     int err;
     const WRP_KEY* keyalg = WRP_KEY_wbaes();
-	if (algoType == 1) { keyalg = WRP_KEY_wbsm4(); }
+    if (algoType == 1) { keyalg = WRP_KEY_wbsm4(); }
 
     err = WRP_KEY_init(key_ctx, keyalg, 0);
     if (err) { printf("Err: orig_byte init\n"); goto end; }
@@ -122,7 +161,7 @@ end:
 
 
 int clt_cbc_dec(char * file_dir, const char * file_name, uint8_t* ciph, uint32_t ciphlen, char* iv,
-		uint32_t algoType, uint8_t* out, uint32_t* outlen) {
+        uint32_t algoType, uint8_t* out, uint32_t* outlen) {
     WRP_KEY_CTX *mykey;
     WRP_CIPHER_CTX *myaes = NULL;
 
@@ -130,7 +169,7 @@ int clt_cbc_dec(char * file_dir, const char * file_name, uint8_t* ciph, uint32_t
     ERRNO err = ERRNO_OK;
 
     const WRP_CIPHER* alg = WRP_wbaes_cbc();
-	if (algoType == 1) { alg = WRP_wbsm4_cbc(); }
+    if (algoType == 1) { alg = WRP_wbsm4_cbc(); }
 
     // IO: load wbkey
     mykey = WRP_KEY_CTX_new();
@@ -163,7 +202,7 @@ cleanup:
 }
 
 void set_fingerprint_env_name(char *fingerprint_env_name) {
-	WRP_getENV_KEY((uint8_t *)fingerprint_env_name, strlen(fingerprint_env_name));
+    WRP_getENV_KEY((uint8_t *)fingerprint_env_name, strlen(fingerprint_env_name));
 }
 
 */
@@ -171,99 +210,98 @@ import “C”
 
 // Decrypt ...
 func Decrypt(input DecryptionInput) ([]byte, error) {
-	if input.KeyDir == "" || input.KeyFileName == "" || input.CipherText == "" || input.InitializationVector == "" {
-		return nil, errors.New("invalid white-box decryption input")
-	}
-	cipher, err := base64.StdEncoding.DecodeString(input.CipherText)
-	if err != nil {
-		return nil, fmt.Errorf("failed to decode cipher text: %w", err)
-	}
-	iv, err := base64.StdEncoding.DecodeString(input.InitializationVector)
-	if err != nil {
-		return nil, fmt.Errorf("failed to decode initialization vector: %w", err)
-	}
+    if input.KeyDir == "" || input.KeyFileName == "" || input.CipherText == "" || input.InitializationVector == "" {
+        return nil, errors.New("invalid white-box decryption input")
+    }
+    cipher, err := base64.StdEncoding.DecodeString(input.CipherText)
+    if err != nil {
+        return nil, fmt.Errorf("failed to decode cipher text: %w", err)
+    }
+    iv, err := base64.StdEncoding.DecodeString(input.InitializationVector)
+    if err != nil {
+        return nil, fmt.Errorf("failed to decode initialization vector: %w", err)
+    }
 
-	decryptionKeyDir := C.CString(input.KeyDir)
-	defer C.free(unsafe.Pointer(decryptionKeyDir))
+    decryptionKeyDir := C.CString(input.KeyDir)
+    defer C.free(unsafe.Pointer(decryptionKeyDir))
 
-	decryptionKeyFileName := C.CString(input.KeyFileName)
-	defer C.free(unsafe.Pointer(decryptionKeyFileName))
+    decryptionKeyFileName := C.CString(input.KeyFileName)
+    defer C.free(unsafe.Pointer(decryptionKeyFileName))
 
-	// malloc a buffer which size is a little greater than your plaintext
-	outLen := len(input.CipherText) + 1024
-	outBuf := C.malloc(C.size_t(outLen))
-	defer C.free(unsafe.Pointer(outBuf))
+    // malloc a buffer which size is a little greater than your plaintext
+    outLen := len(input.CipherText) + 1024
+    outBuf := C.malloc(C.size_t(outLen))
+    defer C.free(unsafe.Pointer(outBuf))
 
-	errC := C.clt_cbc_dec(
-		decryptionKeyDir, decryptionKeyFileName,
-		(*C.uchar)(unsafe.Pointer(&cipher[0])),
-		C.uint(len(cipher)),
-		(*C.char)(unsafe.Pointer(&iv[0])),
-		C.uint(input.AlgorithmType),
-		(*C.uchar)(outBuf),
-		(*C.uint)(unsafe.Pointer(&outLen)),
-	)
-	if errC != 0 {
-		return nil, fmt.Errorf("whitebox decryption failed with code %d", int(errC))
-	}
-	plain := C.GoBytes(outBuf, C.int(outLen))
-	return plain, nil
+    errC := C.clt_cbc_dec(
+        decryptionKeyDir, decryptionKeyFileName,
+        (*C.uchar)(unsafe.Pointer(&cipher[0])),
+        C.uint(len(cipher)),
+        (*C.char)(unsafe.Pointer(&iv[0])),
+        C.uint(input.AlgorithmType),
+        (*C.uchar)(outBuf),
+        (*C.uint)(unsafe.Pointer(&outLen)),
+    )
+    if errC != 0 {
+        return nil, fmt.Errorf("whitebox decryption failed with code %d", int(errC))
+    }
+    plain := C.GoBytes(outBuf, C.int(outLen))
+    return plain, nil
 }
 
 func main() {
-	//将<bucket>和<region>修改为真实的信息
-	//bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
-	u, _ := url.Parse("https://<bucket>.cos.<region>.myqcloud.com")
-	// 使用环境变量指定白盒密钥相关信息，以及加密后的 secret ID 以及 secret key。
-	encryptionAlgorithm, _ := strconv.Atoi(os.Getenv("EncryptionAlgorithm"))
-	whiteboxDecryptInput := DecryptionInput{
-		KeyDir:               os.Getenv("WhiteboxKeyDir"),      // e.g.: /usr/local/
-		KeyFileName:          os.Getenv("WhiteboxKeyFileName"), // e.g.: whitebox_key.bin
-		InitializationVector: os.Getenv("WhiteboxDecryptionIV"),
-		AlgorithmType:        uint(encryptionAlgorithm),
-	}
-	// 使用白盒 sdk 解密 secret ID
-	whiteboxDecryptInput.CipherText = os.Getenv("COS_Encrypted_Secret_ID")
-	secretID, err := Decrypt(whiteboxDecryptInput)
-	if err != nil {
-		panic(err)
-	}
-	// 使用白盒 sdk 解密 secret key
-	whiteboxDecryptInput.CipherText = os.Getenv("COS_Encrypted_Secret_Key")
-	secretKey, err := Decrypt(whiteboxDecryptInput)
-	if err != nil {
-		panic(err)
-	}
+    //将<bucket>和<region>修改为真实的信息
+    //bucket的命名规则为{name}-{appid} ，此处填写的存储桶名称必须为此格式
+    u, _ := url.Parse("https://<bucket>.cos.<region>.myqcloud.com")
+    // 使用环境变量指定白盒密钥相关信息，以及加密后的 secret ID 以及 secret key。
+    encryptionAlgorithm, _ := strconv.Atoi(os.Getenv("EncryptionAlgorithm"))
+    whiteboxDecryptInput := DecryptionInput{
+        KeyDir:               os.Getenv("WhiteboxKeyDir"),      // e.g.: /usr/local/
+        KeyFileName:          os.Getenv("WhiteboxKeyFileName"), // e.g.: whitebox_key.bin
+        InitializationVector: os.Getenv("WhiteboxDecryptionIV"),
+        AlgorithmType:        uint(encryptionAlgorithm),
+    }
+    // 使用白盒 sdk 解密 secret ID
+    whiteboxDecryptInput.CipherText = os.Getenv("COS_Encrypted_Secret_ID")
+    secretID, err := Decrypt(whiteboxDecryptInput)
+    if err != nil {
+        panic(err)
+    }
+    // 使用白盒 sdk 解密 secret key
+    whiteboxDecryptInput.CipherText = os.Getenv("COS_Encrypted_Secret_Key")
+    secretKey, err := Decrypt(whiteboxDecryptInput)
+    if err != nil {
+        panic(err)
+    }
 
-	b := &cos.BaseURL{BucketURL: u}
-	c := cos.NewClient(b, &http.Client{
-		//设置超时时间
-		Timeout: 100 * time.Second,
-		Transport: &cos.AuthorizationTransport{
-			//如实填写账号和密钥，也可以设置为环境变量
-			SecretID:  string(secretID),
-			SecretKey: string(secretKey),
-		},
-	})
+    b := &cos.BaseURL{BucketURL: u}
+    c := cos.NewClient(b, &http.Client{
+        //设置超时时间
+        Timeout: 100 * time.Second,
+        Transport: &cos.AuthorizationTransport{
+            //如实填写账号和密钥，也可以设置为环境变量
+            SecretID:  string(secretID),
+            SecretKey: string(secretKey),
+        },
+    })
 
-	name := "test/hello.txt"
-	resp, err := c.Object.Get(context.Background(), name, nil)
-	if err != nil {
-		panic(err)
-	}
-	bs, _ := ioutil.ReadAll(resp.Body)
-	_ = resp.Body.Close()
-	fmt.Printf("%s\n", string(bs))
+    name := "test/hello.txt"
+    resp, err := c.Object.Get(context.Background(), name, nil)
+    if err != nil {
+        panic(err)
+    }
+    bs, _ := ioutil.ReadAll(resp.Body)
+    _ = resp.Body.Close()
+    fmt.Printf("%s\n", string(bs))
 }
 
 type DecryptionInput struct {
-	KeyDir               string
-	KeyFileName          string
-	InitializationVector string // Base64 encoded.
-	CipherText           string // Base64 encoded.
-	AlgorithmType        uint   // 0: AES_256, 1: SM4.
+    KeyDir               string
+    KeyFileName          string
+    InitializationVector string // Base64 encoded.
+    CipherText           string // Base64 encoded.
+    AlgorithmType        uint   // 0: AES_256, 1: SM4.
 }
-
 ```
 
 

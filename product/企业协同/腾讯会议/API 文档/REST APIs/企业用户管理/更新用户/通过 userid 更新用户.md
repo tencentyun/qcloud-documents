@@ -1,7 +1,9 @@
 ## 接口描述
-**描述**：使用 userid 更新企业用户，目前暂不支持 OAuth2.0 鉴权访问。
-**调用方式**：PUT
-**接口请求域名**：
+- **描述**：
+ - 使用 userid 更新企业用户，目前暂不支持 OAuth2.0 鉴权访问。
+ - 用户已删除或被禁用则不能更新。
+- **调用方式**：PUT
+- **接口请求域名**：
 ```Plaintext
 https://api.meeting.qq.com/v1/users/{userid}
 ```
@@ -20,7 +22,7 @@ https://api.meeting.qq.com/v1/users/{userid}
 | staff_id        | 否   | String     | 员工工号。                                                     |
 | job_title       | 否   | String     | 员工职位，长度范围为[0,96]个字符。                                     |
 | entry_time      | 否   | Integer    | 入职时间。                                                     |
-| department_list | 否   | String 数组 | 员工部门，暂只支持为用户分配1个部门。  |    
+| department_list | 否   | String 数组 | 员工部门 ID，暂只支持为用户分配1个部门。  |    
 
 
 ## 输出参数
