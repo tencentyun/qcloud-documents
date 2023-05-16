@@ -27,6 +27,7 @@ from qcloud_cos import CosS3Client
 from qcloud_cos.cos_encryption_client import CosEncryptionClient
 from qcloud_cos.crypto import AESProvider
 import sys
+import os
 import logging
 
 # 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
@@ -103,6 +104,7 @@ from qcloud_cos import CosS3Client
 from qcloud_cos.cos_encryption_client import CosEncryptionClient
 from qcloud_cos.crypto import RSAProvider
 import sys
+import os
 import logging
 
 # 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
