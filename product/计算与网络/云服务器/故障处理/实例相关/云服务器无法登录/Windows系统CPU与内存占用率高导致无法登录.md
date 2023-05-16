@@ -1,7 +1,7 @@
 本文档介绍 Windows 云服务器因 CPU 或内存占用率高导致无法登录的排查方法和解决方案。
 
 <dx-alert infotype="explain" title="">
-以下操作步骤以 Windows server 2012 R2 为例，根据操作系统版本的不同，详细操作步骤略有区别。
+以下操作步骤以 Windows server 2012 R2 为例，操作系统版本不同，详细操作步骤略有区别。
 </dx-alert>
 
 
@@ -9,14 +9,6 @@
 ## 现象描述
 
 CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器登录不上等问题。而引起 CPU 或内存使用率过高可能由硬件、系统进程、业务进程或者木马病毒等因素所致。您可以使用 [腾讯云可观测平台](https://cloud.tencent.com/document/product/248/13466)，创建 CPU 或内存使用率阈值告警，当 CPU 或内存使用率超过阈值时，将及时通知到您。
-
-## 排查思路
-
-1. 定位消耗 CPU 或内存的具体进程。
-2. 对 CPU 或内存占用率高的进程进行分析。
- - 如果是异常进程，可能是病毒或木马导致，您可以自行终止进程，或者使用安全软件进行查杀。
- - 如果是业务进程，则需要分析是否由于访问量变化引起，是否存在优化空间。
- - 如果是腾讯云组件进程，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 联系我们进行进一步定位处理。
 
 ## 定位工具
 
@@ -27,8 +19,8 @@ CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器�
 - **详细信息**：进程选项卡的增强版，显示进程的 PID、状态、CPU、内存的使用情况等进程的详细信息。
 - **服务**：系统中所有的服务（包括并未运行的服务）。
 
-
 ## 可能原因
+
 <table>
 <thead>
   <tr>
@@ -38,37 +30,23 @@ CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器�
 </thead>
 <tbody>
   <tr>
-    <td>使用 VNC 方式登录云服务器</td>
-    <td ><a href="#F1">检查使用 VNC 方式登录云服务器</a></td>
-  </tr>
-  <tr>
     <td>进程占用情况</td>
-    <td><a href="#F2">检查进程占用情况</a></td>
+    <td ><a href="#F2">检查进程占用情况</a></td>
   </tr>
   <tr>
-    <td>分析占用资源的进程情况</td>
+    <td>占用资源的进程情况</td>
     <td><a href="#F3">检查分析占用资源的进程情况</a></td>
   </tr>
 </tbody>
 </table>
-
-
 ## 故障处理
 
-### 检查使用 VNC 方式登录云服务器[](id:F1)
+### 使用 VNC 方式登录云服务器[](id:F1)
 
 
 <dx-alert infotype="explain" title="">
 由于云服务器负载高时会导致无法建立远程连接，推荐 [使用 VNC 方式登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。 
 </dx-alert>
-
-通过腾讯云 VNC 登录进入服务器内部进行操作。
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在实例的管理页面，找到目标云服务器实例，单击**登录**。如下图所示：
-![](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
-3. 在弹出的**标准登录 | Windows 实例**窗口中，选择**VNC登录**。
-4. 在弹出的登录窗口中，选择左上角的**发送远程命令**，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
-![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
 ### 检查进程占用情况[](id:F2)
 通过登录 Windows 实例窗口进行操作。
@@ -117,6 +95,6 @@ CPU 或内存使用率过高，容易引起服务响应速度变慢、服务器�
 
 #### 占用大量 CPU 或内存资源的进程为腾讯云组件进程
 
-请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 联系我们进行进一步定位处理。
+请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 联系我们进一步定位处理。
 
 

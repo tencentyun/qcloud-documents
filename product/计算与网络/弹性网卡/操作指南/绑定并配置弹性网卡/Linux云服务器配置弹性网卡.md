@@ -153,7 +153,7 @@ ip rule add from 192.168.1.62 table 20             #IP 请替换为辅助网卡�
 ```   
 7. 配置完成后，可用同一个子网下的 CVM，来 Ping 内网地址，能 Ping 通即说明配置成功。如无其他 CVM，可以给辅助网卡的内网 IP 绑定公网 IP，Ping 该公网 IP 来验证。
 
-## Ubuntu 云服务器 配置弹性网卡[](id:ubuntu)
+## Ubuntu 云服务器配置弹性网卡[](id:ubuntu)
 >?以 ubuntu 16.04举例。
 >
 1. 以管理员身份[ 登录云服务器](https://cloud.tencent.com/document/product/213/35700)，执行如下命令，查看需配置（未显示 IP）的网卡信息，如图所示，需配置的网卡名称为 `eth1`：
@@ -211,27 +211,51 @@ ifdown eth1
 ifup eth1
 ```
 6. 根据业务实际情况配置路由策略。
-<dx-alert infotype="notice" title="">
-按照上述步骤配置好后，Linux 镜像依旧默认从主网卡发包。您可通过策略路由来指定报文从某个网卡进，并从该网卡返回。该方式配置的为临时静态路由，网络重启后需要重新配置路由。
-</dx-alert>
-
+>?按照上述步骤配置好后，Linux 镜像依旧默认从主网卡发包。您可通过策略路由来指定报文从某个网卡进，并从该网卡返回。
+>
  1. 执行如下命令创建两张路由表。<span id="Linux6.1">
 ```plaintext
 echo "10 t1" >> /etc/iproute2/rt_tables   #10为自定义的路由ID，t1为自定义的路由表名称，请根据实际填写。
 echo "20 t2" >> /etc/iproute2/rt_tables    #20为自定义的路由ID，t2为自定义的路由表名称，请根据实际填写。
 ```
- 2. 执行如下命令为两个路由表添加默认路由。
+ 2. 给两个路由表添加默认路由，有两种方式。</br>
+     - 配置临时策略路由（即重启网络后路由消失，需重新配置），操作步骤如下：
+		a. 执行如下命令，配置路由表内的路由。
 ```plaintext
 ip route add default dev eth0 via 172.21.48.1 table 10   #172.21.48.1要分别替换成主网卡所属子网的网关
 ip route add default dev eth1 via 172.21.48.1 table 20   #172.21.48.1要分别替换成辅助网卡所属子网的网关
 ```
-<dx-alert infotype="explain" title="">
-具体网关，请参考 [查看网关](#.E6.9F.A5.E7.9C.8B.E7.BD.91.E5.85.B3) 。
-</dx-alert>
- 3. 执行如下命令，配置策略路由。
+>?具体网关，请参考 [查看网关](https://cloud.tencent.com/document/product/576/59353#.E6.9F.A5.E7.9C.8B.E7.BD.91.E5.85.B3)。
+>
+		b. 执行如下命令，配置策略路由。
 ```plaintext
 ip rule add from 172.21.48.11 table 10   #替换成主网卡上的 IP，请根据实际情况填写。
 ip rule add from 172.21.48.3 table 20    #替换成辅助网卡上的 IP，请根据实际情况填写。
+```
+     - 配置永久路由策略，即可利用配置文件将策略路由保存下来，此处以 ubuntu 16.04为例。
+		a. 编辑“/etc/network/interfaces”文件中网口的配置。
+```plaintext
+vim /etc/network/interfaces    # 编辑 interfaces文件
+```	 
+		b. Interfaces 文件中可能存在多个端口的配置，需要在对应的端口下增加策略路由的配置，示例如下：
+```plaintext
+up ip route add default dev eth1 via 172.21.48.1 table 20   #172.21.48.1要分别替换成辅助网卡所属子网的网关
+up ip rule add from 172.21.48.3 table 20                  #172.21.48.3替换成辅助网卡上的 IP，请根据实际情况填写
+```	 
+		c. 按“ESC”，并输入“wq!”保存并退出。
+		d. 编辑“/etc/network/interfaces.d/50-cloud-init.cfg”文件中网口的配置。
+```plaintext
+vim /etc/network/interfaces.d/50-cloud-init.cfg   # 编辑eth0网卡配置
+```	 
+		e. 在 eth0 网口的网络配置下面增加策略路由的配置，示例如下：
+```plaintext
+up ip route add default dev eth0 via 172.21.48.1 table 10   #172.21.48.1要分别替换成主网卡所属子网的网关
+up ip rule add from 172.21.48.11 table 10                  #172.21.48.11替换成主网卡上的 IP，请根据实际情况填写
+```
+		f. 按“ESC”，并输入“:wq!”保存并退出。
+		g. 重启网络使配置生效。
+```plaintext
+service networking restart
 ```
 7. 配置完成后，可用同一个子网下的 CVM，来 Ping 内网地址，能 Ping 通即说明成功。如无其他 CVM，可以给辅助网卡的内网 IP 绑定公网 IP，Ping 该公网 IP 来验证。
 

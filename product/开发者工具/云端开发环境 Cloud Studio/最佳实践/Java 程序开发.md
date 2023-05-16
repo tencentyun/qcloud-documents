@@ -25,5 +25,5 @@ Cloud Studio 提供自动导入包，语法高亮，代码补全，代码跳转�
 ![](https://qcloudimg.tencent-cloud.cn/raw/8e0a71fbb1a21635a370b95d9fffc469.png)
 
 ### 代码调试与运行
-Cloud Studio 提供的是开箱即用的云原生应用开发平台，为了实现代码调试，您所要做的就是打开您的 Java 项目，然后找到您的代码 main 所在的代码文件，等待IDE底部状态栏的 Java 项目加载完毕即可进行
+Cloud Studio 提供的是开箱即用的云原生应用开发平台，为了实现代码调试，您所要做的就是打开您的 Java 项目，然后找到您的代码 main 所在的代码文件，等待IDE底部状态栏的 Java 项目加载完毕即可进行。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fc891a82f7944cdd262bfa53ce894be2.png)
