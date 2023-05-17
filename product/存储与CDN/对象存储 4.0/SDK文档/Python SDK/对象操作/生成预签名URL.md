@@ -27,6 +27,7 @@ get_presigned_url(Bucket, Key, Method, Expired=300, Params={}, Headers={})
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
+import os
 import logging
 import requests
 
@@ -108,6 +109,7 @@ print(response)
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
+import os
 import logging
 import requests
 
@@ -190,6 +192,7 @@ print(response)
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
+import os
 import logging
 import requests
 
@@ -280,6 +283,7 @@ get_presigned_download_url(Bucket, Key, Expired=300, Params={}, Headers={})
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
+import os
 import logging
 import requests
 
@@ -411,6 +415,7 @@ get_auth(Method, Bucket, Key, Expired=300, Headers={}, Params={})
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
+import os
 import logging
 
 # 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
@@ -487,6 +492,7 @@ print(response)
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
+import os
 import logging
 
 # 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
