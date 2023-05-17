@@ -1,7 +1,7 @@
-### 如何申请腾讯云上使用Red Hat Enterprise Linux镜像？
+### 如何申请腾讯云上使用 Red Hat Enterprise Linux 镜像？
 Red Hat Enterprise Linux 镜像处于内测阶段，您可通过 [内测申请](https://cloud.tencent.com/apply/p/2yj9npvw8lq) 获取使用权限。
 
-### Red Hat Enterprise Linux（RHEL） 镜像提供哪些版本？支持哪些实例类型？
+### Red Hat Enterprise Linux 镜像提供哪些版本？支持哪些实例类型？
 
 <dx-alert infotype="explain" title="">
 您在购买云服务器 CVM 时，选中已经通过 Red Hat Enterprise Linux 认证的实例类型，即可选用 Red Hat Enterprise Linux 镜像。
@@ -39,23 +39,23 @@ Red Hat Enterprise Linux 镜像处于内测阶段，您可通过 [内测申请](
 </tbody>
 </table>
 
-### 为什么我申请通过之后，仍然看不到 Red Hat Enterprise Linux 镜像？
-请您先核实选用的机型是否在上述表格中，不在表格中的机型暂不支使用；腾讯云会根据客户需求和用量情况逐步让更多机型适配 Red Hat 镜像。
+### 为什么申请通过之后，仍然看不到 Red Hat Enterprise Linux 镜像？
+请您先核实选用的机型是否在上述表格中，不在表格中的机型暂不支使用；腾讯云会根据您需求和用量情况逐步让更多机型适配 Red Hat Enterprise Linux 镜像。
 
-### 已有的镜像版本或者机型不符合我的需求怎么办？
+### 已有的镜像版本或者机型不符合需求怎么办？
 您可以通过工单系统等腾讯云官方入口 [联系我们](https://cloud.tencent.com/document/product/282/1558)。
 
 ### Red Hat Enterprise Linux 商业镜像如何计费？
-请您查看文档[ 镜像计费说明](https://cloud.tencent.com/document/product/213/91068)。
+请参见：[ 镜像计费说明](https://cloud.tencent.com/document/product/213/91068)。
 
 ### 售后支持范围
-腾讯云线上售卖的官方授权的 Red Hat Enterprise Linux 操作系统可以免费获取 RedHat 源更新，包括版本更新、补丁修复等；客户在使用过程中遇到问题可以通过工单方式联系腾讯云获取帮助，腾讯云工程师团队会协助用户解决 Red Hat Enterprise Linux 操作系统上发生的问题，必要时腾讯云团队会与 RedHat 联系获取帮助和支持。 
+腾讯云线上售卖的官方授权的 Red Hat Enterprise Linux 操作系统可以免费获取 RedHat 源更新，包括版本更新、补丁修复等；您在使用过程中遇到问题可以通过 [工单方式](https://console.cloud.tencent.com/workorder/category) 联系腾讯云获取帮助，腾讯云工程师团队会协助用户解决 Red Hat Enterprise Linux 操作系统上发生的问题，必要时腾讯云团队会与 Red Hat Enterprise Linux 联系获取帮助和支持。 
 
 ### Red Hat Enterprise Linux 镜像购买后是否支持退款？
 Red Hat Enterprise Linux 商业操作系统，购买后不支持退款。
 
-### Red Hat Enterprise Linux 镜像的费用不能退，我能把实例部分的费用退回来吗？
-可以，您可以重装系统为其他开源的 Linux 操作系统，如 CentOS 等，之后即可按照常规流程退还实例；**注意**：重装系统后，镜像部分的费用不退还。
+### Red Hat Enterprise Linux 镜像的费用不能退，能把实例部分的费用退回来吗？
+可以，您可以重装系统为其他开源的 Linux 操作系统，如 CentOS 等，之后即可按照常规流程退还实例，**注意**：重装系统后，镜像部分的费用不退还。
 
 ### 购买 CVM 时选用 Red Hat Enterprise Linux 镜像，是否与实例享受一样的折扣？
 在 CVM 上使用 Red Hat Enterprise Linux 商业镜像，不支持任何形式的折扣。
