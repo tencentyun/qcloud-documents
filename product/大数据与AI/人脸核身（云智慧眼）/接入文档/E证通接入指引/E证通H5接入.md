@@ -44,10 +44,10 @@
 ## 接入时序图（轮询）
 >!轮询应从获取 EidTtoken 之后就开始，对 EidToken 状态相应处理，如果核身完成就可以拉取核身结果。
 
-![](https://main.qcloudimg.com/raw/4234f67c18e1292b89420a5bb26fc9bf.svg)
+![](https://qcloudimg.tencent-cloud.cn/raw/8ffcbb54f76b6c67bc7e91fc6d1d6424.png)
  
 
  
 ## 接入时序图（重定向）
 
-![](https://main.qcloudimg.com/raw/3d9ab9879ab9101c57d56e513ad9b196.svg)
+![](https://qcloudimg.tencent-cloud.cn/raw/6aecdcd01401636f9ebc7431de5048e3.png)

@@ -25,7 +25,7 @@
 
 ## 操作实现
 
-CDN 加速 CVM 的操作实现方法如下：
+CDN 加速 IGTM 的操作实现方法如下：
 将 CDN 上的加速域名源站类型选择IGTM多活源选中 IGTM 实例绑定，同时开启 CDN 加速服务。操作方法请参见 [通过 CDN 控制台实现](https://cloud.tencent.com/document/product/228/90933)。
 
 
