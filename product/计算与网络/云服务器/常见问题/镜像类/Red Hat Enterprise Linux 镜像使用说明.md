@@ -39,7 +39,7 @@ Red Hat Enterprise Linux 镜像处于内测阶段，您可通过 [内测申请](
 </tbody>
 </table>
 
-### 为啥我申请通过之后，仍然看不到 Red Hat Enterprise Linux 镜像？
+### 为什么我申请通过之后，仍然看不到 Red Hat Enterprise Linux 镜像？
 请您先核实选用的机型是否在上述表格中，不在表格中的机型暂不支使用；腾讯云会根据客户需求和用量情况逐步让更多机型适配 Red Hat 镜像。
 
 ### 已有的镜像版本或者机型不符合我的需求怎么办？
