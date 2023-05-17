@@ -24,11 +24,11 @@
 用户端 IP 未匹配白名单中的 IP 或 IP 段时 ，访问 CDN 节点时将直接返回514状态码。
 **配置约束**
 - 单个规则中，IP 黑名单与 IP 白名单二选一，不可同时配置。
-- IP 黑白名单各至多可输入500个。
-- 不支持IP:端口形式的黑白名单。
+- 单个规则IP 白名最多支持500个，黑名单最多可输入200个。
+- 不支持 IP:端口形式的黑白名单。
 - 不支持配置 IPV4 及 IPV6 保留地址及网段作为 IP 黑白名单。
-- 规则优先级为优先匹配最下方优先级。
-![](https://qcloudimg.tencent-cloud.cn/raw/959c010c9f9ba5d98e7b75aed50dbd59.png)
+- 最多可以配置20条规则，规则优先级为优先匹配最下方优先级。
+![](https://qcloudimg.tencent-cloud.cn/raw/c3515c67ba9f91b4911e5ad435c73e56.png)
 如需修改规则，可以在规则右侧的操作列表中，单击**修改**按钮修改规则内容。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4ac404dcf485bd54a42621ba461366e8.png)
 

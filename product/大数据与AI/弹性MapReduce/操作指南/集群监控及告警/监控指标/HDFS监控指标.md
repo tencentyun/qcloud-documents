@@ -1406,3 +1406,114 @@
 <td >Metaspace 区内存使用占比 </td>
 </tr>
 </table>
+
+### HDFS-Router
+<table>
+<tr>
+<th width=20%>标题 </th>
+<th width=20%>指标名称 </th>
+<th width=10%>指标单位</th>
+<th width=50%>指标含义 </th>
+</tr><tr>
+<td>alter  table 请求时间</td>
+<td>HIVE.HMS.API_ALTER_TABLE</td>
+<td>ms</td>
+<td>alter table 请求平均时间</td>
+</tr>
+<tr>
+<td>alter  table with env context 请求时间</td>
+<td>HIVE.HMS.API_ALTER_TABLE_WITH_ENV_CONTEXT</td>
+<td>ms</td>
+<td>alter table with env context 请求平均时间</td>
+</tr>
+<tr>
+<td>create  table 请求时间</td>
+<td>HIVE.HMS.API_CREATE_TABLE</td>
+<td>ms</td>
+<td>create table 请求平均时间</td>
+</tr>
+<tr>
+<td>create  table with env context 请求时间</td>
+<td>HIVE.HMS.API_CREATE_TABLE_WITH_ENV_CONTEXT</td>
+<td>ms</td>
+<td>create table with env context 请求平均时间</td>
+</tr>
+<tr>
+<td>drop  table 请求时间</td>
+<td>HIVE.HMS.API_DROP_TABLE</td>
+<td>ms</td>
+<td>drop table 平均请求时间</td>
+</tr>
+<tr>
+<td>drop  table with env context 请求时间</td>
+<td>HIVE.HMS.API_DROP_TABLE_WITH_ENV_CONTEXT</td>
+<td>ms</td>
+<td>drop table with env context 平均请求时间</td>
+</tr>
+<tr>
+<td>get  table 请求时间</td>
+<td>HIVE.HMS.API_GET_TABLE</td>
+<td>ms</td>
+<td>get table 平均请求时间</td>
+</tr>
+<tr>
+<td>get  tables 请求时间</td>
+<td>HIVE.HMS.API_GET_TABLES</td>
+<td>ms</td>
+<td>get tables 平均请求时间</td>
+</tr>
+<tr>
+<td>get  multi table 请求时间</td>
+<td>HIVE.HMS.API_GET_MULTI_TABLE</td>
+<td>ms</td>
+<td>get multi table 平均请求时间</td>
+</tr>
+<tr>
+<td>get  table req 请求时间</td>
+<td>HIVE.HMS.API_GET_TABLE_REQ</td>
+<td>ms</td>
+<td>get table req 平均请求时间</td>
+</tr>
+<tr>
+<td>get  database 请求时间</td>
+<td>HIVE.HMS.API_GET_DATABASE</td>
+<td>ms</td>
+<td>get database 平均请求时间</td>
+</tr>
+<tr>
+<td>get  databases 请求时间</td>
+<td>HIVE.HMS.API_GET_DATABASES</td>
+<td>ms</td>
+<td>get databases 平均请求时间</td>
+</tr>
+<tr>
+<td>get  all database 请求时间</td>
+<td>HIVE.HMS.API_GET_ALL_DATABASES</td>
+<td>ms</td>
+<td>get all databases 平均请求时间</td>
+</tr>
+<tr>
+<td>get  all functions 请求时间</td>
+<td>HIVE.HMS.API_GET_ALL_FUNCTIONS</td>
+<td>ms</td>
+<td>get all functions 平均请求时间</td>
+</tr>
+<tr>
+<td>当前活跃 create table 请求数</td>
+<td>HIVE.HMS.ACTIVE_CALLS_API_CREATE_TABLE</td>
+<td>个</td>
+<td>当前活跃 create table 请求数</td>
+</tr>
+<tr>
+<td>当前活跃 drop table 请求数</td>
+<td>HIVE.HMS.ACTIVE_CALLS_API_DROP_TABLE</td>
+<td>个</td>
+<td>当前活跃 drop  table 请求数</td>
+</tr>
+<tr>
+<td>当前活跃 alter table 请求数</td>
+<td>HIVE.HMS.ACTIVE_CALLS_API_ALTER_TABLE</td>
+<td>个</td>
+<td>当前活跃 alter  table 请求数</td>
+</tr>
+</tbody></table>
