@@ -49,7 +49,7 @@ Red Hat Enterprise Linux 镜像处于内测阶段，您可通过 [内测申请](
 请参见：[ 镜像计费说明](https://cloud.tencent.com/document/product/213/91068)。
 
 ### 售后支持范围
-腾讯云线上售卖的官方授权的 Red Hat Enterprise Linux 操作系统可以免费获取 RedHat 源更新，包括版本更新、补丁修复等；您在使用过程中遇到问题可以通过 [工单方式](https://console.cloud.tencent.com/workorder/category) 联系腾讯云获取帮助，腾讯云工程师团队会协助用户解决 Red Hat Enterprise Linux 操作系统上发生的问题，必要时腾讯云团队会与 Red Hat Enterprise Linux 联系获取帮助和支持。 
+腾讯云线上售卖的官方授权的 Red Hat Enterprise Linux 操作系统可以免费获取 RedHat 源更新，包括版本更新、补丁修复等，您在使用过程中遇到问题可以通过 [工单方式](https://console.cloud.tencent.com/workorder/category) 联系腾讯云获取帮助，腾讯云工程师团队会协助用户解决 Red Hat Enterprise Linux 操作系统上发生的问题，必要时腾讯云团队会与 Red Hat Enterprise Linux 联系获取帮助和支持。 
 
 ### Red Hat Enterprise Linux 镜像购买后是否支持退款？
 Red Hat Enterprise Linux 商业操作系统，购买后不支持退款。
