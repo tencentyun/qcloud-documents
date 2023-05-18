@@ -519,6 +519,37 @@ badgeNumber：应用的角标数。
 }
 
 ```
+## 实时活动LiveActivity
+
+#### 接口说明
+
+iOS应用端ActivityKit初始化实时活动成功后上报activityId及pushToken给TPNS Server或者用来结束实时活动
+
+#### 示例代码
+
+```Objective-C
+/**
+ @brief 实时活动回调结果
+ @param result 返回请求的liveActivity的id和token @{@"activityId":@"idValue", @"token":@"tokenValue"}
+ */
+typedef void(^XGPushLiveActivityCompletion)(NSDictionary * _Nonnull result, NSError *_Nullable error);
+
+/**
+ @brief 开始实时活动，pushToken有变化时需重新调用
+
+ @param activityId liveActivity的名字
+ @param token liveActivity对应的pushToken，该token有变化时需要及时调用此方法更新
+ @param completionHandler 请求回执，error为nil代表请求成功
+ @note 实时活动结束时需要及时调用该方法且pushToken传nil
+ */
+- (void)startLiveActivityWithId:(nonnull NSString *)activityId pushToken:(nullable NSString *)token withCompletionHandler:(nullable XGPushLiveActivityCompletion)completionHandler __API_AVAILABLE(ios(16.1));
+
+示例代码：
+XGPush.defaultManager().startLiveActivity(withId: orderActivity.id, pushToken: DeviceToken(data: data).hexString, withCompletionHandler: {(p1, p2) in
+                            
+ })
+
+```
 
 <!--
 ##  应用内消息展示
