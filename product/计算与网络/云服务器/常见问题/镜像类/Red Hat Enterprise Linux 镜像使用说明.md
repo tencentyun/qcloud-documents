@@ -61,7 +61,7 @@ Red Hat Enterprise Linux 商业操作系统，购买后不支持退款。
 在 CVM 上使用 Red Hat Enterprise Linux 商业镜像，不支持任何形式的折扣。
 
 ### Red Hat Enterprise Linux 镜像的费用是否可以使用代金券抵扣？
-Red Hat Enterprise Linux 商业镜像属于云市场镜像，不支持使用代金券。
+Red Hat Enterprise Linux 商业镜像不支持使用代金券。
 
 ### 是否可以自带 Red Hat 镜像授权（BYOL）在腾讯云上使用？
 可以，您可以通过 [导入镜像](https://cloud.tencent.com/document/product/213/4945) 功能导入您的自定义镜像，通过该自定义镜像创建实例，将不会产生镜像费用。
