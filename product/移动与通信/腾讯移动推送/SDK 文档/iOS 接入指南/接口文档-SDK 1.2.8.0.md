@@ -519,14 +519,12 @@ badgeNumber：应用的角标数。
 }
 
 ```
-## 实时活动LiveActivity
 
+## 实时活动 LiveActivity
 #### 接口说明
-
-iOS应用端ActivityKit初始化实时活动成功后上报activityId及pushToken给TPNS Server或者用来结束实时活动
+iOS 应用端 ActivityKit 初始化实时活动成功后上报 activityId 及 pushToken 给 TPNS Server 或者用来结束实时活动。
 
 #### 示例代码
-
 ```Objective-C
 /**
  @brief 实时活动回调结果
