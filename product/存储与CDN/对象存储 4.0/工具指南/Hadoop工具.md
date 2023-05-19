@@ -78,6 +78,28 @@ done
 |              fs.cosn.traffic.limit              | 上传带宽的控制选项，819200 - 838860800 bits/s，默认值为-1，默认表示不限制。 |                              无                              |   否   |
 
 
+#### Bucket独立配置项
+背景： 跨地域访问不同的bucket，每个bucket的配置项不同，为此支持了一次配置，访问多个bucket的需求。
+核心： 单独设置bucket维度的配置优先走独立配置项，没有设置独立配置项的走原配置，原配置没有设置的走默认配置。
+例如： fs.cosn.upload.buffer的subkey（trim fs.cosn. prefix)是 upload.buffer. 
+如果bucket-appid是 test-123456, 那么bucket的独立配置项就是fs.cosn.bucket.test-123456.upload.buffer (格式fs.cosn.bucket.{bucket-appid}.{subkey}) 
+使用方式： hadoop fs -ls cosn://test-123456/ 
+注意：
+1. 如果设置了fs.cosn.userinfo.appid则可以通过设置fs.cosn.bucket.{bucket}.{subkey} 使用方式hadoop fs -ls cosn://test/
+2. 如果使用了元数据加速桶，想使用hadoop fs -ls cosn//test/方式访问 除了需要配置fs.cosn.userinfo.appid外需要设置fs.cosn.trsf.fs.ofs.use.short.bucketname为true
+且ofs java sdk >= 1.1.8, hadoop cos >= 8.3.0
+
+#### 简化Bucket独立配置项
+背景： 由于旧版本OFS JAVA SDK对挂载点格式做了访问限制，只支持bucket-appid方式进行访问， 新版本（1.1.8+）支持bucket方式进行访问,不需要带appid。
+且hadoopcos 8.3.0开始支持。
+如需cosn://bucket/ posix方式访问元数据加速桶则
+添加添加配置项： 
+fs.cosn.trsf.fs.ofs.use.short.bucketname true 
+fs.cosn.userinfo.appid 12345678 
+同理可以简化上一节各Bucket独立配置项通过添加如下配置做到cosn://<bucket>/的方式进行访问
+fs.cosn.bucket.<bucket>.trsf.fs.ofs.use.short.bucketname true 
+fs.cosn.bucket.<bucket>.upload.buffer 1024 fs.cosn.bucket.test. *
+
 ### Hadoop 配置
 
 修改 `$HADOOP_HOME/etc/hadoop/core-site.xml`，增加 COS 相关用户和实现类信息，例如：
@@ -601,28 +623,6 @@ public class Demo {
     }
 }
 ```
-
-## Bucket独立配置项
-背景： 跨园区访问不同的bucket，每个bucket的配置项不同，为此支持了一次配置，访问多个bucket的需求。
-核心： 单独设置bucket维度的配置优先走独立配置项，没有设置独立配置项的走原配置，原配置没有设置的走默认配置。
-例如： fs.cosn.upload.buffer的subkey（trim fs.cosn. prefix)是 upload.buffer. 
-如果bucket-appid是 test-123456, 那么bucket的独立配置项就是fs.cosn.bucket.test-123456.upload.buffer (格式fs.cosn.bucket.{bucket-appid}.{subkey}) 
-使用方式： hadoop fs -ls cosn://test-123456/ 
-注意：
-1. 如果设置了fs.cosn.userinfo.appid则可以通过设置fs.cosn.bucket.{bucket}.{subkey} 使用方式hadoop fs -ls cosn://test/
-2. 如果使用了元数据加速桶，想使用hadoop fs -ls cosn//test/方式访问 除了需要配置fs.cosn.userinfo.appid外需要设置fs.cosn.trsf.fs.ofs.use.short.bucketname为true
-且ofs java sdk >= 1.1.8, hadoop cos >= 8.3.0
-
-## 简化Bucket独立配置项
-背景： 由于旧版本OFS JAVA SDK对挂载点格式做了访问限制，只支持bucket-appid方式进行访问， 新版本（1.1.8+）支持bucket方式进行访问,不需要带appid。
-且hadoopcos 8.3.0开始支持。
-如需cosn://bucket/ posix方式访问元数据加速桶则
-添加添加配置项： 
-fs.cosn.trsf.fs.ofs.use.short.bucketname true 
-fs.cosn.userinfo.appid 12345678 
-同理可以简化上一节各Bucket独立配置项通过添加如下配置做到cosn://<bucket>/得方式进行访问
-fs.cosn.bucket.<bucket>.trsf.fs.ofs.use.short.bucketname true 
-fs.cosn.bucket.<bucket>.upload.buffer 1024 fs.cosn.bucket.test. *
 
 ## 常见问题
 如果您在使用 Hadoop 工具过程中，有相关的疑问，请参见 [Hadoop 工具类常见问题](https://cloud.tencent.com/document/product/436/36897)。
