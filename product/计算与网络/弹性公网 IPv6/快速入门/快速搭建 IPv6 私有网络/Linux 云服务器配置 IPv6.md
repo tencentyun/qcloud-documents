@@ -411,7 +411,7 @@ network:
       set-name: eth0                      //网卡名
       routes:
         - to: default
-        via: "2402:4e00:1018:9a01::1"  //设置IPv6网关地址
+					 via: "2402:4e00:1018:9a01::1"  //设置IPv6网关地址
 ```
  4. 执行如下命令，使配置生效。
 ```plaintext
