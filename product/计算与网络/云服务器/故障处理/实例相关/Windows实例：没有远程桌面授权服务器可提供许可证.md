@@ -18,18 +18,18 @@
   </tr>
   <tr>
     <td>未在微软购买 License</td>
-    <td><a href="#step02">检查并在微软购买 License</a></td>
+    <td><a href="#step02">检查并确保已购买 License</a></td>
   </tr>
 </tbody>
 </table>
 
 ## 故障处理
 ### 通过 VNC 方式登录云服务器[](id:eax)
-VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接云服务器的方式。在没有安装或者无法使用远程登录客户端，以及通过其他方式均无法登录的情况下，用户可以通过 VNC 登录连接到云服务器，观察云服务器状态，并且可通过云服务器账户进行基本的云服务器管理操作,具体操作请参见：[使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
+VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接云服务器的方式。在没有安装或者无法使用远程登录客户端，以及通过其他方式均无法登录的情况下，用户可以通过 VNC 登录连接到云服务器，观察云服务器状态，并且可通过云服务器账户进行基本的云服务器管理操作，具体操作请参见：[使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 
 ### 检查并删除远程桌面会话主机角色[](id:step01)
 <dx-alert infotype="explain" title="">
-如果您不想删除**远程桌面会话主机**角色，可跳过此方案一，前往 [微软官网](https://www.microsoft.com/zh-cn/) 购买与配置相应的证书授权。
+如果您不想删除**远程桌面会话主机**角色，可跳过此方案，前往 [微软官网](https://www.microsoft.com/zh-cn/) 购买与配置相应的证书授权。
 </dx-alert>
 
 
@@ -44,7 +44,7 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
 <img style="width:700px; max-width: inherit;" src="https://main.qcloudimg.com/raw/bb3b938d970a225884ec36e61e18b526.png" />
 7. 单击**删除**，待云服务器重新启动即可。
 
-### 检查并在微软购买 license[](id:step02)
+### 检查并确保已购买 License[](id:step02)
 
 Windows Server 默认允许2个用户同时登录，可满足大多数需求。如果您需要超过2个用户同时登录，需要联系微软或微软合作伙伴等正规渠道购买多用户登录 RDS 授权。具体您可拨打微软市场部热线：**400-820-3800** 拨通之后再按提示选择对应按键，进行咨询购买。
 
