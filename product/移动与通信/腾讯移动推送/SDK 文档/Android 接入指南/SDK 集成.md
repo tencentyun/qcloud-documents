@@ -392,8 +392,8 @@ new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
 
 如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
 >! 
->- 仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本移动推送默认开启联合保活能力，且不可关闭。
->- 1.2.6.0 起默认关闭联合保活功能，可不再调用此接口。在SDK 1.3.4.0 及以上的版本关联启动功能已下线。
+>- 仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0 之前版本移动推送默认开启联合保活能力，且不可关闭。
+>- 1.2.6.0 起默认关闭联合保活功能，可不再调用此接口。在 SDK 1.3.4.0 及以上的版本关联启动功能已下线。
 >
 
 ```java
@@ -415,7 +415,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 ### 获取移动推送 Token 交互建议
 
-建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示移动推送Token，控制台和 Restful API 推送需要根据移动推送Token 进行 Token 推送，后续问题排查也需要根据移动推送Token 进行定位。
+建议您完成 SDK 集成后，在 App 的**关于**、**意见反馈**等比较不常用的 UI 中，通过手势或者其他方式显示移动推送 Token，控制台和 Restful API 推送需要根据移动推送 Token 进行 Token 推送，后续问题排查也需要根据移动推送 Token 进行定位。
 示例代码如下：
 
 ```java
@@ -427,7 +427,7 @@ XGPushConfig.getToken(getApplicationContext());
 
 ### 获取移动推送运行日志交互建议
 
-SDK 提供日志上报接口。如用户在应用上线后遇到推送相关问题，可以通过引导用户操作触发此接口，上传 SDK 运行日志并获取回调返回的日志文件下载地址，方便问题排查。详情参考 [日志上报接口](https://cloud.tencent.com/document/product/548/36659#.E6.96.B0.E5.A2.9E.E6.97.A5.E5.BF.97.E4.B8.8A.E6.8A.A5.E6.8E.A5.E5.8F.A3)。
+SDK 提供日志上报接口。如用户在应用上线后遇到推送相关问题，可以通过引导用户操作触发此接口，上传 SDK 运行日志并获取回调返回的日志文件下载地址，方便问题排查。详情参见 [日志上报接口](https://cloud.tencent.com/document/product/548/36659#.E6.96.B0.E5.A2.9E.E6.97.A5.E5.BF.97.E4.B8.8A.E6.8A.A5.E6.8E.A5.E5.8F.A3)。
 
 示例代码如下：
 ```java
