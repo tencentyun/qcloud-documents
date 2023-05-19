@@ -3,6 +3,7 @@ Python SDK 提供获取签名、预签名 URL 、下载预签名 URL 的接口�
 使用永久密钥或临时密钥获取预签名 URL 的调用方法相同，使用临时密钥时需要在 header 或 query_string 中加上 x-cos-security-token。
 
 >?
+> - 关于使用预签名 URL 上传的说明请参见 [预签名授权上传](https://cloud.tencent.com/document/product/436/14114)， 使用预签名 URL 下载的说明请参见 [预签名授权下载](https://cloud.tencent.com/document/product/436/14116)。
 > - 在获取签名时强烈建议将敏感请求头部和请求参数算入签名，这样可以避免相关请求头部和请求参数被使用者篡改，杜绝权限越界的情况发生。同时 SDK 会默认将请求域名算入签名，如果分发后修改了请求域名会导致访问失败，此时可以在获取签名时传入参数忽略请求域名，详细方法参见下面的请求示例。 
 > - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
 > - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
@@ -580,12 +581,13 @@ response = client.get_auth(
 | -------------- | -------------- |---------- | ----------- |
 | Method  |对应操作的 Method, 可选值为 'PUT'，'POST'，'GET'，'DELETE'，'HEAD'|  String |  是 | 
 | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
-| Key  | Bucket 操作填入根路径`/`，object 操作填入文件的路径 (**用户无需进行URL编码**) | String | 是| 
+| Key  | Bucket 操作填入根路径`/`，object 操作填入文件的路径 (**用户无需进行 URL 编码**) | String | 是| 
 |Expired| 签名过期时间，单位为秒| Int| 否|
-|Params| 签名中要签入的请求参数。使用此签名时必须携带这里指定的请求参数，并且参数的值必须是这里指定的值。可以签入的 Params 和具体的操作相关，例如下载对象可以携带和签入的 Params 参见 [GET Object 中的请求参数](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
-|Headers| 签名中要签入的请求头部。使用此签名时必须携带这里指定的请求头部，并且头部的值必须是这里指定的值。可以签入的 Headers 和具体的操作相关，例如上传对象可以签入的 Headers 参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82)描述| Dict| 否|
-|SignHost | 请求域名是否算入签名，默认值 True，签名后使用者需要修改请求域名时设置为False| Bool| 否|
+|Params| 签名中要签入的请求参数。使用此签名时必须携带这里指定的请求参数，并且参数的值必须是这里指定的值。可以签入的 Params 和具体的操作相关，例如下载对象可以携带和签入的 Params 参见 [GET Object 中的请求参数](https://cloud.tencent.com/document/product/436/7753#.E8.AF.B7.E6.B1.82) 描述| Dict| 否|
+|Headers| 签名中要签入的请求头部。使用此签名时必须携带这里指定的请求头部，并且头部的值必须是这里指定的值。可以签入的 Headers 和具体的操作相关，例如上传对象可以签入的 Headers 参见 [PUT Object 中的请求头](https://cloud.tencent.com/document/product/436/7749#.E8.AF.B7.E6.B1.82) 描述| Dict| 否|
+|SignHost | 请求域名是否算入签名，默认值 True，签名后使用者需要修改请求域名时设置为 False| Bool| 否|
 
 #### 返回结果说明
 
 该方法返回值为对应操作的签名值。
+
