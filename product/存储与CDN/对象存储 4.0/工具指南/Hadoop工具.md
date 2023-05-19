@@ -92,7 +92,7 @@ hadoop fs -ls cosn://testbucket-123456/
 ```
 	
 ##### 普通桶简化Bucket独立配置项
-通过cosn://<bucket>/ 方式进行访问。
+通过`cosn://<bucket>/` 方式进行访问。
 例如：给testbucket-123456 单独设置fs.cosn.upload.buffer的配置项
 ```shell
 fs.cosn.userinfo.appid 123456
@@ -105,7 +105,7 @@ hadoop fs -ls cosn://testbucket/
 ```
 	
 ##### 元数据加速桶简化Bucket独立配置项
-通过cosn://<bucket>/ 方式进行访问。
+通过`cosn://<bucket>/` 方式进行访问。
 例如：给testbucket-123456 单独设置fs.cosn.upload.buffer的配置项
 ```shell
 fs.cosn.userinfo.appid 123456
