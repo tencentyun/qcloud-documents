@@ -290,7 +290,7 @@ fs.cosn.bucket.testbucket.upload.buffer  ***
 >?
 这里 fs.cosn.upload.buffer 的 subkey（trim fs.cosn.) 是 upload.buffer，但由于已经设置了 appid，则 bucket 的独立配置项可以简化为 `fs.cosn.bucket.<bucket>.<subkey>`。
 
-由于旧版本 OFS JAVA SDK 对挂载点格式进行了访问限制，只支持`<bucket-appid>`方式访问，所以需要更新依赖插件至最新版本才可使用。
+由于旧版本 OFS Java SDK 对挂载点格式进行了访问限制，只支持`<bucket-appid>`方式访问，所以需要更新依赖插件至最新版本才可使用。
 
 依赖插件版本信息：
 ```shell
