@@ -93,7 +93,7 @@
 </dx-alert>
 
 **处理步骤**：关闭防火墙或者安装的安全软件，再次尝试远程连接，确认是否能远程登录成功。以下操作以关闭 Windows Server 2016 实例的防火墙为例。
-1. 通过 [VNC 登录](#VNC) 登录实例。
+1. 通过 [VNC 登录](#VNC) 实例。
 2. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin:-3px 0px;">，选择**控制面板**，打开控制面板窗口。
 3. 单击 **Windows 防火墙**，进入“Windows 防火墙” 界面。
 4. 单击左侧的**启用或关闭 Windows 防火墙**，进入 “自定义设置” 界面。
