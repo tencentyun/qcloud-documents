@@ -11,7 +11,7 @@
 ## 添加列表信息
 1. 将 IP 地址或 CIDR 地址一行一个，写入 TXT 文件并保存。
 ![](https://main.qcloudimg.com/raw/2460c1616bd24313237517a89e17145e.png)
-2. 将上述 TXT 文件上传至公有读的 COS 即可。具体操作请参见 [上传对象](https://cloud.tencent.com/document/product/436/13321) 。
+2. 将上述 TXT 文件上传至开放公有读权限的 COS 即可。具体操作请参见 [上传对象](https://cloud.tencent.com/document/product/436/13321) 。
 3. 单击对象右侧**详情**，进入对象详情页。
 ![](https://main.qcloudimg.com/raw/1582a5954a13d0ffed85753eebd6fecd.png)
 4. 复制 COS 文件 URL。
