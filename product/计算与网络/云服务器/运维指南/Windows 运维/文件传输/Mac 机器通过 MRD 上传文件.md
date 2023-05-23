@@ -26,7 +26,7 @@ Microsoft Remote Desktop（以下简称 MRD） 是微软推出的适用于 Mac �
 4. 双击打开新创建的连接，并在弹出的窗口中根据提示，输入云服务器的帐号和密码，单击 **Continue**。
 <dx-alert infotype="explain" title="">
 - 云服务器的帐号默认为 `Administrator`。
-- 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+- 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message)（标有：云服务器创建成功字样） 获取。
 - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 </dx-alert>
 5. 在弹出的窗口中单击 **Continue** 确认连接。如下图所示：
