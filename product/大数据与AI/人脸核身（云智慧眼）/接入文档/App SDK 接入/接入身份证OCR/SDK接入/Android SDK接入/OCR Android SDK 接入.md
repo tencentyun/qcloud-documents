@@ -185,13 +185,14 @@ public interface OcrLoginListener {
   * 退出SDK,返回第三方的回调,同时返回ocr识别结果
   */
 public interface IDCardScanResultListener{
-        /**
-         * @RARAM exidCardResult   SDK返回的识别结果的错误码  
-* @RARAM exidCardResult   SDK返回的识别结果的错误信息    
-         */
-        void onFinish(String errorCode, String errorMsg);
+/**
+ * 退出SDK,返回第三方的回调,同时返回ocr识别结果
+ * @param errorCode 返回码，识别成功返回 0
+ * @param errorMsg  返回信息
+ * @param result 识别结果类
+ */        
+void onFinish(String errorCode, String errorMsg, Parcelable result);
 }
-
 ```
  **NONCE 类型的 ticket，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket，重新算 sign。同时建议合作方做前端保护，防止用户连续点击，短时间内频繁启动 SDK。**
 
@@ -241,12 +242,14 @@ public interface OcrLoginListener {
   * 退出SDK,返回第三方的回调,同时返回ocr识别结果
   */
 public interface IDCardScanResultListener{
-        /**
-         * 退出SDK,返回第三方的回调,同时返回ocr识别结果
-         * @param errorCode        返回错误码，识别成功返回 0
-         * @param errorMsg        返回错误信息，和错误码相关联         */
-        void onFinish(String errorCode, String errorMsg);
-}
+	/**
+	 * 退出SDK,返回第三方的回调,同时返回ocr识别结果
+	 * @param errorCode 返回码，识别成功返回 0
+	 * @param errorMsg  返回信息
+	 * @param result 识别结果类
+	 */        
+	void onFinish(String errorCode, String errorMsg, Parcelable result);
+	}
 
 ```
 
