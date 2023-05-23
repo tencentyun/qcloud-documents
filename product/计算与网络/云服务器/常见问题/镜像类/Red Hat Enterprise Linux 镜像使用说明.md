@@ -46,23 +46,23 @@ Red Hat Enterprise Linux 镜像处于内测阶段，您可通过 [内测申请](
 您可以通过工单系统等腾讯云官方入口 [联系我们](https://cloud.tencent.com/document/product/282/1558)。
 
 ### Red Hat Enterprise Linux 商业镜像如何计费？
-请参见：[ 镜像计费说明](https://cloud.tencent.com/document/product/213/91068)。
+请参见：[ 镜像计费说明](https://cloud.tencent.com/document/product/213/91068#red-hat-enterprise-linux-.E9.95.9C.E5.83.8F.E8.AE.A1.E8.B4.B9.E8.AF.B4.E6.98.8E)。
 
 ### 售后支持范围
 腾讯云线上售卖的官方授权的 Red Hat Enterprise Linux 操作系统可以免费获取 Red Hat Enterprise Linux 源更新，包括版本更新、补丁修复等，您在使用过程中遇到问题可以通过 [工单方式](https://console.cloud.tencent.com/workorder/category) 联系腾讯云获取帮助，腾讯云工程师团队会协助用户解决 Red Hat Enterprise Linux 操作系统上发生的问题，必要时腾讯云团队会与 Red Hat Enterprise Linux 联系获取帮助和支持。 
 
 ### Red Hat Enterprise Linux 镜像购买后是否支持退款？
-Red Hat Enterprise Linux 商业操作系统，购买后不支持退款。
+Red Hat Enterprise Linux 商业镜像，使用 Red Hat 官方正版授权，您在腾讯云上购买后授权生效即不支持退款。
 
 ### Red Hat Enterprise Linux 镜像的费用不能退，能把实例部分的费用退回来吗？
-可以，您可以重装系统为其他开源的 Linux 操作系统，如 CentOS 等，之后即可按照常规流程退还实例，**注意**：重装系统后，镜像部分的费用不退还。
+可以，您可以重装系统为其他开源的 Linux 操作系统，如 CentOS 等，之后即可按照常规流程退还实例，实例退费规则详情请参见：[退还包年包月实例退费说明](https://cloud.tencent.com/document/product/213/9711)，**注意**：重装系统后，镜像部分的费用不退还。
 
 ### 购买 CVM 时选用 Red Hat Enterprise Linux 镜像，是否与实例享受一样的折扣？
-在 CVM 上使用 Red Hat Enterprise Linux 商业镜像，不支持任何形式的折扣。
+Red Hat Enterprise Linux 商业镜像，使用 Red Hat 官方正版授权，您在创建 CVM 时选用的 Red Hat Enterprise Linux 镜像不享用实例的折扣，且不支持其它形式的折扣。
 
 ### Red Hat Enterprise Linux 镜像的费用是否可以使用代金券抵扣？
-Red Hat Enterprise Linux 商业镜像不支持使用代金券。
+Red Hat Enterprise Linux 商业镜像，使用 Red Hat 官方正版授权，您在腾讯云上购买时不支持使用代金券进行抵扣。
 
 ### 是否可以自带 Red Hat 镜像授权（BYOL）在腾讯云上使用？
-可以，您可以通过 [导入镜像](https://cloud.tencent.com/document/product/213/4945) 功能导入您的自定义镜像，通过该自定义镜像创建实例，将不会产生镜像费用。
+可以，您可以通过 [导入镜像](https://cloud.tencent.com/document/product/213/4945) 功能导入您的自定义镜像，通过该自定义镜像创建实例，将不会产生商业镜像授权费用。
 
