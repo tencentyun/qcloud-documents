@@ -71,5 +71,5 @@ Red Hat Enterprise Linux 商业镜像，使用 Red Hat 官方正版授权，您�
 ### 是否可以自带 Red Hat 镜像授权（BYOL）在腾讯云上使用？
 可以，您可以通过 [导入镜像](https://cloud.tencent.com/document/product/213/4945) 功能导入您的自定义镜像，通过该自定义镜像创建实例，将不会产生商业镜像授权费用。
 
-### 使用 Red Hat Enterprise Linux 操作系统的实例，是否支持调整配置？是否支持包年包月转按量付费？
-使用 Red Hat Enterprise Linux 操作系统的实例，暂不支持调整配置，暂不支持包年包月转按量付费。
+### 使用 Red Hat Enterprise Linux 操作系统的实例，是否支持调整配置？是否支持转换计费模式？
+使用 Red Hat Enterprise Linux 操作系统的实例，暂不支持调整配置，暂不支持转换计费模式。
