@@ -1,4 +1,4 @@
-本文档介绍云服务器因端口问题导致无法远程登录的排查方法和解决方案。
+本文档为您介绍云服务器因端口问题导致无法远程登录的排查方法和解决方案。
 
 
 <dx-alert infotype="explain" title="">
@@ -24,11 +24,11 @@
 <tbody>
   <tr>
     <td>本地和服务器间的网络未连通</td>
-    <td ><a href="#tcpPacketLoss"> 	检查本地和服务器间的网络是否连通</a></td>
+    <td ><a href="#tcpPacketLoss"> 	检查本地和服务器间的网络确保连通</a></td>
   </tr>
   <tr>
     <td>实例远程端口未处于连通状态</td>
-    <td><a href="#CheckNetworkLink"> 检查实例远程端口是否连通</a></td>
+    <td><a href="#CheckNetworkLink"> 检查实例远程端口确保已连通</a></td>
   </tr>
   <tr>
     <td>sshd 端口未被监听或服务未启动</td>
@@ -40,7 +40,7 @@
 
 
 ## 故障处理
-### 检查本地和服务器间的网络是否连通[](id:tcpPacketLoss)
+### 检查本地和服务器间的网络确保连通[](id:tcpPacketLoss)
 您可以通过本地 Ping 命令，测试网络的连通性。同时使用不同网络环境中（不同网段或不同运营商）的电脑测试，判断是本地网络问题还是服务器端问题。
 1. 根据本地计算机的操作系统不同，选择命令行工具的打开方式。
 	- **Windows 系统**：单击**开始** > **运行**，输入 cmd，弹出命令行对话框。
@@ -54,7 +54,7 @@ ping + 云服务器实例公网 IP 地址
 ![](https://mc.qcloudimg.com/static/img/9596963f31d642deb9417e0a7c0a4085/image.png)
  - 如果网络异常，则出现**请求超时**提示，请参见 [实例 IP 地址 Ping 不通](https://cloud.tencent.com/document/product/213/14639) 进行排查。
 
-###  检查实例远程端口是否连通[](id:CheckNetworkLink)
+###  检查实例远程端口确保已连通[](id:CheckNetworkLink)
 通过腾讯云 VNC 登录进入服务器内部进行检查。
 1. 使用 VNC 方式登录云服务器，详情请参见 [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
 2. 执行以下命令，并按 **Enter**。测试远程端口开启情况，判断端口是否可以访问。
