@@ -41,6 +41,7 @@
 <td>与 <code>even_deny_root</code> 相对应的选项。如果配置该选项，root 用户在登录失败次数超出限制后被锁定的时间。</td>
 </tr>
 </table>
+
 您可以参考 [故障处理](#ProcessingSteps)，进入 login 配置文件，临时注释 `pam_limits.so` 模块配置，核实帐户锁定的原因，并加固安全策略。
 
 
