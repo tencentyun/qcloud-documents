@@ -13,6 +13,7 @@ Red Hat Enterprise Linux 镜像处于内测阶段，您可通过 [内测申请](
     <th width="15%">示例规格</th>
     <th width="20%">RHEL7.9</th>
     <th width="20%">RHEL8.5</th>
+   <th width="20%">RHEL8.6</th>
   </tr>
 </thead>
 <tbody>
@@ -20,9 +21,11 @@ Red Hat Enterprise Linux 镜像处于内测阶段，您可通过 [内测申请](
     <td class="tg-0pky">标准型SA2</td>
     <td class="tg-0pky">支持</td>
     <td class="tg-0pky">支持</td>
+  <td class="tg-0pky">支持</td>
   </tr>
   <tr>
     <td class="tg-0pky">标准型S5</td>
+    <td class="tg-0pky">支持</td>
     <td class="tg-0pky">支持</td>
     <td class="tg-0pky">支持</td>
   </tr>
@@ -30,11 +33,13 @@ Red Hat Enterprise Linux 镜像处于内测阶段，您可通过 [内测申请](
     <td class="tg-0pky">计算型C3</td>
     <td class="tg-0pky">支持</td>
     <td class="tg-0pky">支持</td>
+   <td class="tg-0pky">支持</td>
   </tr>
   <tr>
     <td class="tg-0pky">计算型C4</td>
     <td class="tg-0pky">支持</td>
     <td class="tg-0pky">支持</td>
+ <td class="tg-0pky">支持</td>
   </tr>
 </tbody>
 </table>
