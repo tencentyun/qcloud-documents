@@ -24,7 +24,7 @@
 ### 服务端返回临时密钥，前端计算签名
 
 1. 前端请求服务端，服务端返回临时密钥。
-2. 前端通过CosAuth和临时密钥计算签名。
+2. 前端通过 CosAuth 和临时密钥计算签名。
 3. 前端使用 PUT 或 POST 请求，直传文件到 COS。
 
 ## 实践步骤
@@ -621,7 +621,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     <script>
       (function () {
         // 请求用到的参数
-        const Bucket = 'test-1300555317'; // 替换为自己的存储桶
+        const Bucket = 'examplebucket-1250000000'; // 替换为自己的存储桶
         const Region = 'ap-beijing'; // 替换为自己的存储桶地域
         const protocol = location.protocol === 'https:' ? 'https:' : 'http:';
         const prefix =
@@ -775,7 +775,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     <script>
       (function () {
         // 请求用到的参数
-        const Bucket = 'test-1300555317'; // 替换为自己的存储桶
+        const Bucket = 'examplebucket-1250000000'; // 替换为自己的存储桶
         const Region = 'ap-beijing'; // 替换为自己的存储桶地域
         const protocol = location.protocol === 'https:' ? 'https:' : 'http:';
         const prefix =
@@ -982,7 +982,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     <script>
       (function () {
         // 请求用到的参数
-        const Bucket = 'test-1300555317'; // 替换为自己的存储桶
+        const Bucket = 'examplebucket-1250000000'; // 替换为自己的存储桶
         const Region = 'ap-beijing'; // 替换为自己的存储桶地域
         const protocol = location.protocol === 'https:' ? 'https:' : 'http:';
         const prefix =
