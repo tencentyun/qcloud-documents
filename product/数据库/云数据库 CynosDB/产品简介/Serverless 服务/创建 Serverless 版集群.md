@@ -53,7 +53,7 @@ CCU（TDSQL-C Compute Unit）为 Serverless 的计算计费单位，一个 CCU �
 </dx-alert></td></tr>
 <tr>
 <td>计算资源包（计费模式选择资源包时此项显示）</td>
-<td>绑定资源包，可绑定当前账户下，在有效期内的，集群所选地域的所有计算资源包。若无可用资源包，可先 <a href="">购买资源包</a>。</td></tr>
+<td>绑定资源包，可绑定当前账户下，在有效期内的，集群所选地域的所有计算资源包。若无可用资源包，可先 <a href="https://cloud.tencent.com/document/product/1003/92591">购买资源包</a>。</td></tr>
 <tr>
 <td>存储计费模式</td>
 <td>支持选择按量计费或资源包。<dx-alert infotype="explain" title="">
@@ -61,7 +61,7 @@ CCU（TDSQL-C Compute Unit）为 Serverless 的计算计费单位，一个 CCU �
 </dx-alert></td></tr>
 <tr>
 <td>存储资源包（计费模式选择资源包时此项显示）</td>
-<td>绑定资源包，可绑定当前账户下，在有效期内的，集群所选地域的所有存储资源包。若无可用资源包，可先 <a href="">购买资源包</a>。</td></tr>
+<td>绑定资源包，可绑定当前账户下，在有效期内的，集群所选地域的所有存储资源包。若无可用资源包，可先 <a href="https://cloud.tencent.com/document/product/1003/92591">购买资源包</a>。</td></tr>
 </tbody></table>
 
 3. 选择集群数量，支持批量购买同规格多个集群，然后单击**下一步**。
