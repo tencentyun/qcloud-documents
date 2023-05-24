@@ -1,6 +1,6 @@
 ## 简介
 
-本文仅介绍在对象存储（Cloud Object Storage，COS）控制台上添加自定义加速域名及开启 CDN 加速，若要从 CDN 控制台添加自定义域名，请参见 CDN  [接入域名](https://cloud.tencent.com/document/product/228/41215) 文档。 
+本文仅介绍在对象存储（Cloud Object Storage，COS）控制台上添加自定义加速域名及开启 CDN 加速，若要从 CDN 控制台添加自定义域名，请参见 CDN  [接入域名](https://cloud.tencent.com/document/product/228/41215) 文档。
 
 
 ## 操作步骤
@@ -21,7 +21,7 @@
     - 当存储桶为私有读，同时开启回源鉴权和 CDN 服务授权会导致通过 CDN 访问源站时无需携带签名，CDN 缓存资源将进行公网分发，导致数据的安全性受到影响，建议**开启 CDN 鉴权**。CDN 鉴权用于开启时间戳鉴权配置，可防止恶意用户盗取内容，可在添加完域名后进行设置。
     - 当存储桶为公有读时，无需开启回源鉴权。
   - **CDN 缓存自动刷新**：开启后，触发 COS 存储桶更新文件规则时，将自动刷新 CDN 缓存，可前往 COS 函数计算配置，操作指引请参见 [设置 CDN 缓存刷新](https://cloud.tencent.com/document/product/436/45597)。
-  - **HTTPS 证书**：如需为自定义 CDN 加速域名添加 HTTPS 证书，可前往 [CDN 控制台](https://console.cloud.tencent.com/cdn/certificate) 进行配置。
+  - **HTTPS 证书**：证书绑定后，预计 30 分钟内生效。如需为自定义 CDN 加速域名添加 HTTPS 证书，可前往 [CDN 控制台](https://console.cloud.tencent.com/cdn/certificate) 进行配置。
   - **图片自适应压缩**：当您通过绑定域名分发图片时，若浏览器支持预览压缩格式的图片，后台将实时压缩，分发压缩后的图片。
 4. 配置完成后，在右侧操作栏中，单击**保存**即可添加域名。
 > !用户为域名启用 CDN 加速之后，任何人都可以通过此域名直接访问源站，所以如果您的数据有一定的私密性，请您务必通过**鉴权配置**来保护您的源站数据。操作步骤如下：
