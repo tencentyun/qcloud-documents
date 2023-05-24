@@ -165,7 +165,7 @@ public class SendCodeVoice
 }
 ```
 
-### 指定模版发送语音通知[](id:SendTtsVoice)
+### 指定模板发送语音通知[](id:SendTtsVoice)
 
 ```
 import com.tencentcloudapi.common.Credential;
