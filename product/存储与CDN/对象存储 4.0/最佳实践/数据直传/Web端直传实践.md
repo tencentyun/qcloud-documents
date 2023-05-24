@@ -263,7 +263,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [Pos
         };
 
         // 获取权限策略
-        const getPostPolicyCredentials = function (opt, callback) {
+        const getAuthorization = function (opt, callback) {
           // 替换为自己服务端地址 获取post上传签名
           const url = `http://127.0.0.1:3000/post-policy?ext=${opt.ext}`;
           const xhr = new XMLHttpRequest();
@@ -304,7 +304,11 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [Pos
             // 这里获取文件后缀 由服务端生成最终上传的路径
             ext = fileName.substring(lastDotIndex + 1);
           }
-          getPostPolicyCredentials({ ext }, function (err, credentials) {
+          getAuthorization({ ext }, function (err, credentials) {
+            if (err) {
+              alert(err);
+              return;
+            }
             const protocol =
               location.protocol === 'https:' ? 'https:' : 'http:';
             prefix = protocol + '//' + credentials.cosHost;
@@ -555,6 +559,10 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
             ext = filePath.substring(lastDotIndex + 1);
           }
           getAuthorization({ ext }, function (err, AuthData) {
+            if (err) {
+              alert(err);
+              return;
+            }
             const protocol =
               location.protocol === 'https:' ? 'https:' : 'http:';
             prefix = protocol + '//' + AuthData.cosHost;
@@ -638,7 +646,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
         };
 
         // 计算签名
-        const getauthorization = function (opt, callback) {
+        const getAuthorization = function (opt, callback) {
           // 替换为自己服务端地址 获取临时密钥
           const url = `http://127.0.0.1:3000/sts`;
           const xhr = new XMLHttpRequest();
@@ -676,9 +684,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
         // 上传文件
         const uploadFile = function (file, callback) {
           const Key = file.name;
-          getauthorization(
-            { Method: 'PUT', Pathname: '/' + Key },
-            function (err, info) {
+          getAuthorization({ Method: 'PUT', Pathname: '/' + Key }, function (err, info) {
               if (err) {
                 alert(err);
                 return;
@@ -829,6 +835,10 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
         const uploadFile = function (file, callback) {
           const Key = file.name;
           getAuthorization({ Key }, function (err, credentials) {
+            if (err) {
+              alert(err);
+              return;
+            }
             const fd = new FormData();
 
             // 在当前目录下放一个空的 empty.html 以便让接口上传完成跳转回来
@@ -1076,6 +1086,10 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
           }
           Key = file.name;
           getAuthorization({ Key }, function (err, AuthData) {
+            if (err) {
+              alert(err);
+              return;
+            }
             // 在当前目录下放一个空的 empty.html 以便让接口上传完成跳转回来
             document.getElementById('success_action_redirect').value =
               location.href.substr(0, location.href.lastIndexOf('/') + 1) +
