@@ -1,7 +1,7 @@
 ## 接口说明
 
 **请求方式**：POST。
-
+ 
 ```plaintext
 服务地址/v3/push/package/upload
 ```

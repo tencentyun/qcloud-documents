@@ -87,5 +87,4 @@ std::string GetXCosTraceId();
         </div>
     </div>
 </div>
-3. 在顶部的 RequestId 输入框中，输入待诊断的 RequestId，并单击**开始诊断**。
-4. 稍侯片刻，便能看到相应的智能诊断结果。
+3. 在顶部的 RequestId 输入框中，输入待诊断的 RequestId，并单击**开始诊断**，请您耐心等待几分钟，便能看到相应的智能诊断结果。

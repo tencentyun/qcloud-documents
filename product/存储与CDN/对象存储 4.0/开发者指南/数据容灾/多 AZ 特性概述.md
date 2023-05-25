@@ -1,6 +1,6 @@
 
 
-多 AZ（Available Zone）是指由 [腾讯云对象存储](https://cloud.tencent.com/product/cos) 推出的多 AZ 存储架构，这一存储架构能够为用户数据提供数据中心级别的容灾能力。
+多 AZ（Multiple Availability Zones）是指由 [腾讯云对象存储](https://cloud.tencent.com/product/cos) 推出的多 AZ 存储架构，这一存储架构能够为用户数据提供数据中心级别的容灾能力。
 
 客户数据分散存储在城市中多个不同的数据中心，当某个数据中心因为自然灾害、断电等极端情况导致整体故障时，多 AZ 存储架构依然可以为客户提供稳定可靠的存储服务。
 

@@ -9,7 +9,7 @@ iOS 及 Android 设备
 ## 前提条件
 - 云服务器实例状态为“运行中”。
 - 已获取登录实例的管理员帐号及密码（或密钥）。
- - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) （标有：云服务器创建成功字样）获取。
  - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 您的云服务器实例已购买公网 IP，且该实例已开通云服务器实例的22端口（对于通过快速配置购买的云服务器实例已默认开通）。
 

@@ -7,7 +7,7 @@
       ![](https://qcloudimg.tencent-cloud.cn/raw/29beac16f44c6b19468afec179760a90.png)
    2. 当选中 HTTPS 时，则需要额外配置证书和其他信息，如下图：
      ![](https://qcloudimg.tencent-cloud.cn/raw/c370f3cff6aa162100a340730eace618.png)
-      - “监听器与源站之间使用 HTTP 协议”，指客户端到加速通道 VIP 之间使用 HTTP 协议，而 VIP 到源站之间使用 HTTP 协议，需要源站开通 HTTP 协议端口；
+      - “监听器与源站之间使用 HTTP 协议”，指客户端到加速通道 VIP 之间使用 HTTPS 协议，而 VIP 到源站之间使用 HTTP 协议，需要源站开通 HTTP 协议端口；
         “监听器与源站之间使用 HTTPS 协议”，指客户端到源站之间全程使用 HTTPS 协议，需要源站开通 HTTPS 协议端口。
       - SSL 解析方式：支持单向认证、双向认证。
       - 服务器证书/客户端证书：需要在全球应用加速控制台的**证书管理**上传/更新，然后在新建/修改 HTTPS 监听器时从下拉列表中选择对应的证书，详见 [证书管理](https://cloud.tencent.com/document/product/608/60757)。

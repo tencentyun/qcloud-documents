@@ -31,7 +31,7 @@ Serverless 是近年来比较流行的架构，通过 Serverless 函数计算平
 
 ### 步骤二：创建云函数，实现数据接口
 
-1. 登录 [云函数 SCF 控制台](https://console.cloud.tencent.com/scf/list) 控制台，用 hello world 模板创建云函数（参考 [创建及更新函数](https://cloud.tencent.com/document/product/583/19806)）。
+1. 登录 [云函数 SCF 控制台](https://console.cloud.tencent.com/scf/list) ，用 hello world 模板创建云函数（参考 [创建及更新函数](https://cloud.tencent.com/document/product/583/19806)）。
 ![](https://main.qcloudimg.com/raw/70813ce761854292233b92fc70873be3.png)
 2. 修改云函数代码，返回简单的 JSON 数据。
 ![](https://main.qcloudimg.com/raw/bda30bde9cc024b9b2b6fe2ef5ee3660.png)

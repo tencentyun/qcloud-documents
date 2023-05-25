@@ -13,7 +13,7 @@ orcaterm 优点如下：
 ## 前提条件[](id:Prerequisites)
 
 - 已获取登录 Linux 实例的管理员帐号及密码（或密钥）。
- - 如在创建实例时选择系统随机生成密码，则请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如在创建实例时选择系统随机生成密码，则请前往 [站内信](https://console.cloud.tencent.com/message) （标有：云服务器创建成功字样）获取。
  - 如已设置登录密码，则请使用该密码登录。如忘记密码，则请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
  - 如已给实例绑定密钥，则可使用密钥登录。如需进一步了解密钥，请参考 [SSH 密钥](https://cloud.tencent.com/document/product/213/6092)。
 - 您的云服务器实例已购买公网 IP，且已在实例关联的安全组中放通来源为 orcaterm 代理 IP 的远程登录端口（默认为22）。

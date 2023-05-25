@@ -40,7 +40,7 @@ ABAC（Attribute-Based Access Control）是基于属性的访问控制授权策�
 #### 方便后续扩展策略
 如果有新的项目，可以快速基于已有策略进行扩展。
 
-例如：您已经使用管理资源访问权限的支持项目 GroupA 和 GroupB，这时可以快速支持新增项目 GroupD。CAM 管理员可以创建 GroupD 对以的新的子用户，并赋予 GroupD 对应的标签，然后为子用户授予切换角色的策略，这时有权限代入该角色的员工都可以访问具有 access-project = GroupD 标签资源。
+例如：您已经使用管理资源访问权限的支持项目 GroupA 和 GroupB，这时可以快速支持新增项目 GroupD。CAM 管理员可以创建 GroupD 对应的新的子用户，并赋予 GroupD 对应的标签，然后为子用户授予切换角色的策略，这时有权限代入该角色的员工都可以访问具有 access-project = GroupD 标签资源。
 
 
 #### 实现精细权限控制
