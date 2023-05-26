@@ -32,7 +32,8 @@
 
 > ! 正式部署时服务端请加一层您的网站本身的权限检验。
 
-服务端签名代码可参考 [Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.js)。
+如何计算签名可参考文档 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
+服务端使用 Nodejs 计算签名代码可参考 [Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.js)。
 
 ### Web 端上传示例
 
