@@ -2,7 +2,7 @@
 
 请注意这是历史版本（V4，基于 JSON API 封装的 SDK），**已经不再推荐使用**。
 
-对于新接入SDK的用户，我们推荐使用最新的V5版本[基于 XML API 封装的 SDK](https://cloud.tencent.com/document/product/436/11280)。如果因为种种原因确实仍然需要需要使用基于 JSON API 封装的 SDK ,那么推荐使用我们基于历史版本重构后的[基于 JSON API 封装的 SDK](https://github.com/tencentyun/qcloud-sdk-ios/tree/master/QCloudNewCOSV4) 。
+对于新接入SDK的用户，我们推荐使用最新的V5版本[基于 XML API 封装的 SDK](https://cloud.tencent.com/document/product/436/11280)。如果因为种种原因确实仍然需要使用基于 JSON API 封装的 SDK ,那么推荐使用我们基于历史版本重构后的[基于 JSON API 封装的 SDK](https://github.com/tencentyun/qcloud-sdk-ios/tree/master/QCloudNewCOSV4) 。
 
 ## 开发准备
 
