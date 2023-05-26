@@ -29,7 +29,7 @@ $ cd <any-path>/co-locality
 ## 示例
 
 
-### 查看全部结点
+### 查看全部节点
 
 
 ```shell
