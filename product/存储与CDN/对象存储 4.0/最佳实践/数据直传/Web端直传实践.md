@@ -28,12 +28,17 @@
 
 ## 实践步骤
 
+### 配置服务端实现签名
+
 > ! 正式部署时服务端请加一层您的网站本身的权限检验。
 
 服务端签名代码可参考 [Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.js)。
+
+### Web 端上传示例
+
 以下代码同时举例了 [PUT Object ](https://cloud.tencent.com/document/product/436/7749) 接口（推荐使用）和[POST Object ](https://cloud.tencent.com/document/product/436/14690) 接口，操作指引如下：
 
-### 使用 AJAX PUT 上传
+#### 使用 AJAX PUT 上传
 
 AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT Object ](https://cloud.tencent.com/document/product/436/7749) 文档，操作指引如下：
 
@@ -186,7 +191,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 执行效果如下图：
 ![Ajax 上传](https://main.qcloudimg.com/raw/4bfc2883d71deddccc76b250ebb6a051.png)
 
-### 使用 AJAX POST 上传
+#### 使用 AJAX POST 上传
 
 AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [Post Object ](https://cloud.tencent.com/document/product/436/14690) 接口。操作指引：
 
@@ -359,7 +364,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [Pos
 执行效果如下图：
 ![Ajax 上传](https://main.qcloudimg.com/raw/4bfc2883d71deddccc76b250ebb6a051.png)
 
-### 使用 Form 表单上传
+#### 使用 Form 表单上传
 
 Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方案使用 [Post Object ](https://cloud.tencent.com/document/product/436/14690) 接口。操作指引：
 
@@ -566,9 +571,9 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
 执行效果如下图：
 ![Form 表单上传](https://main.qcloudimg.com/raw/ef666461bc5f88715f28934393ebe4f4.png)
 
-### 上传时限制文件后缀
+#### 上传时限制文件后缀
 
-#### 前端限制
+##### 前端限制
 
 参考上方 AJAX PUT 上传，只需要在选择文件时加一层判断即可。
 
@@ -602,13 +607,13 @@ document.getElementById('submitBtn').onclick = function (e) {
 };
 ```
 
-#### 服务端签名限制
+##### 服务端签名限制
 
 可参考服务端签名代码 [Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.js)，对 extWhiteList 做处理。
 
-### 上传时限制文件大小
+#### 上传时限制文件大小
 
-#### 前端限制
+##### 前端限制
 
 参考上方 AJAX PUT 上传，只需要在选择文件时加一层判断即可。
 
@@ -638,7 +643,7 @@ document.getElementById('submitBtn').onclick = function (e) {
 };
 ```
 
-#### 服务端签名限制
+##### 服务端签名限制
 
 可参考服务端签名代码 [Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.js)。
 POST 上传的 post-policy 签名可添加 conditions: ['content-length-range', 1, 5242880 ]，代表上传文件大小范围为 1B - 5MB。
