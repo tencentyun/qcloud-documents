@@ -6,13 +6,6 @@ OpenCloudOS 8.6是 OpenCloudOS 社区发布的最新版本，其基础库和用�
 ## 适用说明
 OpenCloudOS 适用于云上绝大多数机型生产实例，包括云服务器，裸金属云服务器等。
 
-<dx-alert infotype="notice" title="">
-目前 OpenCloudOS 未预装 GPU 驱动，若需在 GPU 实例上使用，则请手动安装 GPU 驱动。
-</dx-alert>
-
-
-
-
 ## OpenCloudOS 镜像版本
 目前腾讯云上可支持使用 OpenCloudOS 8版本（即为8.6最新版）镜像，该镜像与 CentOS 8用户态完全兼容，配套了基于社区5.4 LTS 的 OpenCloudOS Kernel。
 
