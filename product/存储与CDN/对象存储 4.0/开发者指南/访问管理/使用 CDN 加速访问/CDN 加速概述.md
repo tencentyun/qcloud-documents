@@ -34,8 +34,8 @@ CDN 会进行缓存和回源行为，即用户在访问某个 URL 的时候，�
 
 #### 访问节点
 
-- 访问节点：用户在创建一个存储桶后，COS 会自动为存储桶分配一个XML 访问节点，该访问节点形式为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，适用于 RESTful API 访问。用户可以通过访问域名，并查看 [API 文档](https://cloud.tencent.com/document/product/436/7751) 的执行规范，对存储桶进行配置，或进行对象的上传、下载操作。
-- 静态网站节点：在控制台的存储桶基本配置界面可以开启托管静态网站的功能，开启后将提供一个访问节点，访问节点形式为&lt;BucketName-APPID>.cos-website.&lt;Region>.myqcloud.com。静态网站支持特殊的索引页（IndexPage）、错误页（ErrorPage）和跳转等，仅支持针对对象的下载类操作，用户可以通过静态网站域名获取内容。
+- 访问节点：用户在创建一个存储桶后，COS 会自动为存储桶分配一个XML 访问节点，该访问节点形式为`<BucketName-APPID>.cos.<Region>.myqcloud.com`，适用于 RESTful API 访问。用户可以通过访问域名，并查看 [API 文档](https://cloud.tencent.com/document/product/436/7751) 的执行规范，对存储桶进行配置，或进行对象的上传、下载操作。
+- 静态网站节点：在控制台的存储桶基本配置界面可以开启托管静态网站的功能，开启后将提供一个访问节点，访问节点形式为`<BucketName-APPID>.cos-website.<Region>.myqcloud.com`。静态网站支持特殊的索引页（IndexPage）、错误页（ErrorPage）和跳转等，仅支持针对对象的下载类操作，用户可以通过静态网站域名获取内容。
 
 #### 访问权限
 
@@ -59,6 +59,7 @@ CDN 会进行缓存和回源行为，即用户在访问某个 URL 的时候，�
 | 关闭（默认） | 可访问           | 可访问       | 全站许可公共访问，通过 CDN 或源站均可访问       |
 | 开启         | 需使用 URL 鉴权  | 可访问       | 对 CDN 访问开启防盗链，但不保护源站访问，不推荐 |
 
+
 #### 私有读存储桶
 
 存储桶默认为私有读时，配置 CDN 回源到 COS 访问节点，CDN 边缘节点将**无法获取和缓存任何数据**。因此，需要将 CDN 服务身份加入到存储桶访问策略（Bucket Policy）中，并许可该身份可以执行以下操作：
@@ -67,13 +68,21 @@ CDN 会进行缓存和回源行为，即用户在访问某个 URL 的时候，�
 - HEAD Object：查询对象元数据
 - OPTIONS Object：预请求跨域配置
 
-在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 和 [COS 控制台](https://console.cloud.tencent.com/cos5) 均提供了一键授权的功能，单击**添加 CDN 服务授权**即可完成。完成该操作后，需要开启**回源鉴权**选项，此时 CDN 边缘将会使用其服务身份访问 COS 中的数据。
+在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 和 [COS 控制台](https://console.cloud.tencent.com/cos5) 均提供了一键授权的功能，单击**添加 CDN 服务授权**即可完成。完成授权操作后，需要开启**回源鉴权**选项，此时 CDN 边缘将会使用其服务身份访问 COS 中的数据。详情可参见以下文档：
+
+- [CDN 加速 COS 资源](https://cloud.tencent.com/document/product/228/74317)
+- [开启自定义 CDN 加速域名](https://cloud.tencent.com/document/product/436/36637)
+
 
 >!
 - 如果存储桶被设置为私有读，则必须添加授权并开启回源鉴权，否则 COS 将拒绝访问。
 - CDN 边缘会根据每个主账户生成一个服务账号，因此账户授权只对加速域名所属的主账户有效，跨账户绑定加速域名将会被拒绝访问。
 
-添加 CDN 服务授权并开启回源鉴权后，CDN 边缘节点将可以直接获取并缓存数据，因此强烈建议在您有保护私有数据的需求时，开启 [鉴权配置](https://cloud.tencent.com/document/product/228/41622) 保护存储桶中的数据。对于不同 CDN 鉴权配置，域名对私有读存储桶的访问能力见下表：
+
+对于私有读存储桶，同时开启回源鉴权和 CDN 服务授权会导致通过 CDN 访问源站时无需携带签名，CDN 缓存资源将进行公网分发，导致数据的安全性受到影响，建议**开启 CDN 鉴权配置**保护存储桶中的数据。具体配置步骤请参见 [配置说明](https://cloud.tencent.com/document/product/228/41622) 文档中的鉴权配置部分。
+
+
+对于不同 CDN 鉴权配置，域名对私有读存储桶的访问能力见下表：
 
 | CDN 鉴权配置 | CDN 加速域名访问 | COS 域名访问    | 常见场景                            |
 | ------------ | ---------------- | --------------- | ----------------------------------- |
