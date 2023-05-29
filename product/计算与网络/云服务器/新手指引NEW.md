@@ -5,7 +5,7 @@
 
 
 ## 2. 了解云服务器
-您可请依次查阅以下文档，进一步了解云服务器：
+您可以依次查阅以下文档，进一步了解云服务器：
 - [云服务器是怎么工作的？](https://cloud.tencent.com/document/product/213/495)
 - [云服务器是怎样计费的？](https://cloud.tencent.com/document/product/213/2180)
 - [使用腾讯云云服务器有哪些限制？](https://cloud.tencent.com/document/product/213/15379)
