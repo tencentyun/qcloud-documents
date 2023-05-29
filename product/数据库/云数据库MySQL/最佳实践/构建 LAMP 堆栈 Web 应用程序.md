@@ -12,7 +12,7 @@ LAMP 指 Linux+Apache+Mysql/MariaDB+Perl/PHP/Python，是一组常用来搭建�
 
 ### 安装 MySQL 客户端
 1. 在云服务器实例中使用`yum`安装 MySQL 客户端。
-```plaintext
+```
 yum install mysql -y
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/c6da1faf909c324d80dd4efefd5d1733.png)
