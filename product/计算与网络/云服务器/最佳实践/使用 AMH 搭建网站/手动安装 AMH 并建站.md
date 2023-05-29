@@ -4,12 +4,6 @@
 进行手动安装 AMH，您需要熟悉 Linux 命令，例如  [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
 
 
-<dx-alert infotype="notice" title="">
-腾讯云建议您可以通过云市场的镜像环境部署 AMH，手动安装 AMH需要较长的时间。具体步骤可参考 [镜像部署 AMH 和建站](https://cloud.tencent.com/document/product/213/38357)。
-</dx-alert>
-
-
-
 ## 示例软件版本
 本文以在 CentOS 7.8 操作系统的 Linux 云服务器上安装 AMH 6.1 为例，您可前往 [AMH 官网](https://amh.sh/index.htm?amh) 了解更多 AMH 及支持操作系统的信息。
 
