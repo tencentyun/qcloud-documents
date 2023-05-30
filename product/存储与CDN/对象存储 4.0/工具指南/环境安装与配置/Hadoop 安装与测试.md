@@ -2,7 +2,7 @@ Hadoop 工具依赖 Hadoop-2.7.2 及以上版本，实现了以腾讯云对象�
 
 ## 准备环境
 1. 准备若干台机器。
-2. 安装配置系统：[CentOS-7-x86_64-DVD-1611.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/)。
+2. 安装配置系统，可前往 [CentOS 官网](http://isoredirect.centos.org/centos/7/isos/x86_64/) 下载安装。本文使用 CentOS 7.3.1611系统版本。
 3. 安装 Java 环境，具体操作请参见 [Java 安装与配置](/doc/product/436/10865)。
 4. 安装 Hadoop 可用包：[Apache Hadoop Releases Download](http://hadoop.apache.org/releases.html#16+April%2C+2018%3A+Release+2.7.6+available)。 
 
@@ -104,8 +104,9 @@ mkdir /usr/hadoop-2.7.4/hdf/data
 mkdir /usr/hadoop-2.7.4/hdf/name
 ```
 进入`hadoop-2.7.4/etc/hadoop`目录下，进行下一步操作。
+
 ### 配置 Hadoop
-#### 1. 修改`hadoop-env.sh`文件，增加如下内容：
+1. 修改`hadoop-env.sh`文件，增加如下内容：
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_144 
 ```
@@ -113,11 +114,11 @@ export JAVA_HOME=/usr/java/jdk1.8.0_144
 ```
 export HADOOP_SSH_OPTS="-p 1234"
 ```
-#### 2. 修改 `yarn-env.sh`
+2. 修改 `yarn-env.sh`
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_144
 ```
-#### 3. 修改`slaves`
+3. 修改`slaves`
 配置内容：
 ```
 删除：
@@ -127,7 +128,7 @@ slave1
 slave2
 slave3
 ```
-#### 4. 修改`core-site.xml`
+4. 修改`core-site.xml`
 ```
 <configuration>
   <property>
@@ -140,7 +141,7 @@ slave3
   </property>
 </configuration>
 ```
-#### 5. 修改`hdfs-site.xml`
+5. 修改`hdfs-site.xml`
 ```
 <configuration>
   <property>
@@ -155,7 +156,7 @@ slave3
   </property>
 </configuration>
 ```
-#### 6. 修改`mapred-site.xml`
+6. 修改`mapred-site.xml`
 ```
 <configuration>
   <property>
@@ -172,7 +173,7 @@ slave3
   </property>
 </configuration>
 ```
-#### 7. 修改`yarn-site.xml`
+7. 修改`yarn-site.xml`
 ```
 <configuration>
   <property>
@@ -205,13 +206,13 @@ slave3
   </property>
 </configuration>
 ```
-#### 8. 各个主机之间复制 Hadoop
+8. 各个主机之间复制 Hadoop
 ```
 scp -r /usr/ hadoop-2.7.4 slave1:/usr
 scp -r /usr/ hadoop-2.7.4 slave2:/usr
 scp -r /usr/ hadoop-2.7.4 slave3:/usr
 ```
-#### 9. 各个主机配置 Hadoop 环境变量
+9. 各个主机配置 Hadoop 环境变量
 打开配置文件：
 ```
 vi /etc/profile
@@ -227,18 +228,20 @@ export YARN_LOG_DIR=$HADOOP_LOG_DIR
 ```
 source /etc/profile
 ```
+
 ### 启动 Hadoop
-#### 1. 格式化 namenode
+
+1. 格式化 namenode
 ```
 cd /usr/hadoop-2.7.4/sbin
 hdfs namenode -format
 ```
-#### 2. 启动
+2. 启动
 ```
 cd /usr/hadoop-2.7.4/sbin
 start-all.sh
 ```
-#### 3. 检查进程
+3. 检查进程
 master 主机包含 ResourceManager、SecondaryNameNode、NameNode 等，则表示启动成功，例如：
 ```
 2212 ResourceManager
@@ -252,25 +255,30 @@ master 主机包含 ResourceManager、SecondaryNameNode、NameNode 等，则表�
 17334 Jps
 17241 NodeManager
 ```
+
 ## 运行 wordcount
+
 由于 Hadoop 自带 wordcount 例程，所以可以直接调用。在启动 Hadoop 之后，我们可以通过以下命令来对 HDFS 中的文件进行操作：
 ```
 hadoop fs -mkdir input
 hadoop fs -put input.txt /input
 hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.4.jar wordcount /input /output/
 ```
-![6762940-439379efda5b4ad6_副本](//mc.qcloudimg.com/static/img/50a03d9e0504301d54d12631cc8da075/image.jpg)
+
+![](https://qcloudimg.tencent-cloud.cn/raw/23931950cfefc46d25d80ab945e234b3.jpg)
 出现如上图结果就说明 Hadoop 安装已经成功了。
 
-#### 查看输出目录
+### 查看输出目录
 ```
 hadoop fs -ls /output
 ```
 
-#### 查看输出结果
+### 查看输出结果
 ```
 hadoop fs -cat /output/part-r-00000
 ```
-![6762940-623e7b1c1b81cb4c_副本](//mc.qcloudimg.com/static/img/6d777bc87c16b0fb10713bbecda1636d/image.jpg)
+
+![](https://qcloudimg.tencent-cloud.cn/raw/99f56a4bddad2459a5ee15d77d3d3982.jpg)
 
 >?单机模式与伪分布式模式的操作方法的详细过程，请参见官网文档 [Hadoop入门](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html)。
+
