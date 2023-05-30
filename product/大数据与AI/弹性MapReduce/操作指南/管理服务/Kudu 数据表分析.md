@@ -25,5 +25,5 @@ Kudu 数据表列表可查看表级请求 QPS、写入 QPS、OnDiskDataSize 存�
 ## Tablet 分析
 Tablet 分析可检索所属表或筛选所属 TabletServer，通过多维读请求、写请求、扫描量等指标信息定位集群热点请求分布。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1f33a0121eb792b75378f185f7c63a7d.png)
-单击信息列title的视图按钮，可查看当前页 Tablet 记录指标的历史趋势，观测突变请求信息，支持时间区间选择。
+单击信息列 title 的视图按钮，可查看当前页 Tablet 记录指标的历史趋势，观测突变请求信息，支持时间区间选择。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fe5a500a15bc25d89b41ab9aa84fc2af.png)
