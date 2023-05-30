@@ -285,7 +285,7 @@
 <tr>
 <td>网络处理器平均空闲率</td>
 <td>NetworkProcessorAvgIdlePercent</td>
-<td>-</td>
+<td>%</td>
 <td>网络线程池线程平均的空闲比例</td>
 </tr>
 <tr>
