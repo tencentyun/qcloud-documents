@@ -20,7 +20,7 @@ pod 'CloudInfinite/CIDownloader'
 ```
 SDK内部自动检测是否有该类，并加入到SDWebImage loader管理器中。
 
-* 动态配置是否使用CIDownloader；
+* 动态配置是否使用CIDownloader，默认只接管TPG、AVIF图片请求；
 ```
 [CIImageDownloader sharedDownloader].canUseCIImageDownloader = ^BOOL(NSURL * _Nonnull url, SDWebImageOptions options, SDWebImageContext * _Nonnull context) {
 /// 业务判断是否使用CIImageDownloader 加载图片，还是SDWebImage 自带loader加载图片
@@ -122,8 +122,8 @@ customConcurrentCount 为当前并发数量，SDK内部根据网络状况自动�
 [CIImageDownloader sharedDownloader].maxConcurrentCount = 10;
 ```
 
-### 六、开启TPG、AVIF原图保护例代码
-原图保护为TPG、AVIF模块所独有功能，适用于 使用`CloudInfinite/SDWebImage-CloudInfinite`加载TPG、AVIF图片。
+### 六、开启TPG、AVIF失败后原图重试例代码
+失败后原图重试为TPG、AVIF模块所独有功能，适用于 使用`CloudInfinite/SDWebImage-CloudInfinite`加载TPG、AVIF图片。
 功能描述：当TPG、AVIF图片加载失败时，自动请求原格式图片，提升用户体验。并将TPG、AVIF加载失败原因返回，用于排查失败原因及时修复。
 
 * 开启原图保护

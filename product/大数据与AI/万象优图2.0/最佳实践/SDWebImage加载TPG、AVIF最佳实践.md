@@ -1,4 +1,4 @@
-## SDWebImage加载TPG、AVIF最佳实践
+## SDWebImage加载TPG/AVIF最佳实践
 
 ### 通过 SDWebImage + 自定义网络层 + HTTPDNS + QUIC + 失败重试 + 原图保护 加载TPG、AVIF图
 
@@ -58,7 +58,7 @@ pod 'CloudInfinite/AVIF' // AVIF解码器
     [CIImageDownloader sharedDownloader].quicWhiteList = @[@"examples-1251000004.cos.ap-shanghai.myqcloud.com"];
     [QCloudQuicConfig shareConfig].race_type = QCloudRaceTypeQUICHTTP;
 
-    // 开启原图保护
+    // 开启失败后原图重试
     // 开启请求TPG,AVIF加载失败时请求原图 
     [UIView setLoadOriginalImageWhenError:YES];
     // 可选配置，sdk内部将图片链接中format/tpg 或者 format/avif删除，如果不满足业务，则需自定义tpg、avif链接转换原图链接策略。
