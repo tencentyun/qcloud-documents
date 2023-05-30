@@ -20,18 +20,21 @@ vi /etc/hosts
 202.xxx.xxx.xxx slave1
 202.xxx.xxx.xxx slave2
 202.xxx.xxx.xxx slave3
-//IP 地址替换为真实 IP
+# IP 地址替换为真实 IP
 ```
+
 #### 关闭防火墙
 ```
-systemctl status firewalld.service  //检查防火墙状态
-systemctl stop firewalld.service  //关闭防火墙
-systemctl disable firewalld.service  //禁止开机启动防火墙
+systemctl status firewalld.service    # 检查防火墙状态
+systemctl stop firewalld.service      # 关闭防火墙
+systemctl disable firewalld.service   # 禁止开机启动防火墙
 ```
+
+
 #### 时间同步
 ```
-yum install -y ntp  //安装 ntp 服务
-ntpdate cn.pool.ntp.org  //同步网络时间
+yum install -y ntp        # 安装 ntp 服务
+ntpdate cn.pool.ntp.org   # 同步网络时间
 ```
 #### 安装配置 JDK
 上传 JDK 安装包（如jdk-8u144-linux-x64.tar.gz）到`root`根目录。
@@ -56,19 +59,19 @@ vi /etc/profile
 export JAVA_HOME=/usr/java/jdk1.8.0_144
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-source/etc/profile    //使配置文件生效
-java -version       //查看 java 版本
+source/etc/profile          # 使配置文件生效
+java -version               # 查看 java 版本
 ```
 #### 配置 SSH 无密钥访问
 分别在各个主机上检查 SSH 服务状态：
 ```
-systemctl status sshd.service  //检查 SSH 服务状态
-yum install openssh-server openssh-clients  //安装 SSH 服务，如果已安装，则不用执行该步骤
-systemctl start sshd.service  //启动 SSH 服务，如果已安装，则不用执行该步骤
+systemctl status sshd.service                  # 检查 SSH 服务状态
+yum install openssh-server openssh-clients     # 安装 SSH 服务，如果已安装，则不用执行该步骤
+systemctl start sshd.service                   # 启动 SSH 服务，如果已安装，则不用执行该步骤
 ```
 分别在各个主机上生成密钥：
 ```
-ssh-keygen -t rsa  //生成密钥
+ssh-keygen -t rsa  # 生成密钥
 ```
 在 slave1 上：
 ```
@@ -281,4 +284,3 @@ hadoop fs -cat /output/part-r-00000
 ![](https://qcloudimg.tencent-cloud.cn/raw/99f56a4bddad2459a5ee15d77d3d3982.jpg)
 
 >?单机模式与伪分布式模式的操作方法的详细过程，请参见官网文档 [Hadoop入门](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html)。
-
