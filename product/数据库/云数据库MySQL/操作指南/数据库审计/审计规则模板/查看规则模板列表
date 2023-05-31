@@ -4,7 +4,7 @@
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/dls/mysql)。
 2. 在左侧导航栏选择**数据库审计**。
 3. 选择**地域**后，单击**规则模板**。
-![](https://qcloudimg.tencent-cloud.cn/raw/2d7bc1593a16eaf256b65516eb2695a5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/de2de0ed5d22f001aa144141023b8397.png)
 4. 在**规则模板**列表里找到目标规则模板（也可在搜索框通过资源属性筛选快速查找），在其**操作**列单击**详情**。
 5. 在弹窗下，可切换查看该规则模板的**基本信息**和**参数设置**情况。
  - 基本信息页面

@@ -35,7 +35,7 @@
 
 一个完整的 TKE 通道配置如下：
 
-![image](https://user-images.githubusercontent.com/128894590/227708218-f113c8ac-f2fa-4b9d-98b9-199eaafeaede.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9f3e5683e3777384076f5c8f9e29178e.png)
 
 
 ### 步骤2：API 后端对接 TKE 通道

@@ -6,7 +6,7 @@
 2. 在集群详情页中单击**集群服务**，然后选择 HBase 组件右上角**操作 >数据表分析**，即可进行相关 HBase 数据表负载查询。
 
 ## 数据表列表
-Hbase 数据表列表可查看表级请求 QPS、写入 QPS、MetaStore 存储量、StoreFile 大小等信息，通过列 title 的排序按钮可定位集群 Top 数据表。
+Hbase 数据表列表可查看表级请求 QPS、写入 QPS、MemStore 存储量、StoreFile 大小等信息，通过列 title 的排序按钮可定位集群 Top 数据表。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ed3ee429f54ded20ee82c9fd7445578.png)
 ### 查看表详情
 单击对应表名，即可弹出表详情。详情页可按整个表、节点维度展示所选择表的请求量（包括读和写）、store 大小（包括 memstore 和 storeFile）两个指标数据，选择右上角的节点筛选器可切换节点查看。
