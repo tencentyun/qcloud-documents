@@ -7,7 +7,7 @@ CLI 工具仅限云托管新版控制台的环境使用，云开发中的云托�
 
 ## 安装
 
-CLI 工具安装前需要在安装 `npm`，具体请看 [此文档](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
+CLI 工具安装前需要安装 `npm`，具体请看 [此文档](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
 <dx-codeblock>
 :::  shell
 npm install -g @cloudbase/cli
