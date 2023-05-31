@@ -154,6 +154,7 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 - [Tencent Cloud Speech SDK for C++](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp)
 - [Tencent Cloud Speech SDK for Python](https://github.com/TencentCloud/tencentcloud-speech-sdk-python)
 - [Tencent Cloud Speech SDK for JS](https://github.com/TencentCloud/tencentcloud-speech-sdk-js)
+- [Tencent Cloud Speech SDK for C#](https://github.com/TencentCloud/tencentcloud-speech-sdk-dotnet)
 
 ### SDK 调用示例
 - [Golang 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-go/blob/master/examples/asrexample/asrexample.go) 
@@ -161,7 +162,7 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 - [C++ 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp/blob/master/examples/asr_example.cpp) 
 - [Python 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-python/blob/master/examples/asr/asrexample.py) 
 - [JS 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-js/tree/main/examples)
-
+- [C# 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-dotnet/tree/main/examples/realtime-asr) 
 ## 错误码
 
 | 数值 | 说明 |
