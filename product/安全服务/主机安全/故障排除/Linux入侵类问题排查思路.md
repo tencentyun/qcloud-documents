@@ -46,7 +46,7 @@
 ### 三、检查恶意程序和可疑启动项
 1. 使用`chkconfig --list`（Centos） 、`systemctl list-unit-files --type=service --state=enabled`（Ubuntu/Debian）命令，查看开机启动项中是否有异常的启动服务。
     * 检查说明：恶意程序往往会添加在系统的启动项，在用户关机重启后再次运行。
-    * 解决方法：如发现有恶意进程，可使用` chkconfig 服务名 off` 关闭（Centos）或者使用 `systemctl disable/stop服务名`来禁用/停止（Ubuntu/Debian），同时检查`/etc/rc.local`中是否有异常项目，如有请注释掉。
+    * 解决方法：如发现有恶意进程，可使用` chkconfig 服务名 off` 关闭（Centos）或者使用 `systemctl disable/stop 服务名`来禁用/停止（Ubuntu/Debian），同时检查`/etc/rc.local`中是否有异常项目，如有请注释掉。
     * 风险性：高。
 2. 进入 cron 文件目录，查看是否存在非法定时任务脚本。
     * 检查说明：查看`/etc/crontab`，`/etc/cron.d`，`/etc/cron.daily`，`cron.hourly/`，`cron.monthly`，`cron.weekly/`是否存在可疑脚本或程序。
