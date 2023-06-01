@@ -1,4 +1,4 @@
-## 接管SDWebImage网络层
+## SDWebImage集成QCloud网络库
 
 >! SDK 版本需要大于等于 v1.5.0。
 
