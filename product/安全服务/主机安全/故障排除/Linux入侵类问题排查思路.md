@@ -12,7 +12,7 @@
     * 检查说明：攻击者或者恶意软件往往会往系统中注入隐藏的系统账户实施提权或其他破坏性的攻击。
     * 解决方法：检查发现有可疑用户时，可使用命令`usermod -L 用户名`禁用用户或者使用命令`userdel -r 用户名`删除用户。
     * 风险性：高。
-3. 通过`less /var/log/secure|grep 'Accepted'`命令，查看是否有可疑 IP 成功登录机器：
+3. 通过`less /var/log/secure|grep 'Accepted'`命令或者`less /var/log/auth.log|grep 'Accepted'`命令，查看是否有可疑 IP 成功登录机器：
     * 检查说明：攻击者或者恶意软件往往会往系统中注入隐藏的系统账户实施提权或其他破坏性的攻击。
     * 解决方法：使用命令`usermod -L 用户名`禁用用户或者使用命令`userdel -r 用户名`删除用户。
     * 风险性：高。
@@ -21,7 +21,7 @@
     * 解决方法：
         1. 在服务器内编辑`/etc/ssh/sshd_config`文件中的 Port 22，将22修改为非默认端口，修改之后需要重启 ssh 服务。
 >!当对端口进行修改时，需同时在 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 上修改对应主机的安全组配置，在其入站规则中，放行对应端口，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。
-        2. 运行`/etc/init.d/sshd restart（CentOS）或 /etc/init.d/ssh restart（Debian / Ubuntu）`命令重启使配置生效。
+        2. 运行 `/etc/init.d/sshd restart`（centos 7 之前版本）、`systemctl restart sshd`（centos 7 及其以上版本）或 `/etc/init.d/ssh restart（Debian / Ubuntu）`命令重启使配置生效。
         3. 修改 FTP、MySQL、Redis 等的程序配置文件的默认监听端口21、3306、6379为其他端口。
         4. 限制远程登录的 IP，编辑`/etc/hosts.deny` 、`/etc/hosts.allow`两个文件来限制 IP。
     * 风险性：高。
@@ -39,14 +39,14 @@
    * 风险性：高。
 2. 使用`ps -ef`和`top`命令查看是否有异常进程
     * 检查说明：运行以上命令，当发现有名称不断变化的非授权进程占用大量系统 CPU 或内存资源时，则可能为恶意程序。
-    * 解决方法：确认该进程为恶意进程后，可以使用`kill -9 进程名`命令结束进程，或使用防火墙限制进程外联。
+    * 解决方法：确认该进程为恶意进程后，可以使用`kill -9 进程 ID`或者`pkill -9 进程名`命令结束进程，或使用防火墙限制进程外联。
     * 风险性：高。
 
 
 ### 三、检查恶意程序和可疑启动项
-1. 使用`chkconfig --list`和`cat /etc/rc.local`命令，查看开机启动项中是否有异常的启动服务。
+1. 使用`chkconfig --list` 、`systemctl list-unit-files --type=service --state=enabled` 或者`cat /etc/rc.local`命令，查看开机启动项中是否有异常的启动服务。
     * 检查说明：恶意程序往往会添加在系统的启动项，在用户关机重启后再次运行。
-    * 解决方法：如发现有恶意进程，可使用`chkconfig 服务名 off`命令关闭，同时检查`/etc/rc.local`中是否有异常项目，如有请注释掉。
+    * 解决方法：如发现有恶意进程，可使用`chkconfig 服务名 off命令关闭`或者使用`systemctl disable/stop`服务名来禁用/停止，同时检查`/etc/rc.local`中是否有异常项目，如有请注释掉。
     * 风险性：高。
 2. 进入 cron 文件目录，查看是否存在非法定时任务脚本。
     * 检查说明：查看`/etc/crontab`，`/etc/cron.d`，`/etc/cron.daily`，`cron.hourly/`，`cron.monthly`，`cron.weekly/`是否存在可疑脚本或程序。
@@ -92,7 +92,7 @@ find data -type d -exec chmod 770 {} \;
 - 推荐使用 SSH 密钥进行登录，减少暴力破解的风险。
 - 在服务器内编辑`/etc/ssh/sshd_config`文件中的 Port 22，将 22 修改为其他非默认端口，修改之后重启 SSH 服务。可使用如下命令重启：
 ```
-/etc/init.d/sshd restart（CentOS）或 /etc/init.d/ssh restart（Debian/Ubuntu）
+/etc/init.d/sshd restart（Centos7以下）或 systemctl restart sshd（Centos7及其以上）或 /etc/init.d/ssh restart（Debian/Ubuntu）
 ```
 >!当修改端口时，需同时在 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 上修改对应主机安全组配置，在其入站规则中放行对应端口，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。
 - 如果必须使用 SSH 密码进行管理，选择一个好密码。
