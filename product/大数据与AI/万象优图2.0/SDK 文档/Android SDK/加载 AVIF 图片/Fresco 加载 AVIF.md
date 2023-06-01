@@ -4,10 +4,13 @@
 
 ### 安装 Fresco 和 AVIF SDK
 
-Fresco是一个知名开源的图片缓存库。更多信息，请参见 [Fresco 官方文档](https://frescolib.org/docs/index.html)。
+Fresco 是一个知名开源的图片缓存库。更多信息，请参见 [Fresco 官方文档](https://frescolib.org/docs/index.html)。
 
 ```
-implementation 'com.qcloud.cos:avif:1.1.0'   
+implementation 'com.qcloud.cos:avif:1.1.1'   
+//如果出现beacon灯塔冲突，引入-nobeacon即可
+//implementation 'com.qcloud.cos:avif-nobeacon:1.1.1'
+
 implementation 'com.facebook.fresco:fresco:version'
 // 如果需要支持 avif 动图解码器 则需要加上 fresco:animated-base 依赖
 implementation 'com.facebook.fresco:animated-base:version'
@@ -96,4 +99,71 @@ ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(uri)
                 .build();
 AbstractDraweeController controller = Fresco.newDraweeControllerBuilder().setImageRequest(imageRequest).build();
 draweeView.setController(controller);
+```
+
+### 设置加载失败后原图重试
+
+>! AVIF SDK 版本需要大于等于 v1.1.1。
+
+当 AVIF 图片加载失败时，自动请求原格式图片，提升用户体验。并将 AVIF 图片加载失败原因返回，用于排查失败原因及时修复。
+
+在 Fresco 加载图片时通过 PipelineDraweeController.addControllerListener 方法设置 OriginalImageRetryControllerListener 实现原图重试功能。
+
+```
+String imgUrl = "https://www.test.com/test.avif";
+ImageRequestBuilder imageRequestBuilder = ImageRequestBuilder.newBuilderWithSource(Uri.parse(imgUrl));
+ImageRequest request = imageRequestBuilder.build();
+BaseControllerListener<ImageInfo> controllerListener = new BaseControllerListener<ImageInfo>() {
+    @Override
+    public void onFinalImageSet(
+            String id,
+            @Nullable ImageInfo imageInfo,
+            @Nullable Animatable anim) {
+        // 其他业务onFinalImageSet
+    }
+    @Override
+    public void onFailure(String id, Throwable throwable) {
+        // 其他业务onFailure
+    }
+};
+PipelineDraweeControllerBuilder draweeControllerBuilder = Fresco.newDraweeControllerBuilder()
+        .setOldController(simpleDraweeView.getController())
+        .setControllerListener(controllerListener)
+        .setImageRequest(request);
+// 原图兜底监听器
+OriginalImageRetryControllerListener originalImageRetry = new OriginalImageRetryControllerListener(simpleDraweeView, imageRequestBuilder, draweeControllerBuilder);
+originalImageRetry.setOriginalImageRetryCallback(new FrescoOriginalImageRetryCallback() {
+    @Nullable
+    @Override
+    public String buildOriginalImageUrl(String urlStr) {
+        // 使用默认的原图格式
+        return null;
+    }
+    @Override
+    public void onFailureBeforeRetry(Uri uri, String id, Throwable throwable) {
+        // AVIF加载失败在这里上报，统计原图兜底次数和AVIF解码异常信息(不影响真正的图片加载失败率)
+        Log.d(TAG, "AVIF onLoadFailed："+ uri.toString());
+        if (throwable != null) {
+            Log.d(TAG, throwable.getMessage());
+            throwable.printStackTrace();
+        }
+    }
+    @Override
+    public void onFailure(Uri uri, String id, Throwable throwable) {
+        //真正的加载失败在这里上报(影响真正的图片加载成功失败率)
+        Log.d(TAG, "Image onLoadFailed："+ uri.toString());
+        if (throwable != null) {
+            Log.d(TAG, throwable.getMessage());
+            throwable.printStackTrace();
+        }
+    }
+    @Override
+    public void onFinalImageSet(Uri uri, String id, @Nullable ImageInfo imageInfo, @Nullable Animatable anim) {
+        //真正的加载成功在这里上报(影响真正的图片加载成功失败率)
+        Log.d(TAG, "Image onLoadSuccess："+ uri.toString());
+    }
+});
+PipelineDraweeController controller = (PipelineDraweeController) draweeControllerBuilder.build();
+controller.addControllerListener(originalImageRetry);
+simpleDraweeView.setController(controller);
 ```
