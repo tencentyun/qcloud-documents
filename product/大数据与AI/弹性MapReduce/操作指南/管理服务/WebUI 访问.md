@@ -25,8 +25,8 @@
 | ALLUXIO UI | `http://{集群内网ip}:19999` |
 
 如需在集群创建后通过公网访问组件 WebUI，可以给主 Master 节点绑定一个弹性公网 IP（EIP）实现。绑定 EIP 操作如下：
-1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的**集群 ID/名称**进入集群详情页，然后在**集群资源 > 资源管理**中选择需要绑定弹性公网 IP 的 Master 节点，单击**资源名称/资源 ID** 进入云服务器控制台。
-![](https://qcloudimg.tencent-cloud.cn/raw/d378e1a40c1332f4980204ce70ba35bd.png)
+1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的**集群 ID/名称**进入集群详情页，然后在**集群资源 > 资源管理**中选择需要绑定弹性公网 IP 的 Master 节点，单击**资源 ID** 进入云服务器控制台。
+![](https://qcloudimg.tencent-cloud.cn/raw/0fc5d2db562af38e043c22730b222c2d.png)
 2. 调整 CVM 实例的网络带宽设置，保证需要绑定 EIP 的 CVM 实例带宽不为0，否则会无法连接相应节点。
 在云服务器控制台 CVM 实例列表中选择对应实例的**更多 > 资源调整 > 调整网络**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cbedf871b3510c0bd9425ddc7bf7f816.png)
@@ -35,7 +35,7 @@
 3. 单击 CVM 实例的**实例 ID** 进入实例基本信息页面，并切换到弹性网卡页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a9bd5e346f589719254dfb49bd0988c5.png)
 4. 单击**绑定**，为当前 CVM 实例绑定一个已有的 EIP 或创建一个新的 EIP。
-![](https://qcloudimg.tencent-cloud.cn/raw/7b840c2e76e38314838cf48879637494.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/eb751f82f14e51394549ae9438b00f62.png)
 绑定 EIP 后，可以看到弹性网卡页面，主网卡已绑定公网 IP 处已有 EIP 信息。
 5. 检查 CVM 实例是否可以通过公网访问。
 6. 可以通过 ping 或 ssh 命令检查 EIP 是否生效，要确保安全组入站规则对 ICMP 和22端口开放。访问组件原生 WebUI。

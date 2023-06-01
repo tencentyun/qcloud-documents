@@ -232,6 +232,7 @@ AdjDarMethod 参数图示：
 
 ```shell
 <Response>
+    <RequestId>NjQ0NGNlNDZfMThhYTk0MGFfY*********</RequestId>
     <Template>
         <Tag>TranscodePro</Tag>
         <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
@@ -278,6 +279,14 @@ AdjDarMethod 参数图示：
 
 <span id="Response"></span>
 Container 节点 Response 的内容：
+
+| 节点名称（关键字） | 父节点 | 描述        | 类型        |
+|:----------| :----- |:----------|:----------|
+| Template  | Response     | 保存模板详情的容器 | Container |
+| RequestId | Response     | 请求的唯一 ID  | String    |
+
+<span id="Template"></span>
+Container 节点 Template 的内容：
 
 | 节点名称（关键字） | 父节点            | 描述                           | 类型      |
 | :----------------- | :---------------- | :----------------------------- | :-------- |
@@ -360,6 +369,7 @@ Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
+    <RequestId>NjQ0NGNlNDZfMThhYTk0MGFfY*********</RequestId>
     <Template>
         <Tag>TranscodePro</Tag>
         <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>

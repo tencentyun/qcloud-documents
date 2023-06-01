@@ -46,7 +46,7 @@ try {
             'Object' => 'video01.mp4'
         ),
         'Operation' => array(
-//            'TemplateId' => '', // 使用模版
+//            'TemplateId' => '', // 使用模板
             'SmartCover' => array(
                 'Format' => '',
                 'Width' => '',

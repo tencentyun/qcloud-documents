@@ -185,13 +185,14 @@ public interface OcrLoginListener {
   * 退出SDK,返回第三方的回调,同时返回ocr识别结果
   */
 public interface IDCardScanResultListener{
-        /**
-         * @RARAM exidCardResult   SDK返回的识别结果的错误码  
-* @RARAM exidCardResult   SDK返回的识别结果的错误信息    
-         */
-        void onFinish(String errorCode, String errorMsg);
+/**
+ * 退出SDK,返回第三方的回调,同时返回ocr识别结果
+ * @param errorCode 返回码，识别成功返回 0
+ * @param errorMsg  返回信息
+ * @param result 识别结果类
+ */        
+void onFinish(String errorCode, String errorMsg, Parcelable result);
 }
-
 ```
  **NONCE 类型的 ticket，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket，重新算 sign。同时建议合作方做前端保护，防止用户连续点击，短时间内频繁启动 SDK。**
 
@@ -241,20 +242,20 @@ public interface OcrLoginListener {
   * 退出SDK,返回第三方的回调,同时返回ocr识别结果
   */
 public interface IDCardScanResultListener{
-        /**
-         * 退出SDK,返回第三方的回调,同时返回ocr识别结果
-         * @param errorCode        返回错误码，识别成功返回 0
-         * @param errorMsg        返回错误信息，和错误码相关联         */
-        void onFinish(String errorCode, String errorMsg);
-}
+	/**
+	 * 退出SDK,返回第三方的回调,同时返回ocr识别结果
+	 * @param errorCode 返回码，识别成功返回 0
+	 * @param errorMsg  返回信息
+	 * @param result 识别结果类
+	 */        
+	void onFinish(String errorCode, String errorMsg, Parcelable result);
+	}
 
 ```
 
 #### 身份证识别结果类
-身份证识别结果, 封装在 EXIDCardResult 类中，通过 WbCloudOcrSDK.getInstance().getResultReturn() 获得，该类属性如下所示：
-
+回调 onFinish()的 EXIDCardResult 类中，该类属性如下所示：
 ```
-public int type;//拉起SDK的模式所对应的int 值，也就是 startActivityForOcr 方法中 WBOCRTYPEMODE type 的枚举值 value
     // 识别人像面返回的信息
     public String cardNum;  //身份证号码
     public String name;//姓名
@@ -262,25 +263,25 @@ public int type;//拉起SDK的模式所对应的int 值，也就是 startActivit
     public String address;//住址
     public String nation;//民族
     public String birth;//出生年月日
-    public String frontFullImageSrc;// 人像面图片在本地的存放路径
+    public String frontFullImageSrc;// 身份证人像面预览完整图片文件路径
 	public String frontWarning;//人像面告警码
 
     //识别国徽面返回的信息
     public String office;//签发机关
     public String validDate;//有效期限
-    public String backFullImageSrc;//国徽面图片在本地的存放路径
+    public String backFullImageSrc;//身份证国徽面预览完整图片文件路径
 	public String backWarning;//国徽面告警码
 	public String sign;//签名
 	public  String orderNo; //每次OCR识别请求的唯一订单号: 建议为32位字符串(不超过32位)
 	public String ocrId;//识别的唯一标识
 	
-	//新增的返回字段
+	//新版本新增的返回字段
 	public String frontMultiWarning;//人像面多重告警码
 	public String backMultiWarning;//国徽面多重告警码
 	public String frontClarity;//人像面清晰度得分
 	public String backClarity;//国徽面清晰度得分
-	public String frontCrop; //身份证正面切边照 base64
-	public String backCrop; //身份证反面切边照 base64
+	public String frontCropSrc;//身份证人像面切边照文件路径
+	public String backCropSrc;//身份证国徽面切边照文件路径
 
 ```
 #### 接口参数说明
@@ -372,19 +373,35 @@ OAUTH_REQUEST_RATE_LIMIT="400504" | 请求访问频率过高
             @Override
             public void onLoginSuccess() {  //登录成功,拉起 SDL 页面                              WbCloudOcrSDK.getInstance().startActivityForOcr(MainActivity.this,
       new  WbCloudOcrSDK.IDCardScanResultListener() {  //返退出 SDK 回调接口
-                    @Override
-                    public void onFinish(String resultCode, String resultMsg) {
-										//身份证识别结果类
-EXIDCardResult result=WbCloudOcrSDK.getInstance().getResultReturn();
-
-           // resultCode为0，则识别成功；否则识别失败
-               if (result.frontFullImageSrc!=null||result.backFullImageSrc!=null) {
-							 //  识别结果类的正面图片或者反面图片有不为空 
-						WLogger.d(TAG, "识别成功,识别身份证的结果是:"+WbCloudOcrSDK.getInstance().getResultReturn().toString());
-               }else{  //  TODO:2017/10/30
-               WLogger.d(TAG, "识别失败:"+resultCode+"--"+resultMsg);
-               }
-            }
+                  @Override
+ public void onFinish(final String resultCode, final String resultMsg, Parcelable parcelableResult) {
+    // 登录成功  第三方应用对ocr结果进行展示等操作
+    // TODO: 2023/5/18 客户自己处理结果，下面代码仅供参考
+    Intent i;
+    if (type.equals(WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeBankSide)) {
+        //银行卡识别，跳转到银行卡结果展示页面
+        i = new Intent(MainActivity.this, BankOcrResultActivity.class);
+        i.putExtra("bankcardresult", parcelableResult);
+        i.putExtra("appId", appId);
+        i.putExtra("envUrl", envUrl);
+    } else if (type.equals(WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeNormal) ||
+            type.equals(WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeContinus) ||
+            type.equals(WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeFrontSide) ||
+            type.equals(WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeBackSide)) {
+        //身份证识别，跳转到身份证结果展示页面
+        i = new Intent(MainActivity.this, ResultActivity.class);
+        i.putExtra("idcardresult",parcelableResult);
+    } else if (type.equals(WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeDriverLicenseSide)) {
+        //驾驶证识别，跳转到驾驶证结果展示页面
+        i = new Intent(MainActivity.this, DriverLicenseOcrResultActivity.class);
+        i.putExtra("driverlicenseresult",parcelableResult);
+    } else {
+        //行驶证识别，跳转到行驶证结果展示页面
+        i = new Intent(MainActivity.this, VehicleLicenseOcrResultActivity.class);
+        i.putExtra("vehiclelicenseresult",parcelableResult);
+    }
+    startActivity(i);
+ }
 });
 }              
 @Override

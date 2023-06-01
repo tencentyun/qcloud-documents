@@ -15,12 +15,12 @@ LAMP 指 Linux+Apache+Mysql/MariaDB+Perl/PHP/Python，是一组常用来搭建�
 ```
 yum install mysql -y
 ```
-![](//mc.qcloudimg.com/static/img/8b952d6d7d767413a6558e82df092d44/image.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c6da1faf909c324d80dd4efefd5d1733.png)
 2. 安装完成后，连接到腾讯云数据库实例。
 ```
 mysql -h hostname -u username -p
 ```
-![](//mc.qcloudimg.com/static/img/297856a53959582220b9bba6f06ce9f6/image.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2358c9af9e976fe69cb4724fe4704401.png)
 其中，hostname 为数据库实例的内网 IP 地址，username 为您的数据库用户名。
 3. 连接成功后，即可退出数据库，进行下一步操作。
 ```

@@ -196,6 +196,7 @@ Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
+    <RequestId>NjQ0NGNlNDZfMThhYTk0MGFfY*********</RequestId>
     <Template>
         <Tag>TranscodePro</Tag>
         <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>

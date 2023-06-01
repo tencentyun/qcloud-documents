@@ -55,7 +55,7 @@ tar -zxvf jdk-8u151-linux-x64.tar.gz
 
 编辑 /etc/profile 文件，在 profile 文件中添加如下内容并保存：
 ```shell
-set java environment
+# set java environment
 JAVA_HOME=/usr/java/jdk1.8.0_151        
 JRE_HOME=/usr/java/jdk1.8.0_151/jre     
 CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib

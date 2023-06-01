@@ -1,18 +1,15 @@
 ## 现象描述[](id:symptom)
-无法正常使用 SSH 远程登录 Linux 云服务器，但使用 VNC 方式登录后，查看系统启动失败且提示信息 “Welcome to emergency mode”。参考下图所示：
+无法正常使用 SSH 远程登录 Linux 云服务器，但使用 VNC 方式登录后，查看系统启动失败且提示信息 “Welcome to emergency mode”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dea541a48d2a01503c1dbbc85b0d396f.png)
 
 
 ## 可能原因
 可能由于 `/etc/fstab` 配置不当导致。
 例如，已在 `/etc/fstab` 中配置使用设备名称自动挂载磁盘，但云服务器重启时设备名称发生改变，导致系统无法正常启动。
+您可以参考 [故障处理](#ProcessingSteps) 修复 `/etc/fstab` 配置文件，重启服务器后再进行核验。
 
 
-## 解决思路
-参考 [处理步骤](#ProcessingSteps) 修复 `/etc/fstab` 配置文件，重启服务器后再进行核验。
-
-
-## 处理步骤[](id:ProcessingSteps)
+## 故障处理[](id:ProcessingSteps)
 
 您可通过以下2种方式进入实例并处理该问题：
 
@@ -40,7 +37,7 @@ vi /etc/fstab
 <dx-alert infotype="explain" title="">
 通过控制台重启实例具体步骤请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 </dx-alert>
-8. [](id:Step8)登录成功后，若您需设置磁盘自动挂载，则请参考 [配置 /etc/fstab 文件](https://cloud.tencent.com/document/product/362/53951#ConfigurationFile) 进行对应配置。
+8. [](id:Step8)登录成功后，若您需设置磁盘自动挂载，请参考 [配置 /etc/fstab 文件](https://cloud.tencent.com/document/product/362/53951#ConfigurationFile) 进行对应配置。
 
 :::
 ::: 方式2：使用救援模式[](id:useRescue)
@@ -51,7 +48,7 @@ vi /etc/fstab
 2. 按照方式1中的 [步骤3](#Step3) - [步骤6](#Step6)，修复 `/etc/fstab` 文件。
 3. 参考 [退出救援模式](https://cloud.tencent.com/document/product/213/66678#.E9.80.80.E5.87.BA.E6.95.91.E6.8F.B4.E6.A8.A1.E5.BC.8F)，退出实例救援模式。
 4. 实例退出救援模式后将处于关机状态，请参考 [开机实例](https://cloud.tencent.com/document/product/213/47929) 开机，并在启动后验证系统是否可正常启动及登录。
-5. 登录成功后，若您需设置磁盘自动挂载，则请参考 [配置 /etc/fstab 文件](https://cloud.tencent.com/document/product/362/53951#ConfigurationFile) 进行对应配置。
+5. 登录成功后，若您需设置磁盘自动挂载，请参考 [配置 /etc/fstab 文件](https://cloud.tencent.com/document/product/362/53951#ConfigurationFile) 进行配置。
 
 :::
 </dx-tabs>

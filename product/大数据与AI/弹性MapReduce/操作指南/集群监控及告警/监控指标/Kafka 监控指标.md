@@ -285,7 +285,7 @@
 <tr>
 <td>网络处理器平均空闲率</td>
 <td>NetworkProcessorAvgIdlePercent</td>
-<td>-</td>
+<td>%</td>
 <td>网络线程池线程平均的空闲比例</td>
 </tr>
 <tr>
@@ -381,13 +381,13 @@
 </tr>
 <tr>
 <td>Produce</td>
-<td>-</td>
+<td>size </td>
 <td>请求在 producer  purgatory 等待的数量</td>
 </tr>
 <tr>
 <td>请求处理平均空闲率</td>
 <td>OneMinuteRate</td>
-<td>-</td>
+<td>%</td>
 <td>一分钟请求处理空闲率</td>
 </tr>
 <tr>

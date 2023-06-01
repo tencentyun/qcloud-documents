@@ -28,7 +28,7 @@
 ## 从 Windows 云服务器连接
 1. 登录到 Windows 云服务器，请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank">快速配置 Windows 云服务器</a>。
 2. 下载一个标准的 SQL 客户端。
->?推荐您下载 MySQL Workbench，并根据您的系统来下载适配版本的安装程序，下载地址请参见 https://dev.mysql.com/downloads/workbench/。
+>?推荐您下载 MySQL Workbench，并根据您的系统来下载适配版本的安装程序，下载地址请参见 [下载地址](https://dev.mysql.com/downloads/workbench/) 。
 >
 ![](https://main.qcloudimg.com/raw/851ab46468c554097a0cf742017157b7.png)
 3. 界面将提示 **Login**、**Sign Up** 和 **No, thanks, just start my download.**，选择 **No thanks, just start my download.** 来快速下载。
@@ -102,7 +102,7 @@ mysql -h hostname -P port -u username -p
 2. 在实例详情页下的**外网地址**处，单击**开启**。
 >?若有外网地址和外网端口信息，说明已开启外网地址。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/3e53616ba958f931a84470745bd0a585.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2a62b529180f4d41f1b2c0c4427a64f4.png)
 3. 在弹出的对话框，单击**确定**。
 >?
 >- 开启成功后，即可在基本信息中查看到外网地址。

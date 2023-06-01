@@ -55,7 +55,7 @@ rdesktop 云服务器公网IP  -u 云服务器帐号 -p 云服务器登录密码
 ```
 <dx-alert infotype="explain" title="">
 - 云服务器的帐号默认为 `Administrator`。
-- 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+- 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) （标有：云服务器创建成功字样）获取。
 - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 </dx-alert>
 例如，执行以下命令，将本地计算机的 `/home` 文件夹共享至指定云服务器中，并将共享文件夹重命名为 `share`。

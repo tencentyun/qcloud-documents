@@ -1,5 +1,5 @@
 ## 现象描述
-在 Linux 云服务器中创建新文件的时候，出现 **no space left on device** 报错。
+在 Linux 云服务器中创建新文件时，出现 **no space left on device** 报错。
 
 ## 可能原因
 <table>
@@ -11,23 +11,23 @@
 </thead>
 <tbody>
   <tr>
-    <td>解决硬盘空间处于已满状态</td>
-    <td ><a href="#diskSpaceFull">检查并解决硬盘空间是否已满问题</a></td>
+    <td>硬盘空间处于已满状态</td>
+    <td ><a href="#diskSpaceFull">检查硬盘空间是否已满</a></td>
   </tr>
   <tr>
-    <td>解决文件系统 inode 满问题</td>
-    <td><a href="#inodeFull"> 检查并解决文件系统 inode 满问题</a></td>
+    <td>文件系统 inode 满</td>
+    <td><a href="#inodeFull"> 检查文件系统是否 inode 满</a></td>
   </tr>
  <tr>
-    <td>解决 df du 处于不一致状态</td>
-    <td><a href="#dfdu"> 检查并解决 df du 是否不一致问题</a></td>
+    <td>df du 处于不一致状态</td>
+    <td><a href="#dfdu"> 检查 df du 是否不一致</a></td>
   </tr>
 </tbody>
 </table>
 
 ## 故障处理[](id:ProcessingSteps)
 通过腾讯云的 VNC 登录进入服务器内部进行检查。
-### 检查并解决硬盘空间是否已满问题[](id:diskSpaceFull)
+### 检查硬盘空间是否已满[](id:diskSpaceFull)
 
 1. 登录云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. [](id:Step2)执行以下命令，查看硬盘使用率。
@@ -44,11 +44,11 @@ cd 对应挂载点
 du -x --max-depth=1 | sort -n
 ```
 根据定位到占用空间最大的目录容量情况，执行以下步骤：
-   - 目录容量远低于硬盘总空间，则请参考 [检查并解决 df du 是否不一致问题](#dfdu) 步骤继续排查问题。
-   - 目录容量较大，则请执行 [步骤2](#Step2) 定位到占用空间较大的文件，综合业务情况评估是否可删除。若无法删除，则请通过 [扩容云硬盘](https://cloud.tencent.com/document/product/213/34068) 扩大硬盘存储空间。
+   - 如果目录容量远低于硬盘总空间，请 [检查 df du 是否不一致](#dfdu) 步骤继续排查问题。
+   - 如果目录容量较大，请执行 [步骤2](#Step2) 定位到占用空间较大的文件，综合业务情况评估是否可删除。若无法删除，请通过 [扩容云硬盘](https://cloud.tencent.com/document/product/213/34068) 扩大硬盘存储空间。
 
 
-### 检查并解决文件系统 inode 满问题[](id:inodeFull)
+### 检查文件系统是否 inode 满[](id:inodeFull)
 1. 登录云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. [](id:Step2)执行以下命令，查看硬盘使用率。
 ```shellsession
@@ -65,7 +65,7 @@ find / -type f | awk -F / -v OFS=/ '{$NF="";dir[$0]++}END{for(i in dir)print dir
 ```
 
 
-### 检查并解决 df du 是否不一致问题[](id:dfdu)
+### 检查 df du 是否不一致[](id:dfdu)
 
 #### 解决进程占用文件句柄问题
 执行以下命令，查看占用文件的进程。

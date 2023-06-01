@@ -1,5 +1,5 @@
 ## 操作场景
-LAMP 环境是指 Linux 系统下，由 Apache  + MariaDB + PHP 及其它相关辅助组件组成的网站服务器架构。本文本文档介绍如何在腾讯云云服务器（CVM）上手动搭建 LAMP 环境。
+LAMP 环境是指 Linux 系统下，由 Apache  + MariaDB + PHP 及其它相关辅助组件组成的网站服务器架构。本文档介绍如何在腾讯云云服务器（CVM）上手动搭建 LAMP 环境。
 
 进行手动搭建 LAMP 环境，您需要熟悉 Linux 命令，例如  [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件使用的版本特性比较了解。
 

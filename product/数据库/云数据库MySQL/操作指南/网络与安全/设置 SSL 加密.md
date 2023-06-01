@@ -23,7 +23,7 @@ SSL 协议要求建立在可靠的传输层协议（TCP）之上，其优势在�
 ![](https://qcloudimg.tencent-cloud.cn/raw/cacf74d49df9fd1d3ecf68e9b056295b.png)
 3. 此功能状态默认为未打开，将开关调为开启，然后单击**确定**，开启 SSL 加密。
  - 主实例开启 SSL 窗口如下：
- ![](https://qcloudimg.tencent-cloud.cn/raw/496e876d660522078f06062fbc6d836d.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/b223020ff95b8d6380a6b40bb75f59f2.png)
 >!开启 SSL 过程中，会重启您的数据库实例以加载 SSL 证书，请确保业务具备重连机制。
 >
  - RO 实例开启 SSL 界面如下：
@@ -54,7 +54,7 @@ SSL 协议要求建立在可靠的传输层协议（TCP）之上，其优势在�
 1. 登录[ MySQL 控制台](https://console.cloud.tencent.com/cdb/instance)，在实例列表，单击实例 ID 或操作列的**管理**，进入实例管理页面。
 2. 在实例管理页面的**数据安全**页下，选择 **SSL** 页。
 3. 单击已开通前面的开关按钮，在弹出的提示框中单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/2e7dc23dc0d2ddabf2411ba9f33fc1c9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4bde14b84c3c49c438857d94dd70e97a.png)
 >?关闭 SSL 过程中，会重启您的数据库实例以卸载 SSL 证书，请确保业务具备重连机制。
 
 ## 连接开启 SSL 连接加密的实例

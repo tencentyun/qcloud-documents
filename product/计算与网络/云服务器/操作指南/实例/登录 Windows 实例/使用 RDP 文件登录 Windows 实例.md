@@ -13,7 +13,7 @@ Windows，Linux 和 Mac OS 都可以使用 RDP 方式登录云服务器。
 ## 前提条件
 
 - 已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。
- - 如在创建实例时选择系统随机生成密码，则请往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如在创建实例时选择系统随机生成密码，则请往 [站内信](https://console.cloud.tencent.com/message)（标有：云服务器创建成功字样） 获取。
  - 如已设置登录密码，则请使用该密码登录。如忘记密码，则请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 您的云服务器实例已购买公网 IP，且已在实例关联的安全组中放通来源为 WebRDP 代理 IP 的远程登录端口（默认为3389）。
  - 如通过快速配置购买云服务器，则默认已开通。

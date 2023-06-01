@@ -2,7 +2,7 @@
 
 ## 前提条件
 - 登录 [ES 控制台](https://console.cloud.tencent.com/es)，进入**Logstash 管理**界面。
-- 如果已经有 Logstash 实例，可直接进入下一步。如未购买 Logstash 实例。单击**新建实例**进入 Logstash 购买页，选择与索引相同的 VPC，Logstash 版本选择为“7.14.2”，高级特性选择为“X-Pack 版”，单击**立即购买**。
+- 如果已经有 Logstash 实例，可直接进入下一步。如未购买 Logstash 实例。单击**新建实例**进入 Logstash 购买页，选择与索引相同的 VPC，Logstash版本选择为7.10.2或者7.14.2，高级特性选择为“X-Pack 版”，单击**立即购买**。
 
 ## 操作步骤
 1. 在控制台 Logstash 管理 界面单击对应 Logstash 名称，进入子页面后，单击**管道管理 > 新建管道**。

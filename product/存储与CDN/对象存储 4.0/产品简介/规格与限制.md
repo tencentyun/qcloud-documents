@@ -19,7 +19,7 @@
 		    <tr>
         <td>带宽</td>
     			<td>限制</td>
-					<td>中国大陆公有云地域单个存储桶默认带宽：上行和下行共享15Gbit/s；其他地域：上行和下行共享10Gbit/s。如果带宽达到该阈值，请求会触发流控。如果有更高带宽需求，请联系 <a href="https://console.cloud.tencent.com/workorder/category">售后工程师</a>。</td>	
+					<td>中国大陆公有云地域单个存储桶默认带宽：上行和下行分别为15Gbit/s；其他地域：上行和下行分别为10Gbit/s。如果带宽达到该阈值，请求会触发流控。如果有更高带宽需求，请联系 <a href="https://console.cloud.tencent.com/workorder/category">售后工程师</a>。</td>	
     </tr>
     	 <tr>
         <td rowspan="5">存储类型</td>
