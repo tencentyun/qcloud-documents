@@ -21,7 +21,7 @@
     * 解决方法：
         1. 在服务器内编辑`/etc/ssh/sshd_config`文件中的 Port 22，将22修改为非默认端口，修改之后需要重启 ssh 服务。
 >!当对端口进行修改时，需同时在 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 上修改对应主机的安全组配置，在其入站规则中，放行对应端口，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。
-        2. 运行 `/etc/init.d/sshd restart`（centos 7 之前版本）、`systemctl restart sshd`（centos 7 及其以上版本）或 `/etc/init.d/ssh restart（Debian / Ubuntu）`命令重启使配置生效。
+        2. 运行 `/etc/init.d/sshd restart`（Centos7以下）或 `systemctl restart sshd`（Centos7及其以上）或 `/etc/init.d/ssh restart`（Debian/Ubuntu）命令重启使配置生效。
         3. 修改 FTP、MySQL、Redis 等的程序配置文件的默认监听端口21、3306、6379为其他端口。
         4. 限制远程登录的 IP，编辑`/etc/hosts.deny` 、`/etc/hosts.allow`两个文件来限制 IP。
     * 风险性：高。
@@ -39,14 +39,14 @@
    * 风险性：高。
 2. 使用`ps -ef`和`top`命令查看是否有异常进程
     * 检查说明：运行以上命令，当发现有名称不断变化的非授权进程占用大量系统 CPU 或内存资源时，则可能为恶意程序。
-    * 解决方法：确认该进程为恶意进程后，可以使用`kill -9 进程 ID`或者`pkill -9 进程名`命令结束进程，或使用防火墙限制进程外联。
+    * 解决方法：确认该进程为恶意进程后，可以使用`kill -9 进程ID`或者`pkill -9 进程名`命令结束进程，或使用防火墙限制进程外联。
     * 风险性：高。
 
 
 ### 三、检查恶意程序和可疑启动项
-1. 使用`chkconfig --list` 、`systemctl list-unit-files --type=service --state=enabled` 或者`cat /etc/rc.local`命令，查看开机启动项中是否有异常的启动服务。
+1. 使用`chkconfig --list`（Centos） 、`systemctl list-unit-files --type=service --state=enabled`（Ubuntu/Debian）命令，查看开机启动项中是否有异常的启动服务。
     * 检查说明：恶意程序往往会添加在系统的启动项，在用户关机重启后再次运行。
-    * 解决方法：如发现有恶意进程，可使用`chkconfig 服务名 off命令关闭`或者使用`systemctl disable/stop`服务名来禁用/停止，同时检查`/etc/rc.local`中是否有异常项目，如有请注释掉。
+    * 解决方法：如发现有恶意进程，可使用` chkconfig 服务名 off` 关闭（Centos）或者使用 `systemctl disable/stop服务名`来禁用/停止（Ubuntu/Debian），同时检查`/etc/rc.local`中是否有异常项目，如有请注释掉。
     * 风险性：高。
 2. 进入 cron 文件目录，查看是否存在非法定时任务脚本。
     * 检查说明：查看`/etc/crontab`，`/etc/cron.d`，`/etc/cron.daily`，`cron.hourly/`，`cron.monthly`，`cron.weekly/`是否存在可疑脚本或程序。
