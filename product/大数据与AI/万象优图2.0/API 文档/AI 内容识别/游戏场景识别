@@ -1,0 +1,91 @@
+## 功能概述
+
+游戏标签功能实现游戏图片场景的识别，返回图片中置信度较高的游戏类别标签。游戏标签识别请求包属于 GET 请求，请求时需要携带签名。
+
+> !当前内容识别的图片限制为：图片格式支持 PNG、JPEG、JPG，图片大小不超过5MB，图片宽高大于32像素 x 32像素。
+> - 此功能计费标准同图像标签，计费标签详情见[ AI 智能计费](https://cloud.tencent.com/document/product/460/58118)。
+
+## 请求语法
+
+请求：
+
+- 原图存储在COS：
+  
+  ```javascript
+  GET /<ObjectKey>?ci-process=AIGameRec HTTP/1.1
+  Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+  Date: <GMT Date>
+  Authorization: <Auth String>
+  ```
+
+- 原图来自其他链接：
+  
+  ```javascript
+  GET /?ci-process=AIGameRec&detect-url=<detect-url> HTTP/1.1
+  Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+  Date: <GMT Date>
+  Authorization: <Auth String>
+  ```
+
+> ?Authorization:Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+
+## 请求内容
+
+| 参数名称       | 类型                                                                                                                                                                                           | 是否必选              | 描述     |
+|:---------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:----------------- |:------ |
+| ObjectKey  | 图片地址                                                                                                                                                                                         | 是（与detect-url二选一） | String |
+| detect-url | 您可以通过填写 `detect-url` 对任意公网可访问的图片进行游戏场景识别。不填写 `detect-url` 时，后台会默认处理 `ObjectKey` ；填写了 `detect-url` 时，后台会处理 `detect-url` 链接，无需再填写 `ObjectKey` ， `detect-url` 示例：[http://www.example.com/abc.jpg。 | 是                 | String |
+
+## 返回内容
+
+响应包体具体数据内容如下：
+
+| 参数名称              | 类型        | 描述         |
+|:----------------- |:--------- |:---------- |
+| RecognitionResult | Container | 图片游戏标签识别结果 |
+
+RecognitionResult 节点内容：
+
+| 参数名称       | 类型        | 描述     |
+|:---------- |:--------- |:------ |
+| GameLabels | Container | 游戏标签信息 |
+
+标签信息中包含如下内容：
+
+| 参数名称           | 类型     | 描述                      |
+|:-------------- |:------ |:----------------------- |
+| Confidence     | Int    | 该标签的置信度分数，分数越高则该标签准确度越高 |
+| FirstCategory  | String | 一级标签                    |
+| SecondCategory | String | 二级标签                    |
+| GameName       | String | 识别出的游戏标签名称            |
+
+## 示例
+
+#### 请求
+
+```shell
+GET /ObjectKey?ci-process=AIGameRec HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
+Date: Tue, 03 Apr 2019 09:06:15 GMT
+Authorization:XXXXXXXXXXXX
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 645
+Date: Tue, 03 Apr 2018 09:06:16 GMT
+Status: 200 OK
+x-cos-request-id: NWFjMzQ0MDZfOTBmYTUwXzZkZV8z****
+
+<RecognitionResult>
+    <GameLabels>
+        <Confidence>100</Confidence>
+        <FirstCategory>游戏</FirstCategory>
+        <SecondCategory>游戏</SecondCategory>
+        <GameName>王者荣耀</GameName>
+    </GameLabels>
+</RecognitionResult>
+```
