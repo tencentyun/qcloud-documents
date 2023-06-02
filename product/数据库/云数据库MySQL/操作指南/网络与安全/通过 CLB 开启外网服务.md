@@ -5,7 +5,7 @@
 ## 前提条件
 已申请使用后端服务功能。
 1. 进入 [负载均衡跨地域绑定2.0申请页](https://cloud.tencent.com/apply/p/y72ehzwbwzk)。
-2. 根据填好资料，填写完后提交申请。
+2. 根据需要填好资料，填写完后提交申请。
 3. 提交完内测申请后，[提单至 CLB](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=14&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&level3_id=1068&radio_title=%E9%85%8D%E9%A2%9D/%E7%99%BD%E5%90%8D%E5%8D%95&queue=96&scene_code=41669&step=2)，申请使用后端服务功能。
 >?负载均衡 CLB 实例与 MySQL 实例同一 VPC 网络和非同一 VPC 网络为两种场景，需要在提单时分别申请不同的功能支持，请根据您的实际场景，在提单时说明需要开通哪种 VPC 场景下的功能支持。
 
