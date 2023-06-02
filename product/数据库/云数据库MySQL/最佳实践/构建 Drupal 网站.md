@@ -15,6 +15,8 @@ yum install mariadb-server mariadb -y
 systemctl start mariadb
 ```
 3. 为 Drupal 创建数据库。（本项目中使用 drupal 作为数据库名）
+>?默认密码为空。
+>
 ```
 mysqladmin -u root -p create drupal
 ```
