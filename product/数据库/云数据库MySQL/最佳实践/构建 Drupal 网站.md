@@ -94,8 +94,8 @@ service httpd restart
 8. 设置数据库，输入您在**安装 mariadb 服务**中配置的数据库信息。
 ![](https://main.qcloudimg.com/raw/3bcd676f2d0bb91a23b80589d89ea576.png)
 9. 输入站点信息。
- ![](//mc.qcloudimg.com/static/img/c124ba56012c3a3bd8023a65cdb87b52/image.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bd72445a809c8d22042d75ef973b0c86.png)
 10. 完成 Drupal 的安装。
-![](//mc.qcloudimg.com/static/img/ed4795e8c6cb3183c56aeb8e18ef5d4a/image.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/732626d0523ecb133f92f9038a7318a5.png)
 11. 后续可以访问 `http://115.xxx.xxx.xxx/`（其中 `115.xxx.xxx.xxx`为您的云服务器公网 IP 地址）对网站进行个性化设置。
 ![](https://main.qcloudimg.com/raw/6e73b18ffe3be7936e220d005b252719.png)
