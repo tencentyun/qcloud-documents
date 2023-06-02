@@ -39,8 +39,8 @@ Content-Type: application/xml
 | regions     |  地域信息，例如 ap-shanghai、ap-beijing，若查询多个地域以“,”分隔字符串，支持中国大陆地域，详情请参见 [地域与域名](https://cloud.tencent.com/document/product/460/31066) |string |  否    |
 | bucketNames | 存储桶名称，以“,”分隔，支持多个存储桶，精确搜索  |string |否 |
 | bucketName  | 存储桶名称前缀，前缀搜索        |string |  否       |
-| pageNumber  | 第几页，默认值1    | String | 否     |
-| pageSize    | 每页个数，默认值10 | String | 否     |
+| pageNumber  | 第几页，默认值1    | Int | 否     |
+| pageSize    | 每页个数，默认值10 | Int | 否     |
 
 
 ## 响应
