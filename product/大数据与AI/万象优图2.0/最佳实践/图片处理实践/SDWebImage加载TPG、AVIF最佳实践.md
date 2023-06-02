@@ -4,7 +4,7 @@
 
 >! SDK 版本需要大于等于 v1.5.0。
 
-##### 一、添加依赖
+##### 第一步、添加依赖
 podfile文件中添加
 ```
 pod 'CloudInfinite/CIDownloader' // 自定义网络层 + SDWebImage
@@ -13,7 +13,7 @@ pod 'CloudInfinite/Quic' // QUIC模块
 pod 'CloudInfinite/TPG' // TPG解码器，根据实际需求 选择TPG或AVIF
 pod 'CloudInfinite/AVIF' // AVIF解码器
 ```
-##### 二、导入头文件
+##### 第二步、导入头文件
 
 ```
 #import "CIDNSLoader.h"
@@ -22,7 +22,7 @@ pod 'CloudInfinite/AVIF' // AVIF解码器
 #import "QCloudQuicConfig.h"
 ```
 
-##### 二、初始化
+##### 第三步、初始化
 
 ```
 @property (nonatomic,strong)CIDNSLoader * dnsloader;
@@ -91,8 +91,8 @@ pod 'CloudInfinite/AVIF' // AVIF解码器
 
 到这里所有配置完成，加载图片方式和SDWebImage用法一致，不用修改业务已有代码。
 
-##### 三、TPG、AVIF原图保护错误收集。
-原图保护方案主要用于提升用户体验，但是TPG、AVIF加载失败错误信息还是需要收集，并根据错误信息来分析排查问题，解决问题。
+##### 第四步、TPG、AVIF失败后原图重试错误收集。
+原图重试方案主要用于提升用户体验，但是TPG、AVIF加载失败错误信息还是需要收集，并根据错误信息来分析排查问题，解决问题。
 
 ```
 [UIView setTPGAVIFImageErrorObserver:^(NSString * _Nonnull url, NSError * _Nonnull error) {

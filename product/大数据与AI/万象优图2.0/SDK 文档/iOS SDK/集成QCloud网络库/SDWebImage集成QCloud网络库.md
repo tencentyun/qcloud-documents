@@ -1,26 +1,24 @@
-## SDWebImage集成QCloud网络库
-
 >! SDK 版本需要大于等于 v1.5.0。
 
-万象SDK自定义了CIDownloader嵌入SDWebImage中，接管图片加载网络层，并新增了如下功能
+万象SDK自定义了CIDownloader嵌入SDWebImage中，接管图片加载网络层，并新增了如下功能：
 
 1. 在网络层新增了HTTPDNS，有效避免由于运营商传统 LocalDNS 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 2. 在网络层接入QUIC，提升弱网加载图片成功率，增强用户体验。
 3. SDK内部增加了重试机制，并支持自定义重试次数以及重试间隔时间，用于降低因为网络波动造成图片加载失败的风险。
-4. 若项目中使用到TPG或AVIF图片，可开启原图保护策略，若TPG、AVIF图加载失败，可自动加载原格式图片，从而不影响用户使用。并将解错误收集用于排查解码失败原因及时修复。
+4. 若项目中使用到TPG或AVIF图片，可开启原图保护策略，若TPG、AVIF图加载失败，可自动加载原格式图片，从而不影响用户使用。并将错误信息收集用于排查失败原因并及时修复。
 5. 自定义加载图片并发数。
->?
 
 接下来逐一介绍每个功能的详细使用，以及示例代码。
 
-### 一、接入CIDownloader
+### 接入CIDownloader
+
 接入CIDownloader只需在Podfile新增CIDownloader的依赖即可。
 ```
 pod 'CloudInfinite/CIDownloader'
 ```
 SDK内部自动检测是否有该类，并加入到SDWebImage loader管理器中。
 
-* 动态配置是否使用CIDownloader，默认只接管TPG、AVIF图片请求；
+动态配置是否使用CIDownloader，默认只接管TPG、AVIF图片请求；
 ```
 [CIImageDownloader sharedDownloader].canUseCIImageDownloader = ^BOOL(NSURL * _Nonnull url, SDWebImageOptions options, SDWebImageContext * _Nonnull context) {
 /// 业务判断是否使用CIImageDownloader 加载图片，还是SDWebImage 自带loader加载图片
@@ -28,7 +26,7 @@ SDK内部自动检测是否有该类，并加入到SDWebImage loader管理器中
 };
 ```
  
-### 二、接入HTTPDNS
+### 接入HTTPDNS
 
 万象SDK提供两种方式接入HTTPDNS：
 1. 使用自定义HTTPDNS解析
@@ -58,7 +56,7 @@ SDK内部自动检测是否有该类，并加入到SDWebImage loader管理器中
     pod 'CloudInfinite/CIDNS'
     ```
 
-    >?CIDNS封装了腾讯HTTPDNS，接入CIDNS需要在腾讯HTTPDNS申请密钥相关信息，具体请查[HTTPDNS接入](https://cloud.tencent.com/document/product/379/77755)
+    >?CIDNS封装了腾讯HTTPDNS，接入CIDNS需要在腾讯HTTPDNS申请密钥相关信息，具体请查[HTTPDNS接入文档](https://cloud.tencent.com/document/product/379/77755)
     ```
     /// 配置Dnsconfig。
     /// 参数含义请查看https://cloud.tencent.com/document/product/379/77755。
@@ -76,8 +74,8 @@ SDK内部自动检测是否有该类，并加入到SDWebImage loader管理器中
     [QCloudHttpDNS shareDNS].delegate = self;
     ```
 
-### 三、接入QUIC
->?若使用QUIC，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系联系相关同学开白名单
+### 接入QUIC
+>?若使用QUIC，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系技术人员添加白名单
 
 1. 接入QUIC，首先需要在Podfile文件中添加Quic。
     ```
@@ -94,9 +92,9 @@ SDK内部自动检测是否有该类，并加入到SDWebImage loader管理器中
 
     /// quic高级配置，具体查看QCloudQuicConfig类。
     [QCloudQuicConfig shareConfig].race_type = QCloudRaceTypeQUICHTTP;
-    ...
     ```
-### 四、配置重试策略
+
+### 配置重试策略
 CIImageDownloader 支持重试，默认重试次数3，间隔1s。
 1. 配置重试次数以及间隔时间。
     ```
@@ -113,7 +111,7 @@ CIImageDownloader 支持重试，默认重试次数3，间隔1s。
     };
     ```
 
-### 五、设置请求图片并发数
+### 设置请求图片并发数
 CIImageDownloader 支持设置请求图片并发数量。
 customConcurrentCount 为当前并发数量，SDK内部根据网络状况自动增加或降低并发数量，最小为1，最大为maxConcurrentCount。
 
@@ -122,16 +120,15 @@ customConcurrentCount 为当前并发数量，SDK内部根据网络状况自动�
 [CIImageDownloader sharedDownloader].maxConcurrentCount = 10;
 ```
 
-### 六、开启TPG、AVIF失败后原图重试例代码
-失败后原图重试为TPG、AVIF模块所独有功能，适用于 使用`CloudInfinite/SDWebImage-CloudInfinite`加载TPG、AVIF图片。
+### 加载TPG、AVIF失败后请求原图重试
 功能描述：当TPG、AVIF图片加载失败时，自动请求原格式图片，提升用户体验。并将TPG、AVIF加载失败原因返回，用于排查失败原因及时修复。
 
-* 开启原图保护
+1. 开启失败后原图重试功能
     ```
     [UIView setLoadOriginalImageWhenError:YES];
     ```
 
-* 自定义TPG、AVIF链接转换原格式图片链接
+2. 自定义TPG、AVIF链接转换原格式图片链接
     ```
     [UIView setLoadTPGAVIFImageErrorHandler:^NSString * _Nullable(NSString * _Nonnull url) {
         // 将TPG、AVIF图片链接装换位原格式图片。
@@ -139,7 +136,7 @@ customConcurrentCount 为当前并发数量，SDK内部根据网络状况自动�
     }];
     ```
 
-* 添加tpg、avif加载失败监听，获取url以及错误信息，可以用于日志上报以及排查原因。
+3. 添加tpg、avif加载失败监听，获取url以及错误信息，可以用于日志上报以及排查原因。
 
     ```
     [UIView setTPGAVIFImageErrorObserver:^(NSString * _Nonnull url, NSError * _Nonnull error) {
