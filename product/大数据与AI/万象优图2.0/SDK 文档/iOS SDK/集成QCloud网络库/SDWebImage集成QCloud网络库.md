@@ -56,7 +56,8 @@ SDK 内部自动检测是否有该类，并加入到 SDWebImage loader 管理器
     pod 'CloudInfinite/CIDNS'
     ```
 
-    >? CIDNS 封装了腾讯 HTTPDNS，接入 CIDNS 需要在腾讯 HTTPDNS 申请密钥相关信息，具体请查[HTTPDNS 接入文档](https://cloud.tencent.com/document/product/379/77755)。
+    >? CIDNS 封装了腾讯 HTTPDNS，接入 CIDNS 需要在腾讯 HTTPDNS 申请密钥相关信息，请查看 [HTTPDNS 接入文档](https://cloud.tencent.com/document/product/379/77755)。
+
     ```
     /// 配置 Dnsconfig。
     /// 参数含义请查看https://cloud.tencent.com/document/product/379/77755。
@@ -75,7 +76,7 @@ SDK 内部自动检测是否有该类，并加入到 SDWebImage loader 管理器
     ```
 
 ### 接入 QUIC
->?若使用 QUIC，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系技术人员添加白名单。
+>? 若使用 QUIC，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系技术人员添加白名单。
 
 1. 接入 QUIC，首先需要在 Podfile 文件中添加 Quic。
     ```

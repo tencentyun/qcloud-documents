@@ -94,7 +94,7 @@ pod 'CloudInfinite/AVIF' // AVIF解码器
     
 }
 ```
->? 使用QUIC需开启白名单
+>? 若使用 QUIC，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系技术人员添加白名单。
 
 到这里所有配置完成，加载图片方式和 SDWebImage 用法一致，不用修改业务已有代码。
 
