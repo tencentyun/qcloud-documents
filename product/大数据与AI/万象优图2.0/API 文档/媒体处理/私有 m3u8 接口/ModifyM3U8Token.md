@@ -8,7 +8,7 @@ ModifyM3U8Token 接口用于在加密 M3U8 的 key uri 中增加 Token。
 
 ```plaintext
 GET /modifym3u8token?object=&token= HTTP/1.1
-Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
 Content-Length: <length>
@@ -79,7 +79,7 @@ test-00004.ts?q-sign-algorithm=sha1&q-ak=&q-sign-time=&q-key-time=&q-header-list
 
 ```shell
 GET /modifym3u8token?expires=3600&object=test.m3u8&token=abc HTTP/1.1
-Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
 Content-Length: <length>
