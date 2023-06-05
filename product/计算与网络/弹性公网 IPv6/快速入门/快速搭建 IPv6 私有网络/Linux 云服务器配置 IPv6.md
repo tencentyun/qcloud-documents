@@ -375,7 +375,7 @@ gateway <IPv6网关>
  2. 重启网络服务：运行`service network restart` 或 `systemctl restart networking`。
 6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18、Ubuntu 20 和 Ubuntu 22，请执行如下操作配置 IPv6。
  1. 获取 IPv6 网关地址[](id:step001)。
-    1. 登录[ 云控制台]()，查看云服务器所在子网的 IPv6 CIDR 信息。
+    1. 登录[ 私有网络控制台](https://console.cloud.tencent.com/vpc/subnet?rid=1)，查看云服务器所在子网的 IPv6 CIDR 信息。
   ![](https://qcloudimg.tencent-cloud.cn/raw/21d54065f295b7f87b0374d5e2e7cdc0.png)
     2. 根据 IPv6 CIDR 信息得到 IPv6 网地址：系统默认会采用子网 IPv6 CIDR的“.1”地址作为网关，如上图 IPv6 CIDR 为2402:4e00:1018:9a01::/64,则网关地址为2402:4e00:1018:9a01::1。
  2. 编辑网卡配置文件。
@@ -397,7 +397,7 @@ network:
       set-name: eth0                      //网卡名
       gateway6: 2402:4e00:1018:9a01::1   //设置IPv6网关地址
 ```
-    - 如果镜像类型为 Ubuntu 22，则执行如下操作。
+    - 如果镜像类型为 Ubuntu 22[](id:Ubuntu22)，则执行如下操作。
 >!只添加 routes。
 >
 ```plaintext
