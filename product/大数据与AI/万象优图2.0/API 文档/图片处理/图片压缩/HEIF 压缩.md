@@ -86,7 +86,7 @@ Pic-Operations:
 | 参数             | 描述                 | 是否必选 |
 | :--------------- | :------------------ | :-- |
 | ObjectKey  | 对象文件名，例如 folder/sample.jpg。       | 是|
-| /format/<Format> | 压缩格式，此处为 heif。           | 是 |
+| /format/&ltFormat> | 压缩格式，此处为 heif。           | 是 |
 
 ## 实际案例
 
@@ -108,4 +108,3 @@ http://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png?imageMogr2/for
 | :---------- | :--------------------- |
 | png（原图） | 1335.2KB               |
 | heif        | 52.87KB（压缩率96.0%） |
-
