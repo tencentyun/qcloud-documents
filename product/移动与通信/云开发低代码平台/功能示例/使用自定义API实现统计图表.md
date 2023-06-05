@@ -9,7 +9,7 @@
 
 ## 自定义 API 及方法
 创建名称为“统计 API”的自定义 API，然后添加柱状图统计、曲线图统计、饼状图统计、卡片图统计等四个 APIs 方法。
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3b407eccf016471fca8eb14510713ce3.png" />
+![](https://qcloudimg.tencent-cloud.cn/raw/041a03db3b3cea31575fc04de965c8d4.png)
 
 ### 柱状图统计方法
 柱状图统计方法的功能主要是查出“统计示例数据”数据模型中12个月的数据，然后计算出四个季度的“销售”、“利润”、“成本”数据，最后拼接成柱状图要求返回的数据格式。

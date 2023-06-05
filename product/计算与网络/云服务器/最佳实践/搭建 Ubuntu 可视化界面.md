@@ -96,7 +96,7 @@ vncserver -geometry 1920x1080 :1 #生成新的会话
 7. 在 VNC Viewer 软件中，输入 `云服务器的 IP 地址:1`，按 **Enter**。
 ![](https://main.qcloudimg.com/raw/df25e2085e9d27d53b1827ccf98a3618.png)
 8. 在弹出的提示框中，单击 **Continue**。
-9. 输入 [步骤2](#step02) 设置的 VNC 的密码，单击 **OK**，即可登录实例并使用图形化界面。
+9. 输入 [步骤1](#step02) 设置的 VNC 的密码，单击 **OK**，即可登录实例并使用图形化界面。
 
 :::
 
@@ -132,7 +132,7 @@ vncserver -geometry 1920x1080 :1 #生成新的会话
 7. 在 VNC Viewer 软件中，输入 `云服务器的 IP 地址:1`，按 **Enter**。
 ![](https://main.qcloudimg.com/raw/df25e2085e9d27d53b1827ccf98a3618.png)
 8. 在弹出的提示框中，单击 **Continue**。
-9. 输入 [步骤2](#step03) 设置的 VNC 的密码，单击 **OK**，即可登录实例并使用图形化界面。
+9. 输入 [步骤1](#step03) 设置的 VNC 的密码，单击 **OK**，即可登录实例并使用图形化界面。
 
 :::
 

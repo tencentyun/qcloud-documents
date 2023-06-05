@@ -169,6 +169,7 @@ public class AppAuthJavaDemo {
             HttpGet httpGet = new HttpGet(url);
             httpGet.setHeader("Accept", acceptHeader);
             httpGet.setHeader("Host", host);
+            httpGet.setHeader("Content-Type", contentType);
             httpGet.setHeader("x-date", xDate);
             httpGet.setHeader("Authorization", authHeader);
             response = httpClient.execute(httpGet);
@@ -195,6 +196,7 @@ public class AppAuthJavaDemo {
         }
     }
 }
+
 :::
 </dx-codeblock>
 :::

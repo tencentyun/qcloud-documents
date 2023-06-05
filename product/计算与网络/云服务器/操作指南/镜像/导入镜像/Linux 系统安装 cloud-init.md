@@ -197,6 +197,10 @@ yum install python3-pip -y
 ```shellsession
 apt-get -y install python3-pip
 ```
+  - OpenSUSE / SUSE系列，执行以下命令：
+```shellsession
+zypper -n install python3-pip
+```
 若在安装时，出现无法安装或找不到安装包的错误，可参考 [解决无法安装 Python-pip 问题](#updateSoftware) 进行处理。
 4. 执行以下命令，升级 pip。
 ```
@@ -223,6 +227,10 @@ yum install cloud-utils-growpart -y
 ```shellsession
 apt-get install cloud-guest-utils -y
 ```
+  - OpenSUSE / SUSE 系列，执行以下命令：
+```shellsession
+zypper install -y growpart
+```
 6. 执行以下命令，安装 cloud-init。
 ```shellsession
 python3 setup.py build
@@ -241,6 +249,7 @@ python3 setup.py install --init-system systemd
 1. 根据不同操作系统，下载 cloud.cfg。
   - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
   - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
+  - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/sles/cloud.cfg) OpenSUSE / SUSE 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 
@@ -355,7 +364,8 @@ apt-get/yum install cloud-init
 ### 修改 cloud-init 配置文件[](id:cloud-init)
 1. 根据不同操作系统，下载 cloud.cfg。
  - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
-  - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
+ - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
+ - [点此下载](https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/cfg/sles/cloud.cfg) OpenSUSE / SUSE 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 :::
 </dx-tabs>

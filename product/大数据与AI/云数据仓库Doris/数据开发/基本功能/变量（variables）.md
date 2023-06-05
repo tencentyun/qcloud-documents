@@ -125,15 +125,15 @@ SELECT /*+ SET_VAR(query_timeout = 1, enable_partition_cache=true) */ sleep(3);
 用户设置是否将一些show 类命令转发到 Master FE 节点执行。默认为 `true`，即转发。Doris 中存在多个 FE 节点，其中一个为 Master 节点。通常用户可以连接任意 FE 节点进行全功能操作。但部分信息查看指令，只有从 Master FE 节点才能获取详细信息。
 如 `SHOW BACKENDS;` 命令，如果不转发到 Master FE 节点，则仅能看到节点是否存活等一些基本信息，而转发到 Master FE 则可以获取包括节点启动时间、最后一次心跳时间等更详细的信息。
 当前受该参数影响的命令如下：
-	1. `SHOW FRONTENDS;`
+    1. `SHOW FRONTENDS;`
 转发到 Master 可以查看最后一次心跳信息。
-	2. `SHOW BACKENDS;`
+    2. `SHOW BACKENDS;`
 转发到 Master 可以查看启动时间、最后一次心跳信息、磁盘容量信息。
-	3. `SHOW BROKER;`
+    3. `SHOW BROKER;`
 转发到 Master 可以查看启动时间、最后一次心跳信息。
-	4. `SHOW TABLET;`/`ADMIN SHOW REPLICA DISTRIBUTION;`/`ADMIN SHOW REPLICA STATUS;`
+    4. `SHOW TABLET;`/`ADMIN SHOW REPLICA DISTRIBUTION;`/`ADMIN SHOW REPLICA STATUS;`
 转发到 Master 可以查看 Master FE 元数据中存储的 tablet 信息。正常情况下，不同 FE 元数据中 tablet 信息应该是一致的。当出现问题时，可以通过这个方法比较当前 FE 和 Master FE 元数据的差异。
-	5. `SHOW PROC;`
+    5. `SHOW PROC;`
 转发到 Master 可以查看 Master FE 元数据中存储的相关 PROC 的信息。主要用于元数据比对。
         
 - `init_connect`
@@ -161,8 +161,8 @@ SELECT /*+ SET_VAR(query_timeout = 1, enable_partition_cache=true) */ sleep(3);
     
 - `lower_case_table_names`
 用于控制用户表表名大小写是否敏感。
-	- 值为 0 时，表名大小写敏感。默认为0。
-	- 值为 1 时，表名大小写不敏感，doris 在存储和查询时会将表名转换为小写。  
+    - 值为 0 时，表名大小写敏感。默认为0。
+    - 值为 1 时，表名大小写不敏感，doris 在存储和查询时会将表名转换为小写。  
 优点：在一条语句中可以使用表名的任意大小写形式，下面的sql是正确的：  
 ```
     mysql> show tables;  
@@ -175,7 +175,7 @@ SELECT /*+ SET_VAR(query_timeout = 1, enable_partition_cache=true) */ sleep(3);
     mysql> select * from COST where COst.id < 100 order by cost.id;
 ```
 缺点：建表后无法获得建表语句中指定的表名，`show tables` 查看的表名为指定表名的小写。
-	- 值为 2 时，表名大小写不敏感，doris存储建表语句中指定的表名，查询时转换为小写进行比较。
+    - 值为 2 时，表名大小写不敏感，doris存储建表语句中指定的表名，查询时转换为小写进行比较。
 优点：`show tables` 查看的表名为建表语句中指定的表名；  
 缺点：同一语句中只能使用表名的一种大小写形式，例如对`cost` 表使用表名 `COST` 进行查询：
  ```
@@ -294,7 +294,7 @@ Doris 在这部分进行了优化处理，如果下层的数据节点过多。ex
 默认 -1，即不限制。
 
 - `disable_join_reorder`
-用于关闭所有系统自动的 join reorder 算法。取值有两种：true 和 false。默认行况下关闭，也就是采用系统自动的 join reorder 算法。设置为 true 后，系统会关闭所有自动排序的算法，采用 SQL 原始的表顺序，执行 join
+用于关闭所有系统自动的 join reorder 算法。取值有两种：true 和 false。默认情况下关闭，也就是采用系统自动的 join reorder 算法。设置为 true 后，系统会关闭所有自动排序的算法，采用 SQL 原始的表顺序，执行 join
 
 - `return_object_data_as_binary` 
 用于标识是否在 select 结果中返回 bitmap/hll 结果。在 select into outfile 语句中，如果导出文件格式为csv 则会将 bimap/hll 数据进行 base64编码，如果是 parquet 文件格式将会把数据作为 byte array 存储

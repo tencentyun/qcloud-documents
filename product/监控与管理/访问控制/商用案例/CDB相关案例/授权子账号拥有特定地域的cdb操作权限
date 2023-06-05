@@ -1,0 +1,20 @@
+企业账号 CompanyExample（ownerUin 为 12345678）下有一个子账号 cdb，它授予特定地域（gz）下的所有 CDB 实例的全部操作权限（*）给子账号。具体而言，该子账号将可以对这些 CDB 实例执行任何操作。
+
+步骤1：通过策略语法方式创建以下策略。
+```json
+ {
+   "version": "2.0"
+         "statement": [
+               { 
+                   "action": "cdb:*", 
+                   "resource": "qcs::cdb:gz::*", 
+                   "effect": "allow"
+               } 
+         ]
+ }
+ ```
+ - action：表示被允许的操作。`cdb:*` 表示允许所有 CDB 操作。
+ - effect：表示该声明所描述的许可是允许还是拒绝。`allow` 表示允许。
+ - resource：表示该声明适用的资源范围。`qcs::cdb:gz::* ` 表示授权子账号拥有特定地域（gz）下的所有 CDB 实例的全部操作权限。`*` 表示通配符，表示对所有实例授权。
+ 
+步骤2：将该策略授权给子账号。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/378/8961)。

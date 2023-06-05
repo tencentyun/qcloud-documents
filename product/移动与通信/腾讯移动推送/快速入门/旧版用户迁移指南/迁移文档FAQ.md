@@ -5,7 +5,7 @@
 因信鸽平台和移动推送 TPNS 平台是两个独立的平台，当升级移动推送 TPNS 版后，若您的 App 没有强制升级策略，App 覆盖需要一定时间，在新版本 App 覆盖量不足时，做全量推送，需要在信鸽和移动推送 TPNS 两个平台上都操作一次，为了避免重复推送，请您按照以下方法配置：
 1. 接入 Android V1.1.5.5 及以上版本，并 [注销 Android 信鸽平台推送服务](https://cloud.tencent.com/document/product/548/41609#.E6.B3.A8.E9.94.80.E4.BF.A1.E9.B8.BD.E5.B9.B3.E5.8F.B0.E6.8E.A8.E9.80.81.E6.9C.8D.E5.8A.A1)。
 2. 接入 iOS V1.2.5.3 及以上版本，并 [注销 iOS 信鸽平台推送服务](https://cloud.tencent.com/document/product/548/41610#.E6.B3.A8.E9.94.80.E4.BF.A1.E9.B8.BD.E5.B9.B3.E5.8F.B0.E6.8E.A8.E9.80.81.E6.9C.8D.E5.8A.A1)。
-
+ 
 
 ### 如何预估日联网设备月峰值？
 日联网设备月峰值，指单日连接移动推送 TPNS 服务器的去重终端设备量（即移动推送 TPNS 可触达的设备量）在一个月内的最高值，一般是在 DAU（每日 App 前台活跃设备数）的3到5倍或 MAU（每月 App 前台活跃设备数）的1/3这个范围内，可以按照这个范围进行预估，平台支持即时升级套餐，超量后可以在 [控制台](https://console.cloud.tencent.com/tpns) 上直接升级。

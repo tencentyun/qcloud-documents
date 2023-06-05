@@ -6,7 +6,7 @@
 ![](https://main.qcloudimg.com/raw/7ab31fbb82391da2c8ae28e8ad3b961f.png)
 
 ## 可能原因
-使用 VNC 或 SSH 登录会调用 `/etc/pam.d/login` 这个 pam 模块进行校验，在 `/etc/pam.d/login` 配置中默认会引入 `system-auth` 模块进行认证，`system-auth` 模块默认会引入 `pam_limits.so` 模块进行认证。`system-auth` 的默认配置如下图所示：
+使用 VNC 或 SSH 登录会调用 `/etc/pam.d/login` pam 模块进行校验，在 `/etc/pam.d/login` 配置中默认会引入 `system-auth` 模块进行认证，`system-auth` 模块默认会引入 `pam_limits.so` 模块进行认证。`system-auth` 的默认配置如下图所示：
 ![](https://main.qcloudimg.com/raw/e32db00ec665388bc4c7cb0454fd6fab.png)
 `pam_limits.so` 模块的主要功能是限制用户会话过程中对各种系统资源的使用情况。默认情况下该模块的配置文件是 `/etc/security/limits.conf`，该配置文件规定了用户可使用的最大文件数、最大线程数、最大内存等资源使用量。参数说明如下表：
 <table>
@@ -32,12 +32,10 @@
 </table> 
 
 可能导致无法正常登录的原因是配置文件 `/etc/security/limits.conf` 中关于 root 用户最大能打开的文件描述符个数配置错误，正确的配置应满足 `soft nofile ≤ hard nofile ≤ fs.nr_open` 关系。
+您可以参考 [故障处理](#ProcessingSteps) 将 `soft nofile`、`hard nofile` 及 `fs.nr_open` 修改为正确配置。
 
 
-## 解决思路
-参考 [处理步骤](#ProcessingSteps) 将 `soft nofile`、`hard nofile` 及 `fs.nr_open` 修改为正确配置。
-
-## 处理步骤[](id:ProcessingSteps)
+## 故障处理[](id:ProcessingSteps)
 1. 尝试使用 SSH 登录云服务器，详情请参见 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)。
 	- 登录成功，则执行下一步。
 	- 登录失败，则需使用单用户模式，详情请参见 [通过控制台进入 Linux 实例单用户模式](https://cloud.tencent.com/document/product/213/33321)。

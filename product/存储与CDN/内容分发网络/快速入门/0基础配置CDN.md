@@ -3,7 +3,7 @@
 1. 开通腾讯云账号并通过实名认证，有关实名认证的更多问题请参考 [实名认证基本介绍](https://cloud.tencent.com/document/product/378/3629)；
 2. 开通 CDN/ECDN 服务；
 腾讯云 CDN 支持中国境内和中国境外两个服务区域，目前默认提供按流量小时计费方式。有关计费规则的更多说明，请参考 [计费说明](https://cloud.tencent.com/document/product/228/2949)。
-勾选统一服务条款后，单击开通服务，即可成功开通并开始使用 CDN/ECDN 服务。
+勾选同意服务条款后，单击开通服务，即可成功开通并开始使用 CDN/ECDN 服务。
 ![](https://qcloudimg.tencent-cloud.cn/raw/271c328c6b39a49c91790d4ae5043d97.png)
 3. 已有一个自有域名和可访问的站点；
 

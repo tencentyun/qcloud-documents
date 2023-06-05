@@ -282,8 +282,7 @@ COSFS 工具为提升性能，默认使用系统盘存放上传、下载的临�
 
 下面提供了一些常见问题，如果您在使用 COSFS 工具过程中有其他疑问，请参见 [COSFS 工具类常见问题](https://cloud.tencent.com/document/product/436/30743)。
 
-- [COSFS 每天在某个时间段里 CPU 使用率较高](https://cloud.tencent.com/document/product/436/30743#.E5.AE.89.E8.A3.85-cosfs-rpm-.E5.8C.85.E6.97.B6.EF.BC.8C.E6.8F.90.E7.A4.BA-conflicts-with-file-from-package-fuse-libs-*.EF.BC.8C.E6.80.8E.E4.B9.88.E5.8A.9E.EF.BC.9F)
-- [COSFS 向 COS 发出大量 Head、List 请求，产生大量请求次数费用](https://cloud.tencent.com/document/product/436/30743#.E5.AE.89.E8.A3.85-cosfs-rpm-.E5.8C.85.E6.97.B6.EF.BC.8C.E6.8F.90.E7.A4.BA-conflicts-with-file-from-package-fuse-libs-*.EF.BC.8C.E6.80.8E.E4.B9.88.E5.8A.9E.EF.BC.9F)
-- [在 COSFS 的目录中执行 ls 命令，执行时间很久](https://cloud.tencent.com/document/product/436/30743#.E5.9C.A8-cosfs-.E7.9A.84.E7.9B.AE.E5.BD.95.E4.B8.AD.E6.89.A7.E8.A1.8C-ls-.E5.91.BD.E4.BB.A4.EF.BC.8C.E4.B8.BA.E4.BB.80.E4.B9.88.E5.91.BD.E4.BB.A4.E8.BF.94.E5.9B.9E.E9.9C.80.E8.A6.81.E5.BE.88.E4.B9.85.E7.9A.84.E6.97.B6.E9.97.B4.EF.BC.9F)
+- [COSFS 每天在某个时间段里 CPU 使用率较高，且向 COS 发出大量 Head、List 请求，产生大量请求次数费用，该怎么处理？](https://cloud.tencent.com/document/product/436/30743#.E5.AE.89.E8.A3.85-cosfs-rpm-.E5.8C.85.E6.97.B6.EF.BC.8C.E6.8F.90.E7.A4.BA-conflicts-with-file-from-package-fuse-libs-*.EF.BC.8C.E6.80.8E.E4.B9.88.E5.8A.9E.EF.BC.9F)
+- [在 COSFS 的目录中执行 ls 命令，为什么命令返回需要很久的时间？](https://cloud.tencent.com/document/product/436/30743#.E5.9C.A8-cosfs-.E7.9A.84.E7.9B.AE.E5.BD.95.E4.B8.AD.E6.89.A7.E8.A1.8C-ls-.E5.91.BD.E4.BB.A4.EF.BC.8C.E4.B8.BA.E4.BB.80.E4.B9.88.E5.91.BD.E4.BB.A4.E8.BF.94.E5.9B.9E.E9.9C.80.E8.A6.81.E5.BE.88.E4.B9.85.E7.9A.84.E6.97.B6.E9.97.B4.EF.BC.9F)
 
 

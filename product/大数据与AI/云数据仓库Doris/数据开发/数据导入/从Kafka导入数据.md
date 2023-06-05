@@ -14,17 +14,17 @@ Doris 自身能够保证不丢不重的订阅 Kafka 中的消息，即 `Exactly-
 
 ### 访问 SSL 认证的 Kafka 集群
 例行导入功能支持无认证的 Kafka 集群，以及通过 SSL 认证的 Kafka 集群。
-访问 SSL 认证的 Kafka 集群需要用户提供用于认证 Kafka Broker 公钥的证书文件（ca.pem）。如果 Kafka 集群同时开启了客户端认证，则还需提供客户端的公钥（client.pem）、密钥文件（client.key），以及密钥密码。这里所需的文件需要先通过 `CREAE FILE` 命令上传到 Plao 中，并且 catalog 名称为 `kafka`。`CREATE FILE` 命令的具体帮助可以参见：[CREATE FILE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-FILE) 命令手册。这里给出示例：
+访问 SSL 认证的 Kafka 集群需要用户提供用于认证 Kafka Broker 公钥的证书文件（ca.pem）。如果 Kafka 集群同时开启了客户端认证，则还需提供客户端的公钥（client.pem）、密钥文件（client.key），以及密钥密码。这里所需的文件需要先通过 `CREAE FILE` 命令上传到 Plao 中，并且 catalog 名称为 `kafka`。`CREATE FILE` 命令的具体帮助可以参见 [CREATE FILE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-FILE) 命令手册。这里给出示例：
 #### 上传文件
 ```sql
 CREATE FILE "ca.pem" PROPERTIES("url" = "https://example_url/kafka-key/ca.pem", "catalog" = "kafka");
 CREATE FILE "client.key" PROPERTIES("url" = "https://example_urlkafka-key/client.key", "catalog" = "kafka");
 CREATE FILE "client.pem" PROPERTIES("url" = "https://example_url/kafka-key/client.pem", "catalog" = "kafka");
 ```
-上传完成后，可以通过 `SHOW FILES` 命令查看已上传的文件。
+上传完成后，可以通过 [SHOW FILES](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Show-Statements/SHOW-FILE?_highlight=show&_highlight=files) 命令查看已上传的文件。
 
 ### 创建例行导入作业
-创建例行导入任务的具体命令，请参阅 `ROUTINE LOAD` 命令手册。这里给出示例：
+创建例行导入任务的具体命令，请参阅 [ROUTINE LOAD](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/routine-load-manual?_highlight=routine&_highlight=load) 命令手册。这里给出示例：
 1. 访问无认证的 Kafka 集群。
 ```sql
 CREATE ROUTINE LOAD demo.my_first_routine_load_job ON test_1

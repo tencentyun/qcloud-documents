@@ -14,7 +14,6 @@
 
 ### 方式二
 登录 [MySQL控制台](https://console.cloud.tencent.com/cdb)，在左侧导航选择**实例列表**、**任务列表**、**参数模板**、**回收站**或**置放群组**页，在右上角单击**异常告警**，可展开异常告警历史消息列表，按钮旁边展示了用户账号下实例所产生的告警问题数量。
-![](https://main.qcloudimg.com/raw/eb5495d3f2fe0637be90e7cdcfe1ceb2.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/dd82d8067a42bc673b2216147ba9bd8f.png)
 在展开的异常告警历史消息列表，可以查看到所有被推送过的异常告警历史消息，支持切换地域查看，单击每条告警消息，可查看各异常告警事件的异常诊断详情。
-![](https://main.qcloudimg.com/raw/6662918aa55d925ab8af0d42353f3760.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b2c844cfff0fa1131c8662a10173c1f4.png)

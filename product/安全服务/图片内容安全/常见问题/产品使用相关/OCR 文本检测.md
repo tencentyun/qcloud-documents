@@ -13,6 +13,7 @@ OCR 检测出来的结果会显示在文本控制台的明细内，不会消耗�
 ### 图片 OCR 是否可以关闭模型打击？
 可以关闭，但需要后台配置。如有需求可以 [提交工单](https://console.cloud.tencent.com/workorder/category)  申请配置。
 
+
 ### OCR 是否可以自行添加违规词、自行新增恶意类型？
 - OCR 支持添加违规词。
  1. 在 [自定义库管理](https://console.cloud.tencent.com/cms/image/lib) > **自定义词库** 页面，创建自定义词库并添加违规词，详情请参见 [配置自定义词库](https://cloud.tencent.com/document/product/1125/37109#step5)。

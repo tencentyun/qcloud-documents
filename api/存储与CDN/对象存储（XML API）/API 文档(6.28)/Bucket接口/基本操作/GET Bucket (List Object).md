@@ -237,7 +237,7 @@ x-cos-request-id: NWZkMTk4MDVfNjViODJhMDlfNDZkYl8xNzU0****
           <StorageClass>STANDARD_IA</StorageClass>
       </Contents>
       <Contents>
-          <Key>example-object-2.jpg</Key>
+          <Key>example-object-3.jpg</Key>
           <LastModified>2020-12-10T04:37:30.000Z</LastModified>
           <ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
           <Size>20</Size>

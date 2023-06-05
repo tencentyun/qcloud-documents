@@ -1,0 +1,26 @@
+您可以通过回档任务列表查看实例的回档任务进度或历史回档任务详情。
+本文介绍通过控制台查看回档任务列表。
+## 查看回档任务列表
+
+1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)。
+2. 在上方选择**地域**，找到所需实例，单击**实例 ID** 或**操作**列的**管理**，进入实例管理页。
+![](https://qcloudimg.tencent-cloud.cn/raw/bd11d3396c77770914e8d709bccaf93f.png)
+3. 选择**备份管理**，在备份管理页选择**回档任务列表**。
+![](https://qcloudimg.tencent-cloud.cn/raw/8bf3549eb06030912729a7e6682b07b4.png)
+4. 您可查看到的字段信息如下：
+<table>
+<thead>
+<tr><th>字段</th><th>说明</th></tr>
+<tbody>
+<tr><td>回档实例 ID / 名称</td><td>源端实例 ID / 名称。</td></tr>
+<tr><td>目标实例</td><td>支持按当前实例、已有实例、全新实例进行筛选。</td></tr>
+<tr><td>回档方式</td><td>支持按时间点回档、备份集回档进行筛选。</td></tr>
+<tr><td>回档时间</td><td>	支持升降序展示。</td></tr>
+<tr><td>任务开始时间</td><td>	支持升降序展示。</td></tr>
+<tr><td>任务结束时间</td><td>	支持升降序展示。</td></tr>
+<tr><td>回档地域</td><td>	展示回档到的地域。</td></tr>
+<tr><td>状态</td><td>	展示回档任务状态。</td></tr>
+<tr><td>操作</td><td>	支持删除回档任务。</td></tr>
+</tbody>
+</thead>
+</table>

@@ -18,7 +18,7 @@
 </dx-alert>
 
 
-1. 在云服务器中，双击 `php-xxxxx.msi` 打开 PHP 安装包。
+1. 在云服务器中使用浏览器，访问 `https://www.php.net/`链接并下载安装包， 打开 PHP 安装包。
 2. 按照安装界面的指引，单击 **Next**。
 3. 在 “Web Server Setup” 界面，选择 **IIS FastCGI**，单击 **Next**。如下图所示：
 ![](https://main.qcloudimg.com/raw/c5fc89547b020e6ec943732d16186a7b.png)

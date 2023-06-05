@@ -35,19 +35,19 @@
 <td>&#10003; </td>
 </tr>
 <tr>
-<td>实时调整带宽<sup>1</sup></td>
-<td>&#10003; </td>
-<td>&#10003; </td>
-</tr>
-<tr>
 <td>IP 资源占用费</td>
 <td>×</td>
 <td>&#10003; </td>
 </tr>
+<tr>
+<td>实时调整带宽</td>
+<td>&#10003; </td>
+<td>&#10003; </td>
+</tr>
 </tbody></table>
-<dx-alert infotype="explain" title="">
-[公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=8) 仅支持调整 EIP 的带宽，具体操作请参见 [调整网络配置](https://cloud.tencent.com/document/product/1199/41705)；普通公网 IP 的带宽调整请参见 [调整普通公网 IP 网络配置](https://cloud.tencent.com/document/product/213/15517)。
-</dx-alert>
+
+>?[公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=8) 仅支持调整 EIP 的带宽，具体操作请参见 [调整网络配置](https://cloud.tencent.com/document/product/1199/41705)；普通公网 IP 的带宽调整请参见 [调整普通公网 IP 网络配置](https://cloud.tencent.com/document/product/213/15517)。
+>
 
 
 

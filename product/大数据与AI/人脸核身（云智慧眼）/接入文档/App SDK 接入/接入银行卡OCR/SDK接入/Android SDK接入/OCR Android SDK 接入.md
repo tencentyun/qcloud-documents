@@ -184,11 +184,13 @@ public interface OcrLoginListener {
   * 退出 SDK,返回第三方的回调,同时返回 ocr 识别结果
   */
 public interface IDCardScanResultListener{
-        /**
-         * @RARAM exidCardResult   SDK 返回的识别结果的错误码  
-* @RARAM exidCardResult   SDK 返回的识别结果的错误信息    
-         */
-        void onFinish(String errorCode, String errorMsg);
+/**
+ * 退出SDK,返回第三方的回调,同时返回ocr识别结果
+ * @param errorCode 返回码，识别成功返回 0
+ * @param errorMsg  返回信息
+ * @param result 识别结果类
+ */        
+void onFinish(String errorCode, String errorMsg, Parcelable result);
 }
 ```
 
@@ -206,7 +208,7 @@ String openApiSign; //签名信息
 ```
 >! 以上参数被封装在 WbCloudFaceVerifySdk.InputData 对象中（它是一个 Serializable 对象）。
 
-EXBankCardResult 代表 SDK 返回的识别银行卡的结果，该类属性如下所示：
+ResultOfBank 代表 SDK 返回的识别银行卡的结果，该类属性如下所示：
 ```
 public String ocrId;//识别的唯一标识
 public String bankcardNo;//识别的银行卡号
@@ -215,6 +217,25 @@ public String orderNo;//每次OCR识别请求的唯一订单号: 建议为32位�
 public String warningMsg;   //识别的警告信息
 public String warningCode;  //识别的警告码
 public Bitmap bankcardNoPhoto;//识别的银行卡的卡号图片
+public String ocrId;  //识别的唯一标识
+public String bankcardNo; //银行卡号
+public String bankcardValidDate; //银行卡的有效期
+public String orderNo; // 每次OCR识别请求的唯一订单号: 建议为32位字符串(不超过32位)
+public String warningMsg;
+public String warningCode;
+public String bankcardNoPhoto;
+public String bankcardNoPhotoSrc; //银行卡的卡号切边图的路径
+public String bankcardFullPhotoSrc;//银行卡图片存放路径
+public String retry;
+public String sign;
+//新增
+public String multiWarningCode;//多重告警码
+public String multiWarningMsg;//多重告警信息
+public String clarity;//清晰度得分
+//新版本新增字段
+public String bankcardName;//银行卡名称
+public String bankcardType;//银行卡类型
+public String bankcardInfo;//银行卡信息
 ```
 登录回调接口
 ```
@@ -236,28 +257,44 @@ public interface OcrLoginListener {
   * 退出 SDK,返回第三方的回调,同时返回ocr识别结果
   */
 public interface IDCardScanResultListener{
-        /**
-         * 退出 SDK,返回第三方的回调,同时返回 ocr 识别结果
-         * @param errorCode        返回错误码，识别成功返回 0
-         * @param errorMsg        返回错误信息，和错误码相关联         */
-        void onFinish(String errorCode, String errorMsg);
+/**
+ * 退出SDK,返回第三方的回调,同时返回ocr识别结果
+ * @param errorCode 返回码，识别成功返回 0
+ * @param errorMsg  返回信息
+ * @param result 识别结果类
+ */        
+void onFinish(String errorCode, String errorMsg, Parcelable result);
 }
 ```
 #### 银行卡识别结果类
-银行卡识别结果封装在 EXBankCardResult 类中，通过`WbCloudOcrSDK.getInstance().getBankCardResult()`获得，该类属性如下所示：
+ResultOfBank 类中，通过 onFinish()回调参数 parcelableResult 获得，该类属性如下所示：
 ```
-public String ocrId;//ocrId
-public String bankcardNo;//卡号
-public String bankcardValidDate;//有效期
-public String orderNo;//每次OCR识别请求的唯一订单号: 建议为32位字符串(不超过32位)
-public String warningMsg;//告警信息
-public String warningCode;//告警码
-public Bitmap bankcardNoPhoto; //卡号切边图
-public String bankcardFullPhoto;//银行卡图片存放路径
+public String ocrId;//识别的唯一标识
+public String bankcardNo;//识别的银行卡号
+public String bankcardValidDate;//识别的银行卡的有效期
+public String orderNo;// 每次OCR识别请求的唯一订单号: 建议为32位字符串(不超过32位)
+public String warningMsg;   //识别的警告信息
+public String warningCode;  //识别的警告码
+public Bitmap bankcardNoPhoto;//识别的银行卡的卡号图片
+public String ocrId;  //识别的唯一标识
+ public String bankcardNo; //银行卡号
+ public String bankcardValidDate; //银行卡的有效期
+ public String orderNo; // 每次OCR识别请求的唯一订单号: 建议为32位字符串(不超过32位)
+ public String warningMsg;
+ public String warningCode;
+ public String bankcardNoPhoto;
+ public String bankcardNoPhotoSrc; //银行卡的卡号切边图的路径
+ public String bankcardFullPhotoSrc;//银行卡图片存放路径
+public String retry;
+ public String sign;
+//新增
 public String multiWarningCode;//多重告警码
 public String multiWarningMsg;//多重告警信息
 public String clarity;//清晰度得分
-public String sign;//签名
+ //新版本新增字段
+public String bankcardName;//银行卡名称
+ public String bankcardType;//银行卡类型
+ public String bankcardInfo;//银行卡信息
 ```
 
 #### [接口参数说明](id:canshu)
@@ -347,30 +384,34 @@ InputData 是用来给 SDK 传递一些必须参数所需要使用的对象（Wb
   //个性化参数设置,可以不设置，不设置则为默认选项。
   //设置扫描识别的时间上限,默认20秒，建议默认。用户有效设置范围（0-60000）
   data.putLong(WbCloudOcrSDK.SCAN_TIME, 20000);
-//初始化 sdk，得到是否登录 sdk 成功的结果 
+  //初始化 sdk，得到是否登录 sdk 成功的结果 
         WbCloudOcrSDK.getInstance().init(MainActivity.this, WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeBankSide,data, new WbCloudOcrSDK.OcrLoginListener() {
             @Override
             public void onLoginSuccess() {  //登录成功,拉起 SDK 页面                              WbCloudOcrSDK.getInstance().startActivityForOcr(MainActivity.this,
       new  WbCloudOcrSDK.IDCardScanResultListener() {  //返退出 SDK 回调接口
-                    @Override
-                    public void onFinish(String resultCode, String resultMsg) {
-                        // resultCode为0，则识别成功；否则识别失败
-                       if ("0".equals(resultCode)) {
-                            WLogger.d(TAG, "识别成功，识别银行卡的结果是:"+WbCloudOcrSDK.getInstance().getBankCardResult().toString());
-                        } else {
-                            WLogger.d(TAG, "识别失败"+resultCode+”--”+resultMsg);
-                        }
-
-                    }
-});
-}
-@Override
-public void onLoginFailed(String errorCode, String errorMsg) {
-if(errorCode.equals(ErrorCode.IDOCR_LOGIN_PARAMETER_ERROR)) {
-Toast.makeText(MainActivity.this, "传入参数有误！" + errorMsg, Toast.LENGTH_SHORT).show();
-} else {
-Toast.makeText(MainActivity.this, "登录 OCR sdk 失败！" + "errorCode= " + errorCode + " ;errorMsg=" + errorMsg, Toast.LENGTH_SHORT).show();
-}
-}
-});
+                   @Override
+                    public void onFinish(
+						final String resultCode, final String resultMsg, Parcelable parcelableResult) {
+						// 登录成功  第三方应用对ocr结果进行展示等操作
+						 // TODO: 客户自己处理结果，下面代码仅供参考
+						Intent i;
+						 if (type.equals(WbCloudOcrSDK.WBOCRTYPEMODE.WBOCRSDKTypeBankSide)) {
+								//银行卡识别，跳转到银行卡结果展示页面
+								i = new Intent(MainActivity.this, BankOcrResultActivity.class);
+								i.putExtra("bankcardresult", parcelableResult);
+								i.putExtra("appId", appId);
+								i.putExtra("envUrl", envUrl);
+							}
+						}
+		});
+	}
+			@Override
+			public void onLoginFailed(String errorCode, String errorMsg) {
+				if(errorCode.equals(ErrorCode.IDOCR_LOGIN_PARAMETER_ERROR)) {
+				Toast.makeText(MainActivity.this, "传入参数有误！" + errorMsg, Toast.LENGTH_SHORT).show();
+					} else {
+					Toast.makeText(MainActivity.this, "登录 OCR sdk 失败！" + "errorCode= " + errorCode + " ;errorMsg=" + errorMsg, Toast.LENGTH_SHORT).show();
+					}
+				}
+			});
 ```

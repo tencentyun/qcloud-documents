@@ -15,7 +15,7 @@
 REGION 可以在创建桶的时候选择也可以在桶列表中查看到。ENDPOINT 的格式就是`http://cos.<REGION>.myqcloud.com`。其他云存储系统可以从相应的文档中找到与 S3 兼容的相关信息。
 
 ## 开始导入
-导入方式和 Broker Load 基本相同，只需要将 `WITH BROKER broker_name ()` 语句替换成如下部分：
+导入方式和 [Broker Load](https://cloud.tencent.com/document/product/1387/70831) 基本相同，只需要将 `WITH BROKER broker_name ()` 语句替换成如下部分：
 ```
     WITH S3
     (

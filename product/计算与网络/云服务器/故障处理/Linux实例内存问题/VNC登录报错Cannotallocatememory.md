@@ -3,16 +3,12 @@
 ![](https://main.qcloudimg.com/raw/0a31fdd909701c27c9923b2fff24668a.png)
 
 ## 可能原因[](id:PossibleCauses)
-可能是系统中存在多个大页内存导致。一个大页内存默认占用2048KB，根据 `/etc/sysctl.conf` 里的大页内存个数计算，以下图为例，1280个大页内存等于2.5G。如果实例的配置较低，但仍将2.5G分配给大页内存池（Huge Pages pool），则将导致系统没有可用内存，重启后无法进入系统。
+可能是系统中存在多个大页内存导致。一个大页内存默认占用2048KB，根据 `/etc/sysctl.conf` 里的大页内存个数计算，以下图为例，1280个大页内存等于2.5GB。如果实例的配置较低，但仍将2.5GB分配给大页内存池（Huge Pages pool），则将导致系统没有可用内存，重启后无法进入系统。
 ![](https://main.qcloudimg.com/raw/1978a0b2a85fc828674f720c108c48a3.png)
+您可以参考参考 [故障处理](#ProcessingSteps)，查看总进程数是否超限，核实大页内存配置，并修改为合适的配置。 
 
 
-## 解决思路
-1. 参考 [处理步骤](#ProcessingSteps)，查看总进程数是否超限。 
-2. 核实大页内存配置，并修改为合适的配置。
-
-
-## 处理步骤[](id:ProcessingSteps)
+## 故障处理[](id:ProcessingSteps)
 1. 参考 [日志报错 fork：Cannot allocate memory](https://cloud.tencent.com/document/product/213/54645)，核实进程数是否超限。若进程数未超限，则执行下一步。
 2. 使用单用户模式登入云服务器，详情请参见 [设置 Linux 云服务器进入单用户模式](https://cloud.tencent.com/document/product/213/33321)。
 3. 执行以下命令，参考 [可能原因](#PossibleCauses) 核实大页内存配置。

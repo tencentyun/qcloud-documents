@@ -21,6 +21,7 @@ get_object_url(Bucket, Key)
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
+import os
 import logging
 import requests
 

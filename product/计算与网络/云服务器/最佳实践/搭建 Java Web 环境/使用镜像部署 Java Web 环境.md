@@ -16,7 +16,8 @@
 </dx-alert>
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的**新建**。
-2. 根据页面提示选择机型，并在“镜像”中选择**镜像市场** > **从镜像市场选择**。如下图所示：
+<img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ecb8c8195f27ee789abc6c1a9ec0e7a7.png" />
+3. 根据页面提示选择机型，并在“镜像”中选择**镜像市场** > **从镜像市场选择**。如下图所示：
 <dx-alert infotype="notice" title="">
 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
 </dx-alert>

@@ -10,7 +10,7 @@ Linux、Mac OS 或 Windows（Windows 10 和 Windows Server 2019 版本）
 ## 前提条件
 - 已获取登录实例的管理员帐号及密码（或密钥）。
  - Linux 实例管理员帐号通常默认为 `root`，Ubuntu 系统默认为 `ubuntu`。您需结合实际情况修改。
- - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message)（标有：云服务器创建成功字样） 获取。
  - 如果您 [使用密钥登录](#LoginWithKey) 实例，需完成密钥的创建，并已将密钥绑定至该云服务器中。 具体操作请参看 [SSH 密钥](https://cloud.tencent.com/document/product/213/16691)。
  - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 您的云服务器实例已购买公网 IP，且该实例已开通云服务器实例的22号端口（对于通过快速配置购买的云服务器实例已默认开通）。

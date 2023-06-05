@@ -33,7 +33,7 @@ show variables where variable_name in ('innodb_buffer_pool_size','innodb_log_buf
  该部分主要存放 InnoDB 内的一些数据结构，在云数据库 MySQL 中统一设置为8MB。通常是在 buffer_pool 中申请内存的时候还需要在额外内存中申请空间存储该对象的结构信息。该大小主要与表数量有关，表数量越大需要更大的空间。
 
 - **key_buffer_size**
- 该部分是 MyISAM 表的重要缓存区域，所有实例统一为16M。该部分主要存放 MyISAM 表的键。MyISAM 表不同于 InnoDB 表，其缓存的索引缓存是放在 key_buffer 中的，而数据缓存则存储于操作系统的内存中。云数据库 MySQL 的系统是 MyISAM 引擎的，因此需给予该部分一定量的空间的。
+ 该部分是 MyISAM 表的重要缓存区域，所有实例统一为16M。该部分主要存放 MyISAM 表的键。MyISAM 表不同于 InnoDB 表，其缓存的索引缓存是放在 key_buffer 中的，而数据缓存则存储于操作系统的内存中。云数据库 MySQL 的系统是 MyISAM 引擎的，因此需给予该部分一定的空间。
 
 - **query_cache_size**
  该部分是对查询结果做缓存，以减少解析 SQL 和执行 SQL 的开销，在云数据库 MySQL 上关闭了该部分的缓存。主要适合于读多写少的应用场景，因为它是按照 SQL 语句的 hash 值进行缓存的，当表数据发生变化后即失效。

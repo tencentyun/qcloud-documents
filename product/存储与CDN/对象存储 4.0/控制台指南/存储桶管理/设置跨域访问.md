@@ -22,7 +22,7 @@
     - 注意不要遗漏协议名 http 或 https，若端口不是默认的80，还需要带上端口。其中 IP 地址的举例为 `http://10.10.10.10`。
  - **操作 Methods**：支持 GET、PUT、POST、DELETE、HEAD。枚举允许一个或多个跨域请求方法。
  - **Allow-Headers**：在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，例如：x-cos-meta-md5。
-    - 可以同时指定多个 Headers，每行只能填写一个，例如 Content-type。
+    - 可以同时指定多个 Headers，每行只能填写一个，例如 Content-Type。
     - Header 容易遗漏，没有特殊需求的情况下，建议设置为 `*`，表示允许所有。
     - 支持英文大小写 [a-z,A-Z]，不允许带有下划线 `_`。
     - 在 Access-Control-Request-Headers 中指定的每个 Header，都必须在 Allowed-Header 中有对应项。
