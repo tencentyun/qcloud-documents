@@ -39,8 +39,6 @@ Query 是一个静态JS对象，主要用作与后端相关的数据获取和更
 - `$w.query1.data`：`<any>`    请求成功数据对象，为接口返回值。
 - `$w.query1.error`：`<Error>`    请求失败时错误对象。
 
-不同的执行结果返回数据格式可能不同，对应执行成功的示例效果如下：  
-![](https://qcloudimg.tencent-cloud.cn/raw/1018adfc8d4c3ab156ccab81f08d7e85.png)
 
 
 ### 可访问方法有
