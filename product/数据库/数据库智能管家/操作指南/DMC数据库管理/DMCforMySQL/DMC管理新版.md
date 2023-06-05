@@ -32,8 +32,8 @@ DMC 提供 kill 会话的功能，方便用户对会话进行管理。
 ![](https://main.qcloudimg.com/raw/39144de0b6effe7ad50a164a3d1d3273.png)
 
 ## 数据管理
-登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在导航栏选择**数据管理** > **数据导入**或**数据导出**，可对数据库进行数据导入导出操作。
-![](https://main.qcloudimg.com/raw/f499d283976127a5a678ed160d5a6d22.png)
+登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在导航栏选择**导入导出**，然后在下方可选择数据库进行数据导入或数据导出。
+![](https://qcloudimg.tencent-cloud.cn/raw/6db820b43fefd1dcec79f4b52da40076.png)
 
 ## 表数据可视化编辑
 DMC for MySQL 增加了对数据增删改的支持。用户可在左侧栏单击**数据表**，对表数据进行批量的增、删、改操作，修改完成后，在**快捷操作**栏单击**确定**预览本次修改的 SQL 语句，二次确认后将批量执行修改。
