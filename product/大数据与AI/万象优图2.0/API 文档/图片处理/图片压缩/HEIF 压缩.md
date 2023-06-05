@@ -86,7 +86,7 @@ Pic-Operations:
 | 参数             | 描述                 | 是否必选 |
 | :--------------- | :------------------ | :-- |
 | ObjectKey  | 对象文件名，例如 folder/sample.jpg。       | 是|
-| /format/&ltFormat> | 压缩格式，此处为 heif。           | 是 |
+| /format/&lt;Format> | 压缩格式，此处为 heif。           | 是 |
 
 ## 实际案例
 
