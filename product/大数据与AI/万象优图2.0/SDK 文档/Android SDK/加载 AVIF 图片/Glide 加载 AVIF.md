@@ -15,7 +15,7 @@ implementation 'com.github.bumptech.glide:glide:version'
 annotationProcessor 'com.github.bumptech.glide:compiler:version' 
 ```
 
-### 步骤一：注册解码器 GlideModule
+### 注册解码器 GlideModule
 
 通过 AppGlideModule 注册相关解码器实现相应功能。
 ```
@@ -52,7 +52,7 @@ registry.prepend(InputStream.class, AvifSequenceDrawable.class, new StreamAvifSe
 registry.prepend(ByteBuffer.class, AvifSequenceDrawable.class, new ByteBufferAvifSequenceDecoder(glide.getBitmapPool()));
 ```
 
-### 步骤二：使用 Glide 加载图片
+### 使用 Glide 加载图片
 
 更多信息，请参见 [Glide 官方文档](https://bumptech.github.io/glide/)。
 

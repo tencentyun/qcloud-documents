@@ -16,7 +16,7 @@ implementation 'com.facebook.fresco:fresco:version'
 implementation 'com.facebook.fresco:animated-base:version'
 ```
 
-### 步骤一：配置解码器
+### 配置解码器
 
 #### 全局配置
 
@@ -61,7 +61,7 @@ AbstractDraweeController controller = Fresco.newDraweeControllerBuilder().setIma
 draweeView.setController(controller);
 ```
 
-### 步骤二：使用 Fresco 加载图片
+### 使用 Fresco 加载图片
 
 更多信息，请参见 [Fresco 官方文档](https://frescolib.org/docs/index.html)。
 

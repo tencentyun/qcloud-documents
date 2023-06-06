@@ -1,7 +1,7 @@
 
 本文主要介绍如何在使用 Glide 时集成 QCloud 网络库。
 
-QCloud 网络库 SDK 自定义了 GlideUrl 的 ModelLoader，接管图片加载网络层，并新增了如下功能
+QCloud 网络库 SDK 自定义了 GlideUrl 的 ModelLoader，接管图片加载网络层，并新增了如下功能：
 
 1. 在网络层新增了 HTTPDNS，有效避免由于运营商传统 LocalDNS 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 2. 在网络层接入 QUIC，提升弱网加载图片成功率，增强用户体验。
@@ -68,7 +68,7 @@ QCloudHttpConfig qCloudHttpConfig = new QCloudHttpConfig.Builder()
         .builder();
 ```
 
-以下用腾讯云 HTTP DNS 作为示例。更多信息，请参见 [腾讯云 HTTP DNS 官方文档](https://cloud.tencent.com/product/httpdns)。
+以下使用腾讯云 HTTP DNS 作为示例。更多信息，请参见 [腾讯云 HTTP DNS 官方文档](https://cloud.tencent.com/product/httpdns)。
 
 ```
 QCloudHttpConfig qCloudHttpConfig = new QCloudHttpConfig.Builder()
@@ -99,7 +99,7 @@ QCloudHttpConfig qCloudHttpConfig = new QCloudHttpConfig.Builder()
 ```
 
 ### 接入 QUIC
->?若使用 QUIC，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系联系相关同学开白名单
+>?若使用 QUIC，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系技术人员添加白名单。
 
 1. 接入 QUIC，首先需要在 Gradle 文件中添加 QUIC 库依赖。
     ```
