@@ -99,7 +99,7 @@ QCloudHttpConfig qCloudHttpConfig = new QCloudHttpConfig.Builder()
 ```
 
 ### 接入 QUIC
->?若使用 QUIC，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系技术人员添加白名单。
+>?若使用 QUIC，请点击 [这里](https://cloud.tencent.com/document/product/436/37708) 联系技术人员添加白名单。
 
 1. 接入 QUIC，首先需要在 Gradle 文件中添加 QUIC 库依赖。
     ```
