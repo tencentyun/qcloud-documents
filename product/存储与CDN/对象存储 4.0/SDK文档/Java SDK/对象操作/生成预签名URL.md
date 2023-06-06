@@ -185,7 +185,7 @@ ResponseHeaderOverrides responseHeaders = new ResponseHeaderOverrides();
 String responseContentType = "image/x-icon";
 String responseContentLanguage = "zh-CN";
 // 设置返回头部里包含文件名信息
-String responseContentDispositon = "filename=\"exampleobject\"";
+String responseContentDispositon = "filename=exampleobject";
 String responseCacheControl = "no-cache";
 String cacheExpireStr =
         DateUtils.formatRFC822Date(new Date(System.currentTimeMillis() + 24L * 3600L * 1000L));
