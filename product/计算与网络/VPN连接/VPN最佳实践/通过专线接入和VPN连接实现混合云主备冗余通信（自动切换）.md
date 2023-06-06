@@ -27,24 +27,21 @@
 
 
 ### 步骤二：配置 IDC 通过 VPN 连接上云
-登录 [VPN 网关控制台](https://console.cloud.tencent.com/vpc/vpnGw?rid=1)，单击新建创建 CCN型 VPN 网关，创建完成后在其详情页关联CCN实例。
-单击左侧导航栏的对端网关，配置对端网关（即 IDC 侧 VPN 网关的逻辑对象），填写 IDC 侧 VPN 网关的公网 IP 地址，例如202.xx.xx.5。
-单击左侧导航栏的VPN 通道，请配置 SPD 策略、IKE、IPsec 等配置。
-在 IDC 本地网关设备上配置 VPN 通道信息，此处配置需要和步骤3中的 VPN 通道信息一致，否则 VPN 隧道无法正常连通。
+1. 登录 [VPN 网关控制台](https://console.cloud.tencent.com/vpc/vpnGw?rid=1)，单击**+新建**，创建 CCN 型 VPN 网关可参见 [创建 VPN 网关](https://cloud.tencent.com/document/product/554/52861)，创建完成后，在其详情页关联 CCN 实例，详细操作可参见 [绑定云联网实例](https://cloud.tencent.com/document/product/554/71642)。
+2. 单击左侧导航栏的对端网关，配置对端网关（即 IDC 侧 VPN 网关的逻辑对象），填写 IDC 侧 VPN 网关的公网 IP 地址，例如202.xx.xx.5。详细操作可参见 [创建对端网关](https://cloud.tencent.com/document/product/554/52865)。
+3. [](id:step3-2)单击左侧导航栏的 VPN 通道，单击**新建**，创建 VPN 通道，请页面引导配置 SPD 策略、IKE、IPsec 等参数。详细配置信息可参见 [创建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。
+在 IDC 本地网关设备上配置 VPN 通道信息，此处配置需要和 [步骤3](#step3-2) 中的 VPN 通道信息一致，否则 VPN 隧道无法正常连通。
 在网关的路由表页签配置指向对端网关的路由。
 >?更多详细配置请参考 [建立 IDC 到云联网的连接](https://cloud.tencent.com/document/product/554/44267)。
 >
 
 
-
 ### 步骤三：配置网络探测
 为了解主备路径的连接质量，需要分别配置两条路径的网络探测，实时监控到网络连接的时延、丢包率等关键指标，以探测主备路由的可用性。
-
 1. 登录 [网络探测控制台](https://console.cloud.tencent.com/vpc/detection?rid=1)。
-2. 单击**新建**，创建网络探测，填写网络探测名称，选择私有网络、子网、探测目的 IP，并指定源端下一跳路由，如专线网关。
+2. 单击**新建**，创建网络探测，填写网络探测名称，选择私有网络、子网、探测目的 IP，并指定源端下一跳路由，如专线网关。创建操作可参见 [网络探测](https://cloud.tencent.com/document/product/215/20091)。
 3. 请再次执行 [步骤2](https://cloud.tencent.com/document/product/554/79702#step2)，指定源端下一跳路由为 VPN 网关。配置完成后，即可查看专线接入和VPN连接主备路径的网络探测时延和丢包率。
->?更多详细配置请参考 [网络探测](https://cloud.tencent.com/document/product/215/20091)。
->
+
 
 
 ### 步骤四：配置告警
@@ -56,3 +53,4 @@
 ### 步骤五：切换主备路由
 当收到专线网关主路径的网络探测异常告警时，自动会将您的流量切换至 VPN 网关备份路由上。
 如果主路专线恢复正常后，您需要手动将流量切会至专线网关。
+
