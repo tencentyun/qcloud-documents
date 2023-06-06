@@ -711,7 +711,7 @@ ip addr | grep inet6
 ifconfig | grep inet6
 ```
  - 若实例未开启 IPv6 功能支持，请根据下文继续开启 IPv6 功能支持。
- - 若返回 `inet6` 相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第5步]() 或 [第6步]() 继续操作。
+ - 若返回 `inet6` 相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第5步](#Rockystep5) 或 [第6步](#Rockystep6) 继续操作。
 3. 执行以下步骤修改并保存 `sysctl.conf` 文件。
   1. 执行如下命令，打开 etc 文件下的 `sysctl.conf` 文件。
 ```
@@ -725,7 +725,7 @@ net.ipv6.conf.lo.disable_ipv6 = 0
 ```
   3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 4. 运行 sysctl -p 使配置生效。
-5. 执行以下步骤修改并保存 ifcfg-eth0 文件。
+5. [](id:Rockystep5)执行以下步骤修改并保存 ifcfg-eth0 文件。
   1. 执行如下命令，打开 `/etc/sysconfig/network-scripts/` 文件夹下的 ifcfg-eth0 文件。
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
@@ -737,7 +737,7 @@ IPV6INIT=yes
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/1a9039d10871a2a04ba542d7372d5e79.png)
   3. 按 “Esc”，输入 “:wq”，保存文件并返回。
-6. 执行以下步骤修改并保存 route6-eth0 文件。
+6. [](id:Rockystep6)执行以下步骤修改并保存 route6-eth0 文件。
   1. 查看/etc/sysconfig/network-scripts/文件夹下的route6-eth0文件是否存在，如果不存在，则通过如下命令进行创建。
 ```
 touch /etc/sysconfig/network-scripts/route6-eth0
