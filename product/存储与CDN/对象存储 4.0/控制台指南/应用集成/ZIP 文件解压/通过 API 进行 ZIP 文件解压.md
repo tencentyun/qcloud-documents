@@ -1,3 +1,6 @@
+>!该文档已停止维护，如需使用文件解压功能，可开通数据万象文件处理服务进行使用，详情请参见 [文件处理](https://cloud.tencent.com/document/product/436/82326)。
+
+
 ## 准备工作
 
 1. ZIP 文件解压功能通过云函数（Serverless Cloud Function，SCF）实现。使用前，需在对象存储控制台 [ZIP 文件解压](https://console.cloud.tencent.com/cos5/application/cosGunzipApi) 上创建 **ZIP 文件解压** 函数。创建指引请参见 [ZIP 文件解压](https://cloud.tencent.com/document/product/436/67101)。
