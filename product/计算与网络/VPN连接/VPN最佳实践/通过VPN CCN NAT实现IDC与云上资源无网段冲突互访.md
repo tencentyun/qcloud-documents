@@ -3,7 +3,7 @@
 
 
 ## 业务场景
-用户使用 VPN 打通腾讯云和客户远程 IDC /第三方云商，实现资源访问，同时期望指定访问 IP 地址并无 IP 冲突，可以通过私网 VPN+ NAT + CCN方案来实现。
+用户使用 VPN 打通腾讯云和客户远程 IDC /第三方云商，实现资源访问，同时期望指定访问 IP 地址并无 IP 冲突，可以通过私网 VPN + NAT + CCN 方案来实现。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2a8be56cc4bb75019c3c355214998603.png)
 
 
@@ -20,7 +20,7 @@
 - 已开启私网 NAT 网关特性，如需要开通请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
 
 ## 操作步骤
-### 步骤一：创建 CCN 实例，并关联业务 VPC
+### [](id:step1)步骤一：创建 CCN 实例，并关联业务 VPC
 1. 登录 [云联网控制台](https://console.cloud.tencent.com/vpc/ccn)，单击**新建**，并关联业务 VPC，详情可参见 [新建云联网实例](https://cloud.tencent.com/document/product/877/18752)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5fcd371c81242f9c1d0ffa5b3efcf5a0.png)
 2. 在 CCN 实例列表页面，单击已创建好的**云联网 ID**，然后在 CCN 实例详情页的**路由表**页签，单击**新建路由表**创建两个 CCN 路由表。
@@ -32,7 +32,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/e5b6a048839ba3a3dc64bb52c42cfcef.png)
 	2. 在**路由接收策略**页签，单击**添加网络实例**，然后在**选择网络实例**页面，选择业务 VPC 实例并单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a617b151d1238032cc56115b7be5f515.png)
-   添加完成如下：
+添加完成如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1eeb4fc7e3c28e8b2317852d9c95b195.png)
 
 ### [](id:step2)步骤二：创建 CCN 型私网 NAT，并添加至 CCN 多路由表。
@@ -67,11 +67,11 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/a4027974fe74d1ea1290789180bead73.png)
 
 ### 步骤五：创建 CCN 型 VPN 网关及其资源，并关联至 CCN 多路由表。
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，选择地域和私有网络后，单击**新建**，然后依据界面提示 VPN 网关创建。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧导航栏，单击 **VPN 连接** > **VPN 网关**，选择地域和私有网络后，单击**新建**，关联网络选择“云联网”，依据界面提示，完成创建 CCN 型 VPN 网关。详细操作可参考 [创建 VPN 网关](https://cloud.tencent.com/document/product/554/52861)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fc125cfe6ea9e24110d2f3fe7aa53946.png)
-2. 在 VPN 网关详情页绑定步骤一创建的 CCN 实例。
+2. 在 VPN 网关详情页绑定 [步骤一](#step1) 创建的 CCN 实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5a3c4fa52a48c04f4aaa6e132d030042.png)
-3. 在 CCN 实例 > 路由表页签，将 VPN 网关加入云联网路由表2中，并绑定 VPN 网关实例，同时设置路由接收策略，详细操作可参考步骤一的子步骤三。
+3. 在 CCN 实例 > 路由表页签，将 VPN 网关加入云联网路由表2中，并绑定 VPN 网关实例，同时设置路由接收策略，详细操作可参考 [步骤一中的步骤3](#step1-3)。
 4. 在 VPN 侧 [创建对端网关](https://cloud.tencent.com/document/product/554/52865) 和 [创建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。
 5.（可选）发布路由至 CCN，仅当 VPN 通道为 SPD 策略型时，需要在 VPN 网关手动将路由发布至 CCN。
 6. 在用户 IDC 侧配置防火墙或者本地 VPN。
