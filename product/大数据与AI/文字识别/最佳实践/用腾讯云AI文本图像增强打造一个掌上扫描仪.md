@@ -44,7 +44,7 @@
 ```
 #	安装公共基础包
 go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
-#	安装对应的产品包（如 CVM）
+#	安装对应的产品包
 go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm
 #	一次性下载腾讯云所有产品的包
 go get -v -u github.com/tencentcloud/tencentcloud-sdk-go
@@ -178,38 +178,154 @@ func imageToBase64(filePath string) (string, error) {
 ```
 ### 2.4 体验掌上扫描仪的效果
 **1）角度矫正**
-- 原始图片
-![](https://qcloudimg.tencent-cloud.cn/raw/4164f3a3ae240f93295c9d9fbacd5510.png)![](https://qcloudimg.tencent-cloud.cn/raw/bd33704aede92c6d806ee696d0bae858.png)![](https://qcloudimg.tencent-cloud.cn/raw/c33baeafc63e05ecdec4add17a0e3824.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/90cdb8a639aab9f31de0bbf32a58dc26.png)![](https://qcloudimg.tencent-cloud.cn/raw/717acbd9dd42a9a9e2bf7e81cdaf0d8e.png)![](https://qcloudimg.tencent-cloud.cn/raw/c386b25faf6631a7af13269ce039659b.png)
-- 切边增强后图片
-![](https://qcloudimg.tencent-cloud.cn/raw/3e94658325840d701a5c9f8e5d02d2f6.png)![](https://qcloudimg.tencent-cloud.cn/raw/146cbcf84fd2d22de4fab1e60a8a0376.png)![](https://qcloudimg.tencent-cloud.cn/raw/93a62dace369b12ea9a9bce7df12c75f.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/500f52cbd9b3a5c9040aac0a464f72f1.png)![](https://qcloudimg.tencent-cloud.cn/raw/0259e15f89b41c28a8ce18c06a59d3d3.png)![](https://qcloudimg.tencent-cloud.cn/raw/44fae631b1ebc72e26bb288c596ef61d.png)
+<table>
+<thead>
+<tr>
+<th>原始图片</th>
+<th>切边增强后图片</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/4164f3a3ae240f93295c9d9fbacd5510.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/3e94658325840d701a5c9f8e5d02d2f6.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/bd33704aede92c6d806ee696d0bae858.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/146cbcf84fd2d22de4fab1e60a8a0376.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/c33baeafc63e05ecdec4add17a0e3824.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/93a62dace369b12ea9a9bce7df12c75f.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/4164f3a3ae240f93295c9d9fbacd5510.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/500f52cbd9b3a5c9040aac0a464f72f1.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/717acbd9dd42a9a9e2bf7e81cdaf0d8e.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/0259e15f89b41c28a8ce18c06a59d3d3.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/c386b25faf6631a7af13269ce039659b.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/44fae631b1ebc72e26bb288c596ef61d.png" ></td>
+</tr>
+</tbody></table>
  经过角度矫正后，可以从上图中看出，角度矫正后的图片更加凸显文本内容，提高了文本图像的质量。
 
+
 **2）弯曲矫正**
-- 原始图片：
-![](https://qcloudimg.tencent-cloud.cn/raw/530e730bffb625ea1c1f7accfd62fef1.png)![](https://qcloudimg.tencent-cloud.cn/raw/ea7684277e690ef8a32c2db18b83ee69.png)![](https://qcloudimg.tencent-cloud.cn/raw/14837e8fa5bc84d517c58a15310c6dfe.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/ff8376cfddd5ddffa922d627db3fbccb.png)![](https://qcloudimg.tencent-cloud.cn/raw/b1071131bc686ecb40282dc7ac9d2418.png)![](https://qcloudimg.tencent-cloud.cn/raw/d3241965f7e6fe226349e3216a5092a9.png)
-- 矫正后图像：
-![](https://qcloudimg.tencent-cloud.cn/raw/82c0451ae0c5d23ac2aa433b5c48873d.png)![](https://qcloudimg.tencent-cloud.cn/raw/a92910278834847616a0478d15a75055.png)![](https://qcloudimg.tencent-cloud.cn/raw/14a7d7735068873a3b34b89142c9b26b.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/5c2b63dd981c9d92e22516e6dfb667ea.png)![](https://qcloudimg.tencent-cloud.cn/raw/3fdca45083c9a8b67b18ef960ed4b7a5.png)![](https://qcloudimg.tencent-cloud.cn/raw/1e17d53c9e51a528bdf05d552468e2cd.png)
+<table>
+<thead>
+<tr>
+<th>原始图片</th>
+<th>矫正后图像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/530e730bffb625ea1c1f7accfd62fef1.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/82c0451ae0c5d23ac2aa433b5c48873d.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/ea7684277e690ef8a32c2db18b83ee69.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/a92910278834847616a0478d15a75055.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/14837e8fa5bc84d517c58a15310c6dfe.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/14a7d7735068873a3b34b89142c9b26b.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/ff8376cfddd5ddffa922d627db3fbccb.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/5c2b63dd981c9d92e22516e6dfb667ea.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/b1071131bc686ecb40282dc7ac9d2418.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/3fdca45083c9a8b67b18ef960ed4b7a5.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/d3241965f7e6fe226349e3216a5092a9.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/1e17d53c9e51a528bdf05d552468e2cd.png" ></td>
+</tr>
+</tbody></table>
+
  经过弯曲矫正后，可以从上图中看出，弯曲矫正后的图片文本更加清晰，提高了文本图像的质量。
 
+
+
+
+
+
+
 **3）去除摩尔纹**
-- 原始图片：
-![](https://qcloudimg.tencent-cloud.cn/raw/f763eadd122718bcc53061bd22ae2301.png)![](https://qcloudimg.tencent-cloud.cn/raw/e0a25fd376d822cf9505d601e65f238d.png)![](https://qcloudimg.tencent-cloud.cn/raw/e8624c500809e8dacc0af57dcfe0d3b9.png)![](https://qcloudimg.tencent-cloud.cn/raw/c66896a8e8c291afcba953ff7fbb5e7e.png)
-- 去除摩尔纹后的图片：
-![](https://qcloudimg.tencent-cloud.cn/raw/4020aa32e94dd0fc52ba7b5179b51f8c.png)![](https://qcloudimg.tencent-cloud.cn/raw/57f1bde92d5d8c713ceb56172c430204.png)![](https://qcloudimg.tencent-cloud.cn/raw/464b36de6873021bd570fbbac9a89e21.png)![](https://qcloudimg.tencent-cloud.cn/raw/a35c3d65e33e5a2cb9e776f7be9b19a2.png)
+<table>
+<thead>
+<tr>
+<th>原始图片</th>
+<th>去除摩尔纹后的图片</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/f763eadd122718bcc53061bd22ae2301.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/4020aa32e94dd0fc52ba7b5179b51f8c.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/e0a25fd376d822cf9505d601e65f238d.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/57f1bde92d5d8c713ceb56172c430204.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/e8624c500809e8dacc0af57dcfe0d3b9.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/464b36de6873021bd570fbbac9a89e21.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/c66896a8e8c291afcba953ff7fbb5e7e.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/a35c3d65e33e5a2cb9e776f7be9b19a2.png" ></td>
+</tr>
+</tbody></table>
+
  经过去除摩尔纹处理，很大程度的提高了文本图像的清晰度，排除了摩尔纹的干扰，提高了文本图像的质量。
 
+
 **4）去除阴影**
-- 原始图片：
-![](https://qcloudimg.tencent-cloud.cn/raw/bd821ec61ecc29205e61648ded91f013.png)![](https://qcloudimg.tencent-cloud.cn/raw/7c955c74cc9803fc02f986549b7b5566.png)![](https://qcloudimg.tencent-cloud.cn/raw/4a547cdb35bb5618ed4454b1bddc4970.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/a995584e1d4c7b6d61187d600876c3a1.png)![](https://qcloudimg.tencent-cloud.cn/raw/ae8cbaad5870a1226801fe336c60e128.png)![](https://qcloudimg.tencent-cloud.cn/raw/15ea2e8615f7a765a7444942be22e42a.png)
-- 去除阴影后的图片：
-![](https://qcloudimg.tencent-cloud.cn/raw/2f2ace2738e6b521798aa3a698e83d84.png)![](https://qcloudimg.tencent-cloud.cn/raw/a1d9325f3b5aa97bf2a49182b14f011f.png)![](https://qcloudimg.tencent-cloud.cn/raw/a9f860e6d51eecd6508822263ea87a80.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/9f5dad0d1503bd074b128ed7bdbe94cf.png)![](https://qcloudimg.tencent-cloud.cn/raw/98171495c809fdafde318899ddc79b66.png)![](https://qcloudimg.tencent-cloud.cn/raw/a297e37a35ee0b72054095a331b412fb.png)
+ <table>
+<thead>
+<tr>
+<th>原始图片</th>
+<th>去除阴影后的图片</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/bd821ec61ecc29205e61648ded91f013.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/2f2ace2738e6b521798aa3a698e83d84.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/7c955c74cc9803fc02f986549b7b5566.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/a1d9325f3b5aa97bf2a49182b14f011f.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/4a547cdb35bb5618ed4454b1bddc4970.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/a9f860e6d51eecd6508822263ea87a80.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/a995584e1d4c7b6d61187d600876c3a1.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/9f5dad0d1503bd074b128ed7bdbe94cf.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/ae8cbaad5870a1226801fe336c60e128.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/98171495c809fdafde318899ddc79b66.png" ></td>
+</tr>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/15ea2e8615f7a765a7444942be22e42a.png" ></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/a297e37a35ee0b72054095a331b412fb.png" ></td>
+</tr>
+</tbody></table>
+ 
  经过去除阴影处理，解决了因为环境因素对文本图像质量造成的影响，提高了文本图像的质量。
+ 
+ 
+
 
 ## 三、总结
 影响文本图像质量清晰程度有很多因素，室外光照度不均匀会造成图像灰度过于集中；摄像头获得的文本图像经过数/模转换，线路传输时都会产生噪声污染，文本图像质量不可避免降低，轻者表现为文本图像伴有噪点，难于看清文本图像细节；重者文本图像模糊不清，连大概文字轮廓都难以看清。因此，对图像进行分析处理之前，必须对图像进行改善。通过腾讯云AI的文本图像增强创造的掌上扫描仪解决了大部分文本图像不清晰的问题，提高了文本图像的质量。
