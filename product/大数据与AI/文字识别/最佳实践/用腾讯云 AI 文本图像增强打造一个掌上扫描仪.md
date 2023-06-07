@@ -5,7 +5,7 @@
 ## 一、准备工作
 为了使用腾讯云文本图像增强能力，我做了以下几个准备工作。
 
-### 1.1、开通文本图像增强功能
+### 1.1 开通文本图像增强功能
 在使用腾讯云文本图像增强之前，通过腾讯云官网开通 [文本图像增强](https://cloud.tencent.com/product/tie) 服务。  
 ![](https://qcloudimg.tencent-cloud.cn/raw/87d4763c44763d7504d13b22a6243673.png)
 服务开通成功后，腾讯云AI文字识别赠送了免费的资源包，其中文本图像增强1000次免费额度，可以在 [资源包管理页面](https://console.cloud.tencent.com/ocr/packagemanage) 查看资源包使用情况。 
@@ -13,7 +13,7 @@
  通过使用我发现在设置页面开通了后付费服务，这样就不用担心资源包耗尽导致调用接口失败了，但是后付费设置每月只能变更一次。
  ![](https://qcloudimg.tencent-cloud.cn/raw/c6cbb432a89c2f21a21ba28e2ff2fab2.png)
  
-### 1.2、控制台监控信息
+### 1.2 控制台监控信息
 经过使用，我了解到所有文字识别服务的使用情况都可以在 [控制台](https://console.cloud.tencent.com/ocr/overview) 中查看使用信息，可以从下图看到统计出当前月份的调用情况、计费情况、成功数、成功率等。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/893ba29f7ea5d39510b3679641056b14.png)
 
@@ -26,15 +26,15 @@
 - 体验掌上扫描仪的效果
 - 总结
 
-### 2.1、获取个人密钥
+### 2.1 获取个人密钥
 在腾讯云访问管理的 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，我们新建一个个人密钥。  
 ![](https://qcloudimg.tencent-cloud.cn/raw/e3a44ca253e5eda08f81ea6af073e3f8.png)
 复制生成的密钥，可以[单击这里](https://console.cloud.tencent.com/cam/capi)直达。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4e121f8d1ad505d60b442405f72a726e.png)
-### 2.2、图像增强 API 接口说明
+### 2.2 图像增强 API 接口说明
 可以在 [API Explorer](https://console.cloud.tencent.com/api/explorer?Product=ocr&Version=2018-11-19&Action=ImageEnhancement) 中选择文字图像增强—输入参数—选择需要的语言—即可生成对应语言的 API 调用代码。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb1073e359f4d4c788012cd0c6f277f0.png)
-### 2.3、使用腾讯云 AI 文字识别的图像增强功能制作掌上扫描仪
+### 2.3 使用腾讯云 AI 文字识别的图像增强功能制作掌上扫描仪
 掌上扫描仪产品实现过程中主要分为一下几个步骤：
 - 安装环境依赖的 SDK
 - 调用图像增强接口
