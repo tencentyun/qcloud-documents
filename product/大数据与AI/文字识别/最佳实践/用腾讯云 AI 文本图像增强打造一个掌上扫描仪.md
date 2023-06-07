@@ -210,5 +210,5 @@ func imageToBase64(filePath string) (string, error) {
 ![](https://qcloudimg.tencent-cloud.cn/raw/9f5dad0d1503bd074b128ed7bdbe94cf.png)![](https://qcloudimg.tencent-cloud.cn/raw/98171495c809fdafde318899ddc79b66.png)![](https://qcloudimg.tencent-cloud.cn/raw/a297e37a35ee0b72054095a331b412fb.png)
  经过去除阴影处理，解决了因为环境因素对文本图像质量造成的影响，提高了文本图像的质量。
 
-#### 2.5 总结
+### 2.5 总结
 影响文本图像质量清晰程度有很多因素，室外光照度不均匀会造成图像灰度过于集中；摄像头获得的文本图像经过数/模转换，线路传输时都会产生噪声污染，文本图像质量不可避免降低，轻者表现为文本图像伴有噪点，难于看清文本图像细节；重者文本图像模糊不清，连大概文字轮廓都难以看清。因此，对图像进行分析处理之前，必须对图像进行改善。通过腾讯云AI的文本图像增强创造的掌上扫描仪解决了大部分文本图像不清晰的问题，提高了文本图像的质量。
