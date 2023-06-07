@@ -6,7 +6,7 @@
 TCCLI 集成了腾讯云所有支持云 API 的产品，您可以在命令行下完成对腾讯云产品的配置和管理。包括使用 TCCLI 创建云服务器、操作云服务器、通过 TCCLI 创建云硬盘、查看云硬盘使用情况、通过 TCCLI 创建私有网络、往私有网络中添加资源等，所有在控制台页面能完成的操作，均能在 TCCLI 上执行命令实现。例如：
 
 * 通过 `tccli cvm DescribeInstances` 命令查看当前账号有哪些云服务器。
-* 通过 `tccli cbs DescribeDisks` 命令查看有云硬盘列表。
+* 通过 `tccli cbs DescribeDisks` 命令查看云硬盘列表。
 
 
 

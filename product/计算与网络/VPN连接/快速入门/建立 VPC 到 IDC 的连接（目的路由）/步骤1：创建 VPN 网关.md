@@ -5,8 +5,7 @@
 >
 ![](https://main.qcloudimg.com/raw/ec9534a52ebcc712430ae1b8d3f8b094.png)
 4. 在弹出的创建对话框中填写 VPN 网关名称（如 VPN1），选择关联网络为私有网络、所属网络选择 VPC1，设置带宽上限及计费方式等。
->?
->如果 VPN 网关使用200Mbps、500Mbps、1000Mbps和3000Mbps规格的带宽，VPN 通道加密协议建议使用 AES128+MD5。
+>?如果 VPN 网关使用200Mbps、500Mbps、1000Mbps和3000Mbps规格的带宽，VPN 通道加密协议建议使用 AES128+MD5。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/516a447431dcf7c0761c561ae0f700cf.png)
 5. 单击**创建**。VPN 网关创建完成后，系统随机分配公网 IP，如：`124.156.239.133`。

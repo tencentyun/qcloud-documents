@@ -88,6 +88,7 @@ CentOS 8.0/CentOS 8.2/CentOS 8.4支持自动获取，IPv6 信息将自动下发�
 	- [OpenSUSE 42 配置 IPv6](#Opensuse)
 	- [SUSE 10 配置IPv6](#suse)
 	- [FreeBSD 11 配置 IPv6](#Freebsd11)
+	- [Rocky Linux 9.0](#Rocky)
 
 
 ## 工具配置[](id:gjpz)
@@ -700,6 +701,72 @@ ipv6_defaultrouter="<IPv6网关>"
 ```
 6. 运行 `/etc/netstart restart` 重启网络服务，使配置生效。
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+
+### Linux 9.0 配置 IPv6[](id:Rocky)
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
+2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
+```
+ip addr | grep inet6
+或者
+ifconfig | grep inet6
+```
+ - 若实例未开启 IPv6 功能支持，请根据下文继续开启 IPv6 功能支持。
+ - 若返回 `inet6` 相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第5步](#Rockystep5) 或 [第6步](#Rockystep6) 继续操作。
+3. 执行以下步骤修改并保存 `sysctl.conf` 文件。
+  1. 执行如下命令，打开 etc 文件下的 `sysctl.conf` 文件。
+```
+vim /etc/sysctl.conf
+```
+  2. 按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0.
+ ```
+net.ipv6.conf.all.disable_ipv6 = 0
+net.ipv6.conf.default.disable_ipv6 = 0
+net.ipv6.conf.lo.disable_ipv6 = 0
+```
+  3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+4. 运行 sysctl -p 使配置生效。
+5. [](id:Rockystep5)执行以下步骤修改并保存 ifcfg-eth0 文件。
+  1. 执行如下命令，打开 `/etc/sysconfig/network-scripts/` 文件夹下的 ifcfg-eth0 文件。
+```
+vim /etc/sysconfig/network-scripts/ifcfg-eth0
+```
+  2. 按 “i” 切换至编辑模式，增加如下内容。
+```
+DHCPV6C=yes
+IPV6INIT=yes
+```
+![](https://qcloudimg.tencent-cloud.cn/raw/1a9039d10871a2a04ba542d7372d5e79.png)
+  3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+6. [](id:Rockystep6)执行以下步骤修改并保存 route6-eth0 文件。
+  1. 查看/etc/sysconfig/network-scripts/文件夹下的route6-eth0文件是否存在，如果不存在，则通过如下命令进行创建。
+```
+touch /etc/sysconfig/network-scripts/route6-eth0
+```
+  2. 执行如下命令，打开 `/etc/sysconfig/network-scripts/` 文件夹下的 `route6-eth0` 文件。
+```
+vim /etc/sysconfig/network-scripts/route6-eth0
+```
+  3. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+```
+default dev eth0 via fe80::feee:ffff:feff:ffff
+```
+![](https://qcloudimg.tencent-cloud.cn/raw/b5359cbc44962abbabf5be03a7e926dc.png)
+  4. 按 “Esc”，输入 “:wq”，保存文件并返回。
+7. 重启云服务器。
+8. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
+```
+ifconfig
+```
+若出现以下报文，表示已成功获取到 IPv6 地址。
+![](https://qcloudimg.tencent-cloud.cn/raw/a27a9896a7ac42a77ff1f2b146284978.png)
+9. 执行如下命令，检查 IPv6 网关配置是否生效。
+```
+ip -6 route show | grep default
+```
+10. 请参考 [SSH 支持 IPv6 配置](https://cloud.tencent.com/document/product/1142/47666#ssh-ipv6) 开启 SSH 的IPv6 功能。
+
+
+
 
 ## 附录[](id:ssh-ipv6)
 

@@ -15,6 +15,6 @@
 ![](https://main.qcloudimg.com/raw/084aafded27a8faece1db1721686df5c.png)
 6. 在登录选项卡中，找到网站的证书，双击证书。
 ![](https://main.qcloudimg.com/raw/db9ca78cd4f5726fcdb72fbc65bbec63.png)
-7. 在信认选项中，改为始终信任。
+7. 在信任选项中，改为始终信任。
 ![](https://main.qcloudimg.com/raw/f070b3883c5f05998694649e3e204d4f.png)
 8. 再次在弹出的验证框中，输入密码，将成功信任该网站的证书。

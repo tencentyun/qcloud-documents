@@ -18,7 +18,7 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 hue 通过将不同的权限添加到组，用户通过加入不同的组获得对应权限。
 	1. 单击用户管理页面上方的 **Groups**，然后单击右侧的 **Add group**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6b857c8fa14a766f73b62ff1f9077e92.png)
-	2. 填写用户组信息，可勾选那些用户加入此组，并勾选此用户组的权限，单击下方的 **Add Group**。
+	2. 填写用户组信息，可勾选目标用户加入此组，并勾选此用户组的权限，单击下方的 **Add Group**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3fbccd716621bae652c293563f3b098e.png)
 
 ## 数据导入
@@ -50,5 +50,5 @@ Hue 支持4种导入方式：本地文件、HDFS 上的文件、外部数据库�
 ![](https://qcloudimg.tencent-cloud.cn/raw/058bdbd72391b69a0eae466869a47bf0.png)
 2. 单击其中一个数据库，可查看此数据库的表。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a14dba986a6192e6246a179560bc790f.png)
-3. 单击各个表，可以查看表的具体详情信息。
+3. 单击各个表，可以查看表的具体详细信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cc89817cc1759903a516db03a3f5abfb.png)

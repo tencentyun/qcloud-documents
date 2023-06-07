@@ -33,7 +33,7 @@
 
 ### 步骤三：购买云服务器并配置云服务器的 IPv6[](id:step3)
 为 VPC 和子网分配 IPv6 CIDR 后，您需在该子网下创建一个具有 IPv6 地址的云服务器，或为该子网下运行中的云服务器获取 IPv6 地址。
->?由于 IPv6 地址目前还不支持自动下发到网卡，因此从在控制台获取 IPv6 地址后，您还需要登录云服务器，将 IPv6 地址配置到云服务器的网卡上。
+>?由于 IPv6 地址目前还不支持自动下发到网卡，因此在控制台获取 IPv6 地址后，您还需要登录云服务器，将 IPv6 地址配置到云服务器的网卡上。
 >
 1. 登录 [云服务器购买页](https://buy.cloud.tencent.com/cvm?tab=cvm)。
 2. 在自定义设置页面，完成云服务器各种配置操作，具体操作请参见 [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E8.B4.AD.E4.B9.B0.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)。
@@ -82,6 +82,7 @@
 下面分别介绍 Linux 云服务器和 Windows 云服务器如何测试 IPv6 的连通性。
 >?
 >- 如果测试公网连通性，请确保已经在“安全组”设置 IPv6 策略、并在**弹性公网 IPv6** 设置 IPv6 公网带宽。
+>- 如果云服务器所在的子网关联了网络 ACL，还需要在对应的网络 ACL 中设置 IPv6 策略。如需开通更多 IPv6 的公网能力，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=660&source=0&data_title=%E5%BC%B9%E6%80%A7IP%20&step=1)。
 >- 如果未开通 IPv6 公网，但需要测试 IPv6 云服务器的连通性（Ping 测试、SSH、远程桌面测试），可使用同一私有网络下已经获取 IPv6 地址的云服务器进行连通性测试。
 >- 如果云服务器镜像开启了 IPv6，系统则会为每个网卡默认分配一个“FE80”开头的 link-local 地址，该 link-local 并不能作为内外网通信的 IPv6 地址。
 >- 建议您选择就近测试点 Ping 测试。
@@ -110,5 +111,3 @@ Windows 云服务器可通过 Ping 或远程桌面测试 IPv6 连通性。
 ![](https://main.qcloudimg.com/raw/ba325fb98c4efe86a1f3a4bcd55f77be.png)
 :::
 </dx-tabs>
-
-
