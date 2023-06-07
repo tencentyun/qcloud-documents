@@ -35,7 +35,7 @@
  ![](https://qcloudimg.tencent-cloud.cn/raw/24c657239e40bcb62a7bb8140574f609.png)
 2. [](id:step2)创建云联网型私网 NAT 实例，并将私网 NAT 的附属 VPC 关联到云联网多路由表中。
 	1. 登录 [私网 NAT 网关控制台](https://console.cloud.tencent.com/vpc/intranat?rid=1) ，在页面上方选择**地域**和**私有网络**后，单击**新建**，创建成功后得到本端 VPC 和对端 VPC 实例。
->?创建 CCN 型私网 NAT 实例（跨城 NAT 能力需开白名单使用，请提交请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)）。
+>?创建 CCN 型私网 NAT 实例（跨城 NAT 能力需开白名单使用，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)）。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/005d0aae3c0a2b8705da78592d9cc756.png)
 	2. 完成创建后，展示如下：
