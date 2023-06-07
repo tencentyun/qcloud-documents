@@ -20,7 +20,7 @@
 ## 实践步骤
 
 
-### 准备 COS 存储桶
+### 创建 COS 存储桶
 
 1. 创建一个访问权限为**公有读私有写**的存储桶，存储桶的地域建议与运行 Django 的 CVM 地域相同，创建详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
 2. 在存储桶列表中找到刚刚创建的存储桶，并获取存储桶名称，例如 examplebucket-1250000000。
@@ -33,7 +33,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/837c3002f792d21b3783b21a3b522029.png)
 3. 创建后，在您的目录下找到并打开 setting.py 文件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1a83cc7bdc6be7434d01129c4be8498b.png)
-将以下代码复制粘贴进去，并按照参数说明进行配置：
+将以下代码复制粘贴进去，并按照参数说明进行 COS 服务配置：
 ```
 DEFAULT_FILE_STORAGE = "django_cos_storage.TencentCOSStorage"
 
@@ -53,8 +53,12 @@ TENCENTCOS_STORAGE = {
       <th width="0%" >配置值</td>
    </tr>
    <tr>
-      <td>BasePath</td>
-      <td>文件所存储的 COS 路径，可自行修改，不填写则默认根目录</td>
+      <td>Bucket</td>
+      <td>创建存储桶时自定义的名称，例如 examplebucket-1250000000。</td>
+   </tr>
+   <tr>
+      <td>Region</td>
+      <td>创建存储桶时所选择的地域。</td>
    </tr>
    <tr>
       <td>SecretId</td>
@@ -64,19 +68,11 @@ TENCENTCOS_STORAGE = {
       <td>SecretKey</td>
       <td>访问密钥信息，可前往 <a href="https://console.cloud.tencent.com/capi">云 API 密钥</a> 中创建和获取，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。详情请参见 <a href="https://cloud.tencent.com/document/product/598/37140">子账号访问密钥管理</a>。</td>
    </tr>
-   <tr>
-      <td>Bucket</td>
-      <td>创建存储桶时自定义的名称，例如 examplebucket-1250000000。</td>
-   </tr>
-   <tr>
-      <td>Region</td>
-      <td>创建存储桶时所选择的地域。</td>
-   </tr>
 </table>
 
 
 
-### 下载 COS 插件
+### 下载和配置 COS 插件
 
 1. 前往 [Github](https://github.com/Tencent-Cloud-Plugins/tencentcloud-django-plugin-cos/archive/refs/heads/master.zip) 下载 COS 插件。下载后将 django_cos_storage 这个目录解压到 django 项目的目录下。
 >?如需查看其插件信息，打开 terminal，输入 `pip freeze`，即可查看其模块信息。
@@ -146,7 +142,7 @@ def upload_file_view(request):
     return HttpResponse('上传文件失败')
 		
 ```
->!这里示例中 `cessu/1.png` 表示创建文件夹 cessu，然后将图片1.png 放入 cessu 文件夹中。
+>!这里示例中 `cessu/1.png` 表示创建文件夹 cessu，然后将图片1.png 上传到 cessu 文件夹中。上传成功后，您可以在 COS 存储桶的 cessu 文件夹中找到图片1.png。
 
 4. 在 djangoProject2 目录下找到并打开 urls.py。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3c840d7cfba7de0f6fdc37f4f35fbd2d.png)
@@ -177,6 +173,18 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 最后在 terminal 中输入 `python .\manage.py runserver` 运行，然后打开 `http://127.0.0.1:8000/admin/` 即可。
-8. 访问 `http://127.0.0.1:8000/upload_file`，完成上传文件操作。当提示如下图所示，则表示上传成功。
+
+
+### 验证 Django 附件存储到 COS
+
+1. 访问 `http://127.0.0.1:8000/upload_file`，完成上传文件操作。当提示如下图所示，则表示上传成功。
 ![](https://qcloudimg.tencent-cloud.cn/raw/149cbb07018a6c1c60e9dc0ac2e5f2cd.png)
-9. 在 COS 控制台并打开对应的存储桶，即可查看该上传的图片。
+2. 登录 COS 控制台，选择之前创建的存储桶，在 cessu 路径下即可看到已上传的图片。
+
+
+
+## 结语
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+
+
