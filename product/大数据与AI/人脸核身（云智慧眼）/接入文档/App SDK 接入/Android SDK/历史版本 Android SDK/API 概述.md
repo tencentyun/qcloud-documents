@@ -57,7 +57,7 @@ public static void startHuiYanAuth(AuthConfig authConfig, HuiYanAuthResultListen
 
 
 ## AuthConfig
-AuthConfig 是在启动慧眼 SDK 时的配置实体类，主要包含了一下属性。
+AuthConfig 是在启动慧眼 SDK 时的配置实体类，主要包含了以下属性。
 
 | 类型                              | 名称                 | 含义                                 | 默认值                                   |
 | --------------------------------- | -------------------- | ------------------------------------ | ---------------------------------------- |
