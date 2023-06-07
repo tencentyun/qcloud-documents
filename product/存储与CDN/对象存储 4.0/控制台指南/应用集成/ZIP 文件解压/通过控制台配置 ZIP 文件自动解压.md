@@ -1,3 +1,6 @@
+>!该文档已停止维护，如需使用文件解压功能，可开通数据万象文件处理服务进行使用，详情请参见 [文件处理](https://cloud.tencent.com/document/product/436/82326)。
+
+
 ## 简介
 
 ZIP 文件解压功能是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供的数据处理解决方案。用户为存储桶添加 ZIP 文件解压规则后，当 ZIP 压缩文件上传到对象存储时，将自动触发对象存储为您预配置的云函数，自动将文件解压到指定的存储桶和路径中。流程图如下：
