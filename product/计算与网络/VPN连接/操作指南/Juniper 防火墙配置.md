@@ -4,7 +4,7 @@
 > + 支持 Juniper SRX 系列防火墙以及 vSRX 系列虚拟防火墙，所有版本均支持。
 > + 本文所有 IP、接口等参数取值均仅用于举例，请具体配置时，使用实际值进行替换。
 ## 前提条件
-请确保您已经在腾讯云 VPC 内[ 创建 VPN](https://cloud.tencent.com/document/product/554/52861)，并完成 并完成 [VPN 通道配置](https://cloud.tencent.com/document/product/554/52864)。
+请确保您已经在腾讯云 VPC 内[ 创建 VPN](https://cloud.tencent.com/document/product/554/52861)，并完成 [VPN 通道配置](https://cloud.tencent.com/document/product/554/52864)。
 
 ## 数据准备
 本文 IPsec VPN 配置数据举例如下：
