@@ -11,5 +11,5 @@ Mac 系统内 SSH 配置文件问题。
 ## 处理步骤
 1.	打开 Mac 系统的终端，输入命令：vi /etc/ssh/ssh_config。
 2.	将 SendEnv LANG 处的配置修改为 SendEnv LANG LC_ALL。
-![](https://qcloudimg.tencent-cloud.cn/raw/f2a82ed1907d9fdc0d11248ebf409664.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/316b8404d056555c1e5476acfe54de92.jpg)
 3.	关闭 iTerm 客户端，重新使用堡垒机访问目标设备，确认乱码问题是否解决。
