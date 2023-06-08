@@ -91,7 +91,7 @@ mask 255.255.255.0
 		3. 运行 `ifconfig` 查看配置效果。
 ![](https://qcloudimg.tencent-cloud.cn/raw/56e851ba3042e0f615880c61734f594e.png)
 
- #### SLES 系列操作系统
+#### SLES 系列操作系统
    - 适用的操作系统：OpenSUSE 15/42。
    - 示例网卡：以主网卡 eth0 为例演示操作。如果您的操作对象为辅助弹性网卡，请根据实际情况修改网卡标识符。
 
