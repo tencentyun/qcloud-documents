@@ -27,7 +27,7 @@
 ![img](https://main.qcloudimg.com/raw/9fdac231af66c991c13fe0440e8d7366.png)
 此问题是因为工具使用了 rocksdb，需要使用64位的 JDK，请检查 JDK 版本是 X64 的 JDK。
 
-### 在 Windows 环境下报找不到 rocksdb 的 jni 库，该如何处理？
+### 在 Windows 环境下，报找不到 rocksdb 的 jni 库，该如何处理？
 在 Windows 环境下，工具需要在 Microsoft Visual Studio 2015环境下编译。若出现以上报错，需安装 [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/zh-CN/download/details.aspx?id=48145)。
 
 ### 如何修改日志级别？
