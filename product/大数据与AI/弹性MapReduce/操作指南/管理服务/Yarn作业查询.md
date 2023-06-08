@@ -24,7 +24,7 @@
 >
 >- 洞察采集降级策略的相关参数可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 评估修改。
 <dx-alert infotype="alarm" title="风险说明">
-Yarn 应用洞察分析会分别采集 Spark History、Job History、Timeline Server 相关应用数据进行分析，如若发现上述服务请求量持续突破负载瓶颈可 [提交工单](https://console.cloud.tencent.com/workorder/category) 关闭该功能。
+Yarn 应用洞察会分别采集 Spark History、Job History、Timeline Server 相关应用数据进行分析，如若发现上述服务请求量持续突破负载瓶颈可 [提交工单](https://console.cloud.tencent.com/workorder/category) 关闭该功能。
 </dx-alert>
 
 
