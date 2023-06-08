@@ -23,6 +23,11 @@
 >  3. 默认延迟采集时间大于24h的 App 将被降级忽略。
 >
 >- 洞察采集降级策略的相关参数可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 评估修改。
+<dx-alert infotype="alarm" title="风险说明">
+Yarn 应用洞察分析会分别采集 Spark History、Job History、Timeline Server 相关应用数据进行分析，如若发现上述服务请求量持续突破负载瓶颈可 [提交工单](https://console.cloud.tencent.com/workorder/category) 关闭该功能。
+</dx-alert>
+
+
 4. 在作业列表中单击**更多 > 应用对比**，可以选择当前应用与同类型应用的业务指标对比信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/42ab417ba68b76b1dff4fc3fe9bf6ab9.png)
 >!  
