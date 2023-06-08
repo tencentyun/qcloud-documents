@@ -14,8 +14,8 @@
 ## 前提条件
 - 用户本地 IDC 网关设备具有 IPsec VPN 功能，可同时作为用户侧 VPN 网关设备，与云侧 VPN 设备建立 IPsec 隧道通信。
 - 用户 IDC 侧网关设备已配置静态 IP。
-- 已创建 CCN 实例，并开启了ECMP和路由重叠特性，详情联系技术支持。
-- 专线侧已开启动态BGP传递特性，详情请联系技术支持。
+- 已创建 CCN 实例，并开启了 ECMP 和路由重叠特性，详情联系 [技术支持](https://cloud.tencent.com/online-service)。
+- 专线侧已开启动态 BGP 传递特性，详情请联系 [技术支持](https://cloud.tencent.com/online-service)。
 
 ## 操作步骤
 ### 步骤一：配置 IDC 通过专线接入上云
