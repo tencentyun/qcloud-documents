@@ -79,7 +79,7 @@ ubuntu@VM-2-13-ubuntu:~$ sudo  netplan apply
 		4. 同 vpc 服务器测试辅助 ip 确认联通正常。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f9ef52d6e79242ba904247f975833633.png)
 	- Debian 系列：Ubuntu 14/16、Debian 8/9/10。
-		1. 运行vi /etc/network/interfaces命令打开网络配置文件，并新增相应的配置项。
+		1. 运行 `vi /etc/network/interfaces` 命令打开网络配置文件，并新增相应的配置项。
 ```
 auto eth0:0
 iface eth0:0 inet static
@@ -157,3 +157,5 @@ ipconfig /all
 10. 在**以太网属性**弹窗中，单击**确定**即可完成配置。
 11. 在**以太网状态**弹窗中，单击**详细信息**，可查看已配置的 IP 信息，如下图所示。
 ![](https://main.qcloudimg.com/raw/172cb1189fe0886d6b0b6483a924f8cd.png)
+
+ 
