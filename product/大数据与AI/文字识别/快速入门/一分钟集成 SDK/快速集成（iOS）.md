@@ -21,7 +21,6 @@ SDK中包含了以下framework库以及资源文件：
 - **tnn.framework** - 底层深度学习库
 - **OcrSDK.bundle** - 资源文件
 - **Photos.framework** - 相册资源库
-- **PhotosUI.bundle** - 相册资源库
 
 
 

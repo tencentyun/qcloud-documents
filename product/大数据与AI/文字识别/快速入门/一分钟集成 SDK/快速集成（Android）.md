@@ -232,7 +232,7 @@ compileOptions {
 
 4. 如果使用了AutoSize组件，同时又使用了OCR的横屏模式时，横屏模式出现页面元素大小异常的问题。主要原因是AutoSize默认设置为竖屏情况下的宽高基准，可以在Application里注册下面的回调，实现横竖屏基准自适应：
 
-~~~java
+```java
   /**
    * AutoSize随界面横竖自适应方法, 可在Application中注册
    * 以design_width_in_dp 360, design_height_in_dp 640 为例（客户可以修改成自己定义的）
@@ -274,5 +274,4 @@ compileOptions {
           }
       });
   }
-  ```
-~~~
+```
