@@ -1178,12 +1178,39 @@ public interface ISdkOcrEntityResultListener<T> {
 
 #### SDK 本地错误码
 
-| 错误码                           | 说明                                      |
-| -------------------------------- | ----------------------------------------- |
-| OcrSdk.UserCancelOcr             | 用户主动停止文字识别                      |
-| OcrSdk.InnerOcrError             | 文字识别内部错误，请重试                  |
-| OcrSdk.CallInitFirst             | SDK需要先调用init                         |
-| FailedOperation.OcrFailed        | 服务识别OCR结果异常                       |
-| OcrSdk.InnerOcrErrorClipError    | SDK内部选图裁剪逻辑失败                   |
-| OcrSdk.PermissionError           | 用户拒绝权限的回调                        |
-| OcrSdk.PermissionError_GoSetting | 用户拒绝权限的回调并且主动前往Setting界面 |
+<table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OcrSdk.UserCancelOcr</td>
+<td>用户主动停止文字识别</td>
+</tr>
+<tr>
+<td>OcrSdk.InnerOcrError</td>
+<td>文字识别内部错误，请重试</td>
+</tr>
+<tr>
+<td>OcrSdk.CallInitFirst</td>
+<td>SDK需要先调用init</td>
+</tr>
+<tr>
+<td>FailedOperation.OcrFailed</td>
+<td>服务识别OCR结果异常</td>
+</tr>
+<tr>
+<td>OcrSdk.InnerOcrErrorClipError</td>
+<td>SDK内部选图裁剪逻辑失败</td>
+</tr>
+<tr>
+<td>OcrSdk.PermissionError</td>
+<td>用户拒绝权限的回调</td>
+</tr>
+<tr>
+<td>OcrSdk.PermissionError_GoSetting</td>
+<td>用户拒绝权限的回调并且主动前往Setting界面</td>
+</tr>
+</tbody></table>
