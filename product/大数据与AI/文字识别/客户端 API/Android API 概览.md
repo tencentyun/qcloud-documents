@@ -160,6 +160,7 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 | boolean             | retBorderCutImage | 银行卡专用，是否返回预处理（精确剪裁对齐）后的银行卡图片数据    | false |
 | boolean             | retCardNoImage    | 银行卡专用，是否返回卡号的切图图片数据，默认false。    | false |
 | boolean             | enableQualityValue | 银行卡专用，是否返回图片质量分数（图片质量分数是评价一个图片的模糊程度的标准）    | false |
+
 ### [OcrType](id:OcrType)
 
 OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支持业务类型的种类，大致如下：
