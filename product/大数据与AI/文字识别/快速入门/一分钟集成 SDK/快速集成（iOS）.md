@@ -34,7 +34,6 @@ SDK中包含了以下framework库以及资源文件：
 ### 接入步骤
 
 1. 将ocr Framework、系统Framework库以及bundle 文件都添加至项目中。
-
 ```
 ├── OcrSDKKit.framework
 ├── YTImageRefiner.framework
@@ -46,21 +45,15 @@ SDK中包含了以下framework库以及资源文件：
 ├── PhotosUI.framework
 └── CoreML.framework
 ```
-
 ```
 //资源文件
 └── OcrSDK.bundle
 ```
-
 2. 添加编译选项
-
 - 将**调用SDK的ViewController**设置为 **Objective-C++Source** 或者更改后缀为**.mm**(sdk内部使用了Objective-C++语法)
 - **Other Linker Flags**添加为 **-ObjC**
-
 3. 权限设置
-
 OCR SDK需要手机网络、 摄像头、访问相册的使用权限，请添加对应的权限声明。
-
 ```xml
 <key>Privacy - Camera Usage Description</key>
 <string>OCR识别需要开启您的摄像头权限，用于识别</string>
@@ -69,8 +62,6 @@ OCR SDK需要手机网络、 摄像头、访问相册的使用权限，请添加
 <key>Prevent limited photos access alert</key>
 <Boolean>YES</Boolean>
 ```
-
-​    
 
 ### SDK 接口说明
 
@@ -166,11 +157,7 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 ### 常见错误
 
 1. 当提示**requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把密钥和配置设置清除了。
-
 2. SDK 页面依托于 UIWindow，所以需要在 AppDelegate.h 中添加 **@property (**nonatomic**, **strong**) UIWindow * window;**。
-
 3. 当出现进入 SDK 黑屏，添加设置**Other Linker Flags**添加 **-ObjC**。打印日志 **Application tried to push a nil view controller on target....**，原因是 self.storyboard 等于 nil，可以参考 demo，在调用 SDK 页面的 ViewController 手动加载 xib 页面，然后调用 SDK 进入识别页面。
-
 4. Building for iOS Simulator, but the linked and embedded framework ‘OcrSDKKit .framework' was built for iOS + iOS Simulator.
-
    解决方法是：Buil Settings --> Build Options --> Validate Workspace 改为Yes
