@@ -253,7 +253,7 @@ LanguageStyle 是一个枚举类型，列举了支持的语言类型
 
 ### [自定义 UI 布局](id:自定义UI布局)
 
-OCR SDK支持自定义UI布局，SDK会提供默认的竖屏布局文件**demo_ocr_detect_fragment.xml **和横屏布局文件 demo_ocr_detect_hor_fragment.xml**，集成方可以在此基础上进行做UI的修改。**不要删除或者修改默认的view与view对应的id**，
+OCR SDK支持自定义UI布局，SDK会提供默认的竖屏布局文件**demo_ocr_detect_fragment.xml**和横屏布局文件**demo_ocr_detect_hor_fragment.xml**，集成方可以在此基础上进行做UI的修改。**不要删除或者修改默认的view与view对应的id**，
 
 相关资源可以在SDK提供的安装包的**res文件夹**内获取
 
