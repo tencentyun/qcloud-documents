@@ -7,7 +7,7 @@
 
 ### 2. 创建 CVM 实例
 - 创建一台 CVM 实例来运行 SDK 示例程序，配置建议为1核2GB、Centos 7，该 CVM 需创建在 TcaplusDB 实例所在 VPC 网络中。
-- 通过 [SDK 下载](https://cloud.tencent.com/document/product/596/31925) Java RESTful API SDK 安装包。
+- 通过 [SDK 下载](https://tcaplusdb.tencent.com/UserGuide/07TcaplusDB%E4%B8%8B%E8%BD%BD%E4%B8%AD%E5%BF%83/00README.html) Java RESTful API SDK 安装包。
 
 ### 3. 准备 Java 环境
 SDK 依赖 Java 1.8 以上环境，CVM 操作系统为 CentOS 7 及以上版本时，执行`yum install -y java`即可。
