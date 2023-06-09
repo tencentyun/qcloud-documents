@@ -114,7 +114,7 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 | opus | 长度 len | 对应 len 长的 opus decode data |
 
 #### 请求响应
-客户端发起连接请求后，后台建立连接进并进行签名校验，校验成功则返回 code 值为0的确认消息表示握手成功；如果校验失败，后台返回 code 为非0值的消息并断开连接。
+客户端发起连接请求后，后台建立连接并进行签名校验，校验成功则返回 code 值为0的确认消息表示握手成功；如果校验失败，后台返回 code 为非0值的消息并断开连接。
 ```
  {"code":0,"message":"success","voice_id":"RnKu9FODFHK5FPpsrN"}
 ```
