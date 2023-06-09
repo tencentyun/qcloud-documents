@@ -1,6 +1,6 @@
 >! SDK 版本需要大于等于 v1.5.0。
 
-万象SDK自定义了 CIDownloader 嵌入 SDWebImage 中，接管图片加载网络层，并新增了如下功能：
+万象 SDK 自定义了 CIDownloader 嵌入 SDWebImage 中，接管图片加载网络层，并新增了如下功能：
 
 1. 在网络层新增了 HTTPDNS，有效避免由于运营商传统 LocalDNS 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 2. 在网络层接入 QUIC，提升弱网加载图片成功率，增强用户体验。
@@ -10,7 +10,7 @@
 
 接下来逐一介绍每个功能的详细使用，以及示例代码：
 
-### 接入CIDownloader
+### 接入 CIDownloader
 
 接入 CIDownloader 只需在 Podfile 新增 CIDownloader 的依赖即可。
 ```
@@ -26,7 +26,7 @@ SDK 内部自动检测是否有该类，并加入到 SDWebImage loader 管理器
 };
 ```
  
-### 接入HTTPDNS
+### 接入 HTTPDNS
 
 万象SDK提供两种方式接入HTTPDNS：
 1. 使用自定义HTTPDNS解析。
@@ -76,7 +76,7 @@ SDK 内部自动检测是否有该类，并加入到 SDWebImage loader 管理器
     ```
 
 ### 接入 QUIC
->? 若使用 QUIC，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系技术人员添加白名单。
+>? 若使用 QUIC ，请点击[这里](https://cloud.tencent.com/document/product/436/37708)联系技术人员添加白名单。
 
 1. 接入 QUIC，首先需要在 Podfile 文件中添加 Quic。
     ```
@@ -88,7 +88,7 @@ SDK 内部自动检测是否有该类，并加入到 SDWebImage loader 管理器
     /// 启用 QUIC
     [CIImageDownloader sharedDownloader].enableQuic = YES;
 
-    /// 配置 QUIC 白名单，指定那些 host 使用 QUIC，若不配置，则认为CIImageDownloader 全部请求都走 QUIC。
+    /// 配置 QUIC 白名单，指定那些 host 使用 QUIC，若不配置，则认为 CIImageDownloader 全部请求都走 QUIC。
     [CIImageDownloader sharedDownloader].quicWhiteList = @[@"test.***.com"];
 
     /// QUIC 高级配置，具体查看 QCloudQuicConfig 类。
@@ -114,7 +114,7 @@ CIImageDownloader 支持重试，默认重试次数3，间隔1s。
 
 ### 设置请求图片并发数
 CIImageDownloader 支持设置请求图片并发数量。
-customConcurrentCount 为当前并发数量，SDK内部根据网络状况自动增加或降低并发数量，最小为1，最大为 maxConcurrentCount。
+customConcurrentCount 为当前并发数量，SDK 内部根据网络状况自动增加或降低并发数量，最小为1，最大为 maxConcurrentCount。
 
 ```
 [CIImageDownloader sharedDownloader].customConcurrentCount = 3;
