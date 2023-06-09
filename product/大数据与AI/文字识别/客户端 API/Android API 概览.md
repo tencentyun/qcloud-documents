@@ -615,7 +615,7 @@ SDK会提供**demo_tips_string.xml**，如果需要修改tips提示，可以保�
 | ------------------------------------- | ----------------- | -------------------------- |
 | [VehicleFrontInfo](#VehicleFrontInfo) | vehicleFrontInfo  | 行驶证的主页信息           |
 | [VehicleBackInfo](#VehicleBackInfo)   | vehicleBackInfo   | 行驶证的副页信息           |
-| List< Integer >                       | recognizeWarnCode | 识别的Code告警码列表和释义 |
+| List< Integer >                       | recognizeWarnCode | 识别的 Code 告警码列表和释义 |
 | List< String >                        | recognizeWarnMsg  | 识别的警告码说明           |
 
 
