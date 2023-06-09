@@ -23,9 +23,7 @@ SDK 提供的文件为 OCR_Android_SDK_V1.0.9，该文件封装了 OCR 识别终
 ### 接入步骤
 
 1. 将 **OcrSDK-public-v2.0.0.1-release.aar**、**OcrSDK-common-model-v1.0.0-release.aar**  和公共库 **tencent-ai-sdk-aicamera-1.0.18-release.aar** 、**tencent-ai-sdk-common-1.1.27-release.aar**添加到您工程目录的 libs 目录下。
-
 2. 在您工程的 **build.gradle** 中进行如下配置：
-
 ```groovy
 dependencies {
   // 依赖腾讯云的 OcrSDK 的 aar
@@ -37,9 +35,7 @@ dependencies {
   implementation 'com.google.code.gson:gson:2.8.5'
 }
 ```
-
 3. 同时需要在 AndroidManifest.xml 文件中进行必要的权限声明
-
 ```xml
 <!--摄像头使用权限-->
 <uses-feature android:name="android.hardware.camera" />
@@ -52,7 +48,6 @@ dependencies {
 <!--网络访问权限-->
 <uses-permission android:name="android.permission.INTERNET" />
 ```
-
 对于需要兼容 Android 6.0 以上的用户，以上权限除了需要在 AndroidManifest.xml 文件中声明权以外，还需使用代码动态申请权限。
 
 
@@ -209,7 +204,6 @@ android {
     }
 }
 ```
-
 2. 如果集成方使用了 AndResGuard 的混淆工具，可以添加混淆配置：
 ```groovy
 // for OCR SDK
@@ -219,7 +213,6 @@ android {
 "R.string.msg_*",
 
 ```
-
 3. 集成 OCR SDK 后如果出现 **Invoke-customs are only supported starting with Android O (--min-api 26)** 错误？
 需要在 build.gradle 中添加如下配置：
 ```groovy
@@ -229,9 +222,7 @@ compileOptions {
     targetCompatibility JavaVersion.VERSION_1_8
 }
 ```
-
 4. 如果使用了AutoSize组件，同时又使用了OCR的横屏模式时，横屏模式出现页面元素大小异常的问题。主要原因是AutoSize默认设置为竖屏情况下的宽高基准，可以在Application里注册下面的回调，实现横竖屏基准自适应：
-
 ```java
   /**
    * AutoSize随界面横竖自适应方法, 可在Application中注册
