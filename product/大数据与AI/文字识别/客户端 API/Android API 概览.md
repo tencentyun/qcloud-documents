@@ -429,7 +429,7 @@ CameraMaskView是主体的遮罩组件，提供使用属性配置的方式进行
 **如果上面和[CustomConfigUi](#CustomConfigUi)传入的属性产生冲突时，CustomConfigUi配置的优先级更高**
 
 
-### 自定义Tips和部分UI文字
+### 自定义 Tips 和部分 UI 文字
 
 SDK会提供**demo_tips_string.xml**，如果需要修改tips提示，可以保持key不变，直接修改对应的value。同时最后把demo_tips_string.xml 放到依赖ocr sdk的module的资源下进行打包，Android studio会自动完成资源替换、覆盖。目前支持的替换内容如下：
 
