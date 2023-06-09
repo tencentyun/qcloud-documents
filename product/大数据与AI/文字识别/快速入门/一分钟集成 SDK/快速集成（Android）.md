@@ -22,33 +22,35 @@ SDK 提供的文件为 OCR_Android_SDK_V1.0.9，该文件封装了 OCR 识别终
 
 ### 接入步骤
 
-1. 将 **OcrSDKv1.0.2-alpha.aar** 添加到您工程目录的 libs 目录下。
-![](https://main.qcloudimg.com/raw/817e191497ae168a2f9890e5d85ce936.png)
+1. 将 **OcrSDK-public-v2.0.0.1-release.aar**、**OcrSDK-common-model-v1.0.0-release.aar**  和公共库 **tencent-ai-sdk-aicamera-1.0.18-release.aar** 、**tencent-ai-sdk-common-1.1.27-release.aar**添加到您工程目录的 libs 目录下。
 
 2. 在您工程的 **build.gradle** 中进行如下配置：
+
 ```groovy
 dependencies {
   // 依赖腾讯云的 OcrSDK 的 aar
-  implementation files('libs/OcrSDKv1.0.2-alpha.aar')
+  implementation files('libs/OcrSDK-common-model-v1.0.0-release.aar')
+  implementation files('libs/OcrSDK-public-v2.0.0.1-release.aar')
+  implementation files('libs/tencent-ai-sdk-aicamera-1.0.18-release.aar')
+  implementation files('libs/tencent-ai-sdk-common-1.1.28-release.aar')
   // OCR SDK 返回实体对象需要的依赖
   implementation 'com.google.code.gson:gson:2.8.5'
 }
 ```
 
 3. 同时需要在 AndroidManifest.xml 文件中进行必要的权限声明
+
 ```xml
 <!--摄像头使用权限-->
 <uses-feature android:name="android.hardware.camera" />
 <uses-permission
   android:name="android.permission.CAMERA"
   android:required="true" />
-<!--文件存储使用权限-->
+<!--文件存储使用权限[可选]-->
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <!--网络访问权限-->
 <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 ```
 
 对于需要兼容 Android 6.0 以上的用户，以上权限除了需要在 AndroidManifest.xml 文件中声明权以外，还需使用代码动态申请权限。
@@ -131,21 +133,26 @@ OcrSDKKit.getInstance().startProcessOcrResultEntity(OcrTypeIdCardActivity.this,
         });
 ```
 
-目前 OCR SDK 支持五种类型的识别模式如下表所示，以及对应的实体类返回结果。
+目前 OCR SDK 支持几种类型的识别模式如下表所示，以及对应的实体类返回结果。
 
-| OcrType 类型             | 代表含义               | 对应结果实体类          |
-| ----------------------- | ---------------------- | ----------------------- |
-| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式   | IdCardOcrResult         |
-| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式   | IdCardOcrResult         |
-| OcrType.BankCardOCR     | 银行卡正面识别模式     | BankCardOcrResult       |
-| OcrType.BusinessCardOCR | 名片卡正面识别模式     | BusinessCardOcrResult   |
-| OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 | MalaysiaIdCardOcrResult |
-| OcrType.VinOCR | 车辆的 VIN 识别模式 | VinOcrResult |
-| OcrType.LicensePlateOCR | 车辆的车牌识别模式 | CarLicensePlateResult |
-| OcrType.DriverLicenseOCR_FRONT | 驾驶证主页识别模式 | DriverLicenseCardResult |
-| OcrType.DriverLicenseOCR_BACK | 驾驶证副页识别模式 | DriverLicenseCardResult |
-| OcrType.VehicleLicenseOCR_FRONT | 行驶证主页识别模式 | VehicleLicenseCardResult |
-| OcrType.VehicleLicenseOCR_BACK | 行驶证副页识别模式 | VehicleLicenseCardResult |
+| OcrType 类型                     | 代表含义                                        | 对应结果实体类             |
+| -------------------------------- | ----------------------------------------------- | -------------------------- |
+| OcrType.IDCardOCR_FRONT          | 身份证人像面识别模式                            | IdCardOcrResult            |
+| OcrType.IDCardOCR_BACK           | 身份证国徽面识别模式                            | IdCardOcrResult            |
+| OcrType.BankCardOCR              | 银行卡正面识别模式                              | BankCardOcrResult          |
+| OcrType.BusinessCardOCR          | 名片卡正面识别模式                              | BusinessCardOcrResult      |
+| OcrType.VinOCR                   | 车辆的 VIN 识别模式                             | VinOcrResult               |
+| OcrType.LicensePlateOCR          | 车辆的车牌识别模式                              | CarLicensePlateResult      |
+| OcrType.DriverLicenseOCR_FRONT   | 驾驶证主页识别模式                              | DriverLicenseCardResult    |
+| OcrType.DriverLicenseOCR_BACK    | 驾驶证副页识别模式                              | DriverLicenseCardResult    |
+| OcrType.VehicleLicenseOCR_FRONT  | 行驶证主页识别模式                              | VehicleLicenseCardResult   |
+| OcrType.VehicleLicenseOCR_BACK   | 行驶证副页识别模式                              | VehicleLicenseCardResult   |
+| OcrType.GENERAL_VIN              | 车辆的VIN码通用识别模式（主要推荐拍照模式使用） | VinOcrResult               |
+| OcrType.IDCardOCR_HK03           | 香港身份证03版本识别模式                        | HKIDCardOcrResult          |
+| OcrType.IDCardOCR_HK18           | 香港身份证18版本识别模式                        | HKIDCardOcrResult          |
+| OcrType.Exit_Entry_HK_Macao_Card | 港澳台通行证识别模式                            | PermitOcrResult            |
+| OcrType.MLID_PASSPORT            | 国际护照识别模式                                | MLIDPassportOcrResult      |
+| OcrType.HMT_RESIDENT_PERMIT_OCR  | 港澳台居住证                                    | HmtResidentPermitOcrResult |
 
 
 
@@ -181,10 +188,10 @@ protected void onDestroy() {
 ```java
 #保留自定义的 OcrSDKKit 类和类成员不被混淆
 -keep class com.tencent.ocr.sdk.** {*;}
-
 #第三方 jar 包不被混淆
 -keep class com.tencent.youtu.** {*;}
-
+#公共库相关内容不混淆
+-keep class com.tencent.could.** {*;}
 ```
 
 
@@ -223,3 +230,49 @@ compileOptions {
 }
 ```
 
+4. 如果使用了AutoSize组件，同时又使用了OCR的横屏模式时，横屏模式出现页面元素大小异常的问题。主要原因是AutoSize默认设置为竖屏情况下的宽高基准，可以在Application里注册下面的回调，实现横竖屏基准自适应：
+
+~~~java
+  /**
+   * AutoSize随界面横竖自适应方法, 可在Application中注册
+   * 以design_width_in_dp 360, design_height_in_dp 640 为例（客户可以修改成自己定义的）
+   *     <meta-data
+   *      android:name="design_width_in_dp"
+   *      android:value="360"/>
+   *     <meta-data
+   *      android:name="design_height_in_dp"
+   *      android:value="640"/>
+   *
+   *  DESIGN_WIDTH_DP = 360;
+   *  DESIGN_WIDTH_DP = 640;
+   */
+  public static void addAutoSizeListener() {
+      AutoSizeConfig.getInstance().setOnAdaptListener(new onAdaptListener() {
+          @Override
+          public void onAdaptBefore(Object target, Activity activity) {
+              Context context = activity;
+              int[] currentSize = ScreenUtils.getScreenSize(context);
+              // 设置当前屏幕的大小
+              AutoSizeConfig.getInstance().setScreenWidth(currentSize[0]);
+              AutoSizeConfig.getInstance().setScreenHeight(currentSize[1]);
+              // 获取当前Activity对应的屏幕方向
+              int orientation = activity.getResources().getConfiguration().orientation;
+              // 如果是横屏，调整对应的屏幕基准
+              if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                  AutoSizeConfig.getInstance().setDesignWidthInDp(DESIGN_HEIGHT_DP);
+                  AutoSizeConfig.getInstance().setDesignHeightInDp(DESIGN_WIDTH_DP);
+              } else {
+                  // 如果是竖屏，调整对应的屏幕基准
+                  AutoSizeConfig.getInstance().setDesignWidthInDp(DESIGN_WIDTH_DP);
+                  AutoSizeConfig.getInstance().setDesignHeightInDp(DESIGN_HEIGHT_DP);
+              }
+          }
+  
+          @Override
+          public void onAdaptAfter(Object target, Activity activity) {
+  
+          }
+      });
+  }
+  ```
+~~~
