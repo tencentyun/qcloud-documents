@@ -105,7 +105,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
   <img src="https://main.qcloudimg.com/raw/beda0d051a43188ac9f6d07aef63ef9b.png" width="50%" /> 
 2. 在云服务器中直接执行如下命令下载 config_ipv6 工具。
 ```plaintext
-wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh
+https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/scripts/config_ipv6.sh
 ```
 3. 赋予执行权限后使用管理员权限执行如下命令，配置过程中请输入`y`确认配置操作。
 ```plaintext
@@ -130,7 +130,7 @@ chmod +x ./config_ipv6.sh  # 赋予执行权限
 install_dir=/usr/sbin
 install_path="$install_dir"/config-ipv6
 if [ ! -f "$install_path" ]; then
-    tool_url="https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh"
+    tool_url="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/scripts/config_ipv6.sh"
     # download the tool
     if ! wget "$tool_url" -O "$install_path"; then
         echo "[Error] download tool failed, code $?"
