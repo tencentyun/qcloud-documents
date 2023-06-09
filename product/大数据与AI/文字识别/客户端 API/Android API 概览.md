@@ -251,7 +251,7 @@ LanguageStyle 是一个枚举类型，列举了支持的语言类型
 | boolean | useDeepColorStatusBarIcon | 是否使用深色的状态栏图标与文字（配合浅色状态栏颜色使用），默认false |
 | String  | bottomTipsContext         | 预览框自带下方tips的内容的动态设置**（"\n"，可以主动换行）** |
 
-### [自定义UI 布局](id:自定义UI布局)
+### [自定义 UI 布局](id:自定义UI布局)
 
 OCR SDK支持自定义UI布局，SDK会提供默认的竖屏布局文件**demo_ocr_detect_fragment.xml **和横屏布局文件 demo_ocr_detect_hor_fragment.xml**，集成方可以在此基础上进行做UI的修改。**不要删除或者修改默认的view与view对应的id**，
 
