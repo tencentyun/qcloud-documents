@@ -28,10 +28,10 @@ SDK 内部自动检测是否有该类，并加入到 SDWebImage loader 管理器
  
 ### 接入 HTTPDNS
 
-万象SDK提供两种方式接入HTTPDNS：
-1. 使用自定义HTTPDNS解析。
+万象SDK提供两种方式接入 HTTPDNS：
+1. 使用自定义 HTTPDNS 解析。
 
-    使用自定义HTTPDNS解析，需要自定义类并实现 `QCloudHTTPDNSProtocol` 协议。
+    使用自定义 HTTPDNS 解析，需要自定义类并实现 `QCloudHTTPDNSProtocol` 协议。
     ```
     @interface MyHTTPDNSHandler ()<QCloudHTTPDNSProtocol>
     @end
