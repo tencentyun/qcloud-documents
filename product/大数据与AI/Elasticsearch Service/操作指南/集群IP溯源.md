@@ -36,10 +36,10 @@ PUT _cluster/settings
     "http.tracer.request.enable": false,
     "http.tracer.response.enable": false,
     "http.tracer.include": null,
-		"http.tracer.exclude": null,
-		"http.tracer.remote_ip.include": null,
+	"http.tracer.exclude": null,
+	"http.tracer.remote_ip.include": null,
     "http.tracer.remote_ip.exclude": null,
-		"http.tracer.request.body.enable": false,
+	"http.tracer.request.body.enable": false,
     "http.tracer.response.body.enable": false
   }
 }
