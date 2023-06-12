@@ -35,7 +35,9 @@ API 的前端配置指提供给外界访问的相关配置，包括 API 名称�
 #### 前端参数配置
 
 **入参**：入参包含了来源于 Header、Query、Path 的参数。其中 Path 参数对应于在 URL 路径中定义的动态参数。任一参数，均需要指定参数名，参数类型和参数数据类型；同时可以指明是否必填、默认值、示例数据和描述说明。利用这些配置，API 网关可以协助您完成入参的文档化和初步校验。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/bcc7c8212671c74ac6c94be0c3f04a53.png)
+	
+<img src="https://qcloudimg.tencent-cloud.cn/raw/bcc7c8212671c74ac6c94be0c3f04a53.png" width=600/>
+	
 > ?
 > - 请求协议为 HTTPS 时，需要请求中携带 SNI 标识，为了保障请求安全，API 网关会拒绝不携带 SNI 标识的请求。
 > - SNI（Server Name Indication）是 TLS 的一个扩展协议，用于解决一个服务器拥有多个域名的情况，在 TLSv1.2 开始得到协议的支持。之前的 SSL 握手信息中没有携带客户端要访问的目标地址，如果一台服务器有多个虚拟主机，且每个主机的域名不一样，使用了不一样的证书，此时会无法判断返回哪一个证书给客户端，SNI 通过在 Client Hello 中补上 Host 信息解决该问题。
@@ -45,7 +47,7 @@ API 的前端配置指提供给外界访问的相关配置，包括 API 名称�
 API 的后端配置，是指的实际提供真实服务的配置。API 网关会将前端请求，依据后端配置进行转换后，转发调用到实际的服务上。
 当您的业务实现在云函数 SCF 中，希望通过 API 网关将服务能力开放出来时，后端选用 SCF 对接。
 
-  ![](https://qcloudimg.tencent-cloud.cn/raw/91f639192ee2fc2d4abf38c075bfe618.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/91f639192ee2fc2d4abf38c075bfe618.png" width=600/>
 
 后端对接 SCF 时，需要填写的参数如下表：
 
