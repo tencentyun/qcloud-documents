@@ -12,7 +12,8 @@
 4. 单击 API 列表上方的**导入 API**，进入导入 API 页面。
 5. 选择文本格式（YAML 或 JSON），并单击**上传文件**，选择要上传的 API 描述文件；或者直接在代码编辑器中输入描述 API 的内容。
 6. 单击**保存**，API 网关将根据您输入的内容创建 API，并在创建完成后返回本次创建成功的 API 列表。
-![](https://main.qcloudimg.com/raw/b1ee822a7519f9452b73d99077fa27e4.png)
+ <img src="https://qcloudimg.tencent-cloud.cn/raw/f60799bb9efeb589994edff1c2851ade.png" width=700/>
+
 
 ## 注意事项
 
