@@ -117,7 +117,7 @@ jobs:
 前往项目 Github 文件夹的**Settings**标签页，在项目的**Secrets**中配置 [准备工作](#preparation) 步骤获取的 `SECRET_ID`、`SECRET_KEY`、`ENV_ID`。
 ![](https://main.qcloudimg.com/raw/8b2adcfb183707a7c8551c73555d36c1.png)
 3. 自动部署。
-配置完后即可提交代码体验自动部署，在每次 `git push` 命令完成后，`Actions` 都会自动运行，将项目的静态资源部署到您的云开发静态托管环境中，部署成功之后即可通过云开发提供的 [默认域名](https://console.cloud.tencent.com/tcb/hosting/index) 访问来您的网站。
+配置完后即可提交代码体验自动部署，在每次 `git push` 命令完成后，`Actions` 都会自动运行，将项目的静态资源部署到您的云开发静态托管环境中，部署成功之后即可通过云开发提供的 [默认域名](https://console.cloud.tencent.com/tcb/hosting/index) 来访问您的网站。
 ![](https://main.qcloudimg.com/raw/d4528f2cf413b02e4c48b7b3e438b0db.png)
 
 ### 更多扩展玩法
