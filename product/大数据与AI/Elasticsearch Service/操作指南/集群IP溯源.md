@@ -1,9 +1,9 @@
-本文介绍如何在腾讯云 Elasticsearch Service 上，开启 IP 溯源日志，进行请求来源的 IP 溯源。以帮助解决无法确定有哪些客户端在使用的情况。
+本文介绍如何在腾讯云 Elasticsearch Service 上，开启 IP 溯源日志，进行请求来源的 IP 溯源。以帮助用户解决无法确定有哪些客户端在使用的情况。
 
 ## 使用限制
-IP 溯源日志功能为腾讯云开发的 ES 内核能力，仅在腾讯云 Elasticsearch Service 的 PaaS 模式支持。当前支持的版本号为：6.8.2、7.10.1、7.14.2。
->? 2023年6月1日后创建的集群可直接使用该能力。在此之前创建的集群需要在控制台滚动重启集群，将内核更新至最新，才可使用。
+IP 溯源日志功能为腾讯云开发的ES内核能力，仅在腾讯云 Elasticsearch Service 的 PaaS 模式支持。当前支持的版本号为：6.8.2 / 7.10.1 / 7.14.2。
 
+>? 2023年6月1日后创建的集群可直接使用该能力。在此之前创建的集群需要在控制台滚动重启集群，以将内核更新至最新才可使用。
 
 ## 设置 IP 溯源日志开启
 ### 集群维度动态配置开关
@@ -21,12 +21,12 @@ IP 溯源日志功能为腾讯云开发的 ES 内核能力，仅在腾讯云 Ela
 "http.tracer.remote_ip.exclude"
 
 # body打印支持独立开启、关闭
-"http.tracer.request.log.body.enable"
-"http.tracer.response.log.body.enable"
+"http.tracer.request.body.enable"
+"http.tracer.response.body.enable"
 ```
-
-> - 强烈建议您尽可能多的设置过滤条件，避免日志打印过多，影响集群性能，甚至引发磁盘写满风险
-> - 避免长期打开此开关，随用随开，用完及时关闭
+>?
+> - 强烈建议您尽可能多的设置过滤条件，避免日志打印过多，影响集群性能，甚至引发磁盘写满风险。
+> - 避免长期打开此开关，随用随开，用完及时关闭。
 
 ### 关闭示例
 ```
@@ -39,14 +39,15 @@ PUT _cluster/settings
 		"http.tracer.exclude": null,
 		"http.tracer.remote_ip.include": null,
     "http.tracer.remote_ip.exclude": null,
-		"http.tracer.request.log.body.enable": false,
-    "http.tracer.response.log.body.enable": false
+		"http.tracer.request.body.enable": false,
+    "http.tracer.response.body.enable": false
   }
 }
 
 ———关闭ip溯源日志———
 不打印
 ```
+
 ### 开启示例
 ```
 PUT _cluster/settings
@@ -74,7 +75,7 @@ PUT _cluster/settings
   "transient": {
     "http.tracer.request.enable": true,
     "http.tracer.response.enable": false,
-    "http.tracer.request.log.body.enable": true,
+    "http.tracer.request.body.enable": true,
     "http.tracer.include": [
       "/.kibana/_search"
     ]
@@ -91,7 +92,7 @@ PUT _cluster/settings
   "transient": {
     "http.tracer.request.enable": true,
     "http.tracer.response.enable": false,
-    "http.tracer.request.log.body.enable": true,
+    "http.tracer.request.body.enable": true,
     "http.tracer.remote_ip.exclude": "9.2.1.38",
     "http.tracer.include": [
       "/.kibana/_search"
@@ -102,18 +103,15 @@ PUT _cluster/settings
 ———日志，过滤指定ip———
 不打印
 ```
-**注意事项：**
+**注意事项**：
 1. 公网访问溯源
-	- 内网访问情况，remoteAddress 就是真实 IP。
-	- 公网访问情况，remoteAddress 是负载均衡的网关 IP。
-	- 取 header 中的 x-forwarded-for 可以拿到真实的公网访问 IP，req 日志会输出。
+	1. 内网访问情况，remoteAddress 就是真实 IP；公网访问情况，remoteAddress 是负载均衡的网关 IP。
+	2. 取 header 中的 x-forwarded-for 可以拿到真实的公网访问 IP，req 日志会输出。
 2. IP 过滤
-	- 不填写则不过滤，可数组形式填写多个 IP 过滤。
-	- 不支持通过公网 IP 过滤（x-forwarded-for）。
-
-
+	1. 不填写则不过滤，可数组形式填写多个 IP 过滤。
+	2. 不支持通过公网 IP 过滤（x-forwarded-for）。
 
 ## 在腾讯云控制台查看 IP 溯源日志
-1. 登录腾讯云 [Elasticsearch 控制台](https://console.cloud.tencent.com/es)，单击**集群名称**访问目标集群，跳转至**日志**页面。
-2. 输入关键字查找 IP 溯源日志，6.8.2版本输入"o.e.h.n.Netty4HttpTracer"进行查找，7.10.1/7.14.2版本输入"o.e.h.HttpTracer"进行查找。
-![](https://qcloudimg.tencent-cloud.cn/raw/626b5281742c7fb3ed29b3b87f620479.png)
+1. 登录腾讯云[ Elasticsearch 控制台](https://console.cloud.tencent.com/es)，单击**集群名称**访问目标集群，跳转至**日志**页面。
+2. 输入关键字查找IP溯源日志，6.8.2版本输入"o.e.h.n.Netty4HttpTracer"查找，7.10.1/7.14.2版本输入"o.e.h.HttpTracer"查找
+![](https://qcloudimg.tencent-cloud.cn/raw/ce2672b2da348e8b3d7b7f669ff6945b.png)
