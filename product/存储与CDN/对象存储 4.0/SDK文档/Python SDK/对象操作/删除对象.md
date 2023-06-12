@@ -115,7 +115,7 @@ marker = ''
 prefix = 'root/logs'
 while not is_over:
     response = client.list_objects(Bucket=bucket, Prefix=prefix, Marker=marker)
-    if response['Contents']:
+    if 'Contents' in response:
         for content in response['Contents']:
             print("delete object: ", content['Key'])
             client.delete_object(Bucket=bucket, Key=content['Key'])
