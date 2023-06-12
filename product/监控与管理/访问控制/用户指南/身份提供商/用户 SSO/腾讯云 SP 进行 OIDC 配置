@@ -17,9 +17,9 @@
 	- 客户端ID：在 OpenID Connect 身份提供商注册的客户端 ID。在 **Azure Active Directory > 企业应用程序 > OIDCSSO 应用概述页**获取。
 	- 用户映射字段：OpenID Connect 身份提供商中与腾讯云 CAM 子用户名映射的字段。可选身份提供商提供的 OpenID Connect 元数据文档中 "claims_supported" 的值，此示例中使用 name 字段映射  CAM 的 username。
 	- 授权请求Endpoint：OpenID Connect 身份提供商授权请求地址。对应身份提供商提供的 OpenID Connect 元数据文档中的 "authorization_endpoint" 字段值。
-	- 授权请求Scope：OpenID Connect 身份提供商授权请求信息范围。默认必选openid。
-	- 授权请求Response type：OpenID Connect 身份提供商授权请求返回参数类型，默认必选id_token。
-	- 授权请求Response mode：OpenID Connect 身份提供商授权请求返回模式，可选 form_post 和 fragment 两种模式，推荐选择form_post模式。
-	- 签名公钥：验证 OpenID Connec t身份提供商 ID Token 签名的公钥。对应身份提供商提供的 OpenID Connect 元数据文档中 "jwks_uri" 字段中链接的内容（在浏览器中打开链接获取内容）。为了您的帐号安全，建议您定期轮换签名公钥。
+	- 授权请求Scope：OpenID Connect 身份提供商授权请求信息范围。默认必选 openid。
+	- 授权请求Response type：OpenID Connect 身份提供商授权请求返回参数类型，默认必选 id_token。
+	- 授权请求Response mode：OpenID Connect 身份提供商授权请求返回模式，可选 form_post 和 fragment 两种模式，推荐选择 form_post 模式。
+	- 签名公钥：验证 OpenID Connect 身份提供商 ID Token 签名的公钥。对应身份提供商提供的 OpenID Connect 元数据文档中 "jwks_uri" 字段中链接的内容（在浏览器中打开链接获取内容）。为了您的帐号安全，建议您定期轮换签名公钥。
 	
 5.单击**保存**即可。
