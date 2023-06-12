@@ -1,7 +1,7 @@
 ## 操作场景
 腾讯云作为服务提供商（SP），需进行企业身份提供商（IdP）的OIDC 配置，以建立腾讯云对企业 IdP 的信任，实现企业 IdP 用户通过用户 SSO 的方式登录腾讯云。
 本文以身份提供商 Azure Active Directory 为例。
->? 填写 OIDC 协议配置信息。（复制 Azure Active Directory > 应用注册 > 终结点 > OpenID Connect 元数据文档处的链接，并在浏览器中打开以获得具体配置信息）
+>? 查看 OIDC 协议配置信息。（复制 Azure Active Directory > 应用注册 > 终结点 > OpenID Connect 元数据文档处的链接，并在浏览器中打开以获得具体配置信息）
 
 ## 操作步骤
 1. 腾讯云账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
