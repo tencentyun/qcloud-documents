@@ -50,7 +50,7 @@ ALG（Application Layer Gateway，应用层网关）是由一个扩增防火墙�
 
 <tr>
 <td >裸金属云服务器</td>
-<td>裸金属云服务器所有机型均不支持ALG，实例规格请参见[裸金属云服务器实例规格](https://cloud.tencent.com/document/product/386/63404))。</td>
+<td>裸金属云服务器所有机型均不支持 ALG，实例规格请参见 <a href="https://cloud.tencent.com/document/product/386/63404">裸金属云服务器实例规格</a>。</td>
 </tr>
 
 <tr>
