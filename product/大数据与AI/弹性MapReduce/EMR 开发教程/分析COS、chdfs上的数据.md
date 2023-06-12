@@ -11,7 +11,7 @@
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并连接到 impala：
 ```
 [root@172 ~]# su hadoop
-[hadoop@172 ~]$ impala-shel.sh -i $host:27001
+[hadoop@172 ~]$ impala-shell.sh -i $host:27001
 ```
 $host 为您的 impala 数据节点所在的内网 IP。
 
