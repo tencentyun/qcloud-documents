@@ -1,4 +1,4 @@
-您可以登录 YARN 自带的 YARNwebUI，登录方式为通过 EMR 提供的快捷入口，查看快捷入口请参考 [软件 WebUI 入口](https://cloud.tencent.com/document/product/589/14629)，登录后您将看到如下图：
+您可以登录 YARN 自带的 YARNwebUI，登录方式为通过 EMR 提供的快捷入口，查看快捷入口请参考 [软件 WebUI 入口](https://cloud.tencent.com/document/product/589/14629)。登录后单击下图所示左侧列表中 **Scheduler** ，即可看到任务队列信息。
 ![](https://main.qcloudimg.com/raw/0435fe1f983f4a4406750cebcf1d0721.png)
 
 从图中可以看到整个集群的一些监控信息：
