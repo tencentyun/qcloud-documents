@@ -49,7 +49,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ```
 如果 Hadoop下面没有 `/user/hadoop` 文件夹，用户可以自己创建，指令如下：
 ```
-[hadoop@172 hadoop]$ hadoop fs –mkdir /user/hadoop
+[hadoop@172 hadoop]$ hadoop fs -mkdir /user/hadoop
 ```
 更多 Hadoop 指令见 [HDFS 常见操作](https://cloud.tencent.com/document/product/589/12289)。
 
@@ -65,9 +65,9 @@ scp $localfile root@公网IP地址:$remotefolder
 其中 $bucketname 替换成您的储存桶的名字和路径。
 - 在 EMR 集群通过 Hadoop 命令上传，指令如下：
 ```
-[hadoop@10 hadoop]$ hadoop fs -put README.txt cosn:// $bucketname /
-[hadoop@10 hadoop]$ bin/hadoop fs -ls cosn:// $bucketname /README.txt
--rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://$bucketname /README.txt
+[hadoop@10 hadoop]$ hadoop fs -put README.txt cosn://$bucketname/
+[hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://$bucketname/README.txt
+-rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://$bucketname/README.txt
 ```
 
 ## 4. 通过 MapReduce 提交任务
