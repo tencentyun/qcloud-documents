@@ -136,7 +136,7 @@ tcaplus > exit
 ```
 
 #### [TDR 工具](id:tdrgj)
-TDR 文件需要使用 TDR 工具生成，其主要是由数据定义文件（TDR 结构 xml 格式）生成，[工具下载地址](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tdr)。
+TDR 文件需要使用 TDR 工具生成，其主要是由数据定义文件（TDR 结构 xml 格式）生成，SDK 包中 tbase 包的 tools 目录下有此工具。
 
 使用示例：
 ```
@@ -162,7 +162,7 @@ tdr -E 0x83010404
 ```
 
 #### tdr2xml 工具
-tdr2xml 工具可以把二进制元数据文件反编译成一个 xml 格式的元数据描述文件，[工具下载地址](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tdr2xml)。
+tdr2xml 工具可以把二进制元数据文件反编译成一个 xml 格式的元数据描述文件，SDK 包中 tbase 包的 tools 目录下有此工具。
 
 用法：
 ```
