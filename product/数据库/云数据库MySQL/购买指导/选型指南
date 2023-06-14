@@ -89,7 +89,6 @@
 单节点云盘架构的实例，是基于云原生架构实现，满足测试、开发、个人学习等场景使用，最大支持30T存储空间，存储空间大小对 IOPS 会有影响。
 关于各存储类型的性能指标对比，详见 [存储类型](#CCLX)。
 
-
 **4. 选择隔离策略和实例规格**
 ![](https://qcloudimg.tencent-cloud.cn/raw/a19f7d9a2f6ace613ae44f783de5fed7.png)
 单节点架构支持的隔离策略为基础型，双节点、三节点架构支持的隔离策略为通用型和独享型，实例规格的参数包含 vCPU、内存、最大 IOPS、最大存储容量，您可根据业务需要选择适合的。
@@ -102,5 +101,4 @@
 - [数据库实例类型](https://cloud.tencent.com/document/product/236/7268)
 - [数据库实例复制](https://cloud.tencent.com/document/product/236/7913)
 - [数据库实例规格](https://cloud.tencent.com/document/product/236/81339)
-
 
