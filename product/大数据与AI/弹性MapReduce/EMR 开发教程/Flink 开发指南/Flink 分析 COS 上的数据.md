@@ -52,7 +52,7 @@ simple
 ```
 <properties>
     <scala.version>2.12</scala.version>
-    <flink.version>1.14.3</scala.version>
+    <flink.version>1.14.3</flink.version>
 </properties>
 
 <dependencies>
