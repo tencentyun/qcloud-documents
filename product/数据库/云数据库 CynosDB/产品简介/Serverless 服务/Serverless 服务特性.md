@@ -8,7 +8,7 @@ TDSQL-C MySQL 版提供 Serverless 服务以满足企业对特定业务场景的
 
 
 ## 资源扩缩范围（CCU）
-CCU（CynosDB Compute Unit）为 Serverless 的计算计费单位，一个 CCU 近似等于1个 CPU 和 2GB 内存的计算资源，每个计费周期的 CCU 使用数量为：`数据库所使用的 CPU 核数` 与 `内存大小的1/2` 二者中取最大值。
+CCU（TDSQL-C Compute Unit）为 Serverless 的计算计费单位，一个 CCU 近似等于1个 CPU 和 2GB 内存的计算资源，每个计费周期的 CCU 使用数量为：`数据库所使用的 CPU 核数` 与 `内存大小的1/2` 二者中取最大值。
 
 Serverless 服务需要设定弹性范围，详细弹性范围区间可参考 [算力配置](https://cloud.tencent.com/document/product/1003/81821)。
 
@@ -82,11 +82,11 @@ Serverless 服务的弹性策略一开始会根据用户购买时选择的容量
 当有连接访问时，系统会秒级自动启动处于暂停状态的数据库，用户不需设置重连机制。
 
 TDSQL-C MySQL 版的接入层增加了一个恢复感知器（简称 perceptron）的模块来实现请求转发，perceptron 在和客户端握手之后，不断用户连接，恢复集群后，与 TDSQL-C MySQL 版握手，后续转发四层报文。
-整体流程设计采用了两个挑战随机数进行鉴权，以实现中继模块 preceptron 不存储用户名密码的情况下也可以完成用户名密码验证，保证了用户密码的安全性，也不会引入存储密码不一致的问题。
+整体流程设计采用了两个挑战随机数进行鉴权，以实现中继模块 perceptron 不存储用户名密码的情况下也可以完成用户名密码验证，保证了用户密码的安全性，也不会引入存储密码不一致的问题。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2fa0215f51fe80c40964c4ba48bdc7d5.png)
 
-在实例暂停的状态下，如果有连接发起，MySQL 客户端首先会同 preceptron 进行 TCP 握手（P0），完成 TCP 握手后，preceptron 会向客户端发送 “随机数 A” 进行挑战（P1），MySQL 客户端用自己的账号密码和 “随机数 A” 来计算并回复自己的 “登录解答 A”（P2）。由于 preceptron 并没有存储用户的账号密码，所以无法校验 “登录解答 A” 是否正确，但 preceptron 能区分客户端是 MySQL 客户端，还是其他类型的客户端（preceptron 在机器学习界是分类器，区分不同类型的客户端也是用他命名的原因之一）。校验 “登录解答 A” 将由 TDSQL-C MySQL 版计算层（下文简称 TDSQL-C）来完成，preceptron 通过管控唤醒 TDSQL-C 后（P3），开始下一步的登录校验流程。
+在实例暂停的状态下，如果有连接发起，MySQL 客户端首先会同 perceptron 进行 TCP 握手（P0），完成 TCP 握手后，perceptron 会向客户端发送 “随机数 A” 进行挑战（P1），MySQL 客户端用自己的账号密码和 “随机数 A” 来计算并回复自己的 “登录解答 A”（P2）。由于 perceptron 并没有存储用户的账号密码，所以无法校验 “登录解答 A” 是否正确，但 perceptron 能区分客户端是 MySQL 客户端，还是其他类型的客户端（perceptron 在机器学习界是分类器，区分不同类型的客户端也是用他命名的原因之一）。校验 “登录解答 A” 将由 TDSQL-C MySQL 版计算层（下文简称 TDSQL-C）来完成，perceptron 通过管控唤醒 TDSQL-C 后（P3），开始下一步的登录校验流程。
 
-在和 preceptron TCP 握手之后（P4），对于 TDSQL-C 来说，preceptron 也是一个普通的 MySQL 客户端，所以也发送一个 “随机数 B” 挑战（P5）给 preceptron。Preceptron 的回复是一个特殊的 MySQL 报文（P6），首先它用 “随机数 B” 和 preceptron 自身的鉴权机制计算得到 “登录解答 B” 并放入报文中，其次它也将 “随机数 A” 和 “登录解答 A” 捎带在此报文中。 TDSQL-C 收到特殊的解答报文后会做两次校验，第一次是 “随机数 B” 和 “登录解答 B” 的正确性以及 preceptron 的身份，通过后再进行第二次的 “随机数 A” 和 “登录解答 A” 的正确性，通过即以用户身份进行登录，并回复 preceptron 登录成功（P7）。Preceptron 进而回复用户登录成功（P8）。
+在和 perceptron TCP 握手之后（P4），对于 TDSQL-C 来说，perceptron 也是一个普通的 MySQL 客户端，所以也发送一个 “随机数 B” 挑战（P5）给 perceptron。Perceptron 的回复是一个特殊的 MySQL 报文（P6），首先它用 “随机数 B” 和 perceptron 自身的鉴权机制计算得到 “登录解答 B” 并放入报文中，其次它也将 “随机数 A” 和 “登录解答 A” 捎带在此报文中。 TDSQL-C 收到特殊的解答报文后会做两次校验，第一次是 “随机数 B” 和 “登录解答 B” 的正确性以及 perceptron 的身份，通过后再进行第二次的 “随机数 A” 和 “登录解答 A” 的正确性，通过即以用户身份进行登录，并回复 perceptron 登录成功（P7）。Perceptron 进而回复用户登录成功（P8）。
 
-当集群处于暂停状态时，仅保留 preceptron 的路由，当集群恢复后时，系统同时保留 preceptron 的路由和 TDSQL-C 的路由，并设置 preceptron 的路由权重为 0，以实现新增连接直连到 TDSQL-C，同时存量与 preceptron 已经建连的连接依然能够通讯。
+当集群处于暂停状态时，仅保留 perceptron 的路由，当集群恢复后时，系统同时保留 perceptron 的路由和 TDSQL-C 的路由，并设置 perceptron 的路由权重为 0，以实现新增连接直连到 TDSQL-C，同时存量与perceptron 已经建连的连接依然能够通讯。

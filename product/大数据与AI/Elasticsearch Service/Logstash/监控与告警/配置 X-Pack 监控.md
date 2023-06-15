@@ -4,9 +4,9 @@
 >- Logstash 实例需要和 ES 实例在同一个 VPC 内，且大版本相同。
 
 ## 操作步骤
-1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，在左侧导航栏单击 **Logstash 实例**，进入 Logstash 实例列表页。
+1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，在左侧导航栏单击 **Logstash 管理**，进入 Logstash 管理列表页。
 2. 单击实例列表中要操作的实例的 **ID/名称**，进入实例基本信息页，然后切换到**监控**页签。在“监控配置”中，单击“X-Pack 监控”中的**立即关联**。
-![](https://main.qcloudimg.com/raw/fc2961b17df722ae9542c7493f21a482.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b6f9d95347ba8594bde1499a96fbf099.png)
 3. 在弹窗中选择要关联的腾讯云 Elasticsearch 实例，单击**确定**。
 ![](https://main.qcloudimg.com/raw/8e9b452aec391d87619497a888028cf2.png)
 >! 关联操作涉及修改 X-Pack 配置，会触发实例重启。

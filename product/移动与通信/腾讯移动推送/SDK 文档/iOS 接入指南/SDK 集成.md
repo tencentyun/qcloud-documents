@@ -3,7 +3,7 @@
 
 >! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [iOS 合规指南](https://cloud.tencent.com/document/product/548/57362) 在《隐私政策》中增加移动推送相关说明，并且在用户同意《隐私政策》后再初始化移动推送SDK。
 >
-
+ 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
 - demo 文件夹：包含样例工程，腾讯移动推送SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 

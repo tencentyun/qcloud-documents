@@ -1,6 +1,6 @@
 ## 概述
-在您在腾讯云购买创建 Doris 集群后，从集群列表页面单击**集群 ID** 可以看到集群信息页。其中网络信息部分提供两个访问地址：tcp & http，分别对应了两种不同的客户端。其中 tcp 地址适合 JDBC 类客户端，最适合也最常用的就是 mysql。而 HTTP 客户端用于通过各类 HTTP 客户端调用 Doris 集群的 REST API 进行各种操作。下面分别进行描述。
-![](https://qcloudimg.tencent-cloud.cn/raw/34ede319bfb5f96ea6c91288912fc42a.png)
+在您在腾讯云购买创建 Doris 集群后，从 [集群列表](https://console.cloud.tencent.com/cdwdoris) 页面单击**集群 ID/名称** 可以进入集群详情页。其中网络信息部分提供两个访问地址：tcp & http，分别对应了两种不同的客户端。其中 tcp 地址适合 JDBC 类客户端，最适合也最常用的就是 mysql。而 HTTP 客户端用于通过各类 HTTP 客户端调用 Doris 集群的 REST API 进行各种操作。下面分别进行描述。
+![](https://qcloudimg.tencent-cloud.cn/raw/13469c304ee79c967eda96fc6fd1964c.png)
 
 ## Mysql / JDBC 类客户端
 Doris 采用 MySQL 协议，高度兼容 MySQL 语法，支持标准 SQL，用户可以通过各类客户端工具来访问 Doris，并支持与 BI 工具的无缝对接。借助 MySQL 协议，用户使用任意 MySQL 的 ODBC/JDBC以及MySQL 的客户端，都可以直接访问 Doris。当然，其中最好用的是 MySQL 的客户端。

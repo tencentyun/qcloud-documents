@@ -8,7 +8,7 @@
 
 ## 交互流程
 
-![](https://main.qcloudimg.com/raw/9fbb169958e4ea1087d13cdb2b2d2721.svg)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/aa19d02998ecb7569f3911f5520329f1.png" width=700/>
 
 ## 操作步骤
 
@@ -18,16 +18,22 @@
 2. 在服务列表中，单击目标服务的服务 ID，查看 API 列表。
 3. 单击**新建**，填写 API 前端配置，单击**下一步**。
 4. API 后端类型选择**云函数 SCF**，勾选“Base64编码”，完成后续配置流程。此时创建的 API 已经开启了 Base64 编码，并默认为“全部触发”。
-![](https://main.qcloudimg.com/raw/c116fc0017274148daf0290c8a20f445.png)
+
+ <img src="https://qcloudimg.tencent-cloud.cn/raw/8367963c9d73676d28979e553081b553.png" width=700/>
 
 ### 配置 Header 触发
 
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) ，在左侧导航栏单击**服务**。
 2. 在服务列表中，单击目标服务的服务 ID，查看 API 列表。
 3. 在 API 列表中，单击目标 API 的 API ID（目标 API 必须是后端对接 SCF 的 API），即可查看 API 详情页。 在 API 详情页中，单击**基础配置**标签页，找到**Base64编码**配置项。
+
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/b85288185e7db1b5dfc1d37597b5eb2d.png" width=700/>
 4. 单击"Base64"后的**编辑**，选择触发方式为**Header触发**。单击**添加触发规则**，选择参数并填写参数值。
+
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/435caec614770fb4bdd8db29b7601f48.png" width=700/>
 5. 确认配置信息无误后，最后单击**保存**即可。
-![](https://main.qcloudimg.com/raw/fedbf7b330ddfe846b39b48aaa7c2771.png)
+
+ 
 
 ## 注意事项
 - 对于每次成功触发 Base64 编码的请求，API 网关不仅会对请求体进行 Base64 编码，还会把 isBase64Encoded 字段的值设置为 True 一起传递给云函数，该字段可用于通知云函数本次请求是否经过 Base64 编码（后端对接云函数的结构体请参考 [API 网关传递给后端的结构体](https://cloud.tencent.com/document/product/628/50421)）。

@@ -1,0 +1,19 @@
+您创建身份提供商有两种方式：使用访问管理控制台或 CAM API。
+
+### 通过控制台创建
+
+1. 您需要从身份提供商（IdP）处获取联合元数据文档，才能创建 OIDC 身份提供商。该元数据文档包括发布者名称、客户端 ID、身份提供商 URL、验证从身份提供商收到的签名公钥。
+>?本文以身份提供商Azure Active Directory 为例。
+
+2. 登录访问管理（CAM）控制台，进入 [**身份提供商 > 角色SSO**](https://console.cloud.tencent.com/cam/idp) 页面，单击**新建提供商**。
+3. 在新建身份提供商页面，选择提供商类型为 SAML 并配置提供商信息，单击**下一步**。
+	- 身份提供商名称：输入身份提供商名称。
+	- 身份提供商URL：OpenID Connect 身份提供商标识。对应身份提供商提供的 OpenID Connect 元数据文档中的 "issuer" 字段值。
+	- 客户端ID：在 OpenID Connect 身份提供商注册的客户端 ID。在 **Azure Active Directory > 企业应用程序 > OIDCSSO 应用概述页**获取。
+	- 签名公钥：验证身份提供商 ID Token 签名的公钥。对应身份提供商提供的 OpenID Connect 元数据文档中 "jwks_uri" 字段中链接的内容（在浏览器中打开链接获取内容）。为了您的帐号安全，建议您定期轮换签名公钥。
+![](https://qcloudimg.tencent-cloud.cn/raw/27815baff81abd0ac43fbf9219546c64.png)
+4. 单击下一步，审阅您输入的身份提供商相关信息，确认无误后，单击**完成**，创建身份提供商。
+
+### 通过 API 创建
+
+创建身份提供商并上传元数据文档，请调用 [ 创建OIDC身份提供商（CreateOIDCConfig） ]( https://cloud.tencent.com/document/product/598/73473) 接口。

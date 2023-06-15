@@ -10,7 +10,7 @@
 ## 前提条件[](id:Prerequisites)
 - 已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。
  - 如已设置登录密码，则请使用该密码登录。如忘记密码，则请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
- - 如在创建实例时选择系统随机生成密码，则请往 [站内信](https://console.cloud.tencent.com/message) 获取初始密码。
+ - 如在创建实例时选择系统随机生成密码，则请往 [站内信](https://console.cloud.tencent.com/message) （标有：云服务器创建成功字样）获取初始密码。
 - 您的云服务器实例已购买公网 IP，且已在实例关联的安全组中放通来源为 WebRDP 代理 IP 的远程登录端口（默认为3389）。
  - 如通过快速配置购买云服务器，则默认已开通。
  - 如通过自定义配置购买云服务器，则可参考 [允许 RDP 远程连接 Windows 云服务器](https://cloud.tencent.com/document/product/213/34601#.E5.9C.BA.E6.99.AF.E4.BA.8C.EF.BC.9A.E5.85.81.E8.AE.B8-rdp-.E8.BF.9C.E7.A8.8B.E8.BF.9E.E6.8E.A5-windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8) 手动放通。

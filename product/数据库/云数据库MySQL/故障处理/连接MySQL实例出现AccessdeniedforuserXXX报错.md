@@ -17,7 +17,7 @@
 >- 方式一：主机有无其他帐号名，若有，使用该帐号名及对应密码进行登录。
 >- 方式二：在该帐号名下添加当前主机的 IP 地址，克隆帐号：在该帐号的操作列单击**克隆帐号**，在克隆帐号弹窗中，将**主机**参数修改为您当前需要登录的主机 IP 地址，然后单击**确定**。
 >
-![](https://main.qcloudimg.com/raw/5924456fc988241b8aaff93cfe552927.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/915ee0cbe4c86a37669f8c4a982fab57.png)
 3. 重试密码，确认密码输入无误；如果忘记密码，可找到需要重置密码的帐号，选择**更多** > **重置密码**。
-![](https://main.qcloudimg.com/raw/e1a269541a777ee8209fc4a6c5e35cff.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2a2b15b856b3add8186d2367a9121466.png)
  

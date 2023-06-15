@@ -16,7 +16,6 @@
 >
 ![](https://main.qcloudimg.com/raw/3932b0910f0970afa493eb1260f7f977.png)![](https://main.qcloudimg.com/raw/c4067899bbc232f2912e2c22d16afc51.png)
 
-
 ## 关联自建 MySQL 共享 Hive 元数据
 关联自己本地自建 MySQL 数据库作为 Hive 元数据存储，也无需单独购买 MetaDB 存储 Hive 元数据节约成本，需准确填写输入以“jdbc:mysql://开头”的本地址、数据库名字、数据库登录密码，并确保网络与当前集群网络打通。
 > !
@@ -26,3 +25,34 @@
 >4. 需保证自定义数据库中的 Hive 元数据版本大于等于新集群中的 Hive 版本。
 >
 ![](https://main.qcloudimg.com/raw/af2f428a3529ab18667224874470c8ad.png)![](https://main.qcloudimg.com/raw/cc42c982b7a84b99c87bd48a4b27fdb9.png)
+
+## HIVE 关联自建元数据异常修复方法
+由于在创建 EMR 集群时选用了关联自建 MySQL，且自建 MySQL 无 HIVE 的元数据，这会导致 HIVE 进程异常。
+### 问题复现
+![](https://qcloudimg.tencent-cloud.cn/raw/57fcc9dd9eb72464c196243de3104421.png)
+### 解决方案
+对于无数据的 hive 元数据操作步骤如下：
+>? 操作时替换成用户实际的 ${ip}、${port}、${database}。
+>
+1. 控制台将 HIVE 的 hs2 和 metastore 停掉。
+2. hive 组件修改 hive-site.xml proto-hive-site.xml 下发。
+配置项：javax.jdo.option.ConnectionURL
+```
+jdbc:mysql://${ip}:${port}/${database}?useSSL=false&amp;createDatabaseIfNotExist=true&amp;characterEncodin
+g=UTF-8
+```
+3. CDB 数据库里删除库操作：
+```
+drop database ${database};
+```
+4. hadoop 用户执行如下命令：
+```
+/usr/local/service/hive/bin/schematool -dbType mysql -initSchema
+```
+5. 控制台 HIVE 启动 hs2和 metastore。
+6. 访问 hive 是否异常。
+如果有字符异常，CDB 再执行如下命令：
+```
+alter database ${database} character set latin1；
+flush privileges；
+```

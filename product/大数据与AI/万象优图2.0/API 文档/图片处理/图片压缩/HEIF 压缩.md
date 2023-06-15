@@ -12,7 +12,7 @@
 
 ## 前提条件
 
-使用 HEIF 压缩，需要先开通存储桶的图片高级压缩功能，您需要在相应的存储桶配置页中通过开关按钮开启功能，详情请参见 [设置图片高级压缩](https://cloud.tencent.com/document/product/436/48981)。
+使用 HEIF 压缩，需要先开通存储桶的图片高级压缩功能，您需要在相应的存储桶配置页中通过开关按钮开启功能，详情请参见 [图片高级压缩](https://cloud.tencent.com/document/product/460/46821)。
 
 ## 使用方式
 
@@ -83,10 +83,10 @@ Pic-Operations:
 
 ## 处理参数说明
 
-| 参数             | 含义                                                         |
-| :--------------- | :----------------------------------------------------------- |
-| ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           | 
-| /format/&lt;Format> | 压缩格式，此处为 heif。                                       |
+| 参数             | 描述                 | 是否必选 |
+| :--------------- | :------------------ | :-- |
+| ObjectKey  | 对象文件名，例如 folder/sample.jpg。       | 是|
+| /format/&lt;Format> | 压缩格式，此处为 heif。           | 是 |
 
 ## 实际案例
 
@@ -108,4 +108,3 @@ http://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png?imageMogr2/for
 | :---------- | :--------------------- |
 | png（原图） | 1335.2KB               |
 | heif        | 52.87KB（压缩率96.0%） |
-

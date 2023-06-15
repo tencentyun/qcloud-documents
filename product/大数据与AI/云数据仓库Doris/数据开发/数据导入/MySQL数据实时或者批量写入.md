@@ -253,7 +253,7 @@ canal client 调用 get 命令时，canal server 会产生数据 batch 发送给
 #### 配置目标表属性
 用户需要先在 Doris 端创建好与 Mysql 端对应的目标表。
 Binlog Load 只能支持 Unique 类型的目标表，且必须激活目标表的 Batch Delete 功能。
-开启 Batch Delete 的方法可以参考`ALTER TABLE PROPERTY` 中的批量删除功能。
+开启 Batch Delete 的方法可以参考 [ALTER TABLE PROPERTY](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Alter/ALTER-TABLE-PROPERTY?_highlight=alter&_highlight=table&_highlight=property) 中的批量删除功能。
 示例：
 ```sql
 --create Mysql table
@@ -294,7 +294,7 @@ FROM BINLOG
 "canal.password" = "canal"
 );
 ```
-创建数据同步作业的详细语法可以连接到 Doris 后，`HELP CREATE SYNC JOB` 查看语法帮助。这里主要详细介绍，创建作业时的注意事项。
+创建数据同步作业的详细语法可以连接到 Doris 后，[HELP CREATE SYNC JOB](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/CREATE-SYNC-JOB?_highlight=create&_highlight=sync&_highlight=job) 查看语法帮助。这里主要详细介绍，创建作业时的注意事项。
 语法：
 ```
 CREATE SYNC [db.]job_name
@@ -325,7 +325,7 @@ binlog_desc
   7. `canal.debug`：设置为 true 时，会将 batch 和每一行数据的详细信息都打印出来，会影响性能。
 
 #### 查看作业状态
-查看作业状态的具体命令和示例可以通过 `SHOW SYNC JOB` 命令查看。
+查看作业状态的具体命令和示例可以通过 [SHOW SYNC JOB](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Show-Statements/SHOW-SYNC-JOB?_highlight=show&_highlight=sync&_highlight=job) 命令查看。
 返回结果集的参数意义如下：
 - State
 作业当前所处的阶段。作业状态之间的转换如下图所示：
@@ -357,7 +357,7 @@ binlog_desc
 对接的远端服务器信息，如 canal server 的地址与连接 instance 的 destination。
 
 #### 控制作业
-用户可以通过 STOP/PAUSE/RESUME 三个命令来控制作业的停止，暂停和恢复。可以通过 `STOP SYNC JOB`, `PAUSE SYNC JOB` 以及 `RESUME SYNC JOB`。
+用户可以通过 STOP/PAUSE/RESUME 三个命令来控制作业的停止，暂停和恢复。可以通过 [STOP SYNC JOB](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/STOP-SYNC-JOB?_highlight=stop&_highlight=sync&_highlight=job)，[PAUSE SYNC JOB](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/PAUSE-SYNC-JOB?_highlight=pause&_highlight=sync&_highlight=job) 以及 [RESUME SYNC JOB](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/RESUME-SYNC-JOB?_highlight=resume&_highlight=sync&_highlight=job)。
 
 ### 相关参数
 #### CANAL 配置
@@ -408,7 +408,7 @@ canal 端默认一个 event 所占的空间，默认空间为1024 bytes。此值
 Doris 本身浮点类型的精度与 Mysql 不一样。可以选择用 Decimal 类型代替
 
 ### 更多帮助
-关于 Binlog Load 使用的更多详细语法及最佳实践，请参阅 `Binlog Load` 命令手册，您也可以在 MySql 客户端命令行下输入 `HELP BINLOG` 获取更多帮助信息。
+关于 Binlog Load 使用的更多详细语法及最佳实践，请参阅 [Binlog Load](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/binlog-load-manual?_highlight=binlog&_highlight=load) 命令手册，您也可以在 MySql 客户端命令行下输入 `HELP BINLOG` 获取更多帮助信息。
 
 ## MySQL 数据批量写入
 批量写入 Mysql 数据可选使用之前介绍过的几中导入方式：

@@ -22,7 +22,7 @@
 | [navigateTo](https://cloud.tencent.com/document/product/1301/56703#navigateTo)    | 保留当前页面，跳转到应用内的某个页面   |
 | [redirectTo](https://cloud.tencent.com/document/product/1301/56703#redirectTo)    | 关闭当前页面，跳转到应用内的某个页面  |
 | [reLaunch](https://cloud.tencent.com/document/product/1301/56703#reLaunch)   |关闭所有页面，打开到应用内的某个页面   |
-| [navigateBack](https://cloud.tencent.com/document/product/1301/56703#navigateBack)   |关闭所有页面，打开到应用内的某个页面    |
+| [navigateBack](https://cloud.tencent.com/document/product/1301/56703#navigateBack)   |关闭当前页面，返回上一页面或多级页面    |
 
 ## 数据源相关接口
 | 接口名称   | 接口功能   |

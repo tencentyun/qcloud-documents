@@ -1,6 +1,9 @@
+>!该文档已停止维护，如需使用文件解压功能，可开通数据万象文件处理服务进行使用，详情请参见 [文件处理](https://cloud.tencent.com/document/product/436/82326)。
+
+
 ## 准备工作
 
-1. ZIP 文件解压功能通过云函数（Serverless Cloud Function，SCF）实现。使用前，需在对象存储控制台 [ZIP 文件解压](https://console.cloud.tencent.com/cos5/application/cosGunzipApi) 上创建 **ZIP 文件解压** 函数。创建指引请参见 [ZIP 文件解压](https://cloud.tencent.com/document/product/436/67101)。
+1. ZIP 文件解压功能通过云函数（Serverless Cloud Function，SCF）实现。使用前，需在对象存储控制台上创建 **ZIP 文件解压** 函数。创建指引请参见 [ZIP 文件解压](https://cloud.tencent.com/document/product/436/67101)。
 2. 函数创建后，根据函数列表操作栏的 **使用引导**，完成函数参数配置。具体函数所需参数配置请参考下文，格式为 **JSON 字符串**。
  - 对于选择云函数鉴权的函数，需要调用 SCF 提供的 [运行函数（Invoke）接口 ](https://cloud.tencent.com/document/api/583/17243) 来运行云函数，其中的 ClientContext 参数以 JSON 格式传入，请参见 [函数参数配置示例](#1)。
  - 对于选择免鉴权的函数，则可以直接向对应的 API 网关发起 HTTP 请求来调用函数。

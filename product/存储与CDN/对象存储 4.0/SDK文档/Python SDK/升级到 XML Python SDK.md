@@ -50,6 +50,7 @@ XML Python SDK 的初始化方式如下：
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
+import os
 import logging
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)

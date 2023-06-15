@@ -13,6 +13,7 @@
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
+import os
 import logging
 
 # 正常情况日志级别使用 INFO，需要定位时可以修改为 DEBUG，此时 SDK 会打印和服务端的通信信息
@@ -65,6 +66,7 @@ from qcloud_cos import CosS3Client
 from qcloud_cos.cos_comm import to_byte
 
 import sys
+import os
 import logging
 import base64
 
@@ -141,6 +143,7 @@ from qcloud_cos import CosS3Client
 from qcloud_cos.cos_comm import get_md5, to_byte
 
 import sys
+import os
 import logging
 import base64
 

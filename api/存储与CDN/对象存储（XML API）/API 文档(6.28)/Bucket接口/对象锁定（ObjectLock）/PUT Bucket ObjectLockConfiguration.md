@@ -46,7 +46,9 @@ Authorization: Auth String
 | DefaultRetention        | ObjectLockConfiguration.Rule                  | 对象锁定默认周期                      | Containers | 是       |
 | Days                    | ObjectLockConfiguration.Rule.DefaultRetention | 对象锁定默认周期时长（范围为1-36500） | Int        | 是       |
 
- 
+>!
+- ObjectLockEnabled 参数仅支持配置为 Enabled，配置为 Enabled 即为该存储桶开启了对象锁定功能。
+- 开启对象锁定功能后不支持关闭，请您谨慎操作。
 
 ## 响应
 

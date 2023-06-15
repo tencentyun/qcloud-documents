@@ -1,4 +1,4 @@
-﻿ES 集群部署在逻辑隔离的私有网络 VPC 中，我们提供了丰富的能力来切实保证云上资源的安全性，包括：
+ES 集群部署在逻辑隔离的私有网络 VPC 中，我们提供了丰富的能力来切实保证云上资源的安全性，包括：
 - 对腾讯云帐户下资源的 CAM 访问管理（参见 [CAM 访问控制配置](https://cloud.tencent.com/document/product/845/19550)）
 - ES 集群访问密码/ES 集群用户登录认证
 - 设置 Kibana 和 Cerebro 外网访问 IP 黑白名单，或限制 Kibana 和 Cerebro 仅能通过内网访问
@@ -28,24 +28,19 @@ Kibana 公网访问白名单默认为127.0.0.1，表示不允许所有 IPv4 和 
 如果用户担心公网访问安全性，也可以关闭外网访问，设置仅允许内网访问。
 ![](https://qcloudimg.tencent-cloud.cn/raw/84f663cc32800d8a40ed6853e4ccbfb4.png)
 
-## 有限开启 ES 集群外网访问和设置 IP 白名单
-
+## 开启 ES 集群公网访问
 基于安全考虑，ES 集群外网访问是默认关闭的，对于已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868) 的集群，允许用户基于使用便捷性的需要开启外网访问，但必须同时设置 IP 白名单以提供安全防护。
 ![](https://main.qcloudimg.com/raw/9a5888a6532da74b4a8def5f78fead62.png)
 
 ## 基于角色的访问控制（RBAC）
-
 对于已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868) 的集群，用户将获得更多安全管理功能。白金版还可以进一步支持基于文档、字段级别的细粒度访问控制，详情请参考 Elastic 官网文档 [基于角色的访问控制](https://www.elastic.co/guide/en/elasticsearch/reference/current/authorization.html)。
 
 ### 角色管理
-
 用户可以在 Kibana 的 **Management > Security > Roles** 中创建、修改和删除具有不同权限组合的角色，详情如下：
 ![](https://main.qcloudimg.com/raw/22af168b4bab7271f2b6ca4f76a3cd48.jpg)
 
 ### 用户管理
-
 用户可以在 Kibana 的 **Management > Security > Users** 中创建、修改（信息修改、密码修改等）和删除具有多个角色的用户，详情如下：
-
 > ! ES 内置用户 elastic 的密码只能在官网控制台进行重置。
 > 
 ![](https://main.qcloudimg.com/raw/81241d5ba1c5cb6303fde291d931d7bd.png)

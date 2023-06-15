@@ -1,0 +1,25 @@
+## 操作场景
+腾讯云作为服务提供商（SP），需进行企业身份提供商（IdP）的OIDC 配置，以建立腾讯云对企业 IdP 的信任，实现企业 IdP 用户通过用户 SSO 的方式登录腾讯云。
+本文以身份提供商 Azure Active Directory 为例。
+>? 查看 OIDC 协议配置信息。（复制 Azure Active Directory > 应用注册 > 终结点 > OpenID Connect 元数据文档处的链接，并在浏览器中打开以获得具体配置信息）
+
+## 操作步骤
+1. 腾讯云账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
+2. 在左侧导航栏中，单击**身份提供商** > **用户SSO**。
+3. 在用户 SSO 管理页面可查看当前用户 SSO 状态和配置信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/a9783855ec41bc033be0d319b86769e7.png)
+4. 单击用户 SSO 后的开关按钮，可开启或关闭用户 SSO。
+![](https://qcloudimg.tencent-cloud.cn/raw/9375386bf42a2e6d5bd645d3c44be616.png)
+	- 开启状态：此时 CAM 子用户不能通过账号密码的方式登录腾讯云，所有 CAM 子用户统一跳转到企业 IdP 登录页面进行身份认证。
+	- 关闭状态：此时 CAM 子用户可以通过账号密码的方式登录腾讯云，用户 SSO 设置不会生效。
+	- SSO 协议：选择OIDC类型。
+	- 身份提供商 URL：OpenID Connect 身份提供商标识。对应身份提供商提供的 OpenID Connect 元数据文档中的 "issuer" 字段值。
+	- 客户端ID：在 OpenID Connect 身份提供商注册的客户端 ID。在 **Azure Active Directory > 企业应用程序 > OIDCSSO 应用概述页**获取。
+	- 用户映射字段：OpenID Connect 身份提供商中与腾讯云 CAM 子用户名映射的字段。可选身份提供商提供的 OpenID Connect 元数据文档中 "claims_supported" 的值，此示例中使用 name 字段映射  CAM 的 username。
+	- 授权请求Endpoint：OpenID Connect 身份提供商授权请求地址。对应身份提供商提供的 OpenID Connect 元数据文档中的 "authorization_endpoint" 字段值。
+	- 授权请求Scope：OpenID Connect 身份提供商授权请求信息范围。默认必选 openid。
+	- 授权请求Response type：OpenID Connect 身份提供商授权请求返回参数类型，默认必选 id_token。
+	- 授权请求Response mode：OpenID Connect 身份提供商授权请求返回模式，可选 form_post 和 fragment 两种模式，推荐选择 form_post 模式。
+	- 签名公钥：验证 OpenID Connect 身份提供商 ID Token 签名的公钥。对应身份提供商提供的 OpenID Connect 元数据文档中 "jwks_uri" 字段中链接的内容（在浏览器中打开链接获取内容）。为了您的帐号安全，建议您定期轮换签名公钥。
+	
+5.单击**保存**即可。

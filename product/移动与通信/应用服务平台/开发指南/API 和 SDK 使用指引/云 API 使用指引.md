@@ -1,5 +1,5 @@
 ## 简介
-云开发（Tencent CloudBase，TCB）是腾讯云提供的云原生一体化开发环境和工具平台，为开发者提供高可用、自动弹性扩缩的后端云服务，包含计算、存储、托管等 serverless 化能力，可用于云端一体化开发多种端应用（小程序、公众号、Web 应用等），帮助开发者统一构建和管理后端服务和云资源，避免了应用开发过程中繁琐的服务器搭建及运维，开发者可以专注于业务逻辑的实现，开发门槛更低，效率更高。
+云开发（Tencent CloudBase，TCB）是腾讯云提供的云原生一体化开发环境和工具平台，为开发者提供高可用、自动弹性扩缩的后端云服务，包含计算、存储、托管等 serverless 化能力，可用于云端一体化开发多种终端应用（小程序、公众号、Web 应用等），帮助开发者统一构建和管理后端服务和云资源，避免了应用开发过程中繁琐的服务器搭建及运维，开发者可以专注于业务逻辑的实现，开发门槛更低，效率更高。
 
 >?云开发的云 API 是云开发提供的管理端能力 API，开发者可使用云 API 自定义管理云开发资源，个性化搭建自有的控制台，或者在云 API 上二次封装更多能力对外开放，以满足更丰富的需求场景。更多云 API 规范请参见 [腾讯云云 API](https://cloud.tencent.com/product/api)。
 
@@ -42,7 +42,7 @@ API Center 是云开发提供通过云开发 API 网管服务访问**云函数�
 
 云开发提供一个通用的云 API 接口 **CommonServiceAPI**，可查看 [文档说明](https://cloud.tencent.com/document/api/876/41230)，具体的使用方式如下：
 - 云函数、云数据库、云存储**各自的 API 能力**。
-- 通过**CommonServiceAPI**接口调用以上服务。
+- 通过 **CommonServiceAPI** 接口调用以上服务。
 
 ### 示例说明
 
@@ -91,10 +91,10 @@ API Center 是云开发提供通过云开发 API 网管服务访问**云函数�
 #### 通过 CommonServiceAPI 的调用方式
 
 1. 将原调⽤⽅公共参数中的 Action，设置为 CommonServiceAPI 接⼝的 Service 参数。
-2. 将原调⽤方 request 参数序列列化为 json 的字符串，设置为 CommonServiceAPI 接⼝的 JSONData 参数。
+2. 将原调⽤方 request 参数序列化为 json 的字符串，设置为 CommonServiceAPI 接⼝的 JSONData 参数。
 
 接⼝名称：**CommonServiceAPI**
-参数：除公共参数外（可参见 [公共请求参数](https://cloud.tencent.com/document/api/876/34812)），输⼊入参数还有：
+参数：除公共参数外（可参见 [公共请求参数](https://cloud.tencent.com/document/api/876/34812)），输入参数还有：
 
 | 参数 | 类型 | 说明 |
 | --- | --- | --- |

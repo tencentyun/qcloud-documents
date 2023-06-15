@@ -1,5 +1,5 @@
-Flink 擅长处理无界和有界数据集 精确的时间控制和状态化使得 Flink 的运行（runtime）能够运行任何处理无界流的应用。有界流则由一些专为固定大小数据集特殊设计的算法和数据结构进行内部处理，产生了出色的性能。
-以下针对于在对象存储上的有界或者无界数据集的数据集进行演示操作，这里为了更好的观察作业的运行情况使用 yarn-session 模式来提交任务。Flink On Yarn 支持 Session Mode 和 Application Mode 两种形式，具体可参考 [社区文档](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/deployment/resource-providers/yarn/)。
+Flink 擅长处理无界和有界数据集精确的时间控制和状态化使得 Flink 的运行（runtime）能够运行任何处理无界流的应用。有界流则由一些专为固定大小数据集特殊设计的算法和数据结构进行内部处理，产生了出色的性能。
+以下针对于在对象存储上的有界或者无界数据集的数据进行演示操作，这里为了更好地观察作业的运行情况使用 yarn-session 模式来提交任务。Flink On Yarn 支持 Session Mode 和 Application Mode 两种形式，具体可参考 [社区文档](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/deployment/resource-providers/yarn/)。
 本教程演示的是提交的任务为 wordcount 任务即统计单词个数，提前需要在集群中上传需要统计的文件。
 ## 开发准备
 1. 由于任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
@@ -52,7 +52,7 @@ simple
 ```
 <properties>
     <scala.version>2.12</scala.version>
-    <flink.version>1.14.3</scala.version>
+    <flink.version>1.14.3</flink.version>
 </properties>
 
 <dependencies>

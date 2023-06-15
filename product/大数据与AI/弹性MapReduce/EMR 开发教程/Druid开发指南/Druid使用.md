@@ -5,8 +5,8 @@ EMR 支持将 E-MapReduce Druid 集群作为单独的集群类型，主要基于
 
 ## 购买建议
 在创建 EMR 集群时选择 Druid 集群类型即可。Druid 集群自带了Hadoop HDFS 和 YARN 服务，并已经和 Druid 集群完成集成。但是建议仅用于测试，**对于线上生产环境，强烈推荐您采用专门的 Hadoop 集群**。
+如果需要关闭 Druid 集群自带的 Hadoop 相关服务，可以在 [EMR 控制台](https://console.cloud.tencent.com/emr) 的集群服务页，选择对应服务卡片，单击**操作 > 暂停服务**对服务进行暂停。
 
-如果需要关闭 Druid 集群自带的 Hadoop 相关服务，可以到 EMR 控制台 [集群服务](https://console.cloud.tencent.com/emr/static/framework/emr-4qjbxdca?type=clusterservice&regionId=1) 中选择暂停对应的服务。
 
 ## Hadoop 和 Druid 集群连通配置
 本节介绍如何配置 Hadoop 集群和 Druid 集群的连通性。如果您使用 Druid 集群自带的 Hadoop 集群（生产环境不推荐这么做），则无须做额外设置即可正常连通使用，可以跳过此节。
@@ -43,7 +43,7 @@ E-MapReduce Druid 支持以 COS 作为 deep storage，本节介绍如何使用 C
 保存配置并重启 Druid 集群相关服务。
 
 ## 调整 Druid 参数
-E-MapReduce Druid 在创建集群后会自动生成一套配置，不过建议您根据业务需求调整最优内存配置。要调整配置，您可以在 EMR 控制台 [组件管理](https://console.cloud.tencent.com/emr/static/component) 页面上进行操作。
+E-MapReduce Druid 在创建集群后会自动生成一套配置，不过建议您根据业务需求调整最优内存配置。要调整配置，您可以通过 [配置管理](https://cloud.tencent.com/document/product/589/14628) 功能进行操作。
 
 调整配置时，请确保调整正确：
 ```

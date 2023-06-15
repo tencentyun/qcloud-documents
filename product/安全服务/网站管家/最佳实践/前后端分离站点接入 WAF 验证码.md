@@ -16,7 +16,7 @@
 ```
  	//WAF 验证码seqid相关正则
 const sig_data = /seqid\s=\s"(\w+)"/g
-const waf_id_data = /TencentCaptcha\((\'\d+\')/g
+const waf_id_data = /TencentCaptcha\(\'(\d+)\'/g
 
 const service = axios.create({ 
     baseURL: '/api',

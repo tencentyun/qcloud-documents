@@ -349,15 +349,15 @@ width: 25%;
 | --------- | ------- | ---------- | ---------- | ------------- | ----------- | ------------- | 
 | 身份信息核验 | 300元              |  <nobr>2,800元</nobr>  | <nobr>26,000元 </nobr> | <nobr>48,000元</nobr>   | <nobr>115,000元 </nobr> | <nobr>220,000元</nobr>  |
 |身份信息及有效期核验| 1,500 元             | <nobr>14,000 元</nobr>  | <nobr>130,000元 </nobr> | <nobr> 240,000 元</nobr>   | <nobr> 550,000 元</nobr>  |<nobr>1,000,000 元</nobr>  |
-| 银行卡信息核验 | 380元              |  <nobr>3,700元</nobr>  | <nobr>35,000元 </nobr> | <nobr>66,000元</nobr>   | <nobr>-</nobr>  |<nobr>-</nobr>  |
-| 手机号在网时长/状态查询  | 380元              |  <nobr>3,800元</nobr>  | <nobr>37,000元 </nobr> | <nobr>72,000元</nobr>   | <nobr>-</nobr>  |<nobr>-</nobr>  |
-|  银行卡基础信息查询|  280元              | <nobr>2,700元</nobr>  | <nobr>26,000元 </nobr> | <nobr>36,000元</nobr>   | <nobr>-</nobr>  |<nobr>-</nobr>  |
-|  手机号信息核验（三要素）|  1,050元              | <nobr>10,000元</nobr>  | <nobr>95,000元 </nobr> | <nobr>180,000元</nobr>   | <nobr>-</nobr>  |<nobr>-</nobr>  |
+| 银行卡信息核验 | 380元              |  <nobr>3,700元</nobr>  | <nobr>35,000元 </nobr> | <nobr>66,000元</nobr>   | <nobr>暂不支持资源包</nobr>  |<nobr>暂不支持资源包</nobr>  |
+| 手机号在网时长/状态查询  | 380元              |  <nobr>3,800元</nobr>  | <nobr>37,000元 </nobr> | <nobr>72,000元</nobr>   | <nobr>暂不支持资源包</nobr>  |<nobr>暂不支持资源包</nobr>  |
+|  银行卡基础信息查询|  280元              | <nobr>2,700元</nobr>  | <nobr>26,000元 </nobr> | <nobr>36,000元</nobr>   | <nobr>暂不支持资源包</nobr>  |<nobr>暂不支持资源包</nobr>  |
+|  手机号信息核验（三要素）|  1,050元              | <nobr>10,000元</nobr>  | <nobr>95,000元 </nobr> | <nobr>180,000元</nobr>   | <nobr>暂不支持资源包</nobr>  |<nobr>暂不支持资源包</nobr>  |
 
 >! 手机号三要素预付费资源包将于**2022年1月4日10点**上架，届时可支持用户进行购买。
     
 ### E证通价格说明
-E证通服务的后付费价格定价为1.5元/次，并提供不同规格预付费资源包套餐，如需购买资源包，请单击 [购买资源包](https://buy.cloud.tencent.com/iai_faceid)。
+E 证通服务详细定价如下，如需购买资源包，请单击 [购买资源包](https://buy.cloud.tencent.com/iai_faceid)。
 <table>
 <tr>
 <th rowspan=2>计费标签</th>

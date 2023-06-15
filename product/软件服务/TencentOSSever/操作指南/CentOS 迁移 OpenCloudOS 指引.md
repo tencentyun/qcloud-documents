@@ -35,7 +35,7 @@ CentOS 官方已停止维护 CentOS 8，具体情况如下表所示。如需了�
 ## 操作步骤
 [](id:Prepare)
 ### 迁移准备
-1. 迁移操作不可逆，为保障业务数据安全，建议您在执行迁移前备份数据,腾讯云服务器用户可参见 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份系统盘数据。
+1. 迁移操作不可逆，为保障业务数据安全，建议您在执行迁移前备份数据，腾讯云服务器用户可参见 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份系统盘数据。
 2. 检查并手动卸载 i686 的 rpm 包。
 3. 如果您环境里边没有安装 Python 3，需要先进行安装 Python 3操作，可以借助 vault 源进行安装。
 ```plaintexy

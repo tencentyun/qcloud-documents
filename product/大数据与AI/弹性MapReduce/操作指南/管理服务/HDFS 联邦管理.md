@@ -22,7 +22,7 @@ HDFS 联邦管理是基于 HDFS  Federation 特性提供的 HDFS 联邦集群部
 >- 设置 NameService 名称后，不可修改也不可以删除且 NameService 名称不能为"nsfed"、“haclusterX”、”ClusterX“等系统关键词。
 5. 添加挂载表
 当新增 NameService 成功后，才能添加挂载表。为了避免配置复杂度过高，对当前集群目录进行映射，建议仅全局一级目录进行NameService 映射，例如挂载“/tmp”，“/user”，“/srv”等；可批量添加挂载路径。
-	- 路径：在 ViewFs 统一命名空间的路径名称，在 Router-based Federation 统一命名空间的路径名称，也称挂载点。
+	- 全局路径：在 ViewFs 统一命名空间的路径名称，在 Router-based Federation 统一命名空间的路径名称，也称挂载点。
 	- 目标NameService：挂载点映射到真实路径对应的 NameService。
 	- 目标路径：在对应 NameService 上的真实路径，与全局路径的名字无需保持一致。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9b0643a9432c73a9cf3d577bc78437e5.png)

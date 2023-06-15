@@ -3,7 +3,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 >- 发送语音验证码
 >只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#指定模板发送语音通知)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
 >- 发送语音通知
->数字默认按照个十百千万进行播报，可通过在数字前添加英文逗号（,）改变播报方式。例如，当 msg=`您的语音验证码是5678。` 时，您收到的语音通知为`您的语音验证码是五千六百七十八。`，当 msg=`您的语音验证码是5,6,7,8。`时，您收到的语音通知为`您的语音验证码是五六七八。`。
+>数字默认按照个、十、百、千、万进行播报，可通过在数字前添加英文逗号（,）改变播报方式。例如，当 msg=`您的语音验证码是5678。` 时，您收到的语音通知为`您的语音验证码是五千六百七十八。`，当 msg=`您的语音验证码是5,6,7,8。`时，您收到的语音通知为`您的语音验证码是五六七八。`。
 
 
 
@@ -28,7 +28,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 ```
 
 ### 通过源码安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go) 或 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-go/tencentcloud-sdk-go.zip) 下载最新代码。
+1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go) 下载最新代码。
 2. 解压后安装到`$GOPATH/src/github.com/tencentcloud`目录下。
 
 ## 示例代码[](id:example)
@@ -133,7 +133,7 @@ func main() {
 ```
 
 
-### 指定模版发送语音通知[](id:SendTtsVoice)
+### 指定模板发送语音通知[](id:SendTtsVoice)
 
 ```
 package main

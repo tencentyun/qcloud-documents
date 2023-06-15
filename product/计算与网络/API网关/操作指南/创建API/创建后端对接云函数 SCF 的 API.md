@@ -10,7 +10,7 @@
 
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) ，在左侧导航栏单击**服务**。
 2. 在服务列表中，单击目标服务的服务名，查看该服务。
-3. 在服务信息中，单击**管理 API** 标签页，根据后端业务类型选择创建**通用 API**。
+3. 在服务信息中，单击**管理 API** 标签页。
 4. 单击**新建**，进行后续配置。
 
 ### 步骤2：前端配置
@@ -20,21 +20,24 @@ API 的前端配置指提供给外界访问的相关配置，包括 API 名称�
 #### 前端基础信息配置
 
 - **API 名称**：您创建的 API 的名称，在当前服务内具有唯一性，支持最长60个字符。
+- ** API类型**：选择通用API、微服务API。
+- ** 备注**：填写API用途、场景、效果等。
 - **前端类型**：API 网关支持 HTTP&HTTPS、WS&WSS 两种前端类型。
 - **URL 路径（Path）**：您可以按需求写入合法 URL 路径。如需要在路径中配置动态参数，请使用`{}`符号，并在其中填入参数名，例如`/user/{userid}`路径，申明了路径中的 userid 参数，此参数同时需要在入参中作为 Path 类型参数进行定义。Query 参数可以不用在 URL 路径中定义。
   **路径支持正则表达式方式匹配**，路径输入内容以`/user`为例：
 	- `=/user`：代表精确匹配，当存在多个 API 接口都有`/user`时，优先匹配含有`=/user`的配置的 API 接口。
 	- `/user/{id}`：代表路径上存在动态参数，当存在多个 API 接口都有`/user`时，优先级第三匹配含有动态参数的配置的 API 接口。
 	- `/user`：表示完全匹配或前缀匹配的方式访问，访问时`/user`、`/usertest`、`/user/test/a`都可以访问到`/user`路径的 API 接口。
-- **请求方法**：可选择 GET、POST、PUT、DELETE、HEAD 方法。
-- **鉴权类型**：支持 [免鉴权](https://cloud.tencent.com/document/product/628/11820)、[密钥对认证](https://cloud.tencent.com/document/product/628/11819)、[OAuth 2.0](https://cloud.tencent.com/document/product/628/38393) 三种鉴权类型。
+- **请求方法**：可选择 GET、POST、PUT、DELETE、HEAD 、ANY 方法。
+- **鉴权类型**：支持 [免认证](https://cloud.tencent.com/document/product/628/11820)、[应用认证](https://cloud.tencent.com/document/product/628/55088)、[OAuth 2.0](https://cloud.tencent.com/document/product/628/38393)、[EIAM认证](https://cloud.tencent.com/document/product/628/59669)、[密钥对认证](https://cloud.tencent.com/document/product/628/11819) 鉴权类型。
 - **支持 CORS**：用于配置跨域资源共享（CORS），开启后将默认在响应头中添加 `Access-Control-Allow-Origin : *`。
 
 #### 前端参数配置
 
 **入参**：入参包含了来源于 Header、Query、Path 的参数。其中 Path 参数对应于在 URL 路径中定义的动态参数。任一参数，均需要指定参数名，参数类型和参数数据类型；同时可以指明是否必填、默认值、示例数据和描述说明。利用这些配置，API 网关可以协助您完成入参的文档化和初步校验。
-![](https://main.qcloudimg.com/raw/0d06c20c35e518d687e5dc46f9db8a43.png)
-
+	
+<img src="https://qcloudimg.tencent-cloud.cn/raw/bcc7c8212671c74ac6c94be0c3f04a53.png" width=600/>
+	
 > ?
 > - 请求协议为 HTTPS 时，需要请求中携带 SNI 标识，为了保障请求安全，API 网关会拒绝不携带 SNI 标识的请求。
 > - SNI（Server Name Indication）是 TLS 的一个扩展协议，用于解决一个服务器拥有多个域名的情况，在 TLSv1.2 开始得到协议的支持。之前的 SSL 握手信息中没有携带客户端要访问的目标地址，如果一台服务器有多个虚拟主机，且每个主机的域名不一样，使用了不一样的证书，此时会无法判断返回哪一个证书给客户端，SNI 通过在 Client Hello 中补上 Host 信息解决该问题。
@@ -44,19 +47,20 @@ API 的前端配置指提供给外界访问的相关配置，包括 API 名称�
 API 的后端配置，是指的实际提供真实服务的配置。API 网关会将前端请求，依据后端配置进行转换后，转发调用到实际的服务上。
 当您的业务实现在云函数 SCF 中，希望通过 API 网关将服务能力开放出来时，后端选用 SCF 对接。
 
-![](https://main.qcloudimg.com/raw/1db8feaa662dfdc88211bd01bb5f7ba7.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/91f639192ee2fc2d4abf38c075bfe618.png" width=600/>
 
 后端对接 SCF 时，需要填写的参数如下表：
 
-| 序号 | 参数名称 | 参数含义                               |
-| ---- | -------- | -------------------------------------- |
-| 1    | 命名空间 | 对接函数所在的命名空间，默认为 default |
-| 2    | 名称     | 对接函数的名称                         |
-| 3    | 版本     | 对接函数的版本，默认为 $LATEST         |
-| 4    | 响应时间 | 响应时间，默认为15秒                   |
-| 5    | 响应集成 | 见 [下文](#1)                                 |
+| 参数名称 | 参数含义                               |
+| -------- | -------------------------------------- |
+| 函数类型 | 可选择事件函数、Web函数 |
+| 命名空间 | 对应函数所在的命名空间，默认为 default |
+| 函数     | 对应函数的名称                         |
+| 版本     | 对应函数的版本，默认为 $LATEST         |
+| 后端超时 | 响应时间，默认为15秒                   |
+| 响应集成 | 开启响应集成时，API网关对SCF响应进行解析。不开启时仅支持透传方式                   |
 
-响应集成说明：[](id:1)
+选择事件函数时，参数 **响应集成** 效果说明：[](id:1)
 
 针对 API 网关发送到云函数的请求处理方式，和云函数响应给 API 网关的返回值处理方式，称为请求方法和响应方法。请求方法和响应方法规划和实现的分别有透传方式和集成方式：
 

@@ -3,7 +3,7 @@
 
 ## 准备
 腾讯云 EMR 的 Hadoop 标准版本2.1.0版本及以上。
-有关 EMR 中版本中支持具体的 Alluxio 的版本支持可参考 [组件版本](https://cloud.tencent.com/document/product/589/20279)。
+有关 EMR 支持具体的 Alluxio 的版本，可参考 [组件版本](https://cloud.tencent.com/document/product/589/20279)。
 
 ## 创建基于 Alluxio 的 EMR 集群
 本节主要说明如何在腾讯云 EMR 上创建开箱即用的 Alluxio 集群。EMR 创建集群提供了购买页创建和 API 创建两种方式。
@@ -11,7 +11,7 @@
 ### 购买页创建集群
 您需要登录腾讯云 EMR [购买页](https://buy.cloud.tencent.com/emr)，在购买页选择支持的 Alluxio 发布版本，并且在可选组件列表中勾选 Alluxio 组件。
 ![](https://main.qcloudimg.com/raw/32d5f013d14def8a396951cd751e1352.png)
-其他的选项可根据业务具体业务场景，进行个性化配置，创建过程中的具体选项可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。
+其他的选项可根据业务具体场景，进行个性化配置，创建过程中的具体选项可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。
 
 ### API 创建集群
 腾讯云 EMR 还提供了 API 方式构建基于 Alluxio 的大数据集群。具体可参考 [查询硬件节点信息](https://cloud.tencent.com/document/product/589/41707)。

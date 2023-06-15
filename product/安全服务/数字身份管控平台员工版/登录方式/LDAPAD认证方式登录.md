@@ -20,7 +20,7 @@
 ![](https://main.qcloudimg.com/raw/a7074f12a9d2077dfd2ec6c0fd0710e4.png)
 
 ## 登录数字身份管控平台（员工版）门户
- LDAP（AD）种的账户需要同步数字身份管控平台后，才能使用 LDAP 认证源进行登录认证。
+ LDAP（AD）中的账户需要同步数字身份管控平台后，才能使用 LDAP 认证源进行登录认证。
  用户输入 LDAP（AD）中的账户和密码时，会先检验登录的这个账户是否在平台中存在，如果存在，再传递账户到 LDAP 中去认证，如果不存在，不会进行下面的操作。
  ![](https://main.qcloudimg.com/raw/dc0152e93af2357b8a6c1d41d9ec666f.png)
 

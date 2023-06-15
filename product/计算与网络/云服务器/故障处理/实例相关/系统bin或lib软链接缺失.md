@@ -1,5 +1,5 @@
 ## 现象描述
-执行命令或系统启动的过程中，出现命令找不到，或 lib 库找不到等报错信息。
+执行命令或系统启动的过程中，出现命令找不到或 lib 库找不到等报错信息。
 
 
 ## 可能原因
@@ -10,14 +10,10 @@ lrwxrwxrwx   1 root root     7 Jun 19  2018 lib -> usr/lib
 lrwxrwxrwx   1 root root     9 Jun 19  2018 lib64 -> usr/lib64
 lrwxrwxrwx   1 root root     8 Jun 19  2018 sbin -> usr/sbin
 ```
-若软链接被删除，则会导致在执行命令或系统启动的过程中出现报错。
+若软链接被删除，则会导致在执行命令或系统启动的过程中出现报错。您可以参考 [故障处理](#ProcessingSteps)，检查并新建所需软链接。
 
 
-## 解决思路
-参考 [处理步骤](#ProcessingSteps)，检查并新建所需软链接。
-
-
-## 处理步骤[](id:ProcessingSteps)
+## 故障处理[](id:ProcessingSteps)
 1. 参考 [使用救援模式](https://cloud.tencent.com/document/product/213/66678)，进入救援模式。
 2. 执行其中的 `mount` 及 `chroot` 等命令。其中，执行 `chroot` 命令时：
  - 有报错，执行 `cd /mnt/vm1`。
@@ -26,8 +22,8 @@ lrwxrwxrwx   1 root root     8 Jun 19  2018 sbin -> usr/sbin
 ```
 ls -al / | grep -E "lib|bin"
 ```
- - 是，则请通过 [在线支持](https://cloud.tencent.com/act/event/Online_service?from=doc_213) 联系我们寻求帮助。
- - 否，则请按需执行以下命令，新建对应软链接。
+ - 是，请通过 [在线支持](https://cloud.tencent.com/act/event/Online_service?from=doc_213) 联系我们寻求帮助。
+ - 否，请按需执行以下命令，新建对应软链接并执行下一步。
 ```
 ln -s usr/lib64 lib64
 ln -s usr/sbin sbin

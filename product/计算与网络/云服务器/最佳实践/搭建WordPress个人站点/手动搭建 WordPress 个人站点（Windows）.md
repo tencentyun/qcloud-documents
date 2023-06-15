@@ -38,7 +38,7 @@ WordPress 可从 WordPress 官方网站下载 WordPress 最新中文版本并安
 
 
 
-1. 下载 WordPress，并将 WordPress 安装包解压至云服务器中。
+1. 下载 [WordPress](https://cn.wordpress.org/download/)，并将 WordPress 安装包解压至云服务器中。
 例如，将 WordPress 安装包解压至 `C:\wordpress` 目录下。
 2. 单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: -3px 0px;"> >  <img src="https://main.qcloudimg.com/raw/ca83b4e70e201fe9ff98dc1f2b207cee.png" style="margin: -3px 0px;"> >  **MySQL 5.6 Command Line Client**，打开 MySQL 命令行客户端。
 3. 在 MySQL 命令行客户端中，执行以下命令，创建 WordPress 数据库。

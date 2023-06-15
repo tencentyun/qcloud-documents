@@ -41,7 +41,7 @@
 3. 默认支持 Kafka 0.10.0.0(含) 以上版本。如果要使用 Kafka 0.10.0.0 以下版本 (0.9.0, 0.8.2, 0.8.1, 0.8.0)，需要修改 BE 的配置，将 kafka_broker_version_fallback 的值设置为要兼容的旧版本，或者在创建routine load的时候直接设置 property.broker.version.fallback的值为要兼容的旧版本，使用旧版本的代价是routine load 的部分新特性可能无法使用，如根据时间设置 kafka 分区的 offset。
 
 ### 创建任务
-创建例行导入任务的详细语法可以连接到 Doris 后，查看 `CREATE ROUTINE LOAD` 命令手册，或者执行 `HELP ROUTINE LOAD;` 查看语法帮助。
+创建例行导入任务的详细语法可以连接到 Doris 后，查看 [CREATE ROUTINE LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/CREATE-ROUTINE-LOAD) 命令手册，或者执行 `HELP ROUTINE LOAD;` 查看语法帮助。
 下面我们以几个例子说明如何创建 Routine Load 任务：
 1. 为 example_db 的 example_tbl 创建一个名为 test1 的 Kafka 例行导入任务。指定列分隔符和 group.id 和 client.id，并且自动默认消费所有分区，且从有数据的位置（OFFSET_BEGINNING）开始订阅。 
 ```sql
@@ -243,7 +243,7 @@ FROM KAFKA
 - 只能查看当前正在运行中的任务，已结束和未开始的任务无法查看。
 
 ### 修改作业属性
-用户可以修改已经创建的作业。具体说明可以通过 `HELP ALTER ROUTINE LOAD;` 命令查看或参阅 `ALTER ROUTINE LOAD`。
+用户可以修改已经创建的作业。具体说明可以通过 `HELP ALTER ROUTINE LOAD;` 命令查看或参阅 [ALTER ROUTINE LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/ALTER-ROUTINE-LOAD?_highlight=alter&_highlight=routine&_highlight=load)。
 
 ### 作业控制
 用户可以通过 `STOP/PAUSE/RESUME` 三个命令来控制作业的停止，暂停和重启。可以通过 `HELP STOP ROUTINE LOAD;` `HELP PAUSE ROUTINE LOAD;` 以及 `HELP RESUME ROUTINE LOAD;` 三个命令查看帮助和示例。

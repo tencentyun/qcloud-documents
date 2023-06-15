@@ -1,16 +1,13 @@
-## 问题描述
-当执行创建一个新的网络命名空间（Network Namespace）的命令时，命令卡住，无法继续。Dmesg 信息提示：“unregister_netdevice: waiting for lo to become free. Usage count = 1”
+## 现象描述
+当执行创建一个新的网络命名空间（Network Namespace）命令时，命令卡住，无法继续，提示：“unregister_netdevice: waiting for lo to become free. Usage count = 1”。
 
-## 问题原因
+## 可能原因
 该问题为一个内核 bug。目前，以下内核版本都存在该 bug：
 - Ubuntu 16.04 x86_64 内核版本为 4.4.0-91-generic
 - Ubuntu 16.04 x86_32 内核版本为 4.4.0-92-generic
+您需要将内核版本升级到 4.4.0-98-generic，该版本已经修复此 bug。
 
-## 解决方案
-
-将内核版本升级到 4.4.0-98-generic 版本，该版本已经修复此 bug。
-
-## 处理步骤
+## 故障处理
 1. 执行以下命令，查看当前内核版本。
 ```shellsession
 uname -r
@@ -36,7 +33,7 @@ sudo reboot
 ```shellsession
 uname -r
 ```
-若显示如下结果，则表示版本更新成功：
+若显示如下结果，则表示版本更新成功。
 ```shellsession
 4.4.0-98-generic
 ```

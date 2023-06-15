@@ -2,11 +2,56 @@
 
 GooseFS-FUSE 是基于 [FUSE](http://fuse.sourceforge.net/) 这个项目，并且都支持大多数的文件系统操作。但是由于 GooseFS 固有的属性，例如它的一次性、不可改变的文件数据模型，该挂载的文件系统与 POSIX 标准不完全一致，尚有一定的局限性。因此，请先阅读 [局限性](#limit)，从而了解该特性的作用以及局限。
 
+
+<span id=limit></span>
+
+## 局限性
+
+目前，GooseFS-FUSE 支持大多数基本文件系统的操作。然而，由于 GooseFS 某些内在的特性，您需要注意以下几点：
+- 不支持对文件进行随机写入和追加写入操作。
+- 文件只能顺序地写入一次，并且无法修改。这意味着如果要修改一个文件，您需要先删除该文件，或者 open 操作时，携带 O_TRUNC 标志符，将文件长度置为0。
+- 不支持读取挂载点中正在写入的文件。
+- 不支持对文件长度进行 truncate 操作。
+- 不支持 soft/hard link；GooseFS 没有 hard-link 和 soft-link 的概念，所以不支持与之相关的命令，例如 ln。此外关于 hard-link 的信息也不在 ll 的输出中显示。
+- 以对象存储作为底层存储时，Rename 操作非原子。
+- 只有当 GooseFS 的 GooseFS.security.group.mapping.class 选项设置为 ShellBasedUnixGroupsMapping 的值时，文件的用户与分组信息才与 Unix 系统的用户分组对应。否则 chown 与 chgrp 的操作不生效，而 ll 返回的用户与分组为启动 GooseFS-FUSE 进程的用户与分组信息。
+
+## 性能考虑
+
+由于 FUSE 和 JNR 的配合使用，与直接使用原生文件系统 API 相比，使用挂载文件系统的性能会相对较差。
+
+大多数性能问题的原因在于，每次进行 read 或 write 操作时，内存中都存在若干个副本，并且 FUSE 将写操作的最大粒度设置为128KB。其性能可以利用 kernel 3.15 引入的 FUSE 回写（write-backs）缓存策略从而得到大幅提高（但 libfuse 2.x 用户空间库目前尚不支持该特性）。
+
+
 ## 安装要求
 
 - JDK 1.8及以上
 - Linux 系统：[libfuse](https://github.com/libfuse/libfuse) 2.9.3及以上（可以使用 2.8.3版本，但会提示一些警告）
 - MAC 系统：[osxfuse](https://osxfuse.github.io/) 3.7.1及以上
+
+
+## 可选配置
+
+GooseFS-FUSE 基于标准的 GooseFS-core-client-fs 进行操作。如果您希望它像使用其他应用的 client 一样，自定义该 GooseFS-core-client-fs 的行为。可通过编辑 $GOOSEFS_HOME/conf/goosefs-site.properties 配置文件来更改客户端选项。
+
+>! 所有的更改应该在 GooseFS-FUSE 启动之前完成。
+>
+
+## GooseFS-FUSE 配置参数
+
+以下是 GooseFS-FUSE 相关的配置参数：
+
+| **参数**                                    | **默认值**   | **描述**                                                     |
+| ------------------------------------------- | ------------ | ------------------------------------------------------------ |
+| goosefs.fuse.cached.paths.max               | 500          |   定义内部 GooseFS-FUSE 缓存的大小，该缓存维护本地文件系统路径和 Alluxio 文件 URI 之间最常用的转换。                                                           |
+| goosefs.fuse.debug.enabled                  | false        | 允许 FUSE 调试输出，该输出会被重定向到 `goosefs.logs.dir` 指定目录中的 `fuse.out` 日志文件。 |
+| goosefs.fuse.fs.name                        | goosefs-fuse | FUSE 挂载文件系统使用的描述性名称。                           |
+| goosefs.fuse.jnifuse.enabled                | true         |   使用 JNI-Fuse 库以获得更好的性能。 如果禁用，将使用 JNR-Fuse。                                                           |
+| goosefs.fuse.shared.caching.reader.enabled  | false        |  （实验性）使用共享 grpc 数据读取器，通过 GooseFS JNI Fuse 在多进程文件读取中获得更好的性能。块数据将缓存在客户端，因此 Fuse 进程需要更多内存。                                                            |
+| goosefs.fuse.logging.threshold              | 10s          |  当花费的时间超过阈值时，记录 FUSE API 调用。                                                            |
+| goosefs.fuse.maxwrite.bytes                 | 131072       | FUSE 写操作的粒度（bytes），注意目前 128KB 是 Linux 内核限制的上界。 |
+| goosefs.fuse.user.group.translation.enabled | false        | 是否在 FUSE API 中将 GooseFS 的用户与组转化为对应的 Unix 用户与组。当设为 false 时，所有 FUSE 文件的用户与组将会显示为挂载 goosefs-fuse 线程的用户与组。 |
+
 
 ## 用法
 
@@ -68,50 +113,9 @@ conf 目录下：
 - workers：worker 服务器的 IP 配置文件
 - goosefs-site.properties：goosefs 配置文件
 - libexec：goosefs-fuse 运行依赖的 lib 库文件
-- goosefs-fuse-1.4.1：goosefs-fuse 后台运行的 jar 包
+- goosefs-fuse-1.4.2：goosefs-fuse 后台运行的 jar 包
 - log：日志目录
 
-## 可选配置
-
-GooseFS-FUSE 基于标准的 GooseFS-core-client-fs 进行操作。如果您希望它像使用其他应用的 client 一样，自定义该 GooseFS-core-client-fs 的行为。
-
-可通过编辑 $GOOSEFS_HOME/conf/goosefs-site.properties 配置文件来更改客户端选项。
->! 所有的更改应该在 GooseFS-FUSE 启动之前完成。
->
-
-<span id=limit></span>
-
-## 局限性
-
-目前，GooseFS-FUSE 支持大多数基本文件系统的操作。然而，由于 GooseFS 某些内在的特性，您需要注意以下几点：
-- 不支持对文件进行随机写入和追加写入操作。
-- 文件只能顺序地写入一次，并且无法修改。这意味着如果要修改一个文件，您需要先删除该文件，或者 open 操作时，携带 O_TRUNC 标志符，将文件长度置为0。
-- 不支持读取挂载点中正在写入的文件。
-- 不支持对文件长度进行 truncate 操作。
-- 不支持 soft/hard link；GooseFS 没有 hard-link 和 soft-link 的概念，所以不支持与之相关的命令，例如 ln。此外关于 hard-link 的信息也不在 ll 的输出中显示。
-- 以对象存储作为底层存储时，Rename 操作非原子。
-- 只有当 GooseFS 的 GooseFS.security.group.mapping.class 选项设置为 ShellBasedUnixGroupsMapping 的值时，文件的用户与分组信息才与 Unix 系统的用户分组对应。否则 chown 与 chgrp 的操作不生效，而 ll 返回的用户与分组为启动 GooseFS-FUSE 进程的用户与分组信息。
-
-## 性能考虑
-
-由于 FUSE 和 JNR 的配合使用，与直接使用原生文件系统 API 相比，使用挂载文件系统的性能会相对较差。
-
-大多数性能问题的原因在于，每次进行 read 或 write 操作时，内存中都存在若干个副本，并且 FUSE 将写操作的最大粒度设置为128KB。其性能可以利用 kernel 3.15 引入的 FUSE 回写（write-backs）缓存策略从而得到大幅提高（但 libfuse 2.x 用户空间库目前尚不支持该特性）。
-
-## GooseFS-FUSE 配置参数
-
-以下是 GooseFS-FUSE 相关的配置参数：
-
-| **参数**                                    | **默认值**   | **描述**                                                     |
-| ------------------------------------------- | ------------ | ------------------------------------------------------------ |
-| goosefs.fuse.cached.paths.max               | 500          |   定义内部 GooseFS-FUSE 缓存的大小，该缓存维护本地文件系统路径和 Alluxio 文件 URI 之间最常用的转换。                                                           |
-| goosefs.fuse.debug.enabled                  | false        | 允许 FUSE 调试输出，该输出会被重定向到 `goosefs.logs.dir` 指定目录中的 `fuse.out` 日志文件。 |
-| goosefs.fuse.fs.name                        | goosefs-fuse | FUSE 挂载文件系统使用的描述性名称。                           |
-| goosefs.fuse.jnifuse.enabled                | true         |   使用 JNI-Fuse 库以获得更好的性能。 如果禁用，将使用 JNR-Fuse。                                                           |
-| goosefs.fuse.shared.caching.reader.enabled  | false        |  （实验性）使用共享 grpc 数据读取器，通过 GooseFS JNI Fuse 在多进程文件读取中获得更好的性能。块数据将缓存在客户端，因此 Fuse 进程需要更多内存。                                                            |
-| goosefs.fuse.logging.threshold              | 10s          |  当花费的时间超过阈值时，记录 FUSE API 调用。                                                            |
-| goosefs.fuse.maxwrite.bytes                 | 131072       | FUSE 写操作的粒度（bytes），注意目前 128KB 是 Linux 内核限制的上界。 |
-| goosefs.fuse.user.group.translation.enabled | false        | 是否在 FUSE API 中将 GooseFS 的用户与组转化为对应的 Unix 用户与组。当设为 false 时，所有 FUSE 文件的用户与组将会显示为挂载 goosefs-fuse 线程的用户与组。 |
 
 ## 常见问题
 

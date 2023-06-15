@@ -1,0 +1,295 @@
+## 功能说明
+
+数据万象支持自定义设置回调 URL，在任务完成后，系统向该 URL 发送 HTTP POST 请求，请求体中包含通知内容。您可通过配置的回调地址及时了解任务处理的进展和状态，以便进行其他业务操作。
+
+## 回调内容
+
+任务完成后，系统会向您设置的回调地址发送回调内容，该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
+
+```plaintext
+<Response>
+    <EventName>TaskFinish</EventName>
+    <JobsDetail>
+        <Code>Success</Code>
+        <CreationTime>2023-05-06T16:04:13+0800</CreationTime>
+        <EndTime>2023-05-06T16:04:41+0800</EndTime>
+        <Input>
+            <BucketId>testpic-1253960454</BucketId>
+            <Object>test.mp4</Object>
+            <Region>ap-chongqing</Region>
+        </Input>
+        <JobId>j96ca39faebe411eda9b5*********</JobId>
+        <Message/>
+        <Operation>
+            <JobLevel>0</JobLevel>
+            <SplitVideoInfoResult>
+                <TimeInfo>
+                    <Index>0</Index>
+                    <PartBegin>0.000000</PartBegin>
+                    <PartEnd>5.320000</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>1</Index>
+                    <PartBegin>5.320000</PartBegin>
+                    <PartEnd>13.280000</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>2</Index>
+                    <PartBegin>13.280000</PartBegin>
+                    <PartEnd>16.799999</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>3</Index>
+                    <PartBegin>16.799999</PartBegin>
+                    <PartEnd>20.040001</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>4</Index>
+                    <PartBegin>20.040001</PartBegin>
+                    <PartEnd>24.440001</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>5</Index>
+                    <PartBegin>24.440001</PartBegin>
+                    <PartEnd>104.400002</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>6</Index>
+                    <PartBegin>104.400002</PartBegin>
+                    <PartEnd>105.480003</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>7</Index>
+                    <PartBegin>105.480003</PartBegin>
+                    <PartEnd>123.120003</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>8</Index>
+                    <PartBegin>123.120003</PartBegin>
+                    <PartEnd>134.600006</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>9</Index>
+                    <PartBegin>134.600006</PartBegin>
+                    <PartEnd>137.479996</PartEnd>
+                </TimeInfo>
+            </SplitVideoInfoResult>
+            <SplitVideoParts>
+                    <Mode>SHOTDETECT</Mode>
+            </SplitVideoParts>
+        </Operation>
+        <QueueId>p5f30ea2dad4443a08d53c6e2351ca31e</QueueId>
+        <StartTime>2023-05-06T16:04:14+0800</StartTime>
+        <State>Success</State>
+        <Tag>SplitVideoParts</Tag>
+    </JobsDetail>
+</Response>
+```
+
+具体的数据内容如下：
+
+| 节点名称（关键字） | 父节点 | 描述           | 类型      |
+| :----------------- | :----- | :------------- | :-------- |
+| Response           | 无     | 保存结果的容器 | Container |
+
+Container 节点 Response 的内容：
+
+| 节点名称（关键字） | 父节点   | 描述                  | 类型          |
+| :----------------- | :------- | :-------------------- | :------------ |
+| EventName          | Response | 固定值，为 TaskFinish | String        |
+| JobsDetail         | Response | 任务的详细信息        | Container数组 |
+
+Container 节点 JobsDetail 的内容：
+
+同提交视频拆条接口中的 <a href="https://cloud.tencent.com/document/product/460/84802#jobsDetail" target="_blank">Response.JobsDetail</a>
+
+**如果任务是通过工作流触发的，Response.JobsDetail.Input 还会包含 CosHeaders 节点，类型为 Container 数组。**
+
+Container 节点 CosHeaders 的内容：
+
+| 节点名称（关键字） | 父节点                               | 描述                 | 类型   |
+| :----------------- | :----------------------------------- | :------------------- | :----- |
+| Key                | Response.JobsDetail.Input.CosHeaders | 自定义 Header 的名称 | String |
+| Value              | Response.JobsDetail.Input.CosHeaders | 自定义 Header 的值   | String |
+
+**如果任务是通过工作流触发的，Response.JobsDetail 还会包含 Workflow 节点，类型为 Container。**
+
+Container 节点 Workflow 的内容：
+
+| 节点名称（关键字） | 父节点            | 描述           | 类型   |
+| ------------------ | ----------------- | -------------- | ------ |
+| RunId              | Response.Workflow | 工作流实例 ID  | String |
+| WorkflowId         | Response.Workflow | 工作流 ID      | String |
+| WorkflowName       | Response.Workflow | 工作流名称     | String |
+| Name               | Response.Workflow | 工作流节点名称 | String |
+
+## 实际案例
+
+### 案例 1：通过任务接口触发的任务回调
+
+```plaintext
+<Response>
+    <EventName>TaskFinish</EventName>
+    <JobsDetail>
+        <Code>Success</Code>
+        <CreationTime>2023-05-06T16:04:13+0800</CreationTime>
+        <EndTime>2023-05-06T16:04:41+0800</EndTime>
+        <Input>
+            <BucketId>testpic-1253960454</BucketId>
+            <Object>test.mp4</Object>
+            <Region>ap-chongqing</Region>
+        </Input>
+        <JobId>j96ca39faebe411eda9b5*********</JobId>
+        <Message/>
+        <Operation>
+            <JobLevel>0</JobLevel>
+            <SplitVideoInfoResult>
+                <TimeInfo>
+                    <Index>0</Index>
+                    <PartBegin>0.000000</PartBegin>
+                    <PartEnd>5.320000</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>1</Index>
+                    <PartBegin>5.320000</PartBegin>
+                    <PartEnd>13.280000</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>2</Index>
+                    <PartBegin>13.280000</PartBegin>
+                    <PartEnd>16.799999</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>3</Index>
+                    <PartBegin>16.799999</PartBegin>
+                    <PartEnd>20.040001</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>4</Index>
+                    <PartBegin>20.040001</PartBegin>
+                    <PartEnd>24.440001</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>5</Index>
+                    <PartBegin>24.440001</PartBegin>
+                    <PartEnd>104.400002</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>6</Index>
+                    <PartBegin>104.400002</PartBegin>
+                    <PartEnd>105.480003</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>7</Index>
+                    <PartBegin>105.480003</PartBegin>
+                    <PartEnd>123.120003</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>8</Index>
+                    <PartBegin>123.120003</PartBegin>
+                    <PartEnd>134.600006</PartEnd>
+                </TimeInfo>
+                <TimeInfo>
+                    <Index>9</Index>
+                    <PartBegin>134.600006</PartBegin>
+                    <PartEnd>137.479996</PartEnd>
+                </TimeInfo>
+            </SplitVideoInfoResult>
+            <SplitVideoParts>
+                    <Mode>SHOTDETECT</Mode>
+            </SplitVideoParts>
+        </Operation>
+        <QueueId>p5f30ea2dad4443a08d53c6e2351ca31e</QueueId>
+        <StartTime>2023-05-06T16:04:14+0800</StartTime>
+        <State>Success</State>
+        <Tag>SplitVideoParts</Tag>
+    </JobsDetail>
+</Response>
+
+```
+
+### 案例 2：通过任务触发的任务回调, 格式为 JSON
+
+```plaintext
+{
+    "EventName":"TaskFinish",
+    "JobsDetail":[
+        {
+            "Code":"Success",
+            "CreationTime":"2023-05-08T14:53:35+0800",
+            "EndTime":"2023-05-08T14:54:01+0800",
+            "Input":{
+                "BucketId":"testpic-1253960454",
+                "Object":"test.mp4",
+                "Region":"ap-chongqing"
+            },
+            "JobId":"j0d7759e6ed6d11edb28***********",
+            "Message":"",
+            "Operation":{
+                "JobLevel":"0",
+                "SplitVideoInfoResult":{
+                    "TimeInfo":[
+                        {
+                            "Index":"0",
+                            "PartBegin":"0.000000",
+                            "PartEnd":"5.320000"
+                        },
+                        {
+                            "Index":"1",
+                            "PartBegin":"5.320000",
+                            "PartEnd":"13.280000"
+                        },
+                        {
+                            "Index":"2",
+                            "PartBegin":"13.280000",
+                            "PartEnd":"16.799999"
+                        },
+                        {
+                            "Index":"3",
+                            "PartBegin":"16.799999",
+                            "PartEnd":"20.040001"
+                        },
+                        {
+                            "Index":"4",
+                            "PartBegin":"20.040001",
+                            "PartEnd":"24.440001"
+                        },
+                        {
+                            "Index":"5",
+                            "PartBegin":"24.440001",
+                            "PartEnd":"104.400002"
+                        },
+                        {
+                            "Index":"6",
+                            "PartBegin":"104.400002",
+                            "PartEnd":"105.480003"
+                        },
+                        {
+                            "Index":"7",
+                            "PartBegin":"105.480003",
+                            "PartEnd":"123.120003"
+                        },
+                        {
+                            "Index":"8",
+                            "PartBegin":"123.120003",
+                            "PartEnd":"134.600006"
+                        },
+                        {
+                            "Index":"9",
+                            "PartBegin":"134.600006",
+                            "PartEnd":"137.479996"
+                        },
+                    ]
+                },
+                "SplitVideoParts":{
+                    "Mode":"SHOTDETECT"
+                }
+            },
+            "QueueId":"p5f30ea2dad4443a08d5*********",
+            "StartTime":"2023-05-08T14:53:36+0800",
+            "State":"Success",
+            "Tag":"SplitVideoParts"
+        }
+    ]
+}
+```

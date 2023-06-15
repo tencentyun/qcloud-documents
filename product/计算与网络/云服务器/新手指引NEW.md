@@ -5,7 +5,7 @@
 
 
 ## 2. 了解云服务器
-您可请依次查阅以下文档，进一步了解云服务器：
+您可以依次查阅以下文档，进一步了解云服务器：
 - [云服务器是怎么工作的？](https://cloud.tencent.com/document/product/213/495)
 - [云服务器是怎样计费的？](https://cloud.tencent.com/document/product/213/2180)
 - [使用腾讯云云服务器有哪些限制？](https://cloud.tencent.com/document/product/213/15379)
@@ -64,4 +64,4 @@
 使用腾讯云云服务器产品和服务中有任何问题或建议，您可以通过以下渠道反馈，将有专人跟进解决您的问题：
 - 如果发现产品文档的问题，如链接、内容、API 错误等，您可以单击文档页右侧**文档反馈**或选中存在问题的内容进行反馈。
 - 如果遇到产品相关问题，您可通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 寻求帮助。
-- 如果您有其他疑问，可前往 [腾讯云开发者社区](https://cloud.tencent.com/developer/tag/105) 进行提问。
+- 如果您有其他疑问，可前往 [腾讯云开发者社区]( https://cloud.tencent.com/developer/tag/104) 进行提问。

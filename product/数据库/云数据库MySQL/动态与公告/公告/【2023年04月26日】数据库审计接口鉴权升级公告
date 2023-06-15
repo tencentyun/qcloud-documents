@@ -1,0 +1,27 @@
+尊敬的腾讯云用户，根据腾讯云安全防范要求，2023年04月26日，腾讯云将对云数据库 MySQL 直连 API 接口增加 CAM 鉴权访问，为保证升级后您可以正常使用对应接口，请在2023年04月26日前登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/policy) 添加对应接口的访问授权。
+
+## 注意事项
+在此日期前已授权的用户，鉴权生效后无任何影响，在此日期后未授权的用户如需使用 API，需要先进行授权才能访问对应接口。
+## 生效时间
+北京时间2023年04月26日（周三）。
+## 接入 CAM 鉴权的 API 列表（共10个）
+<table>
+<thead><tr><th>接口名称</th><th>接口描述</th><th>授权粒度</th></tr></thead>
+<tbody>
+<td>CreateAuditRuleTemplate</td><td>创建规则模板</td><td>操作级</td></tr>
+<td>ModifyAuditRuleTemplates</td><td>修改规则模板</td><td>操作级</td></tr>
+<td>DescribeAuditRuleTemplates</td><td>查询规则模板</td><td>操作级</td></tr>
+<td>DeleteAuditRuleTemplates</td><td>删除规则模板</td><td>操作级</td></tr>
+<td>OpenAuditService</td><td>开通审计服务</td><td>资源级</td></tr>
+<td>ModifyAuditService</td><td>修改审计服务</td><td>资源级</td></tr>
+<td>CloseAuditService</td><td>关闭审计服务</td><td>资源级</td></tr>
+<td>DescribeAuditRuleWithInstanceIds</td><td>查询实例的审计规则</td><td>资源级</td></tr>
+<td>DescribeInstanceAuditConfig</td><td>查询实例的审计状态</td><td>操作级</td></tr>
+<td>DescribeAuditLogs</td><td>审计日志列表页</td><td>资源级</td></tr>
+</tbody></table>
+
+>?授权操作请参见 [授权操作指导](https://cloud.tencent.com/document/product/236/86946#JKSQ)。
+>
+
+## 查询审计实例列表接口变更
+查询审计实例列表页接口由 DescribeInstancesAuditStatus 变更为 DescribeAuditInstanceList，使用新的接口查询更加稳定安全，但旧版接口您仍可以访问，旧版下线时间腾讯云将另行公告。

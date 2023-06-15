@@ -231,8 +231,7 @@ scp $localfile root@公网IP地址:$remotefolder
 /user/hadoop
 ```
 测试文件用户也可以另选，这里 `/user/hadoop/` 是 HDFS 下的文件夹，如果没有用户可以自己创建。
-
-**执行样例**，首先请登录 EMR 集群的 master 节点，并且切换到 Hadoop 用户如使用 SparkSQL 交互式控制台中所示，使用以下命令执行样例：
+**执行样例**，首先请登录 EMR 集群的 master 节点，并且切换到 Hadoop 用户，如 步骤2 [使用 SparkSQL 交互式控制台](https://cloud.tencent.com/document/product/589/12304#2.-.E4.BD.BF.E7.94.A8-sparksql-.E4.BA.A4.E4.BA.92.E5.BC.8F.E6.8E.A7.E5.88.B6.E5.8F.B0) 中所示，使用以下命令执行样例：
 ```
 [hadoop@10spark]$ bin/spark-submit --class Demo --master yarn-client $yourjarpackage /  
 /user/hadoop/people.json  /user/hadoop/$output

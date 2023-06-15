@@ -2,10 +2,10 @@
 
 本文档提供关于生成对象预签名链接的示例代码。
 
-关于使用预签名 url 上传的说明详见文档 [预签名授权上传](https://cloud.tencent.com/document/product/436/14114)， 使用预签名 url 下载的说明详见文档 [预签名授权下载](https://cloud.tencent.com/document/product/436/14116)。
+关于使用预签名 URL 上传的说明请参见 [预签名授权上传](https://cloud.tencent.com/document/product/436/14114)， 使用预签名 URL 下载的说明请参见 [预签名授权下载](https://cloud.tencent.com/document/product/436/14116)。
 
 >?
-> - 建议用户 [使用临时密钥](https://cloud.tencent.com/document/product/436/14048) 生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+> - 建议用户 [使用临时密钥](https://cloud.tencent.com/document/product/436/14048) 生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄露目标存储桶或对象之外的资源。
 > - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
 > - 获取签名/预签名函数，默认签入 Header Host；您也可以选择不签入 Header Host，但可能导致请求失败或安全漏洞。
 > 
@@ -185,7 +185,7 @@ ResponseHeaderOverrides responseHeaders = new ResponseHeaderOverrides();
 String responseContentType = "image/x-icon";
 String responseContentLanguage = "zh-CN";
 // 设置返回头部里包含文件名信息
-String responseContentDispositon = "filename=\"exampleobject\"";
+String responseContentDispositon = "filename=exampleobject";
 String responseCacheControl = "no-cache";
 String cacheExpireStr =
         DateUtils.formatRFC822Date(new Date(System.currentTimeMillis() + 24L * 3600L * 1000L));

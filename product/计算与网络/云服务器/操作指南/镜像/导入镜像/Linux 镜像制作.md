@@ -133,7 +133,7 @@ gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,relatime
 使用 VMWare vCenter Converter 或 Citrix XenConvert 等虚拟化平台的导出镜像工具。详情请参见各平台的导出工具文档。
 
 <dx-alert infotype="explain" title="">
-目前腾讯云服务迁移支持的镜像格式有：qcow2，vhd，raw，vmdk。
+目前腾讯云服务器迁移支持的镜像格式有：qcow2，vhd，raw，vmdk。
 </dx-alert>
 
 

@@ -55,6 +55,8 @@ GetService 支持通过请求参数根据存储桶标签、地域、创建时间
 |region | 支持根据地域过滤存储桶，例如 `region=ap-beijing`，COS 支持的地域可参考 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)| string | 否 |
 |create-time | GMT 时间戳，和 range 参数一起使用，支持根据创建时间过滤存储桶，例如 `create-time=1642662645` |Timestamp | 否 |
 |range | 和 create-time 参数一起使用，支持根据创建时间过滤存储桶，支持枚举值 lt（创建时间早于 create-time）、gt（创建时间晚于 create-time）、lte（创建时间早于或等于 create-time）、gte（创建时间晚于或等于create-time） | string | 否 |
+|marker | 起始标记，从该标记之后（不含）按照 UTF-8 字典序返回存储桶条目 | string | 否 |
+|max-keys |单次返回最大的条目数量，默认值为2000，最大为2000。如果单次响应中未列出所有存储桶，COS 会返回 NextMarker 节点，其值作为下次 GetService 请求的 marker 参数  | integer | 否 |
 
 
 当存储桶标签授权情况与 GetService 授权不同时，GetService 请求的鉴权和返回情况如下。关于标签鉴权的授权方法 ，可参见 [授权子账号按照存储桶标签拉取存储桶列表](https://cloud.tencent.com/document/product/436/34694)。
@@ -126,22 +128,25 @@ GetService 支持通过请求参数根据存储桶标签、地域、创建时间
 
 ```plaintext
 <ListAllMyBucketsResult>
-	<Owner>
-		<ID>string</ID>
-		<DisplayName>string</DisplayName>
-	</Owner>
-	<Buckets>
-		<Bucket>
-			<Name>string</Name>
-			<Location>Enum</Location>
-			<CreationDate>date</CreationDate>
-		</Bucket>
-		<Bucket>
-			<Name>string</Name>
-			<Location>Enum</Location>
-			<CreationDate>date</CreationDate>
-		</Bucket>
-	</Buckets>
+    <Owner>
+        <ID>string</ID>
+        <DisplayName>string</DisplayName>
+    </Owner>
+    <Marker></Marker>
+    <NextMarker></NextMarker>
+    <IsTruncated></IsTruncated>
+    <Buckets>
+        <Bucket>
+            <Name>string</Name>
+            <Location>Enum</Location>
+            <CreationDate>date</CreationDate>
+        </Bucket>
+        <Bucket>
+            <Name>string</Name>
+            <Location>Enum</Location>
+            <CreationDate>date</CreationDate>
+        </Bucket>
+    </Buckets>
 </ListAllMyBucketsResult>
 ```
 
@@ -157,6 +162,9 @@ GetService 支持通过请求参数根据存储桶标签、地域、创建时间
 | ------------------ | ---------------------- | ---------------- | --------- |
 | Owner              | ListAllMyBucketsResult | 存储桶持有者信息 | Container |
 | Buckets            | ListAllMyBucketsResult | 存储桶列表       | Container |
+|Marker |ListAllMyBucketsResult |表示本次 GetService（ListBuckets）的起点    |string |
+|IsTruncated|ListAllMyBucketsResult | 是否所有的结果都已经返回。true：表示本次没有返回全部结果。false：表示本次已经返回了全部结果   |string |
+|NextMarker|ListAllMyBucketsResult |未返回所有结果时，作为下次 GetService 请求的 marker 参数  |string |
 
 **Container 节点 Owner 的内容：**
 
@@ -213,6 +221,9 @@ x-cos-request-id: NWNlN2RjYjdfOGFiMjM1MGFfNTVjMl8zMmI1****
 		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>
 	</Owner>
+	</Marker>
+	</NextMarker>
+	<IsTruncated>false</IsTruncated>
 	<Buckets>
 		<Bucket>
 			<Name>examplebucket1-1250000000</Name>
@@ -266,6 +277,9 @@ x-cos-request-id: NWNlN2RjYjdfZjhjODBiMDlfOWNlNF9hYzc2****
 		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>
 	</Owner>
+	</Marker>
+	</NextMarker>
+	<IsTruncated>false</IsTruncated>
 	<Buckets>
 		<Bucket>
 			<Name>examplebucket1-1250000000</Name>
@@ -313,6 +327,9 @@ x-cos-request-id: NWNlN2RjYjdfZjhjODBiMDlfOWNlNF9hYzc2****
 		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>
 	</Owner>
+	</Marker>
+	</NextMarker>
+	<IsTruncated>false</IsTruncated>
 	<Buckets>
 		<Bucket>
 			<Name>examplebucket1-</Name>
@@ -360,6 +377,9 @@ x-cos-request-id: NjM1MGY4ZTRfMWViMjM1MGFfYjg3MV8xNjdk****
 		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>
 	</Owner>
+	</Marker>
+	</NextMarker>
+	<IsTruncated>false</IsTruncated>
 	<Buckets>
 		<Bucket>
 			<Name>examplebucket-1250000000 </Name>
@@ -412,6 +432,9 @@ x-cos-request-id: NjM2MzQwMWZfMmJiMjM1MGFfYTc******
 		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>
 	</Owner>
+	</Marker>
+	</NextMarker>
+	<IsTruncated>false</IsTruncated>
 	<Buckets>
 		<Bucket>
 			<Name>examplebucket-1250000000</Name>
@@ -422,4 +445,50 @@ x-cos-request-id: NjM2MzQwMWZfMmJiMjM1MGFfYTc******
 	</Buckets>
 </ListAllMyBucketsResult>
 ```
+
+
+#### 案例六：分页查询存储桶列表
+
+
+#### 请求
+
+```plaintext
+GET /?max-keys=1 HTTP/1.1
+Host: service.cos.myqcloud.com
+User-Agent: curl/7.64.1
+Accept: */*
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDYv3vWrwkHXVDfqk*****&q-sign-time=1667448802;1668448852&q-key-time=1667448802;1668448852&q-url-param-list=create-time;range&q-header-list=host&q-signature=a043c0593c8c4cd1caf570******
+```
+
+#### 响应
+
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 5566
+Connection: keep-alive
+Date: Thu, 03 Nov 2022 04:14:23 GMT
+Server: tencent-cos
+x-cos-request-id: NjM2MzQwMWZfMmJiMjM1MGFfYTc******
+
+<ListAllMyBucketsResult>
+	<Owner>
+		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+		<DisplayName>100000000001</DisplayName>
+	</Owner>
+	</Marker>
+	<NexMarker>1</NextMarker>
+	<IsTruncated>true</IsTruncated>
+	<Buckets>
+		<Bucket>
+			<Name>examplebucket-1250000000</Name>
+			<Location>ap-beijing</Location>
+			<CreationDate>2021-11-23T03:02:12Z</CreationDate>
+			<BucketType>cos</BucketType>
+		</Bucket>
+	</Buckets>
+</ListAllMyBucketsResult>
+```
+
 

@@ -28,7 +28,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 ```
 
 ### 通过源码安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go) 或 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-go/tencentcloud-sdk-go.zip) 下载最新代码。
+1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go)下载最新代码。
 2. 解压后安装到`$GOPATH/src/github.com/tencentcloud`目录下。
 
 ## 示例代码

@@ -1,5 +1,5 @@
 ## 功能描述
-PUT Bucket policy 请求可以向 Bucket 写入权限策略，当存储桶已存在权限策略时，该请求上传的策略将覆盖原有的权限策略。
+PUT Bucket policy 请求可以向 Bucket 写入权限策略。当存储桶已存在权限策略时，该请求上传的策略将覆盖原有的权限策略。如果需要增量写入策略，可以先调用 [GET Bucket Policy](https://cloud.tencent.com/document/product/436/8276) 获取之前的策略，在之前的策略上再添加新策略，然后再调用 PUT Bucket Policy。
 
 
 <div class="rno-api-explorer">

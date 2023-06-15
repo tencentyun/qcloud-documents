@@ -15,31 +15,44 @@ ALG（Application Layer Gateway，应用层网关）是由一个扩增防火墙�
 <table>
 <tbody>
 <tr>
-<th>云服务器实例类型</th>
+<th width="20%">云服务器实例类型</th>
 <th>机型</th>
 </tr>
 <tr>
-<td>标准型</td>
+<td  rowspan="4">标准型</td>
 <td>标准型 S5</td>
 </tr>
 <tr>
-<td rowspan="6">裸金属云服务器</td>
-<td>标准型 BMS4</td>
+<td>标准型 S6</td>
 </tr>
 <tr>
-<td>高 IO 型 BMI5</td>
+<td>标准型 SA3</td>
 </tr>
 <tr>
-<td>大数据型 BMD3</td>
+<td>标准型 SA4</td>
 </tr>
 <tr>
-<td>大数据型 BMD2</td>
-</tr>
-<tr>		<td>GPU 型 BMG5t</td>
+<td  rowspan="2">内存型</td>
+<td>内存型 M5</td>
 </tr>
 <tr>
-<td>GPU 型 BMG5v</td>
+<td>内存型 M6</td>
 </tr>
+<tr>
+<tr>
+<td  rowspan="2">计算型</td>
+<td>计算型 C5</td>
+</tr>
+<tr>
+<td>计算型 C6</td>
+</tr>
+<tr>
+
+<tr>
+<td >裸金属云服务器</td>
+<td>所有机型均不支持 ALG，实例规格请参见 <a href="https://cloud.tencent.com/document/product/386/63404">裸金属云服务器实例规格</a>。</td>
+</tr>
+
 <tr>
 <td>高性能计算集群</td>
 <td>GPU 型 HCCG5v</td>

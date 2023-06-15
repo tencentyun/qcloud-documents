@@ -49,7 +49,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ```
 如果 Hadoop下面没有 `/user/hadoop` 文件夹，用户可以自己创建，指令如下：
 ```
-[hadoop@172 hadoop]$ hadoop fs –mkdir /user/hadoop
+[hadoop@172 hadoop]$ hadoop fs -mkdir /user/hadoop
 ```
 更多 Hadoop 指令见 [HDFS 常见操作](https://cloud.tencent.com/document/product/589/12289)。
 
@@ -65,18 +65,18 @@ scp $localfile root@公网IP地址:$remotefolder
 其中 $bucketname 替换成您的储存桶的名字和路径。
 - 在 EMR 集群通过 Hadoop 命令上传，指令如下：
 ```
-[hadoop@10 hadoop]$ hadoop fs -put README.txt cosn:// $bucketname /
-[hadoop@10 hadoop]$ bin/hadoop fs -ls cosn:// $bucketname /README.txt
--rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://$bucketname /README.txt
+[hadoop@10 hadoop]$ hadoop fs -put README.txt cosn://$bucketname/
+[hadoop@10 hadoop]$ bin/hadoop fs -ls cosn://$bucketname/README.txt
+-rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://$bucketname/README.txt
 ```
 
 ## 4. 通过 MapReduce 提交任务
-本次提交的任务是 Hadoop 集群自带的例程 wordcount。wordcount 已被压缩为 jar 包上传到了创建好的 Hadoop 中，用户可以直接调来使用。
-
+本次提交的任务是 Hadoop 集群自带的例程 wordcount，wordcount 已被压缩为 jar 包上传到了创建好的 Hadoop 中，用户可以直接调来使用。
+示例使用 hadoop 3.2.2 版本，其他版本示例代码中需使用对应版本的 hadoop-mapreduce-examples 包， 可以在 hadoop 目录下./share/hadoop/mapreduce/路径中查看实际存在的版本。
 ### 统计 HDFS 中的文本文件
 进入 `/usr/local/service/hadoop` 目录，和数据准备中一样。通过如下命令来提交任务：
 ```
-[hadoop@10 hadoop]$ bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar wordcount
+[hadoop@10 hadoop]$ bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.2.jar wordcount
 /user/hadoop/README.txt /user/hadoop/output
 ```
 >!以上整个命令为一条完整的指令，`/user/hadoop/README.txt` 为输入的待处理文件，`/user/hadoop/output` 为输出文件夹，在提交命令之前要保证 output 文件夹尚未创建，否则提交会出错。
@@ -105,7 +105,7 @@ Found 2 items
 ### 统计 COS 中的文本文件
 进入 `/usr/local/service/hadoop` 目录，通过如下命令来提交任务：
 ```
-[hadoop@10 hadoop]$ bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar  wordcount
+[hadoop@10 hadoop]$ bin/yarn jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.2.2.jar  wordcount
 cosn://$bucketname/README.txt /user/hadoop/output
 ```
 命令的输入文件改为了 `cosn:// $bucketname /README.txt`，即处理 COS 中的文件，其中 $bucketname 为您的存储桶的名字加路径。依然输出到 HDFS 集群中，也可以选择输出到 COS 中。查看输出的方法和上文一样。

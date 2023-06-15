@@ -63,7 +63,7 @@ server {
 ```
 5. 配置 Watcher 报警规则。**此步骤可以在 Kibana 界面 Management > Watcher 选项中进行图形化操作。**
 ![](https://main.qcloudimg.com/raw/125ca1068c3a8905212de5c158dd13c5.png)
- - `Create threshold alert` 在界面进行阈值告警设置。可以针对某索引的特定条件进行监控告警，例如 CPU 使用率、文档个数等，可以在下面的 Condition 选项作更细节的设置，参考如下：
+ - `Create threshold alert` 在界面进行阈值告警设置。可以针对某索引的特定条件进行监控告警，例如 CPU 使用率、文档个数等，可以在下面的 Condition 选项做更细节的设置，参考如下：
 ![image](https://main.qcloudimg.com/raw/7035acfff95d603d797fa95d6ed6f9ec.png)
 单击右上角的 **Add action**, 选择 “Wehhook”，相关设置如下：
 ![image](https://main.qcloudimg.com/raw/e4d83130fa2405c24722f3f950bb71d0.png)

@@ -1,12 +1,8 @@
 ## 现象描述
-
-本地主机 ping 不通实例可能由以下问题导致：
-- 目标服务器的设置不正确
-- 域名没有正确解析
-- 链路故障
+无法 ping 通云服务器实例。
 
 ## 可能原因
-在确保本地网络正常的前提下（即您可以正常 ping 通其他网站），可根据以下操作进行排查：
+在确保本地网络正常的情况下（即您可以正常 ping 通其他网站），出现上述现象的可能原因如下：
 <table>
 <thead>
   <tr>
@@ -17,27 +13,27 @@
 <tbody>
   <tr>
     <td>服务器内实例未配置公网 IP</td>
-    <td ><a href="#isConfigurePublicIP">检查服务器内实例是否配置公网 IP</a></td>
+    <td ><a href="#isConfigurePublicIP">检查服务器内实例确保已配置公网 IP</a></td>
   </tr>
   <tr>
     <td>实例的安全组未设置</td>
-    <td><a href="#CheckSecurityGroupSetting">检查实例安全组是否设置</a></td>
+    <td><a href="#CheckSecurityGroupSetting">检查实例安全组确保已设置</a></td>
   </tr>
   <tr>
     <td>系统内实例处于未设置状态</td>
-    <td><a href="#CheckOSSetting">检查系统内实例是否处于设置状态</a></td>
+    <td><a href="#CheckOSSetting">检查系统内实例确保处于设置状态</a></td>
   </tr>
   <tr>
     <td>域名未备案</td>
-    <td><a href="#CheckDomainRegistration">检查域名是否备案</a></td>
+    <td><a href="#CheckDomainRegistration">检查域名确保已备案</a></td>
   </tr>
   <tr>
     <td>服务器内 Windows 实例网络未设置</td>
-    <td><a href="#CheckDomainRegistration">检查服务器内 Windows 实例网络是否设置</a></td>
+    <td><a href="#CheckDomainRegistration">检查服务器内 Windows 实例网络确保已设置</a></td>
   </tr>
   <tr>
-    <td>服务器内域名解析未正确的配置</td>
-    <td><a href="#CheckDNS">检查服务器内域名解析是否正确的配置</a></td>
+    <td>服务器内域名解析未正确配置</td>
+    <td><a href="#CheckDNS">检查服务器内域名解析确保配置正确</a></td>
   </tr>
 </tbody>
 </table>
@@ -45,36 +41,36 @@
 
 ## 故障处理
 
-### 检查服务器内实例是否配置公网 IP[](id:isConfigurePublicIP)
+### 检查服务器内实例确保已配置公网 IP[](id:isConfigurePublicIP)
 
 <dx-alert infotype="explain" title="">
-实例必须具备公网 IP 才能与 Internet 上的其他计算机相互访问。若实例没有公网 IP，内网 IP 外部则无法直接 ping 通实例。
+实例必须具备公网 IP 才能与 Internet 上的其他计算机相互访问。若实例没有公网 IP，外部则无法直接 ping 通实例。
 </dx-alert>
 
 1. 通过登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 检查服务器是否设置公网 IP。
 2. 在**实例列表**页面中，选择需要 ping 通的实例 ID/实例名，进入该实例的详情页面。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d90e03b056c338f25d9cd20d6415f8a3.png)
 3. 在**网络信息**栏，查看实例是否配置了公网 IP。
- - 实例已配置公网 IP，请 [检查实例安全组是否设置](#CheckSecurityGroupSetting)。
+ - 实例已配置公网 IP，请 [检查实例安全组确保已设置](#CheckSecurityGroupSetting)。
  - 实例未配置公网 IP，请 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
 
 
-### 检查实例安全组是否设置[](id:CheckSecurityGroupSetting)
+### 检查实例安全组确保已设置[](id:CheckSecurityGroupSetting)
 
 安全组是一个虚拟防火墙，可以控制关联实例的入站流量和出站流量。而安全组的规则可以指定协议、端口、策略等。由于 ping 使用的是 ICMP 协议，请确认实例关联的安全组是否允许 ICMP。执行以下操作，查看实例使用的安全组以及详细的入站和出站规则：
 1. 通过登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，检查实例安全组设置。
-2. 在**实例列表**页面中，选择需要安全组设置的实例 ID/实例名，进入该实例的详情页面。
+2. 在**实例列表**页面中，选择需要设置安全组的实例 ID/实例名，进入该实例的详情页面。
 3. 选择**安全组**页签，进入该实例的安全组管理页面。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5880372a92c092aba58b8706fc859eca.png)
-4. 根据查看实例所使用的安全组以及详细的入站和出站规则，判断实例关联的安全组是否允许 ICMP。
- - 实例关联的安全组已允许 ICMP，请 [检查系统内实例是否处于设置状态](#CheckOSSetting)。
+4. 根据实例所使用的安全组以及详细的入站和出站规则，判断实例关联的安全组是否允许 ICMP。
+ - 实例关联的安全组已允许 ICMP，请 [检查系统内实例确保处于设置状态](#CheckOSSetting)。
  - 实例关联的安全组未允许 ICMP，请将 ICMP 协议策略设置为允许。
 
 
-### 检查系统内实例是否处于设置状态[](id:CheckOSSetting)
+### 检查系统内实例确保处于设置状态[](id:CheckOSSetting)
 判断实例的操作系统类型，选择不同的检查方式。
 - Linux 操作系统，请 [检查 Linux 内核参数和防火墙设置](#CheckLinux)。
-- Windows 操作系统，请 [检查 Windows 防火墙设置](#CheckWindows)，若非防火墙问题，可尝 [检查服务器内 Windows 实例网络是否设置](#reset)。
+- Windows 操作系统，请 [检查 Windows 防火墙设置](#CheckWindows)，若非防火墙问题，可尝试 [检查服务器内 Windows 实例网络确保已设置](#reset)。
 
 
 #### 检查 Linux 内核参数和防火墙设置[](id:CheckLinux)
@@ -108,7 +104,7 @@ echo "0" >/proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
 iptables -L
 ```
-- 若返回如下结果，表示 ICMP 对应规则未被禁止，请 [检查域名是否备案](#CheckDomainRegistration)。
+- 若返回如下结果，表示 ICMP 对应规则未被禁止，请 [检查域名确保已备案](#CheckDomainRegistration)。
 ```
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination         
@@ -138,10 +134,10 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 4. 在弹出的**高级安全 Windows 防火墙**窗口中，查看 ICMP 有关的出入站规则是否被禁止。
  - 若如下图所示，ICMP 有关的出入站规则被禁用，请启用该规则。
 ![](https://main.qcloudimg.com/raw/8bf6bc333e172425de6ede53d70d5978.png)
- - 若 ICMP 有关的出入站规则已启用，请 [检查域名是否备案](#CheckDomainRegistration)。
+ - 若 ICMP 有关的出入站规则已启用，请 [检查域名确保已备案](#CheckDomainRegistration)。
 
 
-### 检查域名是否备案[](id:CheckDomainRegistration)
+### 检查域名确保已备案[](id:CheckDomainRegistration)
 
 <dx-alert infotype="explain" title="">
 如果您可以 ping 通公网 IP，而 ping 不通域名，可能是域名没有备案或者域名解析的问题导致。
@@ -150,22 +146,22 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 国家工信部规定，对未取得许可或者未履行备案手续的网站不得从事互联网信息服务，否则就属于违法行为。为不影响网站长久正常运行，如需开办网站，建议您先办理网站备案，待备案成功取得通信管理局下发的 ICP 备案号后，才开通访问。
 - 如果您的域名没有备案，请先进行 [域名备案](https://console.cloud.tencent.com/beian)。
 - 如果您使用的是腾讯云的域名服务，您可以登录 [域名服务控制台](https://console.cloud.tencent.com/domain) 查看相应的域名情况。
-- 如果您的域名已备案，请 [检查服务器内域名解析是否正确的配置](#CheckDNS)。
+- 如果您的域名已备案，请 [检查服务器内域名解析确保配置正确](#CheckDNS)。
 
 [](id:reset)
-### 检查服务器内 Windows 实例网络是否设置
+### 检查服务器内 Windows 实例网络确保已设置
 
 1. 请确认您的 VPC 网络是否支持 DHCP（如为2018年6月后创建的 VPC 网络，均支持 DHCP），若不支持，请确认网络设置中的静态 IP 是否正确。
-2. 如果支持 DHCP，查看 DHCP 分配到的内网 ip 是否正确，若不正确，您可通过官网的登录功能（VNC 登录），以管理员身份运行 PowerShell，在其中执行 `ipconfig /release` 以及 `ipconfig/renew` （无需重启机器）尝试令 DHCP 组件重新获取 IP。
-3. 若 DHCP 分配到的IP正确，但网络仍旧不通，可使用开始菜单中的【运行】功能，输入` ncpa.cpl `并单击确定。打开本地连接，尝试禁用、启用网卡。
+2. 如果支持 DHCP，查看 DHCP 分配到的内网 IP 是否正确，若不正确，您可通过官网的登录功能（VNC 登录），以管理员身份运行 PowerShell，在其中执行 `ipconfig /release` 以及 `ipconfig/renew` （无需重启机器）尝试令 DHCP 组件重新获取 IP。
+3. 若 DHCP 分配到的IP正确，但网络仍旧不通，可使用开始菜单中的**运行**功能，输入` ncpa.cpl `并单击确定。打开本地连接，尝试禁用、启用网卡。
 4. 若以上方式仍不能解决问题，可以管理员身份执行在 CMD 中执行以下命令并重启机器。
 ```plantext
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles"  /f
 ```
 
-### 检查服务器内域名解析是否正确的配置[](id:CheckDNS)
+### 检查服务器内域名解析确保配置正确[](id:CheckDNS)
 
-ping 不通域名的另外一个原因是由于域名解析没有正确地配置。如果您使用的是腾讯云的域名服务，您可以执行以下操作，检查域名解析。
+ping 不通域名的另外一个原因是由于域名解析没有正确配置。如果您使用的是腾讯云的域名服务，您可以执行以下操作，检查域名解析。
 1. 登录 [域名服务控制台](https://console.cloud.tencent.com/domain)，检查域名解析。
 2. 在**我的域名**管理页面，选择需检查域名解析的域名行，单击**解析**，查看域名解析详情。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/84467abd08a414129180140650689ef7.png)
@@ -173,7 +169,7 @@ ping 不通域名的另外一个原因是由于域名解析没有正确地配置
 
 ## 相关参考[](id:OtherOperations)
 
-若上述步骤无法解决问题，请参见：
+若上述步骤无法解决问题：
 - 域名 ping 不通，请检查您的网站配置。
 - 公网 IP ping 不通，请附上实例的相关信息和双向 MTR 数据（从本地到云服务器以及云服务器到本地），通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 联系工程师协助定位。
 MTR 的使用方法请参见 [服务器网络延迟和丢包处理](https://cloud.tencent.com/document/product/213/14638)。

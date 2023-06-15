@@ -7,12 +7,10 @@
 ## 可能原因
 可能是由于频繁暴力破解导致 `/var/log/btmp` 日志容量过大。该文件用于记录错误登录的日志，容量过大会导致登录时写入日志异常，造成无法正常登录。如下图所示：
 ![](https://main.qcloudimg.com/raw/c19f9e57a67ce6b1ed30cee22af9964c.png)
+您可以参考 [故障处理](#ProcessingSteps) 查看日志文件 `/var/log/btmp` 容量是否过大，核实是否为暴力破解导致，并加固安全策略。
 
-## 解决思路
-1. 参考 [处理步骤](#ProcessingSteps) 查看日志文件 `/var/log/btmp` 容量是否过大。
-2. 核实是否为暴力破解导致，并加固安全策略。
 
-## 处理步骤[](id:ProcessingSteps)
+## 故障处理[](id:ProcessingSteps)
 1. 尝试使用 SSH 登录云服务器，详情请参见 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)。
 	- 登录成功，则执行下一步。
 	- 登录失败，则需使用单用户模式，详情请参见 [通过控制台进入 Linux 实例单用户模式](https://cloud.tencent.com/document/product/213/33321)。
@@ -21,7 +19,7 @@
 ```
 cat /dev/null > /var/log/btmp
 ```
-5. 核实帐户锁定是由人为误操作还是暴力破解引起。若是由暴力破解引起，建议选择以下方案加固安全策略：
+5. 核实账户锁定是由人为误操作还是暴力破解引起。若是由暴力破解引起，建议选择以下方案加固安全策略：
 	- 修改云服务器密码，密码设置为由大写、小写、特殊字符、数字组成的12 - 16位的复杂随机密码。详情请参见 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 	- 删除云服务器中已不再使用的用户。
 	- 将 sshd 的默认22端口改为1024 - 65525间的其他非常用端口。详情请参见 [修改云服务器远程默认端口](https://cloud.tencent.com/document/product/213/42838)。

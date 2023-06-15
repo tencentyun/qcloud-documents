@@ -111,7 +111,7 @@ export default {
 ### 步骤5：调试组件库
 1. 在 cmd 工具中输入 `cd mydemo` 命令后进入组件文件夹，之后输入 `tcb lowcode debug` 即可进行组件库的调试。
 2. 此时浏览器会自动打开组件调试页面，在左侧配置区中可以看到 webview 组件已正常展示，并且可以在右侧的组件配置区中进行 webview 组件链接的配置。
-![](https://qcloudimg.tencent-cloud.cn/raw/c92a182a555330d13721a051a55efe02.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/515dfbba0d9e466700b839d2577809e5.png)
 > ? 由于 webview 组件仅支持在真实小程序环境中运行，因此该组件需要在应用发布为小程序之后才能够看到真实效果。
 
 
@@ -126,4 +126,4 @@ export default {
 ## 发布查看效果
 发布后即可查看组件在小程序端的运行效果，如下所示：
 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/c349ca0a60cb7845e4d574acae32a7b4.png" style="width:50%;" /> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c349ca0a60cb7845e4d574acae32a7b4.png" style="width:30%;" /> 

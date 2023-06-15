@@ -2,7 +2,7 @@ Logstash 的一个典型应用场景，就是接收 filebeat 发送过来的数�
 
 ## 创建管道
 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择需要操作的实例，单击实例 **ID/名称**，进入实例基本信息页面。切换到“管道管理”页签，单击**新建管道**，创建一个管道。
-![](https://main.qcloudimg.com/raw/123a56e009cd371e6ce7a498f79d49a1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9803e6016a5ced1f5e97577404c62805.png)
 进入新建管道页面，单击**引用模板**，同时引用“input-beats”和“output-elasticsearch”两个模板：
 ![](https://main.qcloudimg.com/raw/b2f664a511a2ba7c603d832627b2b19b.png)
 ![](https://main.qcloudimg.com/raw/452adf2c3e9ecf7d11a92ccd7f76b791.png)
@@ -31,8 +31,7 @@ Logstash 的一个典型应用场景，就是接收 filebeat 发送过来的数�
 
 ## 查看日志
 在控制台查看 Logstash 的运行日志，如果没有 ERROR 级别的日志，则说明管道运行正常。
-![](https://qcloudimg.tencent-cloud.cn/raw/02e49bedbc3b8323d382cd99e9ca0d4f.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/58d966de876c0b76079dc4b4e71abe94.png)
 ## 查看数据写入情况
 进入到 output-elasticsearch 中定义的输出端的 ES 集群对应的 kibana 页面，在 Dev tools 工具栏里查看索引是否存在，以及索引的文档数量是否正确。
 ![](https://main.qcloudimg.com/raw/015063d8147cbd78ed18f046417b7a7a.png)

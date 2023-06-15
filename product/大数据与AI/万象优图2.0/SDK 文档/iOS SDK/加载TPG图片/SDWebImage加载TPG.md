@@ -14,7 +14,6 @@
 ```
     pod install
 ```
-
 ### 使用 SDWebImage 直接加载 TPG 图。
 SDWebImage-CloudInfinite 模块在app启动时已自动将 TPG 解码器加入到 SDWebImage 解码器队列中，在加载解码器时自动找到 TPG 解码器来解码图片。支持动图，无需额外操作。使用时与 SDWebImage 使用没有任何区别。
 

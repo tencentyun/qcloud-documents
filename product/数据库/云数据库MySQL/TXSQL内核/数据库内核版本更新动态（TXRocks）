@@ -1,0 +1,16 @@
+本文为您介绍 TXRocks 的内核版本更新说明。
+>?
+>- 如何升级 MySQL 实例的内核小版本，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
+>- 升级小版本时，可能会存在部分小版本维护中，无法选取的情况，请以控制台可选小版本为准。
+
+**MySQL 5.7 内核版本更新说明**
+<table>
+<thead><tr><th>小版本</th><th>说明</th></tr></thead>
+<tbody>
+  
+<tr>	
+<td>20230401</td>
+<td><ul><li>新特性</li><ul>
+<li>默认将建表语句中 TokuDB 引擎转为 RocksDB 引擎。</li>
+</ul>
+</tbody></table>

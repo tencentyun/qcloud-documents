@@ -71,7 +71,7 @@ COS 不提供查询账单的 API，请您通过控制台 [账单详情](https://
 
 ### 如何通过 API 获取存储桶大小？
 
-COS 没有直接获取存储桶大小的 API，建议您通过 [云监控接口](https://cloud.tencent.com/document/product/248/45140) 获取存储桶中各存储类型的存储量后累加计算存储桶的存储量。
+COS 没有直接获取存储桶大小的 API，建议您通过 [腾讯云可观测平台接口](https://cloud.tencent.com/document/product/248/45140) 获取存储桶中各存储类型的存储量后累加计算存储桶的存储量。
 
 ### 如何通过 API 查询用量明细？
 

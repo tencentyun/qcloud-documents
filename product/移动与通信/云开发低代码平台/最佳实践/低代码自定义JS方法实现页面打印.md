@@ -38,7 +38,7 @@ export default async function({event, data}) {
 ## 最佳实践案例
 1. 创建空白页面，加入**文本**组件，文本内容为**合同打印**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ab2440885e8e1117291c92849576f443.png)
-2. 增加**表单容器组件**，绑定目标数据源（举例：合同数据模型）。
+2. 增加**表单容器组件**，绑定任意有字段的数据源（数据模型的新建可以参考操作指南中数据源相关内容）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb85a9ea5ac4358a98c899f2169154dd.png)
 3. 增加**按钮**组件，命名**打印**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ca6c93a4aefb8394a58b5303ce0144d5.png)

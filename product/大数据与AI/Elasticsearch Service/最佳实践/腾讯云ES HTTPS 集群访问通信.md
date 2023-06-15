@@ -11,7 +11,7 @@ xpack.security.http.ssl.truststore.path: certs/ces-certificates.p12
 ```
 
 ### 获取 pem 证书文件
-集群创建成功后，提工单让腾讯云ES研发提供访问 HTTPS 集群所需要的鉴权证书文件。此时腾讯云 ES 侧会提供如下两个证书文件：
+集群创建成功后，可在 [ES 控制台](https://console.cloud.tencent.com/es) 访问控制页面，进行相关证书导出。此时腾讯云 ES 侧会提供如下两个证书文件：
 
 |文件名称|用途|
 |:-------------- |:-------------|

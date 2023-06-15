@@ -14,18 +14,98 @@
 
 ## 步骤二：配置辅助内网 IP
 登录上述弹性网卡绑定的云服务器，配置辅助内网 IP 使其生效，可参考如下操作：
+
 ### Linux 云服务器
-1. 在云服务器中执行如下命令配置辅助内网 IP：
-```plaintext
-# 如 ip addr add 10.0.0.2/24 dev eth0
-ip addr add 辅助内网 IP/CIDR 位数 dev eth0
+
+#### REHL 系列操作系统
+  - 适用的操作系统：TencentOS、CentOS 6/7/8、Red Hat 6/7/8、AlmaLinux、Rocky Linux 等。
+  - 示例网卡：以主网卡 eth0 为例演示操作。如果您的操作对象为辅助弹性网卡，请根据实际情况修改网卡标识符。
+
+1. 在云服务器中查看当前网络信息，并使用 route -n 命令查询默认网关。其中，netmask 为`255.255.255.0`，Gateway（默认网关）为`172.16.2.1`。
+![](https://qcloudimg.tencent-cloud.cn/raw/e93e9254745398ebaf400bf2ed20fddd.png)
+2. 修改网络配置文件
+如果配置单个私网 IPv4 地址，运行`vi /etc/sysconfig/network-scripts/ifcfg-eth0:0`命令，并添加相应的配置项。
+文件配置信息如下：
 ```
-2. 执行 `ip addr` 命令，即可查看已配置的 IP 信息，如下图所示。
-![](https://main.qcloudimg.com/raw/98b7e2e0d683644e9694390c4b0ef733.png)
-3. 执行如下命令，配置策略路由。
-```plaintext
-ip rule add from 10.0.0.2 table 20      //10.0.0.2为新申请的辅助内网 IP，20为自定义路由表 ID，请按实际填写
+[root@mufei /]# vi /etc/sysconfig/network-scripts/ifcfg-eth0:0
+DEVICE=eth0:0                 // 这里修改为eth0:0跟文件名保持一致
+BOOTPROTO=static              // 协议为静态，用none也可以
+HWADDR=00:0C:29:6F:62:A7      // MAC地址,与eth0一致
+ONBOOT=yes                    // 开机启用此网卡
+IPADDR=172.16.2.6           // 新绑定的IP
+NETMASK=255.255.255.0         // 子网掩码
+GATEWAY=172.16.2.1           // 网关
 ```
+3. 启动网卡或重启网络服务（二选一）。
+重启网卡如下：
+```
+[root@mufei /]# ifup eth0:0
+```
+4. 运行 `ifconfig` 查看配置效果。
+配置1个辅助私网 IP 的效果示例如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/b316d5a525f317c9d1963e5fc1c8cacc.png)
+配置完成后，从同 VPC 内其他云服务器 Ping 测试辅助 IP 联通是否正常。
+![](https://qcloudimg.tencent-cloud.cn/raw/006e74b128c463fe9d320afaa36a654c.png)
+
+#### Debian 系列操作系统
+  - 适用的操作系统：Ubuntu 18/20、Ubuntu 14/16、Debian 8/9/10。
+  - 示例网卡：以主网卡 eth0 为例演示操作。如果您的操作对象为辅助弹性网卡，请根据实际情况修改网卡标识符。
+
+1. 在云服务器中查看当前网络信息，并使用 `route -n` 命令查询默认网关。
+2. 根据实例操作系统，选择配置辅助私网 IP 地址的方式。
+	- Debian 系列：Ubuntu 18/20
+Ubuntu 18.04 采用 netplan 作为网络配置管理，与16.04及之前的版本区别很大。
+		1. 修改配置文件：`sudo vim /etc/netplan/50-cloud-init.yaml`
+		配置文件内容如下：
+```
+ubuntu@VM-2-13-ubuntu:~$ sudo vim  /etc/netplan/50-cloud-init.yaml
+network:
+    version: 2
+    ethernets:
+        eth0:
+            addresses:
+            - 172.16.2.13/24  //主ip
+            - 172.16.2.17/24  //辅助ip
+            match:
+                macaddress: 52:54:00:cb:12:30
+            gateway4: 172.16.2.1     
+```
+		2. 运行配置后，生效命令：
+```
+ubuntu@VM-2-13-ubuntu:~$ sudo  netplan apply
+```
+		3. 通过“IP a”查看网卡信息确认配置生效。
+	![](https://qcloudimg.tencent-cloud.cn/raw/fe2e89f251fc9f7e67e5c04f8ee27019.png)
+		4. 同 vpc 服务器测试辅助 ip 确认联通正常。
+![](https://qcloudimg.tencent-cloud.cn/raw/f9ef52d6e79242ba904247f975833633.png)
+	- Debian 系列：Ubuntu 14/16、Debian 8/9/10。
+		1. 运行 `vi /etc/network/interfaces` 命令打开网络配置文件，并新增相应的配置项。
+```
+auto eth0:0
+iface eth0:0 inet static
+address 172.16.2.2      //辅助ip
+mask 255.255.255.0
+```
+		2. 运行 `/etc/init.d/networking restart` 使网卡配置生效。
+![](https://qcloudimg.tencent-cloud.cn/raw/88c502454a8b01382a7333deb0310995.png)
+		3. 运行 `ifconfig` 查看配置效果。
+![](https://qcloudimg.tencent-cloud.cn/raw/56e851ba3042e0f615880c61734f594e.png)
+
+#### SLES 系列操作系统
+   - 适用的操作系统：OpenSUSE 15/42。
+   - 示例网卡：以主网卡 eth0 为例演示操作。如果您的操作对象为辅助弹性网卡，请根据实际情况修改网卡标识符。
+
+1. 运行 `vi /etc/sysconfig/network/ifcfg-eth0` 命令打开网络配置文件，添加如下配置项：
+```
+IPADDR_0=172.16.2.8     //辅助ip
+NETMASK_0=255.255.255.0   //掩码
+LABEL_0='0'    //子网卡编号
+```
+2. 运行 `service network restart` 或 `systemctl restart network` 命令重启网络服务。
+3. 运行 `ifconfig` 查看配置效果
+![](https://qcloudimg.tencent-cloud.cn/raw/6b7d0fa7a2cb5234af91be9fd6b3805a.png)
+
+
 ### Windows 云服务器
 1. <span id="step1" />执行如下步骤，查看云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：
  1. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行如下命令：

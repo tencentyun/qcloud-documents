@@ -126,24 +126,32 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 
 支持参数及其默认值如下：
 
-| 类型                        | 名称            | 含义                                                         | 默认值                                         |
-| :-------------------------- | :-------------- | :----------------------------------------------------------- | :--------------------------------------------- |
-| [OcrType](#OcrType)         | OcrType         | 默认识别类型                                                 | IDCardOCR_FRONT，IDCardOCR_BACK 均代表 id_card |
-| [OcrModeType](#OcrModeType) | ModeType        | 识别模式类型：OCR_DETECT_MANUAL 代表手动拍摄模式，OCR_DETECT_AUTO_MANUAL 代码自动捕获模式 20s未检测提示是否切换至手动拍摄 | OCR_DETECT_MANUAL 默认值                       |
-| long                        | auto_timeout_ms | 自动捕捉模式下自动切换至手动拍照模式的超时时间(5000ms<`auto_timeout_ms`<180000ms) | 20000ms                                        |
-| BOOL                        | CropIdCard      | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | NO                                             |
-| BOOL                        | CropPortrait    | 开启人像照片裁剪（自动抠取身份证头像区域）                   | NO                                             |
-| BOOL                        | CopyWarn        | 开启复印件告警                                               | NO                                             |
-| BOOL                        | BorderCheckWarn | 开启边框和框内遮挡告警                                       | NO                                             |
-| BOOL                        | ReshootWarn     | 开启翻拍告警                                                 | NO                                             |
-| BOOL                        | DetectPsWarn    | 开启 PS 检测告警                                             | NO                                             |
-| BOOL                        | TempIdWarn      | 开启临时身份证告警                                           | NO                                             |
-| BOOL                        | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | NO                                             |
-| BOOL                        | Quality         | 开启图片质量分数（评价图片的模糊程度）                       | NO                                             |
-| BOOL                        | MultiCardDetect | 是否开启多卡证检测                                           | NO                                             |
-| BOOL                        | ReflectWarn     | 是否开启反光告警                                             | NO                                             |
-| NSString                    | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                             |
-| BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                             |
+| 类型                        | 名称               | 含义                                                         | 默认值                                         |
+| :-------------------------- | :----------------- | :----------------------------------------------------------- | :--------------------------------------------- |
+| [OcrType](#OcrType)         | ocrType            | 默认识别类型                                                 | IDCardOCR_FRONT，IDCardOCR_BACK 均代表 id_card |
+| [OcrModeType](#OcrModeType) | ocrModeType        | 识别模式类型：OCR_DETECT_MANUAL 代表手动拍摄模式，OCR_DETECT_AUTO_MANUAL 代码自动捕获模式 20s未检测提示是否切换至手动拍摄 | OCR_DETECT_MANUAL 默认值                       |
+| long                        | auto_timeout_ms    | 自动捕捉模式下自动切换至手动拍照模式的超时时间(5000ms<`auto_timeout_ms`<180000ms) | 20000ms                                        |
+| BOOL                        | cropIdCard         | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | NO                                             |
+| BOOL                        | cropPortrait       | 开启人像照片裁剪（自动抠取身份证头像区域）                   | NO                                             |
+| BOOL                        | copyWarn           | 开启复印件告警                                               | NO                                             |
+| BOOL                        | borderCheckWarn    | 开启边框和框内遮挡告警                                       | NO                                             |
+| BOOL                        | reshootWarn        | 开启翻拍告警                                                 | NO                                             |
+| BOOL                        | detectPsWarn       | 开启 PS 检测告警                                             | NO                                             |
+| BOOL                        | tempIdWarn         | 开启临时身份证告警                                           | NO                                             |
+| BOOL                        | invalidDateWarn    | 开启身份证有效日期不合法告警                                 | NO                                             |
+| BOOL                        | quality            | 开启图片质量分数（评价图片的模糊程度）                       | NO                                             |
+| BOOL                        | multiCardDetect    | 是否开启多卡证检测                                           | NO                                             |
+| BOOL                        | reflectWarn        | 是否开启反光告警                                             | NO                                             |
+| NSString                    | retImageType       | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                             |
+| BOOL                        | retImage           | 马来西亚身份证接口是否返回图片                               | NO                                             |
+| BOOL                        | retBorderCutImage  | 是否返回预处理（精确剪裁对齐）后的**银行卡 **图片数据(仅**BankCardOCR**类型下生效) | NO                                             |
+| BOOL                        | retCardNoImage     | 是否返回**银行卡**卡号的切图图片数据(仅**BankCardOCR**类型下生效) | NO                                             |
+| BOOL                        | enableCopyCheck    | **银行卡**复印件检测开关，如果输入的图片是**银行卡**复印件图片则返回告警(仅**BankCardOCR**类型下生效) | NO                                             |
+| BOOL                        | enableReshootCheck | **银行卡**翻拍检测开关，如果输入的图片是**银行卡**翻拍图片则返回告警(仅**BankCardOCR**类型下生效) | NO                                             |
+| BOOL                        | enableBorderCheck  | **银行卡**边框遮挡检测开关，如果输入的图片是**银行卡**边框被遮挡则返回告警(仅**BankCardOCR**类型下生效) | NO                                             |
+| BOOL                        | enableQualityValue | 是否返回**银行卡**图片质量分数（图片质量分数是评价一个图片的模糊程度的标准）(仅**BankCardOCR**类型下生效) | NO                                             |
+| BOOL                        | detectFake         | **香港身份证**是否鉴伪（仅HKIDCardOCR_03、HKIDCardOCR_18生效） | NO                                             |
+| BOOL                        | returnHeadImage    | **香港身份证**是否返回人像照片（仅**HKIDCardOCR_03、HKIDCardOCR_18**下生效） | NO                                             |
 
 
 [](id:CustomConfigUI)
@@ -153,21 +161,28 @@ CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息
 
 支持参数及其默认值如下：
 
-| 类型     | 名称               | 含义                           | 默认值                                |
-| -------- | ------------------ | ------------------------------ | ------------------------------------- |
-| BOOL     | isShowTips         | 是否显示中间提示语             | YES                                   |
-| NSString | tipsShowText       | 中间提示语内容(限制15个中文字) | "请避免识别内容折角、遮挡和反光"      |
-| NSString | remindDialogText   | dialog 模式转换提示文字        | "未能识别证件，是否切换模式拍照上传?" |
-| UIColor  | remindConfirmColor | dialog 模式转换提示,按钮颜色   | RGBA：5 106 1 1                       |
-| UIColor  | cardFrameColor     | 卡片框选中颜色                 | RGBA：5 106 1 1                       |
-| UIImage  | takePictureImage   | 拍照按钮图标 80x80             | 默认图标                              |
-| UIImage  | lightONImage       | 打开手电筒按钮图标 40x40       | 默认图标                              |
-| UIImage  | lightOFFImage      | 关闭手电筒按钮图标40x40        | 默认图标                              |
-| UIImage  | albumImage         | 相册按钮图标40x40              | 默认图标                              |
-| BOOL     | isShowAlbumBtn     | 是否显示相册按钮               | YES                                   |
-| BOOL     | isHorizontal       | 是否横屏显示                   | NO                                    |
+| 类型                                  | 名称               | 含义                           | 默认值                                |
+| ------------------------------------- | ------------------ | ------------------------------ | ------------------------------------- |
+| BOOL                                  | isShowTips         | 是否显示中间提示语             | YES                                   |
+| NSString                              | tipsShowText       | 中间提示语内容(限制15个中文字) | "请避免识别内容折角、遮挡和反光"      |
+| NSString                              | remindDialogText   | dialog 模式转换提示文字        | "未能识别证件，是否切换模式拍照上传?" |
+| UIColor                               | remindConfirmColor | dialog 模式转换提示,按钮颜色   | RGBA：5 106 1 1                       |
+| UIColor                               | cardFrameColor     | 卡片框选中颜色                 | RGBA：5 106 1 1                       |
+| UIImage                               | takePictureImage   | 拍照按钮图标 80x80             | 默认图标                              |
+| UIImage                               | lightONImage       | 打开手电筒按钮图标 40x40       | 默认图标                              |
+| UIImage                               | lightOFFImage      | 关闭手电筒按钮图标40x40        | 默认图标                              |
+| UIImage                               | albumImage         | 相册按钮图标40x40              | 默认图标                              |
+| BOOL                                  | isShowAlbumBtn     | 是否显示相册按钮               | YES                                   |
+| BOOL                                  | isHorizontal       | 是否横屏显示                   | NO                                    |
+| float                                 | blurThreshold      | 光线模糊的最低范围             | 0.5                                   |
+| int                                   | validCount         | 稳定帧的帧数                   | 4                                     |
+| [OCR_LanguageType](#OCR_LanguageType) | languageType       | 设置当前使用语言               | OCR_DEFAULT                           |
+| [OcrCameraZoom](#OcrCameraZoom)       | zoomType           | 设置默认的缩放倍数             | OCR_ZOOM_1X                           |
+| BOOL                                  | openClipImage      | 设置打开图片裁剪               | YES                                   |
+| NSString | ocrSDKBundlePath | 设置OCRSDK bundle文件路径，默认从main bundle下读取 | nil |
 
 [](id:OcrType)
+
 ### OcrType
 
 OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支持业务类型的种类，大致如下：
@@ -185,10 +200,15 @@ OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支�
 | OcrType.VehicleLicenseOCR_BACK | 行驶证副页识别模式 |
 | OcrType.DriverLicenseOCR_FRONT | 驾驶证主页识别模式 |
 | OcrType.DriverLicenseOCR_BACK | 驾驶证副页识别模式 |
-
-
+| OcrType.VinOCR2 | 汽车VIN码识别模式(高精度版) |
+| OcrType.HKIDCardoCR_03 | 香港身份证03版本识别模式 |
+| OcrType.IDCardOCR_HK18 | 香港身份证18版本识别模式 |
+| OcrType.PermitOCR | 港澳台通行证识别模式 |
+| OcrType.MLIDPassportocR | 国际护照识别模式 |
+| OcrType.HmtResidentPermitOCR | 港澳台居住证 |
 
 [](id:OcrModeType)
+
 ### OcrModeType
 
 OcrModeType 是一个枚举类型，列举了卡片识别模式
@@ -197,6 +217,31 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | ---------------------- | -------------------------------------------------- |
 | OCR_DETECT_MANUAL      | 手动拍摄模式                                       |
 | OCR_DETECT_AUTO_MANUAL | 自动识别模式（tips：20s后提示 是否切换到手动拍摄） |
+
+[](id:OCR_LanguageType)
+
+### OCR_LanguageType
+
+OCR_LanguageType是一个枚举类型，列举了语言设置
+
+| 类型        | 代表含义 |
+| ----------- | -------- |
+| OCR_DEFAULT | 跟随系统 |
+| OCR_ZH_HANS | 中文简体 |
+| OCR_ZH_HANT | 中文繁体 |
+| OCR_EN      | 英文     |
+
+[](id:OcrCameraZoom)
+
+### OcrCameraZoom
+
+OcrCameraZoom是一个枚举类型，列举了相机默认缩放倍数
+
+| 类型          | 代表含义 |
+| ------------- | -------- |
+| OCR_ZOOM_1X   | 1倍      |
+| OCR_ZOOM_1_5X | 1.5倍    |
+| OCR_ZOOM_2X   | 2倍      |
 
 
 

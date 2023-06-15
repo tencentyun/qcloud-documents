@@ -6,12 +6,6 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 进行手动搭建 Discuz! 论坛，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
 
 
-<dx-alert infotype="notice" title="">
-腾讯云建议您可以通过云市场的镜像环境部署 Discuz! 论坛，手动搭建过程可能需要较长时间。具体步骤可参考 [镜像部署 Discuz! 论坛](https://cloud.tencent.com/document/product/213/9753)。
-</dx-alert>
-
-
-
 ## 示例软件版本
 本文搭建的 Discuz! 论坛软件组成版本及说明如下：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。

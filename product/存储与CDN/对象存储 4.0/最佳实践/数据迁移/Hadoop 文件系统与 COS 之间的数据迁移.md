@@ -17,7 +17,7 @@ hadoop fs -ls cosn://examplebucket-1250000000/
 >  - [DataFullControl](https://console.cloud.tencent.com/cam/policy/detail/5294998&QcloudCOSDataFullControl&2)：数据全读写权限，包含读、写、列出文件列表以及删除操作，建议谨慎授予。
 >  - [QcloudCOSDataReadOnly](https://console.cloud.tencent.com/cam/policy/detail/5295051&QcloudCOSDataReadOnly&2)：数据只读权限。
 >  - [QcloudCOSDataWriteOnly](https://console.cloud.tencent.com/cam/policy/detail/5295044&QcloudCOSDataWriteOnly&2)：数据只写权限。
->- 如果需要使用自定义监控能力，需要授权云监控指标上报和读取接口操作权限，请谨慎授予 [QcloudMonitorFullAccess](https://console.cloud.tencent.com/cam/policy/detail/276210&QcloudMonitorFullAccess&2) 或者按需授予 [云监控接口](https://cloud.tencent.com/document/product/397/40208) 权限。
+>- 如果需要使用自定义监控能力，需要授权腾讯云可观测平台指标上报和读取接口操作权限，请谨慎授予 [QcloudMonitorFullAccess](https://console.cloud.tencent.com/cam/policy/detail/276210&QcloudMonitorFullAccess&2) 或者按需授予 [腾讯云可观测平台接口](https://cloud.tencent.com/document/product/397/40208) 权限。
 >
 
 ## 实践步骤

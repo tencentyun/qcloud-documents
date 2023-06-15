@@ -1,3 +1,5 @@
+>!该文档已停止维护，如需使用文件解压功能，可开通数据万象文件处理服务进行使用，详情请参见 [文件处理](https://cloud.tencent.com/document/product/436/82326)。
+
 ## 简介
 
 GZIP 文件解压功能是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供的数据处理解决方案。用户为存储桶添加 GZIP 文件解压规则后，当 GZIP 压缩文件上传到对象存储时，将自动触发对象存储为您预配置的云函数，自动将文件解压到指定的存储桶和路径中。
@@ -6,14 +8,14 @@ GZIP 文件解压功能是腾讯云对象存储（Cloud Object Storage，COS）�
 - 通过控制台使用：您可以在控制台配置 GZIP 文件解压函数，配置完成后，对于新上传到存储桶内的 GZIP 文件，将会自动进行解压。
 - 通过 API 使用：您可以通过 API 调用的方式，主动触发 GZIP 文件的解压操作。
 
-本篇文档主要讲解如何通过控制台使用 GZIP 文件解压功能，通过 API 使用的方式请参见 [通过 API 进行 GZIP 文件解压](https://cloud.tencent.com/document/product/436/65354)。
+本篇文档主要讲解如何通过控制台使用 GZIP 文件解压功能，通过 API 使用的方式请参见 [通过 API 进行 GZIP 文件解压](https://cloud.tencent.com/document/product/436/65430)。
 
 
 ## 注意事项
 
 - GZIP 文件解压支持解压 .gz、.tgz 格式文件，且压缩包中单个文件大小不得超过5GB。压缩包里面单个文件若大于5G，将导致解压缩失败。
 - 若您此前在对象存储控制台上为存储桶添加了 GZIP 文件解压规则，可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上看到您所创建的 GZIP 文件解压函数，请**不要**删除该 GZIP 文件解压函数，否则可能导致您的规则不生效。
-- 已上线云函数的地域均已支持 GZIP 文件解压缩，包括有广州、上海、北京、成都、香港、新加坡、孟买、多伦多、硅谷等，更多支持地域可查看 [云函数产品文档](https://cloud.tencent.com/document/product/583)。
+- 已上线云函数的地域均已支持 GZIP 文件解压缩，包括有广州、上海、北京、成都、中国香港、新加坡、孟买、多伦多、硅谷等，更多支持地域可查看 [云函数产品文档](https://cloud.tencent.com/document/product/583)。
 - 压缩包中的目录或者文件名请严格使用 UTF-8 或 GB 2312 编码，否则可能导致解压后的文件名或者目录名出现乱码、解压过程中断等情况；如果出现报错，您可以单击所创建的函数右侧的**查看日志**，跳转到云函数控制台查看日志错误详情。
 - 归档存储类型文件不支持解压缩，如您需要解压缩归档存储类型的压缩包，请先恢复后再进行，恢复操作请参见 [恢复归档对象](https://cloud.tencent.com/document/product/436/32430)。
 - 解压单个压缩包最大处理时间为900秒，超过900秒未完成的解压任务会失败。对象存储的解压缩功能限制说明基于云函数服务，其他限制请参见 [云函数限制说明](https://cloud.tencent.com/document/product/583/11637)。
@@ -55,7 +57,7 @@ GZIP 文件解压功能是腾讯云对象存储（Cloud Object Storage，COS）�
 > - 无：解压后的文件保存路径为：bucket2-1250000000
 > 
 7. 确认配置无误后，单击**确认**，即可看到函数已添加完成。
-![img](https://qcloudimg.tencent-cloud.cn/raw/8675beaebc9b141e3b26e56e33b6f1ee.png)
+   ![img](https://qcloudimg.tencent-cloud.cn/raw/8675beaebc9b141e3b26e56e33b6f1ee.png)
    您可以对新创建的函数进行如下操作：
  - 单击**日志**，查看 GZIP 文件解压的历史运行情况。当解压出现报错时，您还可以通过单击**查看日志**，快速跳转到云函数控制台查看日志错误详情。
  - 单击**详情**，查看 GZIP 文件解压的具体配置规则。

@@ -10,8 +10,8 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包包含64位 Linux 版本的 tc
 
 | 版本         | 操作系统  | Client下载   |
 |--------------|-------------|-------------------|
-| 3.46.0.200178 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tcaplus-client/3.46/tcaplus_client) |
-| 3.55.0.208149 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tcaplus-client/3.55/tcaplus_client) |
+| 3.46.0.200178 | Linux x86_64 | [下载](https://tcaplusdb.tencent.com/UserGuide/07TcaplusDB%E4%B8%8B%E8%BD%BD%E4%B8%AD%E5%BF%83/03Client%E4%B8%8B%E8%BD%BD.html) |
+| 3.55.0.208149 | Linux x86_64 | [下载](https://tcaplusdb.tencent.com/UserGuide/07TcaplusDB%E4%B8%8B%E8%BD%BD%E4%B8%AD%E5%BF%83/03Client%E4%B8%8B%E8%BD%BD.html) |
 
 >?相关操作需要在用户腾讯云账号下申请的同 VPC 网络、同子网的云服务器 CVM 中进行。
 
@@ -136,7 +136,7 @@ tcaplus > exit
 ```
 
 #### [TDR 工具](id:tdrgj)
-TDR 文件需要使用 TDR 工具生成，其主要是由数据定义文件（TDR 结构 xml 格式）生成，[工具下载地址](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tdr)。
+TDR 文件需要使用 TDR 工具生成，其主要是由数据定义文件（TDR 结构 xml 格式）生成，SDK 包中 tbase 包的 tools 目录下有此工具。
 
 使用示例：
 ```
@@ -162,7 +162,7 @@ tdr -E 0x83010404
 ```
 
 #### tdr2xml 工具
-tdr2xml 工具可以把二进制元数据文件反编译成一个 xml 格式的元数据描述文件，[工具下载地址](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tdr2xml)。
+tdr2xml 工具可以把二进制元数据文件反编译成一个 xml 格式的元数据描述文件，SDK 包中 tbase 包的 tools 目录下有此工具。
 
 用法：
 ```
