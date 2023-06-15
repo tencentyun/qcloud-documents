@@ -1,5 +1,5 @@
 
-本文主要介绍如何在使用 Fresco 时集成 QCloud 网络库。
+本文主要介绍如何在使用 Fresco 时通过集成 QCloud 网络库进行网络优化。
 
 QCloud 网络库 SDK 自定义了 Fresco 的 NetworkFetcher，接管图片加载网络层，并新增了如下功能：
 
@@ -17,7 +17,7 @@ implementation 'com.qcloud.cos:qcloud-decoder-network:1.1.0'
 implementation 'com.facebook.fresco:fresco:version'
 ```
 
-### 注册 ModelLoader
+### 设置 NetworkFetcher
 
 通过初始化 Fresco.initialize 时传入设置有 QCloudHttpNetworkFetcher 的 ImagePipelineConfig 实现相应功能。
 

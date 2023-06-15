@@ -1,5 +1,5 @@
 
-本文主要介绍如何在使用 Glide 时集成 QCloud 网络库。
+本文主要介绍如何在使用 Glide 时通过集成 QCloud 网络库进行网络优化。
 
 QCloud 网络库 SDK 自定义了 GlideUrl 的 ModelLoader，接管图片加载网络层，并新增了如下功能：
 
