@@ -1,8 +1,9 @@
 本文将介绍 TDSQL MySQL 版中 TPC-C 体验版（物理复制版本）的特性、性能及使用方式。该版本是 TDSQL 通过 TPC-C 基准测试的版本，在高 IO 并发性能上有较大的提升。
 
->? 由 TPC 发起的 TPC-C 是全球数据库认可的一套性能评价标准，它模拟超大型高并发的极值场景，对数据库系统的软硬件协同能力要求极高。
-> 2023年3月，腾讯云数据库 TDSQL 实现每分钟交易量8.14亿次,同时在超高压下稳定运行8小时，波动率为0.2%，成功打破纪录。
-> TPC官网链接：[官网链接](https://www.tpc.org/tpcc/results/tpcc_results5.asp?print=false&orderby=tpm&sortby=desc)
+>? 
+>- 由 TPC 发起的 TPC-C 是全球数据库认可的一套性能评价标准，它模拟超大型高并发的极值场景，对数据库系统的软硬件协同能力要求极高。
+>- 2023年3月，腾讯云数据库 TDSQL 实现每分钟交易量8.14亿次,同时在超高压下稳定运行8小时，波动率为0.2%，成功打破纪录。
+>- TPC官网链接：[官网链接](https://www.tpc.org/tpcc/results/tpcc_results5.asp?print=false&orderby=tpm&sortby=desc)
 
 ## 物理复制版本特性
 - 支持物理复制。物理复制是将主库 WAL 日志流直接发给备库，备库根据 WAL 日志进行重做的一种复制方式，这种复制和 MySQL 原生复制有明显区别，复制期间不会产生 binlog 文件。
