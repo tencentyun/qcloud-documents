@@ -48,7 +48,7 @@ curl -X DELETE IP:8998/sessions/0
 ### Livy 端口修改方法
 目前的默认端口是8998，用户可以自行修改。修改配置文件 `livy.conf` 的 `livy.server.port` 属性即可。
 
-若集群装有 Hue，由于 Hue 与 Livy 之间涉及联通性，因此 Hue 对应的配置端口也需要修改。其对应的配置文件为 `pseudo-distributed.ini`，路径为 `/usr/local/service/hue/desktop/conf`，对应的配置项为 `livy_server_port=8998`。修改后要重启对应的服务。
+若集群装有 Hue，由于 Hue 与 Livy 之间涉及联通性，因此 Hue 对应的配置端口也需要修改。其对应的配置文件为 `pseudo-distributed.ini`，路径为 `/usr/local/service/hue/desktop/conf`，对应的配置项为 `spark_livy_server_port=8998`。修改后要重启对应的服务。
 
 **如非必要，建议不要修改 Livy 的端口，如涉及安全要求，可以通过安全组的方式来进行控制。修改后可能会导致一些其他的潜在问题。**
 
