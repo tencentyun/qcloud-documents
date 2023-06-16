@@ -6,7 +6,7 @@ PostgreSQL 数据备份是腾讯云对象存储（Cloud Object Storage，COS）�
 
 - PostgreSQL 数据备份函数备份的是腾讯云 PostgreSQL 数据库的备份文件，若您此前并未开启 PostgreSQL 数据库备份，则无法执行备份函数。有关腾讯云 PostgreSQL 数据库备份的更多信息，可查看 [PostgreSQL 自动备份设置](https://cloud.tencent.com/document/product/409/68388)。
 - 若您此前在对象存储控制台上为存储桶添加了 PostgreSQL 数据备份规则，可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上看到您所创建的 PostgreSQL  数据备份函数，请**不要**删除该函数，否则可能导致您的规则不生效。
-- 已上线云函数的地域均已支持 PostgreSQL 数据备份，包括有广州、上海、北京、成都、香港、新加坡等，更多支持地域可查看 [云函数产品文档](https://cloud.tencent.com/document/product/583)。
+- 已上线云函数的地域均已支持 PostgreSQL 数据备份，包括有广州、上海、北京、成都、中国香港、新加坡等，更多支持地域可查看 [云函数产品文档](https://cloud.tencent.com/document/product/583)。
 
 ## 操作步骤
 
