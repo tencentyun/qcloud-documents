@@ -145,11 +145,11 @@ COS Java SDK 旧版本仅支持例如125开头的 APPID，如果您使用的是 
 
 ### 使用 COS Java SDK 上传大文件报错，该如何处理？
 
-使用 Java SDK 上传大于5G的文件时，建议使用 [高级上传接口](https://cloud.tencent.com/document/product/436/35215#.E9.AB.98.E7.BA.A7.E6.8E.A5.E5.8F.A3.EF.BC.88.E6.8E.A8.E8.8D.90.EF.BC.89)。高级上传接口根据用户文件的长度和数据类型，自动选择以简单上传或分块上传方式。
+使用 Java SDK 上传大于5G的文件时，建议使用 [高级上传接口](https://cloud.tencent.com/document/product/436/65935#.E9.AB.98.E7.BA.A7.E6.8E.A5.E5.8F.A3.EF.BC.88.E6.8E.A8.E8.8D.90.EF.BC.89)。高级上传接口根据用户文件的长度和数据类型，自动选择以简单上传或分块上传方式。
 
 ### Java SDK 如何获取文件上传进度？
 
-需获取上传进度，建议使用 [高级上传](https://cloud.tencent.com/document/product/436/35215#.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1.EF.BC.88.E8.8E.B7.E5.8F.96.E8.BF.9B.E5.BA.A6.EF.BC.89) 接口，通过调用 Upload 的方法 getProgress() 获取上传的进度 TransferProgress 类。
+需获取上传进度，建议使用 [高级上传接口](https://cloud.tencent.com/document/product/436/65935#.E9.AB.98.E7.BA.A7.E6.8E.A5.E5.8F.A3.EF.BC.88.E6.8E.A8.E8.8D.90.EF.BC.89)，通过调用 Upload 的方法 getProgress() 获取上传的进度 TransferProgress 类。
 
 ### Java SDK 是否支持计算本地文件的 CRC64？
 
@@ -232,4 +232,5 @@ Java SDK 默认使用长连接。
 ### Java SDK 报错请求过期，抛出异常：com.qcloud.cos.exception.CosServiceException: Request has expired (Status Code: 403; Error Code: AccessDenied)，该如何处理？
 
 由于签名过期导致，重新生成签名即可解决；若重新生成签名仍报相同的错误，可以再检查机器的本地时间是否为标准的北京时间。
+
 
