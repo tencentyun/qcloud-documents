@@ -4,13 +4,13 @@
 创建集群时，在选择集群类型为 Hadoop 时可以在可选组件中选择 Ranger，Ranger 的版本根据您选择的 EMR 版本不同而存在差异。
 >?集群类型为 Hadoop 且选择了可选组件 Ranger 时，EMR-Ranger 默认会为 HDFS、YARN 创建服务并设置默认策略。
 >
-![](https://main.qcloudimg.com/raw/e744dc5ce95b1a2dc17f2765b4abe721.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/93e385e006b82b746283769796dec2d5.png)
 
 ## Ranger Web UI
 在访问 Ranger Web UI 之前，请务必确认当前所购买的集群是否配置了公网 IP，然后在集群服务中单击 Ranger 组件的 Web UI 地址链接。
-![](https://main.qcloudimg.com/raw/002d2aeeb1349f12b3c811b1bbae7ea4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9d5f3693a9f6a82c96b7645a44d2d5ca.png)
 Web UI 地址链接跳转后，会提示输入用户名及密码，即在购买集群时设置的用户名及密码。
-![](https://main.qcloudimg.com/raw/a0b4159c09c674773b2f3705abbd7d38.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7bf28c9efc42e599966f4ffa803af5c9.png)
  
 ## YARN 集成 Ranger
 >!请确保 YARN 相关服务运行正常并且当前集群已安装 Ranger。
@@ -18,9 +18,9 @@ Web UI 地址链接跳转后，会提示输入用户名及密码，即在购买�
 EMR Ranger YARN 目前仅支持 Capacity Scheduler 队列的 ACL，不支持 Fair Scheduler 队列的 ACL。Ranger YARN 队列 ACL 与 YARN 自带的 Capacity Scheduler 配置共同生效，且优先级低于 Capacity Scheduler 配置，只有在 YARN 自带的 Capacity Scheduler 配置拒绝校验时才会校验 Ranger YARN 权限。**建议不要在配置文件设置 ACL，而是使用 Ranger 设置 ACL**。
 
 1. 使用 EMR Ranger Web UI 页面添加 EMR Ranger YARN 服务。
-![](https://main.qcloudimg.com/raw/b574991466eb89ebb990c4c9dc56a236.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5b219330ef8da448dbf5e87031d7e9fa.png)
 2. 配置 EMR Ranger YARN Service 相关参数。
-![](https://main.qcloudimg.com/raw/40ee44b63186f88216f0c657b7a9f018.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e14eec9e502f0100557c026cf44e5683.png)
 <table>
 <thead>
 <tr>
@@ -71,11 +71,11 @@ EMR Ranger YARN 目前仅支持 Capacity Scheduler 队列的 ACL，不支持 Fai
 </tr>
 </tbody></table>
 3. EMR Ranger YARN 资源权限配置。
- - 点击配置好的 EMR Ranger HDFS Service 
-![](https://main.qcloudimg.com/raw/57b34f9adde606c40f52bf76f1e43c36.png)
+ - 单击配置好的 EMR Ranger HDFS Service 
+![](https://qcloudimg.tencent-cloud.cn/raw/1d7e2e42823c4271179bc0e36728a385.png)
  - 配置 Policy 
-![](https://main.qcloudimg.com/raw/68cceaed942cea8da21222b3d6903a19.png)
-![](https://main.qcloudimg.com/raw/374ad719611ded0872a0aa51c5dcf6dd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e291dda6423091557beca98ecfcc2154.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ca47a1e18e2ae77852d979155e36addc.png)
 4. 添加完 Policy 后，稍等约半分钟等待 Policy 生效。生效后使用 user1 就可以向 YARN 的 root.default 队列中提交、删除、查询作业等操作。
 
 >!在配置 Ranger YARN Service 以及 Policy 时请务必确保期间没有 YARN 作业，否则会出现某些用户作业提交权限问题。
