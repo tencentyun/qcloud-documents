@@ -4,21 +4,21 @@
 创建集群时，在选择集群类型为 Hadoop 时可以在可选组件中选择 Ranger，Ranger 的版本根据您选择的 EMR 版本不同而存在差异。
 >?集群类型为 Hadoop 且选择了可选组件 Ranger 时，EMR-Ranger 默认会为 HDFS、YARN 创建服务并设置默认策略。
 >
-![](https://main.qcloudimg.com/raw/e744dc5ce95b1a2dc17f2765b4abe721.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bf3a4245495a0b9900210ead271ead5e.png)
 
 ## Ranger Web UI
 在访问 Ranger Web UI 之前，请务必确认当前所购买的集群是否配置了公网 IP，然后在集群服务中单击 Ranger 组件的 Web UI 地址链接。
-![](https://main.qcloudimg.com/raw/002d2aeeb1349f12b3c811b1bbae7ea4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7799b7a69b6b594998f91be611e9cf98.png)
 Web UI 地址链接跳转后，会提示输入用户名及密码，即在购买集群时设置的用户名及密码。
-![](https://main.qcloudimg.com/raw/a0b4159c09c674773b2f3705abbd7d38.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/adba4927b84c783fd908ac96ec1726aa.png)
 
 ## HDFS 集成 Ranger
 >!请确保 HDFS 相关服务运行正常并且当前集群已安装 Ranger。
 >
 1. 使用 EMR Ranger Web UI 页面添加 EMR Ranger HDFS 服务。
-![](https://main.qcloudimg.com/raw/74f103c458aa2327cd3eb8c7ad2009ef.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/80ffd5bcd3f0a27f0068b4cf5006110b.png)
 2. 配置 EMR Ranger HDFS Service 相关参数。
-![](https://main.qcloudimg.com/raw/c73a4fa6907df6be4bc1f2b6fac87106.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/12a80fd293cad4f282bff6f6ba30f099.png)
 <table>
 <thead>
 <tr>
@@ -69,9 +69,9 @@ Web UI 地址链接跳转后，会提示输入用户名及密码，即在购买�
 </tr>
 </tbody></table>
 3.  EMR Ranger HDFS 资源权限配置。
- - 点击配置好的 EMR Ranger HDFS Service 
-![](https://main.qcloudimg.com/raw/3c2d2defa092584909a3d1b2a2021eff.png)
+ - 单击配置好的 EMR Ranger HDFS Service 
+![](https://qcloudimg.tencent-cloud.cn/raw/96aecb0b399b11b442f4e5ee84c70cb5.png)
  - 配置 Policy 
-![](https://main.qcloudimg.com/raw/4e103c65e9de153c4c1cd8d77dcaf33c.png)
-![](https://main.qcloudimg.com/raw/a22709846886c938b2b9aa2222e445ed.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f60e3a27685e2a5267aa5b3ea8b24875.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d4e8534bf63205b9af6a54c4f23abdcd.png)
 4. 添加完 Policy 后，稍等约半分钟等待 Policy 生效。生效后使用 user1 就可以对 HDFS 文件系统的 /user 进行读写操作。
