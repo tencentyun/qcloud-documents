@@ -1,4 +1,4 @@
-腾讯电子签在企业微信内支持从企微组织架构同步员工，同时也支持添加非企微用户到组织架构中。
+腾讯电子签在企业微信内支持从企业微信组织架构同步员工，同时也支持添加非企业微信用户到组织架构中。
 本文档主要介绍如何对企业微信架构内的员工进行管理。
 >?针对非企业微信用户的组织架构管理，请参见 [组织架构管理](https://cloud.tencent.com/document/product/1323/58495) 文档。
 
@@ -8,14 +8,15 @@
 
 ## 配置路径
 ### 桌面端
-1. 登录企业微信桌面端，在工作台页面打开**腾讯电子签**应用。
-![](https://qcloudimg.tencent-cloud.cn/raw/cfa7ef81e81c9e7604210bec508095db.png)
-2. 在顶部导航栏选择**组织管理 ＞ 组织架构**页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/51d344842d59d09b430af28853585fea.png)
-3. 在组织架构页面，同时支持对**企业微信组织架构员工**和**非企业微信用户**进行管理，也支持根据角色类型、账号状态和姓名精准筛选员工。
+1. 登录企业微信桌面端，在工作台页面打开腾讯电子签应用。
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0dd0d92092aa6fab11902a60a570481d.png" />
+2. 在顶部导航栏选择**组织管理** ＞ **组织架构**页面。
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/fbf68529addaba7b206ff62f0fdc2869.png" />
+3. 在组织架构页面，同时支持对企业微信组织架构员工和非企业微信用户进行管理，也支持根据角色类型、账号状态和姓名精准筛选员工。
 >?如何新增、编辑、删除角色，请参见 [角色管理](https://cloud.tencent.com/document/product/1323/61355) 文档。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/1d7a181e18a6c7686f2ef8eec8c01806.png)
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/a5f9bdcc3183f8193336b6cb28bba2f7.png" />
+
 
 ### 移动端
 1. 登录企业微信移动端，在工作台页面打开**腾讯电子签**应用。
@@ -27,14 +28,14 @@
 
 ## 企业微信组织架构管理
 ### 添加员工
-在企业微信组织架构中添加员工，共有3个步骤，详见下图：
-![](https://qcloudimg.tencent-cloud.cn/raw/c63312ec8343804552039b93b780f6b4.png)
+在企业微信组织架构中添加员工，共有以下步骤，详见下图：
+![](https://qcloudimg.tencent-cloud.cn/raw/cbe1aa9391ac9fd6d9b94b89b4aa525e.png)
 
-#### 步骤1：将新员工添加至企业微信组织架构中
+#### 步骤一：将新员工添加至企业微信组织架构中
 请企业微信管理员登录 [企业微信管理后台](https://work.weixin.qq.com/wework_admin/loginpage_wx?from=myhome)，随后进入到通讯录页面添加成员。
 >?企业微信管理员如何在电脑端和手机端添加员工，具体操作请参见 [企业微信添加新员工](https://open.work.weixin.qq.com/help2/pc/16490?person_id=1) 文档。
 
-#### 步骤2：在企业微信的腾讯电子签应用中将新员工纳入应用可见范围内
+#### 步骤二：在企业微信的腾讯电子签应用中将新员工纳入应用可见范围内
 1. 请企业微信管理员登录 [企业微信管理后台](https://work.weixin.qq.com/wework_admin/loginpage_wx?from=myhome)，随后打开**应用管理 ＞ 应用 ＞ 腾讯电子签**应用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ce1174657dbb2d4a71e53548df9cf.png)
 2. 在应用设置页面，选择**可见范围**，将需要加入腾讯电子签的员工修改纳入到可见范围中。
@@ -43,7 +44,7 @@
  - 移动端：
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb6107c2f6022b6f7478e9f96fb111ee.png)
 
-#### 步骤3：在腾讯电子签应用的组织架构中单击企微同步
+#### 步骤三：在腾讯电子签应用的组织架构中单击企微同步
 1. 在组织架构页面，并单击**企微同步**，实时同步企业微信腾讯电子签应用可见范围内的所有员工。
 >?请将新员工添加至腾讯电子签应用的可见范围。
 >
@@ -56,6 +57,15 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/ce6b512ce866b2d6a63990e9bfc080b8.png)
  - 移动端：<br>
 <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ab134f6dd3b3376983258040301d7fb9.jpg" />
+
+#### 步骤四：企微同步成功后，新员工进行实名认证
+新员工可以在企业微信移动端工作台，打开腾讯电子签应用进行实名认证。
+![](https://qcloudimg.tencent-cloud.cn/raw/85416342c38dfb50908c5ca563432010.png)
+
+#### 步骤五：为实名的员工分配角色权限
+新员工实名认证成功后，电子签管理员可以在组织架构中为实名的新员工分配角色。
+![](https://qcloudimg.tencent-cloud.cn/raw/3e8117ceaa7c2ab38473afd70553c012.png)
+
 
 ### 移除员工
 1. 企业微信管理员登录 [企业微信管理后台](https://work.weixin.qq.com/wework_admin/loginpage_wx?from=myhome)，随后打开**应用管理 ＞ 应用 ＞ 腾讯电子签**应用。
