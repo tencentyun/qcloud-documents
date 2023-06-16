@@ -6,9 +6,12 @@
 ```
 
 ### 2. 准备数据
-创建数据文件（JSON 格式），编译以下内容并保存：
+创建数据文件（JSON 格式）：
 ```
 vim test.data
+```
+编译以下内容并保存：
+```
 {"name":"Mary","age":12,"course":[{"name":"math","location":"b208"},{"name":"english","location":"b702"}],"grade":[99,98,95]}
 {"name":"Bob","age":20,"course":[{"name":"music","location":"b108"},{"name":"history","location":"b711"}],"grade":[91,92,93]}
 ```
