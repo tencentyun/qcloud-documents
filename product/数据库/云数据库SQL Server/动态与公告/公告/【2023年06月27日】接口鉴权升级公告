@@ -1,0 +1,39 @@
+﻿尊敬的腾讯云用户，根据腾讯云安全防范要求，2023年06月27日，腾讯云将对云数据库 SQL Server 直连 API 接口增加 CAM 鉴权访问，为保证升级后您可以正常使用对应接口，请在2023年06月27日前登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/policy) 添加对应接口的访问授权。
+
+## 注意事项
+在此日期前已授权的用户，鉴权生效后无任何影响，在此日期后未授权的用户如需使用 API，需要先进行授权才能访问对应接口。
+## 生效时间
+北京时间2023年06月27日（周二）。
+## 接入 CAM 鉴权的 API 列表（共11个）
+<table>
+<thead><tr><th>API 名称</th><th>API 描述</th><th>授权级别</th></tr></thead>
+<tbody>
+<td>BalanceReadOnlyGroup</td><td>本接口（BalanceReadOnlyGroup）用于根据预定义的权重，平衡每个只读实例的路由权重。预定义权重可根据接口 DescribeReadOnlyGroupAutoWeight 查询。</td><td>资源级</td></tr>
+<td>DeleteDBInstanceSet</td><td>本接口（DeleteDBInstanceSet）用于批量释放回收站中的 SQL server 实例(立即下线)。释放后的实例将在保存一段时间后物理销毁。其发布订阅将自动解除，其 RO 副本将自动释放。</td><td>资源级</td></tr>
+<td>DescribeBackupMonitor</td><td>本接口（DescribeBackupMonitor）用于查询备份空间使用详情。</td><td>操作级</td></tr>
+<td>DescribeBackupSummary</td><td>本接口（DescribeBackupSummary）用于查询数据库备份概览信息。</td><td>操作级</td></tr>
+<td>DescribeDBInstancesAttribute</td><td>本接口（DescribeDBInstancesAttribute）用于查询实例附属属性。</td><td>资源级</td></tr>
+<td>DescribeRegularBackupPlan</td><td>本接口（DescribeRegularBackupPlan）用于查询实例定期备份保留计划。</td><td>操作级</td></tr>
+<td>DescribeUpgradeInstanceCheck</td><td>本接口（DescribeUpgradeInstanceCheck）用于在实例变配前，预检查实例变配的影响情况等。</td><td>操作级</td></tr>
+<td>DescribeWhiteListForMonitor</td><td>本接口（DescribeWhiteListForMonitor）用于控制系统特殊性能监控指标的展示。</td><td>操作级</td></tr>
+<td>ModifyDBInstanceNote</td><td>本接口（ModifyDBInstanceNote）用于修改实例备注信息。</td><td>资源级</td></tr>
+<td>ModifyPublishSubscribe</td><td>本接口（ModifyPublishSubscribe）用于修改实例的发布订阅关系。</td><td>操作级</td></tr>
+<td>RenewPostpaidDBInstanceSet</td><td>对于通过接口 TerminateDBInstance 手动隔离的按量计费实例，本接口（RenewPostpaidDBInstanceSet）将批量将其从回收站中移出（修改实例状态由已隔离变为运行中）。与 RenewPostpaidDBInstance 接口不同的是，RenewPostpaidDBInstance 不支持批量恢复。</td><td>资源级</td></tr>
+</tbody></table>
+
+## 授权操作指导
+1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
+2. 在左侧导航栏，单击**策略**。
+
+**资源级接口**
+选择**新建自定义策略** > **按策略生成器创建**，配置对应的策略参数。
+- 服务：云数据库 SQL Server（sqlserver）。
+- 资源：可以选择指定实例，也可选择全部资源。
+![](https://qcloudimg.tencent-cloud.cn/raw/53f20ec6d356adf8ddbc9b1bfa74da04.png)
+
+**操作级接口**
+选择**新建自定义策略** > **按策略生成器创建**，配置对应的策略参数。
+- 服务：云数据库 SQL Server（sqlserver）。
+- 资源：无法指定实例，选择全部资源即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/80eede8a2dc9f88f0329ed3c6bfad4a2.png)
+
