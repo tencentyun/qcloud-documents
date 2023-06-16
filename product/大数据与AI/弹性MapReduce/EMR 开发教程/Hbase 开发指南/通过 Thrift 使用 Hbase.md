@@ -74,7 +74,7 @@ from thrift.transport import TSocket,TTransport
 from thrift.protocol import TBinaryProtocol
 from hbase import Hbase
 
-socket = TSocket.TSocket('$thriftIP ', $port)
+socket = TSocket.TSocket('$thriftIP', $port)
 socket.setTimeout(5000)
 
 transport = TTransport.TBufferedTransport(socket)
@@ -85,7 +85,7 @@ transport.open()
 
 print client.getTableNames()
 ```
->!其中 $thriftIP 为 Master 节点在内网的 IP 地址，$port 为 ThriftService 的端口号，下同。
+>!其中 $thriftIP为 Master 节点在内网的 IP 地址，$port 为 ThriftService 的端口号，下同。
 
 保存后直接运行程序，会直接在控制台输出 Hbase 中的存在的表：
 ```
@@ -106,7 +106,7 @@ from hbase import Hbase
 from hbase.ttypes import ColumnDescriptor,Mutation,BatchMutation,TRegionInfo
 from hbase.ttypes import IOError,AlreadyExists
 
-socket = TSocket.TSocket('$thriftIP ',$port)
+socket = TSocket.TSocket('$thriftIP',$port)
 socket.setTimeout(5000)
 
 transport = TTransport.TBufferedTransport(socket)
@@ -142,7 +142,7 @@ from hbase import Hbase
 from hbase.ttypes import ColumnDescriptor,Mutation,BatchMutation,TRegionInfo
 from hbase.ttypes import IOError,AlreadyExists
 
-socket = TSocket.TSocket('$thriftIP ', $port)
+socket = TSocket.TSocket('$thriftIP', $port)
 socket.setTimeout(5000)
 
 transport = TTransport.TBufferedTransport(socket)
@@ -189,7 +189,7 @@ from hbase import Hbase
 from hbase.ttypes import ColumnDescriptor,Mutation,BatchMutation,TRegionInfo
 from hbase.ttypes import IOError,AlreadyExists
 
-socket = TSocket.TSocket('$thriftIP ', $port)
+socket = TSocket.TSocket('$thriftIP', $port)
 socket.setTimeout(5000)
 
 transport = TTransport.TBufferedTransport(socket)
@@ -236,7 +236,7 @@ from thrift.protocol import TBinaryProtocol
 from hbase import Hbase
 from hbase.ttypes import *
 
-socket = TSocket.TSocket('$thriftIP ',$port)
+socket = TSocket.TSocket('$thriftIP',$port)
 socket.setTimeout(5000)
 
 transport = TTransport.TBufferedTransport(socket)
