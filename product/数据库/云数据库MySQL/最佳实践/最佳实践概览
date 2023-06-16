@@ -1,0 +1,12 @@
+﻿本文为您介绍云数据库 MySQL 最佳实践概览，您可根据业务需求对应查看。
+
+| 分类 | 文档链接 | 
+|---------|---------|
+| 使用规范 | [云数据库 MySQL 使用规范](https://cloud.tencent.com/document/product/236/13390) | 
+| 访问与连接 | <li>[如何通过云联网实现轻量服务器访问云数据库 MySQL](https://cloud.tencent.com/document/product/236/88904)</li><li>[应用程序配置自动重连功能](https://cloud.tencent.com/document/product/236/44931)</li><li>[为云数据库 MySQL 创建 VPC](https://cloud.tencent.com/document/product/236/8468)</li> | 
+| 参数相关 | [MySQL 主实例参数修改的影响](https://cloud.tencent.com/document/product/236/19010) | 
+| 报错 | [MyISAM 自动转换为 InnoDB 引擎限制](https://cloud.tencent.com/document/product/236/45043) | 
+| 性能提升 | <li>[使用云数据库 MySQL 提高业务负载能力](https://cloud.tencent.com/document/product/236/10972)</li><li>[读写分离扩展云数据库 MySQL 性能](https://cloud.tencent.com/document/product/236/72619)</li> | 
+| 架构搭建方案 | [两地三中心灾备建设](https://cloud.tencent.com/document/product/236/72615) | 
+| 构建应用程序/网站 | <li>[构建 LAMP 堆栈 Web 应用程序](https://cloud.tencent.com/document/product/236/10940)</li><li>[构建 Drupal 网站](https://cloud.tencent.com/document/product/236/10961)</li> | 
+| 通过 python 调用 API | <li>[实例购买](https://cloud.tencent.com/document/product/236/19306)</li><li>[实例管理](https://cloud.tencent.com/document/product/236/19307)</li><li>[备份任务](https://cloud.tencent.com/document/product/236/19390)</li> | 
