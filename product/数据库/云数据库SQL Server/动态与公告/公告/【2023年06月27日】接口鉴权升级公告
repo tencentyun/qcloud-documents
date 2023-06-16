@@ -1,4 +1,4 @@
-﻿尊敬的腾讯云用户，根据腾讯云安全防范要求，2023年06月27日，腾讯云将对云数据库 SQL Server 直连 API 接口增加 CAM 鉴权访问，为保证升级后您可以正常使用对应接口，请在2023年06月27日前登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/policy) 添加对应接口的访问授权。
+尊敬的腾讯云用户，根据腾讯云安全防范要求，2023年06月27日，腾讯云将对云数据库 SQL Server 直连 API 接口增加 CAM 鉴权访问，为保证升级后您可以正常使用对应接口，请在2023年06月27日前登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/policy) 添加对应接口的访问授权。
 
 ## 注意事项
 在此日期前已授权的用户，鉴权生效后无任何影响，在此日期后未授权的用户如需使用 API，需要先进行授权才能访问对应接口。
@@ -9,7 +9,7 @@
 <thead><tr><th>API 名称</th><th>API 描述</th><th>授权级别</th></tr></thead>
 <tbody>
 <td>BalanceReadOnlyGroup</td><td>本接口（BalanceReadOnlyGroup）用于根据预定义的权重，平衡每个只读实例的路由权重。预定义权重可根据接口 DescribeReadOnlyGroupAutoWeight 查询。</td><td>资源级</td></tr>
-<td>DeleteDBInstanceSet</td><td>本接口（DeleteDBInstanceSet）用于批量释放回收站中的 SQL server 实例(立即下线)。释放后的实例将在保存一段时间后物理销毁。其发布订阅将自动解除，其 RO 副本将自动释放。</td><td>资源级</td></tr>
+<td>DeleteDBInstanceSet</td><td>本接口（DeleteDBInstanceSet）用于批量释放回收站中的 SQL Server 实例（立即下线）。释放后的实例将在保存一段时间后物理销毁。其发布订阅将自动解除，其 RO 副本将自动释放。</td><td>资源级</td></tr>
 <td>DescribeBackupMonitor</td><td>本接口（DescribeBackupMonitor）用于查询备份空间使用详情。</td><td>操作级</td></tr>
 <td>DescribeBackupSummary</td><td>本接口（DescribeBackupSummary）用于查询数据库备份概览信息。</td><td>操作级</td></tr>
 <td>DescribeDBInstancesAttribute</td><td>本接口（DescribeDBInstancesAttribute）用于查询实例附属属性。</td><td>资源级</td></tr>
