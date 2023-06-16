@@ -140,7 +140,7 @@ HttpMethodName method = HttpMethodName.GET;
 URL url = cosClient.generatePresignedUrl(bucketName, key, expirationDate, method, headers, params);
 System.out.println(url.toString());
 
-// 确认本进程不再使用 cosClient 实例之后，关闭之
+// 确认本进程不再使用 cosClient 实例之后，关闭即可
 cosClient.shutdown();
 ```
 
@@ -212,7 +212,7 @@ req.putCustomRequestHeader("header1", "value1");
 URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
 
-// 确认本进程不再使用 cosClient 实例之后，关闭之
+// 确认本进程不再使用 cosClient 实例之后，关闭即可
 cosClient.shutdown();
 ```
 
