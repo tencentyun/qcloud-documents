@@ -25,13 +25,13 @@
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
 2. 在左侧导航栏，单击**策略**。
 
-**资源级接口**
+### **资源级接口**
 选择**新建自定义策略** > **按策略生成器创建**，配置对应的策略参数。
 - 服务：云数据库 SQL Server（sqlserver）。
 - 资源：可以选择指定实例，也可选择全部资源。
 ![](https://qcloudimg.tencent-cloud.cn/raw/53f20ec6d356adf8ddbc9b1bfa74da04.png)
 
-**操作级接口**
+### **操作级接口**
 选择**新建自定义策略** > **按策略生成器创建**，配置对应的策略参数。
 - 服务：云数据库 SQL Server（sqlserver）。
 - 资源：无法指定实例，选择全部资源即可。
