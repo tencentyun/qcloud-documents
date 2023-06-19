@@ -34,18 +34,18 @@ VPC 通道的作用是将部署在 VPC 内的服务通过 API 网关开放给外
 | 节点列表     | 是       | API 网关转发到的后端节点列表，支持最多200个节点，每个节点需要填写节点地址、端口、权重 |
 | 重试次数     | 是       | API 网关请求节点失败的重试次数，默认为5次，支持填写1-100间的正整数 |
 -->
-![](https://qcloudimg.tencent-cloud.cn/raw/91b588a10a142fe69ba584126294d624.png)
+
+<img src="https://qcloudimg.tencent-cloud.cn/raw/91b588a10a142fe69ba584126294d624.png" width="600" />
 
 ### 步骤2：创建后端对接 VPC 内资源的 API，关联 VPC 通道
 
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) ，在左侧导航栏单击**服务**。
-2. 在服务列表中，单击一个**挂载在专享实例下服务**的服务名，查看该服务。
-3. 在服务信息中，单击**管理 API** 标签页，根据后端业务类型选择创建**通用 API**。
-4. 单击**新建**，填写 API 前端配置，填写完成后单击**下一步**按钮。
-5. 填写后端配置，选择 API 后端类型为“VPC 内资源”，选择对接方式为“通过 VPC 通道”，选择步骤1中创建的 VPC 通道。
+2. 在服务列表中，单击一个**挂载在专享实例下服务**的服务名，进入详情页。
+3. 在详情页中，单击**新建API**，填写 API 前端配置，填写完成后单击**下一步**按钮。
+4. 填写后端配置，选择 API 后端类型为“VPC 内资源”，选择对接方式为“通过后端通道”，选择后端通道类型为“VPC通道”；
+5. 选择步骤1中创建的 VPC 通道。
 6. 完成后续配置，成功创建一个后端对接 VPC 内资源的 API。
-
-![](https://main.qcloudimg.com/raw/6d1487f4b5ff233db93d5fa314ed7ca9.png)
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/849b1d7c7ff5649217d2fca613f04cc4.png" width="700" />
 
 ### 步骤3：调用 API
 
@@ -53,5 +53,8 @@ VPC 通道的作用是将部署在 VPC 内的服务通过 API 网关开放给外
 
 ## 注意事项
 
-- 在“VPC 通道详情—已关联 API Tab 页”，可以看到当前哪些 API 使用了此 VPC 通道作为后端。删除 VPC 通道前需要先删除这些 API，避免影响调用。
+- 在左侧菜单，后端通道，选择“VPC 通道详情—已关联 API Tab 页”，可以看到当前哪些 API 使用了此 VPC 通道作为后端。删除 VPC 通道前需要先删除这些 API，避免影响调用。
+
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/bdd6329ffa2aa90fd8a86ecb32f58b53.png" width="700" />
+  
 - 专享实例运行在 VPC 中，当“专享实例所在 VPC”与“VPC 通道所对接 VPC”不一致时，您需要通过 [云联网](https://console.cloud.tencent.com/vpc/ccn) 将两个 VPC 打通，否则将影响调用。
