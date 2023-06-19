@@ -18,7 +18,7 @@
 <td>DescribeWhiteListForMonitor</td><td>本接口（DescribeWhiteListForMonitor）用于控制系统特殊性能监控指标的展示。</td><td>操作级</td></tr>
 <td>ModifyDBInstanceNote</td><td>本接口（ModifyDBInstanceNote）用于修改实例备注信息。</td><td>资源级</td></tr>
 <td>ModifyPublishSubscribe</td><td>本接口（ModifyPublishSubscribe）用于修改实例的发布订阅关系。</td><td>操作级</td></tr>
-<td>RenewPostpaidDBInstanceSet</td><td>对于通过接口 TerminateDBInstance 手动隔离的按量计费实例，本接口（RenewPostpaidDBInstanceSet）将批量将其从回收站中移出（修改实例状态由已隔离变为运行中）。与 RenewPostpaidDBInstance 接口不同的是，RenewPostpaidDBInstance 不支持批量恢复。</td><td>资源级</td></tr>
+<td>RenewPostpaidDBInstanceSet</td><td>本接口（RenewPostpaidDBInstanceSet）用于从回收站批量恢复按量计费实例。</td><td>资源级</td></tr>
 </tbody></table>
 
 ## 授权操作指导
