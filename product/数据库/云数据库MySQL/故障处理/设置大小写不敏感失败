@@ -1,0 +1,39 @@
+﻿## 表明大小写敏感背景说明
+在创建云数据库 MySQL 实例时，可以设置**表名大小写敏感**是否开启，需注意，已创建完成的且数据库版本为 MySQL 5.5/5.6/5.7 的实例，支持在控制台，通过修改参数 lower_case_table_names 来重新设置表名大小写敏感，但 MySQL 8.0 版本的实例仅支持在购买页创建实例时选择是否**开启表名大小写敏感**，创建实例后无法通过修改 lower_case_table_names 参数来调整。
+
+在 MySQL 8.0 中，lower_case_table_names 参数只能在数据库服务器初始化时通过配置文件或命令行参数进行设置，在初始化后无法再次更改。后续更改此参数会影响数据库系统表的创建方式，并且，如果在系统表创建后更改该参数，会导致数据库对象名称不兼容，从而导致您的应用程序出现问题。所以，云数据库 MySQL 8.0 禁止了 lower_case_table_names 参数的修改，仅能在购买页创建实例时设置。
+
+关于数据库版本与表名大小写敏感参数设置的对应情况，您可参考下表。
+
+<table>
+<thead><tr><th>参数</th><th>数据库版本</th><th>是否支持参数修改</th><th>说明</th></tr></thead>
+<tbody>
+<tr>
+<td rowspan="2">lower_case_table_names</td>
+<td>MySQL 5.5/5.6/5.7</td><td>支持</td><td>-</td>
+</tr>
+<td>MySQL 8.0</td><td>不支持</td><td>为避免参数修改导致应用程序出现问题，仅支持在购买页创建实例时，选择是否开启表名大小写敏感。</td>
+</tr>
+</tbody></table>
+
+
+以下描述的报错情况和处理步骤针对数据库版本为 MySQL 5.5/5.6/5.7 的实例，如您的实例数据库版本为 MySQL 8.0，您仅需了解以上表名大小写敏感背景说明即可。
+## 现象描述
+设置数据库大小写不敏感失败，报错如下：
+![](https://main.qcloudimg.com/raw/c0c29a7b0fa6ad72408d13a62644aba0.png)
+
+## 可能原因
+存在大写的库表名。
+
+## 处理步骤
+核实该实例下的库、表是否都是小写，如有大写的库表名，需要全部改为小写，然后修改 lower_case_table_names 参数。
+>!修改 lower_case_table_names 参数会造成数据库重启。
+>
+- 排查是否有大写的表
+```
+select table_schema,table_name from information_schema.tables where   table_schema not in("mysql","information_schema") and (md5(table_name)<>md5(lower(table_name)) or md5(table_schema)<>md5(lower(table_schema)));
+```
+- 排查是否有大写的库
+```
+select SCHEMA_NAME from information_schema.SCHEMATA where md5(SCHEMA_NAME)<>md5(lower(SCHEMA_NAME));
+```
