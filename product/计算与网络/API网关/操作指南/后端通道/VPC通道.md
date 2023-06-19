@@ -45,6 +45,7 @@ VPC 通道的作用是将部署在 VPC 内的服务通过 API 网关开放给外
 4. 填写后端配置，选择 API 后端类型为“VPC 内资源”，选择对接方式为“通过后端通道”，选择后端通道类型为“VPC通道”；
 5. 选择步骤1中创建的 VPC 通道。
 6. 完成后续配置，成功创建一个后端对接 VPC 内资源的 API。
+
 	<img src="https://qcloudimg.tencent-cloud.cn/raw/849b1d7c7ff5649217d2fca613f04cc4.png" width="700" />
 
 ### 步骤3：调用 API
