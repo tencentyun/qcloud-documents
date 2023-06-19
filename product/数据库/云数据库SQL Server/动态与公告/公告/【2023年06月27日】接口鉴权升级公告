@@ -29,15 +29,15 @@
 选择**新建自定义策略** > **按策略生成器创建**，配置对应的策略参数。
 - 服务：云数据库 SQL Server（sqlserver）。
 - 资源：可以选择指定实例，也可选择全部资源。
-![](https://qcloudimg.tencent-cloud.cn/raw/53f20ec6d356adf8ddbc9b1bfa74da04.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bd5e1346efb81c3e7e27212e282b5cab.png)
 
 ### **操作级接口**
 选择**新建自定义策略** > **按策略生成器创建**，配置对应的策略参数。
 - 服务：云数据库 SQL Server（sqlserver）。
 - 资源：无法指定实例，选择全部资源即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/80eede8a2dc9f88f0329ed3c6bfad4a2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/608399d5cc0843179643f46b889ab783.png)
 
 
 3. 单击**下一步**，配置关联用户/用户组/角色。
-![](https://qcloudimg.tencent-cloud.cn/raw/a5554a0d0eff424b94f50fa3c79f33bd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c7097019967e1cafb7af539d6d95a024.png)
 4. 单击**完成**。
