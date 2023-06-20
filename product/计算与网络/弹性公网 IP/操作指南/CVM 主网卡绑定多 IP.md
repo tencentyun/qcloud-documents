@@ -98,10 +98,40 @@ USERCTL=no
 ```
  修改后，示例如下：
 ![](https://main.qcloudimg.com/raw/bbc5a78eab53c430eb3e0edcc04287aa.png)
+ 针对 CentOS 8.0及以上版本，配置文件内容修改如下：
+```
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=dhcp
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+NAME=eth0
+DEVICE=eth0
+ONBOOT=yes
+IPADDR0=10.0.0.10
+NETMASK0=255.255.255.0
+IPADDR1=10.0.0.11
+NETMASK1=255.255.255.0
+GATEWAY=10.0.0.1
+```
 9. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
 10. 执行如下命令，重启网络服务。
 ```
 systemctl restart network.service
+```
+ 针对 CentOS 8.0及以上版本，执行如下命令：
+```
+#重新加载配置
+nmcli connection reload
+#重启网卡
+nmcli connection down eth0 && nmcli connection up eth0  
+#重新连接网卡eth0
+nmcli device reapply eth0
 ```
 11. 执行如下命令，查看 IP。
 ```
