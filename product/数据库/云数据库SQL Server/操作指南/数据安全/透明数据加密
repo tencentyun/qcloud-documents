@@ -34,7 +34,7 @@ TDE 常用于解决一些安全合规问题，如符合 PCI DSS、等级安全�
 
 >!若用户有多个主账号（UIN），且全部需要开启 TDE 功能，且不同主账号（UIN）之间后续需要进行跨账号备份恢复/迁移/回档等操作，请务必保证所有主账号引用相同的证书。即在账号 1 中的实例开启 TDE 功能后，账号 2、账号 3、账号 4……中的实例在开启 TDE 功能时，需务必引用账号 1 的加密证书，否则后续将无法进行跨账号操作（包括但不限于：跨账号回档、跨账号备份恢复、跨账号迁移等）。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/dc10eeaf02c194ad4678be8603be43c0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/95c67997ed2948ee92817b398e75ee1c.png)
 [](id:TMSJJM)
 ## 开启实例透明数据加密
 >?开启透明数据加密后，加密证书由腾讯云生成，不能使用其他非腾讯云提供的加密证书。
@@ -49,7 +49,7 @@ TDE 常用于解决一些安全合规问题，如符合 PCI DSS、等级安全�
 
 
  - **场景一：该账号下不存在加密证书**
-![](https://qcloudimg.tencent-cloud.cn/raw/bc30e64b5a77f7978d07fd358cc5575d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0779321bb9983ad9decf44d8e66eb257.png)
 选择证书来源，支持选择**使用账号自身的证书**或**引用其他账号的证书**。
   - **使用账号自身的证书**
     由于 TDE 的加密证书为账号级证书，则表示该账号此前并未对账号下的任一实例开启过 TDE，选择**使用账号自身的证书**，单击**确认**。
@@ -59,7 +59,7 @@ TDE 常用于解决一些安全合规问题，如符合 PCI DSS、等级安全�
 
 
 - **场景二：该账号下存在证书，且证书为自身账号证书**
-![](https://qcloudimg.tencent-cloud.cn/raw/f99b599e23fe9812b2b05849ff6bed5f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/064ff755b615199af8cc6de916ff96c6.png)
  此场景表示该账号此前对账号下的某实例开启过 TDE，且选择证书来源为账号自身的证书。
  这种情况下，证书来源将默认为**使用该账号自身的证书**，直接单击**确认**即可开启 TDE。
 - **场景三：该账号下存在证书，且证书为引用其他账号的证书**
@@ -75,7 +75,7 @@ TDE 常用于解决一些安全合规问题，如符合 PCI DSS、等级安全�
 3. 在**实例管理**页选择**数据安全** > **数据加密**，然后在加密数据库后单击**设置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e83243db1979a0b9bcf2730272f3798f.png)
 4. 在弹窗下，在左侧未加密数据库里勾选需要的数据库，表示对该数据库开启加密，在右侧已加密数据库里删除数据库，表示对该数据库关闭加密，根据需要操作后单击**确认**。
-![](https://qcloudimg.tencent-cloud.cn/raw/8379c27a1ae622c7ba142c172edadeda.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9faa90af2230c65a0fd6834625bbc964.png)
 5. 开启数据库维度的 TDE 功能指定数据库后，在数据库管理下可根据字段 **TDE 加密状态**查看开启或关闭加密功能的数据库。
 ![](https://qcloudimg.tencent-cloud.cn/raw/37c834671d378c218ba7711dbc595220.png)
 
