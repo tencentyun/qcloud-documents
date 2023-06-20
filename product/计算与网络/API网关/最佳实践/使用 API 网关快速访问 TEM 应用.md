@@ -5,7 +5,7 @@
 ## 操作场景
 
 本文档主要介绍如何快速使用腾讯云 API 网关访问 TEM 应用并管理 TEM 应用的 API。使用 API 网关和 TEM 结合，可使 TEM 的用户享受到 API 网关提供的限流、认证、缓存等高级能力，助力业务获得成功。
-<img src="https://main.qcloudimg.com/raw/3ba80d1325ca9550610d0f5712482274.png" width="650px">
+<img src="https://main.qcloudimg.com/raw/3ba80d1325ca9550610d0f5712482274.png" width="600">
 
 ## 前提条件
 
@@ -16,10 +16,11 @@
 ### 步骤1：为 TEM 应用配置 VPC 内网访问
 
 1. 登录 [TEM 控制台](https://console.cloud.tencent.com/tem)，在左侧导航栏单击**应用管理**，单击您想要配置的应用进入应用详情页。
-2. 单击访问配置栏的**编辑并更新**，进入应用访问配置页。
-   ![](https://main.qcloudimg.com/raw/47630bde7bf37d8492aa9513c8c042ee.png)
-3. 选择 VPC 内网访问（四层转发），选择子网、协议、容器端口和应用监听端口，并单击**提交**。此时 TEM 会为您自动创建四层转发的 VPC 内网应用型 CLB。
-<img src="https://main.qcloudimg.com/raw/6035759e5464618638e98bdb5328e412.png" width="800px">
+2. 单击访问配置栏的**添加访问配置**，进入配置页。
+	 <img src="https://qcloudimg.tencent-cloud.cn/raw/ad2e020a30e1f44ecd153eb0e40f71d8.png" width="600">
+3. 选择 私网负载均衡，输入服务名称，选择子网、协议、端口和应用监听端口，并单击**提交**。此时 TEM 会为您自动创建VPC 内网应用型 CLB。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b572fd4bf5ce0a00ffab2277846eb92a.png" width="600">
+
 
 
 ### 步骤2：创建 API 网关服务并绑定 TEM 应用[](id:step2)
@@ -29,21 +30,21 @@
    新建服务时，前端类型可选择 HTTP、HTTPS、HTTP 与 HTTPS 任一种，访问模式选择可以选择 VPC 内网和公网，实例类型选择共享性、专享型。
 >?关于实例类型的选择，请参见 [实例选择指南](https://cloud.tencent.com/document/product/628/55510)。
 >
-<img src="https://main.qcloudimg.com/raw/e4c9ebe17cb9ac1fd802db51b54b5a93.png" style = "width:80%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/72414054128f6f6476d70e778e7a746d.png" width="600">
+
 3. 单击 API 网关服务 ID 进入 API 管理页面。单击**新建 API**。
 4. 在前端配置中填写 API 名称，前端类型选择 HTTP&HTTPS，路径为“/”，请求方法选择 ANY 以包含所有请求，鉴权类型选择“免认证”，单击**下一步**。
-   ![](https://main.qcloudimg.com/raw/6496aacc6e308c1a3bb599570415bfa1.png)
+	 <img src="https://qcloudimg.tencent-cloud.cn/raw/590835b46bd869a18b17abbd43d02194.png" width="600">
 5. 在后端配置中，选择 VPC 内资源，选择 TEM 应用部署环境所在的 VPC。设置后端域名，选择 TEM 应用自动创建的 CLB（名字为“cls-xxxdefault{TEM应用名}”），选择相应的监听器（即上一步中所设置的端口映射），填写后端地址为“/”，完成 API 的创建。
-   ![](https://main.qcloudimg.com/raw/f124d179b8a7dfe715b5e9dfb6bc4228.png)
 	其中，后端域名的设置如下：
-  <img src="https://main.qcloudimg.com/raw/f1d8b0d080aab985df46ec9a224b8e07.png" width="500px">
+  <img src="https://main.qcloudimg.com/raw/f1d8b0d080aab985df46ec9a224b8e07.png" width="500">
 6. 此时您可看到您所配置的 API。并可以通过 API 网关提供的默认域名访问您的 TEM 应用。
-
 
 ### 步骤3：通过 API 网关访问 TEM 应用
 
 访问 [步骤2](#step2) 中创建的 API 网关 API，即可通过 API 网关访问到 TEM 应用。
-![](https://qcloudimg.tencent-cloud.cn/raw/ace08d2d34747387dc0029a1b71143a0.png)
+
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/ace08d2d34747387dc0029a1b71143a0.png" width="800">
 
 ## 注意事项
 
