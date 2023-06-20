@@ -26,15 +26,15 @@ signurl 命令包含以下可选 flag：
 
 ## 操作示例
 
-### 获取 bucket1 桶内 pictrue.jpg 的预签名 URL
+### 获取 bucket1 桶内 picture.jpg 的预签名 URL
 
 ```plaintext
-./coscli signurl cos://bucket1/pictrue.jpg
+./coscli signurl cos://bucket1/picture.jpg
 ```
 
-### 获取 bucket2 桶内 pictrue.jpg 的预签名 URL，并设置 URL 的过期时间为1314秒
+### 获取 bucket2 桶内 picture.jpg 的预签名 URL，并设置 URL 的过期时间为1314秒
 
 ```plaintext
-./coscli signurl cos://bucket2/pictrue.jpg --time 1314
+./coscli signurl cos://bucket2/picture.jpg --time 1314
 ```
 

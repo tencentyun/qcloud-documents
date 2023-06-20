@@ -79,7 +79,7 @@ COSCredentials cred = new BasicCOSCredentials("<主账号 APPID>", "<子账号 S
 实例如下：
 ```
 String secretId = System.getenv("secretId");//子账号的 SecretId，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
-String secretKey = System.getenv("secretKey");//子账号的的 SecretKey，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
+String secretKey = System.getenv("secretKey");//子账号的 SecretKey，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 
 // 初始化身份信息

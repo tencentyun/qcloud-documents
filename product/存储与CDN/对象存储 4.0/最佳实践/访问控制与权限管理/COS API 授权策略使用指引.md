@@ -22,7 +22,7 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 				"name/cos:ListMultipartUploads",
 				//分块上传：List 已上传分块操作 
 				"name/cos:ListParts",
-				//分块上传：上传分块块操作 
+				//分块上传：上传分块操作 
 				"name/cos:UploadPart",
 				//分块上传：完成所有分块上传操作 
 				"name/cos:CompleteMultipartUpload",
