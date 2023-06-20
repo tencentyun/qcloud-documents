@@ -72,8 +72,8 @@
 </tr>
 <tr>
 <td>创建子网</td>
-<td><a href="https://cloud.tencent.com/document/api/215/2097">CreateSubnet</a></td>
-<td><a href="https://cloud.tencent.com/document/api/215/2097">CreateSubnets</a></td>
+<td><a href="https://cloud.tencent.com/document/product/215/1314">CreateSubnet</a></td>
+<td><a href="https://cloud.tencent.com/document/product/215/15782">CreateSubnets</a></td>
 </tr>
 <tr>
 <td>删除子网</td>
