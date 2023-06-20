@@ -13,7 +13,5 @@
 	- 如果您配置了参数必填，则在测试前会检查是否已填写必填参数；
 	- 如果您的请求方法为 POST、PUT、DELETE，则会有 Body 参数需要您填写。
 >?如果非必填参数，用户不填写任何参数，则默认 API 网关会给后端传一个 null。
-4. 单击**发送请求**，您将看到响应 Body和 Header。下图示例中后端响应内容为“Hello World”。
-	<img src="https://qcloudimg.tencent-cloud.cn/raw/1017658b99ce79ba48cfc8436e815cbf.png" width=700/>
-
-
+4. 单击**发送**，您将看到响应 Body和 Header。下图示例中后端响应内容为“Hello World”。
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/1017658b99ce79ba48cfc8436e815cbf.png" width=800/>
