@@ -44,8 +44,8 @@ lsparts 命令包含以下可选 flag：
                                                       ----------------------------
 ```
 
-### 列出 bucket1 桶内 pictrue 文件夹下的所有碎片
+### 列出 bucket1 桶内 picture 文件夹下的所有碎片
 
 ```plaintext
-./coscli lsparts cos://bucket1/pictrue/
+./coscli lsparts cos://bucket1/picture/
 ```

@@ -41,8 +41,8 @@ rm 命令包含以下可选 flag：
 ./coscli rm cos://bucket1/fig1.png
 ```
 
-### 删除 pictrue 文件夹下的所有文件
+### 删除 picture 文件夹下的所有文件
 
 ```plaintext
-./coscli rm cos://bucket1/pictrue/ -r
+./coscli rm cos://bucket1/picture/ -r
 ```

@@ -33,9 +33,9 @@ abort 命令包含以下可选 flag：
 ./coscli abort cos://bucket1
 ```
 
-### 清除 bucket1 桶内 pictrue 文件夹下的所有碎片
+### 清除 bucket1 桶内 picture 文件夹下的所有碎片
 
 ```plaintext
-./coscli abort cos://bucket1/pictrue/
+./coscli abort cos://bucket1/picture/
 ```
 

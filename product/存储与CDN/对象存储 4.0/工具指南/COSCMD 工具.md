@@ -522,7 +522,7 @@ coscmd download -rs / D:/examplefolder --ignore "*.txt"
 ```
 >! 
 > - 在上传文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号 `,` 分隔。当忽略一类后缀时，必须最后要输入 `,` 或者加入 `""`。如果 `""` 中包含多条逗号分隔的规则，以第一条规则为准。
-> - 如果您希望使用 `--ignore` 过滤特定目内的所有文件，需要使用绝对路径，并在路径前后加入 `""`。例如 `coscmd upload -rs D:/doc / --ignore "D:/doc/ignore_folder/*"`。
+> - 如果您希望使用 `--ignore` 过滤特定目录内的所有文件，需要使用绝对路径，并在路径前后加入 `""`。例如 `coscmd upload -rs D:/doc / --ignore "D:/doc/ignore_folder/*"`。
 >
 - 操作示例 - 过滤 .txt 和 .doc 的后缀文件
 ```plaintext
