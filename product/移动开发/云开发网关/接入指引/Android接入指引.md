@@ -1,6 +1,11 @@
+本指引用于协助指导如何调整 Android 应用，使得 Android 应用的网络请求经过网关进行转发。
 
+## 接入说明
+Android 应用，需要使用网关提供的 SDK，实现网络通迅，替换应用原有的网络通迅 SDK 或 API。
 
-## 获取 SDK
+## 操作步骤
+### 步骤1：获取 SDK
+联系我们并获取到网关提供的 Android SDK，并在开发机解压。
 SDK 包括如下：
 - libWXCloudCore.so（动态库）
 - WXCloudCore.java（JNI 类）
@@ -9,9 +14,10 @@ SDK 包括如下：
 
 <img style="width:500px" src="https://7361-saas-imgbox-9gbntzkl1ad561d5-1258016615.tcb.qcloud.la/demand/c462c81061b0a08e013285e539b22ff8/content/7603-image.png"/>
 
-## 添加动态库和类
-- libWXCloudCore.so、WXCloudCore.java、WXCloudContainerResp.java 和 libz（-lz）
-- 添加 libWXCloudCore.so，并在 `build.gradle` 中指定动态库目录
+### 步骤2：添加动态库和类
+在项目中添加动态库及调用类用于网络调用使用。需要添加的动态库及调用类有 libWXCloudCore.so、WXCloudCore.java、WXCloudContainerResp.java 和 libz（-lz）。
+按如下操作添加动态库及调用类：
+- 添加 libWXCloudCore.so，并在 `build.gradle` 中指定动态库目录。
 ``` java
 android {
     ...
@@ -25,7 +31,13 @@ android {
 ```
 - 新建 `com.tencent.wxcloud` 包，并添加 `WXCloudCore.java` 和 `WXCloudContainerResp.java`。
 
-## 调用 SDK 及调试
+### 步骤3：调用 SDK 及调试
+通过使用添加的动态库和调用类实现网络发送，按如下代码实例实现网络请求调用。
+其中参数说明如下：
+- appKeyId，appKey：通过联系我们获取或更新。
+- HOST：业务自定义 HOST 名，需要和网关的路由配置中的域名对应，用于网关路由转发匹配。
+
+
 ```java
 // 导入JNI类
 import com.tencent.wxcloud.WXCloudCore;
@@ -58,9 +70,8 @@ System.out.printf("wxcloud resp.ret=%d, resp.http_code=%d, resp.body=%s, resp.he
 WXCloudContainerResp resp2 = this.wxCloudCore.callContainer(method, path, header, body);
 System.out.printf("wxcloud resp.ret=%d, resp.http_code=%d, resp.body=%s, resp.headers=%s\n", resp2.ret, resp2.httpCode, resp2.body, resp2.headers);
 ```
+测试执行返回 ret=0 且 http_code=200 的情况下，表示调用成功。
+另外，也可以自行参考 WXCloudDemo 接入。
 
-执行返回 ret=0 且 http_code=200 表示调用成功。
-至此，已经成功接入SDK，也可以自行参见 WXCloudDemo 接入。
-
-## 常见问题
-**Android minSDK 版本不支持：** SDK 目前配置的 minSDK 是19，如果宿主工程有更低版本的需求，可联系我们进行处理。
+## SDK 使用常见问题
+**Android minSDK版本不支持：** SDK 目前配置的 minSDK 是19，如果宿主工程有更低版本的需求，可联系我们进行处理。
