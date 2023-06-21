@@ -73,5 +73,11 @@ System.out.printf("wxcloud resp.ret=%d, resp.http_code=%d, resp.body=%s, resp.he
 测试执行返回 ret=0 且 http_code=200 的情况下，表示调用成功。
 另外，也可以自行参考 WXCloudDemo 接入。
 
-## SDK 使用常见问题
-**Android minSDK版本不支持：** SDK 目前配置的 minSDK 是19，如果宿主工程有更低版本的需求，可联系我们进行处理。
+## Android SDK 使用常见问题
+### Android minSDK 版本不支持怎么办？
+
+SDK目前配置的 minSDK 版本是19，如果宿主工程有更低版本的需求，可 [联系我们](https://cloud.tencent.com/document/product/1595/75974) 进行处理。
+
+### 如何和 okhttp 整合？
+
+目前 SDK 提供 okhttp 的拦截器，可以仍然使用 okhttp 并通过拦截器将链路转为使用网关。更详细的对接技术问题，可 [联系我们](https://cloud.tencent.com/document/product/1595/75974) 进行处理。
