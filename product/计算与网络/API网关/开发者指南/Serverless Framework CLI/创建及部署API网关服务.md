@@ -2,7 +2,7 @@
 该任务指导您通过 Serverless Framework 提供的 API 网关组件快速创建与部署 API 网关服务/接口。
 
 ## 前提条件
-已完成 Serverless Framework 的安装工作。
+已完成 [安装 Serverless Cloud Framework](https://cloud.tencent.com/document/product/1154/42990)。
 
 ## 操作步骤
 ### 配置 API 网关服务
@@ -44,10 +44,10 @@ inputs:
 
 ### 部署 API 网关服务
 
-执行以下命令进行扫码授权部署：
+参考 [ Serverless 应用中心 > 进阶指南 > 应用管理](https://cloud.tencent.com/document/product/1154/48261) 中部署应用的流程，在一个 SCF 项目的目录下，执行以下命令进行扫码授权部署：
 
 ```console
-sls deploy
+scf deploy
 ```
 
 >?微信扫码授权部署有过期时间，如果想要持久授权，请参考 [账号配置](#account)。
@@ -57,7 +57,7 @@ sls deploy
 执行以下命令移除部署的服务：
 
 ```console
-sls remove
+scf remove
 ```
 
 <span id="account"></span>
