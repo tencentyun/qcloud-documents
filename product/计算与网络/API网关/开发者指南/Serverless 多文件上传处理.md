@@ -8,9 +8,10 @@
 
 ### 步骤1：创建云函数
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list-create?rid=1&ns=default&functionName=multipart-upload-example&createType=empty)。
-2. 在**函数服务**页面，单击**新建**，创建一个 `Node.js` 云函数。
+2. 在**函数服务**页面，单击**新建**，选择从头开始，运行环境选择 `Node.js` 。
 创建时，具体参数如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/edbfe2445443a649148296fd632915ca.png)
+
+	 <img src="https://qcloudimg.tencent-cloud.cn/raw/b584f9177743eb147fb0ccd636a833ac.png" width="700"/>
 3. 单击**完成**，完成云函数的创建。
 
 ### 步骤2：编写代码并部署
@@ -104,7 +105,7 @@ exports.main_handler = async (event, context) => {
 2. 编写代码后，您也可以为云函数安装运行时需要的依赖。例如，利用 busboy 进行 multipart/form-data 数据的解码。
 >!依赖要安装在 src 文件夹下。
 
- ![](https://main.qcloudimg.com/raw/e2d612eab6577b138ce237b18077cf07.png)
+ <img src="https://main.qcloudimg.com/raw/e2d612eab6577b138ce237b18077cf07.png" width="700"/>
 
 3. 单击**部署**，完成云函数的部署。
 
@@ -112,13 +113,12 @@ exports.main_handler = async (event, context) => {
 
 在云函数的触发管理中，我们需要为云函数绑定 API 网关触发器，才能够处理用户具体的 HTTP 请求，具体的绑定方式和配置如下图：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/0dabf195bc7021ce7fa6dc1549076847.png)
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/9bbb775b06ccd30c2727dc7334d4d076.png" width="700"/>
 
 这个时候，如果访问 API 网关绑定的链接，会发现虽然静态页面能够工作，但是上传图片后，页面没有展示正确的结果。这是因为默认情况下，API 网关没有开启 base64 编码功能，multipart formdata 被错误编码为字符串传入 handler 函数，busboy 自然无法进行解码。
 
-因此，我们需要进入 API 网关，找到绑定的 API 服务，在其中的基础配置中打开 base64 编码。
-
-![](https://main.qcloudimg.com/raw/e6fd79cff7f1e9a02a7e2b8b101ecf98.png)
+因此，我们需要进入 API 网关，找到绑定的 API点开详情，在API的基础配置中打开 base64 编码。
+ <img src="https://qcloudimg.tencent-cloud.cn/raw/f8f2fdc2f9c7cf01dfbd0834f94e6c5d.png" width="700"/>
 
 打开并发布服务后，我们的服务就可以正常工作了。
 
