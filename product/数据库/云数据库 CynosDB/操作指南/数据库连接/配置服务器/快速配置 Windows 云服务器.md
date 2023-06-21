@@ -15,7 +15,7 @@
 ### 步骤一：购买 Windows 云服务器
 1. 进入 [快速购买页面](https://buy.cloud.tencent.com/cvm?tab=lite&ltCreateMode=createLt)。
 2. 在购买页 > **快速配置**分页，完成云服务器配置后，单击**立即购买**。
-![](https://qcloudimg.tencent-cloud.cn/raw/9e106e722a84b850dfe0f848b877a19e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c2c6bda12418a454cf93caf29e11417c.png)
 配置说明如下：
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
@@ -27,7 +27,7 @@
 <td>选择您需要的云服务器机型配置。这里我们选择 “普及配置（2核4GB）”。 </td></tr>
 <tr>
 <td>操作系统</td>
-<td>选择您需要的云服务器操作系统。这里我们选择 “Windows Server 2012 R2 数据中心版 64位中文版”。</td></tr>
+<td>选择您需要的云服务器操作系统。这里我们选择 “Windows Server 2022 数据中心版 64位中文版”。</td></tr>
 <tr>
 <td>公网 IP</td>
 <td>勾选后会为您分配公网 IP，默认公网带宽为 “1Mbps”，您可以根据需求调整。</td></tr>
@@ -61,7 +61,7 @@
 <dx-tabs>
 ::: 列表视图
 找到需要登录的 Windows 云服务器，单击右侧的**登录**。如下图所示：
-![](https://main.qcloudimg.com/raw/7aabbe513f5fe4012c0ca98d7475b16c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d7d05d0afadafea69e6fc606a942dd19.png)
 
 :::
 ::: 页签视图
@@ -78,4 +78,3 @@
 5. 单击**登录**，即可登录 Windows 实例。
 本文以登录操作系统为 Windows Server 2016 数据中心版64位中文版的云服务器为例，登录成功则出现类似如下图所示界面：
 ![](https://main.qcloudimg.com/raw/a68deed91b8d73db1e6b2f931c6689c1.png)
-
