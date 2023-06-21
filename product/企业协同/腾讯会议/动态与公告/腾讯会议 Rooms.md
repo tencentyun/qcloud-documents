@@ -6,6 +6,15 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.16.210</td>
+<td>
+1. 支持临时登录，一次会议结束后即退出会议室登录。<br>
+2. 支持 PSTN 会前、会中呼出。<br>
+3. Rooms 支持为成员指定布局。
+</td>
+<td><center>2023-06-09</td>	
+	</tr>
+<tr>
 <td><center>V3.14.200</td>
 <td>
 1. Rooms 演讲者布局小窗支持展开为悬浮列表。<br>
