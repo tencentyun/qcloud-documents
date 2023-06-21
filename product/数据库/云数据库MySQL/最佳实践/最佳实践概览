@@ -7,6 +7,6 @@
 | 参数相关 | [MySQL 主实例参数修改的影响](https://cloud.tencent.com/document/product/236/19010) | 
 | 报错 | [MyISAM 自动转换为 InnoDB 引擎限制](https://cloud.tencent.com/document/product/236/45043) | 
 | 性能提升 | <li>[使用云数据库 MySQL 提高业务负载能力](https://cloud.tencent.com/document/product/236/10972)</li><li>[读写分离扩展云数据库 MySQL 性能](https://cloud.tencent.com/document/product/236/72619)</li> | 
-| 架构搭建方案 | [两地三中心灾备建设](https://cloud.tencent.com/document/product/236/72615) | 
+| 架构搭建方案 | <li>[两地三中心灾备建设](https://cloud.tencent.com/document/product/236/72615) </li><li>[构建全场景高可用架构](https://cloud.tencent.com/document/product/236/94223)</li>| 
 | 构建应用程序/网站 | <li>[构建 LAMP 堆栈 Web 应用程序](https://cloud.tencent.com/document/product/236/10940)</li><li>[构建 Drupal 网站](https://cloud.tencent.com/document/product/236/10961)</li> | 
 | 通过 Python 调用 API | <li>[实例购买](https://cloud.tencent.com/document/product/236/19306)</li><li>[实例管理](https://cloud.tencent.com/document/product/236/19307)</li><li>[备份任务](https://cloud.tencent.com/document/product/236/19390)</li> | 
