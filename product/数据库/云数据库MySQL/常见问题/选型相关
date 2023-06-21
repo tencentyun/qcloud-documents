@@ -30,10 +30,10 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>单盘最大容量</td>
-<td>30000GB</td>
-<td>30000GB</td>
-<td>12000GB</td>
+<td>单盘最大容量（GB）</td>
+<td>30000</td>
+<td>30000</td>
+<td>12000</td>
 </tr>
 <tr>
 <td>单盘最大 IOPS</td>
@@ -48,9 +48,9 @@
 <td>IOPS 与规格相关，详见 <a href="https://cloud.tencent.com/document/product/236/19707#.E5.AE.9E.E4.BE.8B.E8.A7.84.E6.A0.BC.E5.92.8C.E5.AD.98.E5.82.A8.E8.A1.A8">实例规格</a></td>
 </tr>
 <tr>
-<td>单盘最大吞吐量</td>
-<td>叠加额外性能后达到1000MB/s</td>
-<td>260MB/s</td>
+<td>单盘最大吞吐量（MB/s）</td>
+<td>叠加额外性能后达到1000</td>
+<td>260</td>
 <td>-</td>
 </tr>
 <tr>
@@ -60,9 +60,9 @@
 <td>-</td>
 </tr>
 <tr>
-<td>单路随机读写时延</td>
-<td>0.2ms - 1ms</td>
-<td>0.5ms - 3ms</td>
+<td>单路随机读写时延（ms）</td>
+<td>0.2 - 1</td>
+<td>0.5 - 3</td>
 <td>μs级</td>
 </tr>
 </tbody></table>
