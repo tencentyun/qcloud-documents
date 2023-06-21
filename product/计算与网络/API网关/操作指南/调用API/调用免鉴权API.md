@@ -12,7 +12,7 @@
 #### 确认信息
 
 在发起调用前，您必须了解所调用 API 的请求路径、请求方法、请求参数等信息。这些信息可以在API详情页的默认访问地址模块找到。
-![](https://main.qcloudimg.com/raw/2b0aeb46bafafce5abd68843e1edb81e.png)
+ <img src="https://qcloudimg.tencent-cloud.cn/raw/09962891d24ad660ccca1776ff64f15d.png" width="800"/>
 
 #### 工具准备
 
@@ -27,4 +27,4 @@
    请求方法：GET
    按照“公网域名或内网 VPC 域名/已发布环境/访问路径”的规则，该 API 的默认访问地址为：http://service-p52nqnd0-1253970226.gz.apigw.tencentcs.com/release/api
 2. 在 Postman 工具中填写访问地址，选择请求方法为 GET，填写相应的请求参数后即可单击 **Send** 按钮发起调用。
-   ![](https://main.qcloudimg.com/raw/ff9f2537a989ebaa646945f074a69a95.png)
+	  <img src="https://main.qcloudimg.com/raw/ff9f2537a989ebaa646945f074a69a95.png" width="800"/>
