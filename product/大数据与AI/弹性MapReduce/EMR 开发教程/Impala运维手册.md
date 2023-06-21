@@ -25,17 +25,28 @@ Trying to re-register with state-store
 MEM_LIMIT set to 3000000000
 [localhost:27001] > select 5;
 Query: select 5
-+---+ |5 | +---+ |5 | +---+
++---+ 
+|5 | 
++---+ 
+|5 | 
++---+
 [localhost:27001] > set mem_limit=3g;
 MEM_LIMIT set to 3g
 [localhost:27001] > select 5;
 Query: select 5
-+---+ |5 | +---+ |5 | +---+
++---+ 
+|5 | 
++---+ 
+|5 | 
++---+
 [localhost:27001] > set mem_limit=3gb;
 MEM_LIMIT set to 3gb
 [localhost:27001] > select 5;
 +---+
-|5 | +---+ |5 | +---+
+|5 | 
++---+ 
+|5 | 
++---+
 [localhost:27001] > set mem_limit=3m;
 MEM_LIMIT set to 3m
 [localhost:27001] > select 5;
@@ -44,6 +55,10 @@ MEM_LIMIT set to 3m
 +---+
 |5 |
 +---+
-[localhost:27001] > set mem_limit=3mb; MEM_LIMIT set to 3mb [localhost:21000] > select 5;
-+---+ |5 | +---+
+[localhost:27001] > set mem_limit=3mb; 
+MEM_LIMIT set to 3mb 
+[localhost:21000] > select 5;
++---+ 
+|5 | 
++---+
 ```
