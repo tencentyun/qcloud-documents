@@ -23,7 +23,7 @@ COS 用于图床场景的优势有：
 1. 安装 PicGo 并设置腾讯云 COS 服务相关参数。
 >?本次实践使用的是 PicGo 2.3.1版本，其他版本的配置过程可能存在一定差异，请注意相应调整。
 >
-在 [PicGo 官网](https://molunerfinn.com/PicGo/) 下载和安裝 PicGo 后，在图床设置里找到**腾讯云 COS**，并配置以下相关参数项：
+在 [PicGo 官网](https://molunerfinn.com/PicGo/) 下载和安装 PicGo 后，在图床设置里找到**腾讯云 COS**，并配置以下相关参数项：
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa84aa3d715bf44b050c8b51625bf02a.png)
   - COS 版本：选择 COS v5。
   - 设定 Secretld：开发者拥有的项目身份识别 ID，用于身份认证，可在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面中创建和获取。
