@@ -86,7 +86,7 @@ X-Api-Scheme: http
 
 | 名称                  | 内容                                                         |
 | --------------------- | ------------------------------------------------------------ |
-| requestContext        | 请求来源的 API 网关的配置信息、请求标识、认证信息、来源信息。其中：<li>serviceId，path，httpMethod 指向 API 网关的服务 ID、API 的路径和方法。<li>stage 指向请求来源 API 所在的环境。<li>requestId 标识当前这次请求的唯一 ID。<li>identity 标识用户的认证方法和认证的信息。<li>sourceIp 标识请求来源 IP。 |
+| requestContext        | 请求来源的 API 网关的配置信息、请求标识、认证信息、来源信息。其中：<li>serviceId，path，httpMethod 指向 API 网关的服务 ID、API 的路径和方法。<li>stage 指向请求来源 API 所在的环境。<li>identity 标识用户的认证方法和认证的信息。<li>sourceIp 标识请求来源 IP。 |
 | path                  | 记录实际请求的完整 Path 信息。                               |
 | httpMethod            | 记录实际请求的 HTTP 方法。                                   |
 | queryString           | 记录实际请求的完整 Query 内容。                              |
@@ -96,5 +96,3 @@ X-Api-Scheme: http
 | queryStringParameters | 记录在 API 网关中配置过的 Query 参数以及实际取值。           |
 | headerParameters      | 记录在 API 网关中配置过的 Header 参数以及实际取值。          |
 | isBase64Encoded       | 记录在请求体是否被进行了 Base64 编码，取值为 true 或 false。  | 
-
-
