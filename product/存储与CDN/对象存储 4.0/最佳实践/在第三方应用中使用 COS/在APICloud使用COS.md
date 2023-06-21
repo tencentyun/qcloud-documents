@@ -26,13 +26,13 @@ COS SDK 模块提供两种密钥配置方法：
   在 script 标签中实现如下：
 ```
 function refreshCredentail() {
-    // 通过请求接口获取临时秘钥 secretID 、secretKey、token、startDate、expirationDate；
+    // 通过请求接口获取临时密钥 secretID 、secretKey、token、startDate、expirationDate；
     // 拼接成如下格式 返回即可；
     return  "secretID=***&secretKey=***&token=***&startDate=***&expirationDate=***";
 }
 ```
 - #### 永久密钥
-  在注册服务之前设置永久密：
+  在注册服务之前设置永久密钥：
 ```
 var demo = api.require('cosClient');
 demo.setupPermanentCredentail({"secretID":secretID,"secretKey":secretKey});
