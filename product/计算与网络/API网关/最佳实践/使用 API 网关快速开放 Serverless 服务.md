@@ -25,16 +25,17 @@ Serverless 是近年来比较流行的架构，通过 Serverless 函数计算平
 ### 步骤一：创建 COS 存储桶，存储静态资源
 
 1. 登录 [对象存储 COS 控制台](https://console.cloud.tencent.com/cos5/bucket) ，按下图填写信息，创建一个存储桶（参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档）。
-![](https://main.qcloudimg.com/raw/88b9a367ee03acace0169ec846e294d1.png)
+<img src="https://main.qcloudimg.com/raw/88b9a367ee03acace0169ec846e294d1.png" width=600/>
 2. 在存储桶中，上传网站源码（参考 [上传对象](https://cloud.tencent.com/document/product/436/13321)），目录结构与原文件保持一致。
-![](https://main.qcloudimg.com/raw/f86586fffc201da9169ce5f055555d06.png)
+<img src="https://main.qcloudimg.com/raw/f86586fffc201da9169ce5f055555d06.png" width=700/>
 
 ### 步骤二：创建云函数，实现数据接口
 
 1. 登录 [云函数 SCF 控制台](https://console.cloud.tencent.com/scf/list) ，用 hello world 模板创建云函数（参考 [创建及更新函数](https://cloud.tencent.com/document/product/583/19806)）。
-![](https://main.qcloudimg.com/raw/70813ce761854292233b92fc70873be3.png)
+<img src="https://main.qcloudimg.com/raw/70813ce761854292233b92fc70873be3.png" width=600/>
+
 2. 修改云函数代码，返回简单的 JSON 数据。
-![](https://main.qcloudimg.com/raw/bda30bde9cc024b9b2b6fe2ef5ee3660.png)
+<img src="https://main.qcloudimg.com/raw/bda30bde9cc024b9b2b6fe2ef5ee3660.png" width=600/>
 
 用到的云函数代码如下：
 ```JavaScript
@@ -49,32 +50,33 @@ exports.main_handler = async(event, context, callback) => {
 ### 步骤三：创建 API 网关服务
 
 1. 登录 [ API 网关控制台](https://console.cloud.tencent.com/apigateway) ，按下图填写信息，创建一个API 网关服务（参考 [创建服务](https://cloud.tencent.com/document/product/628/11787)）。
-![](https://main.qcloudimg.com/raw/dd9c3047e63809163dba36f26d98755f.png)
 2. 创建成功后，单击服务列表里的服务名称，进入服务详情页。
 3. 在服务详情页单击**管理 API**，进入 API 管理页。接下来，您需要在 API 管理页创建三个API，分别指向对应的后端资源。
 
 ### 步骤四：配置三个 API
 
 1. 单击**新建**按钮，创建第一个 API（参考 [创建通用 API](https://cloud.tencent.com/document/product/628/11797)），第一个 API 的作用是获取网站的 HTML 页面。前端路径配置为“/”：
-![](https://main.qcloudimg.com/raw/d797a68003a6e01277fd36f2f0cbab28.png)
 后端配置指向 COS 存储桶的“index.html”。
-![](https://main.qcloudimg.com/raw/601fa75d0c7bcc6898cdd711ad2c403b.png)
+<img src="https://main.qcloudimg.com/raw/601fa75d0c7bcc6898cdd711ad2c403b.png" width=600/>
+
 2. 再次单击**新建**按钮，创建第二个 API，第二个 API 的作用是获取静态资源。前端路径配置为“^~/static”：
-![](https://main.qcloudimg.com/raw/b3911b2ffd827765118b75c874395046.png)
-后端配置指向COS存储桶的“/static”路径：
-![](https://main.qcloudimg.com/raw/6ecc5aa906c3379e648999b591b7e5fc.png)
+<img src="https://main.qcloudimg.com/raw/b3911b2ffd827765118b75c874395046.png" width=600/>
+
+	后端配置指向COS存储桶的“/static”路径：
+<img src="https://main.qcloudimg.com/raw/6ecc5aa906c3379e648999b591b7e5fc.png" width=600/>
 3. 再次单击**新建**按钮，创建第三个 API，第三个 API 的作用是获取动态数据。前端路径配置为“/fetchData”：
-![](https://main.qcloudimg.com/raw/f8d2dc6e0acf2a640a3716b6598d8cfa.png)
-后端配置指向对应的云函数：
-![](https://main.qcloudimg.com/raw/eb5bab8b734149e5f54e49dfd8571191.png)
+<img src="https://main.qcloudimg.com/raw/f8d2dc6e0acf2a640a3716b6598d8cfa.png" width=600/>
+
+	后端配置指向对应的云函数：
+<img src="https://main.qcloudimg.com/raw/eb5bab8b734149e5f54e49dfd8571191.png" width=700/>
 
 ### 步骤五：发布服务并访问
-1. 在服务详情页的**服务信息** Tab 页中，单击页面右上角的**发布**，将服务发布至“发布”环境。
-![](https://main.qcloudimg.com/raw/d18ae93f6a8e24aab4c59048d3b44d05.png)
-2. 在服务详情页的**服务信息** Tab 页中，查看“公网访问地址”，单击复制图标将地址复制到剪切板中。
-![](https://main.qcloudimg.com/raw/5ea3316d9acaed82104cacb9ea2feaca.png)
+1. 在服务详情页中，单击页面右上角的**发布服务**，将服务发布至“发布”环境。
+<img src="https://main.qcloudimg.com/raw/d18ae93f6a8e24aab4c59048d3b44d05.png" width=700/>
+2. 在服务详情页的**基础配置** Tab 页中，查看“公网访问地址”，单击复制图标将地址复制到剪切板中。
+<img src="https://main.qcloudimg.com/raw/5ea3316d9acaed82104cacb9ea2feaca.png" width=700/>
 3. 将“公网访问地址”粘贴至浏览器的地址栏，单击回车键，即可访问部署好的网站。
-![](https://main.qcloudimg.com/raw/ffffd8d4c16b080003a103473ae14b25.png)
+<img src="https://main.qcloudimg.com/raw/ffffd8d4c16b080003a103473ae14b25.png" width=700/>
 4. 单击**获取数据**，发起 XHR 调用，网站会通过云函数返回预先定义的 JSON 数据串。
 
 
