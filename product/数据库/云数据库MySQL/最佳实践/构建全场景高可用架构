@@ -13,7 +13,7 @@
 - 高故障诊断和恢复效率：数据库智能管家 DBbrain 7*24h监控，帮助 DBA 快速定位问题解决问题；同时，备份、数据同步等机制也有助于故障恢复和数据恢复，缩短故障修复时间。
 
 ## 构建全场景高可用架构指引
-![](https://qcloudimg.tencent-cloud.cn/raw/55ab0c077bbaee91d65a16dab8ad15ab.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7f591b1c5123175a833854971d90240b.png)
 ### 步骤一：高可用架构部署
 #### 一、创建三节点架构实例[](id:BZYI)
 1. 登录 [MySQL 购买页](https://buy.cloud.tencent.com/cdb)，完成**基础配置**和**实例配置**，单击**下一步：设置网络和数据库**。
@@ -112,7 +112,7 @@
 <td>非必填项，可为要开通的数据库代理服务进行备注。</td></tr>
 </tbody></table>
 4. 开通成功后，您需要对数据库代理的访问策略进行配置，在**数据库代理** > **概览** > **连接地址**下找到目标访问地址，单击其**操作**列的**调整配置**。
-![](https://qcloudimg.tencent-cloud.cn/raw/1f4695fecb5d2198328ec38e391760d1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c799f8f8e74083993d4c3997d8f7a999.png)
 5. 在跳转的窗口下，设置具体策略的配置，单击**确定。**
 <table>
 <thead><tr><th>参数</th><th>说明</th></tr></thead>
