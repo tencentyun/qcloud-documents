@@ -63,7 +63,7 @@ cp /etc/sysconfig/network-scripts/ifcfg-eth0{,.bak}
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
 8. 配置文件修改：
-  - CentOS 7系列机型：
+  - CentOS 7系列机型，按 i 切换至编辑模式，把配置文件内容修改为：
 ```
 # Created by cloud-init on instance boot automatically, do not edit.
 #
@@ -99,7 +99,7 @@ USERCTL=no
 ```
  修改后，示例如下：
 ![](https://main.qcloudimg.com/raw/bbc5a78eab53c430eb3e0edcc04287aa.png)
-  - CentOS 8及以上系列机型：
+  - CentOS 8及以上系列机型，按 i 切换至编辑模式，把配置文件内容修改为：
 ```
 TYPE=Ethernet
 PROXY_METHOD=none
@@ -135,7 +135,7 @@ GATEWAY=10.0.0.1 # 步骤3中所记录的网关，请根据实际填写
 ```
 systemctl restart network.service
 ```
-  - 针对 CentOS 8.0及以上系列机型，执行如下命令，重启网卡：
+  - CentOS 8及以上系列机型，执行如下命令，重启网卡：
 ```
 #重新加载配置
 nmcli connection reload
