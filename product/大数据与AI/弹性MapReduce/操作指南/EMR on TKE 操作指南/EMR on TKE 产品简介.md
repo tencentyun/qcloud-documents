@@ -5,7 +5,7 @@
 >? 
 >- 数据存储：在 EMR on TKE 适用的存算分离场景中，提供了 COS、CHDFS、HDFS 等多种数据存储产品对接，用户可以将数据存储在以上数据源中，通过 EMR on TKE 的大数据处理引擎进行处理和分析。
 >- 算力资源：EMR on TKE 支持基于腾讯云 TKE 标准集群和 Serverless 集群部署。
->- 大数据组件：EMR on TKE 提供 Hive、Spark、Trino、Zookeeper、Kyuubi、Knox、Ranger、Hue、RSS、OpenLDAP 等服务可选。
+>- 大数据组件：EMR on TKE 提供 Hive、Spark、Trino、Zookeeper、Kyuubi、Knox、Ranger、Hue、RSS 等服务可选。
 >- 管控平台：EMR on TKE 通过 EMR 控制台提供用户简单便捷组件部署、配置管理、运维监控、异常告警等的基础运维管理，同时也提供了高阶的作业分析诊断功能帮助用户分析作业洞察成本。
 
 ## 产品优势
