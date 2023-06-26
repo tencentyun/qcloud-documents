@@ -7,7 +7,7 @@ Serverless 是近年来比较流行的架构，通过 Serverless 函数计算平
 
 ## 前提条件
 
-在开始搭建网站前，您需要前往 [API 网关官方仓库](https://github.com/TencentCloud/apigateway-demo/tree/master/hello-website) 下载网站源码。源码包含一个骨架的 HTML 文件，以及常见的图片、CSS 文件、JS 文件等静态资源。
+在开始搭建网站前，您需要前往 [API 网关官方仓库](https://github.com/TencentCloud/apigateway-demo/tree/master/hello-website) 下载网站源码。使用其中一个文件夹 `hello-website` 作为本示例的项目源码，源码包含一个骨架的 HTML 文件，以及常见的图片、CSS 文件、JS 文件等静态资源。
 
 下载后文件的目录结构如下所示：
 ```
@@ -24,10 +24,12 @@ Serverless 是近年来比较流行的架构，通过 Serverless 函数计算平
 
 ### 步骤一：创建 COS 存储桶，存储静态资源
 
-1. 登录 [对象存储 COS 控制台](https://console.cloud.tencent.com/cos5/bucket) ，按下图填写信息，创建一个存储桶（参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档）。
-<img src="https://main.qcloudimg.com/raw/88b9a367ee03acace0169ec846e294d1.png" width=600/>
+1. 登录 [对象存储 COS 控制台](https://console.cloud.tencent.com/cos/bucket) ，按下图填写信息，创建一个存储桶（参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档）。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7e53b315d6df8c540c5e07f3e13fdec5.png" width=600/>
 2. 在存储桶中，上传网站源码（参考 [上传对象](https://cloud.tencent.com/document/product/436/13321)），目录结构与原文件保持一致。
-<img src="https://main.qcloudimg.com/raw/f86586fffc201da9169ce5f055555d06.png" width=700/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/1dacddde2a6dba9e773d06305f9b4db3.png" width=900/>
+
+
 
 ### 步骤二：创建云函数，实现数据接口
 
@@ -35,14 +37,14 @@ Serverless 是近年来比较流行的架构，通过 Serverless 函数计算平
 <img src="https://main.qcloudimg.com/raw/70813ce761854292233b92fc70873be3.png" width=600/>
 
 2. 修改云函数代码，返回简单的 JSON 数据。
-<img src="https://main.qcloudimg.com/raw/bda30bde9cc024b9b2b6fe2ef5ee3660.png" width=600/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c7d9dc804539d2cf5de88682b7cd4c13.png" width=900/>
 
 用到的云函数代码如下：
 ```JavaScript
 'use strict';
 exports.main_handler = async(event, context, callback) => {
 	return {
-		data: 'hello world' // hello world 可替换为您喜欢的任意内容
+		data: 'hello world' // 此处可替换为您喜欢的任意内容
 	}
 };
 ```
@@ -56,30 +58,30 @@ exports.main_handler = async(event, context, callback) => {
 ### 步骤四：配置三个 API
 
 1. 单击**新建**按钮，创建第一个 API（参考 [创建通用 API](https://cloud.tencent.com/document/product/628/11797)），第一个 API 的作用是获取网站的 HTML 页面。前端路径配置为“/”：
-后端配置指向 COS 存储桶的“index.html”。
-<img src="https://main.qcloudimg.com/raw/601fa75d0c7bcc6898cdd711ad2c403b.png" width=600/>
+后端路径指向 COS 存储桶的“index.html”。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/5a0375511c8719b1adfd125df43fea08.png" width=900/>
 
 2. 再次单击**新建**按钮，创建第二个 API，第二个 API 的作用是获取静态资源。前端路径配置为“^~/static”：
-<img src="https://main.qcloudimg.com/raw/b3911b2ffd827765118b75c874395046.png" width=600/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/483df176d74379a54af348e4ecccbfcb.png" width=900/>
 
-	后端配置指向COS存储桶的“/static”路径：
-<img src="https://main.qcloudimg.com/raw/6ecc5aa906c3379e648999b591b7e5fc.png" width=600/>
+	后端路径指向COS存储桶的“/static”路径：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/77bbb5d07c320a786ab1a1b6c1d19cab.png" width=900/>
+
 3. 再次单击**新建**按钮，创建第三个 API，第三个 API 的作用是获取动态数据。前端路径配置为“/fetchData”：
-<img src="https://main.qcloudimg.com/raw/f8d2dc6e0acf2a640a3716b6598d8cfa.png" width=600/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/76d217e5b700bc131f10791602982f67.png" width=900/>
 
-	后端配置指向对应的云函数：
-<img src="https://main.qcloudimg.com/raw/eb5bab8b734149e5f54e49dfd8571191.png" width=700/>
+	后端路径指向上面第二步中创建的云函数：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/94edf09d75d1adfddd4a1429a3671b2e.png" width=900/>
 
 ### 步骤五：发布服务并访问
 1. 在服务详情页中，单击页面右上角的**发布服务**，将服务发布至“发布”环境。
-<img src="https://main.qcloudimg.com/raw/d18ae93f6a8e24aab4c59048d3b44d05.png" width=700/>
-2. 在服务详情页的**基础配置** Tab 页中，查看“公网访问地址”，单击复制图标将地址复制到剪切板中。
-<img src="https://main.qcloudimg.com/raw/5ea3316d9acaed82104cacb9ea2feaca.png" width=700/>
-3. 将“公网访问地址”粘贴至浏览器的地址栏，单击回车键，即可访问部署好的网站。
-<img src="https://main.qcloudimg.com/raw/ffffd8d4c16b080003a103473ae14b25.png" width=700/>
-4. 单击**获取数据**，发起 XHR 调用，网站会通过云函数返回预先定义的 JSON 数据串。
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/03fbaeafb99b6b5471f6d7058560cfa7.png"  width=900/>
+2. 在服务详情页的**基础配置** Tab 页中，查看“公网访问地址”，复制该地址（可直接单击复制按钮）。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d9ea331f180b729f239408c34a4f4a0a.png" width=900/>
+3. 将“公网访问地址”粘贴至您的浏览器的地址栏，单击回车键，即可访问部署好的网站，效果如下。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e71766b7cbe7ac8ca5604aa2162e89e1.png" width=700/>
+4. 单击**获取数据**，发起 XHR 调用，网站会通过云函数返回预先定义的 JSON 数据串，效果如下。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/66b86cf2b6d6bd75cefbe60f44633ba7.png" width=700/>
 
 ## 说明
 除了通过 API 网关提供的默认域名来访问搭建的站点之外，您可以将已有的自定义域名绑定到服务上。绑定之后，便可通过自定义域名来访问站点。详情可查看 [自定义域名配置](https://cloud.tencent.com/document/product/628/11791) 相关文档。
-
