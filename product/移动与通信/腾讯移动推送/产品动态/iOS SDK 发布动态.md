@@ -1,3 +1,24 @@
+## 2023年06月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+<tr>
+ <td>SDK 1.3.9.6 版本发布 </td>
+ <td>  
+  <li>修复：修复手机型号多次采集的潜在风险。</li>
+  <li>优化：优化头部卡顿问题。</li>
+ </td>
+ <td>2023-06-01</td>
+ <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+ </tr>
+</table>
+
+
 ## 2023年04月
 
 <table>
