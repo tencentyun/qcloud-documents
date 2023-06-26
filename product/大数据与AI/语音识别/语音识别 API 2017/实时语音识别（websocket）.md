@@ -79,7 +79,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | filter_empty_result | 否 | Integer | 是否回调识别空结果，默认为1。0：回调空结果；1：不回调空结果;<br><strong>注意：</strong>如果需要slice_type=0和slice_type=2配对回调，需要设置filter_empty_result=0。一般在外呼场景需要配对返回，通过slice_type=0来判断是否有人声出现。 |
 | convert_num_mode | 否 | Integer | 是否进行阿拉伯数字智能转换（目前支持中文普通话引擎）。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字，3: 打开数学相关数字转换。默认值为1 |
 | word_info | 否 | Int | 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎 8k_en、8k_zh、8k_zh_finance、16k_zh、16k_en、16k_ca、16k_zh-TW、16k_ja、16k_wuu-SH，默认为0|
-| vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000，单位 ms，此参数建议不要随意调整，可能会影响识别效果，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型 |
+| vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000（默认1000），单位 ms，此参数建议不要随意调整，可能会影响识别效果，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型 |
 |noise_threshold	|否	|Float|	噪音参数阈值，默认为0，取值范围：[-1,1]，对于一些音频片段，取值越大，判定为噪音情况越大。取值越小，判定为人声情况越大。<br>**慎用：可能影响识别效果**|
 | signature | 是 | String | 接口签名参数|
 | hotword_list | 否 | String | 临时热词表，该参数用于提升热词识别准确率。<ul><li>单个热词规则："热词\|权重"，不超过30个字符（最多10个汉字），权重1-10；</li><li>临时热词表限制：多个热词用英文逗号分割，最多128个热词，参数示例："腾讯云\|10,语音识别\|5,ASR\|10"；</li><li>参数 hotword_list 与 hotword_id 区别：</li><ul><li>hotword_id：需要先在控制台或接口创建热词表，获得对应hotword_id传入参数来使用热词功能；</li><li>hotword_list：每次请求时直接传入临时热词表来使用热词功能，云端不保留临时热词表；</li></ul></ul>注意：如果同时传入了 hotword_id 和 hotword_list，会优先使用 hotword_list。|
