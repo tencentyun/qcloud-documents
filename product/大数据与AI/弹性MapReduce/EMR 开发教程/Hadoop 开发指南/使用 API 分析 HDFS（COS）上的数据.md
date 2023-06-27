@@ -73,8 +73,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ```
 
 ## 4. 使用 Maven 创建工程
-推荐使用 Maven 来管理工程。Maven 是一个项目管理工具，可以方便的管理项目的依赖信息，即它可通过 pom.xml 文件的配置获取 jar 包，而不用手动去添加。
-
+推荐使用 Maven 来管理工程。Maven 是一个项目管理工具，可以方便地管理项目的依赖信息，即它可通过 pom.xml 文件的配置获取 jar 包，而不用手动去添加。
 首先下载并安装 Maven，配置好 Maven 的环境变量，如果您使用 IDE，请在 IDE 中设置好 Maven 相关配置。
 
 ### 新建一个 Maven工程
