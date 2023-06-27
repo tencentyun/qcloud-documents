@@ -1,14 +1,14 @@
-TXRocks 是腾讯 TXSQL 团队基于 RocksDB 开发的事务型存储引擎，兼具更加节省存储空间和写⼊放⼤更低的优势。
+TXRocks 是腾讯云 TXSQL 团队基于 RocksDB 开发的事务型存储引擎，兼具更加节省存储空间和写⼊放⼤更低的优势。
 
 ## 产品介绍
-TXRocks 是腾讯 TXSQL 团队基于 RocksDB 的事务型存储引擎，得益于 RocksDB LSM Tree 存储结构，既减少了 InnoDB 页面半满和碎片浪费，又可以使用紧凑格式存储，因此 TXRocks 在保持与 InnoDB 接近性能的前提下，存储空间相比 InnoDB 可以节省一半甚至更多，非常适合对事物读写性能有要求，且数据存储量大的业务。
+TXRocks 是腾讯云 TXSQL 团队基于 RocksDB 开发的事务型存储引擎，得益于 RocksDB LSM Tree 存储结构，既减少了 InnoDB 页面半满和碎片浪费，又可以使用紧凑格式存储，因此 TXRocks 在保持与 InnoDB 接近性能的前提下，存储空间相比 InnoDB 可以节省一半甚至更多，非常适合对事物读写性能有要求，且数据存储量大的业务。
 
 ## 前提条件
 数据库版本须为 MySQL 5.7、8.0，架构为双节点。
 
 ## 购买云数据库 MySQL 实例（RocksDB 引擎）
-您可以在云数据库 MySQL [购买页](https://buy.cloud.tencent.com/cdb) 购买实例时，选择引擎为 RocksDB，其他参数项可参考 [创建 MySQL 实例](https://cloud.tencent.com/document/product/236/46433)。
-![](https://qcloudimg.tencent-cloud.cn/raw/de5305050da41ff4df8f7d1538784850.png)
+您可以在云数据库 MySQL [购买页](https://buy.cloud.tencent.com/cdb?regionId=8&payType=0&netType=2&goodsNum=1&isAutoRenew=1&cdbType=Z3&engineVersion=8.0&engineType=RocksDB&projectId=0&protectMode=0&timeSpan=1&paramTemplateId=HIGH_STABILITY&subnetId=subnet-egnbcu63&port=3306&charset=UTF8&sensitive=1&securityGroupId=sg-6i0pxdld&vpcId=vpc-ii36zome&slaveZone=ap-beijing-1&zoneId=800001&memory=8000&cpu=4&volume=200&collation=UTF8_GENERAL_CI) 购买实例时，选择引擎为 RocksDB，其他参数项可参考 [创建 MySQL 实例](https://cloud.tencent.com/document/product/236/46433)。
+![](https://qcloudimg.tencent-cloud.cn/raw/c4399072f73e058a150c02d638271c92.png)
 >?RocksDB 是 key-value 存储引擎，以高效写入能力与高压缩存储著称，目前暂时仅支持 MySQL 5.7、8.0 版本可选择引擎为 RocksDB。
 
 ## 创建 RocksDB 表
@@ -57,7 +57,7 @@ TXRocks 在引擎功能上有一些限制，具体如下表所示：
 </tbody></table>	
 
 ## 参数说明
->?在创建云数据库 MySQL 实例时，可以选择 RocksDB 为默认存储引擎，也可以根据下表的参数说明调整参数模板以便适应自身业务。
+>?在创建云数据库 MySQL 实例时，选择 RocksDB 为默认存储引擎后，可以根据下表的参数说明调整参数模板以便适应自身业务。
 
 #### MySQL 5.7 相关参数列表
 
