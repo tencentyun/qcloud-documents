@@ -1,35 +1,22 @@
-通过 API ，您可以拿到当前应用的数据和常见的工具库、可以调用云函数、可以直接在低码编辑器中直接使用 API 等，增加编写程序的扩展性、便利性。
+通过微搭的前端 API ，您可以拿到当前应用的数据和常见的工具库、可以调用云函数、可以直接在低码编辑器中直接使用 API 等，增加编写程序的扩展性、便利性。
 
-## 界面交互相关接口
+### 界面交互相关接口
 
 | 接口名称   | 接口功能   |
 | -------- | -------- |
-| [showToast](https://cloud.tencent.com/document/product/1301/56701#showToast)    | 显示提示框   |
-| [showLoading](https://cloud.tencent.com/document/product/1301/56701#showLoading)    | 显示 loading 提示框  |
-| [hideLoading](https://cloud.tencent.com/document/product/1301/56701#hideLoading)   | 隐藏 loading 提示框   |
-| [showModal](https://cloud.tencent.com/document/product/1301/56701#showModal) | 显示模态对话框   |
+| [showToast](https://docs.cloudbase.net/lowcode/api/utils#wutilsshowtoast)    | 显示提示框   |
+| [showLoading](https://docs.cloudbase.net/lowcode/api/utils#wutilsshowloading)    | 显示 loading 提示框  |
+| [hideLoading](https://docs.cloudbase.net/lowcode/api/utils#wutilshideloading)   | 隐藏 loading 提示框   |
+| [showModal](https://docs.cloudbase.net/lowcode/api/utils#wutilsshowmodal) | 显示模态对话框   |
 
-## 工具相关接口
-| 接口名称   | 接口功能   |
-| -------- | -------- |
-| [utils.get](https://cloud.tencent.com/document/product/1301/56702#get)    | 根据 object 对象的 path 路径获取值   |
-| [utils.set](https://cloud.tencent.com/document/product/1301/56702#set)    | 设置 object 对象中对应 path 属性路径上的值  |
-| [utils.formatDate](https://cloud.tencent.com/document/product/1301/56702#formatDate)   |格式化日期函数   |
+更多交互类相关前端 API 请参见 [微搭 API >工具交互方法](https://docs.cloudbase.net/lowcode/api/utils)。
 
-## 路由相关接口
-| 接口名称   | 接口功能   |
-| -------- | -------- |
-| [navigateTo](https://cloud.tencent.com/document/product/1301/56703#navigateTo)    | 保留当前页面，跳转到应用内的某个页面   |
-| [redirectTo](https://cloud.tencent.com/document/product/1301/56703#redirectTo)    | 关闭当前页面，跳转到应用内的某个页面  |
-| [reLaunch](https://cloud.tencent.com/document/product/1301/56703#reLaunch)   |关闭所有页面，打开到应用内的某个页面   |
-| [navigateBack](https://cloud.tencent.com/document/product/1301/56703#navigateBack)   |关闭当前页面，返回上一页面或多级页面    |
 
-## 数据源相关接口
+### 数据源相关接口
+
 | 接口名称   | 接口功能   |
 | -------- | -------- |
 | [cloud.dataSources](https://cloud.tencent.com/document/product/1301/56704#dataSources)    | 获取当前应用所绑定的所有数据源   |
 
-## 平台相关接口
-| 接口名称   | 接口功能   |
-| -------- | -------- |
-| [platform](https://cloud.tencent.com/document/product/1301/56705#platform)    | 获取当前平台   |
+### 更多平台相关前端 API 接口
+了解更多微搭前端 API 请参见 [微搭前端 API 列表](https://docs.cloudbase.net/lowcode/api/api-referrence)。 
