@@ -9,7 +9,7 @@
 
  <table>
  <thread>
- <tr><th width=10%>地域</th><th>价格（元/GB/小时）</th></tr>
+ <tr><th width=10%>复制类型</th><th>特性</th></tr>
  </thread>
  <tbody>
  <tr>
@@ -36,7 +36,7 @@
 
 <table>
 <thread>
-<tr><td>测试工具</td><td colspan=4>sysbench 1.1.0</td></tr>
+<tr><td width="120">测试工具</td><td colspan=4>sysbench 1.1.0</td></tr>
 </thread>
 <tbody>
 <tr>
