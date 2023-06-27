@@ -5,7 +5,7 @@
 
 1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的集群 **ID/名称**进入集群详情页。  
 2. 在集群详情页中单击**集群服务**，然后选择 IMPALA 组件右上角**操作 > 查询管理**，即可进行相关视图查看。
-示例：以持续时长为例当前筛选时间范围内，TP90分位时长为6.86k(ms)表示90%的查询时长在6.86s以内。
+示例：以持续时长为例，当前筛选时间范围内，TP90分位时长为6.86k(ms)表示90%的查询时长在6.86s以内。
 ![](https://qcloudimg.tencent-cloud.cn/raw/abc6010614409fab69feffa3bfdb181e.png)
 3. 提供 Impala 查询列表信息，部分列头字段支持筛选或排序功能，支持多种维度的复合筛选操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/429870be5da42326b8d89de07276d201.png)
