@@ -53,7 +53,7 @@ this is a message
 ```
 
 ## 3. 使用 SparkStreaming 对接 CKafka 服务
-在消费者一端，我们利用 Spark Streaming 从 CKafka 中不断拉取数据进行词频统计，即对流数据进行 WordCount 的工作。在生产者一端，也采用程序不断的产生数据，来不断输送给 CKafka。
+在消费者一端，我们利用 Spark Streaming 从 CKafka 中不断拉取数据进行词频统计，即对流数据进行 WordCount 的工作。在生产者一端，也采用程序不断地产生数据，来不断输送给 CKafka。
 
 首先 [下载并安装 Maven](http://maven.apache.org/download.cgi)，配置好 Maven 的环境变量，如果您使用 IDE，请在 IDE 中设置好 Maven 相关配置。
 
