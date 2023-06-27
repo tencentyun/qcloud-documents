@@ -2,7 +2,7 @@
 Ranger 是大数据领域的一个集中式安全管理框架，实现对 Hadoop 生态组件的集中式安全管理。用户可以通过 Ranger 实现对集群中数据的安全访问，它主要是对 Hadoop 平台组件进行监管、启动服务以及资源访问进行控制，其核心思想为：
 - 用户可以使用 Ranger 提供的 REST API 或者使用 Ranger 提供 Web UI 对大数据组件进行集中化管理。
 - 可以针对大数据组件进行基于角色、属性进行授权。
-- 针对大数据组件所涉及到安全的审计进行集中管理。
+- 针对大数据组件所涉及安全的审计进行集中管理。
 
 ## Ranger 架构
 Ranger 主要是由 Ranger Admin、Ranger UserSync、Ranger Plugin 三个组件构成的，其中 Ranger Admin、Ranger UserSync 都是一个单独的 JVM 进程，而 Ranger Plugin 需要根据不同组件安装在不同节点上。
