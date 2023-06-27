@@ -43,7 +43,7 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 其他 Capacity Scheduler 配置请查询文档。
 
 ### 3. 设置 ResourceManager 启用 Node Label
-在`conf/yarn-site.xml`中设置。
+在`yarn-site.xml`中设置。
 ```
 <property>
 	<name>yarn.node-labels.fs-store.root-dir</name>
