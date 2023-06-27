@@ -13,8 +13,9 @@
 [hadoop@10kyuubi]$ bin/beeline -u "jdbc:hive2://${kyuubiserverip}:${kyuubiserverport}" -n hadoop 
 ```
 
-`${zkserverip}:${zkport}` 见 `kyuubi-defaults.conf` 的 `kyuubi.ha.zookeeper.quorum` 配置。
-`${kyuubiserverport}` 见 `kyuubi-defaults.conf` 的 `kyuubi.frontend.bind.port` 配置。
+`${zkserverip}:${zkport} `见 `kyuubi-defaults.conf 的 kyuubi.ha.zookeeper.quorum` 配置。
+`${kyuubiserverip}` 为任意一个部署 kyuubi server 的节点 IP，可在 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)，**集群服务 > KYUUBI/角色管理**中查看。
+`${kyuubiserverport}` 见 `kyuubi-defaults.conf 的 kyuubi.frontend.bind.port` 配置，默认为10009。
 
 ### 新建数据库并查看
 在新建的数据库中新建一个表，并进行查看：
