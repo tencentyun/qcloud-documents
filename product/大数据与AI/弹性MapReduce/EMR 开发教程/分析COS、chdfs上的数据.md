@@ -20,7 +20,7 @@ $host 为您的 impala 数据节点所在的内网 IP。
 [$host:27001 ] > create table record(id int, name string) row format delimited fields terminated by ',' stored as textfile location 'cosn://$bucketname/';
 Query: create table record(id int, name string) row format delimited fields terminated by ',' stored as textfile location 'cosn://$bucketname/'
 Fetched 0 row(s) in 3.07s
-其中 $bucketname 为您的 COS 存储桶名加路径，如果使用 CHDFS 将 location 的值换成 ofs://$mountname/，$mountname 为您的 CHDFS 挂在地址加路径
+其中 $bucketname 为您的 COS 存储桶名加路径，如果使用 CHDFS 将 location 的值换成 ofs://$mountname/，$mountname 为您的 CHDFS 挂载地址加路径
 查看表信息，确认 location 是 cos 路径
 [$host:27001 ] > show create table record2;
 Query: show create table record2
