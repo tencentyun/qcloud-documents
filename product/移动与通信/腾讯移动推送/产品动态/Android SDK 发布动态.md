@@ -1,3 +1,27 @@
+## 2023年06月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.4.0.1 版本发布</td>
+	<td>
+		<li>升级：小米推送 SDK 5.6.2</li>
+		<li>升级：魅族推送 SDK 4.2.3</li>
+		<li>优化：MQTT初始化偶现OOM问题</li>
+		</td>
+        <td>2023-06-26</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
 ## 2023年03月
 
 <table>
