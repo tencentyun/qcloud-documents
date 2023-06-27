@@ -131,21 +131,20 @@ scp $localfile root@公网IP地址:$remotefolder
 然后进入您存放 jar 包的文件夹下，执行以下指令：
 ```
 [hadoop@10spark]$ spark-submit    --class    $WordCountOnCOS    --master 
-yarn-cluster $packagename.jar cosn:// $bucketname /$testfile cosn:// $bucketname 
-/output
+yarn-cluster $packagename.jar cosn://$bucketname/$testfile cosn://$bucketname/output
 ```
 其中 $WordCountOnCOS 为您的 Java Class 名字，$packagename 为您新建 Maven 工程中生成的 jar 包名字，$bucketname 为您的存储桶名和路径，$testfile 为您要统计的文件名。最后输出的文件在 output 这个文件夹中，**这个文件夹事先不能被创建，不然运行会失败**。
 
 运行成功后，在指定的存储桶和文件夹下可以看到 wordcount 的结果。
 ```
-[hadoop@172 /]$ hadoop fs -ls cosn:// $bucketname /output
+[hadoop@172 /]$ hadoop fs -ls cosn://$bucketname/output
 Found 3 items
--rw-rw-rw- 1 hadoop Hadoop  0 2018-06-28 19:20 cosn:// $bucketname /output/_SUCCESS
--rw-rw-rw- 1 hadoop Hadoop 681 2018-06-28 19:20 cosn:// $bucketname /output/part-00000
--rw-rw-rw- 1 hadoop Hadoop 893 2018-06-28 19:20 cosn:// $bucketname /output/part-00001
+-rw-rw-rw- 1 hadoop Hadoop  0 2018-06-28 19:20 cosn://$bucketname/output/_SUCCESS
+-rw-rw-rw- 1 hadoop Hadoop 681 2018-06-28 19:20 cosn://$bucketname/output/part-00000
+-rw-rw-rw- 1 hadoop Hadoop 893 2018-06-28 19:20 cosn://$bucketname/output/part-00001
 
 [hadoop@172 demo]$ hadoop fs -cat cosn://$bucketname/output/part-00000
-18/07/05 17:35:01 INFO cosnative.NativeCosFileSystem: Opening 'cosn:// $bucketname/output/part-00000' for reading
+18/07/05 17:35:01 INFO cosnative.NativeCosFileSystem: Opening 'cosn://$bucketname/output/part-00000' for reading
 (under,1)
 (this,3)
 (distribution,2)
