@@ -96,4 +96,4 @@ export default function({event, data}) {
 </table>
 
 ### 更多组件
-其余更多组件对应的触发条件以及返回的 event 对象结构，请参见 [组件列表](https://docs.cloudbase.net/lowcode/components/) 中的**事件**部分，查看 [开关组件](https://docs.cloudbase.net/lowcode/components/wedaUI/src/docs/compsdocs/form/WdSwitch#%E4%BA%8B%E4%BB%B6) 的事件介绍。
+其余更多组件对应的触发条件以及返回的 event 对象结构，请参见 [组件列表](https://docs.cloudbase.net/lowcode/components/) 中的**事件**部分，例如查看 [开关组件](https://docs.cloudbase.net/lowcode/components/wedaUI/src/docs/compsdocs/form/WdSwitch#%E4%BA%8B%E4%BB%B6) 的事件介绍。
