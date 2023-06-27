@@ -1,6 +1,6 @@
 ### HiveServer2 迁移到 Router 的方法是什么？
 
-1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在**集群列表**中选择对应的集群单击 **ID/名称**进入集群详情页，在集群详情页中选择**集群资源 > 资源管理**，进入资源管理页面，单击【扩容】进入集群扩容页面。
+1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在**集群列表**中选择对应的集群单击 **ID/名称**进入集群详情页，在集群详情页中选择**集群资源 > 资源管理**，进入资源管理页面，单击**扩容**进入集群扩容页面。
 ![](https://main.qcloudimg.com/raw/6cc0dfec6655ecbac907b8448248705c.png)
 在集群扩容页面中，选择扩容**节点类型**为 **Router**，**扩容服务**为 Hive，其他选项可根据需要自行选择。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0d198ad7af3d02259bed803073b2191c.png)
