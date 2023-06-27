@@ -3,6 +3,8 @@
 ## 业务场景
 用户使用专线 + 云联网打通腾讯云和客户远程 IDC 实现资源访问，同时期望指定访问 IP 地址并无 IP 冲突，可以通过私网 NAT + 专线方案来实现。
 **场景限制：云上业务 VPC未关联云联网实例**。
+>?由于`169.254.0.215/32`地址已经被私网 NAT 网关内部使用，如果专用通道采用 BGP 路由方式，建议客户 IDC 不使用该地址，如有疑问，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/d656aae3f47cfe86baea39f22f43ff10.png)
 
 ## 操作流程
