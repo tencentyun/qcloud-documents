@@ -47,8 +47,10 @@ COS_Migrate_tool
 |——dep   #程序主逻辑编译生成的 JAR 包
 |——log   #工具执行中生成的日志
 |——opbin #用于编译的脚本
+|——result #用于保存迁移成功记录的目录，记录文件名为 "日期.out"，格式为 "绝对路径\t文件大小\t最后修改时间"
 |——src   #工具的源码
 |——tmp   #临时文件存储目录
+|——.gitgnore   #git版本管理忽略的文件与文件夹
 |——pom.xml #项目配置文件
 |——README  #说明文档
 |——start_migrate.sh  #Linux 下迁移启动脚本
