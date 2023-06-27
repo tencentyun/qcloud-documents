@@ -6,7 +6,7 @@
 ## 数据准备
 需要处理的文件需要事先上传到 COS 中。如果文件在本地那么就可以通过 [COS 控制台直接上传](https://cloud.tencent.com/document/product/436/13321)。如果文件在 EMR 集群上，可以使用 Hadoop 命令上传。指令如下：
 ```
-[hadoop@10 hadoop]$ hadoop fs -put $testfile cosn:// $bucketname/
+[hadoop@10 hadoop]$ hadoop fs -put $testfile cosn://$bucketname/
 ```
 其中 $testfile 为要统计的文件的完整路径加名字，$bucketname 为您的存储桶名。上传完成后可以查看文件是否已经在 COS 中。
 
@@ -51,20 +51,20 @@ if __name__ == "__main__":
 通过如下指令提交任务：
 ```
 [hadoop@10   spark]$   ./bin/spark-submit   --master yarn   ./wordcount.py 
-cosn://$bucketname/$yourtestfile cosn:// $bucketname/$output
+cosn://$bucketname/$yourtestfile cosn://$bucketname/$output
 ```
 其中 $bucketname 为您的 COS 存储桶名，$yourtestfile 为您的测试文件在存储桶中的完整路径加名字。$output 为您的输出文件夹。**$output 为一个未创建的文件夹，如果执行指令前该文件夹已经存在，会导致程序运行失败。**
 
 成功后程序自动运行，可以在目标存储桶中查看到输出文件：
 ```
-[hadoop@172 spark]$ hadoop fs -ls cosn:// $bucketname/$output
+[hadoop@172 spark]$ hadoop fs -ls cosn://$bucketname/$output
 Found 2 items
--rw-rw-rw- 1 hadoop Hadoop 0 2018-06-29 15:35 cosn:// $bucketname/$output /_SUCCESS
--rw-rw-rw- 1 hadoop Hadoop 2102 2018-06-29 15:34 cosn:// $bucketname/$output /part-00000
+-rw-rw-rw- 1 hadoop Hadoop 0 2018-06-29 15:35 cosn://$bucketname/$output/_SUCCESS
+-rw-rw-rw- 1 hadoop Hadoop 2102 2018-06-29 15:34 cosn://$bucketname/$output/part-00000
 ```
 最后的结果也可以通过如下指令查看：
 ```
-[hadoop@172 spark]$ hadoop fs -cat cosn:// $bucketname/$output /part-00000
+[hadoop@172 spark]$ hadoop fs -cat cosn://$bucketname/$output /part-00000
 (u'', 27)
 (u'code', 1)
 (u'both', 1)
@@ -75,7 +75,7 @@ Found 2 items
 同样可以把结果输出到 HDFS 中，只需要更改指令中的输出位置即可，如下所示：
 ```
 [hadoop@10spark]$   ./bin/spark-submit   ./wordcount.py
-cosn://$bucketname/$yourtestfile /user/hadoop/$output
+cosn://$bucketname/$yourtestfile/user/hadoop/$output
 ```
 其中`/user/hadoop/`为 HDFS 中的路径，如果不存在用户可以自己创建。
 
