@@ -6,7 +6,7 @@ Alluxio 支持元数据加速桶在透明 URL 使用和配置上有以下异同�
 ```
 hdfs dfs -ls cosn://COS_BUCKET/PATH/
 ```
-### 元数据加速通+Alluxio 透明 URL
+### 元数据加速桶+Alluxio 透明 URL
 ```
 hdfs dfs -ls ofs://MOUNT_POINT-APPID/
 ```
