@@ -19,7 +19,7 @@ PUT _snapshot/my_cos_backup
 - app_id：腾讯云账号 APPID。
 - access_key_id：腾讯云 API 密钥 SecretId。
 - access_key_secret：腾讯云 API 密钥 SecretKey。
-- bucket：COS Bucket 名字，**名字不能带`-{appId}`后缀**。
+- bucket：COS Bucket 名字，**名字不能带`-{appId}`后缀**，创建 COS 存储桶的详细步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 - region：COS Bucket 地域，**此地域必须与 ES 集群为同一地域**。地域编码可参考 [地域和可用区](https://cloud.tencent.com/document/product/213/6091)。
 - compress：默认为 true，对索引元数据存储进行压缩。
 - base_path：备份目录。   
@@ -98,8 +98,10 @@ DELETE _snapshot/my_cos_backup/snapshot_1
 ```
 POST _snapshot/my_cos_backup/snapshot_1/_restore
 ```
+ - 这里是恢复所有的索引数据，通常会有一些系统索引已经存在，那就会出现异常的情况。
  - 如果 snapshot_1 包括5个索引，则这5个索引都会被恢复到 ES 集群中。   
  - 您还可以使用附加的选项对索引进行重命名。该选项允许您通过模式匹配索引名称，并通过恢复进程提供一个新名称。如果您想在不替换现有数据的前提下，恢复旧数据来验证内容或进行其他操作，则可以使用该选项。
+
 
 2. 从快照里恢复单个索引并提供一个替换的名称。
 ```
