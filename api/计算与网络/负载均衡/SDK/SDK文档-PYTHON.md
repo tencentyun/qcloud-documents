@@ -21,10 +21,9 @@ Python 2.x 目前不支持 Python 3
 使用 SDK 时，首先需要用户的云 API 密钥，云 API 密钥是对用户身份的合法性验证。
 
 获取云 API 密钥的方法如下：
-1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在左侧导航栏选择【访问密钥】>【API 密钥管理】。
+1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在左侧导航栏选择**访问密钥** > **API 密钥管理**。
 2. 用户可在此新建新的云 API 密钥或使用现有密钥。
-![](https://main.qcloudimg.com/raw/ad5adad7719bf7aa6d7979d9f6f617ae.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/fbdd662547dc686d1e729afee02f6cea.png)
 
 #### CLB Python SDK下载
 下载最新版 [CLB Python SDK](http://clbsdk-1251740579.cossh.myqcloud.com/CLB_PYTHON_SDK_0.0.3.zip)。
