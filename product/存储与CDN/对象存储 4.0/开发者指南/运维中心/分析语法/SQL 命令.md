@@ -52,7 +52,7 @@ SELET remoteIp AS ip FROM cos_standard_log
 
 1. 日志表的原始列名和日志字段一致，COS 的日志查询支持用户通过 AS 语法为查询得到的数据自定义列名。
 2. 自定义列名必须由字母开头，仅支持包含字符、数字、下划线`_`。
-3. 建议使用字符``包裹中文或保留字段，作为自定义列名，避免查询失败。如您需要查阅完整的保留字段列表，请参见 [保留字段]()。
+3. 建议使用字符``包裹中文或保留字段，作为自定义列名，避免查询失败。如您需要查阅完整的保留字段列表，请参见 [保留字段](https://cloud.tencent.com/document/product/436/94358)。
 
 #### 示例1：使用保留字段`Date`作为列名
 ```
@@ -91,7 +91,7 @@ SELECT * FROM cos_standard_log LIMIT 10
 ```
 SELECT 列名 WHERE 列名 运算符 值
 ```
-支持的运算符请参见 [运算符](新文档：运算符)。
+支持的运算符请参见 [运算符](https://cloud.tencent.com/document/product/436/94356)。
 
 #### 示例1：查询所有状态码非 200 的日志
 ```
@@ -134,7 +134,7 @@ SELECT 列名, 聚合函数 FROM cos_standard_log WHERE GROUP BY [ 列名 | 别�
 SELECT resHttpCode,timestamp, COUNT(*) AS pv FROM cos_standard_log GROUP BY resHttpCode
 ```
 - 别名：支持根据列的别名进行分组、使用聚合函数。
-- 聚合函数：GROUP BY 支持与 MIN、MAX、AVG、SUM、COUNT 等 [聚合函数](文档：SQL函数，锚点：聚合函数) 一起使用。
+- 聚合函数：GROUP BY 支持与 MIN、MAX、AVG、SUM、COUNT 等 [聚合函数](https://cloud.tencent.com/document/product/436/94355#.E8.81.9A.E5.90.88.E5.87.BD.E6.95.B0) 一起使用。
 
 #### 示例1：统计不同状态码的访问次数
 ```
@@ -160,7 +160,7 @@ HAVING 用于对分组聚合后（GROUP BY）的数据进行过滤。
 ```
 SELECT 列名, 聚合函数 FROM cos_standard_log GROUP BY 列名 HAVING 聚合函数 运算符 值
 ```
-支持的运算符请参见 [运算符] (文档：运算符)。
+支持的运算符请参见 [运算符] (https://cloud.tencent.com/document/product/436/94356)。
 
 #### 示例：统计平均响应延时大于1秒的对象。
 ```
