@@ -69,7 +69,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | engine_model_type | 是 | String | 引擎模型类型<br>电话场景：<li>8k_zh：中文电话通用；<li>8k_zh_finance：中文电话金融；<li>8k_en：英文电话通用；<br><br>非电话场景：<li>16k_zh：中文通用；<li>16k_zh-PY：中英粤；<li>16k_zh-TW：中文繁体；<li>16k_zh_edu：中文教育；<li>16k_zh_medical：中文医疗；<li>16k_zh_court：中文法庭；<li>16k_en：英文通用；<li>16k_en_game：英文游戏；<li>16k_en_edu：英文教育；<li>16k_ko：韩语；<li>16k_ja：日语；<li>16k_th：泰语；<li>16k_id：印度尼西亚语；<li>16k_vi:   越南语；<li>16k_ms: 马来语；<li>16k_fil: 菲律宾语；<li>16k_pt：葡萄牙语；<li>16k_tr：土耳其语；<li>16k_ca：粤语；<li>16k_zh_dialect：多方言，支持23种方言（上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话）； |
 | voice_id | 是 | String | 音频流识别全局唯一标识，一个 websocket 连接对应一个，用户自己生成（推荐使用 uuid），最长128位。 |
 | voice_format | 否 | Int | 语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；10：opus（[opus 格式音频流封装说明](#jump)）；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac|
-| needvad | 否 | Integer | 0：关闭 vad，1：开启 vad<br>如果语音分片长度超过60秒，用户需开启 vad（人声检测切分功能） |
+| needvad | 否 | Integer | 0：关闭 vad，1：开启 vad，默认为1。<br>如果语音分片长度超过60秒，用户需开启 vad（人声检测切分功能） |
 | hotword_id | 否 | String | 热词表 id。如不设置该参数，自动生效默认热词表；如果设置了该参数，那么将生效对应的热词表 |
 |reinforce_hotword|否 | Integer |热词增强功能。默认为0，0：不开启，1：开启。<br>开启后（仅支持8k_zh，16k_zh），将开启同音替换功能，同音字、词在热词中配置。<br>举例：热词配置“蜜制”并开启增强功能后，与“蜜制”同拼音（mizhi）的“秘制”、“蜜汁”等的识别结果会被强制替换成“蜜制”。因此建议客户根据自己的实际情况开启该功能。|
 | customization_id | 否 | String | 自学习模型 id。如设置了该参数，将生效对应的自学习模型|
