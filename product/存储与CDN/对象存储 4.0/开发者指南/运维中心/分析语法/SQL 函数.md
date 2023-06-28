@@ -198,7 +198,7 @@ YEAR(toDateTime('2021-04-21 10:20:30')) --- 2021
 ```
 toQuarter(time)
 QUARTER(time)
-````
+```
 
 示例：
 ```
