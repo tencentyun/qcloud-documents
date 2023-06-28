@@ -32,7 +32,7 @@
 
 ## 操作步骤
 ### 步骤1：创建测试 CAM 子用户
-1. 创建名为 access-assume-role 的自定义策略，策略内容为“当带入身份的标签与角色标签匹配时，允许带入任何 access-role 开头的 ABAC 角色”。
+1. 创建名为 access-assume-role 的自定义策略，策略内容为“当带入身份的标签与角色标签匹配时，允许带入 ABAC 角色”。
 >?创建 CAM 策略的详细操作，请参考 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
 >
 ```json
