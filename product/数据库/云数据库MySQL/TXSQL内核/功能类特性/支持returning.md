@@ -17,7 +17,7 @@
 1. 在使用 RETURNING 时，DELETE...RETURNING 语句返回前镜像数据，INSERT/REPLACE...RETURNING 返回后镜像数据。
 2. 暂不支持 UPDATE...RETURNING 语句。
 3. INSERT/REPLACE 场景下，外层表的列对 returning 中的子查询语句，暂不具有可见性。
-4. INSERT/REPLACE的RETURNING 语句若需要返回 last_insert_id()，则该 last_insert_id() 的值为该语句执行成功之前的值。若需要获得精确的 last_insert_id() 值，建议使用 RETURNING 直接返回该表的自增列 ID。
+4. INSERT/REPLACE 的 RETURNING 语句若需要返回 last_insert_id()，则该 last_insert_id() 的值为该语句执行成功之前的值。若需要获得精确的 last_insert_id() 值，建议使用 RETURNING 直接返回该表的自增列 ID。
 
 ## 使用说明
 #### INSERT... RETURNING
