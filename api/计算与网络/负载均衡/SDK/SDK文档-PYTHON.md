@@ -26,7 +26,7 @@ Python 2.x 目前不支持 Python 3
 ![](https://qcloudimg.tencent-cloud.cn/raw/fbdd662547dc686d1e729afee02f6cea.png)
 
 #### CLB Python SDK下载
-下载最新版 [CLB Python SDK](http://clbsdk-1251740579.cossh.myqcloud.com/CLB_PYTHON_SDK_0.0.3.zip)。
+下载最新版 [CLB Python SDK](https://clbsdk-1251740579.cossh.myqcloud.com/CLB_PYTHON_SDK_0.0.3.zip)。
 
                           
 ### 使用 CLB Python SDK
