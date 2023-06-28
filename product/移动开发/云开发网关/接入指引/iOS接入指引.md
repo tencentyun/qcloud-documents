@@ -5,7 +5,7 @@ iOS 应用，需要使用网关提供的 SDK，实现网络通讯，替换应用
 
 ## 操作步骤
 ### 步骤1：获取 SDK
-联系我们并获取到网关提供的 iOS SDK，并在开发机解压。
+[联系我们](https://cloud.tencent.com/document/product/1595/75974) 获取到网关提供的 iOS SDK，并在开发机解压。
 SDK 包括如下：
 - WXCloud.h（头文件）
 - libWXCloudCore.a（静态库）
