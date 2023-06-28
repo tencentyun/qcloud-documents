@@ -18,3 +18,4 @@ redo 日志文件目前采用 fsync 系统调用来落盘，包括文件元数�
 | --------------------------------- | ---- | ---- | ----- | ---------- | --------------------------- |
 | innodb_flush_redo_using_fdatasync | yes  | bool | false | true/false | 是否使用 fdatasync 方式刷 redo |
 
+>?用户目前无法直接修改以上参数的参数值，如需修改可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行修改。
