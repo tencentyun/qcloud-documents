@@ -9,5 +9,5 @@
 针对某些并发量大，占用大量资源，导致系统性能下降的 SQL。
 
 ## 使用示例
-[SQL 限流](https://cloud.tencent.com/document/product/1130/37882#sql-.E9.99.90.E6.B5.81)
+[SQL 限流](https://cloud.tencent.com/document/product/1130/89420)
 
