@@ -47,13 +47,13 @@ row3   column=cf:c, timestamp=1530276792839, value=value3
 接下来创建一个 Hive 外部表让它映射到第二步中创建的 Hbase 表上：
 ```
 hive> CREATE EXTERNAL TABLE hive_test (
-    > rowkey string,
-    > a string,
-    > b string,
-    > c string
-    > ) STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' WITH
-    > SERDEPROPERTIES("hbase.columns.mapping" = ":key,cf:a,cf:b,cf:c")
-    > TBLPROPERTIES("hbase.table.name" = "test");
+    rowkey string,
+    a string,
+    b string,
+    c string
+    ) STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler' WITH
+    SERDEPROPERTIES("hbase.columns.mapping" = ":key,cf:a,cf:b,cf:c")
+    TBLPROPERTIES("hbase.table.name" = "test");
 OK
 Time taken: 2.086 seconds
 ```
