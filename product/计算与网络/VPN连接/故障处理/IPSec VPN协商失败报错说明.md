@@ -7,7 +7,7 @@
 <tr>
 <td rowspan="5" >IKE 协商</td>
 <td colspan="1" >no match proposal</td>
-<td >云侧和客户侧配置的 IKE 策略一致，请检查。</td>
+<td >云侧和客户侧配置的 IKE 策略不一致，请检查。</td>
 </tr>
 <tr>
 <td>DH group not supported</td>
