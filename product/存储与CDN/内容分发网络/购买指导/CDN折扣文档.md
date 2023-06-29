@@ -14,7 +14,7 @@
 
 ## 活动3：【联合特惠】覆盖4大热门场景，云产品特惠0.01元起
 ### 活动详情
-覆盖直播电商、内容分发加速、音视频通话、企业通信等热门业务场景，多种热门云产品联合特惠0.01元起，[立即抢购](https://cloud.tencent.com/act/pro/video_scene?from=20860)https://cloud.tencent.com/act/pro/video_scene?from=20860。
+覆盖直播电商、内容分发加速、音视频通话、企业通信等热门业务场景，多种热门云产品联合特惠0.01元起，[立即抢购](https://cloud.tencent.com/act/pro/video_scene?from=20860)。
 
 ### 活动对象
 腾讯云官网已注册且完成实名认证的国内站用户均可参与（协作者与子用户账号除外）。
