@@ -137,7 +137,7 @@ done
 [root@172 ~]# cd /usr/local/service/spark/
 [root@172 spark]# su hadoop
 [hadoop@172 spark]$  hadoop fs -put ./README.md /
-[hadoop@172 spark]$ spark-submit --class org.apache.spark.examples.JavaWordCount --master yarn-client --num-executors 10 --driver-memory 4g --executor-memory 4g --executor-cores 2 ./examples/jars/spark-examples_2.11-2.3.2.jar /README.md /output
+[hadoop@172 spark]$ spark-submit --class org.apache.spark.examples.JavaWordCount --master yarn --num-executors 10 --driver-memory 4g --executor-memory 4g --executor-cores 2 ./examples/jars/spark-examples_2.11-2.3.2.jar /README.md /output
 ```
 - 在 YARN 组件的 WebUI 界面 Application 面板中，可以观察到配置前后容器和 CPU 分配情况。
 ![](https://main.qcloudimg.com/raw/8b929f19b8bf42b161817ae4a3effa85.png)
@@ -152,13 +152,13 @@ done
 ```
 [root@172 ~]# cd /usr/local/service/spark/
 [root@172 spark]# su hadoop
-[hadoop@172 spark]$ spark-sql --master yarn-client --num-executors 5 --driver-memory 4g --executor-memory 2g --executor-cores 1
+[hadoop@172 spark]$ spark-sql --master yarn --num-executors 5 --driver-memory 4g --executor-memory 2g --executor-cores 1
 ```
 - 使用 spark2.3.0 自带的计算圆周率的 example 作为测试任务，提交任务时将任务的 executor 数设置为5，driver 内存设置为4g，executor 内存设置为4g，executor 核数设置为2。
 ```
 [root@172 ~]# cd /usr/local/service/spark/
 [root@172 spark]# su hadoop
-[hadoop@172 spark]$ spark-submit --class org.apache.spark.examples.SparkPi --master yarn-client --num-executors 5 --driver-memory 4g --executor-memory 4g --executor-cores 2 examples/jars/spark-examples_2.11-2.3.2.jar 500
+[hadoop@172 spark]$ spark-submit --class org.apache.spark.examples.SparkPi --master yarn --num-executors 5 --driver-memory 4g --executor-memory 4g --executor-cores 2 examples/jars/spark-examples_2.11-2.3.2.jar 500
 ```
 ![](https://main.qcloudimg.com/raw/80f77735e7e6a90c7752562fe38f24e6.png)
 - 只运行 SparkSQL 任务时资源占用率90.3%。
