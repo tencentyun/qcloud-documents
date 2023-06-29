@@ -243,7 +243,7 @@
       <td></td>
    </tr>
    <tr>
-      <td rowspan="44">欧洲</td>
+      <td rowspan="43">欧洲</td>
       <td rowspan="6">北欧</td>
       <td>芬兰</td>
       <td></td>
@@ -269,7 +269,7 @@
       <td></td>
    </tr>
    <tr>
-      <td rowspan="7">东欧</td>
+      <td rowspan="6">东欧</td>
       <td>爱沙尼亚</td>
       <td></td>
    </tr>
@@ -283,10 +283,6 @@
    </tr>
    <tr>
       <td>白俄罗斯</td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>俄罗斯</td>
       <td></td>
    </tr>
    <tr>
