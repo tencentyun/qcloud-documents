@@ -132,7 +132,7 @@ func UploadImageToMixedInvoiceOCR(c *gin.Context,) {
 	//调用分类识别接口
 	invoiceImages := MixedInvoiceDetect(client)
 	
-	//将识别的结果和图片写入excal
+	//将识别的结果和图片写入excel
 	InvoiceToExcel(invoiceData,invoiceImages)
 	
 	// 如果写入成功返回响应消息
