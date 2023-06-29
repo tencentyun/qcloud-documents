@@ -6,7 +6,7 @@
 SDK 支持 cocoapods 和手动两种方式集成。
 
 #### 1.1 SDK pod 集成
-如果您的项目已经支持 cocopods ，可以使用本方式集成 SDK，本示例使用的 cocoapods 版本号为 1.7.2。
+如果您的项目已经支持 cocoapods ，可以使用本方式集成 SDK，本示例使用的 cocoapods 版本号为 1.7.2。
 下载的 OCR SDK 文件夹目录结构如下：
 ```
 ├── OCR_private_pod
