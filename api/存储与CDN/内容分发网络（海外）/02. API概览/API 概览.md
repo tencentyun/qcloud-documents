@@ -62,7 +62,7 @@
 <td align="left">根据提交的资源 URL（可多个），将对应资源从境外节点中删除，此时再有用户访问，会直接回源站获取最新内容。</td>
 </tr>
 <tr>
-<td align="left">查询境外刷新纪录</td>
+<td align="left">查询境外刷新记录</td>
 <td align="left"><a href="https://cloud.tencent.com/document/api/228/7347" target="_blank">GetCdnOverseaRefreshLog</a></td>
 <td align="left">根据用户输入的信息，如时间、URL，查询对应的境外刷新记录。</td>
 </tr>
