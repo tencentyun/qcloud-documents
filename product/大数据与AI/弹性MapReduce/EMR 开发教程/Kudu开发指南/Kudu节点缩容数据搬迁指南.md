@@ -24,6 +24,6 @@
 5. 暂停 fb9afb1b2989456cac5800bf6990dfea 对应节点10.0.1.45的 tserver 进程。注意此时，使用ksck命令，集群状态不健康，需要重启 master。
 ![](https://qcloudimg.tencent-cloud.cn/raw/48475acf8c1c4a790bfd52a8c353776a.png)
 6. 在 [EMR 控制台](https://console.cloud.tencent.com/emr) 重启 master。注意需要手动一台一台的重启（不建议使用控制台的滚动重启）。重启结束后，使用ksck命令，确保集群状态健康。
-![](https://qcloudimg.tencent-cloud.cn/raw/02cefeba101a1d555f03345526bc4c2e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b70b4513c08c98672bc2b81eebc07bc8.png)
 
 
