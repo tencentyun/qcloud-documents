@@ -256,7 +256,7 @@
 <tbody><tr>
 <td><a href="https://cloud.tencent.com/document/product/214/8987" target="_blank">查询负载均衡云服务器列表</a></td>
 <td>DescribeForwardLBBackends</td>
-<td>查询负载均后端绑定的云服务器列表。</td>
+<td>查询负载均衡实例后端绑定的云服务器列表。</td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/214/8989" target="_blank">绑定云服务器到负载均衡四层监听器的转发规则上</a></td>
