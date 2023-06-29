@@ -12,7 +12,7 @@ Livy 还支持如下功能：
 
 ## 使用 Livy
 1. 访问`http://IP:8998/ui` 可以进入 Livy 的 UI 页面（**IP 为外网 IP，请自行为安装有 Livy 的机器申请外网 IP，并编辑设置安全组策略来开通对应的端口以进行访问**）。
-2. 创建一个交互式会话。
+2. 创建一个交互式会话。（下述示例代码**以 Linux/Mac OS 为例**）
 ```
 curl -X POST --data '{"kind":"spark"}' -H "Content-Type:application/json" IP:8998/sessions
 ```
