@@ -1,7 +1,7 @@
 ## 使用 Phoenix salted 表
 Hbase 的 Row Key 假如没有经过精心设计，如果它又是自增长的，那么顺序写很可能会导致热点问题。PHoenix 提供了一种透明的方法，关联 salt 和 RowKey 到一张指定表的方案。只需要在创建表的时候添加 SALT_BUCKETS 关键字，这个值的范围是1到256。例如：
 ``` sql
-0: jdbc:phoenix:>CREATE TABLE table (a_key VARCHAR PRIMARY KEY, a_col VARCHAR) SALT_BUCKETS = 20;
+0: jdbc:phoenix:>CREATE TABLE my_table (a_key VARCHAR PRIMARY KEY, a_col VARCHAR) SALT_BUCKETS = 20;
 ```
 可以免除使用 Hbase API 时需要精心设计 RowKey 的麻烦。如果用户对 Hbase Row Key 的设计理解不够，建议使用 salted 表。Phoenix 官方提供的写和查询，salted 表和非 salted 表性能对比：
 ![salted 表性能](https://mc.qcloudimg.com/static/img/8381e5a72ea654a488dd29b5d0effccf/5-4-4.png)  
@@ -32,6 +32,6 @@ EMR 中 Phoenix 直接可支持 Phoenix 的二级索引。如果需要使用非�
 ## Phoenix 二级索引使用
 创建二级索引，命令如下：
 ``` sql
-0: jdbc:phoenix:>CREATE INDEX my_index ON my_table (v1) INCLUDE (v2)；
+0: jdbc:phoenix:>CREATE INDEX my_index ON my_table (v1) INCLUDE (v2);
 ```
 更多二级索引操作说明，可查看 [Phoenix 二级索引社区文档](http://phoenix.apache.org/secondary_indexing.html)。
