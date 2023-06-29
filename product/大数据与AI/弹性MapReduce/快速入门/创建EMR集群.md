@@ -87,7 +87,7 @@
 集群创建成功后，您可以在该集群创建并提交作业；本文已提交 spark 任务为例，操作如下。
 >! 在创建 EMR 集群的时候需要在软件配置界面选择 Spark 组件。
 >
-1. 使用 SSH 登录并连接集群（本地系统为 Linux/Mac OS），详情请参见 [登录集群]()。
+1. 使用 SSH 登录并连接集群（本地系统为 Linux/Mac OS），详情请参见 [登录集群](https://cloud.tencent.com/document/product/589/34358)。
 2. 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Spark 安装目录/usr/local/service/spark：
 ```
 [root@172 ~]# su hadoop
@@ -106,5 +106,8 @@
 /usr/local/service/spark/examples/jars/spark-examples*.jar \
 10
 ```
-
 4. 提交作业后，在 EMR on CVM 页面，单击目标集群所在行的**集群服务**；单击 YARN UI 所在行的 **WebUI 链接**。登录认证后即可进入YARN UI 页面；单击目标作业的 **ID**，可以查看作业运行的详情。
+
+## 销毁集群
+- 当创建的集群不再使用时，可以销毁集群，退还资源；毁集群将强制终止集群所提供的服务，并释放资源。
+- 在 EMR on CVM 页面，选择目标集群的**更多 > 销毁**；在弹出的对话框中，单击**立即销毁**。
