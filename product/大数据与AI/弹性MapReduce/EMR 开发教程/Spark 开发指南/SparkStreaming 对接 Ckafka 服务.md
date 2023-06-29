@@ -18,8 +18,7 @@
 [root@172 ~]# su hadoop
 [root@172 root]$ cd /usr/local/service/spark
 ```
-
-从 [Kafka 官网](http://kafka.apache.org/downloads) 下载安装包，注意选择合适的版本，具体可参考 [EMR 各版本 Kafka 与 Spark 版本说明](https://cloud.tencent.com/document/product/589/39697)。kafka 客户端版和腾讯云 ckafka 兼容性强，安装对应的 kafka 客户端版本即可。解压压缩包并将解压出来的文件夹移动到`/opt`目录下：
+从 [Kafka 官网](http://kafka.apache.org/downloads) 下载安装包，注意选择合适的版本，具体可参考 [EMR 各版本 Kafka 与 Spark 版本说明](https://cloud.tencent.com/document/product/589/39697)。kafka 客户端版和腾讯云 ckafka 兼容性强，安装对应的 kafka 客户端版本即可。本文以 kafka_2.10-0.10.2.0 版本为示例，请注意在命令及代码中使用正确版本，解压压缩包并将解压出来的文件夹移动到/opt目录下：
 ```
 [hadoop@172 data]$ tar -xzvf kafka_2.10-0.10.2.0.tgz
 [hadoop@172 data]$ mv kafka_2.10-0.10.2.0 /opt/
