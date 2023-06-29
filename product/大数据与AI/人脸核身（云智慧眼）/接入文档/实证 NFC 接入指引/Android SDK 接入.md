@@ -28,10 +28,10 @@ android{
 }
 //添加依赖
 dependencies {   
-		//1. 云NFC SDK
-		implementation(name: 'WbCloudNfcSdk-pro-v2.0.0-1fec32a', ext: 'aar')
-		//2.云公共组件
-		implementation(name: 'WbCloudNormal-v5.1.3-90776e2', ext: 'aar')    }
+        //1. 云NFC SDK
+        implementation(name: 'WbCloudNfcSdk-pro-v2.0.0-1fec32a', ext: 'aar')
+        //2.云公共组件
+        implementation(name: 'WbCloudNormal-v5.1.3-90776e2', ext: 'aar')    }
 ```
 
 ### 2. 混淆配置
@@ -130,7 +130,7 @@ public interface NfcResultListener{
 NFC 识别结果，封装在 WBNfcResult 类中，该类属性如下所示：
 
 ```
-	 public String code;//识别结果的code
+     public String code;//识别结果的code
      public String message; //识别结果的msg
      public String orderNo;//识别结果的订单号
      public String ocrCertId;//订单结果的ocrCertId
@@ -154,7 +154,7 @@ InputData 是用来给 SDK 传递一些必须参数所需要使用的对象（Wb
 
 
 ### 个性化参数设置
-WbCloudOcrSdk.init() 里 Bundle data，除了必须要传的 InputData 对象（详情见上节）之外，还可以由合作方方传入一些个性化参数，量身打造更契合自己 App 的 SDK。如果合作方未设置这些参数，则以下所有参数按默认值设置。
+WbCloudOcrSdk.init() 里 Bundle data，除了必须要传的 InputData 对象（详情见上节）之外，还可以由合作方传入一些个性化参数，量身打造更契合自己 App 的 SDK。如果合作方未设置这些参数，则以下所有参数按默认值设置。
 
 ## 错误码描述
 | 终端返回错误码| 描述 | 
@@ -182,17 +182,17 @@ WbCloudOcrSdk.init() 里 Bundle data，除了必须要传的 InputData 对象（
                 openApiSign，
  openApiOcrCertId);
         data.putSerializable(WbCloudOcrSDK.INPUT_DATA，inputData);
-	//个性化参数设置，可以不设置，不设置则为默认选项。
-	//此处均设置为和默认设置不同
-	data.putLong(WbCloudNfcSDK.NFC_TIME, 60000);//识别超时时间。身份证默认20s,回乡证默认60s。
-	data.putString(WbCloudNfcSDK.NFC_TYPE, "3");//1表示身份证，3表示回乡证。默认身份证
+    //个性化参数设置，可以不设置，不设置则为默认选项。
+    //此处均设置为和默认设置不同
+    data.putLong(WbCloudNfcSDK.NFC_TIME, 60000);//识别超时时间。身份证默认20s,回乡证默认60s。
+    data.putString(WbCloudNfcSDK.NFC_TYPE, "3");//1表示身份证，3表示回乡证。默认身份证
       //1.初始化 SDK，得到是否登录 SDK成功的回调结果，请在主线程中调用此接口。
         WbCloudNfcSDK.getInstance().init(MainActivity.this，data，new WbCloudNfcSDK.NfcLoginListener() {
             @Override
             public voidonLoginSuccess() {  
-			 //2.登录成功，拉起 SDK页面。请在主线程中调用此接口。
-		WbCloudNfcSDK.getInstance().startActivityForNfc(MainActivity.this，
-			new  WbCloudNfcSDK.WBNfcResultListener() {  //返退出 SDK 回调接口
+             //2.登录成功，拉起 SDK页面。请在主线程中调用此接口。
+        WbCloudNfcSDK.getInstance().startActivityForNfc(MainActivity.this，
+            new  WbCloudNfcSDK.WBNfcResultListener() {  //返退出 SDK 回调接口
                     @Override
                     public voidonFinish(WBNfcResult wbNfcResult) {
            // resultCode为0，则NFC识别成功；否则识别失败
