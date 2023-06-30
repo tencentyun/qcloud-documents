@@ -7,7 +7,7 @@
 ## 设置 LDAP 身份验证
 1. 登录腾讯云 [Elasticsearch 控制台](https://console.cloud.tencent.com/es)，单击**集群名称**访问目标集群，跳转至**基础配置**页面。
 2. 在**访问控制**模块，单击**身份验证**的编辑按钮，进入身份验证设置界面。
-![](https://qcloudimg.tencent-cloud.cn/raw/960a0702b273633745d2dc015db43f48.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/cae3b992848bf445fe9069db7a1a4562.png)
 3. 填写相关内容
 	- url：LDAP 服务器地址。ldap 服务器地址，以 “ldap://” 开头，后面填写域名或者IP地址。请确保填写的 URL 可在您的 VPC 下内网访问，否则该配置将无法生效。
 	- bind_dn：用于 LDAP 服务器认证的成员 DN。需满足 DN 层次型语法结构，如：cn=admin,dc=husor,dc=com，长度不超过200个字符。
