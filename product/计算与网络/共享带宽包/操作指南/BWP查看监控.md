@@ -2,12 +2,12 @@
 
 ## 监控指标说明
 
-| 指标英文名 | 指标中文名 | 指标含义 |单位 |维度 |
-|---------|---------|---------|---------|---------|
-| InPkg | 入包量 | 共享带宽包入包量 |个/秒 |bandwidthPackageId |
-| InTraffic | 入带宽 | 共享带宽包入带宽 |Mbps |bandwidthPackageId |
-| OutPkg | 出包量 | 共享带宽包出包量 |个/秒 |bandwidthPackageId |
-| OutTraffic | 出带宽 | 共享带宽包出带宽 |Mbps |bandwidthPackageId |
+| 指标英文名 | 指标中文名 | 指标含义 |单位 |
+|---------|---------|---------|---------|
+| InPkg | 入包量 | 共享带宽包入包量 |个/秒 |
+| InTraffic | 入带宽 | 共享带宽包入带宽 |Mbps |
+| OutPkg | 出包量 | 共享带宽包出包量 |个/秒 |
+| OutTraffic | 出带宽 | 共享带宽包出带宽 |Mbps |
 
 共享带宽包的命名空间请参见 [带宽包监控指标](https://cloud.tencent.com/document/product/248/45098?from_wecom=1)。
 
