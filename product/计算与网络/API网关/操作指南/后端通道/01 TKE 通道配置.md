@@ -35,25 +35,23 @@
 
 一个完整的 TKE 通道配置如下：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/9f3e5683e3777384076f5c8f9e29178e.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/9f3e5683e3777384076f5c8f9e29178e.png" width=900/>
 
 
 ### 步骤2：API 后端对接 TKE 通道
 1. 在 API 网关控制台的 [服务](https://console.cloud.tencent.com/apigateway/service)页面，选择专享实例的服务、单击第1列服务名的“ServiceID”，进入管理 API 页面。
 2. 单击**新建**，API类型选择通用 API。
 3. 输入前端配置，然后单击**下一步**。
-![image](https://user-images.githubusercontent.com/128894590/227708638-3441e7ec-e16f-4956-b691-71bc6e112628.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/20cc8d5bee0ccd021125ae9e1a6d0017.png" width=900/>
 4. 选择后端类型为 **VPC内资源**，选择VPC信息，选择对接方式。
 5. 选择后端通道类型为 **容器通道**，选择通道、设置后端路径。
 6. 单击**下一步**。  
-	 ![image](https://user-images.githubusercontent.com/128894590/227709163-f2d8ea27-35c1-464b-9a8d-8eb0c5833a49.png)
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/86a1083d2f03c574b946c775519040fa.png" width=900/>
 5. 设置响应结果，并单击**完成**。
 
 ## 网络架构
 TKE 通道被 API 绑定后，整个网络的架构如下：
-
-![](https://qcloudimg.tencent-cloud.cn/raw/ca04e628647d61f5b46e68e48a28dc7c.png)
-
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/ca04e628647d61f5b46e68e48a28dc7c.png" width=900/>
 API 网关直接访问 容器集群 中的 Pod，不需要经过 CLB。因为在 容器集群 中，httpbin 的服务配置文件 YAML 如下，其中 selector 中，表示选择带有标签的Pod（其中标签键 app，标签值 httpbin）作为 容器通道 的节点。因此，version 为 v1/v2/v3 的 Pod 也都是 容器通道 的节点。
 ```yaml
 apiVersion: v1
