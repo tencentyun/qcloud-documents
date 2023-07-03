@@ -5,9 +5,8 @@
 Cerebro 是开源的 Elasticsearch 可视化管理工具，支持您通过 Cerebro 对腾讯云 Elasticsearch 集群进行 Web 可视化管理，如监控实时的索引分片负载、执行 request 请求、修改 Elasticsearch 配置等。
 
 ## 操作步骤
-
 1. 登录[腾讯云 Elasticsearch 控制台](https://console.cloud.tencent.com/es)，单击**集群名称**访问目标集群，跳转至**访问控制**界面。
-![](https://qcloudimg.tencent-cloud.cn/raw/7f7491ff035585a8c1a3e1a04a8079f4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c24ca97d19f015a2a9c0028f066ecf35.png)
 2. 在 **Cerebro** 功能模块，一键安装 Cerebro（默认未安装），Cerebro 默认安装在 Kibana 节点上，和 Kibana 公用节点资源，启用前建议前往集群变配界面升级 Kibana 节点规格至2核4G 及以上。
 3. 访问 Cerebro 控制台，在登录界面输入用户名和密码登录。用户名默认为 elastic，密码为集群创建时设置的密码。
 4. Cerebro 支持内网和公网访问，并在公网访问策略模块进行配置，配置方案参考 [ES 集群访问控制](https://cloud.tencent.com/document/product/845/16992)。
