@@ -12,7 +12,7 @@ export default function({event, data}) {
 ```
 2. 在编辑区拖入任意一个组件，如单行输入组件，然后在按钮绑定一个点击事件，事件动作选择 **Javascript 代码方法**节点，然后下拉方法列表中选择刚刚新建的 eventLog 方法。
 3. 在输入框中进行输入改变的操作，查看下方开发调试工具（**面板** > **开发调试工具**）控制台中的查看打印信息。
-![](https://files.mdnice.com/user/39160/f58718ef-6586-4685-9044-7c1cecd93ef3.png)
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/339109084f9a972cbeddaaae88cf39e3.png" />
 4. 根据上图所示，我们便可以在编辑器中通过使用 `event.detail.value` 来调用当前触发条件所返回的值。
 
 
