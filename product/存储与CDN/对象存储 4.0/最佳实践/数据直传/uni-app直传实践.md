@@ -54,7 +54,7 @@ COS 提供了后缀式请求格式`POST http://cos.ap-beijing.myqcloud.com/examp
 
 以下代码同时举例了 [PUT Object ](https://cloud.tencent.com/document/product/436/7749) 接口（推荐使用）和[POST Object ](https://cloud.tencent.com/document/product/436/14690) 接口，操作指引如下：
 
-### 小程序 PostObject 上传
+### 使用 POST 上传
 
 PutObject 上传方案使用 wx.uploadFile 方法调用 COS 的 [Post Object ](https://cloud.tencent.com/document/product/436/14690) 接口。操作指引：
 
@@ -169,7 +169,7 @@ var uploadFile = function () {
 };
 ```
 
-### 小程序 PutObject 上传
+### 使用 PUT 上传
 
 PutObject 上传会把文件内容读取到内存 ArrayBuffer 变量里，仅适用于小文件上传，该方案使用 [PUT Object ](https://cloud.tencent.com/document/product/436/7749) 接口。操作指引：
 
