@@ -63,7 +63,7 @@
 | 481    | Oauth found no oauth config.                                  | 没有找到 Oauth 配置。                                            |
 | 481    | Oauth found no public key.                                    | 没有找到公钥。                                                 |
 | 481    | Mock config error.                                            | mock 的配置出错。                                               |
-| 499    | Client closed connetion.                                      | 客户端主动中断连接。                                           |
+| 499    | Client closed connection.                                      | 客户端主动中断连接。                                           |
 
 **后台错误**：
 
@@ -73,4 +73,3 @@
 | 500    | Internal Server Error.                                        | 1. 其他 APIGW 内部逻辑错误。<br>2. 若 API 为 proxy 类型，访问了没有权限访问的后端地址也会报该错误。 |
 | 502    | Bad Gateway.                                                  | 连接后端服务出错，可能情况：<br>1. 后端拒绝服务，全部请求都为502。 <br>2. 后端高负载，导致部分请求响应为502。 |
 | 504    | Gateway Time-out.                                             | 后端服务器连接超时。                                           |
-
