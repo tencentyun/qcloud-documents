@@ -35,7 +35,7 @@ OAuth2.0 有以下四个角色：
 2. 生成 RSA 公钥和私钥。使用 Python3 运行 produce_key.py，生成三个文件：
  - public_pem ：pem 格式的公钥
  - priv_pem ：pem 格式的私钥
- - pulic ：json 格式的公钥，该文件的内容用于配置 API 网关的授权 API。具体格式如下：：
+ - public ：json 格式的公钥，该文件的内容用于配置 API 网关的授权 API。具体格式如下：：
 ```
 {"e":"AQAB","kty":"RSA","n":"43nSuC6lmGLogEPgFVwaaxAmPDzmZcocRB4Jed_dHc-sV7rcAcNB0iHyuGfNkfOAE2uhHVjdXuO6DBYGz4pnTwRZ5_wFrW0DlrlJQAXSvg6B2N1uda_aqySNw3rrvdh38rVG7HxFmyPbLXcpJtyfkiRNyZ1WhSpH0NciIRrFbW2mKRtOZsBGfBgmNqPGcGrMA71cuqNAQ9RMKmAF37iGXkx0tWMBQ_PL2aviHhtsiPbT3zIO7qUG3cleBHnS61kid3K8F38z9-5Hj-1zdTIP8iS4rAt4FmhvKvtOocRPYGq0W_dLLxmi4DYgIV2GJE93WyZ1EUvgRGhpcHvyT65z4w"}
 ```
