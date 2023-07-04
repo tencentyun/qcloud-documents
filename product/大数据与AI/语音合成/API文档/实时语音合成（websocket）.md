@@ -86,11 +86,11 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 
 1. 对除 Signature 之外的所有参数按字典序进行排序，拼接请求 URL 作为签名原文，这里以 `AppId=25113****`，`SecretId=*****TzIOGvNdgghaG2oYL*****` 为例拼接签名原文，则拼接的签名原文为：
 ```
-tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=25113****&Codec=pcm&EnableSubtitle=True&Expired=1687426421&ModelType=1&SampleRate=16000&SecretId=*****TzIOGvNdgghaG2oYL*****&SessionId=b55ccc7e-1016-11ee-ba47-6c92bf65e6fe&Speed=0&Text=%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%A9%BA%E6%B0%94%E6%B9%BF%E5%BA%A6%E6%98%AF20%25&Timestamp=1687340021&VoiceType=101001&Volume=0
+GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=25113****&Codec=pcm&EnableSubtitle=True&Expired=1687426421&ModelType=1&SampleRate=16000&SecretId=*****TzIOGvNdgghaG2oYL*****&SessionId=b55ccc7e-1016-11ee-ba47-6c92bf65e6fe&Speed=0&Text=%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%A9%BA%E6%B0%94%E6%B9%BF%E5%BA%A6%E6%98%AF20%25&Timestamp=1687340021&VoiceType=101001&Volume=0
 ```
 2. 对签名原文使用 SecretKey 进行 HmacSha1 加密，之后再进行 base64 编码。例如对上一步的签名原文， `SecretKey=*****SkqpeHgqmSz*****`，使用 HmacSha1 算法进行加密并做 base64 编码处理：
 ```
-Base64Encode(HmacSha1("tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=25113****&Codec=pcm&EnableSubtitle=True&Expired=1687426421&ModelType=1&SampleRate=16000&SecretId=*****TzIOGvNdgghaG2oYL*****&SessionId=b55ccc7e-1016-11ee-ba47-6c92bf65e6fe&Speed=0&Text=%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%A9%BA%E6%B0%94%E6%B9%BF%E5%BA%A6%E6%98%AF20%25&Timestamp=1687340021&VoiceType=101001&Volume=0", "*****SkqpeHgqmSz*****"))
+Base64Encode(HmacSha1("GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=25113****&Codec=pcm&EnableSubtitle=True&Expired=1687426421&ModelType=1&SampleRate=16000&SecretId=*****TzIOGvNdgghaG2oYL*****&SessionId=b55ccc7e-1016-11ee-ba47-6c92bf65e6fe&Speed=0&Text=%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%A9%BA%E6%B0%94%E6%B9%BF%E5%BA%A6%E6%98%AF20%25&Timestamp=1687340021&VoiceType=101001&Volume=0", "*****SkqpeHgqmSz*****"))
 ```
 得到 Signature 签名值为：
 ```
