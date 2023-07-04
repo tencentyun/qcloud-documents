@@ -20,5 +20,5 @@
  <img src="https://qcloudimg.tencent-cloud.cn/raw/7a41cfbfb02d01fd03484773d2d65946.png" width=700/>
  
 ## 专享实例下服务绑定 VPC
-由于专享实例本身具备 VPC 属性，因此不需要用户操作绑定 VPC。创建专享实例下服务时，所属 VPC 字段会自动选择专享实例所在的 VPC。
+由于专享实例本身具备 VPC 属性，因此不需要用户操作绑定 VPC。创建专享实例服务时，所属 VPC 字段会自动选择专享实例所在的 VPC。
   <img src="https://qcloudimg.tencent-cloud.cn/raw/636d78229fb7563f8d756df64d887edd.png" width=600/>
