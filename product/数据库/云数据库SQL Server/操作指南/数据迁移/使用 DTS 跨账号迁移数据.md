@@ -73,7 +73,7 @@
  - 是否跨账号：选择跨账号。
  - 跨腾讯云账号 ID： 填入源数据库所属的主账号 ID。
  - 跨账号授权角色名称。即前文 [授权账号](#SQZH) 步骤6中创建的**角色名称**。您可以通过 [角色](https://cloud.tencent.com/document/product/598/19420) 以及 [跨账号角色](https://cloud.tencent.com/document/product/1312/48171) 了解更多关于角色的概念。
- - 外部角色 ID：这个选项可选。这个参数可以通过前文获得。您可以通过 [角色](https://cloud.tencent.com/document/product/598/19420) 以及 [跨账号角色](https://cloud.tencent.com/document/product/1312/48171) 了解更多关于角色的概念。
+ - 角色外部 ID：这个选项可选。这个参数可以通过前文获得。您可以通过 [角色](https://cloud.tencent.com/document/product/598/19420) 以及 [跨账号角色](https://cloud.tencent.com/document/product/1312/48171) 了解更多关于角色的概念。
  >?完成上述配置后，选择对应的所属地域，即可获取到跨账号下的实例列表，如果获取实例出现报错，则可能为配置错误，或者未授权，请参考 [常见问题](#CJWT) 进行处理。
 5. 在设置迁移选项和迁移对象页面，对数据迁移选项、迁移对象选项进行设置，在设置完成后单击**保存并下一步**。
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
