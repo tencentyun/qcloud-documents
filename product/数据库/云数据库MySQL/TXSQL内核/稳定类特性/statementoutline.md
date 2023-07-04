@@ -27,7 +27,7 @@ create table t3(a int, b int, c int, unique key idx3(a));
 
 | 参数名                  | 动态 | 类型 | 默认  | 参数值范围 | 说明                |
 | ----------------------- | ---- | ---- | ----- | ---------- | ------------------- |
-| cdb_opt_outline_enabled | yes  | bool | fasle | true/false | 是否打开 outline 功能 |
+| cdb_opt_outline_enabled | yes  | bool | false | true/false | 是否打开 outline 功能 |
 
 >?用户目前无法直接修改以上参数的参数值，如需修改可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行修改。
 >
