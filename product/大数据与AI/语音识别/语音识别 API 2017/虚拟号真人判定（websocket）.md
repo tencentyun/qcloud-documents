@@ -183,19 +183,19 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 
 1. 对除 signature 之外的所有参数按字典序进行排序，拼接请求 URL 作为签名原文，这里以 Appid=125922***，SecretId=*****Qq1zhZMN8dv0****** 为例拼接签名原文，则拼接的签名原文为：
 ``` plaintext
-   asr.cloud.tencent.com/asr/virtual_number/v1/125922***?expired=1673494772&needvad=1&nonce=1673408372&secretid=*****Qq1zhZMN8dv0******&timestamp=1673408372&voice_format=1&voice_id=c64385ee-3e5c-4fc5-bbfd-7c71addb35b0
+asr.cloud.tencent.com/asr/virtual_number/v1/125922***?expired=1673494772&needvad=1&nonce=1673408372&secretid=*****Qq1zhZMN8dv0******&timestamp=1673408372&voice_format=1&voice_id=c64385ee-3e5c-4fc5-bbfd-7c71addb35b0
 ```
 2. 对签名原文使用 SecretKey 进行 HmacSha1 加密，之后再进行 base64 编码。例如对上一步的签名原文， SecretKey=*****SkqpeHgqmSz*****，使用 HmacSha1 算法进行加密并做 base64 编码处理：
 ``` plaintext
-   Base64Encode(HmacSha1("asr.cloud.tencent.com/asr/virtual_number/v1/125922***?expired=1673494772&needvad=1&nonce=1673408372&secretid=*****Qq1zhZMN8dv0******&timestamp=1673408372&voice_format=1&voice_id=c64385ee-3e5c-4fc5-bbfd-7c71addb35b0", "*****SkqpeHgqmSz*****"))
+Base64Encode(HmacSha1("asr.cloud.tencent.com/asr/virtual_number/v1/125922***?expired=1673494772&needvad=1&nonce=1673408372&secretid=*****Qq1zhZMN8dv0******&timestamp=1673408372&voice_format=1&voice_id=c64385ee-3e5c-4fc5-bbfd-7c71addb35b0", "*****SkqpeHgqmSz*****"))
 ```
    得到 signature 签名值为：
 ``` plaintext
-   G8jDQBRg1JfeBi/YnTjyjekxfDA=
+G8jDQBRg1JfeBi/YnTjyjekxfDA=
 ```
 3. 将 signature 值进行 urlencode（必须进行 URL 编码，否则将导致鉴权失败偶现 ）后拼接得到最终请求 URL 为：
 ``` plaintext
-   wss://asr.cloud.tencent.com/asr/virtual_number/v1/1259228442?expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN&signature=HepdTRX6u155qIPKNKC%2B3U0j1N0%3D
+wss://asr.cloud.tencent.com/asr/virtual_number/v1/1259228442?expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN&signature=HepdTRX6u155qIPKNKC%2B3U0j1N0%3D
 ```
 
 ### Opus 音频流封装说明
