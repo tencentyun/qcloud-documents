@@ -109,9 +109,13 @@
 ### 请求格式
 
 握手阶段，客户端主动发起 websocket 连接请求，请求 URL 格式为：
-`wss://asr.cloud.tencent.com/asr/virtual_number/v1/<appid>?{请求参数}`
+```plaintext
+wss://asr.cloud.tencent.com/asr/virtual_number/v1/<appid>?{请求参数}
+```
 其中`<appid>`需替换为腾讯云注册账号的 AppID，可通过 [API 密钥管理平台](https://console.cloud.tencent.com/cam/capi) 获取，{请求参数}格式为
-`key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)`
+```plaintext
+key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
+```
 
 ### 参数说明
 
@@ -126,7 +130,7 @@
 <td rowspan="1" colSpan="1" >secretid</td>
 <td rowspan="1" colSpan="1" >是</td>
 <td rowspan="1" colSpan="1" >String</td>
-<td rowspan="1" colSpan="1" >腾讯云注册账号的密钥 SecretId，可通过 [API密钥管理平台](https://console.cloud.tencent.com/cam/capi) 获取</td>
+<td rowspan="1" colSpan="1" >腾讯云注册账号的密钥 SecretId，可通过 <a href="console.cloud.tencent.com/cam/capi)">API 密钥管理平台</a> 获取</td>
 </tr>
 <tr>
 <td rowspan="1" colSpan="1" >timestamp</td>
