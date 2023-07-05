@@ -1,4 +1,4 @@
-本文指导您通过专线接入 + 私有 NAT 网关的 SNAT 和 DNAT 功能，实现本地数据中心 IDC（Internet Data Center）与云上地址做资源访问。
+本文指导您通过专线接入 + 私有 NAT 网关的 SNAT 和 DNAT 功能，实现本地数据中心 IDC（Internet Data Center）与云上地址的资源访问。
 >?
 >- NAT 型专线网关 V3R2 版本目前处于内测中，如有需要，请联系 [在线支持](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
 >- 私网 NAT 网关功能目前处于内测中，如有需要，请联系 [在线支持](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
