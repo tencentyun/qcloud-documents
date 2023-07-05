@@ -25,7 +25,7 @@ do
       echo $RANDOM, \"$RANDOM\"
 done
 ```
-然后执行如下命令：
+使用 chmod 命令为 gen_data.sh 赋予可执行权限后，执行如下命令：
 ```swift
 [hadoop@10 ~]$ ./gen_data.sh > impala_test.data
 ```
