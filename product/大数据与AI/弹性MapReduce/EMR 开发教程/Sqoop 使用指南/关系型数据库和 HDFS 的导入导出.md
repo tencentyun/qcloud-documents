@@ -18,7 +18,7 @@ Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统数据库（MyS
 ```
 连接 MySQL 数据库：
 ```
-[hadoop@172 sqoop]$ mysql -h $mysqlIP –p
+[hadoop@172 sqoop]$ mysql -h $mysqlIP -p
 Enter password:
 ```
 密码为您创建 EMR 集群的时候设置的密码。
@@ -80,7 +80,7 @@ Mysql> exit;
 ## 4. 将 HDFS 的数据导入到 MySQL 中
 首先需要在 MySQL 新建一个表准备存放 HDFS 中的数据：
 ```
-[hadoop@172 sqoop]$ mysql -h $mysqlIP –p
+[hadoop@172 sqoop]$ mysql -h $mysqlIP -p
 Enter password:
 mysql> use test;
 Database changed
@@ -110,7 +110,7 @@ root -P --table sqoop_test_back --export-dir /sqoop
 
 执行成功后，即可验证数据库 sqoop_test_back 中的数据：
 ```
-[hadoop@172 sqoop]$ mysql -h $mysqlIP –p
+[hadoop@172 sqoop]$ mysql -h $mysqlIP -p
 Enter password:
 mysql> use test;
 Database changed
