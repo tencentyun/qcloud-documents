@@ -1,4 +1,4 @@
-1. 下载并编译 [tez0.10.1 源码包](https://dlcdn.apache.org/tez/0.10.1/) 
+1. 下载并编译 [tez0.10.1 源码包](https://dlcdn.apache.org/tez/0.10.1/) ，并在本地下载并安装 Maven，配置好 Maven 的环境变量。
 ```
 tar -zxvf  apache-tez-0.10.1-src.tar.gz
 chmod -R 777 apache-tez-0.10.1-src
