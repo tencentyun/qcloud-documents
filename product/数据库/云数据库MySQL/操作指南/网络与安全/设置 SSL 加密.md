@@ -78,7 +78,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 $options = array(
     PDO::MYSQL_ATTR_SSL_CA => '<下载的证书路径>'
 );
-$db = new PDO('mysql:host=<数据库访问地址>;port=<访问端口>;dbname=<指定访问数据库>', '<数据库访问用户名>', '<数据库访问密码>', $options);
+$db = new PDO('mysql:host=<数据库访问地址>;port=<访问端口>;dbname='<指定访问数据库>', '<数据库访问用户名>', '<数据库访问密码>', $options);
 ```
 - Java (MySQL Connector for Java)
 ```
