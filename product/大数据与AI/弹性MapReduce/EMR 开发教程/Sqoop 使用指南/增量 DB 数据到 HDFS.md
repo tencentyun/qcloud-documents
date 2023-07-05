@@ -131,7 +131,7 @@ mysql> select max(time) from sqoop_test;
 ```
 **参数说明：**
 - $mysqlIP 为您的 MySQL 的内网地址。
-- --check-column 必须使用 timestamp。
+- --check-column 必须使用 timestamp 类型的列。
 - --incremental 模式选择 lastmodified。
 - --merge-key 选择 ID。
 - --last-value 为我们查询到的表中的最后更新时间。在此时间后做出的更新都会被同步到 HDFS 中，而 Sqoop job 每次会自动保存和更新该值。
