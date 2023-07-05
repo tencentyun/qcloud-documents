@@ -54,7 +54,7 @@ grep "hive.metastore.uris" -C 2 /usr/local/service/hive/conf/hive-site.xml
 2. 创建 hive 表
 ```
 create table weblogs ( id int , msg string )
-partitioned by (continent string, country string, time string)
+partitioned by (continent string, country string, `time` string)
 clustered by (id) into 5 buckets
 stored as orc TBLPROPERTIES ('transactional'='true');
 ```
