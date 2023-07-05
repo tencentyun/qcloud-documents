@@ -130,7 +130,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 <td rowspan="1" colSpan="1" >secretid</td>
 <td rowspan="1" colSpan="1" >是</td>
 <td rowspan="1" colSpan="1" >String</td>
-<td rowspan="1" colSpan="1" >腾讯云注册账号的密钥 SecretId，可通过 <a href="console.cloud.tencent.com/cam/capi)">API 密钥管理平台</a> 获取</td>
+<td rowspan="1" colSpan="1" >腾讯云注册账号的密钥 SecretId，可通过 <a href="https://console.cloud.tencent.com/cam/capi)">API 密钥管理平台</a> 获取</td>
 </tr>
 <tr>
 <td rowspan="1" colSpan="1" >timestamp</td>
