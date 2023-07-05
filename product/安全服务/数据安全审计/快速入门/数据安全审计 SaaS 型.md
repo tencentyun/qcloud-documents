@@ -3,7 +3,6 @@
 ## 前提条件
 已购买 [数据安全审计SaaS型](https://cloud.tencent.com/document/product/856/64697)。
 
-
 ## 步骤1：同步数据资产
 1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsgc/dsaudit)，单击**立即进入**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8d656cb1a704ecdf9d3f54f261a8a10b.png)
@@ -11,10 +10,11 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/27538fc6aee98035c7b50271629e2ad5.png)
 3. 通过单击**更新资产列表**拉取云数据库列表，也可使用自建数据库的添加数据资产功能，当需要审计腾讯云外的数据资产时，可在腾讯云外数据库添加。
 4. 添加数据库后，可通过单击对应数据库后面的![](https://qcloudimg.tencent-cloud.cn/raw/d3638827e13e926286f7fee006ba8801.png)，开启审计权限，允许数据安全审计采集其日志进行安全分析。
-![](https://qcloudimg.tencent-cloud.cn/raw/25c6f99d220838987396d63a2cba817e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e87af73d330237e30ba752812f6ce172.png)
 >!
 >- 开启审计权限将消耗 License 授权资产数。
 >- 部分操作需要用户授权，只需按提示操作即可。
+>- o	如果开启的是代理审计权限，则需要购买 [云访问安全代理](https://buy.cloud.tencent.com/casb)，并且将对应元数据与代理绑定。
 
 
 ## 步骤2： 部署 Agent
