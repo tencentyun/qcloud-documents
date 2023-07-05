@@ -4,7 +4,7 @@ Hive 查询管理提供查询概览、查询列表。帮助多维度感知查询
 ## 操作步骤
 1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的集群 **ID/名称**进入集群详情页。
 2. 在集群详情页中单击**集群服务目录**，然后选择 Hive 服务名称或 Hive 服务右上角**操作 > 查询管理**，查询概览支持多维指标的分位值查询分布观测，同时通过查询列表筛选过滤可进行查询周期中各阶段指标的多维分析，阶段指标如：提交 Ip、HS2 IP、编译时长、查询表、分区数、扫描数据量/行数、执行时长等。
-![](https://qcloudimg.tencent-cloud.cn/raw/0bbbe7d2208df7432a6f26fec9b81f83.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/84148ae6dc05953029d28aba560f2979.png)
 3. 单击**应用 ID** 可跳转至 Yarn 应用管理并选中 Hive 查询所关联的 Yarn 作业集。
 4. 单击**详情**可查看查询语句、查询计划、执行总览、Profile、Error日志（Failed 状态）等信息。
 >! 
