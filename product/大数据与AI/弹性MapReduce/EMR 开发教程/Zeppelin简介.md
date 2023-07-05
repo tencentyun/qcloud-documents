@@ -16,7 +16,7 @@ Apache Zeppelin 是一款基于 Web 的 Notebook 产品，能够交互式数据�
 
 ## 使用 spark 功能完成 wordcount
 1. 单击页面左侧 **Create new note**，在弹出页面中创建 notebook。
- ![](https://main.qcloudimg.com/raw/c31d7b714f22b1170d9c6799572227a3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9bd836f054e89d6e45bbc171f67611fa.png)
 2. 2.EMR-V3.3.0 及以上、EMR-V2.6.0 及以上，已默认配置 Spark 对接 EMR 的集群（Spark On Yarn）。
 	- 如果您的版本是 EMR-V3.1.0、EMR-V2.5.0、EMR-V2.3.0，请参考 [文档](https://zeppelin.apache.org/docs/0.8.2/interpreter/spark.html) 进行 Spark 解释器配置。
 	- 如果您的版本是 EMR-V3.2.1，请参考 [文档](https://zeppelin.apache.org/docs/0.9.0/interpreter/spark.html) 进行 Spark 解释器配置。
