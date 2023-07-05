@@ -18,9 +18,9 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/552c830d64b3269377084084897559d0.png)
 >! 
 >- 为保障集群稳定运行，洞察功能采集策略满足以下任一规则将被降级忽略采集：
->  1. 默认运行时长小于10min的 App 将被降级忽略。
->  2. 默认采集时子任务大于3W的 App 将被降级忽略。
->  3. 默认延迟采集时间大于24h的 App 将被降级忽略。
+>  1. 运行时长小于10min的 App 将被降级忽略。
+>  2. 采集时子任务大于3W的 App 将被降级忽略。
+>  3. 延迟采集时间大于24h的 App 将被降级忽略。
 >
 >- 洞察采集降级策略的相关参数可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 评估修改。
 <dx-alert infotype="alarm" title="风险说明">
