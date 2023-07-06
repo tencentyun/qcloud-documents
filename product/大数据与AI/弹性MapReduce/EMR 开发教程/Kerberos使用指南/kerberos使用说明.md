@@ -28,7 +28,7 @@ Re-enter KDC database master key to verify: <Type it again>
 
  Entry for principal test/host@EXAMPLE.COM with kvno 2, encryption type des3-cbc-sha1 added to keytab WRFILE:/var/krb5kdc/test.keytab.
 ```
-这里，我们创建了新的用户：test/host@EXAMPLE.COM ，并且将这个用户的密钥放置到 `/var/krb5kdc/test.keytab` 文件中。
+这里，我们创建了新的用户：test/host@EXAMPLE.COM ，并且将这个用户的密钥放置到 `/var/krb5kdc/test.keytab` 文件中，**示例代码中相关路径请更改为您所处项目中的实际路径**。
 
 ## 启动 kdc
 ```
