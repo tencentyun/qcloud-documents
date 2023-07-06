@@ -25,8 +25,8 @@ hue 通过将不同的权限添加到组，用户通过加入不同的组获得�
 Hue 支持4种导入方式：本地文件、HDFS 上的文件、外部数据库以及人工导入。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a65e26d2349659cc3d497bfb2c4ac009.png)
 1. 本地文件导入。
-	1. 单击浏览选择 csv 文件，hue 会自动识别出分隔符并生成预览，单击 Next 导入到表。
-![](https://qcloudimg.tencent-cloud.cn/raw/88e2cece5e749f9fcbf8e8f7edfd0af3.png)
+	1. 单击**选择文件**，hue 会自动识别出分隔符并生成预览，单击 **Next** 导入到表。
+![](https://qcloudimg.tencent-cloud.cn/raw/9616388caf9d18ba756d9044a1f312fb.png)
 	2. 填写需要导入的表信息等，单击保存。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a47b12e883dcd11d0d6b35ffb45e7bfd.png)
 2. HDFS 文件导入。
