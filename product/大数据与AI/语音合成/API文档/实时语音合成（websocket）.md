@@ -84,22 +84,41 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 
 **Signature 签名生成** [](id:sign)
 
-1. 对除 Signature 之外的所有参数按字典序进行排序，拼接请求 URL 作为签名原文，这里以 `AppId=25113****`，`SecretId=*****TzIOGvNdgghaG2oYL*****` 为例拼接签名原文，则拼接的签名原文为：
+1. 对除 Signature 之外的所有参数按字典序进行排序，拼接后得到请求参数为
 ```
-GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=25113****&Codec=pcm&EnableSubtitle=True&Expired=1687426421&ModelType=1&SampleRate=16000&SecretId=*****TzIOGvNdgghaG2oYL*****&SessionId=b55ccc7e-1016-11ee-ba47-6c92bf65e6fe&Speed=0&Text=%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%A9%BA%E6%B0%94%E6%B9%BF%E5%BA%A6%E6%98%AF20%25&Timestamp=1687340021&VoiceType=101001&Volume=0
+Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0
+```
+再拼接请求方法、域名地址，得到签名原文。签名原文格式为
+```
+请求方法（GET） + 域名地址（tts.cloud.tencent.com/stream_ws） + 请求参数（?Action=TextToStreamAudioWS&其他参数...）
+```
+最终，得到的签名原文为：
+```
+GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0
 ```
 2. 对签名原文使用 SecretKey 进行 HmacSha1 加密，之后再进行 base64 编码。例如对上一步的签名原文， `SecretKey=*****SkqpeHgqmSz*****`，使用 HmacSha1 算法进行加密并做 base64 编码处理：
 ```
-Base64Encode(HmacSha1("GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=25113****&Codec=pcm&EnableSubtitle=True&Expired=1687426421&ModelType=1&SampleRate=16000&SecretId=*****TzIOGvNdgghaG2oYL*****&SessionId=b55ccc7e-1016-11ee-ba47-6c92bf65e6fe&Speed=0&Text=%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%A9%BA%E6%B0%94%E6%B9%BF%E5%BA%A6%E6%98%AF20%25&Timestamp=1687340021&VoiceType=101001&Volume=0", "*****SkqpeHgqmSz*****"))
+Base64Encode(HmacSha1("GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0", "*****SkqpeHgqmSz*****"))
 ```
 得到 Signature 签名值为：
 ```
-G8jDQBRg1JfeBi/YnTjyjekxfDA=
+4Lv+k6y6v5VRT/iBFPU+Gyfeiy0=
 ```
 3. 将 Signature 值进行 **urlencode（必须进行 URL 编码，否则将导致鉴权失败偶现** ）后拼接得到最终请求 URL 为：
 ```
-wss://tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=25113****&Codec=pcm&EnableSubtitle=True&Expired=1687426421&ModelType=1&SampleRate=16000&SecretId=*****TzIOGvNdgghaG2oYL*****&SessionId=b55ccc7e-1016-11ee-ba47-6c92bf65e6fe&Speed=0&Text=%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%A9%BA%E6%B0%94%E6%B9%BF%E5%BA%A6%E6%98%AF20%25&Timestamp=1687340021&VoiceType=101001&Volume=0&Signature=HepdTRX6u155qIPKNKC%2B3U0j1N0%3D
+wss://tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0&Signature=4Lv%2Bk6y6v5VRT/iBFPU%2BGyfeiy0%3D
 ```
+4. 将 Text 值进行 **urlencode编码**，替换原始文本值
+```
+Text=欢迎使用腾讯云实时语音合成
+替换为
+Text=%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%9E%E6%97%B6%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90
+```
+得到最终的请求 URL 为：
+```
+wss://tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%9E%E6%97%B6%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90&Timestamp=1688610905&VoiceType=101001&Volume=0&Signature=4Lv%2Bk6y6v5VRT/iBFPU%2BGyfeiy0%3D
+```
+
 
 #### 请求响应
 
