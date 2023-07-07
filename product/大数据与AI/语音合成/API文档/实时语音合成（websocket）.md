@@ -73,7 +73,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | VoiceType        | 否   | Integer | 音色 ID，包括标准音色与精品音色，精品音色拟真度更高，价格不同于标准音色，请参见 [购买指南](https://cloud.tencent.com/document/product/1073/34112)。完整的音色 ID 列表请参见 [音色列表](https://cloud.tencent.com/document/product/1073/92668#55924b56-1a73-4663-a7a1-a8dd82d6e823)。 |
 | Volume           | 否   | Float   | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项 |
 | Speed            | 否   | Float   | 语速，范围：[-2，6]，分别对应不同语速： </br> -2: 代表0.6倍 </br> -1: 代表0.8倍 </br> 0: 代表1.0倍（默认） </br> 1: 代表1.2倍 </br> 2: 代表1.5倍 </br> 6: 代表2.5倍 </br> 如果需要更细化的语速，可以保留小数点后 2 位，例如0.5 1.1 1.8等。 </br>参数值与实际语速转换，可参考 [代码示例](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sample/speed_sample.tar.gz) |
-| SampleRate       | 否   | Integer |  <li>24000：24k（部分音色支持，请参见 [音色列表](https://cloud.tencent.com/document/product/1073/92668)）</li><li>16000：16k（默认）</li><li>8000：8k</li>      |
+| SampleRate       | 否   | Integer |  音频采样率：<li>24000：24k（部分音色支持，请参见 [音色列表](https://cloud.tencent.com/document/product/1073/92668)）</li><li>16000：16k（默认）</li><li>8000：8k</li>      |
 | Codec            | 否   | String  | 返回音频格式： </br> opus: 返回多段含 opus 压缩分片音频（默认） </br> pcm: 返回二进制 pcm 音频 </br> mp3: 返回二进制 mp3 音频 |
 | EnableSubtitle   | 否   | Boolean | 是否开启时间戳功能，默认为false。                            |
 | EmotionCategory  | 否   | String  | 控制合成音频的情感，仅支持多情感音色使用。 </br> 取值：neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服) |
