@@ -157,6 +157,31 @@ demo下 载地址：`https://share.weiyun.com/1gzWlyKj`（密码请联系对接�
 	- 在 uni-app 工程 nativeplugins 目录下，放置 only android 插件以及插件的配置文件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b6c46471472e8deeedfd2d0adf3db5f1.png)
 	- 在 uni-app 页面中调用插件方法，实现 H5 刷脸功能。
-![](https://qcloudimg.tencent-cloud.cn/raw/613f894bab9af90184ce96e7aa2b4bc1.png)
+```
+const h5FaceVerifyPlugin  = uni.requireNativePlugin('DC-WBH5FaceVerifyService');
+        export default {
+                methods: {
+                        enterH5FaceVerify() {
+                                let url="https://kyc.qcloud.com/s/web/h5/#/entry";//拉起h5刷脸的url
+                                let thirdurl="https://www.qq.com/";//h5刷脸完成后要跳转的接入方的url，这个接入方填写自己的url可
+                                h5FaceVerifyPlugin.startH5FaceVerify({h5faceurl:url,
+                                h5thirdurl:thirdurl},result => {
+                                        console.log(result,"H5刷脸后跳转到thirdurl所在h5页面的回调");
+                                        h5FaceVerifyPlugin.destroyH5Activity(null);//调用关闭插件的webView.
+                                        //uniapp todo 接入方自己的逻辑
+                                        
+                                },result=>{
+                                        //这里是终端接受h5页面的消息回调。uniapp与h5页面两者通信可通过这个回调作为中间桥接实现。
+                                        //注意：约定h5页面和webView通信通过JavaScriptInterface接口和JavaScript进行交互。
+                                        //在H5页面中使用window.tencentApi.postMessage的方式来调用这个方法，参数为String类型。
+                                        //如果是jsonobject需要转String
+                                        console.log(result,"自定义回调");
+                                        //uniapp todo 接入方自己的逻辑
+                                });
+                                console.log("click=======意愿性刷脸====>startH5FaceVerify");
+                        }
+                }
+        }
+```
 >! 调用 destroyH5Activity() 可主动关闭插件。
 
