@@ -163,7 +163,7 @@ const h5FaceVerifyPlugin  = uni.requireNativePlugin('DC-WBH5FaceVerifyService');
                 methods: {
                         enterH5FaceVerify() {
                                 let url="https://kyc.qcloud.com/s/web/h5/#/entry";//拉起h5刷脸的url
-                                let thirdurl="https://www.qq.com/";//h5刷脸完成后要跳转的接入方的url，这个接入方填写自己的url可
+                                let thirdurl="https://www.qq.com/";//h5刷脸完成后要跳转的接入方的url，这个接入方填写自己的url
                                 h5FaceVerifyPlugin.startH5FaceVerify({h5faceurl:url,
                                 h5thirdurl:thirdurl},result => {
                                         console.log(result,"H5刷脸后跳转到thirdurl所在h5页面的回调");
