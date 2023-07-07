@@ -10,7 +10,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/27538fc6aee98035c7b50271629e2ad5.png)
 3. 通过单击**更新资产列表**拉取云数据库列表，也可使用自建数据库的添加数据资产功能，当需要审计腾讯云外的数据资产时，可在腾讯云外数据库添加。
 4. 添加数据库后，可通过单击对应数据库后面的![](https://qcloudimg.tencent-cloud.cn/raw/d3638827e13e926286f7fee006ba8801.png)，开启审计权限，允许数据安全审计采集其日志进行安全分析。
-![](https://qcloudimg.tencent-cloud.cn/raw/e87af73d330237e30ba752812f6ce172.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f4975273fe95ff58dbd753a9ccb1ec96.jpg)
 >!
 >- 开启审计权限将消耗 License 授权资产数。
 >- 部分操作需要用户授权，只需按提示操作即可。
