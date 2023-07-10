@@ -28,7 +28,7 @@ DistCp（distributed copy）是 Hadoop 自带的文件迁移工具。它使用 M
  - 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc) ，单击左侧目录中的**子网**，进入管理页面。单击对等连接本端指定子网（例如广州的子网 VPC1）的关联路由表 ID，进入路由表详情页。
 ![](https://main.qcloudimg.com/raw/0959e04afcc6a262745a3d8d4b04cf9d.png)
  - 单击**+新增路由策略**。
- ![](https://main.qcloudimg.com/raw/fd8b8e1380a5195f56eef12890e6c032.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b4df2d6df99b8d67c94d9c4922c73407.png)
  - 目的端中填入对端 CIDR（例如北京的 VPC2 的 CIDR 是10.0.1.0/24），下一跳类型选择**对等连接**，下一跳选择已建立的对等连接（PeerConn）。
  ![](https://main.qcloudimg.com/raw/dd71b52b2472611d8c42b13bb16de021.png)
  - 以上步骤是配置广州 VPC1 到北京 VPC2 的路由表，还需要配置北京 VPC2 到广州 VPC1 的配置，配置过程同上。
