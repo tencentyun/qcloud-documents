@@ -1149,7 +1149,7 @@ public interface ISdkOcrEntityResultListener<T> {
 
 | 错误码                                           | 说明                                                   |
 | :----------------------------------------------- | :----------------------------------------------------- |
-| FailedOperation.ArrearsError                     | 帐号已欠费。                                           |
+| FailedOperation.ArrearsError                     | 账号已欠费。                                           |
 | FailedOperation.CountLimitError                  | 今日次数达到限制。                                     |
 | FailedOperation.DetectFailed                     | 检测失败。                                             |
 | FailedOperation.DownLoadError                    | 文件下载失败。                                         |
