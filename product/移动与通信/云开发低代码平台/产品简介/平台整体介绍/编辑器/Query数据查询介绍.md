@@ -63,7 +63,7 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 <img style="width:80%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ade951df97fbe293f958e24528a1b3a5.png" />
 
 #### SQL语句数据查询的使用说明
-- SQL 语句中可支持插入前端 JS 表达式，JS 表达式需使用 `{{ }}` 进行包裹，如：`{{$w.input1.value}}`，例如需要根据单行输入组件 `input1` 的输入值进行用户信息的查询，SQL 语句可以写作：`SELECT * FROM users WHERE users.name={{$w.input1.value}}`。
+- SQL 语句中可支持插入前端 JS 表达式，JS 表达式需使用 `{{ }}` 进行包裹，如：`{{$w.input1.value}}`，例如需要根据单行输入组件 `input1` 的输入值进行用户信息的查询，SQL 语句可以写作：`SELECT * FROM users WHERE users.name={{$w.input1.value}}`，再例如使用 SQL 进行模糊查询：`SELECT * FROM users WHERE users.name like {{'%' + $w.input1.value + '%'}}`。
 >!在 SQL 中使用 JS 表达式时，如需要字符串拼装，则必须在 JS 表达式中进行，即 `{{"string"+js_expr}}`，SQL 语句中不支持使用 `string{{js_expr}}` 进行拼接。
 >
 - 在使用 SQL 语句进行数据查询时，如果涉及针对当前登录用户的数据查询，为保障安全性，建议开发者使用服务端保留的占位符 `SERVER.xxx` 作为查询条件代入查询，使用占位符时服务端会校验当前登录用户的合法性。例如，在微信小程序中根据当前用户的 OPENID 进行数据查询，则查询 SQL 条件应该写作：`SELECT * FROM users WHERE users.openid={{SERVER.OPENID}}`。
