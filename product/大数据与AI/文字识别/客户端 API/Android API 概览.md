@@ -410,15 +410,15 @@ CameraMaskView是主体的遮罩组件，提供使用属性配置的方式进行
 | txy_bottom_tip_show                        | boolean                                 | 下方提示是否显示，默认不显示                                 |
 | txy_is_show_scanline                       | boolean                                 | 是否显示内置扫描线，默认不显示                               |
 | txy_scanline_animator_time                 | integer                                 | 扫描线完成一次扫描动画需要的时间**（单位ms）**，默认1500ms   |
-| txy_scanline_start_color                   | color\|reference                        | 扫描线动画区域的启始颜色，0～40%的区域为此颜色               |
-| txy_scanline_mid_color                     | color\|reference                        | 扫描线动画区域的过渡颜色，40%～80%为启始颜色与此颜色的渐变效果 |
+| txy_scanline_start_color                   | color\|reference                        | 扫描线动画区域的起始颜色，0～40%的区域为此颜色               |
+| txy_scanline_mid_color                     | color\|reference                        | 扫描线动画区域的过渡颜色，40%～80%为起始颜色与此颜色的渐变效果 |
 | txy_scanline_end_color                     | color\|reference                        | 扫描线动画区域的终止颜色，80%～100%为过渡颜色与此颜色的渐变效果 |
 | txy_scanline_start_color_size_range        | integer                                 | 从0到这一位置的百分比都是起始颜色，默认40（百分比）          |
 | txy_scanline_start_to_mid_color_size_range | integer                                 | txy_scanline_start_color_size_range到这个位置为起始到过渡色的渐变区间，默认80（百分比） |
 
 ```xml
 <!-- demo里的参考扫描线的颜色 -->
-<!--  启始颜色  -->
+<!--  起始颜色  -->
 <color name="txy_scanline_start_color">#00000000</color>
 <!--  过渡颜色  -->
 <color name="txy_scanline_mid_color">#22F77C61</color>
