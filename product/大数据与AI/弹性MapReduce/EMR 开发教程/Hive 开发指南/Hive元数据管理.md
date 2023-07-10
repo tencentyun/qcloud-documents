@@ -14,7 +14,10 @@
 >3. 要销毁关联的 EMR-MetaDB 需前往云数据库销毁，销毁后 Hive 元数据库将无法恢复。
 >4. 需保持关联的 EMR-MetaDB 网络与当前新建集群在同一网络环境下。
 >
-![](https://main.qcloudimg.com/raw/3932b0910f0970afa493eb1260f7f977.png)![](https://main.qcloudimg.com/raw/c4067899bbc232f2912e2c22d16afc51.png)
+1. 新建集群并选择 Hive 组件后，单击**下一步**并选择关联的 EMR-MetaDB：
+![](https://qcloudimg.tencent-cloud.cn/raw/15b3d819da3ce791f6985a954eaa1e59.png)
+2. 未安装 Hive 组件的集群，在新增 Hive 组件时，选择关联的 EMR-MetaDB：
+![](https://qcloudimg.tencent-cloud.cn/raw/dd2b64c1610783c3f94f31fa5f5d568d.png)
 
 ## 关联自建 MySQL 共享 Hive 元数据
 关联自己本地自建 MySQL 数据库作为 Hive 元数据存储，也无需单独购买 MetaDB 存储 Hive 元数据节约成本，需准确填写输入以“jdbc:mysql://开头”的本地址、数据库名字、数据库登录密码，并确保网络与当前集群网络打通。
@@ -24,7 +27,10 @@
 >3. 当选择 Hue、Ranger、Oozie、Druid、Superset 一个或多个组件时系统会自动购买一个 MetaDB 用于除 Hive 外的元数据存储。
 >4. 需保证自定义数据库中的 Hive 元数据版本大于等于新集群中的 Hive 版本。
 >
-![](https://main.qcloudimg.com/raw/af2f428a3529ab18667224874470c8ad.png)![](https://main.qcloudimg.com/raw/cc42c982b7a84b99c87bd48a4b27fdb9.png)
+1. 新建集群并选择 Hive 组件后，单击**下一步**并关联自建的 Mysql 数据库：
+![](https://qcloudimg.tencent-cloud.cn/raw/5bcdf5307bc9947625f20fed37f6c7e9.png)
+2. 未安装 Hive 组件的集群，在新增 Hive 组件时，关联自建的 Mysql 数据库：
+![](https://qcloudimg.tencent-cloud.cn/raw/a56663f50ae4be468959b13cce74f809.png)
 
 ## HIVE 关联自建元数据异常修复方法
 由于在创建 EMR 集群时选用了关联自建 MySQL，且自建 MySQL 无 HIVE 的元数据，这会导致 HIVE 进程异常。
