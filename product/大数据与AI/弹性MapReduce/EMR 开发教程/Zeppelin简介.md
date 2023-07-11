@@ -17,17 +17,20 @@ Apache Zeppelin 是一款基于 Web 的 Notebook 产品，能够交互式数据�
 ## 使用 spark 功能完成 wordcount
 1. 单击页面左侧 **Create new note**，在弹出页面中创建 notebook。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9bd836f054e89d6e45bbc171f67611fa.png)
-2. 2.EMR-V3.3.0 及以上、EMR-V2.6.0 及以上，已默认配置 Spark 对接 EMR 的集群（Spark On Yarn）。
+2. EMR-V3.3.0 及以上、EMR-V2.6.0 及以上，已默认配置 Spark 对接 EMR 的集群（Spark On Yarn）。
 	- 如果您的版本是 EMR-V3.1.0、EMR-V2.5.0、EMR-V2.3.0，请参考 [文档](https://zeppelin.apache.org/docs/0.8.2/interpreter/spark.html) 进行 Spark 解释器配置。
 	- 如果您的版本是 EMR-V3.2.1，请参考 [文档](https://zeppelin.apache.org/docs/0.9.0/interpreter/spark.html) 进行 Spark 解释器配置。
 3. 进入自己的 notebook。
  ![](https://main.qcloudimg.com/raw/d56fe984a78c0f8f59498d2c24ee5b73.png)
-4. 编写 wordcount 程序，并运行如下命令：
+4. 编写 Spark 程序，以下使用 Spark Scala 方式作为示例，其中 %spark 表示执行 Spark Scala 代码：
 ```
-val data = sc.textFile("cosn://huanan/zeppelin-spark-randomint-test")
-case class WordCount(word: String, count: Integer)
-val result = data.flatMap(x => x.split(" ")).map(x => (x, 1)).reduceByKey(_ + _).map(x => WordCount(x._1, x._2))
-result.toDF().registerTempTable("result")
-%sql select * from result
+%spark
+
+val df = spark.read.options(Map("inferSchema"->"true","delimiter"->";","header"->"true"))
+.csv("file:///usr/local/service/spark/examples/src/main/resources/people.csv")
+z.show(df)
+df.registerTempTable("people")
 ```
 ![](https://main.qcloudimg.com/raw/8d70fcea7197c81e2d0235cab6d77843.png)
+5. 返回信息结果如图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/b43decf5bc87381c7f99db8925ec47f5.png)
