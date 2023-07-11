@@ -1,21 +1,20 @@
 本文主要介绍 Hue 的实践用法。
 ## Hive SQL 查询
 Hue 的 beeswax App 提供了友好方便的 Hive 查询功能，可以选择不同的 Hive 数据库、编写 HQL 语句、提交查询任务、查看结果。
-1. 在 Hue 控制台上方，选择 Query > Editor > Hive。
- ![](https://qcloudimg.tencent-cloud.cn/raw/48a2fbc6dacc28ea8e0f8e7d6e321d47.png)
+1. 在 Hue 控制台上方，选择  Editor > Hive。
 2. 在语句输入框中输入要执行语句，然后单击**执行**，执行语句。
- ![](https://qcloudimg.tencent-cloud.cn/raw/13b69af2be822dd1364efbf2b65ce5b8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e305895356852c87242213c19aedfb6c.png)
 
 ## Hbase 数据查询和修改、数据展示
 使用 Hbase Browser 可以查询、修改、展示 Hbase 集群中表的数据。
- ![](https://qcloudimg.tencent-cloud.cn/raw/c3a1a697b9dc33f6c017030ecc2ea23e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3ee89dbaa32195854059419e54338c8e.png)
 
 ## 访问 HDFS 和文件浏览
-通过 Hue 的 Web 页面可方便查看 HDFS 中的文件和文件夹，并对其进行创建、下载、上传、复制、修改和删除等操作。
+通过 Hue 控制台左侧，选择 Files 进入 HDFS 文件浏览，可方便查看 HDFS 中的文件和文件夹，并对其进行创建、下载、上传、复制、修改和删除等操作。
 1. 在 Hue 控制台左侧，选择 Browsers > Files 进入 HDFS 文件浏览。
 ![](https://qcloudimg.tencent-cloud.cn/raw/03bf74cd204d23845a1d2bf738a7240e.png)
 2.	在 Hue 控制台左侧，选择 Browsers > Files 进入 HDFS 文件浏览。
- ![](https://qcloudimg.tencent-cloud.cn/raw/6b94b5141206e8551974d0fde875bc6d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/72578dbedc6f0a7166e0e9cd42ce7223.png)
  
 ## Oozie 任务的开发
 1. 准备工作流数：Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的工作流，Hive script 脚本的内容如下：
@@ -32,7 +31,7 @@ select * from hive_sample;
 将以上内容保存为 hive_sample.sql 文件。Hive 工作流还需要一个 hive-site.xml 配置文件，此配置文件可以在集群中安装了 Hive 组件的节点上找到。具体路径：/usr/local/service/hive/conf/hive-site.xml，复制一个 hive-site.xml 文件。然后上传 Hive script 文件和 hive-site.xml 到 hdfs 的目录，例如：/user/hadoop。
 
 2. 创建工作流。
-	1. 切换到 hadoop 用户，在 Hue 页面上方，选择 Query > Scheduler > Workflow。
+	1. 切换到 hadoop 用户，Hue 控制台左侧选择 Scheduler > Workflow。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b1b9b6361124538cb755efb3fc1d90b3.png)
 	2. 在工作流编辑页面中拖一个 Hive Script。
 >! 本文以安装 Hive 版本为 Hive1 为例，配置参数为 HiveServer1。与其他 Hive 版本混合部署时（即配置其他版本的配置参数时），会报错。
@@ -47,7 +46,7 @@ select * from hive_sample;
 
 3. 创建定时调度任务。
 Hue 的定时调度任务是 schedule，类似于 Linux 的 crontab，支持的调度粒度可以到分钟级别。
-	1. 选择 Query > Scheduler > Schedule，创建 Schedule。
+	1. 左侧选择 Scheduler > Schedule，创建 Schedule。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c45fd5b062e78750aab55b7ba466975b.png)
 	2. 单击 **Choose a workflow**，选择一个创建好的工作流。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5d20d799a91dbc105e4eadd9d2365bf7.png)
