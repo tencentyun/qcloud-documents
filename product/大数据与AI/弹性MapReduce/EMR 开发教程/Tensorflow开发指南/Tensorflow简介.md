@@ -23,7 +23,7 @@ TensorFlow 是一个端到端开源机器学习平台。它拥有一个全面而
 - 支持 tensorflow on spark 做分布式训练
  
 ## Tensorflow 开发示例
-首先需要安装 Tensorflow，切换到 root 用户下，密码为创建 EMR 集群时设置的密码，先安装 python-pip 工具再安装依赖包：
+本文以 Tensorflow v1.4.4 版本为示例，首先需要安装 Tensorflow，切换到 root 用户下，密码为创建 EMR 集群时设置的密码，先安装 python-pip 工具再安装依赖包：
 ```
 [hadoop@172 hbase]$ su
 Password: ********
@@ -45,4 +45,4 @@ exit()
 ```
 python test.py
 ```
-更多用法请参考 Tensorflow 官网。
+更多用法请参考 [Tensorflow 官网](https://www.tensorflow.org/guide?hl=zh-cn)。
