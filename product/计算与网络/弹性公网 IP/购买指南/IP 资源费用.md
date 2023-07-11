@@ -1,6 +1,8 @@
 弹性公网 IP 是可以独立购买和持有的公网 IP 地址，因此腾讯云会收取 IP 资源费用。
->?EIP 未绑定云资源时仅收取 IP 资源费用。EIP 绑定云资源后仅收取公网网络费用，请参见 [公网网络费用](https://cloud.tencent.com/document/product/1199/51693)。
-
+>?
+>- 按流量和共享带宽包的 EIP 未绑定云资源时仅收取 IP 资源费用。EIP 绑定云资源后仅收取公网网络费用，请参见 [公网网络费用](https://cloud.tencent.com/document/product/1199/51693)。
+>- 按小时带宽和包月带宽无论是否绑定都不收取 IP 资源费用，只按照带宽收取 [公网网络费用](https://cloud.tencent.com/document/product/1199/51693)。
+>
 ## 计费模式
 IP 资源费用的计费周期为按小时收费，付费模式为后付费，详细计费和出账时间以实际 [计费账单](https://console.cloud.tencent.com/expense/bill/overview) 为准。
 - IP 资源费用从申请 EIP 开始计费，绑定云资源时暂停计费，解绑云资源时恢复计费，释放 EIP 时停止计费。
