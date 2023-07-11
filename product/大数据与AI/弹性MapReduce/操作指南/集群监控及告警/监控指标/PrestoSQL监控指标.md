@@ -60,6 +60,92 @@
 <td >GB/min</td>
 <td >输出数据速率</td>
 </tr>
+<tr>
+<td>每分钟用户异常导致的失败查询数</td>
+<td>UserErrorFailures</td>
+<td>count/min</td>
+<td>每分钟用户异常导致的失败查询数</td>
+</tr>
+<tr>
+<td>每分钟内部异常导致的失败查询数</td>
+<td>InternalFailures</td>
+<td>count/min</td>
+<td>每分钟内部异常导致的失败查询数</td>
+</tr>
+<tr>
+<td>每分钟资源不足导致的失败查询数</td>
+<td>InsufficientResourcesFailures</td>
+<td>count/min</td>
+<td>每分钟资源不足导致的失败查询数</td>
+</tr>
+<tr>
+<td>每分钟外部异常导致的失败查询数</td>
+<td>ExternalFailures</td>
+<td>count/min</td>
+<td>每分钟外部异常导致的失败查询数</td>
+</tr>
+<tr>
+<td>每分钟查询处理的记录数</td>
+<td>ConsumedInputRows</td>
+<td>count/min</td>
+<td>每分钟查询处理的记录数</td>
+</tr>
+<tr>
+<td>每分钟查询处理的字节数</td>
+<td>ConsumedInput</td>
+<td>bytes/min</td>
+<td>每分钟查询处理的字节数</td>
+</tr>
+<tr>
+<td>每分钟查询处理的 CPU 时间</td>
+<td>ConsumedCpuTimeSecs</td>
+<td>count/min</td>
+<td>每分钟查询处理的 CPU 时间</td>
+</tr>
+<tr>
+<td rowspan=4>Splits 数</td>
+<td>BlockedSplits</td>
+<td>count</td>
+<td>阻塞的Splits数</td>
+</tr>
+<tr>
+<td>RunningSplits</td>
+<td>count</td>
+<td>运行中的 Splits 数</td>
+</tr>
+<tr>
+<td>TotalSplits</td>
+<td>count</td>
+<td>任务执行器总 Splits 数</td>
+</tr>
+<tr>
+<td>WaitingSplits</td>
+<td>count</td>
+<td>TaskExecutor 上等待的 Splits 数</td>
+</tr>
+<tr>
+<td>向 TaskExecutor 注册的所有任务</td>
+<td>Tasks</td>
+<td>count</td>
+<td>向 TaskExecutor 注册的所有任务</td>
+</tr>
+<tr>
+<td>每分钟失败的 Task 数目</td>
+<td>FailedTasks</td>
+<td>count/min</td>
+<td>每分钟失败的 Task 数目</td>
+</tr>
+<tr>
+<td rowspan=2>每分钟 Task 输入输出数据行</td>
+<td>InputPositionsOneMinute</td>
+<td>count/min</td>
+<td>每分钟 Task 输入数据行</td>
+</tr>
+<tr>
+<td>OutputPositionsOneMinute</td>
+<td>count/min</td>
+<td>每分钟 Task 输出数据行</td>
+</tr>
 </table>
 
 ### PrestoSQL-Worker
