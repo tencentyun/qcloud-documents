@@ -1,10 +1,12 @@
 Logstash 的一个典型应用场景，就是消费 kafka 中的数据并且写入到 Elasticsearch，使用腾讯云的 Logstash 产品，可以通过简单的配置快速地完成这一过程。 
 
 ## 创建管道
-登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择需要操作的实例，单击实例 **ID/名称**，进入实例基本信息页面。切换到“管道管理”页签，单击**新建管道**，创建一个管道。
-![](https://main.qcloudimg.com/raw/123a56e009cd371e6ce7a498f79d49a1.png)
-进入新建管道页面，单击**引用模板**，同时引用“input-kafka”和“output-elasticsearch”两个模板：
+1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，单击 Logstash 管理，选择需要操作的实例，单击实例 **ID/名称**，进入实例基本信息页面。
+2. 切换到“管道管理”页签，单击**新建管道**，创建一个管道。
+![](https://qcloudimg.tencent-cloud.cn/raw/a504dcc550823328f9732ea0dcf09208.png)
+3. 进入新建管道页面，单击**引用模板**。
 ![](https://main.qcloudimg.com/raw/b2f664a511a2ba7c603d832627b2b19b.png)
+同时引用“input-kafka”和“output-elasticsearch”两个模板：
 ![](https://main.qcloudimg.com/raw/0df1e56dd9e832e5e1fc5af6d7422603.png)
 
 在管道配置中，分别针对“input-kafka”和“output-elasticsearch”进行配置，一些关键的配置参数说明如下：
@@ -18,7 +20,7 @@ Logstash 的一个典型应用场景，就是消费 kafka 中的数据并且写�
 - auto\_offset\_reset：当 kafka 中 topic 没有初始的 offset 时，如何重置 offset，常用可选值为 earliest（最早）、latest（最新）
 - type：标识字段
 
-查看更多参数，详情可参见 [input-kafka](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-kafka.html)。
+更多参数详情可参见 [input-kafka](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-kafka.html)。
 
 ### output-elasticsearch
 - hosts：elasticsearch 集群地址列表
