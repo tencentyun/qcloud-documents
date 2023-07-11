@@ -131,14 +131,14 @@ GET index/_search
 
 ### 使用自定义词典
 1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，在集群列表页，单击集群**ID/名称**进入集群详情页。
-![](https://main.qcloudimg.com/raw/3a8640bd4e23dfa56ec76eda69fdc33f.png)
-2. 单击【插件列表】，进入插件列表管理页面。
-![](https://main.qcloudimg.com/raw/74d7f3915d9055d00c8c4194dd2ac655.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fd2e7d5a424083ead75f267ca577a05a.png)
+2. 单击**插件列表**，进入插件列表管理页面。
+![](https://qcloudimg.tencent-cloud.cn/raw/426567e698b860728279e84f9748f6ba.png)
 3. 找到 QQ 分词插件（analysis-qq），单击右侧**更新词典**。
 4. 词典文件要求如下。
  - 词典文件必须为 GBK 编码，一行一个词，且文件扩展名为`.dic`。
  - 单个文件最大为10M，上传文件总数最多为10个。
-5. 单击保存。保存后，不会触发集群重启，但需要若干分钟触发集群变更使词典文件生效。
+5. 单击**保存**。保存后，不会触发集群重启，但需要若干分钟触发集群变更使词典文件生效。
 
 ### 排查测试
 如果您在使用 QQ 分词插件时，得到的结果不符合预期，可以通过下面的语句对分析器和分词器进行排查测试。
