@@ -6,26 +6,19 @@ TensorFlowOnSpark 支持 TensorFlow 进程（计算节点和参数服务节点�
  
 ## 安装 TensorFlowOnSpark
 1. 进入 EMR [购买页](https://buy.cloud.tencent.com/emr)，选择产品 EMR-2.3.0 版本及以上版本。
-2. 在【可选组件】列表中，勾选 tensorflowonspark 1.4.4 组件。
+2. 在**可选组件**列表中，勾选 tensorflowonspark 1.4.4 组件。
 3. tensorflowonspark 默认安装在 `/usr/local/service/tensorflowonspark` 目录下。
 >!tensorflowonspark 依赖的组件包含 hive 和 spark，在 tensorflowonspark 的同时也会安装 hive 和 spark 组件。
  
 ## 使用示例
-在安装好的 tensorflowonspark 组件目录下，已经有完整的 example 代码，可以按如下操作步骤：
+在安装好的 tensorflowonspark 组件目录下，已经有完整的 example 代码，**本文以  tensorflowonspark 1.4.4**，可以按如下操作步骤：
 - 下载测试数据
-使用 hadoop 用户，在`/usr/local/service/tensorflowonspark`目录下，执行命令：
+使用 hadoop 用户，在 /usr/local/service/tensorflow-on-spark 目录下，执行命令：
 ```
 sh mnist_download.sh
 cat mnist_download.sh
-mkdir ${HOME}/mnist
-pushd ${HOME}/mnist >/dev/null
-curl -O "http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz"
-curl -O "http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz"
-curl -O "http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz"
-curl -O "http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz"
-zip -r mnist.zip *
-popd >/dev/null
 ```
+![](https://qcloudimg.tencent-cloud.cn/raw/c78226c516846f42c17de20b931ff8a0.png)
 - 上传原始数据和依赖包
 ```
 hdfs dfs -mkdir -p /mnist/tools/
