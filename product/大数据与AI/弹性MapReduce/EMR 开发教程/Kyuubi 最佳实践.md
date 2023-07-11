@@ -58,8 +58,8 @@ No rows selected (0.402 seconds)
 3. 访问 Hue 控 制台，详情请参见 [登录 Hue 控制台](https://cloud.tencent.com/document/product/589/35068)。
 
 ### Kyuubi 查询
-1. 在 Hue 控制台上方，选择 Query > Editor > SparkSql_Kyuubi。
- ![](https://qcloudimg.tencent-cloud.cn/raw/7a3152fd44d988e8452c6828ea966c1a.png)
+1. 在 Hue 控制台左侧选择 **Editor > SparkSql_Kyuubi**。
+![](https://qcloudimg.tencent-cloud.cn/raw/5bf089f995a83e358f76ee2a125ac63d.png)
 2. 在语句输入框中输入要执行语句，然后单击**执行**，执行语句。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ed40eda488def260ca08d9b16b948e71.png)
 
