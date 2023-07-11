@@ -19,7 +19,7 @@
 ```
 使用 HDFS 指令把文件上传到 COS 中。其中 $bucketname 为您创建的存储桶的名字和路径。
 ```
-[hadoop@172 hive]# hdfs dfs –put cosn://$bucketname/
+[hadoop@172 hive]# hdfs dfs -put cos.txt cosn://$bucketname/
 ```
 再新建文件 lzo.txt，并添加数据如下：
 ```
@@ -39,8 +39,8 @@ compressing hive_test.data into lzo.txt.lzo
 ```
 create database if not exists test;
 use test;
-create external table if not exists presto_on_cos (id int,name string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ’,’;
-insert into presto_on_cos values (12,’hello’),(13,’world’);
+create external table if not exists presto_on_cos (id int,name string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+insert into presto_on_cos values (12,'hello'),(13,'world');
 load data inpath "cosn://$bucketname/cos.txt" into table presto_on_cos;
 load data local inpath "/$yourpath/lzo.txt.lzo" into table presto_on_cos;
 ```
