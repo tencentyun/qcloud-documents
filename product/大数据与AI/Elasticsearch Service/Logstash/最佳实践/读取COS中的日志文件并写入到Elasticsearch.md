@@ -40,4 +40,3 @@
 
 ## 查看数据写入情况
 进入到 output-elasticsearch 中定义的输出端的 ES 集群对应的 kibana 页面，在 Dev tools 工具栏里查看索引是否存在，以及索引的文档数量是否正确。
-![](https://main.qcloudimg.com/raw/015063d8147cbd78ed18f046417b7a7a.png)
