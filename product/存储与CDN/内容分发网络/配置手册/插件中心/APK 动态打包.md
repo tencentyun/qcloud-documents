@@ -60,7 +60,7 @@ APK 动态打包插件功能识别终端用户请求 URL 中的特定参数，�
 
 则对应发布的 URL 为：`https://www.example.com/ext/test2_edge_pack.apk?comment=pipeline`。
 用户请求该 URL，即可获得 CDN 边缘写入 pipeline 渠道信息之后的 APK 包。
-如果配置了重名命参数，则URL可为：`https://www.example.com/ext/test2_edge_pack.apk?comment=pipeline&filename=newfilename`，即用户请求下载后，文件名显示为"newfilename"。
+如果配置了重命名参数，则URL可为：`https://www.example.com/ext/test2_edge_pack.apk?comment=pipeline&filename=newfilename`，即用户请求下载后，文件名显示为"newfilename"。
 
 
 ## 费用说明
@@ -75,6 +75,6 @@ src 是上传目录，通过 scf 处理母包，最终将输出到 ext 目录，
 2. walle 格式，comment=123456， walle-cli 查询报错，提示 json 格式不对？
 walle 的渠道信息格式要求为 json 格式并做 urlencode，后台会将 comment 信息通过 urldecode 后直接打在对应的 blockid-value 里，所以 comment 内容为 urlencode（json）。例如：渠道信息为123456， 则 walle value 为 `{"channel":"123456"}, comment=%7B%22channel%22%3A%22123456%22%7D`。
 3. Android客户端取出渠道名会有%00,%00等信息？
-%00,%00等信息是边缘打包预留的占位符，解决方式法有两种。
+%00,%00等信息是边缘打包预留的占位符，解决方式有两种。
 	- 处理方式一：可自行处理，删除渠道信息后面的空白符即可。
 	- 处理方式二：若使用V2-vasdolly签名方式的，可将vasdolly 的sdk版本升级 3.0.6即可自动去除预留的占位符。
