@@ -17,7 +17,7 @@ Hearbeat 通过主动探测来检测服务的可用性，可以通过给定 URL 
 ![](https://qcloudimg.tencent-cloud.cn/raw/fc5d5d8f5ecc46b8acdffd977ccb5b7d.png)
 2. 在创建 Heartbeat 采集器中，设置采集器信息。
  - 配置 Heartbeat 采集器，输入或选择采集器配置信息。完成后单击**下一步**。
-    - 采集器名称：自定义采集器的名称，格式为1个 - 50个英文、汉字、数字、连接线（-）或下划线（\_）。 
+    - 采集器名称：自定义采集器的名称，格式为1个 - 50个英文、汉字、数字或下划线（\_）。 
     - 安装版本：支持6.8.15、7.10.2或7.14.2版本。   
     - 采集器输出：采集的数据支持传送到腾讯云 Elasticsearch 与 Logstash 实例，请选择与需采集数据的 CVM 在同一 VPC 下的 ES 集群和 Logstash 实例。不支持输出至开源版 ES 集群。
     - 用户名密码：若选择输出采集数据到开启用户登录认证的 ES 集群，需要填写用户名和密码，使 Heartbeat 有权限向 ES 集群中写入数据。用户名默认为 elastic，密码为集群创建时设置。
@@ -30,14 +30,12 @@ Hearbeat 通过主动探测来检测服务的可用性，可以通过给定 URL 
       - hosts：指定要检测的服务地址。
       - schedule：检测频率，`*/5 * * * * * *`表示每隔5s检测一次。
       - check.response.status：当 monitor 为 http 时，http 接口正常响应时的状态码，如200。
-![](https://qcloudimg.tencent-cloud.cn/raw/36560e5458b900fd0a8f1b6c31749b8d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/951f808ac123517e447581992b470ca8.png)
  - 将采集器安装到 CVM 实例。选择要安装采集器的 CVM 实例，完成后单击**确定启用**。
      - CVM 必须安装自动化助手，仅支持为已安装自动化助手的 CVM 实例下发采集器配置。
      - 仅支持选择和采集器输出在同一 VPC 下的 CVM 实例进行安装，若无法找到目标 CVM 实例，需要更改采集器输出。
-![](https://qcloudimg.tencent-cloud.cn/raw/1130bac6d7016b4bb56786e6ea6ef293.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4e341ba835ea20be4045e12c748b45f5.png)
 3. 单击**确定启用**后，跳转到 Beats 采集器管理界面，可以查看 Heartbeat 采集器运行状态，显示“正常”则表示采集器安装成功。支持 [修改采集器配置](https://cloud.tencent.com/document/product/845/63301) 和 [管理 CVM 实例](https://cloud.tencent.com/document/product/845/63302)。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/5fa28e39ad540a9b7a289a09d2ee6923.png)
 
 ### Kibana 查看结果
 1. 登录腾讯云 Kibana 控制台。
