@@ -667,7 +667,7 @@ SDK会提供**demo_tips_string.xml**，如果需要修改tips提示，可以保�
 | ------------- | ---------------- | ------------------------------------------------------------ |
 | String        | cnName           | 中文姓名                                                     |
 | String        | enName           | 英文姓名                                                     |
-| String        | telexCode        | 中文姓名对应号码                                             |
+| String        | telexCode        | 中文姓名对应电码                                             |
 | String        | sex              | 性别 ：“男M”或“女F”                                          |
 | String        | birthday         | 出生日期                                                     |
 | String        | permanent        | 永久性居民身份证。<br/>0：非永久；<br/>1：永久；<br/>-1：未知。 |
