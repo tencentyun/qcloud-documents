@@ -775,4 +775,84 @@
 <td >s</td>
 <td >最小 ScanTime</td>
 </tr>	
+<tr>
+<td rowspan=2>Bulkload 延迟</td>
+<td>99th_percentile</td>
+<td>ms</td>
+<td rowspan=2>Bulkload 延迟</td>
+</tr>
+<tr>
+<td >999th_percentile</td>
+<td>ms</td>
+</tr>
+<tr>
+<td rowspan=2>Append 延迟</td>
+<td>99th_percentile</td>
+<td>ms</td>
+<td rowspan=2>Append 延迟</td>
+</tr>
+<tr>
+<td>999th_percentile</td>
+<td>ms</td>
+</tr>
+<tr>
+<td rowspan=2>Delete 延迟</td>
+<td>99th_percentile</td>
+<td>ms</td>
+<td rowspan=2>Delete 延迟</td>
+</tr>
+<tr>
+<td>999th_percentile</td>
+<td>ms</td>
+</tr>
+<tr>
+<td rowspan=2>MultiGet 延迟</td>
+<td>99th_percentile</td>
+<td>ms</td>
+<td rowspan=2>MultiGet 延迟</td>
+</tr>
+<tr>
+<td>999th_percentile</td>
+<td>ms</td>
+</tr>
+<tr>
+<td rowspan=2>Get 延迟</td>
+<td>99th_percentile</td>
+<td>ms</td>
+<td rowspan=2>Get 延迟</td>
+</tr>
+<tr>
+<td>999th_percentile</td>
+<td>ms</td>
+</tr>
+<tr>
+<td rowspan=2>PutBatch 延迟</td>
+<td>99th_percentile</td>
+<td>ms</td>
+<td rowspan=2>PutBatch 延迟</td>
+</tr>
+<tr>
+<td>999th_percentile</td>
+<td>ms</td>
+</tr>
+<tr>
+<td rowspan=2>Put 延迟</td>
+<td>99th_percentile</td>
+<td>ms</td>
+<td rowspan=2>Put 延迟</td>
+</tr>
+<tr>
+<td>999th_percentile</td>
+<td>ms</td>
+</tr>
+<tr>
+<td rowspan=2>Increment 延迟</td>
+<td>99th_percentile</td>
+<td>ms</td>
+<td rowspan=2>Increment 延迟</td>
+</tr>
+<tr>
+<td>999th_percentile</td>
+<td>ms</td>
+</tr>
 </table>
