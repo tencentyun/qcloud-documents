@@ -24,7 +24,7 @@
 <tr>
 <td>集群类型</td>
 <td>EMR on CVM 支持多种集群类，默认 Hadoop 集群类型</td>
-<td>Hadoop、Druid、StarRocks 等</td>
+<td>Hadoop、StarRocks 等</td>
 </tr>
 <tr>
 <td>产品版本</td>
