@@ -29,7 +29,7 @@
 
 1. 准备一个 CDN 域名：`cdn.tcloud.com`
 2. 准备一个 IGTM 业务域名：`host.igtm.com`
-3. [购买套餐并创建建 IGTM 实例](https://docs.dnspod.cn/igtm/igtm-access/)，将业务域名接入智能全局流量管理（IGTM）
+3. [购买套餐并创建 IGTM 实例](https://docs.dnspod.cn/igtm/igtm-access/)，将业务域名接入智能全局流量管理（IGTM）
    ![Pasted image 20230505195521.png](https://qcloudimg.tencent-cloud.cn/raw/362b2f02d04d39e46d28497d348af0a2.png)
 4. 资源准备：IP1 (192.0.2.1)、IP2 (192.0.2.2)、IP2 (192.0.2.3)，3个 IP 的状态均健康可用，并在服务器中启用对应探测端口（80/443等）
 5. 开通腾讯云 CDN 加速产品
