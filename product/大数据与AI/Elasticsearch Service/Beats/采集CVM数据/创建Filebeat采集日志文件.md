@@ -45,3 +45,5 @@ Filebeat 是一个轻量型的日志采集器，可以轻松地采集云上的 C
 GET filebeat-7.10.2/_search
 ```
 ![](https://main.qcloudimg.com/raw/fbc0cbf4f89fa6bb9b68cd711db18c26.png)
+>? filebeat-7.14.2为索引名称。
+>
