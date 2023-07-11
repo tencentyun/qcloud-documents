@@ -15,10 +15,10 @@ Auditbeat 目前有两种模块：
 ## 操作步骤
 ### Auditbeat 采集器配置
 1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es/beats) Beats 管理界面，授权服务相关角色，单击创建 **Auditbeat** 采集器。
-![](https://qcloudimg.tencent-cloud.cn/raw/363699bcac5ef6ede32ef066a9ecc79f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/212a4e9904dfdab99b33c3e73e7e1a5e.png)
 2. 在创建 Auditbeat 采集器中，设置采集器信息。
  - 配置 Auditbeat 采集器，输入或选择采集器配置信息。完成后单击**下一步**。
-     - 采集器名称：自定义采集器的名称，格式为1个 - 50个英文、汉字、数字、连接线（-）或下划线（\_）。 
+     - 采集器名称：自定义采集器的名称，格式为1个 - 50个英文、汉字、数字或下划线（\_）。 
      - 安装版本：支持6.8.15、7.10.2或7.14.2版本。 
      - 采集器输出：采集的数据支持传送到腾讯云 Elasticsearch 与 Logstash 实例，请选择与需采集数据的 CVM 在同一 VPC 下的 ES 集群和 Logstash 实例。不支持输出至开源版 ES 集群。
      - 用户名密码：若选择输出采集数据到开启用户登录认证的 ES 集群，需要填写用户名和密码，使 Auditbeat 有权限向 ES 集群中写入数据。用户名默认为 elastic，密码为集群创建时设置。
@@ -30,14 +30,13 @@ Auditbeat 目前有两种模块：
           - audit\_rules：自定义的审计规则（一般情况下默认的审计规则就可以满足审计需求）。
       - file\_integrity 模块：
          - paths：用于指定被监控的文件的路径，默认的文件路径包含 /bin、/usr/bin、/sbin、/usr/sbin、/etc。
-![](https://qcloudimg.tencent-cloud.cn/raw/f9e6e33cdbb407b16a2af762ccbeee29.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c20275833c748e04b8fea2fe475d6850.png)
  - 将采集器安装到 CVM 实例。选择要安装采集器的 CVM 实例，完成后单击**确定启用**。
      - CVM 必须安装自动化助手，仅支持为已安装自动化助手的 CVM 实例下发采集器配置。
      - 仅支持选择和采集器输出在同一 VPC 下的 CVM 实例进行安装，若无法找到目标 CVM 实例，需要更改采集器输出。
-![](https://qcloudimg.tencent-cloud.cn/raw/664edd917bb188e4a0686cae525ac7a5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6821867497f74bb22a8a2f133f2b8acc.png)
 3. 单击**确定启用**后，跳转到 Beats 采集器管理界面，可以查看 Auditbeat 采集器运行状态，显示“正常”则表示采集器安装成功。支持 [修改采集器配置](https://cloud.tencent.com/document/product/845/63301) 和 [管理 CVM 实例](https://cloud.tencent.com/document/product/845/63302)。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/5fa28e39ad540a9b7a289a09d2ee6923.png)
 
 ### Kibana 查看结果
 1. 在 Kibana 左侧导航栏单击 **Discover**，查询 Auditbeat 采集的数据：
