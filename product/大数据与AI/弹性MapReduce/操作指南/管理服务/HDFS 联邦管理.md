@@ -31,7 +31,6 @@ HDFS 联邦管理是基于 HDFS  Federation 特性提供的 HDFS 联邦集群部
 >- 各业务组件数据放在一级目录之下，不支持直接放在根目录下访问，根目录不支持挂载。
 >- 默认的 NameService 上是有/emr 目录，需要挂载。
 >- 使用 Router-based  联邦时，若有多个目标NameService使用同一挂载点，当多个目标NameService存在同目录同文件时，只会获取一个该同名文件。为避免出现此类情况，建议开启联邦后使用hdfs://nsfed来进行统一的读写。
-
 6. 同步挂载表
 联邦类型为 Router-based Federation 时，支持同步后台所有挂载表信息到控制台，以便用户进行挂载表的统一管理。
 
