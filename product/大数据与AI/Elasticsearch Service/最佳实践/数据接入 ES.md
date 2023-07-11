@@ -17,7 +17,7 @@ yum install java-1.8.0-openjdk  java-1.8.0-openjdk-devel -y
 2. 根据数据源类型自定义配置文件`*.conf`，配置文件内容可参考 [数据源配置文件说明](https://cloud.tencent.com/document/product/845/17343#.E9.85.8D.E7.BD.AE.E6.96.87.E4.BB.B6.E8.AF.B4.E6.98.8E)。
 3. 执行 logstash。
 ```
-	nohup ./bin/logstash -f ~/*.conf 2>&1 >/dev/null &
+nohup .//root/logstash-5.6.4/bin/logstash -f ~/*.conf 2>&1 >/dev/null &
 ```
 
 ### Docker 中访问 ES 集群
@@ -137,12 +137,12 @@ Beats 包含用于收集文件类型数据的 FileBeat、收集监控指标数�
 1. 安装部署 filebeat。
 ```
 	wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.4-linux-x86_64.tar.gz
-	tar xvf filebeat-5.6.4.tar.gz
+	tar xvf filebeat-5.6.4-linux-x86_64.tar.gz 
 ```
 2. 配置 filebeat.yml。
 3. 执行 filebeat。
 ```
-	nohup ./filebeat 2>&1 >/dev/null &
+nohup ./filebeat-5.6.4-linux-x86_64/filebeat 2>&1 >/dev/null &
 ```
 
 ###  Docker 中访问 ES 集群
