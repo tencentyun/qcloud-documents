@@ -65,7 +65,7 @@
 
 
 1. 前往 [苹果开发者平台](https://developer.apple.com/account/resources/identifiers/list) 为通知服务扩展插件申请 `Bundle Identifier`。
->?`Bundle Identifier` 命名规则 (主tartget Bundle Identifier).TPNSService。
+>?`Bundle Identifier` 命名规则 (主target Bundle Identifier).TPNSService。
 2. 申请包含 `Bundle Identifier` 的描述文件。
 ![](https://main.qcloudimg.com/raw/62cffd22ab74e0505abc54e61787e0a4.png)
 3. 将扩展插件的 `Bundle Identifier` 指定为上述申请的 `Bundle Identifier` 并将 `Provisioning Profile` 指定为上述申请的描述文件。
