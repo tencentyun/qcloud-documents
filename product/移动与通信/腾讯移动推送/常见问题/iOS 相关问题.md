@@ -9,7 +9,7 @@ Dyld Message: Library not loaded: /System/Library/Frameworks/UserNotifications.f
 
 ### iOS 的开发环境 token，被当做生产环境 token 是什么原因？该如何处理？
 
-在 Xcode 开发环境下安装 App，并使用移动推送推送开发环境的消息时，出现以下两种错误提示：
+在 Xcode 开发环境下安装 App，并使用移动推送开发环境的消息时，出现以下两种错误提示：
 - 在移动推送控制台推送排查工具查询，出现提示"Token注册环境为：product，推送环境为：dev两者不匹配"。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9aa45dc28e5fc654cb8bf8c835674490.png)
 - Xcode 调试移动推送SDK 错误日志提示 embedded.mobileprovision 缺失。
