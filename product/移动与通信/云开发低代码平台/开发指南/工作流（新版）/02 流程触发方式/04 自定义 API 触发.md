@@ -80,7 +80,7 @@ module.exports = async function (params, context) {
 如果需要在自定义应用中使用，需要先配置登录组件，确认应用登录授权信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/20170ab808bcbedaefe176c7ee5c441f.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/ad804ed3c0e9715903ce1dc1b0d0845d.png)
-可通过单击应用编辑器右上角**发布成功** > **访问连接**进行访问。
+可通过单击应用编辑器右上角**发布成功** > **访问链接**进行访问。
 > !如果不配登录组件，只能在自定义代码中指定用户触发，即传入 ExtraUserInfo 参数的 UserId 和 Source（如上文示例所示）。如果已经配置了登录组件则不需要配置该入参。
 
 
