@@ -114,7 +114,7 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>DPD 超时操作</td>
-<td><ul><li>断开：清除当前 SA，且当前 VPN 通道断开</li><li>重试：重新与对端建立连接</li></ul></td>
+<td><ul><li>断开：清除当前 SA，且当前 VPN 通道断开。</li><li>重试：重新与对端建立连接。</li></ul></td>
 </tr>
 </table>
 <b>健康检测配置</b>
@@ -156,39 +156,39 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>版本</td>
-<td>IKE V1、IKE V2</td>
+<td>IKE V1、IKE V2。</td>
 </tr>
 <tr>
 <td>身份认证方法</td>
-<td>默认预共享密钥</td>
+<td>默认预共享密钥。</td>
 </tr>
 <tr>
 <td>加密算法</td>
-<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4，推荐使用 AES-128</td>
+<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4，推荐使用 AES-128。</td>
 </tr>
 <tr>
 <td>认证算法</td>
-<td>身份认证算法，支持 MD5、SHA1、SHA256、AES-383、SHA512、SM3，推荐使用 MD5</td>
+<td>身份认证算法，支持 MD5、SHA1、SHA256、AES-383、SHA512、SM3，推荐使用 MD5。</td>
 </tr>
 <tr>
 <td>协商模式</td>
-<td>支持 main（主模式）和 aggressive（野蛮模式）<br/>二者的不同之处在于，aggressive 模式可以用更少的包发送更多信息，可以快速建立连接，但是是以清晰的方式发送安全网关的身份。使用 aggressive 模式时，配置参数如 Diffie-Hellman 和 PFS 不能进行协商，要求两端拥有兼容的配置</td>
+<td>支持 main（主模式）和 aggressive（野蛮模式）。<br/>二者的不同之处在于，aggressive 模式可以用更少的包发送更多信息，可以快速建立连接，但是是以清晰的方式发送安全网关的身份。使用 aggressive 模式时，配置参数如 Diffie-Hellman 和 PFS 不能进行协商，要求两端拥有兼容的配置。</td>
 </tr>
 <tr>
 <td>本端标识</td>
-<td>支持 IP Address 和 FQDN（全称域名），默认 IP Address</td>
+<td>支持 IP Address 和 FQDN（全称域名），默认 IP Address。</td>
 </tr>
 <tr>
 <td>远端标识</td>
-<td>支持 IP Address 和 FQDN ，默认 IP Address</td>
+<td>支持 IP Address 和 FQDN ，默认 IP Address。</td>
 </tr>
 <tr>
 <td>DH group</td>
-<td>指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了<br/>DH1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组<br/> DH2：采用 1024-bit MODP 算法的 DH 组<br/> DH5：采用 1536-bit MODP 算法的 DH 组<br/>DH14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项<br/>DH24：带 256 位的素数阶子群的 2048-bit MODP 算法 DH 组</td>
+<td>指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了。<br/>DH1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组。<br/> DH2：采用 1024-bit MODP 算法的 DH 组。<br/> DH5：采用 1536-bit MODP 算法的 DH 组。<br/>DH14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项。<br/>DH24：带 256 位的素数阶子群的 2048-bit MODP 算法 DH 组。</td>
 </tr>
 <tr>
 <td>IKE SA Lifetime</td>
-<td>单位：s<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除</td>
+<td>单位：s。<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除。</td>
 </tr>
 </table>
 <b>IPSec 信息配置</b>
@@ -199,31 +199,31 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>加密算法</td>
-<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4</td>
+<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4。</td>
 </tr>
 <tr>
 <td>认证算法</td>
-<td>身份认证算法，支持 MD5、SHA1、SHA256、SHA384、SHA512、SM3</td>
+<td>身份认证算法，支持 MD5、SHA1、SHA256、SHA384、SHA512、SM3。</td>
 </tr>
 <tr>
 <td>报文封装模式</td>
-<td>Tunnel</td>
+<td>Tunnel。</td>
 </tr>
 <tr>
 <td>安全协议</td>
-<td>ESP</td>
+<td>ESP。</td>
 </tr>
 <tr>
 <td>PFS</td>
-<td>支持 disable、DH-GROUP1、DH-GROUP2、DH-GROUP5、DH-GROUP14 和 DH-GROUP24</td>
+<td>支持 disable、DH-GROUP1、DH-GROUP2、DH-GROUP5、DH-GROUP14 和 DH-GROUP24。</td>
 </tr>
 <tr>
 <td>IPsec SA lifetime(s)</td>
-<td>单位：s</td>
+<td>单位：s。</td>
 </tr>
 <tr>
 <td>IPsec SA lifetime(KB)</td>
-<td>单位：KB</td>
+<td>单位：KB。</td>
 </tr>
 </table>
 5. 如不需要高级配置，可直接单击**创建**。
