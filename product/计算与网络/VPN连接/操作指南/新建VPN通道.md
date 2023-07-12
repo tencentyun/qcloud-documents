@@ -42,9 +42,9 @@ VPN 通道的建立包括以下配置信息：
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 单击左侧导航栏中 **VPN 连接** > **VPN 通道**，进入管理页。
 3. 在 **VPN 通道**管理页面，单击**新建**。
-4. 在弹出的新建对话框中，配置 VPN 通道基本信息。[](id:buzhou4)
+4. 在**新建VPN 通道**对话框中，配置 VPN 通道基本信息。[](id:buzhou4)
   1. **基本信息配置**
-  本步骤主要配置通道名称、所属网络、关联 VPN 网关、对完网关、共享密钥、协商类型、通信模式等基本配置。
+本步骤主要配置通道名称、所属网络、关联 VPN 网关、对完网关、共享密钥、协商类型、通信模式等基本配置。
 <table>
 <tr>
 <th>参数名称</th>
@@ -79,6 +79,10 @@ VPN 通道的建立包括以下配置信息：
 <td>对端网关的公网 IP 地址。</td>
 </tr>
 <tr>
+<td>协议类型</td>
+<td>默认为 	IKE/IPsec。</td>
+</tr>
+<tr>
 <td>预共享密钥</td>
 <td>用于本端和对端网关之间的身份认证，本端和对端须使用相同的预共享密钥。</td>
 </tr>
@@ -94,6 +98,7 @@ VPN 通道的建立包括以下配置信息：
 </table>
   2. **高级配置**
 本步骤主要配置 DPD 检测、健康检查、IKE 和 IPSec 等。
+**DPD 检测配置**
 <table>
 <tr>
 <th>参数名称</th>
@@ -112,7 +117,7 @@ VPN 通道的建立包括以下配置信息：
 <td><ul><li>断开：清除当前 SA，且当前 VPN 通道断开</li><li>重试：重新与对端建立连接</li></ul></td>
 </tr>
 </table>
-  3. **健康检查配置**
+<b>健康检测配置</b>
 <table>
 <tr>
 <th>参数名称</th>
@@ -143,96 +148,7 @@ VPN 通道的建立包括以下配置信息：
 </td>
 </tr>
 </table>
-  4. **IKE 配置**
-<table>
-<tr>
-<th>配置项</th>
-<th>说明</th>
-</tr>
-<tr>
-<td>版本</td>
-<td>IKE V1、IKE V2。</td>
-</tr>
-<tr>
-<td>身份认证方法</td>
-<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4，推荐使用 AES-128。</td>
-</tr>
-<tr>
-<td>认证算法</td>
-<td>身份认证算法，支持 MD5、SHA1、SHA256、AES-383、SHA512、SM3，推荐使用 MD5。</td>
-</tr>
-<tr>
-<td>协商模式</td>
-<td>支持 main（主模式）和 aggressive（野蛮模式）二者的不同之处在于，aggressive 模式可以用更少的包发送更多信息，可以快速建立连接，但是是以清晰的方式发送安全网关的身份。使用 aggressive 模式时，配置参数如 Diffie-Hellman 和 PFS 不能进行协商，要求两端拥有兼容的配置。</br></td>
-</tr>
-<tr>
-<td>本端标识</td>
-<td>支持 IP Address 和 FQDN（全称域名），默认 IP Address。</td>
-</tr>
-<tr>
-<td>对端标识</td>
-<td>支持 IP Address 和 FQDN ，默认 IP Address。</td>
-</tr>
-<tr>
-<td>DH group</td>
-<td>指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了。
-<ul>
-<li>DH1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组。</li>
-<li>DH2：采用 1024-bit MODP 算法的 DH 组。</li>
-<li>DH5：采用 1536-bit MODP 算法的 DH 组。</li>
-<li>DH14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项。</li>
-<li>DH24：带 256 位的素数阶子群的 2048-bit MODP 算法 DH 组。</li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>IKE SA Lifetime</td>
-<td>单位：s</br>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，将被自动清除。
-</td>
-</tr>
-</table>
-  5. **IPSec 配置(选配)**
-<table>
-<tr>
-<th>配置项</th>
-<th>说明</th>
-</tr>
-<tr>
-<td>加密算法</td>
-<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4。</td>
-</tr>
-<tr>
-<td>认证算法</td>
-<td>身份认证算法，支持 MD5、SHA1、SHA256、SHA384、SHA512、SM3。</td>
-</tr>
-<tr>
-<td>报文封装模式</td>
-<td>Tunnel。</td>
-</tr>
-<tr>
-<td>安全协议</td>
-<td>ESP。</td>
-</tr>
-<tr>
-<td>PFS</td>
-<td>支持 disable、DH-GROUP1、DH-GROUP2、DH-GROUP5、DH-GROUP14 和 DH-GROUP24。</td>
-</tr>
-<tr>
-<td>IPsec SA lifetime(s)</td>
-<td>单位：s。</td>
-</tr>
-<tr>
-<td>IPsec SA lifetime(KB)</td>
-<td>单位：KB。</td>
-</tr>
-</table>
-5. 单击**下一步**，进入**通信模式**配置界面。[](id:buzhou6)[](id:cfg_vpn_spd)
-![](https://qcloudimg.tencent-cloud.cn/raw/bb0d4c807a0d5ccda1e9a60e411ea03b.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/eb5bdca8f863d7a625a68179b86acd00.png)
->?如果需要输入多个对端网段，请使用换行隔开。
->
-6. [](id:buzhou7)单击**下一步**，进入 **IKE 配置（选填）**界面，如不需要高级配置，可直接单击**下一步**。
-![](https://qcloudimg.tencent-cloud.cn/raw/163a6fd49d27906ead4175c84262ac93.png)
+<b>IKE 配置</b>
 <table>
 <tr>
 <th width="20%">配置项</th>
@@ -263,7 +179,7 @@ VPN 通道的建立包括以下配置信息：
 <td>支持 IP Address 和 FQDN（全称域名），默认 IP Address</td>
 </tr>
 <tr>
-<td>对端标识</td>
+<td>远端标识</td>
 <td>支持 IP Address 和 FQDN ，默认 IP Address</td>
 </tr>
 <tr>
@@ -275,7 +191,7 @@ VPN 通道的建立包括以下配置信息：
 <td>单位：s<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除</td>
 </tr>
 </table>
-7. [](id:buzhou8) 进入**IPsec配置（选填）**界面，如果不需要高级配置，可直接单击**完成**。
+<b>IPSec 信息配置</b>
 <table>
 <tr>
 <th width="22%">配置项</th>
@@ -310,3 +226,4 @@ VPN 通道的建立包括以下配置信息：
 <td>单位：KB</td>
 </tr>
 </table>
+5. 如不需要高级配置，可直接单击**创建**。
