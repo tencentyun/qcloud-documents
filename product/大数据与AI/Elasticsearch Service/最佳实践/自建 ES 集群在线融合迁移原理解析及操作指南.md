@@ -55,7 +55,7 @@ curl  http://127.0.0.1:9200/_cat/plugins
 ![](https://qcloudimg.tencent-cloud.cn/raw/c80c1aa3fbed231765b03042892b7330.png)
 
 ### 需确保自建 ES 集群和云上集群网络互联互通
-这里说的网络互联互通是要求云上的节点能够可以直接访问到自建集群的节点，同样自建集群节点也能够可以直接访问到云上集群节点，中间不可以有任何代理 Proxy。中间有 Proxy 的访问都属于单向网络通信，而不是双向网络通信。下面介绍自建集群两种常见的网络环境和网络通信方案：
+这里说的网络互联互通是要求云上的节点可以直接访问到自建集群的节点，同样自建集群节点也可以直接访问到云上集群节点，中间不可以有任何代理 Proxy。中间有 Proxy 的访问都属于单向网络通信，而不是双向网络通信。下面介绍自建集群两种常见的网络环境和网络通信方案：
 1. 腾讯云 CVM 自建 ES 集群迁移到腾讯云 ES：
 由于腾讯云 ES 集群采用了跨租户弹性网卡直接打通了 ES 集群 VPC 和客户 VPC 网络环境，因此对于腾讯云 CVM 自建的 ES 集群，只需要使用自建集群所在的 VPC在云 ES 控制台购买集群即可实现网络双向互通。如果自建集群和腾讯云 ES 集群不在同一个地域，则可以采用云上云联网或者对等连接方案进行打通网络。
 
@@ -138,7 +138,7 @@ curl localhost:5100/cluster/update -d '{
 这一步和7.0以下版本操作是一样的，具体操作详情可参考上面步骤。
 
 2. 集群融合（腾讯云侧操作）
-这一步和7.0以下版本最大的区别就是将自建集群节点列表追加都云上并全量重启云上集群后，云上集群并不能直接加入自建集群，这主要是和7.0以上版本选主算法有关。因此为了让云上集群全量重启后能够正常融合，需要在全量重启后逐步对云上集群节点执行如下命令用于抹除云上集群的元数据。详细原理可参考 [官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/master/node-tool.html) 提供的 elasticsearch-node 命令。
+这一步和7.0以下版本最大的区别就是将自建集群节点列表追加到云上并全量重启云上集群后，云上集群并不能直接加入自建集群，这主要是和7.0以上版本选主算法有关。因此为了让云上集群全量重启后能够正常融合，需要在全量重启后逐步对云上集群节点执行如下命令用于抹除云上集群的元数据。详细原理可参考 [官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/master/node-tool.html) 提供的 elasticsearch-node 命令。
 首先先执行追加自建节点 IP 配置 API：
 ```
 curl localhost:5100/cluster/update -d '{
@@ -167,7 +167,7 @@ cd /data1/containers/*/es/
 4. 集群分离（客户侧操作）
 这一步和7.0以下版本操作是一样的，具体操作详情可参考上面步骤。
 5. 配置恢复（腾讯云侧操作）
-配置恢复的操作也基本和7.0以下版本一样，唯一的区别同样在与 es_config 参数中的 key，这里应该是 discovery.seed_hosts。同样采用 no_restart 不重启方式进行更新。
+配置恢复的操作也基本和7.0以下版本一样，唯一的区别同样在于 es_config 参数中的 key，这里应该是 discovery.seed_hosts。同样采用 no_restart 不重启方式进行更新。
 ```
 curl localhost:5100/cluster/update -d '{
         "cluster_name": "es-cohesszwr",
@@ -205,7 +205,7 @@ POST {index_name}/_open
 经过我们多次测试，迁移索引 Reopen 方案能够解决二次融合场景下数据丢失的问题。
 
 ### 客户端在融合前需确保已关闭嗅探功能
-客户端开启嗅探 Sniff 功能是为了能够让 Client 端自动发现集群侧 ES 节点的动态变更。为云上 ES 是通过 PrivateLink 打通的客户侧 VPC 和云上集群 VPC 网络，如果融合后客户端将访问配置切换到云上后，同时保持开启了嗅探功能，就会出现嗅探到的节点 IP 访问不同的情况，从而导致 Client 端大量的超时请求，影响业务使用。客户端报错信息可能如下：
+客户端开启嗅探 Sniff 功能是为了能够让 Client 端自动发现集群侧 ES 节点的动态变更。云上 ES 是通过 PrivateLink 打通的客户侧 VPC 和云上集群 VPC 网络，如果融合后客户端将访问配置切换到云上后，同时保持开启了嗅探功能，就会出现嗅探到的节点 IP 访问不同的情况，从而导致 Client 端大量的超时请求，影响业务使用。客户端报错信息可能如下：
 ```
 NoNodeAvailableException[None of the configured nodes are available: [{#transport#-1}{VTss4h8SRsCpP6EW5PoLxxxrQ}{192.168.106.xxx}{192.168.106.xxx:9300}] ]at org.elasticsearch.client.transport.TransportClientNodesService.ensureNodesAreAvailable(TransportClientNodesService.java:347) at org.elasticsearch.client.transport.TransportClientNodesService.execute(TransportClientNodesService.java:245) at org.elasticsearch.client.transport.TransportProxyClient.execute(TransportProxyClient.java:59) ......
 ```
