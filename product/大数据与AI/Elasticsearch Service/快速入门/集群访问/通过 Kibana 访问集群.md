@@ -9,7 +9,7 @@ Kibana 页面有两个入口，分别位于集群列表页和集群详情页，�
 ![](https://qcloudimg.tencent-cloud.cn/raw/a8eb732f137ad1929733542e096f2ab2.png)
 
 ### 登录
-Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集群时设置的 Kibana 密码。如果忘记密码，可以在集群详情页重置密码。出于安全考虑，用户可以配置 Kibana 公网地址的访问黑白名单来提高安全防护，详见 [Kibana 访问设置](https://cloud.tencent.com/document/product/845/16992)。
+Kibana 页面访问需要登录，账号为 elastic，密码为用户创建集群时设置的 Kibana 密码。如果忘记密码，可以在集群详情页重置密码。出于安全考虑，用户可以配置 Kibana 公网地址的访问黑白名单来提高安全防护，详见 [Kibana 访问设置](https://cloud.tencent.com/document/product/845/16992)。
 
 - 若“ES 集群用户登录认证”未开启，Kibana 登录页如下图所示：
 ![](https://main.qcloudimg.com/raw/ff820fc88951faed4119bb9edbd8e8d7.png)
