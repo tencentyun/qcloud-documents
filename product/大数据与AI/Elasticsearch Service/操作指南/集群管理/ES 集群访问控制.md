@@ -1,12 +1,12 @@
 ES 集群部署在逻辑隔离的私有网络 VPC 中，我们提供了丰富的能力来切实保证云上资源的安全性，包括：
-- 对腾讯云帐户下资源的 CAM 访问管理（参见 [CAM 访问控制配置](https://cloud.tencent.com/document/product/845/19550)）
+- 对腾讯云账户下资源的 CAM 访问管理（参见 [CAM 访问控制配置](https://cloud.tencent.com/document/product/845/19550)）
 - ES 集群访问密码/ES 集群用户登录认证
 - 设置 Kibana 和 Cerebro 外网访问 IP 黑白名单，或限制 Kibana 和 Cerebro 仅能通过内网访问
 - 对 ES 集群有限开启外网访问和设置 IP 白名单
 - 提供的基于角色的访问控制（RBAC）
 
 ## 设置 ES 集群访问密码
-在创建腾讯云 ES 集群时，会要求用户设置默认用户 elastic 的密码，该帐号和密码用于 Kibana 页面登录，若集群已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868)，则此用户名和密码还会用于 ES 集群的登录认证，提供进一步的安全防护，详情如下：
+在创建腾讯云 ES 集群时，会要求用户设置默认用户 elastic 的密码，该账号和密码用于 Kibana 页面登录，若集群已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868)，则此用户名和密码还会用于 ES 集群的登录认证，提供进一步的安全防护，详情如下：
 ![](https://main.qcloudimg.com/raw/a6bf26dc63191403fe0a9e5b7a69d663.png)
 
 ## 重置 ES 集群访问密码
