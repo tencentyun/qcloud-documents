@@ -64,7 +64,7 @@
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/c7c8ec096a180c85354d1bcee4206f42.png)
 4. [](id:step4)在[ 路由表控制台](https://console.cloud.tencent.com/vpc/route?rid=1)，配置本端/对端 VPC 路由，并发布到云联网上。
-	1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，打开用户原始业务 VPC，单击 VPC 实例页。
+	1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，打开用户原始对端 VPC，单击 VPC 实例页。
 	2. [](id:step4-2)在 VPC 实例资源模块，单击**路由表**，在本端 VPC 默认路由表的**基本信息**页，单击**新增路由策略**。在**新增路由**页面，配置目的端是 IDC 网段、下一跳类型为私网 NAT 网关。并且发布到云联网，操作可参考如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/abe3b31eae900b8034beb103b9091b4b.png)
 	3. 对端 VPC 默认路由表添加条目如下，**目的端**为 [步骤2.8](#step2-8)  中创建的 NAT 规则映射 IP 路由，下一跳为私网 NAT 网关。并且发布到云联网，详细操作可参考 [步骤4.2](#step4-2)。
