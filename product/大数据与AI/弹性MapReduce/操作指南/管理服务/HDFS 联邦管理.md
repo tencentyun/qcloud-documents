@@ -14,7 +14,7 @@ HDFS 联邦管理是基于 HDFS  Federation 特性提供的 HDFS 联邦集群部
 4. 选择**添加联邦节点**
 联邦节点采用集群中的 Router 节点，需先在资源管理页中扩容增加 Router 节点后，再将其设置为联邦节点；NameNode 进程需要选择2个节点，每个节点将会部署 NameNode 进程和 ZKFC 进程。
 第一次新建联邦类型 Router-based Federation 时，部署 DFSRouter 进程需要选择至少2个节点；当再次新建联邦时 DFSRouter 节点可复用，节点数量可大于等于0。
-联邦类型为 Router-based Federation 时，如 DFSRouter 进程负载较高，可进入**资源管理页**扩容 Router 节点并部署 DFSRouter 进程；如 DFSRouter 进程负载较高，可进入**资源管理页**缩容部署 DFSRouter 进程的 Router 联邦节点。
+联邦类型为 Router-based Federation 时，如 DFSRouter 进程负载较高，可进入**资源管理页**扩容 Router 节点并部署 DFSRouter 进程；如 DFSRouter 进程负载较低，可进入**资源管理页**缩容部署 DFSRouter 进程的 Router 联邦节点。
 >!
 >- HDFS-3.3.0以下的版本，在**非首次**新增 NameService 成功后且联邦类型为 Router-based Federation 时，需在角色管理页重启历史的 DFSRouter 进程（为保证业务正常建议在业务低峰期执行）；HDFS-3.3.0版本及以上支持了热加载配置，无需此操作。
 >- 开启了 Kerberos 的集群，添加联邦 NameService 后，提交到 yarn 的任务如要用到新 NameService 上的文件，需要先重启 yarn 的 ResourceManager（为保证业务正常建议在业务低峰期执行）。
