@@ -6,7 +6,7 @@ Tencent Kona JDK，是腾讯基于社区 Open JDK 定制开发的 JDK 版本，�
 
 ### Kona JDK 优势
 
-- 高性能和低成本：在腾讯大数据计算场景数万台服务器生产集群验证下，和Open JDK 8相比，Kona JDK 8吞吐提升8%，CPU 和内存使用率均降低10%左右；
+- 高性能和低成本：在腾讯大数据计算场景数万台服务器生产集群验证下，和Open JDK 8相比，Kona JDK 8吞吐量提升8%，CPU 和内存使用率均降低10%左右；
 - 开箱即用的 Vector API 支持：解决了向量指令适配导致的 JVM crash 等问题，业界率先落地，稳定支持广告训练场景；
 - 多种 GC 优化：G1 GC 内存 overhead 和并行 Full GC 算法优化，同时针对强实时在线服务需求，推出生产级别的 ZGC；
 - KonaFiber 协程：已经在IEG天美游戏业务合作落地，目前根据benchmark测试，协程创建/切换/调度等性能大幅超过社区Loom；
@@ -160,7 +160,7 @@ Tencent Kona JDK，是腾讯基于社区 Open JDK 定制开发的 JDK 版本，�
 <td >-</td>
 <td >-</td>
 </tr><tr>
-<td >写入吞吐、耗时统计</td>
+<td >写入吞吐量、耗时统计</td>
 <td >Min  Throughput</td>
 <td >index-append</td>
 <td >82341.03288</td>
