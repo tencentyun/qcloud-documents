@@ -44,7 +44,7 @@ filebeat 以 filebeat.yml 文件为主配置文件，首先创建一个 filebeat
 >? 数据卷和挂载点说明：
 >1. 使用 ConfigMap 数据卷，使得 filebeat pod 可以读取到自定义的 filebeat.yml 配置。
 >2. 使用主机路径`/var/log/containers`, 使得 filebeat pod 可以读取到其它pod的日志，因为其它 pod 的日志都会打印在宿主机的`/var/log/containers` 路径下。
->3. 因为主机路径`/var/log/containers` 下的 pod 日志，都是使用软链接，链接到`/var/log/pods` 目录下的各个 pod 的日志文件，因为也需要把主机路径`/var/log/containers` 挂载到 filebeat pod 上，这也是为什么在 filebeat.yml 中要定义 symlinks: true 的原因，因为默认情况下，filebeat 不对读取链接文件。
+>3. 因为主机路径`/var/log/containers` 下的 pod 日志，都是使用软链接，链接到`/var/log/pods` 目录下的各个 pod 的日志文件，因为也需要把主机路径`/var/log/containers` 挂载到 filebeat pod 上，这也是为什么在 filebeat.yml 中要定义 symlinks: true 的原因，因为默认情况下，filebeat 不读取链接文件。
 
 6. 在 kibana 中查看日志
 进入到 filebeat.yml 中定义的 ES 集群对应的 kibana 中，查看对应索引是否生成，是否可以正常查看 nginx 日志。
