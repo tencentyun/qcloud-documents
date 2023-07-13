@@ -38,7 +38,7 @@
 Filebeat 是一款轻量级日志数据采集的工具，通过监控指定位置的文件收集信息。在该 VPC 下给需要监控主机信息和应用信息的 CVM 上安装 Filebeat。
 - 方式一：下载 Filebeat 并安装 [Filebeat 下载地址](https://www.elastic.co/cn/downloads/beats/filebeat)。
 - 方式二：采用 **Elasticsearch 管理页面 > beats 管理**中提供的 Filebeat。本示例中采用了方式一。
-下载到 CVM 中并配置 Filebeat，在 filebeat.yml 文件中提添加如下配置项：  
+下载到 CVM 中并配置 Filebeat，在 filebeat.yml 文件中添加如下配置项：  
 ```shell
 # 监控日志文件配置
 - type: log
