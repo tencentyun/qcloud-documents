@@ -11,9 +11,12 @@ Apache Oozie 是一个开源的工作流引擎，被设计将 hadoop 生态组�
 在 EMR 集群中，已安装了 sharelib，所以您使用 Oozie 提交 Workflow 作业时，不需要再安装 sharelib。当然您也可以对 sharelib 进行编辑与更新，操作步骤如下：
 ```
 cd /usr/local/service/oozie
-tar -xf oozie-sharelib.tar.gz添加jar包到解压出的share目录下要支持的action对应的目录下bin/oozie-setup.sh sharelib create -fs hdfs://active-namenode-ip:4007 -locallib shareoozie admin --oozie http://oozie-server-ip:12000/oozie -sharelibupdate
+tar -xf oozie-sharelib.tar.gz
 ```
-
+添加 jar 包到解压出的 share 目录下要支持的 action 对应的目录下：
+```
+bin/oozie-setup.sh sharelib create -fs hdfs://active-namenode-ip:4007 -locallib shareoozie admin --oozie http://oozie-server-ip:12000/oozie -sharelibupdate
+```
 ## 在非 Kerberos 环境下提交 Workflow
 在 oozie 的安装目录/usr/local/service/oozie，对文件 oozie-examples.tar.gz 进行解压，里面有 Oozie 支持的组件的 Workflow 示例：
 ```
@@ -24,11 +27,13 @@ tar -xf oozie-examples.tar.gz
 - cd examples/apps/hive2/。
 - 修改 job.properties。
 	- namenode 设置为 core-site.xml 下`fs.defaultFS`的值。
-	-** resourceManager** 的值在 HA 模式下设置为 yarn-site.xml 下`yarn.resourcemanager.ha.rm-ids`的值，非 HA 模式下为`yarn.resourcemanager.address`的值。
+	- **resourceManager** 的值在 HA 模式下设置为 yarn-site.xml 下`yarn.resourcemanager.ha.rm-ids`的值，非 HA 模式下为`yarn.resourcemanager.address`的值。
 	- **jdbcURL** 的值为`jdbc:hive2://hive2-server:7001/default`。
-- hadoop fs -put examples。
+- cd - 
+- hadoop fs -put examples
 - oozie job -debug -oozie http://oozie-server-ip:12000/oozie -config examples/apps/hive2/job.properties -run。
 - oozie job -info 上一步返回的Job ID（或者通过WebUI查看） 。
+- info $jobid，jobid 是上一步返回的 jobid。
 
 ## 在 Kerberos 环境下提交 Workflow
 仍然以 action hive2 来进行举例，其它的注意事项请查看 hive2目录下的 README，此处不再赘述。
@@ -43,3 +48,4 @@ tar -xf oozie-examples.tar.gz
 - hadoop fs -put examples。
 - oozie job -debug -oozie http://oozie-server-ip:12000/oozie -config examples/apps/hive2/job.properties -run。
 - oozie job -info 上一步返回的 Job ID（或者通过 WebUI 查看）。
+- info $jobid，jobid 是上一步返回的 jobid。
