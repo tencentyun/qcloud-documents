@@ -31,6 +31,5 @@ val df = spark.read.options(Map("inferSchema"->"true","delimiter"->";","header"-
 z.show(df)
 df.registerTempTable("people")
 ```
-![](https://main.qcloudimg.com/raw/8d70fcea7197c81e2d0235cab6d77843.png)
 5. 返回信息结果如图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b43decf5bc87381c7f99db8925ec47f5.png)
