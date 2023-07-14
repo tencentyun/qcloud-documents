@@ -45,7 +45,7 @@ cat 命令将 Alluxio 中的一个文件内容全部打印在控制台中，这�
 #### 操作示例 
 例如，当测试一个新的计算任务时，cat 命令可以用来快速确认其输出结果。
 ```
-$ ./bin/alluxio fs cat /output/part-00000
+$ alluxio fs cat /output/part-00000
 ```
 
 ## checkConsistency
@@ -61,11 +61,11 @@ checkConsistency 命令会对比给定路径下 Alluxio 以及底层存储系统
 
 列出不一致的文件或者目录：
 ```
-$ ./bin/alluxio fs checkConsistency /
+$ alluxio fs checkConsistency /
 ```
 修复不一致的文件或者目录：
 ```
-$ ./bin/alluxio fs checkConsistency -r /
+$ alluxio fs checkConsistency -r /
 ```
 
 ## checksum
@@ -75,7 +75,7 @@ checksum 命令输出某个 Alluxio 文件的 md5 值。
 #### 操作示例
 例如，checksum 可以用来验证 Alluxio 中的文件内容与存储在底层文件系统或者本地文件系统中的文件内容是否匹配。
 ```
-$ ./bin/alluxio fs checksum /LICENSE
+$ alluxio fs checksum /LICENSE
 ```
 
 ## chgrp
@@ -87,7 +87,7 @@ chgrp 命令可以改变 Alluxio 中的文件或文件夹的所属组，Alluxio 
 #### 操作示例
 使用 chgrp 命令能够快速修改一个文件的所属组。
 ```
-$ ./bin/alluxio fs chgrp alluxio-group-new /input/file1
+$ alluxio fs chgrp alluxio-group-new /input/file1
 ```
 
 ## chmod
@@ -110,7 +110,7 @@ chmod 命令修改 Alluxio 中文件或文件夹的访问权限，目前可支�
 #### 操作示例
 使用 chmod 命令可以快速修改一个文件的权限。
 ```
-$ ./bin/alluxio fs chmod 755 /input/file1
+$ alluxio fs chmod 755 /input/file1
 ```
 
 ## chown
@@ -122,7 +122,7 @@ chown 命令用于修改 Alluxio 中文件或文件夹的所有者，出于安�
 #### 使用示例
 使用 chown 命令可以快速修改一个文件的所有者。
 ```
-$ ./bin/alluxio fs chown alluxio-user /input/file1
+$ alluxio fs chown alluxio-user /input/file1
 ```
 
 ## copyFromLocal
@@ -132,7 +132,7 @@ copyFromLocal 命令将本地文件系统中的文件拷贝到 Alluxio 中，如
 #### 操作示例
 使用 copyFromLocal 命令可以快速将数据复制到 alluxio 系统中以便后续处理。
 ```
-$ ./bin/alluxio fs copyFromLocal /local/data /input
+$ alluxio fs copyFromLocal /local/data /input
 ```
 
 ## copyToLocal
@@ -142,7 +142,7 @@ copyToLocal 命令将 Alluxio 中的文件复制到本地文件系统中，如�
 #### 操作示例
 使用 copyToLocal 命令可以快速将输出数据下载下来从而进行后续研究或调试。
 ```
-$ ./bin/alluxio fs copyToLocal /output/part-00000 part-00000
+$ alluxio fs copyToLocal /output/part-00000 part-00000
 ```
 
 ## count
@@ -152,7 +152,7 @@ count 命令输出 Alluxio 中所有名称匹配一个给定前缀的文件及�
 #### 操作示例
 若文件是以它们的创建日期命名，使用 count 命令可以获取任何日期、月份以及年份的所有文件的数目以及它们的总大小。
 ```
-$ ./bin/alluxio fs count /data/2014
+$ alluxio fs count /data/2014
 ```
 
 ## cp
@@ -162,7 +162,7 @@ cp 命令拷贝 Alluxio 文件系统中的一个文件或者目录，也可以�
 #### 操作示例
 例如，cp 可以在底层文件系统之间拷贝文件。
 ```
-$ ./bin/alluxio fs cp /hdfs/file1 /s3/
+$ alluxio fs cp /hdfs/file1 /s3/
 ```
 
 ## du
@@ -172,7 +172,7 @@ du 命令输出一个文件的大小，如果指定的目标为文件夹，该�
 #### 操作示例
 如果 Alluxio 空间被过分使用，使用 du 命令可以检测到哪些文件夹占用了大部分空间。
 ```
-$ ./bin/alluxio fs du /\\*
+$ alluxio fs du /\\*
 ```
 
 ## fileInfo
@@ -182,7 +182,7 @@ fileInfo 命令从1.5开始不再支持，请使用 stat 命令。fileInfo 命�
 #### 操作示例
 使用 fileInfo 命令能够获取到一个文件的数据块的位置，这在获取计算任务中的数据局部性时非常有用。
 ```
-$ ./bin/alluxio fs fileInfo /data/2015/logs-1.txt
+$ alluxio fs fileInfo /data/2015/logs-1.txt
 ```
 
 ## free
@@ -192,7 +192,7 @@ free 命令请求 Alluxio master 将一个文件的所有数据块从 Alluxio wo
 #### 操作示例
 使用 free 命令可以手动管理 Alluxio 的数据缓存。
 ```
-$ ./bin/alluxio fs free /unused/data
+$ alluxio fs free /unused/data
 ```
 
 ## getCapacityBytes
@@ -202,7 +202,7 @@ getCapacityBytes 命令返回 Alluxio 被配置的最大字节数容量。
 #### 操作示例
 使用 getCapacityBytes 命令能够确认您的系统是否正确启动。
 ```
-$ ./bin/alluxio fs getCapacityBytes
+$ alluxio fs getCapacityBytes
 ```
 
 ## getUsedBytes
@@ -212,7 +212,7 @@ getUsedBytes 命令返回 Alluxio 中以及使用的空间字节数。
 #### 操作示例
 使用 getUsedBytes 命令能够监控集群健康状态。
 ```
-$ ./bin/alluxio fs getUsedBytes
+$ alluxio fs getUsedBytes
 ```
 
 ## leader
@@ -221,7 +221,7 @@ leader 命令打印当前 Alluxio 的 leader master 节点名。
 
 #### 操作示例
 ```
-$ ./bin/alluxio fs leader
+$ alluxio fs leader
 ```
 
 ## load
@@ -231,7 +231,7 @@ load 命令将底层文件系统中的数据载入到 Alluxio 中。如果运行
 #### 操作示例
 使用 load 命令能够获取用于数据分析作用的数据。
 ```
-$ ./bin/alluxio fs load /data/today
+$ alluxio fs load /data/today
 ```
 
 ## loadMetadata
@@ -241,7 +241,7 @@ loadMetadata 命令查询本地文件系统中匹配给定路径名的所有文�
 #### 操作示例
 当其他系统将数据输出到底层文件系统中（不经过 Alluxio），而在 Alluxio 上运行的某个应用又需要使用这些输出数据时，就可以使用 loadMetadata 命令。
 ```
-$ ./bin/alluxio fs loadMetadata /hdfs/data/2015/logs-1.txt
+$ alluxio fs loadMetadata /hdfs/data/2015/logs-1.txt
 ```
 
 ## location
@@ -251,7 +251,7 @@ location 命令返回包含一个给定文件包含的数据块的所有 Alluxio
 #### 操作示例
 当使用某个计算框架进行作业时，使用 location 命令可以调试数据局部性。
 ```
-$ ./bin/alluxio fs location /data/2015/logs-1.txt
+$ alluxio fs location /data/2015/logs-1.txt
 ```
 
 ## ls
@@ -268,11 +268,11 @@ ls 命令列出一个文件夹下的所有子文件和子文件夹及文件大�
 #### 操作示例
 使用 ls 命令可以浏览文件系统。
 ```
-$ ./bin/alluxio fs mount /cos/data cosn://data-bucket/
+$ alluxio fs mount /cos/data cosn://data-bucket/
 ```
 验证：
 ```
-$ ./bin/alluxio fs ls /s3/data/
+$ alluxio fs ls /s3/data/
 ```
 
 ## masterInfo
@@ -283,7 +283,7 @@ masterInfo 命令打印与 Alluxio master 容错相关的信息，例如 leader 
 使用 masterInfo 命令可以打印与 Alluxio master 容错相关的信息。
 
 ```
-$ ./bin/alluxio fs masterInfo
+$ alluxio fs masterInfo
 ```
 
 ## mkdir
@@ -293,9 +293,9 @@ mkdir 命令在 Alluxio 中创建一个新的文件夹。该命令可以递归�
 #### 操作示例
 管理员使用 mkdir 命令可以创建一个基本文件夹结构。
 ```
-$ ./bin/alluxio fs mkdir /users
-$ ./bin/alluxio fs mkdir /users/Alice
-$ ./bin/alluxio fs mkdir /users/Bob
+$ alluxio fs mkdir /users
+$ alluxio fs mkdir /users/Alice
+$ alluxio fs mkdir /users/Bob
 ```
 
 ## mount
@@ -309,7 +309,7 @@ mount 命令将一个底层存储中的路径链接到 Alluxio 路径，并且�
 #### 操作示例
 使用 mount 命令可以让其他存储系统中的数据在 Alluxio 中也能获取。
 ```
-$ ./bin/alluxio fs mount /mnt/hdfs hdfs://host1:9000/data/
+$ alluxio fs mount /mnt/hdfs hdfs://host1:9000/data/
 ```
 
 ## mv
@@ -319,7 +319,7 @@ mv 命令将 Alluxio 中的文件或文件夹移动到其他路径。目标路�
 #### 操作示例
 使用 mv 命令可以将过时数据移动到非工作目录。
 ```
-$ ./bin/alluxio fs mv /data/2014 /data/archives/2014
+$ alluxio fs mv /data/2014 /data/archives/2014
 ```
 
 ## persist
@@ -329,7 +329,7 @@ persist 命令将 Alluxio 中的数据持久化到底层文件系统中。该命
 #### 操作示例
 在从一系列临时文件中过滤出包含有用数据的文件后，便可以使用 persist 命令对其进行持久化。
 ```
-$ ./bin/alluxio fs persist /tmp/experimental-logs-2.txt
+$ alluxio fs persist /tmp/experimental-logs-2.txt
 ```
 
 ## pin
@@ -339,7 +339,7 @@ pin 命令对 Alluxio 中的文件或文件夹进行标记。该命令只针对�
 #### 操作示例
 如果管理员对作业运行流程十分清楚，那么可以使用 pin 命令手动提高性能。
 ```
-$ ./bin/alluxio fs pin /data/today
+$ alluxio fs pin /data/today
 ```
 
 ## report
@@ -349,7 +349,7 @@ report 命令向 Alluxio master 标记一个文件为丢失状态。该命令应
 #### 操作示例
 使用 report 命令可以强制重新计算生成一个文件。
 ```
-$ ./bin/alluxio fs report /tmp/lineage-file
+alluxio fsadmin report /tmp/lineage-file
 ```
 
 ## rm
@@ -361,7 +361,7 @@ rm 命令将一个文件从 Alluxio 以及底层文件系统中删除。该命�
 #### 操作示例
 使用 rm 命令可以删除掉不再需要的临时文件。
 ```
-$ ./bin/alluxio fs rm /tmp/unused-file
+$ alluxio fs rm /tmp/unused-file
 ```
 
 ## setTtl
@@ -371,7 +371,7 @@ setTtl 命令设置一个文件或者文件夹的 ttl 时间，单位为毫秒�
 #### 操作示例
 管理员在知道某些文件经过一段时间后便没用时，可使用带有 delete 操作的 setTtl 命令来清理文件；如果仅希望为 Alluxio 释放更多的空间，可使用带有 free 操作的 setTtl 命令来清理 Alluxio 中的文件内容。
 ```
-$ ./bin/alluxio fs setTtl -action free /data/good-for-one-day 86400000
+$ alluxio fs setTtl -action free /data/good-for-one-day 86400000
 ```
 
 ## stat
@@ -389,9 +389,9 @@ stat 命令将一个文件或者文件夹的主要信息输出到控制台，这
 #### 操作示例
 例如，使用 stat 命令能够获取到一个文件的数据块的位置，这在获取计算任务中的数据局部性时非常有用。
 ```
-$ ./bin/alluxio fs stat /data/2015/logs-1.txt
-$ ./bin/alluxio fs stat /data/2015
-$ ./bin/alluxio fs stat -f %z /data/2015/logs-1.txt
+$ alluxio fs stat /data/2015/logs-1.txt
+$ alluxio fs stat /data/2015
+$ alluxio fs stat -f %z /data/2015/logs-1.txt
 ```
 
 ## tail
@@ -401,12 +401,12 @@ tail 命令将一个文件的最后1kb内容输出到控制台。
 #### 操作示例
 使用 tail 命令可以确认一个作业的输出是否符合格式或者包含期望的值。
 ```
-$ ./bin/alluxio fs tail /output/part-00000
+$ alluxio fs tail /output/part-00000
 ```
 
 ## test
 #### 背景
-test 命令测试路径的属性，如果属性为真，返回0，否则返回1。
+test 命令测试路径的属性。
 
 选项：
 -d 选项测试路径是否是目录。
@@ -417,7 +417,7 @@ test 命令测试路径的属性，如果属性为真，返回0，否则返回1�
 
 #### 操作示例
 ```
-$ ./bin/alluxio fs test -d /someDir
+$ alluxio fs test -d /someDir
 ```
 
 ## touch
@@ -427,7 +427,7 @@ touch 命令创建一个空文件。由该命令创建的文件不能被覆写�
 #### 操作示例
 使用 touch 命令可以创建一个空文件用于标记一个文件夹的分析任务完成了。
 ```
-$ ./bin/alluxio fs touch /data/yesterday/_DONE_
+$ alluxio fs touch /data/yesterday/_DONE_
 ```
 
 ## unmount
@@ -437,7 +437,7 @@ unmount 将一个 Alluxio 路径和一个底层文件系统中的目录的链接
 #### 操作示例
 当不再需要一个底层存储系统中的数据时，使用 unmont 命令可以移除该底层存储系统。
 ```
-$ ./bin/alluxio fs unmount /s3/data
+$ alluxio fs unmount /s3/data
 ```
 
 ## unpin
@@ -447,7 +447,7 @@ unpin 命令将 Alluxio 中的文件或文件夹解除标记。该命令仅作�
 #### 操作示例
 当管理员知道数据访问模式发生改变时，可以使用 unpin 命令。
 ```
-$ ./bin/alluxio fs unpin /data/yesterday/join-table
+$ alluxio fs unpin /data/yesterday/join-table
 ```
 
 ## unsetTtl
@@ -457,5 +457,5 @@ unsetTtl 命令删除 Alluxio 中一个文件的 TTL。该命令仅作用于元�
 #### 操作示例
 在一些特殊情况下，当一个原本自动管理的文件需要手动管理时，可使用 unsetTtl 命令。
 ```
-$ ./bin/alluxio fs unsetTtl /data/yesterday/data-not-yet-analyzed
+$ alluxio fs unsetTtl /data/yesterday/data-not-yet-analyzed
 ```
