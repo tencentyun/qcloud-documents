@@ -5,13 +5,13 @@ Alluxio 提供了统一命名空间机制，允许将其他文件系统挂载到
 
 **示例：将 COS 中某个 bucket 挂载到 alluxio 目录中。**
 ```
-bin/alluxio fs mount --option fs.cos.access.key=<COS_SECRET_ID> \
+alluxio fs mount --option fs.cos.access.key=<COS_SECRET_ID> \
    --option fs.cos.secret.key=<COS_SECRET_KEY> \
    --option fs.cos.region=<COS_REGION> \
    --option fs.cos.app.id=<COS_APP_ID> \
    /cos cos://<COS_BUCKET>/
 ```
-其中，--options 中配置 COS 的配置。
+--option 中 COS 的配置信息如下，其中 fs.cos.secret.key 和 fs.cos.secret.id 可以通过 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取。
 
 |配置名称 |解释 |
 |--|--|
@@ -26,7 +26,7 @@ bin/alluxio fs mount --option fs.cos.access.key=<COS_SECRET_ID> \
 ### 挂载 HDFS
 **示例：将 HDFS 某目录挂载到 alluxio 目录中。**
 ```
-`bin/alluxio fs mount /hdfs hdfs://data` 
+alluxio fs mount /hdfs hdfs://data
 ```
 该命令将 HDFS 的  `/data`  目录挂载到 alluxio 的  `/hdfs`  子目录下。
 挂载成功后，通过  `alluxio fs ls`  命令，查看挂载内容。
