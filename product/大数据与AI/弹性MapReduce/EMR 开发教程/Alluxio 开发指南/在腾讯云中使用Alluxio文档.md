@@ -35,7 +35,6 @@
 ### Mount
 登录到 EMR 任意一台机器，挂载 COS 到 Alluxio。
 ```
-bin/alluxio fs mount <alluxio-path> <source-path>
-//TODO,
+alluxio fs mount <alluxio-path> <source-path>
 ```
 更多在腾讯云 EMR 中使用 Alluxio 开发细节，可查阅 [Alluxio 开发文档](https://cloud.tencent.com/document/product/589/35281)。
