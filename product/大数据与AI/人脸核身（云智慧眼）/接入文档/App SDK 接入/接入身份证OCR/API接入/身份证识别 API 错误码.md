@@ -14,7 +14,7 @@
 
 **告警码信息**
 由8位字符串来表示身份证 OCR 识别的告警码，每一位代表一个告警码，“1”表示有告警，“0”表示无任何告警。
-![](https://qcloudimg.tencent-cloud.cn/raw/485ae42eb3086c07eaac5bd734495a1f.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/c2f0b0bbb2a5ff022f2eefe1ef37ee5f.png)
 
 **示例**
 - 00000000：表示无任何告警。
