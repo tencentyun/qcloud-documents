@@ -120,7 +120,7 @@
 			<th>定价</th>
     </tr>	 
 				 <tr>
-			 <td><a href="https://cloud.tencent.com/document/product/1007/33188">身份信息认证</a></td>
+			 <td><a href="https://cloud.tencent.com/document/product/1007/33188">身份信息认证（二要素核验）</a></td>
 			 <td rowspan =2>身份证信息核验</td>
 			 			 	<td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/84321#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
