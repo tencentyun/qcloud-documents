@@ -12,7 +12,7 @@ VPC 通道的作用是将部署在 VPC 内的服务通过 API 网关开放给外
 - 已创建 [API 网关服务](https://cloud.tencent.com/document/product/628/11787)。
 - 已创建 [云服务器](https://console.cloud.tencent.com/cvm) 等 VPC 内资源。
 
->!目前 VPC 通道支持共享实例、专享实例下挂载的 API。其中后端协议支持HTTP、HTTPS、gRPC、gRPCs，其中gRPC、gRPCs协议使用时需要为对应API绑定gRPC插件，该插件仅支持专享实例 [开通专享实例](https://buy.cloud.tencent.com/apigateway_instance/buy) 。
+>!目前 VPC 通道支持共享实例、专享实例下挂载的 API。其中后端协议支持 HTTP、HTTPS、gRPC、gRPCs，其中gRPC、gRPCs 协议使用时需要为对应 API 绑定 gRPC 插件，该插件仅支持专享实例 [开通专享实例](https://buy.cloud.tencent.com/apigateway_instance/buy) 。
 
 
 ## 操作步骤
