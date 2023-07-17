@@ -4,40 +4,40 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 **使用 Hue 组件管理工作流时，请先登录 Hue 控制台页面，具体步骤如下：**
 1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，单击对应集群 **ID/名称**，进入集群详情页面，然后单击**集群服务**。
 2. 在列表页找到 Hue 组件，单击 **WebUI 访问地址**进入 Hue 页面。
-3. 首次登录 Hue 控制台页面，请使用 hadoop 帐号，密码为创建集群时提供的密码。
+3. 首次登录 Hue 控制台页面，请使用 hadoop 账号，密码为创建集群时提供的密码。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fe7b2fa224ee12a8a5ded70ccc4a99a7.png)
->! EMR-V2.5.0及以前版本、EMR-V3.1.0及以前版本未集成 OpenLDAP ，需要在首次以 root 帐号登录 Hue 控制台，参考 [社区官方文档](https://docs.gethue.com/administrator/administration/user-management/) 于 WebUI 新建帐号。EMR 产品的组件启动帐号为 hadoop，历史版本建议首次登录 Hue 控制台后，新建 hadoop 帐号，后续可以通过 hadoop 帐号来提交作业。
+>! EMR-V2.5.0及以前版本、EMR-V3.1.0及以前版本未集成 OpenLDAP ，需要在首次以 root 账号登录 Hue 控制台，参考 [社区官方文档](https://docs.gethue.com/administrator/administration/user-management/) 于 WebUI 新建账号。EMR 产品的组件启动账号为 hadoop，历史版本建议首次登录 Hue 控制台后，新建 hadoop 账号，后续可以通过 hadoop 账号来提交作业。
 
 
 ## 用户权限管理
 1. 添加用户。
-	1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，使用 [用户管理](https://cloud.tencent.com/document/product/589/62751) 功能添加新用户。
-	2. 如果您的集群部署了 Ranger，添加新用户后，需要手动触发 ranger-ugsync-site.xml 的配置下发，重启 EnableUnixAuth 服务进行用户同步，具体操作步骤可参考 [用户管理](https://cloud.tencent.com/document/product/589/62751)。然后进入 Ranger WebUI 设置新用户访问权限。
-	3. 在列表页找到 Hue 组件，单击 WebUI 访问地址进入 Hue 页面，完成新用户登录及使用。
+    1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，使用 [用户管理](https://cloud.tencent.com/document/product/589/62751) 功能添加新用户。
+    2. 如果您的集群部署了 Ranger，添加新用户后，需要手动触发 ranger-ugsync-site.xml 的配置下发，重启 EnableUnixAuth 服务进行用户同步，具体操作步骤可参考 [用户管理](https://cloud.tencent.com/document/product/589/62751)。然后进入 Ranger WebUI 设置新用户访问权限。
+    3. 在列表页找到 Hue 组件，单击 WebUI 访问地址进入 Hue 页面，完成新用户登录及使用。
 2. 权限控制。
 hue 通过将不同的权限添加到组，用户通过加入不同的组获得对应权限。
-	1. 单击用户管理页面上方的 **Groups**，然后单击右侧的 **Add group**。
+    1. 单击用户管理页面上方的 **Groups**，然后单击右侧的 **Add group**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6b857c8fa14a766f73b62ff1f9077e92.png)
-	2. 填写用户组信息，可勾选目标用户加入此组，并勾选此用户组的权限，单击下方的 **Add Group**。
+    2. 填写用户组信息，可勾选目标用户加入此组，并勾选此用户组的权限，单击下方的 **Add Group**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3fbccd716621bae652c293563f3b098e.png)
 
 ## 数据导入
 Hue 支持4种导入方式：本地文件、HDFS 上的文件、外部数据库以及人工导入。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a65e26d2349659cc3d497bfb2c4ac009.png)
 1. 本地文件导入。
-	1. 单击**选择文件**，hue 会自动识别出分隔符并生成预览，单击 **Next** 导入到表。
+    1. 单击**选择文件**，hue 会自动识别出分隔符并生成预览，单击 **Next** 导入到表。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9616388caf9d18ba756d9044a1f312fb.png)
-	2. 填写需要导入的表信息等，单击保存。
+    2. 填写需要导入的表信息等，单击保存。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a47b12e883dcd11d0d6b35ffb45e7bfd.png)
 2. HDFS 文件导入。
-	1. 选择 HDFS 上的 csv 文件。
+    1. 选择 HDFS 上的 csv 文件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c85db98b103806a35e8e1363d87c497c.png)
-	2. 填写需要导入的表信息等，单击保存。
+    2. 填写需要导入的表信息等，单击保存。
 ![](https://qcloudimg.tencent-cloud.cn/raw/65c00836a506c4619e40b9b15eed0439.png)
 3. 外部数据库 External Database.
-	1. 填写外部数据库信息，单击 **Test Connection** 获取到数据库信息，选择库和表后单击 Next。
+    1. 填写外部数据库信息，单击 **Test Connection** 获取到数据库信息，选择库和表后单击 Next。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4e7b192e8cbb52970282dd29774ebaaa.png)
-	2. 填写需要导入的目的表信息，并单击 lib 选择 mysql 驱动，然后单击保存。
+    2. 填写需要导入的目的表信息，并单击 lib 选择 mysql 驱动，然后单击保存。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b466c8315dc8c7aeb449164327702194.png)
 
 ## Job 管理
