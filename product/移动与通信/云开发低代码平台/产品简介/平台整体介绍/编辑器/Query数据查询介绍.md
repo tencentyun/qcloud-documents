@@ -160,11 +160,11 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 8. 完成数据绑定后，即可看到渲染后的列表效果。然后往数据列表对应的节点拖入一个按钮，按钮标题可修改为删除，具体结构如下图所示：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3842b101e70747f018964301763cf52a.png" />
 9. 配置删除按钮对应事件：选中**按钮**组件，在组件属性面板右下角配置对应的点击动作。
-首先配置第1个动作节点**变量赋值**，即将单击对应行的数据 ID 复制给前面新建的自定义变量 `current_row_id`，如上图所示。
+   1. 首先配置第1个动作节点**变量赋值**，即将单击对应行的数据 ID 复制给前面新建的自定义变量 `current_row_id`，如上图所示。
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c033062ad6efafef6c942c01411d60be.png" />
-第2个动作节点选择**调用数据查询**，配置项如上图所示。
+   2. 第2个动作节点选择**调用数据查询**，配置项如上图所示。
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/1331f449b10f34c394c61ece3493f0f2.png" />
-上述的第3个动作**刷新数据列表**，和第4个动作**显示消息提示**均为可选配置，主要用作交互提示，具体配置如图所示，可按需参考。
+   3. 上述的第3个动作**刷新数据列表**，和第4个动作**显示消息提示**均为可选配置，主要用作交互提示，具体配置如图所示，可按需参考。
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/29adccbb1dde8ad79c8e4fee267a2826.png" />
 10. 完成上述配置后，可通过单击编辑器右上角**预览按钮**，打开预览界面来进行操作和查看效果。如下所示，单击页面上的**删除**，即可删除对应的行数据，同时完成删除后的数据列表也会同步刷新。<br>
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/fdded16362740c2e58d660bb9759fddc.png" />
