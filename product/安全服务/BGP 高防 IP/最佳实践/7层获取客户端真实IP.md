@@ -91,7 +91,7 @@ LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-A
 4. 查看 access.log 日志文件，可获取 X-Forwarded-For 对应的访问者真实 IP。
 
 ### Nginx 如何在访问日志中获取真实客户端的 IP 地址
-如果您的源站部署了 Nginx 反向代理，可通过在 Nginx 反向代理配置 Location 信息，后端 Web 服务器即可通过类似函数获取客户的真实 IP 地址。
+如果您的源站部署了 Nginx 反向代理，可通过在 Nginx 反向代理配置 Location 信息，后端 Web 服务器即可通过类似函数获取客户端真实 IP 地址。
 1. 根据源站 Nginx 反向代理的配置，在 Nginx 反向代理的相应 location 位置配置如下内容，获取客户 IP 的信息。
 ```plaintext
 log_format main '$remote_addr [$http_x_forwarded_for]- $remote_user [$time_local] '
