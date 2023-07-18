@@ -50,17 +50,19 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 
 可用于查询操作微搭平台内置的数据表，适用于简单的数据表 CURD 场景，数据库由微搭维护。
 <img style="width:50%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/906884ce385f30de43d02d43f6345f6a.png" />
-
+了解更多数据表/数据模型相关介绍，请参见 [数据表概述](https://cloud.tencent.com/document/product/1301/68441)。
 
 ### 外部 HTTP APIs 查询
-
 可用于查询操作 HTTP 协议的外部 API 数据或服务，适用于依赖 HTTP 标准接口做数据对接的场景。
 <img style="width:50%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/59d39156710bba4c0e287f2586fa84b6.png" />
 
+了解更多 APIs 相关介绍，请参见 [自定义 API 概述](https://cloud.tencent.com/document/product/1301/68439)。
 
 ### 外部 MySQL 数据查询 
 可用于查询操作有读写权限的外部 MySQL 数据库，适用于开发者有自主维护 MySQL 数据库的场景，以及相对复杂业务多表关联查询等场景，数据库需自行保障稳定性且确保有外网访问权限。
 <img style="width:80%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ade951df97fbe293f958e24528a1b3a5.png" />
+
+了解更多 MySQL 连接相关介绍，请参见 [MySQL 连接器](https://cloud.tencent.com/document/product/1301/95015)。
 
 #### SQL语句数据查询的使用说明
 - SQL 语句中可支持插入前端 JS 表达式，JS 表达式需使用 `{{ }}` 进行包裹，如：`{{$w.input1.value}}`，例如需要根据单行输入组件 `input1` 的输入值进行用户信息的查询，SQL 语句可以写作：`SELECT * FROM users WHERE users.name={{$w.input1.value}}`，再例如使用 SQL 进行模糊查询：`SELECT * FROM users WHERE users.name like {{'%' + $w.input1.value + '%'}}`。
@@ -75,7 +77,7 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 
 ## 使用场景示例
 
-### 获取微搭内置数据表中的列表数据和单条详情数据
+### 示例1：获取微搭内置数据表中的列表数据和单条详情数据
 
 #### 列表页的配置
 1. 首先，在代码区单击 **+** 可新建一个查询列表的 Query，选择**新建微搭数据表查询**，并且命名为 `query_list`（也可以使用默认名，例如 Query1）。
@@ -98,38 +100,39 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 
 #### 详情页的配置
 接下来，我们再新建一个详情页，通过刚搭建的这个列表跳转到这个详情页，展示对应的详情内容，完成一个列表展示到详情展示的闭环，这样的话我们就需要用一个查询单条的 Query。
-首先，在新建 Query 之前，先新建一个**内容详情页**页面，并且给这个页面配置一个 URL 参数变量，参考配置如下：
+1. 首先，在新建 Query 之前，先新建一个**内容详情页**页面，并且给这个页面配置一个 URL 参数变量，参考配置如下：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b0c1282ae2e4161d8bc0e3a9960fc7b8.png" />
-完成页面新建之后，我们同样的在代码区单击 **+** 可新建一个查询单条的 Query，选择**新建微搭数据表查询**，并且命名为 `query_one`，相关的配置参见如下：
+2. 完成页面新建之后，我们同样的在代码区单击 **+** 可新建一个查询单条的 Query，选择**新建微搭数据表查询**，并且命名为 `query_one`，相关的配置参见如下：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/dcd56a2dd6e90f54e3ddf5aa109262d2.png" />
-然后，我们就可以用 `query_one` 给详情页内的组件进行数据绑定了。例如给文本组件绑定数据的参见配置如下：
+3. 然后，我们就可以用 `query_one` 给详情页内的组件进行数据绑定了。例如给文本组件绑定数据的参见配置如下：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/f68131f2ec208caa26c43b2bf1d38b24.png" />
+
 以上，一个详情页就搭建完了，有兴趣也可以继续在此基础上按需扩展。
 
 #### 列表页跳转详情页的配置
-最后，切换到之前的列表页，我们给列表页面做一个页面跳转配置，并完成详情页的 URL 参数（`id`）进行传值，相关配置很简单，参见如下：
+最后，切换到之前的列表页，我们给列表页面做一个页面跳转配置，并完成详情页的 URL 参数（id）进行传值，相关配置很简单，参见如下：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7e4cb4ea290ac9d9a636949a5e37d031.png" />
 
-### 从第三方 HTTP API 中获取用户列表数据
+### 示例2：从第三方 HTTP API 中获取用户列表数据
 
 从第三方 HTTP API 中获取数据的配置与上一个示例从微搭数据表获取数据流程大致相同。
-首先，在代码区单击 **+** 可新建一个查询列表的 Query，选择**新建外部 APIs 查询**，可重命名为 `query_api` 或使用默认命名。
+1. 首先，在代码区单击 **+** 可新建一个查询列表的 Query，选择**新建外部 APIs 查询**，可重命名为 `query_api` 或使用默认命名。
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/870e11c1eb99e92fdd88562d5c4b7fc9.png" />
 
-相关的配置参考如下：
+ 相关的配置参考如下：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7db53f28ba863cb8ec4f20e50168ecac.png" />
 >? 其中，截图中的 **测试 diy 连接器**为自行新建的数据源 APIs 连接器，关于如何新建数据源 APIs，请参见 [自定义 API 概述](https://cloud.tencent.com/document/product/1301/68439)。
-
-然后，完成 Query 的新建之后，就可以在组件中通过表达式直接用 `query_api` 绑定和渲染列表数据了。如下图，我们可以往编辑区拖入多个所需要组件，并且分别对组件属性进行数据绑定。
+>
+2. 然后，完成 Query 的新建之后，就可以在组件中通过表达式直接用 `query_api` 绑定和渲染列表数据了。如下图，我们可以往编辑区拖入多个所需要组件，并且分别对组件属性进行数据绑定。
 >? 这里我们使用**循环展示**组件作为列表展示的示例（这里也可以选择**数据列表**或**数据表格**组件进行绑定，尤其列表数据量大需要分页时），参见配置如下：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/95a625883a1707dc182f60a7b4b6b332.png" />
+>
+3. 最后，再对循环组件内的其他文本组件进行字段绑定，一个简单的通过外部 APIs 请求的数据列表就完成了，此处后续步骤与上一个示例**获取微搭内置数据表中的列表数据和单条详情数据**一致，在此不再赘述。
 
-最后，再对循环组件内的其他文本组件进行字段绑定，一个简单的通过外部 APIs 请求的数据列表就完成了，此处后续步骤与上一个示例**获取微搭内置数据表中的列表数据和单条详情数据**一致，在此不再赘述。
 
 
-
-### 获取外部 MySQL 的用户列表数据
-从外部 MySQL 获取数据之前，我们需要先新建一个 MySQL 连接器，参考步骤如下。
+### 示例3：获取外部 MySQL 的用户列表以及删除某条数据
+从外部 MySQL 获取数据之前，我们需要先新建一个 [MySQL 连接器](https://cloud.tencent.com/document/product/1301/95015)，参考步骤如下。
 1. 在代码区单击 **+** 可新建一个查询列表的 Query，选择**新建 MySQL 查询**，可重命名为 `query_list` 或使用默认命名。
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e54d7d18ff55dde6938c428057170163.png" />
 
@@ -147,14 +150,32 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 4. 再对循环组件内的其他文本组件进行字段绑定，参见配置如下：
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c265c7a015bd2ee6c0705d12a6a31790.png" />
 5. 分别完成上图所述的数据绑定后，一个简单的从外部 MySQL 获取的用户列表数据渲染就完成了。
+6. 接下来我们来实现从列表中删除某条数据。先新建一个自定义变量和一个用于执行删除的 Query。自定义变量用于存储点击某一行时对应的数据 ID，例如变量命名为 `current_row_id`，如下所示：
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/1855f3dc2ae6c2688c7b72ccd90ca8b6.png" />
+
+ 用于执行删除的 Query 则命名为 `query_del`，SQL语句为：`DELETE FROM users WHERE id={{$w.page.dataset.state.current_row_id}}`，如下所示：
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/02851816ac6c4d7502da28bd6030f7da.png" />
+7. 完成自定义变量和 Query 新建之后，开始进行组件的配置。这里我们为了达到更好的列表展示效果，可以把前面的**循环展示**组件，换成**数据列表**组件，数据列表与循环展示组件的数据绑定流程类似，在数据列表的数据源中选择表达式，然后绑定第1步中新建的 `query_list` 即可。
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/bbcdadbcb80b1036b91ee048f7a6ecd2.png" />
+8. 完成数据绑定后，即可看到渲染后的列表效果。然后往数据列表对应的节点拖入一个按钮，按钮标题可修改为删除，具体结构如下图所示：
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3842b101e70747f018964301763cf52a.png" />
+9. 配置删除按钮对应事件：选中**按钮**组件，在组件属性面板右下角配置对应的点击动作。
+首先配置第1个动作节点**变量赋值**，即将单击对应行的数据 ID 复制给前面新建的自定义变量 `current_row_id`，如上图所示。
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c033062ad6efafef6c942c01411d60be.png" />
+第2个动作节点选择**调用数据查询**，配置项如上图所示。
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/1331f449b10f34c394c61ece3493f0f2.png" />
+上述的第3个动作**刷新数据列表**，和第4个动作**显示消息提示**均为可选配置，主要用作交互提示，具体配置如图所示，可按需参考。
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/29adccbb1dde8ad79c8e4fee267a2826.png" />
+10. 完成上述配置后，可通过单击编辑器右上角**预览按钮**，打开预览界面来进行操作和查看效果。如下所示，单击页面上的**删除**，即可删除对应的行数据，同时完成删除后的数据列表也会同步刷新。<br>
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/fdded16362740c2e58d660bb9759fddc.png" />
 
 
 
-### 向外部 MySQL 数据库新增一条用户数据
+### 示例4：向外部 MySQL 数据库新增一条用户数据
 1. 在编辑区拖入一个**单行输入**组件，以及一个**按钮**组件，大纲树结构参考下图所示，将单行输入组件标题修改为“用户名”，按钮标题修改为“提交数据”。同时我们可以看到单行输入的组件 id 为 `input1`，在接下来的 SQL 语句中会用到。
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/61f0b98a07aafccb600a3b5f6b08b318.png" />
 2. 然后，我们开始新建新增数据的 Query，在代码区单击 **+** 可新建一个查询列表的 Query，选择**新建 MySQL 查询**，可重命名为 `query_insert` 或使用默认命名，在 **MySQL 名称**的下拉列表中，选择之前新建好的 **MySQL 连接器**。
->!前置步骤，提前完成 MySQL 连接器的配置新建，可参考上一个示例。
+>!前置步骤，提前完成[ MySQL 连接器](https://cloud.tencent.com/document/product/1301/95015)的配置新建，可参考上一个示例。
 >
 3. 接着在 `query_insert` 配置中编写 SQL 语句，例如输入：`INSERT INTO users (name) VALUES ({{$w.input1.value}})`，表示将输入框的值作为一条新数据，插入到 MySQL 数据库的 `users` 表中的 `name` 字段，单击**运行**，即可在弹层查看 Query 的执行结果（执行成功则表示数据完成了插入，如果是测试效果请注意脏数据的处理），如下图所示。
 <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/41b9aa13a70a49a3e2f9e5d48699c9a1.png" />
@@ -166,6 +187,5 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 
 
 以上仅为使用 SQL Query 的数据插入示例，实际生产环境请注意提交数据的合法性校验以及脏数据的处理。
-
 
 
