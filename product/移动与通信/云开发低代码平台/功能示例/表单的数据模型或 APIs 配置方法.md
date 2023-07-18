@@ -1,6 +1,4 @@
-## 表单的数据模型或 APIs 配置方法
-
-### 通过数据模型生成表单
+## 通过数据模型生成表单
 
 1. 在编辑器的数据源模块中，按需创建好数据模型。
 <img style="width:80%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/db65c35369cc67d2fc52c78a6abc3d81.png" />
@@ -11,7 +9,7 @@
 4. 在表单容器的字段属性中，可查看到当前表单中的所有字段，可切换组件类型或调整字段顺序。
 <img style="width:80%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3a6df76839cd7796a9c0115f6b363d67.png" />
 
-### 通过 APIs 生成表单
+## 通过 APIs 生成表单
 
 1. 在**编辑器** > **APIs 模块**，创建新的 APIs 方法，配置好表单所需的方法入参与出参。
 <img style="width:80%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/8cdf8007127f05ba77f908d9b08c2bdc.png" />
