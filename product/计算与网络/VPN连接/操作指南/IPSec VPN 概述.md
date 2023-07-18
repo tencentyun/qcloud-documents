@@ -2,7 +2,7 @@
 本地设备和腾讯云侧 VPC 内私有网段不能相同，避免出现 IP 冲突。
 
 ## 配置流程
-![](https://qcloudimg.tencent-cloud.cn/raw/cbcd93485d5f66a57c04383889e68cd1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/636b997eaf64e2569076ab43ed534187.png)
 1. [创建 IPSec VPN 网关](https://cloud.tencent.com/document/product/554/52861)。
   创建 IPSec 协议类型的 VPN 网关。
 2. [创建对端网关](https://cloud.tencent.com/document/product/554/52865)。
