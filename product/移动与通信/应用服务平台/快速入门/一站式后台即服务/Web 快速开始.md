@@ -35,7 +35,7 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
 :::
 </dx-tabs>
  
- - 以下是 `index.html` 内容，我们尝试登录云开发，如果成功，那么产生一个弹窗：
+ - 以下是 `index.html` 内容，后续我们启动服务器后尝试登录云开发，如果成功，那么产生一个弹窗：
 <dx-codeblock>
 :::  html
 <html>
@@ -44,7 +44,8 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
     <script src="https://imgcache.qq.com/qcloud/cloudbase-js-sdk/1.5.0/cloudbase.full.js"></script>
     <script>
       const app = cloudbase.init({
-        env: "您的环境ID" // 此处填入您的环境ID
+        env: "您的环境ID", // 此处填入您的环境ID
+        region: "环境所在地域" // 如非上海环境，请显式指定地域，详见：https://docs.cloudbase.net/api-reference/webv2/initialization#%E5%9C%B0%E5%9F%9F
       });
       app
         .auth()
@@ -59,6 +60,7 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
     Hello Cloudbase!
   </body>
 </html>
+
 :::
 </dx-codeblock>
 
