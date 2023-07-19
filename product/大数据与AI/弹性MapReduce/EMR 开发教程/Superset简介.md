@@ -1,7 +1,7 @@
-Apache Superset 是一个数据浏览和可视化 Web 应用程序。EMR 上的 Superset，原装了对 Mysql、Hive、Presto、Impala、Kylin、Druid、Clickhouse 的支持。
+Apache Superset 是一个数据浏览和可视化 Web 应用程序。EMR 上的 Superset，原装了对 Mysql、Hive、Presto、Impala、Kylin 的支持。
 
 ## Superset 特性
-- 支持几乎所有主流的数据库，包括 MySQL、PostgresSQL、Oracle、SQL Server、SQLite、SparkSQL 等，并深度支持 [Druid](http://druid.io/)。
+- 支持几乎所有主流的数据库，包括 MySQL、PostgresSQL、Oracle、SQL Server、SQLite、SparkSQL 等。
 - 丰富的可视化展示，支持自定义创建 dashboard。
 - 数据的展示完全可控，可自定义展示字段、聚合数据、数据源等。
 
@@ -11,13 +11,15 @@ Apache Superset 是一个数据浏览和可视化 Web 应用程序。EMR 上的 
 
 ## 登录
 在浏览器地址栏中输入`http://${master_ip}:18088`（或者通过 **[EMR 控制台](https://console.cloud.tencent.com/emr) > 集群服务**）, 打开 Supserset 登录界面，默认用户名为 admin，密码为您创建集群时的密码。
-![](https://main.qcloudimg.com/raw/d250be3123fb3e7da47d69b73ef6343a.png)
+>! 不同 Superset 社区版本 Web 页面交互可能存在差异，本文以 Superset 1.5.1 版本为示例，更多版本及使用方式可参考 [Superset 官网文档](https://superset.apache.org/docs/intro)。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/996c61422bfaacd9a0756258dea6ee98.png)
 
 ## 添加 DataBase
-进入 **Sources > Databases** 界面，单击 **Filter List**。
-![](https://main.qcloudimg.com/raw/c98760953f38fc23d27abcbf5208bd83.png)
-进入如下页面，在 SQLAlchemy URI 中加入您需要添加的组件的 URI。
-![](https://main.qcloudimg.com/raw/57b69ecbd6f5c2ac0ca4adde380325ae.png)
+进入 **Data > Databases** 界面，单击 **+DATABSASE**。
+![](https://qcloudimg.tencent-cloud.cn/raw/be04084dbea25c712a193f9a852b5e08.png)
+进入如下页面，即可选择您需要添加的数据源。
+![](https://qcloudimg.tencent-cloud.cn/raw/e53e577b6a1917850b8ee0178c163cf1.png)
  
 各个数据库的链接 SQLAlchemy URI 如下：
 
@@ -28,7 +30,6 @@ Apache Superset 是一个数据浏览和可视化 Web 应用程序。EMR 上的 
 | presto   | `presto://hive@<master_ip>:9000/hive/<hive_db_name>`           | <li/>Master_ip：EMR 集群的 master_ip<li/>hive_db_name：hive 中的数据库名称，不填默认为 default |
 | impala   | `impala://<core_ip>:27000`                                     | core_ip：EMR 集群中的 core ip     |
 | kylin    | `kylin://<kylin_user>:<password>@<master_ip>:16500/<kylin_project>` | <li/>kylin_user：kylin 的用户名<li/>password：kylin 的密码<li/>master_ip：EMR 集群的 master_ip<li/>kylin_project：kylin 的项目 |
-|Clickhouse  |`clickhouse://<user_name>:<password>@<clickhouse-server-endpoint>:8123/<database_name>`| `clickhouse://default:password@localhost:8123/default`<li/>user_name：用户名</li>password：密码<li/>clickhouse-server-endpoint：ch 服务的服务 endpoint<li/>database_name：需要访问的 DB 名字  |
 
 ## 自行添加新 Database
 Superset 支持 Database。如果您需要安装其他的数据库，可通过如下操作进行：
