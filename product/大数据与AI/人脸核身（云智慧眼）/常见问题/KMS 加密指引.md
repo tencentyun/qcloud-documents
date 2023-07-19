@@ -6,28 +6,6 @@
 登录 [人脸核身控制台](https://console.cloud.tencent.com/faceid/kms)，由于您已开通 KMS 加密服务，可在信息展示页获取密钥。
 ![](https://qcloudimg.tencent-cloud.cn/raw/16e28464c1471ecd3ff7469f1b47f363.png)
 ### 步骤2：业务加解密流程
-此指引适用于使用人脸核身服务接口，需要对传输敏感数据进行加密的场景。加密使用腾讯云密钥管理系统 KMS 安全保护的主密钥 CMK 作为加密密钥。
-####  一、开通服务
-1. 登录控制台，根据指引授权角色和开通 KMS 服务。
- <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/faceid/kms" target="_blank"  style="color: white; font-size:16px;">点此开通对应服务</a></div>
-2. 在服务角色授权页面，单击**前往授权**。
-![](https://main.qcloudimg.com/raw/eb459e75c1db10ed3a4456c7006d6773.png)
-3. 在前往授权跳转的服务授权页面，单击**同意授权**。
-![](https://main.qcloudimg.com/raw/30f22b3004ff3759a9a4625648c9e872.png)
-4. 服务角色授权成功后，再进行 KMS 服务开通，单击**前往开通**跳转至密钥管理系统 KMS 页面，选择**立即开通**。
-![](https://main.qcloudimg.com/raw/993a3397f14f217c824da338149da2b1.png)
-5. 开通成功后，用户选择密钥来源。
- - 使用 KMS 为云产品默认创建的密钥，用户无需自己创建，系统将自动帮用户创建密钥。 
- - 使用已有自定义密钥，[点此新建用户密钥](https://console.cloud.tencent.com/kms2) 或单击**前往创建**链接 。
-![](https://qcloudimg.tencent-cloud.cn/raw/3611facca3bf7092196849680e42d1d4.png)
->? 
->1. 新建密钥时选择对称加解密 。
->2. 新建自定义密钥时支持多地域，但加密时只支持密钥对应的地域，其他地域不能加密（例如，选择了广州地域的自定义密钥，那只支持请求广州地域的加密，不能加密请求北京地域的）。
->3. 密钥确定后，无法更改。
-6. 确定密钥后，展示选择的密钥信息。
-
-
-#### 二、业务加解密流程 
 人脸核身使用信封加密（Envelope Encryption）应对海量数据的高性能加解密方案。使用 [GenerateDataKey](https://cloud.tencent.com/document/product/573/34419) 接口生成数据加密密钥 DEK 明文和密文，使用 DEK 明文对数据进行加密，并只需要传输数据加密密钥 DEK 密文到 KMS 服务端（通过 CMK 进行加解密），所有的业务数据都是采用高效的本地对称加密处理，对业务的访问体验影响很小。
 
 ### 接入流程示意图 
