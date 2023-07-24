@@ -48,15 +48,19 @@
 >
 1. 将 `dsaagent_innernet_linux _xxx.zip` 安装包上传到需要安装的机器上，如 /data。
 2. 使用 `unzip dsaagent_innernet_xxx.zip` 命令进行解压，得到 /data/CapAgent 目录。
-3. 执行 `cd CapAgent/bin`，再执行`./start.sh`，结果如下。
-![](https://qcloudimg.tencent-cloud.cn/raw/81b0f1add2be91ed9930ced33b975d39.png)
+3. 执行 `cd CapAgent/bin`，再执行 `nohup ./start.sh  1>/dev/null 2>/dev/nul`。
 4. 在命令行，执行 `netstat -ano | grep 7000` 如下图即确认连接成功。
-![](https://qcloudimg.tencent-cloud.cn/raw/d65b0aa4dd658b6708907e344a8f1391.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/962362514112d1d209594ab2baa82558.png)
+
+>?其他命令
+>- 停止 agent：`nohup ./stop.sh  1>/dev/null 2>/dev/nul`
+>- 重启 agent：`nohup ./restart.sh  1>/dev/null 2>/dev/nul`
+
 
 ### Windows 版本
 数据安全审计 Agent Windows 版本只支持 Windows vista/2008 及以上版本。
 1. 下载 Windows 版本 Agent 后，解压到安装目录。
-2. 进入 CapAgent下的 bin 目录，执行 `start.bat`。
+2. 进入 CapAgent下的 bin 目录，双击 star.bat 文件。
 3. 执行成功后，Console 显示结果如下图所示。同时，可以在任务管理器中，看到 CapAgentForWin.exe 进程。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d7bfc6e6d21ac23cbb2fd9e35f146d26.png)
 4. 检查 CapAgentForWin 是否成功启动并连接审计服务成功。
@@ -66,4 +70,4 @@ ii. 在 cmd 控制台，执行 `netstat -ano | findstr 7000`，如下图即确�
 ![](https://qcloudimg.tencent-cloud.cn/raw/9fe339420cdd09b4ff0a94f90e844d1f.png)
 >?如果 CapAgentForWin 不能运行或 `netstat -ano | findstr 7000` 命令执行不成功，请  [联系我们](https://cloud.tencent.com/online-service) 获得支持。
 5. Agent 停止。
-在 CapAgent_win/bin 目录下执行 stop.bat 即可。
+在 CapAgent_win/bin 目录下双击 stop.bat 文件即可。
