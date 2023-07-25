@@ -12,13 +12,13 @@
 <tr>
 <td><a href="#bgp">常规 BGP 带宽包</a></td>
 <td>普通 BGP IP 线路类型的带宽包</td>
-<td>预付费模式、后付费模式（<a href="https://cloud.tencent.com/document/product/684/86892">按带宽计费</a>、<a href="https://cloud.tencent.com/document/product/684/51876">月 TOP5计费</a>、<a href="https://cloud.tencent.com/document/product/684/86894">月95计费</a>、<a href="https://cloud.tencent.com/document/product/684/89226">增强型95计费</a>）</td>
+<td>预付费模式、后付费模式（<a href="https://cloud.tencent.com/document/product/684/86892">按带宽计费</a>、<a href="https://cloud.tencent.com/document/product/684/51876">月 TOP5计费</a>、<a href="https://cloud.tencent.com/document/product/684/89226">增强型95计费</a>）</td>
 <td rowspan="2">可在控制台手动创建</td>
 </tr>
 <tr>
 <td><a href="#cn2">精品 BGP 带宽包</a></td>
 <td>使用专属线路的精品 BGP IP 线路类型的带宽包</td>
-<td>预付费模式、后付费模式（<a href="https://cloud.tencent.com/document/product/684/51876">月 TOP5计费</a>、<a href="https://cloud.tencent.com/document/product/684/86894">月95计费</a>、<a href="https://cloud.tencent.com/document/product/684/89226">增强型95计费</a>）</td>
+<td>预付费模式、后付费模式（<a href="https://cloud.tencent.com/document/product/684/51876">月 TOP5计费</a>、<a href="https://cloud.tencent.com/document/product/684/89226">增强型95计费</a>）</td>
 </tr>
 <tr>
 <td><a href="#anycast">Anycast 加速 BGP 带宽包</a></td>
@@ -30,7 +30,6 @@
 <td rowspan="2"><a href="#singleip">移动/联通/电信带宽包</a></td>
 <td rowspan="2">通过单个网络运营商访问公网，静态单线 IP 线路类型的带宽包
 </td>
-<td>后付费模式（<a href="https://cloud.tencent.com/document/product/684/86894">月95计费</a>）</td>
 </tr>
 <tr>
 <td>后付费模式（<a href="https://cloud.tencent.com/document/product/684/75238">按日结算</a>、<a href="https://cloud.tencent.com/document/product/684/89226">增强型95计费</a>）</td>
