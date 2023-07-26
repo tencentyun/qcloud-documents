@@ -77,7 +77,7 @@ Elasticsearch Serverless 服务目前支持 [按量计费](https://cloud.tencent
     <td class="tg-llyw"  width=15%>接口调用</td>
     <td class="tg-llyw"  width=40%>bulk size 为100条/次</td>
     <td class="tg-llyw"  width=15%>1亿条文档/bulk size=1百万次</td>
-    <td class="tg-llyw"  width=15%>0.1元/百万次</td>
+    <td class="tg-llyw"  width=15%><nobr>0.1元/百万次</td>
     <td class="tg-llyw"  width=15%>0.1元</td>
     </tr>
 </table>
