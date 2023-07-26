@@ -31,16 +31,53 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 ## Query 的内置属性和方法
 
 ### 可访问属性有
-
-- `$w.query1.data`：`<any>` 请求成功数据对象，为接口返回值。
-- `$w.query1.error`：`<Error>` 请求失败时错误对象。
-
+<table>
+   <tr>
+      <th width="0%" >参数名称</td>
+      <th width="0%" >参数类型</td>
+<th width="0%" >参数描述</td>
+   </tr>
+   <tr>
+      <td>$w.query1.data</td>
+       <td>Any</td>
+ <td>数据请求成功时，返回的数据结果，默认值：null。</td>
+   </tr>
+   <tr>
+      <td>$w.query1.error</td>
+       <td>Error</td>
+ <td>数据请求失败时，返回的 Error 错误对象，默认值：null。</td>
+   </tr>
+   <tr>
+      <td>$w.query1.isFetching</td>
+       <td>Boolean</td>
+ <td>数据请求状态，是否在请求加载中，默认值：false。</td>
+   </tr>
+</table>
 
 
 ### 可访问方法有
+<table>
+   <tr>
+      <th width="20%" >参数名称</td>
+      <th width="40%" >参数描述</td>
+   </tr>
+   <tr>
+      <td>$w.query1.reset()</td>
+      <td>重置 Query 对象的 data 和 error 值 为 null。</td>
+   </tr>
+   <tr>
+      <td>$w.query1.trigger()</td>
+      <td>在代码中手动触发 Query 的执行。如果需要触发 Query 时进行传参，可以通过类似 `query1.trigger({aaa:10})` 的方式传入额外数据，然后在 Query 的配置中通过绑定表达式 `params.aaa` 来获取到传入的数据10（进行手动触发时传参）。</td>
+   </tr>
+</table>
 
-- `$w.query1.trigger()`：在代码中手动触发 Query 执行。
-- `$w.query1.reset()`：重置 Query 对象的 data 和 error 属性值。
+
+**示例：**
+手动调用 Query 的传参示例：例如在点击事件中调用 Query 时的入参配置如下：
+<img style="width:70%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/df60d71f48f93372697114878d75f100.png" />
+然后可在 Query 配置中引用该参数。
+<img style="width:70%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3b5cb4e56773128cc8a3c9edcda51eee.png" />
+想了解更多 Query 对象的定义封装，请参见 [Query 实例介绍](https://docs.cloudbase.net/lowcode/api/api-referrence#%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2query)。
 
 ## Query 的数据来源
 微搭数据查询 Query 的数据来源目前主要有以下几种（Query 的数据来源未来会持续增加），可通过编辑器左下角代码区单击 **+** 打开新建面板，来进行不同数据来源 Query 对象的新建。
@@ -187,5 +224,4 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 
 
 以上仅为使用 SQL Query 的数据插入示例，实际生产环境请注意提交数据的合法性校验以及脏数据的处理。
-
 
