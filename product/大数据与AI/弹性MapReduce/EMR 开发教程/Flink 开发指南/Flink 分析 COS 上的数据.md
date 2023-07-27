@@ -4,7 +4,7 @@ Flink 擅长处理无界和有界数据集精确的时间控制和状态化使�
 ## 开发准备
 1. 由于任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 2. 确认您已开通腾讯云，且已创建一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Flink 组件，并且在**集群>集群信息**页面开启对象存储的授权。
-3. 集群购买完成后，可以使用 HDFS 访问对象存储确保其基础功能可用。具体命令如：
+3. 集群购买完成后，可以使用 HDFS 访问对象存储确保其基础功能可用。具体命令如下：
 ```
 [hadoop@10 ~]$ hdfs dfs -ls cosn://$BUCKET_NAME/path
 Found 1 items
@@ -129,7 +129,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ```
 
 ### 运行样例
-首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 录 [Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
+首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考登录 [Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户：
 ```
 [root@172 ~]# su hadoop
