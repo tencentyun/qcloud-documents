@@ -107,7 +107,7 @@ upgrade-1.2.0-to-2.0.0.mysql.sql -> upgrade-2.0.0-to-2.1.0.mysql.sql -> upgrade-
 mysql> source upgrade-2.3.0-to-3.0.0.mysql.sql;  
 mysql> source upgrade-3.0.0-to-3.1.0.mysql.sql;  
 ```
-9. 如果源 Hive 中有 phoneix 表，修改目标 Hive 元数据中 phoneix 表的 zookeeper 地址。
+9. 如果源 Hive 中有 phoenix 表，修改目标 Hive 元数据中 phoenix 表的 zookeeper 地址。
 通过下面的查询获取 phoenix 表的 `phoenix.zookeeper.quorum` 配置。
 ```swift
 mysql> SELECT PARAM_VALUE from TABLE_PARAMS where PARAM_KEY = 'phoenix.zookeeper.quorum';  
