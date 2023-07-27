@@ -76,7 +76,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | SampleRate       | 否   | Integer |  音频采样率：<li>24000：24k（部分音色支持，请参见 [音色列表](https://cloud.tencent.com/document/product/1073/92668)）</li><li>16000：16k（默认）</li><li>8000：8k</li>      |
 | Codec            | 否   | String  | 返回音频格式： </br> opus: 返回多段含 opus 压缩分片音频（默认） </br> pcm: 返回二进制 pcm 音频 </br> mp3: 返回二进制 mp3 音频 |
 | EnableSubtitle   | 否   | Boolean | 是否开启时间戳功能，默认为false。                            |
-| EmotionCategory  | 否   | String  | 控制合成音频的情感，仅支持多情感音色使用。 </br> 取值：neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服) |
+| EmotionCategory  | 否   | String  | 控制合成音频的情感，仅支持多情感音色使用。取值: neutral(中性)、sad(悲伤)、happy(高兴)、angry(生气)、fear(恐惧)、news(新闻)、story(故事)、radio(广播)、poetry(诗歌)、call(客服)、撒娇(sajiao)、厌恶(disgusted)、震惊(amaze)、平静(peaceful)、兴奋(exciting)、傲娇(aojiao)、解说(jieshuo)|
 | EmotionIntensity | 否   | Integer | 控制合成音频情感程度，取值范围为 [50,200]，默认为 100；只有 EmotionCategory 不为空时生效。 |
 | SegmentRate      | 否   | Integer | 断句敏感阈值，取值范围：[0,1,2]，默认值：0 </br> 该值越大越不容易断句，模型会更倾向于仅按照标点符号断句。此参数建议不要随意调整，可能会影响合成效果 |
 | Signature        | 是   | String  | 接口签名参数                                                 |
