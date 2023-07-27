@@ -3,13 +3,12 @@
 ## 进入项目
 
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击**立即使用**进入 CODING 使用页面。
-2. 点击团队首页左侧的“项目”按钮，进入项目列表页，选择目标项目。
+2. 单击团队首页左侧的**项目按钮**，进入项目列表页，选择目标项目。
 3. 单击左侧菜单栏中的**项目协同**功能页。 
 
 ## 功能介绍
 
 研发团队中的产品发布与更新动作围绕着版本展开。哪怕是一次细小的版本更新也有可能涉及到软件更新上线的全流程，它涵盖了产品经理提出的需求、落实到开发人员的具体任务、展开测试验收工作后所发现的缺陷。在此期间的所有协作事项都可以收拢于项目协同的**版本**中。
-
 相较于在迭代中要求单位时间内产出，版本通常以正式发布上线作为生命周期的结束。
 
 ## 创建版本[](#create)
@@ -20,7 +19,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/d8b7016bab3b7f438668d3a01179c70c.png)
 
 ## 规划版本[](#plan)
-项目管理员将所有与本次发布动作有关的事项（需求、任务和缺陷等）统一收拢于版本中，点击右上角的**`+`**号按钮添加已有事项或新建事项。
+项目管理员将所有与本次发布动作有关的事项（需求、任务和缺陷等）统一收拢于版本中，单击右上角的**`+`**号添加已有事项或新建事项。
 ![](https://qcloudimg.tencent-cloud.cn/raw/390a30868957604bbb5d634a17921e97.png)
 
 团队成员也可以在事项中自行调整所属版本。
@@ -28,20 +27,19 @@
 
 ## 状态流转[](#start)
 状态指的是当前版本的在生命周期中所处的阶段，在版本详情页右上角手动调整版本状态。
-![](https://qcloudimg.tencent-cloud.cn/raw/f69d7a6e1f8599b747400f40dbb33f66.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f69d7a6e1f8599b747400f40dbb33f66.png" width="70%">
 
 ## 版本视图[](#view)
 在版本列表页根据使用习惯切换**树状视图**、**平铺视图**与**看板视图**等模式。系统将默认记住上次使用的视图模式，待下次使用时将应用相同的视图模式。
-![](https://qcloudimg.tencent-cloud.cn/raw/10be9bba09be18a0cf5e8ff474c66883.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/10be9bba09be18a0cf5e8ff474c66883.png" width="80%">
 
 当存在大量任务时，配合使用搜索框与筛选器，便可以在繁杂的信息中快速筛选出需要的内容。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ebce09b68681206bfe2311c67f31f175.png)
 
 ## 编辑、删除版本[](#edit-delete)
-版本创建完成后，在版本详情页的**基础信息**页签点击**编辑**按钮可修改版本名称，在**基础信息**页签的**其他信息**区域可以修改其他基础信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/a24d1a1690ac45f2cbda1d6c33f91369.png)
-
-若不再需要此版本，在版本列表对应的版本所在行点击**`···`**下**删除**按钮。
+版本创建完成后，在版本详情页的**基础信息**页签单击**编辑**按钮可修改版本名称，在**基础信息**页签的**其他信息**区域可以修改其他基础信息。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a24d1a1690ac45f2cbda1d6c33f91369.png" width="80%">
+若不再需要此版本，在版本列表对应的版本所在行单击**`···`**下**删除**按钮。
 ![](https://qcloudimg.tencent-cloud.cn/raw/95c66fdb70fefb7ed50f5cd2ea0f3834.png)
 
 ## 关联迭代[](#association)
@@ -49,4 +47,4 @@
 -   迭代关联版本（开启自动同步）：当迭代中新增或移除事项时，版本中也会新增或移除相同事项，且不可将关联迭代的事项从版本中移除。
 -   迭代关联版本（关闭自动同步）：创建关联关系时，可以手动从迭代中选择要放入版本中的事项，后续当迭代中新增或移除事项时，版本中不会会新增或移除该事项。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/9fc0484c8773d7faa9d3d52c5f199856.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/9fc0484c8773d7faa9d3d52c5f199856.png" width="80%">
