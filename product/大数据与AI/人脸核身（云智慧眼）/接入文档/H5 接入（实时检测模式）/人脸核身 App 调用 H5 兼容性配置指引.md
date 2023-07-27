@@ -153,7 +153,7 @@ Override
 1. 注册并创建 uni-app 开发环境。
 uni-app 开发接⼊具体参照 uni 官⽹。
 2.  下载 demo 并根据指引配置插件。
-demo下 载地址：`https://share.weiyun.com/1gzWlyKj`（密码请联系对接人获取）。
+demo下 载地址：`https://share.weiyun.com/1gzWlyKj`（密码请 [提交工单](https://console.cloud.tencent.com/workorder/category) 获取）。
 	- 在 uni-app 工程 nativeplugins 目录下，放置 only android 插件以及插件的配置文件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b6c46471472e8deeedfd2d0adf3db5f1.png)
 	- 在 uni-app 页面中调用插件方法，实现 H5 刷脸功能。
