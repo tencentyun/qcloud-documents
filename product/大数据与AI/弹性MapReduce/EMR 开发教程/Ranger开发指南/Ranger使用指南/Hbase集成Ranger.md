@@ -1,5 +1,5 @@
 ## 使用准备
-仅支持在购买集群时选择了可选组件 Ranger 的集群，若是在已创建的集群上新增 Ranger 组件，可能会出现 Web UI 无法访问的情况。默认 Ranger 安装时，Ranger Admin、Ranger UserSync 都是部署在 Master 节点上，Ranger Plugin 是部署嵌入组件主守护进程节点上。
+Ranger 安装时，Ranger Admin、Ranger UserSync 都是部署在 Master 节点上，Ranger Plugin 是部署在嵌入组件主守护进程节点上。
 
 创建集群时，在选择集群类型为 Hadoop 时可以在可选组件中选择 Ranger，Ranger 的版本根据您选择的 EMR 版本不同而存在差异。  
 >?集群类型为 Hadoop 且选择了可选组件 Ranger 时，EMR-Ranger 默认会为 HDFS、YARN 创建服务并设置默认策略。
@@ -74,7 +74,7 @@ Web UI 地址链接跳转后，会提示输入用户名及密码，即在购买�
 ![](https://qcloudimg.tencent-cloud.cn/raw/b11a9e939f0de2c7ac37ce465540ea41.png)
  - 配置 Policy 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4d26c02fea6c8dc0f9f47d4a05ac07e5.png)
-上图中的 Users 为 Hbase，它的 Policy Name 是 all-table、column-family、cloumn，也就是 Hbase 用户具有 Region Balance、MemeStore Fluh、Compaction、Split 权限。**请确保创建的 Service 是有些这些权限的。**
+上图中的 Users 为 Hbase，它的 Policy Name 是 all-table、column-family、column，也就是 Hbase 用户具有 Region Balance、MemeStore Fluh、Compaction、Split 权限。**请确保创建的 Service 是有这些权限的。**
 ![](https://qcloudimg.tencent-cloud.cn/raw/424bae73bead9888167fb586243e8023.png)
 <table>
 <thead>
