@@ -156,14 +156,10 @@ wss://tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046***
 
 - [Tencent Cloud Speech SDK for Java](https://github.com/TencentCloud/tencentcloud-speech-sdk-java)
 - [Tencent Cloud Speech SDK for Python](https://github.com/TencentCloud/tencentcloud-speech-sdk-python)
-- [Tencent Cloud Speech SDK for Java](https://github.com/TencentCloud/tencentcloud-speech-sdk-java)
-- [Tencent Cloud Speech SDK for Python](https://github.com/TencentCloud/tencentcloud-speech-sdk-python)
 - [Tencent Cloud Speech SDK for C++](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp)
   
 ### SDK 调用示例
 
-- [Java 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-java-example/blob/main/src/main/java/com/tencentcloud/tts/SpeechWsExample.java) 
-- [Python 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-python/blob/master/examples/tts/ttsexample.py) 
 - [Java 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-java-example/blob/main/src/main/java/com/tencentcloud/tts/SpeechWsExample.java) 
 - [Python 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-python/blob/master/examples/tts/ttsexample.py) 
 - [C++ 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp/blob/master/examples/tts_example.cpp)
