@@ -11,12 +11,12 @@ Elasticsearch Serverless 服务目前支持 [按量计费](https://cloud.tencent
 <tr>
 <td class="tg-llyw" colspan="2" width=15%>计算流量</td>
 <td class="tg-llyw" colspan="2" width=40%>数据写入、构建索引以及分词时产生的流量大小，计算流量的大小和您数据中的字段以及字段长度有关。</td>
-<td class="tg-llyw" colspan="2" width=40%>计算公式：（0.1 + 索引字段占比）* 日增数据大小，索引字段占比默认一般为100%。<br>例如，您每天写入的原始数据大小为1GB，对所有字段构建索引，则计算流量的大小为1.1GB。</td>
+<td class="tg-llyw" colspan="2" width=40%>计算公式：（0.1 + 索引字段占比）* 日增原始数据大小，索引字段占比默认一般为100%。<br>例如，您每天写入的原始数据大小为1GB，对所有字段构建索引，则计算流量的大小为1.1GB。</td>
 </tr>
 <tr>
 <td class="tg-llyw" colspan="2" width=15%>数据存储</td>
 <td class="tg-llyw" colspan="2" width=40%>数据存储大小和原始数据大小、构建索引产生的数据膨胀以及存储时长相关。</td>
-<td class="tg-llyw" colspan="2" width=40%>计算公式：（0.12+索引字段占比）* 日增数据大小 * 存储时长，索引字段占比默认一般为100%。<br>例如，您每天写入的原始数据大小为1GB，数据存储3天，对所有字段构建索引，则在第4天之后，数据存储的大小将稳定在3.36GB。</td>
+<td class="tg-llyw" colspan="2" width=40%>计算公式：（0.12+索引字段占比）* 日增原始数据大小 * 存储时长，索引字段占比默认一般为100%。<br>例如，您每天写入的原始数据大小为1GB，数据存储3天，对所有字段构建索引，则在第4天之后，数据存储的大小将稳定在3.36GB。</td>
 <tr>
 <td class="tg-llyw" colspan="2" width=15%>接口调用</td>
 <td class="tg-llyw" colspan="2" width=40%>根据读写时调用 Elasticsearch Serverless 服务的接口的总次数进行计费。</td>
