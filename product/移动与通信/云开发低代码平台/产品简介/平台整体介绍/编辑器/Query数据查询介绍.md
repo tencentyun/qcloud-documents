@@ -67,7 +67,7 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
    </tr>
    <tr>
       <td>$w.query1.trigger()</td>
-      <td>在代码中手动触发 Query 的执行。如果需要触发 Query 时进行传参，可以通过类似 `query1.trigger({aaa:10})` 的方式传入额外数据，然后在 Query 的配置中通过绑定表达式 `params.aaa` 来获取到传入的数据10（进行手动触发时传参）。</td>
+      <td>在代码中手动触发 Query 的执行。如果需要触发 Query 时进行传参，可以通过类似 `$w.query1.trigger({aaa:10})` 的方式传入额外数据，然后在 Query 的配置中通过绑定表达式 `params.aaa` 来获取到传入的数据10（进行手动触发时传参）。</td>
    </tr>
 </table>
 
