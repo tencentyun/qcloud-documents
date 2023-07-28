@@ -4,7 +4,7 @@ Elasticsearch Serverless 服务目前支持 [按量计费](https://cloud.tencent
 计费项包括计算流量、数据存储以及接口调用，其介绍如下：
 <table>
 <tr>
-<th class="tg-llyw" colspan="2" width=15%>计费项（/GB）</th>
+<th class="tg-llyw" colspan="2" width=15%>计费项</th>
 <th class="tg-llyw" colspan="2" width=40%>计费项描述</th>
 <th class="tg-llyw" colspan="2" width=40%>计费说明</th>
 </tr>
@@ -20,7 +20,7 @@ Elasticsearch Serverless 服务目前支持 [按量计费](https://cloud.tencent
 <tr>
 <td class="tg-llyw" colspan="2" width=15%>接口调用</td>
 <td class="tg-llyw" colspan="2" width=40%>根据读写时调用 Elasticsearch Serverless 服务的接口的总次数进行计费。</td>
-<td class="tg-llyw" colspan="2" width=40%>例如您有1亿条数据，通过 bulk API 进行批量写入，bulk size 为100条/次，则写入过程中将产生1百万次写入请求。（接口调用的定价默认较为低廉，主要为了限制资源滥用，建议将单次写入的文档数为2000-5000条。）</td>
+<td class="tg-llyw" colspan="2" width=40%>例如您有1亿条数据，通过 bulk API 进行批量写入，bulk size 为100条/次，则写入过程中将产生1百万次写入请求。（接口调用费用很低廉，可忽略不计，建议单次批量写入的文档数设置为2000-5000条，有助于提升写入性能。）</td>
 </tr>
 </table>
 
@@ -53,32 +53,32 @@ Elasticsearch Serverless 服务目前支持 [按量计费](https://cloud.tencent
 假设您 App 的访问日志平均为100 Byte/条，1天共1亿条日志（即每天原始日志大小约为9.3GB），数据存储7天，对所有字段构建索引，通过使用广州地域的 Elasticsearch Serverless 服务进行 App 日志分析。经计算，在第8天之后，数据存储大小将稳定在72.9GB，1天的费用约为3.8元，具体明细如下表所示：
 <table>
     <tr>
-    <th class="tg-llyw" width=10%>计费项（/GB）</th>
+    <th class="tg-llyw" width=10%>计费项</th>
     <th class="tg-llyw"  width=10%>说明</th>
     <th class="tg-llyw"  width=35%>用量估算</th>
     <th class="tg-llyw"  width=25%>单价</th>
-    <th class="tg-llyw"  width=10%>费用估算</th>
+    <th class="tg-llyw"  width=10%><nobr>费用估算（元）</th>
     </tr>
     <tr>
     <td class="tg-llyw"  width=15%>计算流量</td>
     <td class="tg-llyw"  width=40%>对所有字段构建索引，索引字段占比为100%。</td>
     <td class="tg-llyw"  width=15%>（0.1 + 100%）* 9.3 = 10.23（GB）</td>
     <td class="tg-llyw"  width=15%>0.29元/GB</td>
-    <td class="tg-llyw"  width=15%>2.97元</td>
+    <td class="tg-llyw"  width=15%>2.97</td>
     </tr>
     <tr>
     <td class="tg-llyw"  width=15%>数据存储</td>
     <td class="tg-llyw"  width=40%>对所有字段构建索引，索引字段占比为100%。</td>
-    <td class="tg-llyw"  width=15%>（0.12+100%）* 9.3 * 7 = 72.9（GB）</td>
+    <td class="tg-llyw"  width=15%>（0.12 + 100%）* 9.3 * 7 = 72.9（GB）</td>
     <td class="tg-llyw"  width=15%>0.01元/天</td>
-    <td class="tg-llyw"  width=15%>0.729元</td>
+    <td class="tg-llyw"  width=15%>0.729</td>
     </tr>
     <tr>
     <td class="tg-llyw"  width=15%>接口调用</td>
     <td class="tg-llyw"  width=40%>bulk size 为100条/次</td>
-    <td class="tg-llyw"  width=15%>1亿条文档/bulk size=1百万次</td>
+    <td class="tg-llyw"  width=15%>1亿条文档/bulk size = 1百万次</td>
     <td class="tg-llyw"  width=15%><nobr>0.1元/百万次</td>
-    <td class="tg-llyw"  width=15%>0.1元</td>
+    <td class="tg-llyw"  width=15%>0.1</td>
     </tr>
 </table>
 
