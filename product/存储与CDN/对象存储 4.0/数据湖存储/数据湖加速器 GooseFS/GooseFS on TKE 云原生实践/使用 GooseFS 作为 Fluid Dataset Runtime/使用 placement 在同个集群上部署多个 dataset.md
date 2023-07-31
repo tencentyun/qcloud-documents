@@ -46,7 +46,7 @@ spec:
               operator: In
               values:
                 - "multi-dataset"
-  placement: "Shared" // 设置为 Exclusive 或者为空则为独占节点数据集
+  placement: "Shared" # 设置为 Exclusive 或者为空则为独占节点数据集
 :::
 </dx-codeblock>
 - dataset1.yaml
