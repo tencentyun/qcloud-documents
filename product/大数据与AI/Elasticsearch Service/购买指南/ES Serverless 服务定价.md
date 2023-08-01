@@ -84,7 +84,7 @@ ES Serverless 服务目前支持 [按量计费](https://cloud.tencent.com/docume
 </table>
 
 ## 新用户体验券
-2023年8月1号之后，开通 ES Serverless 服务的新用户，可免费 [领取50元代金券](https://cloud.tencent.com/act/pro/es_serverless)，抵扣使用 Serverless 服务产生的费用，有效期自领取之日起持续90天，超出的费用，将按照对应计费项定价进行扣费。
+自2023年8月1日起，开通 ES Serverless 服务的新用户，可免费 [领取50元代金券](https://cloud.tencent.com/act/pro/es_serverless)，抵扣使用 Serverless 服务产生的费用，有效期自领取之日起持续90天，超出的费用，将按照对应计费项定价进行扣费。
 >? 索引字段占比主要用于估算构建索引产生的流量与存储消耗。例如，您有10个类型、长度相等的字段，您对其中的5个字段构建索引，则索引字段占比为50%，该计算方法仅供参考，实际资源消耗与您的字段值以及字段长度相关，当索引字段占比小于40%时，默认按照40%计算。
 
 
