@@ -5,7 +5,7 @@
 ## 申请安全凭证
 第一次使用云 API 的用户必须先申请安全凭证才可使用。
 1. 登录 [API 密钥管理](https://console.cloud.tencent.com/capi) 控制台。
-2. 单击**新建密钥**即可以创建一对 SecretId/SecretKey， 每个帐号最多可以创建两对 SecretId/SecretKey。
+2. 单击**新建密钥**即可以创建一对 SecretId/SecretKey， 每个账号最多可以创建两对 SecretId/SecretKey。
 
 ## 生成签名串
 假设上一步申请的 SecretId 和 SecretKey 分别是：
