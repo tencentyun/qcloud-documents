@@ -4,7 +4,11 @@
 
 - **访问 URL 格式**
 `http://DomainName/Filename?sign=timestamp-rand-uid-md5hash` 
->! 访问 URL 中不能包含中文。
+
+>!
+>- 访问 URL 中不能包含中文。
+>- 不支持带参数 URL 鉴权。
+>- 有效时间最大可输入630720000s。
 
 - **鉴权字段说明** 
 <table>
