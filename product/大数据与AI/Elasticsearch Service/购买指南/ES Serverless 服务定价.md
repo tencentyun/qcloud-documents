@@ -51,7 +51,7 @@ ES Serverless 服务目前支持 [按量计费](https://cloud.tencent.com/docume
 </table>
 
 ## 费用计算案例
-假设您 App 的访问日志平均为100 Byte/条，1天共1亿条日志（即每天原始日志大小约为9.3GB），数据存储7天，对所有字段构建索引，通过使用广州地域的 ES Serverless 服务进行 App 日志分析。经计算，在第8天之后，数据存储大小将稳定在72.9GB，1天的费用约为3.8元，具体明细如下表所示：
+假设您 App 的访问日志平均为100 Byte/条，1天共1亿条日志（即每天原始日志大小约为9.3GB），数据存储7天，对所有字段构建索引，通过使用广州地域的 ES Serverless 服务进行 App 日志分析。经计算，在第8天之后，数据存储大小将稳定在72.9GB，1天的费用约为3.7元，具体明细如下表所示：
 <table>
 <tr>
 <th class="tg-llyw" width=10%>计费项</th>
@@ -76,10 +76,10 @@ ES Serverless 服务目前支持 [按量计费](https://cloud.tencent.com/docume
 </tr>
 <tr>
 <td class="tg-llyw"  width=15%>接口调用</td>
-<td class="tg-llyw"  width=40%>bulk size 为100条/次</td>
+<td class="tg-llyw"  width=40%>bulk size 为5000条/次</td>
 <td class="tg-llyw"  width=15%>1亿条文档/bulk size = 1百万次</td>
 <td class="tg-llyw"  width=15%><nobr>0.1元/百万次</td>
-<td class="tg-llyw"  width=15%>0.1</td>
+<td class="tg-llyw"  width=15%>0.002</td>
 </tr>
 </table>
 
