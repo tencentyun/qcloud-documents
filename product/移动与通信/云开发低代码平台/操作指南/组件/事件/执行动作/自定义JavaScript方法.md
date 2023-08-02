@@ -55,7 +55,7 @@ export default function({event, data}) {
 ```javascript
 export default async function({event, data}) {
 
-    const wxcloud = await app.cloud.getCloudInstance();
+    var wxa = await app.utils.getWXContext();
     const openid = wxa.OPENID || wxa.FROM_OPENID || app.auth.currentUser.openId;
     console.log("get userinfo openid: ", openid);
 
