@@ -1,8 +1,8 @@
 使用 Logstash 可以把关系型数据库如 mysql、postgresql 中的数据同步到其它存储介质，下面介绍如何使用腾讯云 Logstash 同步 mysql 中的数据到 Elasticsearch。
 
 ## 创建管道
-登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es/logstash)，选择需要操作的实例，单击实例** ID/名称**，进入实例基本信息页面。切换到“管道管理”页签，单击**新建管道**，创建一个管道。
-![](https://main.qcloudimg.com/raw/123a56e009cd371e6ce7a498f79d49a1.png)
+登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es/logstash)，选择需要操作的实例，单击实例 **ID/名称**，进入实例基本信息页面。切换到“管道管理”页签，单击**新建管道**，创建一个管道。
+![](https://qcloudimg.tencent-cloud.cn/raw/b673db34a3f88f1b14c7d0ba0ae20974.png)
 进入新建管道页面，单击**引用模板**，同时引用“input-jdbc”和“output-elasticsearch”两个模板：
 ![](https://main.qcloudimg.com/raw/b2f664a511a2ba7c603d832627b2b19b.png)
 ![](https://main.qcloudimg.com/raw/04ca52f36cf8e76895c50bfa2493613d.png)
@@ -118,7 +118,7 @@ output {
 
 ## 查看日志
 在控制台中查看日志，如果没有 ERROR 级别的日志，则说明管道配置没有问题。
-![](https://main.qcloudimg.com/raw/5e7e57882ac53f446b7e108b767a3c4e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4c1a28f857508cca0035b239e9821b75.png)
 
 ## 查看数据写入情况
 进入到 output-elasticsearch 中定义的输出端的 ES 集群对应的 kibana 页面，在 Dev tools 工具栏里查看索引是否存在，以及索引的文档数量是否正确。
