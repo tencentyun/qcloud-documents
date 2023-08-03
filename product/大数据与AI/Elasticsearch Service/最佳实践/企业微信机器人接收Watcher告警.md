@@ -64,9 +64,9 @@ server {
 5. 配置 Watcher 报警规则。**此步骤可以在 Kibana 界面 Management > Watcher 选项中进行图形化操作。**
 ![](https://main.qcloudimg.com/raw/125ca1068c3a8905212de5c158dd13c5.png)
  - `Create threshold alert` 在界面进行阈值告警设置。可以针对某索引的特定条件进行监控告警，例如 CPU 使用率、文档个数等，可以在下面的 Condition 选项做更细节的设置，参考如下：
-![image](https://main.qcloudimg.com/raw/7035acfff95d603d797fa95d6ed6f9ec.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0fcafcf8bec6db828dbcc5c9e1ab71d9.png)
 单击右上角的 **Add action**, 选择 “Wehhook”，相关设置如下：
-![image](https://main.qcloudimg.com/raw/e4d83130fa2405c24722f3f950bb71d0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fe310b95ffda21beb12c565d0be608bd.png)
 单击 **Send request** 可以进行测试，然后单击 **Create alert** 即可。
  - `Create advanced watch` 通过 API 设置 Watcher 各参数，API 详情请参见 [PUT Watch](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/watcher-api-put-watch.html)。
 6. 以上步骤配置完成后，即可在自己创建的企业微信群中接收到机器人发来的告警信息。
