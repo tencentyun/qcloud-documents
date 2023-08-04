@@ -76,8 +76,8 @@ ES Serverless 服务目前支持 [按量计费](https://cloud.tencent.com/docume
 </tr>
 <tr>
 <td class="tg-llyw"  width=15%>接口调用</td>
-<td class="tg-llyw"  width=40%>bulk size 为5000条/次</td>
-<td class="tg-llyw"  width=15%>1亿条文档/bulk size = 1百万次</td>
+<td class="tg-llyw"  width=40%>bulk size 为5,000条/次</td>
+<td class="tg-llyw"  width=15%>1亿条文档/bulk size = 20,000次</td>
 <td class="tg-llyw"  width=15%><nobr>0.1元/百万次</td>
 <td class="tg-llyw"  width=15%>0.002</td>
 </tr>
