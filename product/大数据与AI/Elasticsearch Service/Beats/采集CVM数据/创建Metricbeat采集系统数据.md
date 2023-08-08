@@ -28,8 +28,7 @@ Metricbeat 默认采集系统的监控数据，无需额外配置，如果需要
     - 仅支持选择和采集器输出在同一 VPC 下的 CVM 实例进行安装，若无法找到目标 CVM 实例，需要更改采集器输出。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4166bb2c4dd7d8a2c8ec0f695657659f.png)
 3. 单击**确定启用**后，跳转到 Beats 采集器管理界面，可以查看 Metricbeat 采集器运行状态，显示“正常”则表示采集器安装成功。支持 [修改采集器配置](https://cloud.tencent.com/document/product/845/63301) 和 [管理 CVM 实例](https://cloud.tencent.com/document/product/845/63302)。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/5fa28e39ad540a9b7a289a09d2ee6923.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/cee874ad8db6049fa6cf88f7cf83b09e.png)
 
 ### Kibana 查看结果
 1. 登录腾讯云 Kibana 控制台。
