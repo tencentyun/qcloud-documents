@@ -22,5 +22,5 @@
 ## 6.8及以上基础版如何开启和关闭 ES 集群用户认证
 - 在创建集群时可以选择开启或关闭 ES 集群用户认证。
 - 集群创建完成后，如果需要再次调整开关状态，可以到集群详情页进行操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/7b877fa6c151e55bdcec51f34fd60387.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2a84ace799797117af024c3e40bb0fd1.png)
 
