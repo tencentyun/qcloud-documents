@@ -62,7 +62,7 @@ dependencies {
 // 启动参数配置
 OcrModeType modeType = OcrModeType.OCR_DETECT_AUTO_MANUAL; // 设置默认的业务识别模式自动 + 手动步骤模式
 OcrType ocrType = OcrType.BankCardOCR; // 设置默认的业务识别，银行卡
-OcrSDKConfig.newBuilder(SecretPamera.secretId, SecretPamera.secretKey, null)
+OcrSDKConfig configBuilder = OcrSDKConfig.newBuilder(SecretPamera.secretId, SecretPamera.secretKey, null)
 	.setOcrType(ocrType)
 	.setModeType(modeType)
 	.build();
