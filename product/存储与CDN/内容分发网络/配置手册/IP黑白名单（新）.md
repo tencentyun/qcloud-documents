@@ -17,7 +17,7 @@
 
 #### 新增/修改规则
 您可以在 IP 黑名单中，单击**新增规则**按钮，新增一条 IP 黑白名单规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/ee273d8e24c7368ed3a79ee79f5fc975.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9045d1b80fa9862fde607fcd5db51cc7.png)
 **IP 黑名单**
 用户端 IP 匹配黑名单中的 IP 或 IP 段时 ，访问 CDN 节点时将直接返回514状态码。
 **IP 白名单**
@@ -31,26 +31,27 @@
 - 不支持带参数的文件目录。
 
 如需修改规则，可以在规则右侧的操作列表中，单击**修改**按钮修改规则内容。
-![](https://qcloudimg.tencent-cloud.cn/raw/4ac404dcf485bd54a42621ba461366e8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/169f1b5035a729bdbf3df95efa807b77.png)
 
 #### 调整规则优先级
 如需调整规则优先级，您可以在规则列表上方，单击**调整优先级**进入优先级调整模式，进入后页面如下，通过操作一栏中，可对规则优先级进行调整，上箭头代表规则向上移动，下箭头代表规则向下移动。调整后，单击**保存**即可保存当前的规则优先级顺序。
 >!列表底部的优先级大于列表顶部。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/5e0e10c8b2bf26d836cba28d60238912.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3f778dd0313e32adff37ecfdb9388486.png)
 
 #### 删除规则
 如需删除规则，您可以在规则的操作栏中，单击**删除**按钮，删除该规则将弹窗进行确认，确认后即永久删除该规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/698546b7156a98ed98aba08de3388293.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a56ce472eba283619d9fe71750128c12.png)
 
 ### 关闭配置
 单击配置状态右侧开关，即可关闭配置，关闭配置情况下，您仍可修改IP黑白名单规则，但是不会立即发布至现网，仅当开启配置时，规则才会生效。
-![](https://qcloudimg.tencent-cloud.cn/raw/4e79995432bf2ed2af296e14235ac31f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5e3aa8df5f7a5328db794479f00e9970.png)
 
 ## 配置示例
 若加速域名：`www.test.com` 的 IP 黑白名单配置如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/449aeac06e7c09d4a779588c410e72ed.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0661e050f4b6d1615ba8d095c7e33d6d.png)
 则实际访问情况如下：
 1. 当用户端 IP 为1.1.1.1时，访问资源 `https://www.test.com/test/vod.mp4`，则匹配最下方黑名单规则，不允许该用户访问，返回514；
 2. 当用户端 IP 为1.1.1.2时，访问资源 `https://www.test.com/test/vod.mp4`，该 IP 不在黑名单规则内，不匹配黑名单规则，但是该用户访问内容匹配白名单规则，仅允许 IP 为1.1.1.1用户访问，该用户 IP 不符合，因此不允许该 IP 用户访问，返回514;
 3. 当用户端 IP 为1.1.1.1时，访问资源 `https://www.test.com/vod.mp4`，不匹配黑名单规则，匹配白名单规则，允许该 IP 用户访问，将正常返回内容。
+4. 当用户端 IP 为2.2.2.1时，访问资源 `https://www.test.com/vod.mp4`，不匹配黑名单规则，2.2.2.1属于2.2.2.0/24 段IP，匹配白名单规则，允许该 IP 用户访问，将正常返回内容。
