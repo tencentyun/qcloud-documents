@@ -49,7 +49,7 @@
 |私有存储桶访问|默认为关闭，当您的 COS 存储桶访问权限为私有读写时，请同步开启私有存储桶访问，CDN 在回源时，将自动生成有效的访问密钥回源请求文件；如果您的 COS 存储桶访问权限为私有写公有读、公有读写时，不需要开启该功能。|
 
 当您的源站为 IGTM 多活源时，可选择源站类型为 IGTM 多活源，配置内容如下：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/9d0aba6b39b4fe1046c28611b7c975af.png" width="68%"><br>
+![](https://qcloudimg.tencent-cloud.cn/raw/9d0aba6b39b4fe1046c28611b7c975af.png)
 
 |配置项|	说明|
 |-|-|
