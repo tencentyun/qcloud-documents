@@ -31,7 +31,7 @@
 
 
 当您的源站为自有源时，例如：自有服务器或 CVM 服务器资源，可选择源站类型为自有源，配置内容如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/86b268f1c0a741e5e3072f988034e8fc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/141fd7522b0917666acb6aefa0d6d921.png)
 
 |配置项	|说明|
 |--|--|
@@ -40,7 +40,7 @@
 
 
 当您的源站为 COS 源时，可选择源站类型为 COS 源，配置内容如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/def5f909ecb4d4afb20e7201aaf7a7e7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3140d0689e9fb7a81cdc1aaaad31eacf.png)
 
 |配置项	|说明|
 |--|--|
@@ -49,7 +49,7 @@
 |私有存储桶访问|默认为关闭，当您的 COS 存储桶访问权限为私有读写时，请同步开启私有存储桶访问，CDN 在回源时，将自动生成有效的访问密钥回源请求文件；如果您的 COS 存储桶访问权限为私有写公有读、公有读写时，不需要开启该功能。|
 
 当您的源站为 IGTM 多活源时，可选择源站类型为 IGTM 多活源，配置内容如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/9d0aba6b39b4fe1046c28611b7c975af.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/44a228803164412699b58c805ba79750.png)
 
 |配置项|	说明|
 |-|-|
@@ -57,7 +57,7 @@
 |源站地址|如果源站为 IGTM 多活源的情况下，CDN 支持通过下拉选择作为源站的 IGTM 实例名称，可通过模糊搜索进行筛选。|
 
 当加速类型为 CDN 网页小文件、CDN 下载大文件、CDN 音视频点播，且您的源站为第三方对象存储时，可选择源站类型为第三方对象存储，配置内容如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/5e441f9cb5e9a4801a7ab326579b5da8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d2f8a34f1f321fe6626de6f0fb359d14.png)
 
 |配置项	|说明|
 |--|--|
