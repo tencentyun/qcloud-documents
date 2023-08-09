@@ -101,7 +101,7 @@
 #### 2.4 提升访问安全性
 |推荐配置项	|推荐配置的加速类型	|推荐配置|
 |--|--|--|
-|[HTTPS 服务](https://cloud.tencent.com/document/product/228/75563)|	所有加速类型	|HTTPS 服务为增值服务，开启后使用 HTTPS 访问时，将按 HTTPS 请求次数计费，默认为后付费方式，您也可购买 HTTPS 请求包抵扣。 计费详情请参考 [HTTPS 请求计费规则](https://cloud.tencent.com/document/product/228/75563)。<br>HTTPS 服务关闭时，HTTPS 请求将被拒绝访问，响应514状态码，但不会产生 HTTPS 费用。|
+|HTTPS 服务|	所有加速类型	|HTTPS 服务为增值服务，开启后使用 HTTPS 访问时，将按 HTTPS 请求次数计费，默认为后付费方式，您也可购买 HTTPS 请求包抵扣。 计费详情请参考 [HTTPS 请求计费规则](https://cloud.tencent.com/document/product/228/75563#https-.E8.AF.B7.E6.B1.82.E6.95.B0.E8.AE.A1.E8.B4.B9)。<br>HTTPS 服务关闭时，HTTPS 请求将被拒绝访问，响应514状态码，但不会产生 HTTPS 费用。|
 |[HTTPS 配置](https://cloud.tencent.com/document/product/228/41685)|	所有加速类型	|HTTPS 传输是一种加密可靠的传输协议手段，可有效保护您的传输数据安全性，如果您的网站已支持 HTTPS 访问，建议配置 HTTPS 证书。|
 |[IP 访问限频配置	]()|所有加速类型	|通过 IP 访问限频配置，可一定程度上防范单一用户对资源、接口的恶意访问，您可以根据实际需求调整限频配置值。请注意，IP访问限频无法防范 DDoS 攻击。<br>**推荐配置：**<br>建议开启，可根据网站实际访问量进行请求限频。|
 
