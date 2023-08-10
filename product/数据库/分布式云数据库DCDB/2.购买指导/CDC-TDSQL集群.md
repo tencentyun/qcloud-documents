@@ -12,6 +12,6 @@ CDC-TDSQL 总共分为三种可选择规格，用户可根据需要选择相应�
     - 在前期规划过程中，客户需要关注的是**可用容量**，并根据预估规模计算所需资源并商讨价格，以求准确完成资源准备和部署。
 
 - 关于集群**部署需求**，每套 CDC-TDSQL 集群都涉及三个部署部分，均已标注出所需 CVM 资源：
-    - 管控部分：像 oss/scheduler/zookeeper/clouddba 等。
+    - 管控部分：例如 oss/scheduler/zookeeper/clouddba 等。
     - 支撑 DB 部分：给 TDSQL/Redis 等内部服务提供支撑 DB 服务，一般会跟用户 DB 机型一样。
     - 用户 DB 部分：给用户分配实例的设备，至少3台 DB 设备。
