@@ -5,7 +5,7 @@
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | [创建队列](https://cloud.tencent.com/document/product/406/5832) | CreateQueue|用于在用户账户下创建一个新队列。|
-| [获取队列列表](https://cloud.tencent.com/document/product/406/5833) | ListQueue|用于列出帐号下的队列列表，可分页获取数据。|
+| [获取队列列表](https://cloud.tencent.com/document/product/406/5833) | ListQueue|用于列出账号下的队列列表，可分页获取数据。|
 | [获取队列属性](https://cloud.tencent.com/document/product/406/5834)  | GetQueueAttributes|用于获取某个已创建队列的属性。|
 | [修改队列属性](https://cloud.tencent.com/document/product/406/5835) | SetQueueAttributes | 用于修改消息队列的属性。|
 | [删除队列](https://cloud.tencent.com/document/product/406/5836) | DeleteQueue| 用于删除一个已创建的队列。|
