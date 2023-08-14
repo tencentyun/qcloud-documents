@@ -107,6 +107,7 @@ Query 是一个静态 JS 对象，主要作用于后端相关的数据获取和�
 >
 - SQL 的批量操作示例：例如批量查询或批量删除等场景，可通过传入前端数组变量来实现。假设新建了自定义数组变量 `$w.page.dataset.state.array`，默认值为 `[50,51,52]`，那么 SQL 语句可写作：`SELECT * FROM users WHERE users.id IN ({{$w.page.dataset.state.array]}})`。
 - SQL 语句中如需条件判断的查询示例：假设场景为查询某个用户列表时，当某个输入框组件（input1）的值不为空时则进行条件查询过滤，否则不过滤查询全量，参考 SQL 可以写作：`SELECT * FROM users WHERE {{$w.input1.value ? ("name='" + $w.input1.value + "'") : 'true'}}`。
+- 在使用 SQL 语句进行数据查询时，如果涉及针对当前登录用户的数据查询，为保障安全性，建议开发者使用服务端保留的占位符 `SERVER.xxx` 作为查询条件代入查询，使用占位符时服务端会校验当前登录用户的合法性。例如，在微信小程序中根据当前用户的 OPENID 进行数据查询，则查询 SQL 条件应该写作：`SELECT * FROM users WHERE users.openid={{SERVER.OPENID}}`。
 - 目前保留字 SERVER 对象下有如下字段可使用：
   - `SERVER.USERID`：表示当前用户 USERID，与前端系统变量 `$w.auth.currentUser.userId` 取值一致。
   - `SERVER.OPENID`：表示小程序下当前登录用户的 OPENID，与前端系统变量 `$w.auth.currentUser.openId` 取值一致。
