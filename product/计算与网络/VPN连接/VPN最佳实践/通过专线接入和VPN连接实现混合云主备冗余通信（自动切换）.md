@@ -2,6 +2,7 @@
 >?
 >- 路由优先级功能目前处于内测中，如有需要，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
 >- 暂不支持控制台修改路由优先级，如需调整，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
+>- 配置主备路由时，专线网段掩码长度须大于 VPN 网段掩码长度。
 >
 
 
