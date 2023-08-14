@@ -1,0 +1,709 @@
+开发者可以使用 `$w.cloud.callDataSource` 方法来调用数据源，包括数据模型及 APIs。
+
+> $w.cloud.callDataSource(params: ICallDataSourceParams): Promise<any\>
+
+### 入参
+
+#### params: ICallDataSourceParams
+
+|       属性       |   类型   | 默认值 | 必填 |       说明        |
+|:--------------:|:------:|:---:|:--:|:---------------:|
+| dataSourceName | string |     | 是  |      数据源标识      |
+|   methodName   | string |     | 是  |     数据源方法名      |
+|     params     | object |     | 是  | 方法参数，根据方法实际入参填写 |
+
+如果数据源是数据模型，因为其方法皆由平台提供，其可用的数据源方法（methodName）是：
+
+- 新增：`wedaCreateV2`
+- 新增多条：`wedaBatchCreateV2`
+- 删除：`wedaDeleteV2`
+- 删除多条：`wedaBatchDeleteV2`
+- 更新：`wedaUpdateV2`
+- 更新多条：`wedaBatchUpdateV2`
+- 查询：`wedaGetItemV2`
+- 查询多条：`wedaGetRecordsV2`
+
+### 方法入参结构及示例
+
+> 示例数据源 `sjmx_ftf41oj` 包含 名为 `name`，类型为 `string` 的字段，包含名为 `email`,类型为 `string` 的字段
+
+![enter image description here](https://qcloudimg.tencent-cloud.cn/raw/d2fb253d805a62b4b9286df95ef31649.png)
+
+#### 新增（wedaCreateV2）
+
+入参结构
+
+|  属性  |            类型             | 默认值 |        示例        | 必填 |     说明     |
+|:----:|:-------------------------:|:---:|:----------------:|:--:|:----------:|
+| data | `{ [key: string]: any; }` |  无  | `{name: "juli"}` | 是  | 对应数据源的字段结构 |
+
+出参结构
+
+| 属性 |    类型     | 默认值 |       示例       | 必填 |          说明          |
+|:--:|:---------:|:---:|:--------------:|:--:|:--------------------:|
+| id | `string ` |  无  | `"7L5G32U9PE"` | 是  | `id` 为对应创建数据源数据对应的标识 |
+| ~~Id~~ | `string ` |  无  | `"7L5G32U9PE"` | 是  | `Id` 为对应创建数据源数据对应的标识（`后续废弃`） |
+
+编辑器 Javascript 代码示例
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaCreateV2",
+      params: {
+        data: {
+          email: "bar@weda.io",
+          name: "foo",
+        },
+      },
+    });
+    console.log("请求结果", data); // {"id": "f8f6930864c11bde006ff6c4662f9bf6"}
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+
+##### 添加关联关系
+现有数据模型    sjmx_ftf41oj（数据模型）， glmx_b2z3oh7（关联模型）
+
+如果试图在sjmx_ftf41oj模型中添加一条数据关联glmx_b2z3oh7中的一条数据，数据标识为62fd7a3664d1e8ba00cc579835a1ded2
+
+![enter image description here](https://qcloudimg.tencent-cloud.cn/raw/d215b5a13e96c6d4c06ae46bba0a8b6d.png)
+
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaCreateV2",
+      params: {
+        data: {
+          email: "bar@weda.io",
+          name: "foo",
+          relation: "62fd7a3664d1e8ba00cc579835a1ded2"  
+        },
+      },
+    });
+    console.log("请求结果", data); // {"id": "f8f6930864c11bde006ff6c4662f9bf6"}
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+#### 新增多条（wedaBatchCreateV2）
+
+入参结构
+
+|  属性  |             类型             | 默认值 |         示例         | 必填 |        说明         |
+|:----:|:--------------------------:|:---:|:------------------:|:--:|:-----------------:|
+| data | `{ [key: string]: any }[]` |  无  | `[{name: "juli"}]` | 是  | 不能为空数组, 传入空对象会被忽略 |
+
+出参结构
+
+|   属性   |         类型         | 默认值 |        示例        |             说明             |
+|:------:|:------------------:|:---:|:----------------:|:--------------------------:|
+| idList | `idList: string[]` |  无  | `["7L5G32U9PE"]` | `idList` 为对应创建数据源数据对应的标识列表 |
+| ~~IdList~~ | `IdList: string[]` |  无  | `["7L5G32U9PE"]` | `IdList` 为对应创建数据源数据对应的标识列表(`后续废弃`) |
+
+编辑器 Javascript 代码示例
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaBatchCreateV2",
+      params: {
+        data: [
+          {
+            email: "bar@weda.io",
+            name: "foo",
+          },
+          {
+            email: "juli@weda.io",
+            name: "juli",
+          },
+        ],
+      },
+    });
+    console.log("请求结果", data); // {"idList": ["f8f6930864c11fee007010104a2589c4","f8f6930864c11fee0070101171d96063"]}
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+
+##### 添加关联关系
+现有数据模型    sjmx_ftf41oj（数据模型）， glmx_b2z3oh7（关联模型）
+
+如果试图在sjmx_ftf41oj模型中添加多条数据关联glmx_b2z3oh7中的多条数据，数据标识为 6243df, 76589xf
+比如：foo关联6243df， juli关联76589xf
+
+```js
+export default async function ({event, data}) {
+    try {
+        const data = await $w.cloud.callDataSource({
+            dataSourceName: "sjmx_ftf41oj",
+            methodName: "wedaBatchCreateV2",
+            params: {
+                data: [
+                    {
+                        email: "bar@weda.io",
+                        name: "foo",
+                        relation: "6243df",
+                    },
+                    {
+                        email: "juli@weda.io",
+                        name: "juli",
+                        relation: "76589xf",
+                    },
+                ],
+            },
+        });
+        console.log("请求结果", data); // {"idList": ["f8f6930864c11fee007010104a2589c4","f8f6930864c11fee0070101171d96063"]}
+    } catch (e) {
+        console.log("错误代码", e.code, "错误信息", e.message);
+    }
+}
+```
+
+#### 更新（wedaUpdateV2）
+
+入参结构
+
+|   属性   |             类型             | 默认值 |                   示例                   | 必填 |        说明         |
+|:------:|:--------------------------:|:---:|:--------------------------------------:|:--:|:-----------------:|
+|  data  | `{ [key: string]: any }[]` |  无  |           `[{name: "juli"}]`           | 是  | 不能为空数组, 传入空对象会被忽略 |
+| filter | `{ where: FilterObject}]`  |  无  | `{filter: {where: {_id:{$eq:"foo"}}}}` | 是  | 不能为空数组, 传入空对象会被忽略 |
+
+> `FilterObject` 为复杂查询结构，请参考查询参数说明
+>
+> 数据源筛选条件满足条数为 1 以上进行时进行单条更新会出错
+
+出参结构
+
+|  属性   |       类型        | 默认值 | 示例  |          说明          |
+|:-----:|:---------------:|:---:|:---:|:--------------------:|
+| count | `count: 0 or 1` |  无  | `1` | 变更的条数，返回非 0 值代表更新成功。 |
+| ~~Count~~ | `Count: 0 or 1` |  无  | `1` | 变更的条数，返回非 0 值代表更新成功。（`后续废弃`） |
+
+编辑器 Javascript 代码示例
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaUpdateV2",
+      params: {
+        // 更新数据
+        data: {
+          email: "zhangSan@weda.io",
+        },
+        // 筛选内容，筛选内容推荐使用编辑器数据筛选器生成
+        filter: {
+          where: {
+            $and: [
+              {
+                _id: {
+                  $eq: "4ebb756064c11bc9006e5d2e4f9b73a8", // 更新单条时，推荐传入_id数据标识进行操作
+                },
+              },
+            ],
+          },
+        },
+      },
+    });
+    console.log("请求结果", data); // { count: 1 }
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+
+##### 添加关联关系
+现有数据模型    sjmx_ftf41oj（数据模型）， glmx_b2z3oh7（关联模型）
+
+如果试图在sjmx_ftf41oj模型中添加一条数据关联glmx_b2z3oh7中的一条数据，数据标识为62fd7a3664d1e8ba00cc579835a1ded2
+
+![enter image description here](https://qcloudimg.tencent-cloud.cn/raw/d215b5a13e96c6d4c06ae46bba0a8b6d.png)
+
+
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaUpdateV2",
+      params: {
+        // 更新数据
+        data: {
+          email: "zhangSan@weda.io",
+          relation: "62fd7a3664d1e8ba00cc579835a1ded2",           
+        },
+        // 筛选内容，筛选内容推荐使用编辑器数据筛选器生成
+        filter: {
+          where: {
+            $and: [
+              {
+                _id: {
+                  $eq: "4ebb756064c11bc9006e5d2e4f9b73a8", // 更新单条时，推荐传入_id数据标识进行操作
+                },
+              },
+            ],
+          },
+        },
+      },
+    });
+    console.log("请求结果", data); // { count: 1 }
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+#### 更新多条（wedaBatchUpdateV2）
+
+入参结构
+
+|   属性   |             类型             | 默认值 |           示例            | 必填 |        说明         |
+|:------:|:--------------------------:|:---:|:-----------------------:|:--:|:-----------------:|
+|  data  | `{ [key: string]: any }[]` |  无  |   `[{name: "juli"}]`    | 是  | 不能为空数组, 传入空对象会被忽略 |
+| filter | `{ where: FilterObject}]`  |  无  | `{filter: {where: {}}}` | 是  | 复杂查询结构 |
+
+> FilterObject 为复杂查询结构，请参考查询参数说明
+
+出参结构
+
+|  属性   |       类型        | 默认值 | 示例  |         说明          |
+|:-----:|:---------------:|:---:|:---:|:-------------------:|
+| count | `count: 0 or 1` |  无  | `1` | 变更的条数，返回非 0 值代表更新成功 |
+| ~~Count~~ | `Count: 0 or 1` |  无  | `1` | 变更的条数，返回非 0 值代表更新成功（`后续废弃`） |
+
+编辑器 Javascript 代码示例
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaBatchUpdateV2",
+      params: {
+        // 更新数据
+        data: {
+          email: "zhangSan@weda.io",
+        },
+        // 筛选内容，筛选内容推荐使用编辑器数据筛选器生成
+        filter: {
+          where: {
+            $and: [
+              {
+                name: {
+                  $eq: "juli",
+                },
+              },
+            ],
+          },
+        },
+      },
+    });
+    console.log("请求结果", data); // { count: 3 }
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+
+##### 添加关联关系
+现有数据模型    sjmx_ftf41oj（数据模型）， glmx_b2z3oh7（关联模型）
+
+如果试图在sjmx_ftf41oj模型中添加一条数据关联glmx_b2z3oh7中的一条数据，数据标识为62fd7a3664d1e8ba00cc579835a1ded2
+
+![enter image description here](https://qcloudimg.tencent-cloud.cn/raw/d215b5a13e96c6d4c06ae46bba0a8b6d.png)
+
+
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaBatchUpdateV2",
+      params: {
+        // 更新数据
+        data: {
+          email: "zhangSan@weda.io",
+          relation: "62fd7a3664d1e8ba00cc579835a1ded2",           
+        },
+        // 筛选内容，筛选内容推荐使用编辑器数据筛选器生成
+        filter: {
+          where: {
+            $and: [
+              {
+                _id: {
+                  $eq: "4ebb756064c11bc9006e5d2e4f9b73a8", // 更新单条时，推荐传入_id数据标识进行操作
+                },
+              },
+            ],
+          },
+        },
+      },
+    });
+    console.log("请求结果", data); // { count: 1 }
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+#### 删除（wedaDeleteV2）
+
+入参结构
+
+|   属性   |             类型             | 默认值 |           示例            | 必填 |   说明   |
+|:------:|:--------------------------:|:---:|:-----------------------:|:--:|:------:|
+| filter | `{ where: FilterObject }]` |  无  | `{filter: {where: {}}}` | 是  | 复杂查询结构 |
+
+> `FilterObject` 为复杂查询结构，请参考查询参数说明
+>
+> 数据源筛选条件满足条数为 1 以上进行时进行单条更新会出错
+
+出参结构
+
+|  属性   |       类型        | 默认值 | 示例  |         说明          |
+|:-----:|:---------------:|:---:|:---:|:-------------------:|
+| count | `count: 0 or 1` |  无  | `1` | 变更的条数，返回非 0 值代表更新成功 |
+| ~~Count~~ | `Count: 0 or 1` |  无  | `1` | 变更的条数，返回非 0 值代表更新成功（`后续废弃`） |
+
+编辑器 Javascript 代码示例
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaDeleteV2",
+      params: {
+        // 筛选内容，筛选内容推荐使用编辑器数据筛选器生成
+        filter: {
+          where: {
+            $and: [
+              {
+                _id: {
+                  $eq: "4ebb756064c11bc9006e5d2e4f9b73a8", // 更新单条时，推荐传入_id数据标识进行操作
+                },
+              },
+            ],
+          },
+        },
+      },
+    });
+    console.log("请求结果", data); // { count: 1 }
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+#### 删除多条（wedaBatchDeleteV2）
+
+入参结构
+
+|   属性   |            类型             | 默认值 |           示例            | 必填 |     说明     |
+|:------:|:-------------------------:|:---:|:-----------------------:|:--:|:----------:|
+| filter | `{ where: FilterObject}]` |  无  | `{filter: {where: {}}}` | 是  | 复杂查询结构 |
+
+> `FilterObject` 为复杂查询结构，请参考查询参数说明
+
+出参结构
+
+|  属性   |       类型        | 默认值 | 示例  |         说明          |
+|:-----:|:---------------:|:---:|:---:|:-------------------:|
+| count | `count: 0 or 1` |  无  | `1` | 变更的条数，返回非 0 值代表更新成功 |
+| ~~Count~~ | `Count: 0 or 1` |  无  | `1` | 变更的条数，返回非 0 值代表更新成功（`后续废弃`） |
+
+编辑器 Javascript 代码示例
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaBatchDeleteV2",
+      params: {
+        // 筛选内容，筛选内容推荐使用编辑器数据筛选器生成
+        filter: {
+          where: {
+            $and: [
+              {
+                name: {
+                  $eq: "juli", // 更新单条时，推荐传入_id数据标识进行操作
+                },
+              },
+            ],
+          },
+        },
+      },
+    });
+    console.log("请求结果", data); // { count: 3 }
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+#### 查询（wedaGetItemV2）
+
+入参结构
+
+|   属性   |              类型              | 默认值 |           示例            | 必填 |                          说明                          |
+|:------:|:----------------------------:|:---:|:-----------------------:|:--:|:----------------------------------------------------:|
+| filter |  `{ where: FilterObject}]`   |  无  | `{filter: {where: {}}}` | 是  |                        复杂查询结构                        |
+| select | `{ [key: string]: boolean }` |  无  |   `{ $master: true }`   | 是  | 可以指定返回本表或者关联表的字段，如果想查询本表所有字段，请使用 `{ $master: true }` |
+
+> `FilterObject` 为复杂查询结构，请参考查询参数说明
+
+出参结构
+
+|    属性     |            类型            | 默认值 |         示例          |       说明       |
+|:---------:|:------------------------:|:---:|:-------------------:|:--------------:|
+| 对应数据源字段结构 | `{ [key: string]: any }` |  无  | `{ name:  "juli" }` | 返回满足筛选条件的数据源详情 |
+
+编辑器 Javascript 代码示例
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaGetItemV2",
+      params: {
+        // 筛选内容，筛选内容推荐使用编辑器数据筛选器生成
+        filter: {
+          where: {
+            $and: [
+              {
+                _id: {
+                  $eq: "f8f6930864c11fee007010104a2589c4", // 获取单条时，推荐传入_id数据标识进行操作
+                },
+              },
+            ],
+          },
+        },
+        select: {
+          $master: true, // 常见的配置，返回主表
+        },
+      },
+    });
+    console.log("请求结果", data); // "{"owner":"1559148626461061122","createdAt":1690378222467,"createBy":"1559148626461061122","updateBy":"1559148626461061122","name":"foo","_id":"f8f6930864c11fee007010104a2589c4","email":"bar@weda.io","updatedAt":1690378222467}"
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+#### 查询多条（wedaGetRecordsV2）
+
+入参结构
+
+|     属性     |              类型              |     默认值     |         必填          |         说明          |
+|:----------:|:----------------------------:|:-----------:|:-------------------:|:-------------------:|
+|  `filter`  |  `{ where: FilterObject}]`   |      无      |          是          |     复杂查询结构      |
+|  `select`  | `{ [key: string]: boolean }` |      无      | `{ $master: true }` |          是          | 可以指定返回本表或者关联表的字段，如果想查询本表所有字段，请使用 `{ $master: true }` |
+|  getCount  |          `boolean`           |   `false`   |          否          | 获取 filter 命中条件的查询条数 |
+|  pageSize  |           `number`           | `undefined` |          否          |      分页大小，建议指定      |
+| pageNumber |           `number`           |      1      |          否          |        分页数目         |
+|  orderBy   |    `{[key: string]: "acs"    | "desc" }[]` |          无          |          否          | 排序，当前仅支持最多 3 字段排序 |
+
+出参结构
+
+|    属性     |             类型             | 默认值 |         示例          |                                                        说明                                                        |
+|:---------:|:--------------------------:|:---:|:-------------------:|:----------------------------------------------------------------------------------------------------------------:|
+| `records` | `{ [key: string]: any }[]` |  无  | `{ name:  "juli" }` |                                             records 内的数组为对应的数据源数据对象                                              |
+|  `total`  |          `number`          |  无  |         `3`         | 入参配置了 `getCount` 为 `true` 时会返回满足筛选查询条件的大小，注意，此字段不代表返回 records 的长度，可以用作页面大小的计算。当`getCount`为`false`的时候，不应该对此值做任何期待 |
+
+编辑器 Javascript 代码示例
+
+```js
+export default async function ({event, data}) {
+  try {
+    const data = await $w.cloud.callDataSource({
+      dataSourceName: "sjmx_ftf41oj",
+      methodName: "wedaGetRecordsV2",
+      params: {
+        // 筛选内容，当前筛选的含义为：名字为 "juli" 或者 "foo"
+        filter: {
+          where: {
+            $or: [
+              {
+                name: {
+                  $eq: "juli",
+                },
+              },
+              {
+                name: {
+                  $eq: "foo",
+                },
+              },
+            ],
+          },
+        },
+        // 排序
+        orderBy: [
+          {
+            createdAt: "asc", // 创建时间，正序
+          },
+          {
+            updateBy: "desc", // 更新时间，倒序
+          },
+        ],
+        // 返回字段选择
+        select: {
+          $master: true, // 常见的配置，返回主表
+        },
+        // 返回total字段
+        getCount: true,
+        // 页面大小
+        pageSize: 10,
+        // 当前页面
+        pageNumber: 1,
+      },
+    });
+    console.log("请求结果", data); // "{"records":[{"owner":"1559148626461061122","createdAt":1690378222467,"createBy":"1559148626461061122","updateBy":"1559148626461061122","name":"foo","_id":"f8f6930864c11fee007010104a2589c4","email":"bar@weda.io","updatedAt":1690378222467},{"owner":"1559148626461061122","createdAt":1690382002594,"createBy":"1559148626461061122","updateBy":"1559148626461061122","name":"juli","_id":"f95d024c64c12eb2006fd51d38654e28","email":"juli@weda.io","updatedAt":1690382002594}],"total":2}"
+  } catch (e) {
+    console.log("错误代码", e.code, "错误信息", e.message);
+  }
+}
+```
+
+### 查询参数说明
+
+#### 逻辑运算符
+
+|  名称  |              描述               |
+|:----:|:-----------------------------:|
+| $and | 使用逻辑 and 连接字段，返回与这两个字段条件匹配的数据 |
+| $or  | 使用逻辑 or 连接字段，返回与任一个字段条件匹配的数据  |
+
+示例 1
+
+```json
+{
+  "$and": [
+    {
+      "key": {
+        "$eq": "val"
+      }
+    }
+  ]
+}
+```
+
+示例 2
+
+```json
+{
+  "$or": [
+    {
+      "$and": [
+        {
+          "key": {
+            "$eq": "val"
+          }
+        },
+        {
+          "key2": {
+            "$neq": 3
+          }
+        }
+      ]
+    },
+    {
+      "key3": {
+        "$eq": 0
+      }
+    }
+  ]
+}
+```
+
+#### 比较运算符
+
+|  名称  |      描述      |    适用类型    |
+|:----:|:------------:|:----------:|
+| $eq  |  匹配等于指定值的值   | 字符串，布尔值，数字 |
+| $neq | 匹配所有不等于指定值的值 | 字符串，布尔值，数字 |
+| $gt  |  匹配大于指定值的值   |     数字     |
+| $gte | 匹配大于或等于指定值的值 |     数字     |
+| $lt  |  匹配小于指定值的值   |     数字     |
+| $lte | 匹配小于或等于指定值的值 |     数字     |
+| $in  | 匹配数组中指定的任何值  |     数组     |
+| $nin | 不匹配数组中指定的任何值 |     数组     |
+
+示例 1
+
+```json
+{
+  "$and": [
+    {
+      "key": {
+        "$eq": "val"
+      }
+    }
+  ]
+}
+```
+
+示例 2
+
+```json
+{
+  "$and": [
+    {
+      "key1": {
+        "$in": [
+          "foo",
+          "bar"
+        ]
+      }
+    },
+    {
+      "key2": {
+        "$in": [
+          1,
+          2
+        ]
+      }
+    }
+  ]
+}
+```
+
+#### 特殊运算符
+
+|        名称        |        描述         | 适用类型 |
+|:----------------:|:-----------------:|:----:|
+|     $search      |       模糊查询        | 字符串  |
+|     $nsearch     | 不包含，会把 null 值查找出来 | 字符串  |
+| $eq-current-user |      等于当前用户       | 字符串  |
+| $ne-current-user |      不等于当前用户      | 字符串  |
+|      $empty      |     数据为 null      | 任意类型 |
+|     $nempty      |     数据不为 null     | 任意类型 |
+
+> `$empty`,`$empty` 在 mongo 中，会查询字段不存在和字段值为 null 的两种情况。
+
+### 常见错误说明
+
+#### 标识[xxx] 必填参数未填
+xxx 字段被设置未必填属性时，如果参数的值没取到，就会出现这个错误。一般在返回的错误里有errRecord字段。比如errRecord:{"foo":"bar"} 。
+可以看到比如errRecord中不存在xxx字段。所以必填校验失败。
