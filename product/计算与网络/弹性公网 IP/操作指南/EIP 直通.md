@@ -51,8 +51,8 @@ chmod +x eip_direct.sh
  ![](https://qcloudimg.tencent-cloud.cn/raw/db7131fca9da75e8373f13aa98a5e663.png)
  3. 执行如下命令，执行脚本。
  其中，`ethx`为需要直通的网卡名称（必填），`XX.XX.XX.XX`为 EIP 地址（选填），如不填写，直接执行`./eip_direct.sh install ethx`即可。
- ```
- ./eip_direct.sh install ethx  XX.XX.XX.XX
+ ```plaintext
+ ./eip_direct.sh install ethx XX.XX.XX.XX
  ```
 :::
 ::: 在&nbsp;\sWindows\s&nbsp;云服务器中配置&nbsp;\sEIP\s&nbsp;直通
