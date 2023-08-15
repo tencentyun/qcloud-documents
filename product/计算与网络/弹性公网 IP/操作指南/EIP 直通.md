@@ -50,7 +50,7 @@ chmod +x eip_direct.sh
  2. 执行 `ip addr` 查看需要直通的网卡名称。
  ![](https://qcloudimg.tencent-cloud.cn/raw/db7131fca9da75e8373f13aa98a5e663.png)
  3. 执行如下命令，执行脚本。
- 其中，`ethx`为需要直通的网卡名称（必填），`XX.XX.XX.XX`为 EIP 地址（选填），如不填写，直接执行./eip_direct.sh install ethx即可。
+ 其中，`ethx`为需要直通的网卡名称（必填），`XX.XX.XX.XX`为 EIP 地址（选填），如不填写，直接执行`./eip_direct.sh install ethx`即可。
  ```
  ./eip_direct.sh install ethx  XX.XX.XX.XX
  ```
