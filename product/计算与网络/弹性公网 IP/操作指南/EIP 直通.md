@@ -19,9 +19,7 @@ EIP 直通功能适用于云服务器内需要查看公网 IP 的场景，例如
 <dx-tabs>
 ::: 在&nbsp;\sLinux\s&nbsp;云服务器中配置&nbsp;\sEIP\s&nbsp;直通
 Linux 脚本针对的场景为：内网 IP 和公网 IP 均在主网卡（eth0）上，公网地址通过公网 IP 访问，内网地址通过内网 IP 访问。
->?
->- Linux 脚本支持系统版本 CentOS 6 及以上和 Ubuntu。
->- Linux 脚本仅支持主网卡（eth0），暂不支持辅助网卡。
+>?Linux 脚本支持系统版本 CentOS 6 及以上和 Ubuntu。
 >
 
 ### 步骤一：下载 EIP 直通脚本
@@ -49,13 +47,13 @@ wget https://network-data-1255486055.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
 ```
 chmod +x eip_direct.sh
 ```
- 2. 执行如下命令，执行脚本。
- 其中，XX.XX.XX.XX为 EIP 地址，可选填，如不填写，直接执行`./eip_direct.sh install`即可。
-```
-./eip_direct.sh install XX.XX.XX.XX
-```
-3. 执行 `ip addr` 即可查看到配置的 EIP 地址。
-![](https://main.qcloudimg.com/raw/024f4fee7e884af4b935b58b048b907b.png)
+ 2. 执行 `ip addr` 查看需要直通的网卡名称。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/db7131fca9da75e8373f13aa98a5e663.png)
+ 3. 执行如下命令，执行脚本。
+ 其中，`ethx`为需要直通的网卡名称，`XX.XX.XX.XX`为 EIP 地址，可选填，如不填写，直接执行`./eip_direct.sh install`即可。
+ ```
+ ./eip_direct.sh install ethx  XX.XX.XX.XX
+ ```
 :::
 ::: 在&nbsp;\sWindows\s&nbsp;云服务器中配置&nbsp;\sEIP\s&nbsp;直通
 Windows 脚本针对的场景为：主网卡走外网流量，辅助网卡走内网流量。
@@ -87,7 +85,6 @@ https://eip-public-read-1255852779.cos.ap-guangzhou.myqcloud.com/eip_windows_dir
 ![](https://main.qcloudimg.com/raw/f82b4a03d6b6034a414de5010e9ca0c2.png)
 
 ### 步骤三：配置主网卡 EIP 直通[](id:step3)
-
 完成辅助网卡的配置后，在 EIP 控制台中为主网卡配置 EIP 直通。
 1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
 2. 选择云服务器主网卡绑定的 EIP 的地域，并在对应 EIP 的右侧操作栏中，选择**更多** > **直通**即可。
