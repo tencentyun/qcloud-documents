@@ -20,7 +20,7 @@
 
 [](id:components)
 ### 通过组件行为调用 
-进入应用编辑器，在组件行为可以调用 API 方法，具体可参见 [添加行为事件](https://cloud.tencent.com/document/product/1301/68456#components)。
+进入应用编辑器，在组件行为可以调用 API 方法，具体可参见 [事件介绍](https://cloud.tencent.com/document/product/1301/86578)。
 
 [](id:editor)
 ### 通过低代码编辑器调用 
