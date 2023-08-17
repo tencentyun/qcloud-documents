@@ -26,7 +26,7 @@
 
 ### 示例1：通过自定义 JS 代码打印当前登录用户信息
 该示例以点击某个按钮时，触发一个自定义 JS 方法，来打印当前登录用户的详细信息。
-1. 首先，在编辑器左下角代码区单击 **+** 新建一个 **JavaScript 方法**，例如命名为 logger 并保存, 函数体示例代码如下。
+1. 首先，在编辑器左下角代码区单击 **+** 新建一个 **JavaScript 方法**，例如命名为 logger 并保存，函数体示例代码如下。
 ```javascript
 export default function({event, data}) {
   console.log('data',  data) // 打印入参data
@@ -46,7 +46,10 @@ export default function({event, data}) {
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ccec0c579fc96d23792998bc0d09d9c.png)
 4. 确认上述配置后，回到编辑区单击“按钮”即可触发事件对应的自定义 JS 方法，打开编辑器右下角**开发调试工具**，即可查看单击时的打印日志，如下所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9d1f960d12e94fe5912ffb3db0bf09c3.png)
-
+>?
+>如果在事件调用自定义 JS 方法时，需要传入多个参数，例如传入 user 和 age 两个参数，则传参表达式可写作 `{"user": $w.auth.currentUser, "age": 21}`，如下图所示。
+>![](https://qcloudimg.tencent-cloud.cn/raw/584c5e02e2242a1001eaace0f2f420b8.png)
+>则在自定义 JS 代码的函数体中，可以通过 `data.target.user` 以及 `data.target.age` 来分别引用传入参数的值。
 
 
 ### 示例2：实现通过用户 openid 来查询用户表中的详细信息
