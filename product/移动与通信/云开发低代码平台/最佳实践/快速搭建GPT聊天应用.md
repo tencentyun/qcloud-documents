@@ -1,7 +1,5 @@
 本教程将向您展示如何使用微搭低代码，快速搭建一个基于 GPT 的聊天 Web 应用或小程序，跟朋友分享搭建的 AI 应用一起体验 GPT 技术带来的便捷。
 
-
-
 ## 1. 准备工作
 在开始搭建聊天机器人之前，您需要做以下准备：
 - 一个 GPT 服务的 API 接口：可以使用腾讯 AI、文心一言、科大讯飞等 AI 服务提供商均可。本教程为方便演示，使用了一个模拟的 API 接口，可按需替换为上述正式的 GPT 接口。
@@ -89,10 +87,16 @@ API 的配置相对比较简单，主要参考 AI 服务商的 API 文档。此�
 
 
 ### 步骤3：给发送按钮绑定请求事件
-我们在步骤1中已经在页面中放置了多行输入框、按钮和文本展示等组件。接下来，我们需要给输入框配置相关的事件响应逻辑，来获取用户输入的消息内容，首先新建一个自定义变量 `$page.dataset.state.text`。
+我们在步骤1中已经在页面中放置了多行输入框、按钮和文本展示等组件。接下来，我们需要给输入框配置相关的事件响应逻辑，来获取用户输入的消息内容，首先新建一个自定义变量`$page.dataset.state.text`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a3f5373f8226fc1a8b22cc5999f7f1c6.png)
 再将多行输入框的值通过绑定值改变事件，来赋值给该变量 `$page.dataset.state.text`，参考的配置如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/187e1e95b6b2c5bb34c22e30500cb308.png)
+同时，将发送的文本信息加入到聊天列表中，即将插入一条数据给之前定义的聊天记录数组变量 `$page.dataset.state.chatList`中，如下所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/2815b0dbe5f65d2a76c686f78ef61462.png)
+图中表达式参考如下：
+```javascript
+[...$page.dataset.state.chatList, {req: $page.dataset.state.text}]
+```
 然后，给按钮组件绑定事件来处理输入框中用户发送的消息，选择按钮组件，在右侧事件面板中配置如下逻辑，即点击按钮时触发 API 请求，并将获取到的 API 返回结果渲染在页面中，参考配置如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/31cb5f3b2a911a2934a6f7d59df6feb4.png)
 
@@ -102,15 +106,9 @@ API 的配置相对比较简单，主要参考 AI 服务商的 API 文档。此�
 ### 步骤4：将API返回数据与在页面中进行渲染展示
 将调用 API 成功返回值用**变量赋值**方法加入到 chatList 数组中。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4cbae28f29f44054f23c17de76cf69c3.png)
-这里我们需要在数据中增加一条新的消息，采用表达式绑定的方式进行原有的 `ChatList` 变量进行解构后再赋值，表达式参考如下：
+这里我们需要在数据中增加一条新的消息，采用表达式绑定的方式进行原有的 `ChatList` 变量进行解构后再赋值，图中表达式参考如下：
 ```javascript
-[
-    ...$page.dataset.state.chatList,
-    {
-        req: $page.dataset.state.text,
-        res: ""
-    }
-]
+[...$page.dataset.state.chatList, {res: event.detail.data.text }]
 ```
 除了上述 API 返回成功后的变量赋值事件配置外，还可以配置更多控制状态的 [事件动作](https://cloud.tencent.com/document/product/1301/86578)，例如：
 - 通过新建一个 `$w.page.dataset.state.loading` 变量来控制 API 的加载状态。
