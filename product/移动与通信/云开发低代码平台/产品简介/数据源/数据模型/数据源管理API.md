@@ -1,37 +1,20 @@
-# 数据源管理API
-
-**简介**:数据源管理API
-
-**HOST**:https://{envId}.ap-shanghai.tcb-api.tencentcloudapi.com/weda
-
+**简介**：数据源管理 API
+**HOST**：`https://{envId}.ap-shanghai.tcb-api.tencentcloudapi.com/weda`
 <dx-alert infotype="explain" title="">
-环境 ID (envId) 可前往 [资源管理](https://console.cloud.tencent.com/lowcode/resource/index) 页面获取。
+环境 ID（envId）可前往 [资源管理](https://console.cloud.tencent.com/lowcode/resource/index) 页面获取。
 </dx-alert>
 
-# 数据源API
-
-envType: 正式环境传prod，体验环境传pre
-datasourceName: 数据源名称可以在[数据模型](https://console.cloud.tencent.com/lowcode/datasource/model)中，对应的 数据表-基础信息-标识 字段查到。
+envType：正式环境传 prod，体验环境传 pre。
+datasourceName：数据源名称可以在 [数据模型](https://console.cloud.tencent.com/lowcode/datasource/model) 中，对应的数据表-基础信息-标识字段查到。
 
 
 ## 创建数据源记录
+- **接口地址**：`/odata/v1/{envType}/{datasourceName}`
+- **请求方式**：`POST`
+- **请求数据类型**：`application/json`
+- **响应数据类型**：`*/*`
 
-
-**接口地址**:`/odata/v1/{envType}/{datasourceName}`
-
-
-**请求方式**:`POST`
-
-
-**请求数据类型**:`application/json`
-
-
-**响应数据类型**:`*/*`
-
-
-**请求示例**:
-
-
+#### 请求示例
 ```javascript
 {
     "name": "李四",
@@ -40,35 +23,31 @@ datasourceName: 数据源名称可以在[数据模型](https://console.cloud.ten
     "semester": "第二学期"
 }
 ```
-
-
-**请求参数**:
-
+#### 请求参数
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|X-Request-Id|请求requestId|header|true|string||
-|envType|环境类型,pre预览环境，prod正式环境|path|true|string||
-|datasourceName|数据源标识,示例值(student_bky05o0)|path|true|||
-|创建记录对象|字段标识和字段值对象|body|true|创建记录对象|字段标识:字段值|
+|X-Request-Id|请求 requestId|header|true|string|-|
+|envType|环境类型，pre 预览环境，prod 正式环境|path|true|string|-|
+|datasourceName|数据源标识，示例值（student_bky05o0）|path|true|-|-|
+|创建记录对象|字段标识和字段值对象|body|true|创建记录对象|字段标识：字段值|
 
-**响应状态**:
-
+#### 响应状态
 
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
-|201|创建成功||
+|201|创建成功|-|
 
 
-**响应参数**:
+#### 响应参数
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|创建记录对象|字段标识和字段值对象|创建记录对象|字段标识:字段值|
-|_id|记录id|string||
+|创建记录对象|字段标识和字段值对象|创建记录对象|字段标识：字段值|
+|_id|记录 id|string|-|
 
 
-**响应示例**:
+#### 响应示例
 ```javascript
 {
     "@odata.context": "$metadata#student_bky05o0",
@@ -88,23 +67,12 @@ datasourceName: 数据源名称可以在[数据模型](https://console.cloud.ten
 
 
 ## 更新数据源记录
+- **接口地址**：`/odata/v1/{envType}/{datasourceName}('{recordId}')`
+- **请求方式**：`PATCH`
+- **请求数据类型**：`application/json`
+- **响应数据类型**：`*/*`
 
-
-**接口地址**:`/odata/v1/{envType}/{datasourceName}('{recordId}')`
-
-
-**请求方式**:`PATCH`
-
-
-**请求数据类型**:`application/json`
-
-
-**响应数据类型**:`*/*`
-
-
-**请求示例**:
-
-
+#### 请求示例
 ```javascript
 {
     "name": "李四",
@@ -115,80 +83,63 @@ datasourceName: 数据源名称可以在[数据模型](https://console.cloud.ten
 ```
 
 
-**请求参数**:
-
+#### 请求参数
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|X-Request-Id|请求requestId|header|true|string||
-|envType|环境类型,pre预览环境，prod正式环境|path|true|string||
-|datasourceName|数据源标识|path|true|||
-|recordId|数据标识id|path|true|||
-|更新记录对象|字段标识和字段值对象|body|true|更新记录对象|字段标识:字段值|
+|X-Request-Id |  请求 requestId   |   header  |  true  |   string   |  -  |
+|envType   |   环境类型，pre 预览环境，prod 正式环境    |   path   |    true   |  string   |  -   |
+|datasourceName   |   数据源标识     |    path      |    true     |  -     |    -   |
+|recordId   |   数据标识 id   |   path   |   true    |  -      |       -   |
+|更新记录对象   |    字段标识和字段值对象   |body|true|更新记录对象|字段标识：字段值|
 
 
-**响应状态**:
-
+#### 响应状态
 
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
-|204|更新成功||
+|204|更新成功|    -   |
 
 
-**响应参数**:
-
-
-暂无
+#### 响应参数
+暂无。
 
 
 
 
 ## 查询数据源记录
 
+- **接口地址**：`/odata/v1/{envType}/{datasourceName}('{recordId}')`
+- **请求方式**：`GET`
+- **请求数据类型**：`application/json`
+- **响应数据类型**：`*/*`
 
-**接口地址**:`/odata/v1/{envType}/{datasourceName}('{recordId}')`
-
-
-**请求方式**:`GET`
-
-
-**请求数据类型**:`application/json`
-
-
-**响应数据类型**:`*/*`
-
-
-**接口描述**:
-
-
-**请求参数**:
-
+#### 请求参数
 
 | 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
 | -------- | -------- | ----- | -------- | -------- | ------ |
-|X-Request-Id|请求requestId|header|true|string||
-|envType|环境类型,pre预览环境，prod正式环境|path|true|string||
-|datasourceName|数据源标识|path|true|||
-|recordId|数据标识id|path|true|||
+|X-Request-Id|请求 requestId|header|true|string|-|
+|envType|环境类型，pre 预览环境，prod 正式环境|path|true|string|-|
+|datasourceName|数据源标识|path|true|-|-|
+|recordId|数据标识 id|path|true|-|-|
 
 
-**响应状态**:
-
+#### 响应状态
 
 | 状态码 | 说明 | schema |
 | -------- | -------- | ----- | 
-|200|查询成功||
+|200|查询成功|-|
 
 
-**响应参数**:
+#### 响应参数
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
-|记录对象|字段标识和字段值对象|记录对象|字段标识:字段值|
-|_id|记录id|string||
+|记录对象|字段标识和字段值对象|记录对象|字段标识：字段值|
+|_id|记录 id|string|-|
 
 
-**响应示例**:
+#### 响应示例
 ```javascript
 {
     "@odata.context": "$metadata#student_bky05o0",
@@ -207,54 +158,43 @@ datasourceName: 数据源名称可以在[数据模型](https://console.cloud.ten
 ```
 
 
-## 根据filter查询数据源记录
+## 根据 filter 查询数据源记录
+
+- **接口地址**：`/odata/v1/{envType}/{datasourceName}`
+- **请求方式**：`GET`
+- **请求数据类型**：`application/json`
+- **响应数据类型**：`*/*`
+
+#### 请求参数
 
 
-**接口地址**:`/odata/v1/{envType}/{datasourceName}`
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 |
+| -------- | -------- | ----- | -------- | -------- |
+|X-Request-Id|请求 requestId|header|true|string|
+|envType|环境类型，pre 预览环境，prod 正式环境|path|true|string|
+|datasourceName|数据源标识|path|true|string|
+|$filter|查询条件，$filter 中判断条件包含：<br>eq：等于<br>gt：大于<br>lt：小于<br>ne：不等于<br>contains()：包含<br>其中 contains() 用法为 $filter=contains(name, '张')<br>**注意：**如果 or 和 and 并用，优先级高的需要加括号，用法为(age gt 1 and age lt 10) or age eq 20 |query|false|string|
+|$skip|跳过 N 条记录|query|false|integer|
+|$top|查询 N 条记录|query|false|integer|
+|$orderby|排序字段，$orderby 排序支持：desc 和 asc 模式，例如需要按某字段顺序排列 $orderby=age asc|query|false|string|
+|$count|获取数据总数|query|false|boolean|
 
 
-**请求方式**:`GET`
+#### 响应状态
 
 
-**请求数据类型**:`application/json`
+| 状态码 | 说明 | 
+| -------- | -------- | 
+|200|查询成功|
 
-
-**响应数据类型**:`*/*`
-
-
-**接口描述**:
-
-
-**请求参数**:
-
-
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|X-Request-Id|请求requestId|header|true|string||
-|envType|环境类型,pre预览环境，prod正式环境|path|true|string||
-|datasourceName|数据源标识|path|true|string||
-|$filter|查询条件,$filter中判断条件包含:eq：等于,gt：大于,lt：小于,ne：不等于,contains()：包含， 其中 contains() 用法为 $filter=contains(name, '张'),注意：如果 or 和 and 并用，优先级高的需要加括号，用法为(age gt 1 and age lt 10) or age eq 20 |query|false|string||
-|$skip|跳过N条记录|query|false|integer||
-|$top|查询N条记录|query|false|integer||
-|$orderby|排序字段,$orderby 排序支持:desc和asc模式, 例如需要按某字段顺序排列$orderby=age asc|query|false|string||
-|$count|获取数据总数|query|false|boolean||
-
-
-**响应状态**:
-
-
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|200|查询成功||
-
-**响应参数**:
+#### 响应参数
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
 |value|字段标识和字段值对象列表|array|记录列表|
 
 
-**响应示例**:
+#### 响应示例
 ```javascript
 {
     "@odata.context": "$metadata#student_bky05o0",
@@ -281,64 +221,42 @@ datasourceName: 数据源名称可以在[数据模型](https://console.cloud.ten
 
 ## 删除数据源记录
 
+- **接口地址**：`/odata/v1/{envType}/{datasourceName}('{recordId}')`
+- **请求方式**：`DELETE`
+- **请求数据类型**：`application/json`
+- **响应数据类型**：`*/*`
 
-**接口地址**:`/odata/v1/{envType}/{datasourceName}('{recordId}')`
-
-
-**请求方式**:`DELETE`
-
-
-**请求数据类型**:`application/json`
+#### 请求参数
 
 
-**响应数据类型**:`*/*`
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 |
+| -------- | -------- | ----- | -------- | -------- |
+|X-Request-Id|请求 requestId|header|true|string|
+|envType|环境类型，pre 预览环境，prod 正式环境|path|true|string|
+|datasourceName|数据源标识|path|true|-|
+|recordId|数据标识 id|path|true|-|
 
 
-**接口描述**:
+#### 响应状态
+
+| 状态码 | 说明 |
+| -------- | -------- | 
+|204|删除成功|
 
 
-**请求参数**:
-
-
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|X-Request-Id|请求requestId|header|true|string||
-|envType|环境类型,pre预览环境，prod正式环境|path|true|string||
-|datasourceName|数据源标识|path|true|||
-|recordId|数据标识id|path|true|||
-
-
-**响应状态**:
-
-
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|204|删除成功||
-
-
-**响应参数**:
-
-
-暂无
+#### 响应参数
+暂无。
 
 
 ## 批量创建数据源记录
 
 
-**接口地址**:`/odata/v1/batch/{envType}/{datasourceName}`
+- **接口地址**：`/odata/v1/batch/{envType}/{datasourceName}`
+- **请求方式**：`POST`
+- **请求数据类型**：`application/json`
+- **响应数据类型**：`*/*`
 
-
-**请求方式**:`POST`
-
-
-**请求数据类型**:`application/json`
-
-
-**响应数据类型**:`*/*`
-
-
-**请求示例**:
-
+#### 请求示例
 
 ```javascript
 {
@@ -354,27 +272,27 @@ datasourceName: 数据源名称可以在[数据模型](https://console.cloud.ten
 ```
 
 
-**请求参数**:
+#### 请求参数
 
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|X-Request-Id|请求requestId|header|true|string||
-|envType|环境类型,pre预览环境，prod正式环境|path|true|string||
-|datasourceName|数据源标识|path|true|||
-|批量创建对象||body|true||
-|&emsp;&emsp;value|字段标识和字段值对象列表||true|记录列表|
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | 
+| -------- | -------- | ----- | -------- | -------- | 
+|X-Request-Id|请求 requestId|header|true|string|
+|envType|环境类型，pre 预览环境，prod 正式环境|path|true|string|
+|datasourceName|数据源标识|path|true||
+|批量创建对象||body|true|
+|value|字段标识和字段值对象列表||true|记录列表|
 
 
-**响应状态**:
+#### 响应状态
 
 
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|201|创建成功||
+| 状态码 | 说明 | 
+| -------- | -------- | 
+|201|创建成功|
 
 
-**响应参数**:
+#### 响应参数
 
 | 参数名称 | 参数说明 | 类型 | schema |
 | -------- | -------- | ----- |----- | 
@@ -382,7 +300,7 @@ datasourceName: 数据源名称可以在[数据模型](https://console.cloud.ten
 
 
 
-**响应示例**:
+#### 响应示例
 ```javascript
 {
     "@odata.context": "$metadata#student_bky05o0",
@@ -405,24 +323,15 @@ datasourceName: 数据源名称可以在[数据模型](https://console.cloud.ten
 ```
 
 
-## 根据ID批量更新数据源记录
+## 根据 ID 批量更新数据源记录
 
 
-**接口地址**:`/odata/v1/batch/{envType}/{datasourceName}('{recordIds}')`
+- **接口地址**：`/odata/v1/batch/{envType}/{datasourceName}('{recordIds}')`
+- **请求方式**：`PATCH`
+- **请求数据类型**：`application/json`
+- **响应数据类型**：`*/*`
 
-
-**请求方式**:`PATCH`
-
-
-**请求数据类型**:`application/json`
-
-
-**响应数据类型**:`*/*`
-
-
-**请求示例**:
-
-
+#### 请求示例
 ```javascript
 {  
     "name":"二蛋",  
@@ -433,35 +342,34 @@ datasourceName: 数据源名称可以在[数据模型](https://console.cloud.ten
 ```
 
 
-**请求参数**:
+#### 请求参数
+
+| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | 
+| -------- | -------- | ----- | -------- | -------- | 
+|X-Request-Id|请求 requestId|header|true|string|
+|envType|环境类型，pre 预览环境，prod 正式环境|path|true|string|
+|datasourceName|数据源标识|path|true||
+|recordIds|数据标识 id|path|true||
+|批量更新对象||body|true|
 
 
-| 参数名称 | 参数说明 | 请求类型    | 是否必须 | 数据类型 | schema |
-| -------- | -------- | ----- | -------- | -------- | ------ |
-|X-Request-Id|请求requestId|header|true|string||
-|envType|环境类型,pre预览环境，prod正式环境|path|true|string||
-|datasourceName|数据源标识|path|true|||
-|recordIds|数据标识id|path|true|||
-|批量更新对象||body|true||
+#### 响应状态
 
 
-**响应状态**:
+| 状态码 | 说明 |
+| -------- | -------- | 
+|200|更新成功|
 
 
-| 状态码 | 说明 | schema |
-| -------- | -------- | ----- | 
-|200|更新成功||
+#### 响应参数
 
-
-**响应参数**:
-
-| 参数名称 | 参数说明 | 类型 | schema |
-| -------- | -------- | ----- |----- | 
-|updateCount|修改记录数|int||
+| 参数名称 | 参数说明 | 类型 |
+| -------- | -------- | ----- |
+|updateCount|修改记录数|int|
 
 
 
-**响应示例**:
+#### 响应示例
 ```javascript
 {
 
