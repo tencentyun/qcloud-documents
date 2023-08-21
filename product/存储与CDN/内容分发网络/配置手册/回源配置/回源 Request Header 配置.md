@@ -12,7 +12,7 @@
 
 ### 查看配置
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 HTTP 请求头配置，默认情况下为关闭状态，无任何配置：
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择**域名管理**，单击域名右侧**管理**，即可在**回源配置**中看到回源 HTTP 请求头配置，默认情况下为关闭状态，无任何配置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/74c6b1b281a8e72476d27a2a092f632e.png)
 
 ### 操作类型
