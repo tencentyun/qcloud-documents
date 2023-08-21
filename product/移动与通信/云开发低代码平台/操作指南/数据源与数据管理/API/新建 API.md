@@ -8,10 +8,6 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/5dec5372cccb0fafd0e129af1ec6666d.png)
 
 ### 步骤2：填写 API 配置
-![](https://qcloudimg.tencent-cloud.cn/raw/55f9c0891ab8e39e4540c7ce5443ef80.png)
+<img style="width:40%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/55f9c0891ab8e39e4540c7ce5443ef80.png" />
 
-点击如何获取访问密钥，前往API密钥管理，获取SecretId和SecretKey。
-
-保存成功后即可
-
-
+单击**如何获取访问密钥**，前往 API 密钥管理，获取 SecretId 和 SecretKey。保存成功后即可。
