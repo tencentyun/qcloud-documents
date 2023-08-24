@@ -25,62 +25,91 @@ API 网关提供 JSON 请求方式和 form 请求方式的示例代码，请您�
 
 <dx-codeblock>
 :::  JavaScript
-const https = require('https')
-const crypto = require('crypto')
-
+const https = require("https");
+const crypto = require("crypto");
 
 // 应用 ApiAppKey
-const apiAppKey = ''
+const apiAppKey = "";
 // 应用 ApiAppSecret
-const apiAppSecret = ''
+const apiAppSecret = "";
 
-const dateTime = new Date().toUTCString()
+// 请求 host
+const hostname = "service-0kd7h58k-xxxxxxxx.gz.apigw.tencentcs.com";
+// 端口号：https 对应 443，http 对应 80
+const port = 443;
+// 请求 path
+const path = "/test";
+// 请求方法
+const method = "POST";
+// const method = "GET";
+
+const dateTime = new Date().toUTCString();
+// 请求参数
 const body = {
-  data: '中文'
-}
-
-const bodyStr = JSON.stringify(body)
-const md5 = crypto.createHash('md5').update(bodyStr, 'utf8').digest('hex')
-const contentMD5 = Buffer.from(md5).toString('base64')
+  arg1: "arg1",
+  arg2: "arg2",
+};
+// 排序
+const sortedBodyStr = sortBody(body);
+const bodyJsonStr = JSON.stringify(body);
+const contentMD5 = crypto
+  .createHash("md5")
+  .update(bodyJsonStr, "utf8")
+  .digest("hex");
 
 const options = {
-  hostname: 'service-e1a368l4-1253970226.cq.apigw.tencentcs.com',
-  port: 443,
-  path: '/app_auth',
-  method: 'POST',
+  hostname,
+  port,
+  path: `${path}${method.toUpperCase() === "GET" ? `?${sortedBodyStr}` : ""}`,
+  method,
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-    'Content-MD5': contentMD5,
-    'Content-Length': Buffer.byteLength(bodyStr),
-    'x-date': dateTime,
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    "Content-MD5": contentMD5,
+    "Content-Length": Buffer.byteLength(bodyJsonStr),
+    "x-date": dateTime,
   },
-}
+};
 
 const signingStr = [
   `x-date: ${dateTime}`,
   options.method,
   options.headers.Accept,
-  options.headers['Content-Type'],
+  options.headers["Content-Type"],
   contentMD5,
   options.path,
-].join('\n')
-const signing = crypto.createHmac('sha1', apiAppSecret).update(signingStr, 'utf8').digest('base64')
-const sign = `hmac id="${apiAppKey}", algorithm="hmac-sha1", headers="x-date", signature="${signing}"`
-options.headers.Authorization = sign
+].join("\n");
 
+const signing = crypto
+  .createHmac("sha1", apiAppSecret)
+  .update(signingStr, "utf8")
+  .digest("base64");
+const sign = `hmac id="${apiAppKey}", algorithm="hmac-sha1", headers="x-date", signature="${signing}"`;
+
+options.headers.Authorization = sign;
+
+// 发送请求
 const req = https.request(options, (res) => {
-  console.log(`STATUS: ${res.statusCode}`)
-  res.on('data', (chunk) => {
-    console.log('BODY: ' + chunk)
-  })
-})
-req.on('error', (error) => {
-  console.error(error)
-})
-req.write(bodyStr)
-req.end()
+  console.log(`STATUS: ${res.statusCode}`);
+  res.on("data", (chunk) => {
+    console.log("BODY: " + chunk);
+  });
+});
+req.on("error", (error) => {
+  console.error(error);
+});
+req.write(bodyJsonStr);
+req.end();
 
+function sortBody(body) {
+  // 按字典序排序
+  const keys = Object.keys(body).sort();
+  return keys
+    .map((item) => {
+      return `${item}=${body[item]}`;
+    })
+    .join("&");
+}
 :::
 </dx-codeblock>
 
@@ -90,78 +119,84 @@ req.end()
 
 <dx-codeblock>
 :::  JavaScript
-const https = require('https')
-const crypto = require('crypto')
-const querystring = require('querystring')
+const https = require("https");
+const crypto = require("crypto");
 
 // 应用 ApiAppKey
-const apiAppKey = 'APIDLIA6tMfqsinsadaaaaaaaapHLkQ1z0kO5n5P'
+const apiAppKey = "";
 // 应用 ApiAppSecret
-const apiAppSecret = 'Dc44ACV2Da3Gm9JVaaaaaaaaumYRI4CZfVG8Qiuv'
+const apiAppSecret = "";
 
-const dateTime = new Date().toUTCString()
+// 请求host
+const hostname = "service-0kd7h58k-xxxxxxx.gz.apigw.tencentcs.com";
+// 端口号：https 对应 443，http 对应 80
+const port = 443;
+// 请求 path
+const path = "/test";
+// 请求方法
+const method = "POST";
+// const method = "GET";
+const contentMD5 = "";
+const dateTime = new Date().toUTCString();
+// 请求参数
 const body = {
-  arg1: 'a',
-  arg2: 'b',
-}
-const contentMD5 = ''
+  arg1: "arg1",
+  arg2: "arg2",
+};
+
+// 排序
+const sortedBodyStr = sortBody(body);
+
 const options = {
-  hostname: 'service-xxxxxxxx-1234567890.gz.apigw.tencentcs.com',
-  port: 443,
-  path: '/data',
-  method: 'POST',
+  hostname,
+  port,
+  path: `${path}${method.toUpperCase() === "GET" ? `?${sortedBodyStr}` : ""}`,
+  method,
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'x-date': dateTime,
+    Accept: "application/json",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "x-date": dateTime,
   },
-}
+};
 
-const sorted_body = sortBody(body)
-const signingStr = buildSignStr(sorted_body)
-const signing = crypto.createHmac('sha1', apiAppSecret).update(signingStr, 'utf8').digest('base64')
-const sign = `hmac id="${apiAppKey}", algorithm="hmac-sha1", headers="x-date", signature="${signing}"`
+const signingStr = [
+  `x-date: ${dateTime}`,
+  options.method,
+  options.headers.Accept,
+  options.headers["Content-Type"],
+  contentMD5,
+  options.path,
+].join("\n");
 
-options.headers.Authorization = sign
+const signing = crypto
+  .createHmac("sha1", apiAppSecret)
+  .update(signingStr, "utf8")
+  .digest("base64");
+const sign = `hmac id="${apiAppKey}", algorithm="hmac-sha1", headers="x-date", signature="${signing}"`;
+
+options.headers.Authorization = sign;
 
 // 发送请求
 const req = https.request(options, (res) => {
-  console.log(`STATUS: ${res.statusCode}`)
-  res.on('data', (chunk) => {
-    console.log('BODY: ' + chunk)
-  })
-})
-req.on('error', (error) => {
-  console.error(error)
-})
-req.write(querystring.stringify(body))
-req.end()
+  console.log(`STATUS: ${res.statusCode}`);
+  res.on("data", (chunk) => {
+    console.log("BODY: " + chunk);
+  });
+});
+req.on("error", (error) => {
+  console.error(error);
+});
+req.write(sortedBodyStr);
+req.end();
 
 function sortBody(body) {
-  const keys = Object.keys(body).sort()
-  let signKeys = []
-  for (let i = 0; i < keys.length; i++) {
-    signKeys.push(keys[i])
-  }
   // 按字典序排序
-  return signKeys.sort()
-}
-
-function buildSignStr(sorted_body) {
-  const keyStr = sorted_body
+  const keys = Object.keys(body).sort();
+  return keys
     .map((item) => {
-      return `${item}=${body[item]}`
+      return `${item}=${body[item]}`;
     })
-    .join('&')
-  return [
-    `x-date: ${dateTime}`,
-    options.method,
-    options.headers.Accept,
-    options.headers['Content-Type'],
-    contentMD5,
-    options.path + '?' + keyStr,
-  ].join('\n')
+    .join("&");
 }
 :::
 </dx-codeblock>
-
