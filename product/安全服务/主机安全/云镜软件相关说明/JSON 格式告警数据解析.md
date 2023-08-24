@@ -1,7 +1,7 @@
 本文档将为您介绍在 [告警设置 ](https://console.cloud.tencent.com/cwp/setting) > **机器人通知**设置接收 JSON 格式告警数据后，用户将收到的各类告警的传输字段及说明。
 
 >?
->- 目前机器人通知处于灰度状态，仅对明确有该需求的客户开放，若您希望实时接收主机安全 webhook 机器人告警，请 [联系我们](https://cloud.tencent.com/online-service) 开白使用。
+>- 目前机器人通知处于灰度状态，仅对明确有该需求的客户开放，若您希望实时接收主机安全 webhook 机器人告警，请 [联系我们](https://cloud.tencent.com/online-service) 申请使用。
 >-  [告警设置 ](https://console.cloud.tencent.com/cwp/setting)  > **机器人通知**与消息中心的机器人相互独立，没有关联。
 
 ## 公共字段
