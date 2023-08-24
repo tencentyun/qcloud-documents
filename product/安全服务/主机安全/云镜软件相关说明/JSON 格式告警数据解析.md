@@ -312,8 +312,6 @@
 |recover_type|事件类型|
 |recovered_status|事件状态|
 
-
-## 网页防篡改
 ### 恢复失败
 #### 示例
 ```
