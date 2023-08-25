@@ -10,13 +10,13 @@ SDK 运行时检测权限，需要用户授权。
    - 相机 
  
 >?提示用户确认打开权限后再进行身份证 OCR 识别，可以使身份证识别体验更快更好。
-	 
+     
 ### CPU 平台设置
 目前 SDK 支持 armeabi、armeabi-v7a、arm64-v8a，为了防止在其他 CPU 平台上 SDK Crash，建议在您的 App 的 build.gradle 里加上 abiFilter，如下所示：
 
 ```
 defaultConfig {
-	ndk {
+    ndk {
           //设置支持的 so 库框架
           abiFilters 'armeabi-v7a', 'armeabi', 'arm64-v8a'
      }
@@ -242,14 +242,14 @@ public interface OcrLoginListener {
   * 退出SDK,返回第三方的回调,同时返回ocr识别结果
   */
 public interface IDCardScanResultListener{
-	/**
-	 * 退出SDK,返回第三方的回调,同时返回ocr识别结果
-	 * @param errorCode 返回码，识别成功返回 0
-	 * @param errorMsg  返回信息
-	 * @param result 识别结果类
-	 */        
-	void onFinish(String errorCode, String errorMsg, Parcelable result);
-	}
+    /**
+     * 退出SDK,返回第三方的回调,同时返回ocr识别结果
+     * @param errorCode 返回码，识别成功返回 0
+     * @param errorMsg  返回信息
+     * @param result 识别结果类
+     */        
+    void onFinish(String errorCode, String errorMsg, Parcelable result);
+    }
 
 ```
 
@@ -264,29 +264,29 @@ public interface IDCardScanResultListener{
     public String nation;//民族
     public String birth;//出生年月日
     public String frontFullImageSrc;// 身份证人像面预览完整图片文件路径
-	public String frontWarning;//人像面告警码
+    public String frontWarning;//人像面告警码
 
     //识别国徽面返回的信息
     public String office;//签发机关
     public String validDate;//有效期限
     public String backFullImageSrc;//身份证国徽面预览完整图片文件路径
-	public String backWarning;//国徽面告警码
-	public String sign;//签名
-	public  String orderNo; //每次OCR识别请求的唯一订单号: 建议为32位字符串(不超过32位)
-	public String ocrId;//识别的唯一标识
-	
-	//新版本新增的返回字段
-	public String frontMultiWarning;//人像面多重告警码
-	public String backMultiWarning;//国徽面多重告警码
-	public String frontClarity;//人像面清晰度得分
-	public String backClarity;//国徽面清晰度得分
-	public String frontCropSrc;//身份证人像面切边照文件路径
-	public String backCropSrc;//身份证国徽面切边照文件路径
+    public String backWarning;//国徽面告警码
+    public String sign;//签名
+    public  String orderNo; //每次OCR识别请求的唯一订单号: 建议为32位字符串(不超过32位)
+    public String ocrId;//识别的唯一标识
+    
+    //新版本新增的返回字段
+    public String frontMultiWarning;//人像面多重告警码
+    public String backMultiWarning;//国徽面多重告警码
+    public String frontClarity;//人像面清晰度得分
+    public String backClarity;//国徽面清晰度得分
+    public String frontCropSrc;//身份证人像面切边照文件路径
+    public String backCropSrc;//身份证国徽面切边照文件路径
 
 ```
 #### 接口参数说明
  **NONCE 类型的 ticket，其有效期为120秒，且一次性有效，即每次启动 SDK 刷脸都要重新请求 NONCE ticket，重新算 sign。同时建议合作方做前端保护，防止用户连续点击，短时间内频繁启动 SDK。**
-InputData 是用来给 SDK 传递一些必须参数所需要使用的对象（WbCloudOcrSdk.init() 的第二个参数），合作方需要往里塞入 SDK 需要的一些数据以便启动 OCR SDK。
+InputData 是用来给 SDK 传递一些必须参数所需要使用的对象（WbCloudOcrSdk.init() 的第二个参数），合作方需要传入 SDK 需要的一些数据以便启动 OCR SDK。
 其中 InputData 对象中的各个参数定义如下表，请合作方按下表标准传入对应的数据。
 
 |参数 | 说明 | 类型 | 长度 | 是否必填|
@@ -324,7 +324,7 @@ WbCloudOcrConfig.getInstance().setRetCrop(retCrop);//设置是否返回切边图
 |- | -|
 |IDOCR_LOGIN_PARAMETER_ERROR = "-20000"; | 传入参数有误|
 |IDOCR_ERROR_CANCELED_AUTH="200100"; | 用户授权时取消|
-|IDOCR_USER_CANCEL="200101"; |	用户取消操作|
+|IDOCR_USER_CANCEL="200101"; |  用户取消操作|
 |IDOCR_RECOGNISE_TIME_OUT="200102";|识别超时|
 |IDOCR__ERROR_USER_NO_NET="100101"; | 无网络|
 |IDOCR_USER_2G="100102"; | 不支持 2G 网络|
@@ -365,7 +365,7 @@ OAUTH_REQUEST_RATE_LIMIT="400504" | 请求访问频率过高
                 userId,
                 sign);
         data.putSerializable(WbCloudOcrSDK.INPUT_DATA, inputData);
-		//个性化参数设置，可以不设置，不设置则为默认选项。
+        //个性化参数设置，可以不设置，不设置则为默认选项。
 //设置扫描识别的时间上限,默认 20 秒。用户有效设置范围是（0-60000）
   data.putLong(WbCloudOcrSDK.SCAN_TIME, 20000);
 //初始化 SDK，得到是否登录 SDK 成功的结果 
