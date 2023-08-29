@@ -29,7 +29,7 @@
 <dx-codeblock>
 :::  js
 export default async function({event, data}) {
-    const result = await app.cloud.callConnector({
+    const result = await app.cloud.callDataSource({
         name: 'API 标识',
         methodName: '方法标识',
         params: {}, // 方法入参
@@ -45,7 +45,7 @@ export default async function({event, data}) {
 <dx-codeblock>
 :::  js
 module.exports = async function (params, context) {
-  const result = await context.callConnector({
+  const result = await context.callDataSource({
     name: 'API 标识',
     methodName: '方法标识',
     params: {}, // 方法入参
