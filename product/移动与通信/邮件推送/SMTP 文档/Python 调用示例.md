@@ -1,6 +1,6 @@
-以下代码示例，Python 语言（版本为 >= 3.6即可）通过 SMTP 发送邮件：
+以下代码示例，Python 语言（版本 >= 3.6即可）通过 SMTP 发送邮件：
 
-```
+``` python
 # -*- coding:utf-8 -*-
 import smtplib
 from email.header import Header
