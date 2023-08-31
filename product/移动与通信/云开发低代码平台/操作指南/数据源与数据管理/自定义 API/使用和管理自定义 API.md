@@ -15,7 +15,7 @@
 <dx-codeblock>
 :::  js
 export default async function({event, data}) {
-    const result = await app.cloud.callConnector({
+    const result = await app.cloud.callDataSource({
         name: '自定义 API 标识',
         methodName: '方法标识',
         params: {}, // 方法入参
