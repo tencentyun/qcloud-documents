@@ -81,3 +81,11 @@ API 创建即在 API 网关内完成 API 的定义。该任务指导您通过 AP
  * 前端方法：API请求的前端类型，如 HTTP 或 HTTPS
  
  <img src="https://qcloudimg.tencent-cloud.cn/raw/d1a18e3aca09a4e5544eaf44fd3aa5e4.png " width=600/>
+ 
+ 
+ ## API前端路径匹配优先级
+ 
+- 如果 API path 以 = 开始，代表精确匹配，优先级最高。
+- 如果 API path 以 ^~ 开始，代表优先前缀匹配，后面不能跟正则表达式，优先级第二。
+- 如果 API path 为正则表达式（包括有路径变量），优先级第三。
+- 如果 API path 为普通字符串，字符串最长时优先级高，满足最长匹配。 
