@@ -83,7 +83,7 @@ API 创建即在 API 网关内完成 API 的定义。该任务指导您通过 AP
  <img src="https://qcloudimg.tencent-cloud.cn/raw/d1a18e3aca09a4e5544eaf44fd3aa5e4.png " width=600/>
  
  
- ## API前端路径匹配优先级
+ ## API 前端路径匹配优先级
  
 - 如果 API path 以 = 开始，代表精确匹配，优先级最高。
 - 如果 API path 以 ^~ 开始，代表优先前缀匹配，后面不能跟正则表达式，优先级第二。
