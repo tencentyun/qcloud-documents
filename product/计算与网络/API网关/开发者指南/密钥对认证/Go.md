@@ -42,7 +42,6 @@ func calcAuthorization(source string, secretId string, secretKey string) (sign s
 	//hmac-sha1
 	h := hmac.New(sha1.New, []byte(secretKey))
 	io.WriteString(h, sign)
-	sign = fmt.Sprintf("%x", h.Sum(nil))
 	sign = string(h.Sum(nil))
 	fmt.Println("sign:", fmt.Sprintf("%s", h.Sum(nil)))
 
