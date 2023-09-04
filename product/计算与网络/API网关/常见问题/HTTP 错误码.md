@@ -34,8 +34,9 @@
 | 403    | header xxx is required.                                       | 实际请求缺少 header xxx。                                       |
 | 403    | path variable xxx is required.                                | 配置了路径变量`{xxx}`，但是与实际请求的路径不能匹配。           |
 | 403    | querystring xxx is required.                                  | 实际请求缺少 querystring xxx。                                  |
-| 403    | req content type need application/x-www-form-urlencoded.      | 配置了 body 参数的请求必须是表单格式。                           |
+| 403    | req content type need application/x-www-form-urlencoded.      | 配置了 body 参数的请求必须是表单格式。     |
 | 403    | body param xxx is required.                                   | 实际请求缺少 body 参数 xxx。                                     |
+| 403    | Found no validate apiapp.                                   | 当前api没有绑定的应用认证密钥。                                     |
 | 404    | Not found micro service with key.                             | 没有找到对应的微服务。                                         |
 | 404    | Not Found Host.                                               | 请求携带 host 字段，该字段值需要填服务器的域名，且为 String 类型。  |
 | 404    | Get Host Fail.                                                | 请求中携带的 host 字段值不是 String 类型。                       |
