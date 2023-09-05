@@ -495,8 +495,8 @@ net.ipv6.conf.all.disable_ipv6 = 0
 net.ipv6.conf.default.disable_ipv6 = 0
 net.ipv6.conf.lo.disable_ipv6 = 0
 ```
-4. 运行`sysctl -p`使配置生效。
-5. 配置 IPv6，OpenSUSE 42镜像类型的云服务器 IPv6 操作步骤有[ 脚本方式 ](#jbfs)和[ 手动方式](#sdfs)。请根据实际情况选择配置方式。[](id:opensusestep4)
+4. 运行`sysctl -p`使配置生效。[](id:opensusestep4)
+5. 配置 IPv6，OpenSUSE 42镜像类型的云服务器 IPv6 操作步骤有[ 脚本方式 ](#jbfs)和[ 手动方式](#sdfs)。请根据实际情况选择配置方式。
  -  **脚本方式**[](id:jbfs)
     1. 将如下脚本拷贝到 Shell 文件中，这里以 test.sh 为例。
 		 + dev表示网卡设备名，例如 eth0、eth1。
