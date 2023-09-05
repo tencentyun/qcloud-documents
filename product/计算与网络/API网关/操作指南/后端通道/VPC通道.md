@@ -54,8 +54,8 @@ VPC 通道的作用是将部署在 VPC 内的服务通过 API 网关开放给外
 
 ## 注意事项
 
-- 在左侧菜单，后端通道，选择“VPC 通道详情—已关联 API Tab 页”，可以看到当前哪些 API 使用了此 VPC 通道作为后端。删除 VPC 通道前需要先删除这些 API，避免影响调用。
-
-	<img src="https://qcloudimg.tencent-cloud.cn/raw/bdd6329ffa2aa90fd8a86ecb32f58b53.png" width="700" />
-  
+- 在左侧菜单，后端通道，选择**VPC 通道详情—已关联 API Tab 页**，可以看到当前哪些 API 使用了此 VPC 通道作为后端。删除 VPC 通道前需要先删除这些 API，避免影响调用。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/bdd6329ffa2aa90fd8a86ecb32f58b53.png" width="700" />
 - 专享实例运行在 VPC 中，当“专享实例所在 VPC”与“VPC 通道所对接 VPC”不一致时，您需要通过 [云联网](https://console.cloud.tencent.com/vpc/ccn) 将两个 VPC 打通，否则将影响调用。
+- 当通道类型为 VPC 通道时，节点列表中的节点地址，仅可选择已有 CVM 节点地址、或手动填写 CVM 节点地址。不可填写其他云产品节点地址。
+<img style="width:80%; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/2f8af8622ef4ca327fb1d558a47f1013.png" />
