@@ -6,6 +6,13 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.18.220</td>
+<td>
+支持用户主动上报 Rooms 设备问题。
+</td>
+<td><center>2023-08-03</td>	
+	</tr>
+<tr>
 <td><center>V3.16.210</td>
 <td>
 1. 支持临时登录，一次会议结束后即退出会议室登录。<br>
@@ -156,6 +163,13 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.18.220</td>
+<td>
+支持用户主动上报 Rooms 设备问题。
+</td>
+<td><center>2023-08-03</td>	
+	</tr>
+<tr>
 <td><center>V3.16.210</td>
 <td>
 1. 支持临时登录，一次会议结束后即退出会议室登录。<br>
@@ -300,51 +314,23 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
-<td><center>V3.14.200</td>
-<td>
-1.Rooms 演讲者布局小窗支持展开为悬浮列表。<br>
-2.Rooms 支持 Logitech Dock 为 Rooms 外设设备。<br>
-3.Rooms 支持4K本地投屏。
-</td>
-<td><center>2023-04-03</td>	
-	</tr>
-<tr>
-<td><center>V3.13.190</td>
-<td>
-1. 自定义背景显示效果优化。<br>
-2. Rooms 支持设置摄像头预设位。<br>
-3. 优化了会议室管理的列表页。
-</td>
-<td><center>2023-03-03</td>	
-	</tr>
-<tr>
-<td><center>V3.12.180</td>
-<td>
-1. Rooms 支持顶部成员列表、右侧成员列表、上 L 型布局、下 L 型布局、回型布局。<br>
-2. Rooms 支持扫码获取云录制链接。<br>
-3. Rooms 支持混合云开启内部会议。<br>
-4. 优化了 Rooms 退出登录入口位置。
-</td>
-<td><center>2023-01-11</td>	
-	</tr>
-<tr>
-<td><center>V3.11.170</td>	
-<td>Rooms 支持勿扰模式。</td>
-<td><center>2022-12-07</td>		
-	</tr>
-<tr>
-<td><center>V3.10.160</td>	
+<td><center>V3.18.220</td>
 <td>
 1. Rooms 支持显示实时字幕。<br>
-2. Controller 支持显示聊天信息。<br>
-3. 支持查看参会人完整组织架构信息。<br>
-4. 优化对于触屏模式的判断。<br>
-5. 优化对于互动批注权限的管理。<br>
-6. 支持手势擦除白板内容及调整橡皮檫尺寸。<br>
-7. 支持显示会议背景。
+2. 支持显示聊天信息。<br>
+3. 互动批注权限的管理优化。<br>
+4. Rooms 支持勿扰模式。<br>
+5. Rooms 支持顶部成员列表、右侧成员列表、上 L 型布局、下 L 型布局、回型布局。<br>
+6. 自定义背景显示效果优化。<br>
+7. Rooms 支持设置摄像头预设位。<br>
+8. Rooms 演讲者布局小窗支持展开为悬浮列表。<br>
+9. 支持临时登录，一次会议结束后即退出会议室登录。<br>
+10. 支持 PSTN 会前、会中呼出。<br>
+11. 支持用户主动上报 Rooms 设备问题。
 </td>
-<td><center>2022-10-28</td>		
+<td><center>2023-08-17</td>	
 	</tr>
+
 <tr>
 <td><center>V3.9.150</td>
 <td>
