@@ -97,15 +97,17 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
 调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChromeClient(WebChromeClient webChromeClient)，并重写 WebChromeClient 的如下2个函数：
 ```
 /**
-     *TRTC 刷脸模式配置，这里负责处理来自H5页面发出的相机权限申请
+    H5意愿刷脸模式配置，这里负责处理来自H5页面发出的相机权限申请
      * @param request 来自H5页面的权限请求
      */
     @Override
     public void onPermissionRequest(PermissionRequest request) {
+      if (request!=null&&request.getOrigin()!=null&&WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){ //通过url判断是腾讯意愿性h5刷脸的域名
         this.request=request;
         if (activity!=null){
             activity.requestCameraAndRecordPermissions(false,true);//申请相机和录音权限，申请权限的代码demo仅供参考，合作方可根据自身业务定制
         }
+       } 
     }
 
     /**
@@ -116,7 +118,7 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
             if (request!=null&&request.getOrigin()!=null){
                 //根据腾讯域名授权，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
                 Log.d(TAG,"enterTrtcFaceVerify getOrigin()!=null");
-                if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){
+                if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){
                     //授权
                     request.grant(request.getResources());
                     request.getOrigin();
@@ -130,6 +132,57 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
                  }
               }
          }
+    }
+    
+    
+     // For Android >= 4.1  降级为录制模式，收到h5页面发送的录制请求
+    public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+        Log.d(TAG,"openFileChooser-------");
+        if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(null,null,acceptType)){ //true 说明是腾讯的h5刷脸页面
+            this.uploadMsg=uploadMsg;
+            this.acceptType=acceptType;
+            if (activity!=null){ //申请系统的相机、录制、sd卡等权限
+                activity.requestCameraAndSomePermissions(true);
+            }
+        }
+
+    }
+
+    // For Lollipop 5.0+ Devices  降级为录制模式，收到h5页面发送的录制请求
+    @TargetApi(21)
+    @Override
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
+        Log.d(TAG,"onShowFileChooser-------");
+        if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(webView,fileChooserParams,null)){ //true说 明是腾讯的h5刷脸页面
+            this.webView=webView;
+            this.filePathCallback=filePathCallback;
+            this.fileChooserParams=fileChooserParams;
+            if (activity!=null){ //申请系统的相机、录制、sd卡等权限
+                activity.requestCameraAndSomePermissions(false);
+            }
+        }
+        return true;
+
+    }
+
+    //降级为录制模式，拉起系统相机进行录制视频
+    public boolean enterOldModeFaceVerify(boolean belowApi21){
+        Log.d(TAG,"enterOldFaceVerify");
+        if (belowApi21){ // For Android < 5.0
+            if (WBH5FaceVerifySDK.getInstance().recordVideoForApiBelow21(uploadMsg, acceptType, activity)) { //腾讯的h5刷脸
+                return true;
+            }else {
+                // todo 合作方如果其他的h5页面处理，则再次补充其他页面逻辑
+            }
+        }else { // For Android >= 5.0
+            if (WBH5FaceVerifySDK.getInstance().recordVideoForApi21(webView, filePathCallback, activity,fileChooserParams)) {  //腾讯的h5刷脸
+                return true;
+            }else {
+                // todo 合作方如果其他的h5页面处理，则再次补充其他页面逻辑
+
+            }
+        }
+        return false;
     }
 ```
 >! 
@@ -148,8 +201,18 @@ Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "onActivityResult --------"+requestCode);
         super.onActivityResult(requestCode, resultCode, data);
-         if (requestCode==PERMISSION_QUEST_CAMERA_RECORD_VERIFY){//录制模式中，申请权限时，从系统设置页面跳转回当前app页面的处理。由于权限申请逻辑demo仅供参考，合作方自己处理即可。
-            requestCameraAndRecordPermissions(false,true);  
-          }
-    }
+         if (requestCode == 0x11) { //传统录制模式，收到录制模式调用系统相机录制完成视频的结果
+            Log.d(TAG, "onActivityResult recordVideo");
+            if (WBH5FaceVerifySDK.getInstance().receiveH5FaceVerifyResult(requestCode, resultCode, data)) {
+                return;
+            }
+        } else if (requestCode == PERMISSION_QUEST_WILL_CAMERA_RECORD_VERIFY) { //意愿性刷脸模式，从设置界面返回。
+            Log.d(TAG, "onActivityResult willface cameraAndRecord");
+            requestCameraAndRecordPermission();
+        }else if (requestCode == PERMISSION_QUEST_CAMERA_RECORD_VERIFY) { //传统录制模式，从设置界面返回。
+            Log.d(TAG, "onActivityResult cameraAndSome");
+            requestCameraAndSomePermissions(false);
+        }
+   }
+
 ```
