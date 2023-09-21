@@ -6,6 +6,13 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.19.230</td>
+<td>
+支持腾讯会议客户端控制器控制 Rooms。
+</td>
+<td><center>2023-09-04</td>	
+	</tr>
+<tr>
 <td><center>V3.18.220</td>
 <td>
 支持用户主动上报 Rooms 设备问题。
@@ -163,6 +170,13 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.19.230</td>
+<td>
+支持腾讯会议客户端控制器控制 Rooms。
+</td>
+<td><center>2023-09-04</td>	
+	</tr>
+<tr>
 <td><center>V3.18.220</td>
 <td>
 支持用户主动上报 Rooms 设备问题。
