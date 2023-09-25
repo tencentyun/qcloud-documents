@@ -3,6 +3,8 @@
 >?如果您有 LDAP 认证的需求，请 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 开通该功能。
 
 
+
+
 ## 操作步骤
 1. 登录 [堡垒机控制台](https://console.cloud.tencent.com/dsgc/bh)，单击**立即进入**，进入SaaS 型堡垒机控制台。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b2f6673b0cad7c2f423a6b6e287179af.png)
