@@ -4,6 +4,8 @@ BHLoader 的主要功能是拉起本地应用程序，并通过本地应用程�
 ### 安装 BHLoader 后，是否还需要安装 SecureCRT，Xshell 等连接工具软件？
 BHLoader 的主要功能是拉起本地应用程序，剩余的连接工作，以及从本地操作 CVM 都是需要在相关的 SecureCRT 或 Xshell 等软件操作的，所以需要在本地安装相关连接工具软件。
 
+
+
 ### 安装 BHLoader 时，操作系统账户是否需要管理员权限？
 需要管理员权限，若没有管理员权限会报如下错误：
 ![](https://main.qcloudimg.com/raw/025754eb4726ec12c66ce04ef35067e2.png)
