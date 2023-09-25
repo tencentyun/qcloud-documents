@@ -3,6 +3,9 @@ Windows 资源访问异常，提示无法连接到远程计算机，如下图所
 ![](https://main.qcloudimg.com/raw/614b95cb6726b22b6a1e8b89a575fe30.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/390d32a0deb9ec134519d6c349b9b483.png)
 
+
+
+
 ## 可能原因
 SaaS 型堡垒机到资源 CVM 网络或者端口不通，导致堡垒机无法代理访问资源。
 
