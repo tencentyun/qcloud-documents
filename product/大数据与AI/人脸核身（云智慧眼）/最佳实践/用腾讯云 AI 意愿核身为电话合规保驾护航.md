@@ -177,5 +177,3 @@ public class GetDetectInfoEnhanced
 ## 查询调用量
 登录 [人脸核身控制台](https://console.cloud.tencent.com/faceid/access)，在**计费统计**页面，可查看意愿核身的计费量情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/566f01a9eb12a96540f725f6cd3a38a6.png)
-通过**权限管理**模块，主账号可以向子账号授权，被授权的子账号可查看所有子账号的调用情况。
-![](https://qcloudimg.tencent-cloud.cn/raw/bcc09a47997c7cec040f3757b91b55f8.png)
