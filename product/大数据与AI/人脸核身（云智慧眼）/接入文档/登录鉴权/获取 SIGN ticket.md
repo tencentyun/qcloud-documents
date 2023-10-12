@@ -19,7 +19,7 @@
 </tbody></table>
 - **请求示例：**
 ```
-https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=SIGN&version=1.0.0
+https://kyc.qcloud.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=SIGN&version=1.0.0
 ```
 
 ## 响应
