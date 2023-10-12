@@ -5,7 +5,7 @@
 - **每次用户登录时必须重新获取 NONCE ticket。**
 
 ## 请求
-- **请求 URL：**`https://miniprogram-kyc.tencentcloudapi.com/api/oauth2/access_token`
+- **请求 URL：**`https://kyc.qcloud.com/api/oauth2/access_token`
 - **请求方法**：`GET`
 - **请求参数：**
 <table><tbody>
