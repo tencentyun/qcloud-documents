@@ -20,7 +20,7 @@
 | 请求地址 | wss://tts.cloud.tencent.com/stream_ws?{请求参数}             |
 | 接口鉴权 | 签名鉴权机制，详见 [签名生成](https://cloud.tencent.com/document/product/1093/48982#sign) |
 | 响应格式 | 音频信息通过 binary 类型帧，返回原始二进制数据；<br> 文本信息通过 text 类型帧，返回 JSON 格式数据（如状态码、时间戳等） |
-| 并发限制 | 默认单账号限制并发连接数为10路，如您有提高并发限制的需求，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行咨询。 |
+| 并发限制 | 默认单账号限制并发连接数为20路，如您有提高并发限制的需求，请联系商务经理咨询或 [购买并发](https://buy.cloud.tencent.com/tts)。 |
 
 ## 接口调用流程
 
