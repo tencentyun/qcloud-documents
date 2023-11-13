@@ -139,9 +139,8 @@ rm flink-metrics-prometheus*jar
 3. 单击实例 ID 跳转至 CVM 控制台，登录 CVM 执行以下命令安装插件。
 ```plaintext
 cd /usr/local/service/flink/lib
-wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/flink/flink-metrics-prometheus_2.11-auth.jar -O flink-metrics-prometheus_2.11-auth.jar
+wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/flink/flink-metrics-prometheus_2.11-1.13-SNAPSHOT.jar -O flink-metrics-prometheus_2.11-1.13-auth.jar
 ```
-
 
 
 #### 验证
