@@ -1,5 +1,5 @@
 
-本介绍基于 WebSocket 协议的压测脚本的编写方法。
+本文介绍基于 WebSocket 协议的压测脚本的编写方法。
 
 >?详细的 API 文档请参见 [PTS API](https://cloud.tencent.com/document/product/1484/75805)。
 
