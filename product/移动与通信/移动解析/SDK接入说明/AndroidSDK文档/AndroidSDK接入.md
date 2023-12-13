@@ -32,6 +32,8 @@
 
 ### 接入 HTTPDNS SDK
 
+#### 直接引入aar包
+
 1. 获取 [移动解析 Android SDK](https://github.com/tencentyun/httpdns-android-sdk)。
 2. aar 包引入，将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
 3. 在 App module的build.gradle 文件中，添加如下配置：
@@ -56,6 +58,18 @@ dependencies {
     // V4.3.0版本开始增加了本地数据存储，需增加room依赖引入
     implementation 'android.arch.persistence.room:rxjava2:2.1.1'
 }
+```
+
+#### maven资源库下载
+1. 直接导入pom文件依赖
+
+```xml
+<dependency>
+  <groupId>io.github.dnspod</groupId>
+  <artifactId>httpdns-sdk</artifactId>
+  <version>4.3.0</version>
+  <type>aar</type>
+</dependency>
 ```
 
 ### 权限配置
