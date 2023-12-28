@@ -86,7 +86,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 
 1. 对除 Signature 之外的所有参数按字典序进行排序，拼接后得到请求参数为
 ```
-Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0
+Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0
 ```
 再拼接请求方法、域名地址，得到签名原文。签名原文格式为
 ```
@@ -94,11 +94,11 @@ Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expire
 ```
 最终，得到的签名原文为：
 ```
-GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0
+GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0
 ```
 2. 对签名原文使用 SecretKey 进行 HmacSha1 加密，之后再进行 base64 编码。例如对上一步的签名原文， `SecretKey=*****SkqpeHgqmSz*****`，使用 HmacSha1 算法进行加密并做 base64 编码处理：
 ```
-Base64Encode(HmacSha1("GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0", "*****SkqpeHgqmSz*****"))
+Base64Encode(HmacSha1("GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0", "*****SkqpeHgqmSz*****"))
 ```
 得到 Signature 签名值为：
 ```
@@ -106,7 +106,7 @@ Base64Encode(HmacSha1("GETtts.cloud.tencent.com/stream_ws?Action=TextToStreamAud
 ```
 3. 将 Signature 值进行 **urlencode（必须进行 URL 编码，否则将导致鉴权失败偶现** ）后拼接得到 URL 为：
 ```
-wss://tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0&Signature=4Lv%2Bk6y6v5VRT/iBFPU%2BGyfeiy0%3D
+wss://tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=欢迎使用腾讯云实时语音合成&Timestamp=1688610905&VoiceType=101001&Volume=0&Signature=4Lv%2Bk6y6v5VRT/iBFPU%2BGyfeiy0%3D
 ```
 4. 将 Text 值进行 **urlencode编码**，替换原始文本值
 ```
@@ -116,7 +116,7 @@ Text=%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%9E%E6
 ```
 得到最终的请求 URL 为：
 ```
-wss://tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&ModelType=1&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%9E%E6%97%B6%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90&Timestamp=1688610905&VoiceType=101001&Volume=0&Signature=4Lv%2Bk6y6v5VRT/iBFPU%2BGyfeiy0%3D
+wss://tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046****&Codec=pcm&EnableSubtitle=True&Expired=1688697305&SampleRate=16000&SecretId=*****XcaKs2w4vZw5zTCrHRM7dOwre9*****&SessionId=b78ae3ba-1ba5-11ee-a106-768645a5c72a&Speed=0&Text=%E6%AC%A2%E8%BF%8E%E4%BD%BF%E7%94%A8%E8%85%BE%E8%AE%AF%E4%BA%91%E5%AE%9E%E6%97%B6%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90&Timestamp=1688610905&VoiceType=101001&Volume=0&Signature=4Lv%2Bk6y6v5VRT/iBFPU%2BGyfeiy0%3D
 ```
 
 
