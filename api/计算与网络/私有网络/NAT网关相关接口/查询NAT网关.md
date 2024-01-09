@@ -39,7 +39,7 @@
 | data.n.bandwidth | int | 网关最大外网出带宽(单位:Mbps)，详见<a href="">NAT网关产品说明</a> |
 | data.n.eipCount | string | 弹性 IP 的个数，例如：nat-xx454 |
 | data.n.eipSet | array | 网关所有弹性IP信息，例如：[183.60.249.11] |
-| data.n.createTime | string | NAT网关网关创建时间，例如：2016-06-21 12:01:23 |
+| data.n.createTime | string | NAT网关创建时间，例如：2016-06-21 12:01:23 |
 | data.n.productionStatus | int | NAT网关的生产状态, 0: 创建中, 1: 创建成功, 2: 创建失败, 3: 变更中, 4: 变更失败, 5: 删除中, 6: 删除失败 |
 
  ## 4. 错误码表
