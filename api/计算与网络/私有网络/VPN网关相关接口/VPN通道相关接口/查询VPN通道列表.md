@@ -26,7 +26,7 @@
 |---------|---------|---------|
 | code| Int | 错误码，0：成功，其他值：失败 |
 | message |  String | 错误信息 |
-| totalCount |   Int | 返回结果中 VPN 通道总数量总数量|
+| totalCount |   Int | 返回结果中 VPN 通道总数量|
 | data.n | Array  | 返回的数组 |
 | data.n.vpcId | String | 系统分配的私有网络 ID，例如：gz_vpc_8849。 |
 | data.n.unVpcId | String | 系统分配的新的私有网络 ID，建议使用新 ID，例如：vpc-0ox8fuhw。 |
