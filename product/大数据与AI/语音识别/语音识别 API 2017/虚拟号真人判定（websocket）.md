@@ -160,7 +160,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 <td rowspan="1" colSpan="1" >voice_format</td>
 <td rowspan="1" colSpan="1" >否</td>
 <td rowspan="1" colSpan="1" >Integer<br></td>
-<td rowspan="1" colSpan="1" >语音编码方式，可选，默认值为4。mo1：pcm；4：speex(sp)；6：silk；8：mp3；10：opus；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac</td>
+<td rowspan="1" colSpan="1" >语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；10：opus；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac</td>
 </tr>
 <tr>
 <td rowspan="1" colSpan="1" >signature</td>
