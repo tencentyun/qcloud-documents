@@ -161,7 +161,7 @@ wss://tts.cloud.tencent.com/stream_ws?Action=TextToStreamAudioWS&AppId=130046***
   
 ### SDK 调用示例
 
-- [Java 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-java-example/blob/main/src/main/java/com/tencentcloud/tts/SpeechWsExample.java) 
+- [Java 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-java-example/blob/main/src/main/java/com/tencentcloud/ttsv2/TTSWsDemo.java)
 - [Python 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-python/blob/master/examples/tts/ttsexample.py) 
 - [C++ 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp/blob/master/examples/tts_example.cpp) 
 - [Go 示例](https://github.com/TencentCloud/tencentcloud-speech-sdk-go/blob/master/examples/ttsexample/ttswsexample.go) 
