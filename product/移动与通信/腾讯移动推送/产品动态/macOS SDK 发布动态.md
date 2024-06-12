@@ -9,7 +9,7 @@
 </tr>
     <tr>
         <td>SDK 1.0.5.0版本发布</td>
-        <td><li> 优化自建通道</li><li>优化数据统计</li><li>修复已知问题</li></td>
+        <td><li> 优化移动推送自建通道</li><li>优化数据统计</li><li>修复已知问题</li></td>
         <td>2021-06-16</td>
         <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
     </tr>
