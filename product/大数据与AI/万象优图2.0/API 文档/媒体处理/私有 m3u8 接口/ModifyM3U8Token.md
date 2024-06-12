@@ -7,7 +7,7 @@ ModifyM3U8Token 接口用于在加密 M3U8 的 key uri 中增加 Token。
 #### 请求示例
 
 ```plaintext
-GET /modifym3u8token?object=&token= HTTP/1.1
+GET /<ObjectKey>?ci-process=modifym3u8token&token=xxx HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
@@ -24,7 +24,6 @@ Content-type: application/xml
 
 | 节点名称（关键字） | 父节点 | 描述                                | 类型      | 是否必选 | 默认值 | 限制   |
 | :------------- | :----- | :---------------------------------- | :-------- | :------- | :------| :------|
-| object  | 无 | M3U8 文件的对象名 | String | 是    | 无 | 无 |
 | token | 无 | 需要嵌入 M3U8 key uri中的 token | String | 是 | 无 | 长度小于2048个 UTF-8字符 |
 
 
@@ -78,7 +77,7 @@ test-00004.ts?q-sign-algorithm=sha1&q-ak=&q-sign-time=&q-key-time=&q-header-list
 #### 请求
 
 ```shell
-GET /modifym3u8token?expires=3600&object=test.m3u8&token=abc HTTP/1.1
+GET /<ObjectKey>?ci-process=modifym3u8token&token=abc HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
@@ -94,8 +93,7 @@ Content-Type: application/xml
 Content-Length: 666
 Connection: keep-alive
 Date: Fri, 10 Mar 2016 09:45:46 GMT
-Server: tencent-ci
-x-ci-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZm****
+x-cos-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZm****
 
 #EXTM3U
 #EXT-X-VERSION:3
