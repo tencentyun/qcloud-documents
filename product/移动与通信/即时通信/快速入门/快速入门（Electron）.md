@@ -113,7 +113,7 @@ const timRender = new TimRender();
 timRender.TIMInit()
 ```
 3. 登录测试用户。
-此时，您可以使用最开始的时候，在控制台申城的测试账户，完成登录验证。
+此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
 调用`timRender.TIMLogin`方法，登录一个测试用户。
 当返回值 `code`为0时，登录成功。
 ```javascript
