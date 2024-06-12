@@ -21,20 +21,42 @@
 ### 新特性
 - 支持调用链中展示 oceanbase 监控。
 
+## 1.29.18-Finchley-RELEASE（2022-10-08）
+### Bug 修复
+- 修复 invocation log 聚合失败可能导致 OOM 异常的问题。
+- 修复 forking 容错策略开启后潜在的调用链异常的问题。
+
 ## 1.29.17-Finchley-RELEASE（2022-09-06）
 ### Bug 修复
 - 修复实例级熔断 half open 再次进入 open 时的隔离问题。
 - 调用链修复 status code 的获取。
 - scg 调用链修复 resultStatus 的获取。
-- 修复调用链兼容 ShardingConnection。
-- 修复潜在的监控数据 http method 异常的问题。
-- 修复 rocketmq 调用链 NPE 问题。
 
 ### 优化
 优化零实例保护节点的判断。
 
 ### 版本建议
-支持向后兼容，建议全量升级。
+微服务网关应用可能因为压力较大出现 OOM 异常，建议升级到 1.29.18-Finchley-RELEASE 或以上的版本。
+
+## 1.29.16-Finchley-RELEASE（2022-09-01）
+### 优化
+- 优化 HTTP 请求的 ip 鉴权，自动获取调用方 IP 并填充。
+- 调用链添加下游 namespace、group 和 application 埋点。
+
+### 版本建议
+微服务网关应用可能因为压力较大出现 OOM 异常，建议升级到 1.29.18-Finchley-RELEASE 或以上的版本。
+
+## 1.29.15-Finchley-RELEASE（2022-07-29）
+### Bug 修复
+- 修复潜在的监控数据 http method 异常的问题。
+- 修复 RocketMQ 调用链潜在的 NPE 问题。
+
+### 优化
+- sleuth 组件兼容 ShardingConnection。
+
+### 版本建议
+微服务网关应用可能因为压力较大出现 OOM 异常，建议升级到 1.29.18-Finchley-RELEASE 或以上的版本。
+
 
 ## 1.29.14-Finchley-RELEASE（2022-06-24）
 ### Bug 修复
@@ -42,7 +64,7 @@
 - 修复 invocation AggregatedStat 数据合并的问题。
 
 ### 版本建议
-部分场景可能因为 ShardingConnection 而启动失败，建议升级到 1.29.17-Finchley-RELEASE 或以上的版本
+部分场景可能因为 ShardingConnection 而启动失败，建议升级到 1.29.17-Finchley-RELEASE 或以上的版本。
 
 ## 1.29.13-Finchley-RELEASE（2022-06-07）
 ### Bug 修复
