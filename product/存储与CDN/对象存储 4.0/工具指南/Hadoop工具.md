@@ -47,6 +47,52 @@ done
 ## 配置方法
 
 
+#### Bucket独立配置项
+背景： 跨地域访问不同的bucket，每个bucket的配置项不同，为此支持了一次配置，访问多个bucket的需求。
+核心： 单独设置bucket维度的配置优先走独立配置项，没有设置独立配置项的走原配置，原配置没有设置的走默认配置。
+例如： 给testbucket-123456 单独设置fs.cosn.upload.buffer的配置项
+```shell
+fs.cosn.bucket.testbucket-123456.upload.buffer  ***
+```
+说明：这里fs.cosn.upload.buffer的subkey（trim fs.cosn.)是 upload.buffer， 则bucket的独立配置项是fs.cosn.bucket.<bucket-appid>.<subkey>	
+使用方式：
+```shell
+hadoop fs -ls cosn://testbucket-123456/ 
+```
+	
+##### 普通桶简化Bucket独立配置项
+通过`cosn://<bucket>/` 方式进行访问。
+例如：给testbucket-123456 单独设置fs.cosn.upload.buffer的配置项
+```shell
+fs.cosn.userinfo.appid 123456
+fs.cosn.bucket.testbucket.upload.buffer  ***
+```
+说明：这里fs.cosn.upload.buffer的subkey（trim fs.cosn.)是 upload.buffer，但由于已经设置了appid，则bucket的独立配置项可以简化为fs.cosn.bucket.<bucket>.<subkey>
+使用方式：
+```shell
+hadoop fs -ls cosn://testbucket/ 
+```
+	
+##### 元数据加速桶简化Bucket独立配置项
+通过`cosn://<bucket>/` 方式进行访问。
+例如：给testbucket-123456 单独设置fs.cosn.upload.buffer的配置项
+```shell
+fs.cosn.userinfo.appid 123456
+fs.cosn.trsf.fs.ofs.use.short.bucketname true
+fs.cosn.bucket.testbucket.upload.buffer  ***
+```
+说明：这里fs.cosn.upload.buffer的subkey（trim fs.cosn.)是 upload.buffer，但由于已经设置了appid，则bucket的独立配置项可以简化为fs.cosn.bucket.<bucket>.<subkey>。
+由于旧版本OFS JAVA SDK对挂载点格式做了访问限制只支持<bucket-appid>方式访问，所以需要更新依赖插件至最新版本。
+依赖插件版本信息：
+```shell
+ofs java sdk >= 1.1.8
+hadoop cos >= 8.3.0
+```
+使用方式：
+```shell
+hadoop fs -ls cosn://testbucket/ 
+```
+
 ### Hadoop 配置
 
 
