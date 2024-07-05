@@ -118,7 +118,7 @@ G8jDQBRg1JfeBi/YnTjyjekxfDA=
 3. 将 signature 值进行 **urlencode（必须进行 URL 编码，否则将导致鉴权失败偶现** ）后拼接得到最终请求 URL 为：
 
 ```
-wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN&signature=HepdTRX6u155qIPKNKC%2B3U0j1N0%3D
+wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=c64385ee-3e5c-4fc5-bbfd-7c71addb35b0&signature=HepdTRX6u155qIPKNKC%2B3U0j1N0%3D
 ```
 
 #### Opus 音频流封装说明  [](id:jump)
