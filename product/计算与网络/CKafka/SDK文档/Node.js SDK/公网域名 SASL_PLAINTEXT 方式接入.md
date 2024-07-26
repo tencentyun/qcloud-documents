@@ -175,17 +175,7 @@ module.exports = {
 1. 创建消费消息程序consumer.js。
    <dx-codeblock>
    :::  js
-    consumer.on('event.log', function(event) {
-       console.log("event.log", event);
-   });
-
-   consumer.on('error', function(error) {
-       console.log("error:" + error);
-   });
-
-   consumer.on('event', function(event) {
-           console.log("event:" + event);
-   });const Kafka = require('node-rdkafka');
+   const Kafka = require('node-rdkafka');
    const config = require('./setting');
    console.log(Kafka.features);
    console.log(Kafka.librdkafkaVersion);
@@ -216,10 +206,6 @@ module.exports = {
    console.log(data);
    });
 
-   consumer.on('event.log', function(event) {
-       console.log("event.log", event);
-   });
-
    consumer.on('error', function(error) {
        console.log("error:" + error);
    });
@@ -227,18 +213,22 @@ module.exports = {
    consumer.on('event', function(event) {
            console.log("event:" + event);
    });
+   
+   consumer.on('event.log', function(event) {
+       console.log("event.log", event);
+   });
    :::
    </dx-codeblock>
 
 
-2. 执行以下命令消费消息。
+3. 执行以下命令消费消息。
 
    ```bash
    node consumer.js
    ```
 
-3. 查看运行结果。
+4. 查看运行结果。
    ![](https://main.qcloudimg.com/raw/deecbf58c00e07531b4ea703c4046b46.png)
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击**查询详情**，查看消费详情。
+5. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击**查询详情**，查看消费详情。
    ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
