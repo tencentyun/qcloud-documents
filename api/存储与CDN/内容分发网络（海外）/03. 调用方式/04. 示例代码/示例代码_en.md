@@ -48,7 +48,7 @@ function CreateRequest($HttpUrl,$HttpMethod,$COMMON_PARAMS,$secretKey, $PRIVATE_
         /**********************************Generate original signature text**********************************
          * The request method, the URI address, and the sorted request parameters are concatenated together in the following format to generate the original signature. The original text in this request is
          * GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=345122&Region=gz
-         * &SecretId=AKIDz8krbsJ5yKBZQ    ·1pn74WFkmLPx3gnPhESA&Timestamp=1408704141
+         * &SecretId=*******************************************&Timestamp=1408704141
          * &instanceIds.0=qcvm12345&instanceIds.1=qcvm56789
          * ****************************************************************************/
         $SigTxt = $HttpMethod.$FullHttpUrl."?";
