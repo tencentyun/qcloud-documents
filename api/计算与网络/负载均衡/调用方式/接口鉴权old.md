@@ -66,7 +66,7 @@ GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce= 345122&Region
 
 以 PHP 语言为例：
 ```
-$secretKey = 'Gu5t9xGARNpq86cd98joQYCN3Cozk1qA';
+$secretKey = 'Gu5t9****pq86cd98joQYCN3Cozk1qA';
 $srcStr = 'GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=345122&Region=gz&SecretId=************************************&Timestamp=1408704141';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr;
