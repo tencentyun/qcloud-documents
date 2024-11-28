@@ -199,7 +199,7 @@ Request.Operation.Output.Object 支持的通配符如下：
     </JobsDetail>
 </Response>
 ```
-
+ 
 具体的数据内容如下：
 
 | 节点名称（关键字） | 父节点 | 描述           | 类型      |
