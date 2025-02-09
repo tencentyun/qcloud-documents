@@ -38,7 +38,7 @@ metadata:
   name: mysecret
 stringData:
   fs.cosn.userinfo.secretKey: xxx
-  fs.cosn.userinfo.secretId:xxx
+  fs.cosn.userinfo.secretId: xxx
 ```
 
 创建secret：
