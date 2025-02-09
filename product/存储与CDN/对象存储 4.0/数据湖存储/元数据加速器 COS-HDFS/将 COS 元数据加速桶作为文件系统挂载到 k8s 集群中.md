@@ -71,8 +71,7 @@ spec:
       url: "cosn-test-1250000000.chdfs.ap-guangzhou.myqcloud.com"
       # Additional args.
       additional_args: ""
-  storageClassName: ""
-~                       
+  storageClassName: ""                   
 ```
 参数说明：
 
