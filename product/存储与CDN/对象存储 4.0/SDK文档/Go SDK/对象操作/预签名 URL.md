@@ -69,8 +69,11 @@ func main() {
                 },
         })
 
-        ak := "SECRETID"
-        sk := "SECRETKEY"
+        // 通过环境变量获取密钥
+        // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+        ak := os.Getenv("SECRETID"),  // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+        // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+        sk := os.Getenv("SECRETKEY"),  // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
 
         name := "exampleobject"
         ctx := context.Background()
@@ -135,8 +138,11 @@ func main() {
                 },
         })
 
-        ak := "SECRETID"
-        sk := "SECRETKEY"
+        // 通过环境变量获取密钥
+        // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+        ak := os.Getenv("SECRETID"),  // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+        // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+        sk := os.Getenv("SECRETKEY"),  // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
         name := "exampleobject"
         ctx := context.Background()
         // 1. 通过普通方式下载对象
@@ -186,7 +192,7 @@ type URLToken struct {
 }
 
 func main() {
-	// 替换成您的临时密钥
+	// 请替换成您的临时密钥
 	tak := os.Getenv("SECRETID")	// 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
 	tsk := os.Getenv("SECRETKEY")	// 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
 	token := &URLToken{
@@ -330,9 +336,11 @@ import (
     "time"
 )
 func main() {
-    // 替换成您的密钥
-    tak := os.Getenv("SECRETID")  // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
-    tsk := os.Getenv("SECRETKEY") // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+    // 通过环境变量获取密钥
+    // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+    ak := os.Getenv("SECRETID"),  // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+    // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+    sk := os.Getenv("SECRETKEY"),  // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
     // 修改成用户的自定义域名
     u, _ := url.Parse("https://<自定义域名>")
     b := &cos.BaseURL{BucketURL: u}
@@ -342,7 +350,7 @@ func main() {
     ctx := context.Background()
 
     // 获取预签名
-    presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, nil)
+    presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, ak, sk, time.Hour, nil)
     if err != nil {
         fmt.Printf("Error: %v\n", err)
         return
