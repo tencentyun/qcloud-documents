@@ -45,7 +45,7 @@
 </tr>
 <tr>
 <td>CLUSTER_ID</td>
-<td>  APM_TOKEN</td>
+<td>需要注入Telemetry的TKE集群的ID</td>
 <td>您可以在 <a href="https://console.cloud.tencent.com/tke2/cluster">容器服务控制台-集群列表</a> 中查看。 </td>
 </tr>
 <tr>
@@ -54,6 +54,11 @@
 <td>地域格式需要参考腾讯云规范地域格式，例如：广州地域为 ap-guangzhou，详见 <a href="https://cloud.tencent.com/document/product/213/6091">地域说明</a> 文档。 </td>
 </tr>
 </table>
+
+**在需要注入Telemetry的Namespace中增加如下的 Label**
+`swck-injection: enabled`
+![8bc0b43775419874730b4bfe6d6dfd8](https://user-images.githubusercontent.com/7711343/210962439-8fe8ef4d-5c55-4c22-96c3-d1687e1ffade.png)
+
 
 ### 二次通过 TKE 应用市场接入 APM
 
