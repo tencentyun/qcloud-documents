@@ -10,8 +10,7 @@ default: { delete: *any*; get: *any*; set: *any* }
 #### Type declaration
 
 - ##### get:function
-
- - delete(json: *string*, path: *string*): *string*
+ - get(json: *string*, path: *string*): *string* | *number* | *boolean* | *object*
 从 json 字符串中取值。
 
   ```js
